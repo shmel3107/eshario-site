@@ -84,6 +84,7 @@ main{display:block}
 .hero-v4 .brandband{display:flex;align-items:center;gap:var(--in2) 32px;flex-wrap:wrap;padding:0 0 var(--in)}
 .hero-v4 .bb-tag{margin:0;color:var(--tx);font-size:clamp(37px,4.2vw,56px);font-weight:700;letter-spacing:-.02em;line-height:1.08;flex:0 1 auto;min-width:0}
 .hero-v4 .bb-buy{display:flex;align-items:center;gap:10px;flex:none;margin-left:auto;margin-top:12px}
+.hero-v4 .bb-what{order:3;flex:1 0 100%;max-width:880px;margin:-4px 0 0;color:var(--dim);font-size:17px;line-height:1.5}
 .hero-v4 .bb-tag img{width:44px;height:44px;border-radius:11px;flex:none}
 .btn-buy{padding-right:20px}
 .price-tag{margin-left:16px;padding-left:16px;border-left:1px solid rgba(6,33,43,.32);font-weight:700;font-size:14.5px;white-space:nowrap;color:inherit}
@@ -193,6 +194,7 @@ main>section:last-of-type{padding-bottom:var(--gap)}
 .p-cheap-off{visibility:hidden}
 .price-notes{margin-top:var(--gap2);max-width:70ch}
 .price-notes p{margin:0}
+.price-notes p+p{margin-top:calc(var(--in2)/2)}
 .promo{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:var(--in) 0 0}
 .promo label{font-size:14px;color:var(--dim)}
 .promo input{flex:none;width:220px;height:48px;padding:0 14px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:var(--s2);color:var(--tx);font:inherit;font-size:15px}
@@ -321,7 +323,7 @@ td.pay{color:var(--ac);font-weight:700}
 
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
-.hero-v4 .bb-tag,.hero-v4 .bb-buy,.hero-v4 .show{animation:rise .62s cubic-bezier(.22,.7,.28,1) both}
+.hero-v4 .bb-tag,.hero-v4 .bb-what,.hero-v4 .bb-buy,.hero-v4 .show{animation:rise .62s cubic-bezier(.22,.7,.28,1) both}
 .hero-v4 .bb-buy{animation-delay:.09s}
 .hero-v4 .show{animation-delay:.18s}
 
@@ -348,7 +350,7 @@ td.pay{color:var(--ac);font-weight:700}
 
 @media (prefers-reduced-motion:reduce){
   .reveal-wait{opacity:1;transform:none;transition:none}
-  .hero-v4 .bb-tag,.hero-v4 .bb-buy,.hero-v4 .show,
+  .hero-v4 .bb-tag,.hero-v4 .bb-what,.hero-v4 .bb-buy,.hero-v4 .show,
   .pp-money.is-swap .p-price,.pp-money.is-swap .p-days,.pp-money.is-swap .p-cheap{animation:none}
 }
 
@@ -370,6 +372,7 @@ td.pay{color:var(--ac);font-weight:700}
   .hero-v2 .panel:not([hidden]){display:flex;flex-direction:column}
   .hero-v4 .brandband{align-items:stretch}
   .hero-v4 .bb-tag{font-size:36px;padding-left:0;border-left:0}
+  .hero-v4 .bb-what{order:0;max-width:none;margin:0;font-size:15.5px}
   .hero-v4 .bb-buy{margin-left:0;width:100%}
   .hero-v4 .acts{flex:1}
   .hero-v4 .acts{width:100%}
