@@ -5,14 +5,6 @@
   --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
   --wrap:1200px;
-  /* ОДИН РИТМ НА ВСЮ СТРАНИЦУ (дописка 6, шаг 0). Четыре числа, и все —
-     половины друг друга: --gap между разделами, --gap2 его половина,
-     --in между блоками внутри раздела, --in2 половина --in для тесных пар
-     (заголовок и то, что стоит прямо под ним). Каждый вертикальный отступ
-     раздела обязан идти отсюда: раньше числа стояли врозь (36, 40, 64, 26,
-     28, 18, 22, 14), и страница «поехала» — 129 px между ценами и соседями
-     против 64 у всех остальных стыков. Сторож сборки следит, чтобы сырых
-     пикселей в отступах разделов больше не появилось. */
   --gap:64px;--gap2:32px;--in:24px;--in2:12px
 }
 *{box-sizing:border-box}
@@ -25,13 +17,8 @@ p{margin:0 0 14px}
 .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 24px}
 .wrap.narrow{max-width:820px}
 main{display:block}
-/* Разрядки капсом на сайте больше нет ни одной (дописка 4, §1 вид, п. 1).
-   Остались две служебные подписи в бумагах — обычным регистром, тихо. */
 .doclabel{font-size:13px;color:var(--dim);margin:0 0 14px}
 
-/* ШАПКА ПРОДУКТА (дописка 6, шаг 1). Фон НЕПРОЗРАЧНЫЙ: под липкой шапкой едут
-   кадры вебапа, и полупрозрачное стекло с размытием мазало их на прокрутке —
-   ровно то «пятно», которое владелец запретил на сайте 06.09. */
 .top{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:20}
 .top-in{display:flex;align-items:center;gap:0 26px;height:64px}
 .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:18px;color:var(--tx);text-decoration:none;letter-spacing:-.015em;flex:none}
@@ -40,15 +27,8 @@ main{display:block}
 .nav a{color:var(--dim);text-decoration:none;font-size:15px;font-weight:500}
 .nav a:hover,.nav a.on{color:var(--tx)}
 .top-right{display:flex;align-items:center;gap:14px;flex:none}
-/* «EN» ТЕКСТОМ, А НЕ ПИЛЮЛЕЙ (дописка 7, правка 9). В обрамлении он был
-   единственным обрамлённым органом шапки и читался кнопкой: человек ждал от
-   него действия, а это просто вторая языковая версия. Теперь это такой же
-   пункт, как «Поддержка», а что он не из их числа, говорит волосяная черта
-   слева. */
 .lang{display:flex;align-items:center;height:20px;padding-left:26px;border-left:1px solid var(--line);font-size:15px;font-weight:500;color:var(--dim);text-decoration:none}
 .lang:hover{color:var(--tx)}
-/* БУРГЕР НА <details>, БЕЗ СКРИПТА. На телефоне это единственная дорога в
-   разделы: меню, которое не открывается без скрипта, — меню, которого нет. */
 .burger{display:none;position:relative;flex:none}
 .burger summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line);border-radius:9px;color:var(--tx)}
 .burger summary::-webkit-details-marker{display:none}
@@ -59,9 +39,6 @@ main{display:block}
 .burger-menu a:hover{background:var(--s2)}
 .burger-lang{color:var(--dim);border-top:1px solid var(--line);margin-top:6px;padding-top:12px;border-radius:0}
 
-/* Фон объявлен ЯВНО. Без него кнопка button класса btn-ghost оставалась с
-   серой заливкой браузера по умолчанию (у ссылки a её нет, поэтому беда была
-   видна только на «Применить»): кнопка читалась выключенной. */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 24px;border-radius:10px;background:transparent;text-decoration:none;font-weight:700;font-size:16px;letter-spacing:-.01em;border:1px solid transparent;transition:background .15s ease,border-color .15s ease,color .15s ease;cursor:pointer}
 .btn svg{width:16px;height:16px}
 .btn-main{background:var(--ac);color:var(--on-ac)}
@@ -71,19 +48,6 @@ main{display:block}
 .btn.wide{width:100%}
 
 
-/* ПЕРВЫЙ ЭКРАН — ТРИ ВАРИАНТА (дописка 6, шаг 2).
-
-   Общее у всех трёх и есть закон линии (§8.5 отчёта D4): кадр продукта не
-   обрезан ни с какой стороны, до рамы не больше двух текстовых рядов и ни
-   одного абзаца, цена видна сразу, кнопок две — залитая и контурная.
-
-   Разное — композиция, и только она:
-   V1 слова строкой над рамой, рама во всю ширину;
-   V2 слова слева в трети, рама целиком в правых двух третях;
-   V3 узкая полоса бренда сверху, рама сразу под ней. */
-/* ПЕРВЫЙ ЭКРАН ДЫШИТ СВЕРХУ ЦЕЛЫМ ШАГОМ РИТМА, а не половиной. Половина
-   прижимала заголовок к шапке, и верх читался продолжением меню. Заодно это
-   поднимает начало рамы: замер требует не выше 300 px на 1440. */
 .hero{padding:var(--gap) 0 0;text-align:left;position:relative}
 .hero h1{font-size:44px;line-height:1.08;letter-spacing:-.024em;margin:0}
 .hero .lede{margin:0 0 var(--in);max-width:none;color:var(--dim);font-size:16.5px}
@@ -91,41 +55,23 @@ main{display:block}
 .hero-sell{margin:0;color:var(--dim);font-size:15px}
 .hero-sell b{color:var(--tx)}
 
-/* V1. Заголовок слева, кнопки справа — ОДИН текстовый ряд, дальше сразу рама.
-   Строка «Появилось» и строка цены лежат ПОД рамой одной полкой: там длина
-   «Появилось» не двигает ни одной кнопки, и первый экран кончается продуктом,
-   а не словами. */
 .hero-v1 .hero-top{display:flex;align-items:center;justify-content:space-between;gap:var(--in) 48px;flex-wrap:wrap}
-/* Заголовок В ОДНУ СТРОКУ рядом с кнопками — это и есть «один текстовый ряд»
-   дописки 6. Ограничение по мере знаков тут вредит: пять слов ложатся в строку
-   сами, а мера в 18 знаков ломала их надвое и делала из одного ряда два. */
 .hero-v1 h1{max-width:none}
 .hero-v1 .acts{flex:none}
 .under{display:flex;align-items:baseline;justify-content:space-between;gap:var(--in2) 32px;flex-wrap:wrap;margin-top:var(--in2)}
 .under .appeared{margin:0;min-height:0}
 .under .hero-sell{flex:none;text-align:right}
 
-/* V2. Слова занимают треть, продукт — две трети, и рама СЖИМАЕТСЯ по ширине
-   колонки, а не уезжает за край. Прошлый заход пустил её за правый край окна,
-   и она резалась ровно по нашей панели «Решатель» — по тому самому, что мы
-   продаём. Уменьшенная целая рама честнее обрезанной большой. */
 .hero-v2 .hero-cols{display:grid;grid-template-columns:38fr 62fr;gap:0 var(--gap);align-items:center}
 .hero-v2 .hero-words{min-width:0}
 .hero-v2 h1{font-size:40px;margin:0 0 var(--in)}
 .hero-v2 .hero-sell{margin:0 0 var(--in)}
 .hero-v2 .acts{flex-direction:column;align-items:stretch;gap:var(--in2);max-width:260px}
 .hero-v2 .hero-show{min-width:0}
-/* В узкой колонке панель управления не влезает в одну строку и переносится
-   криво. Поэтому в V2 она нарочно в две ровные строки: сверху выбор экрана,
-   снизу подпись и сравнение по краям. Подпись «Нажмите и сравните» остаётся:
-   без неё пара «Без · С» читается заголовком, а не органом. */
 .hero-v2 .show-bar{margin-bottom:var(--in2);flex-direction:column;align-items:stretch;gap:var(--in2)}
 .hero-v2 .ab-side{justify-content:space-between}
 .hero-v2 .hero-cols{gap:0 var(--gap2);grid-template-columns:36fr 64fr}
 
-/* V3. Полоса бренда: лого крупно и подпись слева, цена и кнопки справа. Всё в
-   две строки и не выше 180 px — иначе это уже не полоса, а ещё один экран
-   текста перед продуктом. */
 .hero-v3 .brandband{display:flex;align-items:center;justify-content:space-between;gap:var(--in) 48px;flex-wrap:wrap;padding:0 0 var(--in)}
 .bb-left{min-width:0}
 .bb-mark{display:flex;align-items:center;gap:14px}
@@ -135,87 +81,18 @@ main{display:block}
 .bb-right{display:flex;flex-direction:column;align-items:flex-end;gap:var(--in2)}
 .bb-right .hero-sell{text-align:right}
 
-/* V4. ПОЛОСА БРЕНДА В ОДНУ СТРОКУ, ЧЕТЫРЬМЯ ГРУППАМИ ПОДРЯД.
-   В V3 слева стояли лого с подписью столбиком, справа цена с кнопками
-   столбиком, а посередине оставалось около 400 px черноты на самом верху
-   страницы. Здесь все четыре группы идут одной строкой и делят ширину между
-   собой: пустоте негде собраться в пятно. Подпись отделена от имени волосяной
-   чертой, а не отступом, — так видно, что это подпись, а не второе имя. */
 .hero-v4 .brandband{display:flex;align-items:center;gap:var(--in2) 32px;flex-wrap:wrap;padding:0 0 var(--in)}
-/* ЗНАК ВНУТРИ ЗАГОЛОВКА, А НЕ ВТОРЫМ ЛОГОТИПОМ РЯДОМ.
-   Прежде в полосе стояло крупное «ESHArio», а мелкое «ESHArio» шапки висело
-   ровно над ним: одно имя дважды, одно под другим (слово владельца 07.09).
-   Теперь полоса говорит делом, а не повторяет вывеску, а знак остаётся при
-   заголовке. Заодно у страницы появился настоящий h1: до этого его не было
-   вовсе. Знак внутри h1 нарочно — так левый край заголовка совпадает с левым
-   краем всех остальных заголовков страницы, и прибор это стережёт. */
-/* ЗАГОЛОВОК КРУПНЕЕ ЗАГОЛОВКОВ РАЗДЕЛОВ, НО В ОДНУ СТРОКУ РЯДОМ С ДЕНЬГАМИ.
-   Было 30 px — ростом с разделы, и верх читался панелью инструментов (взгляд
-   Fable 07.09, пункт 1). Дописка 7 просила 56 px, но на 56 заголовок, цена и
-   кнопка в одну полосу уже не помещаются и заголовок ломается надвое: слово
-   владельца по кадру 07.09 — «заголовок в две строчки, не знаю, лучше это или
-   хуже», и полосу он оставил одну. 48 — самый крупный размер, при котором вся
-   полоса умещается в контейнер 1152 на 1440 и на 2000. Проверяется прибором:
-   он мерит высоту заголовка и краснеет, если строк стало две. */
-/* РАЗМЕР ЗАГОЛОВКА ЕДЕТ ЗА ШИРИНОЙ ОКНА, И ЭТО НЕ КРАСОТА, А ПОЧИНКА.
-   56 px мерились на 1440 и на 2000, и там всё сходилось. На окне 1120 (обычный
-   ноутбук с укрупнением 125 %) заголовок с кнопкой в строку уже не помещались,
-   и полоса переносила КНОПКУ вниз: заголовок во всю ширину, под ним справа
-   висящая кнопка, под ней ряд вкладок. Владелец увидел это на английской
-   стороне (она шире русской на 39 px) и назвал «страница ломается».
-   Перенос был законным поведением flex-wrap: браузер сначала переносит, а не
-   ужимает. Поэтому размер теперь считается от ширины окна: 4.2vw при потолке
-   56 и полу 37. На 1440 и 2000 это те же 56 px, что мерил прибор, а на узком
-   окне заголовок уменьшается ровно настолько, чтобы деньги остались с ним на
-   одной линии. Пол 37 взят замером: на самом узком неподвижном окне (901 px,
-   ниже начинается телефон) английскому заголовку остаётся 561 px. */
 .hero-v4 .bb-tag{margin:0;color:var(--tx);font-size:clamp(37px,4.2vw,56px);font-weight:700;letter-spacing:-.02em;line-height:1.08;flex:0 1 auto;min-width:0}
-/* КНОПКА И БИРКА С ЦЕНОЙ — ОДИН ОРГАН В ДВА КУСОЧКА, В ОДНУ ЛИНИЮ С
-   ЗАГОЛОВКОМ (слово владельца 07.09: «выровнять „Купить ключ“ к заголовку, а
-   цену написать как бирку»).
-   Цена строкой не вставала никуда: рядом с кнопкой она была четвёртым органом
-   в полосе, под кнопкой делала группу выше заголовка, и заголовок с кнопкой
-   переставали стоять на одной линии. Бирка ровно той же высоты, что кнопка, и
-   вместе они одна вещь: слова слева, деньги справа, обе по центру полосы. */
-/* КНОПКА РАВНЯЕТСЯ ПО ГЛАЗУ, А НЕ ПО КОРОБКЕ (слово владельца 07.09: «кнопка по
-   высоте не центрирована с заголовком?»).
-   Коробки как раз совпадали: замер дал центр заголовка 159 и центр кнопки 159,
-   разница ноль. Но коробка строки держит место и под выносные хвосты букв, а
-   глаз меряет по прописным: их середина у 56 px Inter лежит на 165, то есть на
-   шесть пикселей ниже середины коробки. Отсюда и ощущение, что кнопка висит
-   высоко. Отступ вдвое больше сдвига: коробку с полями центрируют целиком, и
-   двенадцать сверху двигают середину на шесть. Замер после правки: 165 и 165. */
 .hero-v4 .bb-buy{display:flex;align-items:center;gap:10px;flex:none;margin-left:auto;margin-top:12px}
 .hero-v4 .bb-tag img{width:44px;height:44px;border-radius:11px;flex:none}
-/* Цена — правая половина кнопки, а не предмет возле неё. Волосяная черта той же
-   краски, что заливка, только темнее: делит кнопку надвое, не разрезая её. */
 .btn-buy{padding-right:20px}
-/* ЦЕНА БЕРЁТ КРАСКУ КНОПКИ, И ЭТО ПРИХОДИТСЯ СКАЗАТЬ ЯВНО.
-   Она несёт класс «hero-sell» ради прибора, а у того класса своя краска для
-   тёмной страницы: серый текст и белое число. На голубой заливке кнопки серое
-   по голубому и белое по голубому читаются одинаково плохо — слово владельца
-   07.09: «цвета рандомные, нечитаемо». Ошибка была не в бледности, а в том, что
-   чужое правило докрасило то, что должно было наследовать. */
 .price-tag{margin-left:16px;padding-left:16px;border-left:1px solid rgba(6,33,43,.32);font-weight:700;font-size:14.5px;white-space:nowrap;color:inherit}
 .price-tag b{color:inherit;font-weight:700}
 .hero-v4 .hero-sell a{color:var(--tx);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.32)}
 .hero-v4 .hero-sell a:hover{text-decoration-color:var(--ac)}
-/* ПОЛОСКИ ФАКТОВ ТУТ НЕТ, И ЭТО РЕШЕНИЕ, А НЕ ЗАБЫВЧИВОСТЬ.
-   Она была собрана по слову владельца («сверху инфографику мб») и умерла при
-   первом же взгляде на кадр: заголовок «Составы, цены и налог сразу на экране»
-   и первый факт «Цены рынка и налог у каждой карты» говорят ОДНО И ТО ЖЕ в
-   сорока пикселях друг от друга. Слово владельца по кадру 07.09: «договорились
-   кратко и чётко, ты ебнул сюда нейрослоп энциклопедию». Верх снова короткий:
-   знак, заголовок, цена, кнопка. Числа наверху вернутся тогда, когда найдётся
-   число, которого ещё нет в заголовке. */
 .hero-v4 .acts{flex:none}
 .hero-v4 .acts .btn{height:46px;padding:0 30px;font-size:16px}
 
-/* РЯД ВКЛАДОК БЕЗ ПЛИТЫ. Прежняя панель была коробкой во всю ширину с фоном и
-   рамкой: четыре вкладки слева, переключатель справа и 370 px пустоты между
-   ними. Она читалась панелью админки и отодвигала продукт вниз. Коробки нет,
-   ряд приклеен прямо к верху рамы, и пустота между группами перестаёт быть
-   дырой в плите: её просто нет. */
 .hero-v4 .show{margin-top:0}
 .hero-v4 .show-bar{background:none;border:0;border-radius:0;padding:0;margin:0 0 var(--in2);align-items:flex-end}
 .hero-v4 .tabs{gap:2px}
@@ -224,18 +101,12 @@ main{display:block}
 .hero-v4 .ab{padding:3px;border-radius:10px}
 .hero-v4 .ab button{height:32px;padding:0 14px;font-size:14px}
 .hero-v4 .appeared{margin:var(--in2) 0 0}
-/* Строка «Появилось» стоит ПОД рамой, значит и просвет ей нужен СВЕРХУ. С
-   отступом снизу она добавляла 12 px к стыку первого экрана со следующим
-   разделом: замер показал 76 вместо 64 на всех трёх ширинах. */
 .hero-v3 .appeared{margin:var(--in2) 0 0}
 .hero-sm{padding:72px 0 44px;text-align:left}
 .hero-sm h1{font-size:44px;margin-left:0;max-width:20ch}
 .hero-sm .lede{margin-left:0;max-width:62ch}
 
 .show{position:relative;z-index:1;margin-top:var(--in)}
-/* Панель управления показом: слева выбор экрана, справа сравнение. Места у
-   обоих органов постоянные — в панели нет ничего переменной длины, и кнопки
-   не переезжают при смене вкладки (слово владельца 06.09). */
 .show-bar{display:flex;align-items:center;justify-content:space-between;gap:10px 18px;flex-wrap:wrap;padding:8px 10px;margin:0 0 var(--in2);background:var(--s1);border:1px solid var(--line);border-radius:12px}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;text-align:left}
 .ab-side{display:flex;align-items:center;gap:14px}
@@ -246,27 +117,12 @@ main{display:block}
 .ab button{font:inherit;font-size:14.5px;font-weight:700;letter-spacing:-.01em;height:38px;padding:0 16px;border-radius:8px;cursor:pointer;background:transparent;color:var(--dim);border:1px solid transparent;transition:background .15s ease,color .15s ease}
 .ab button:hover{color:var(--tx)}
 .ab button[aria-pressed="true"]{background:var(--ac);color:var(--on-ac)}
-/* НА ПЕРВОМ ЭКРАНЕ ЗАЛИТА ТОЛЬКО ПРОДАЮЩАЯ КНОПКА.
-   Голубая «С ESHArio» стояла в семидесяти пикселях под голубой «Купить ключ»
-   и воевала с ней за глаз (слово владельца 07.09: «надо придумать, как её
-   поставить грамотно, чтобы она с меню снизу не воевала»). Выбранная сторона
-   осталась ясно видна: своя подложка, белый текст и голубая черта снизу. */
-/* ПЕРЕКЛЮЧАТЕЛЬ ГОВОРИТ ТЕМ ЖЕ ЯЗЫКОМ, ЧТО ВКЛАДКИ СЛЕВА.
-   Первый заход убрал голубую заливку правильно, но нарисовал вместо неё
-   подчёркивание внутри рамки: коробка в коробке, и криво (слово владельца
-   07.09). Теперь у пары нет ни своей рамки, ни своего фона, а выбранная
-   сторона выглядит ровно как выбранная вкладка — тот же фон, та же рамка, тот
-   же радиус. Голубого на ней ровно одна точка: глазу хватает, а спорить с
-   продающей кнопкой уже нечем. */
 .hero-v4 .ab{background:none;border:0;padding:0;gap:2px;border-radius:0}
 .hero-v4 .ab button{display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;height:34px;padding:0 12px;border-radius:9px;border:1px solid transparent;color:var(--dim)}
 .hero-v4 .ab button:hover{color:var(--tx);border-color:rgba(255,255,255,.2)}
 .hero-v4 .ab button[aria-pressed="true"]{background:var(--s2);border-color:var(--line);color:var(--tx)}
 .hero-v4 .ab button[aria-pressed="true"]::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac);margin-right:8px;flex:none}
 
-/* РАМА СИДИТ НА СТРАНИЦЕ, А НЕ ЛЕЖИТ НА НЕЙ (дописка 7, правка 3). Тень мягче
-   и ближе: 24 вниз и 64 размытия вместо 30 и 80. Это ТЕНЬ, а не размытие
-   содержимого: размытых пятен на сайте нет ни одного (слово владельца 06.09). */
 .frame{position:relative;z-index:1;border:1px solid var(--line);border-radius:12px;background:var(--s2);overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.55)}
 .frame-bar{display:flex;align-items:center;gap:10px;padding:10px 14px 0}
 .dots{display:flex;gap:6px;padding:0 6px 8px}
@@ -282,164 +138,61 @@ main{display:block}
 .frame-url .bar{flex:1;display:flex;align-items:center;gap:8px;height:28px;padding:0 12px;background:#0A0C10;border:1px solid var(--line);border-radius:999px;font-size:12.5px;color:#7C879C;overflow:hidden;white-space:nowrap}
 .frame-url .bar svg{width:11px;height:11px;flex:none;color:#5C6577}
 .frame-shot{position:relative;line-height:0}
-/* ГЛАВНОЕ ДВИЖЕНИЕ САЙТА — ПЕРЕХОД МЕЖДУ «БЕЗ» И «С». Ради него сюда и пришли,
-   и четверть секунды даёт глазу увидеть, ЧТО именно поменялось; на 0.15 два
-   кадра просто подменялись. */
 .frame-shot img{width:100%;height:auto;transition:opacity .26s cubic-bezier(.22,.7,.28,1)}
 @media (prefers-reduced-motion:reduce){.frame-shot img{transition:none}}
 .frame-shot .sh-with{position:absolute;inset:0}
 .frame-shot[data-show="bare"] .sh-with{opacity:0}
 .frame-shot[data-show="with"] .sh-bare{opacity:0}
-/* Строка «Появилось» живёт ПОД панелью: её длина у каждой вкладки своя, и в
-   панели она двигала бы кнопки. Место под две строки занято заранее — иначе
-   рама подпрыгивала бы на узком экране при смене вкладки. */
 .appeared{margin:0 0 var(--in2);color:var(--dim);font-size:15px;line-height:1.5;text-align:left;min-height:23px}
 .appeared b{color:var(--tx)}
 .panel[hidden]{display:none}
-/* Вкладка проявляется вдвое дольше прежнего: 0.15 читалось щелчком, а не
-   переходом. Двигать при этом нечего — меняется только прозрачность, и рама не
-   прыгает ни на пиксель. */
 .panel{animation:fade .28s ease}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.panel{animation:none}}
 
-/* Раздел платит только за СВОЙ верхний отступ: два соседа с отступом сверху и
-   снизу складывались в мёртвую зону 130–200 px (дописка 2, правка 5), а так
-   между разделами ровно 64 px, сколько бы их ни стояло подряд. Низ последнего
-   раздела держит подвал своим отступом. */
 .sec{padding:var(--gap) 0 0}
 .sec.first{padding-top:0}
-/* ПОСЛЕДНИЙ РАЗДЕЛ ПЛАТИТ ЗА СВОЙ НИЗ. Подвал отделён чертой, и без этого
-   отступа черта вставала ВПЛОТНУЮ к последней строке вопросов: ноль пикселей.
-   Та же беда, что была у полосы цен, и там же её причина: у коробки два
-   отступа, наружный и внутренний, и оба по ритму. */
 main>section:last-of-type{padding-bottom:var(--gap)}
-/* ПОЛОСА ЦЕН — КОРОБКА, И У КОРОБКИ ДВА РАЗНЫХ ОТСТУПА.
-   Снаружи пустое место до соседей (margin), внутри воздух до собственной
-   черты (padding). Оба по одному ритму.
-   Один раз это уже чинили неверно: убрали наружный отступ и обнулили верх у
-   соседа снизу. Числа «между содержимым» сошлись в 65, а на экране первое
-   слово раздела «Вопросы» встало ВПРИТЫК к нижней черте полосы. Владелец
-   07.09: «без отступов даже в пиксель от разделяющей линии». Прибор тогда
-   мерил от текста до текста и врал; теперь он меряет пустое место и знает,
-   что у раздела с фоном край — это его черта. */
 .sec.price+.sec{padding-top:0}
-/* ЗАГОЛОВКИ РАЗДЕЛОВ 40 px, И ЭТО ИЕРАРХИЯ, А НЕ УКРАШЕНИЕ (дописка 7, правка 4).
-   Было 38 у обычных разделов и 30 у боковых: заголовок первого экрана стоял
-   ростом с них, и вся страница читалась одним тоном (взгляд Fable 07.09,
-   пункт 2). Теперь три роста и они разные: 48 у страницы, 40 у раздела,
-   18-19 у карточки. */
 .sec h2{font-size:40px;margin:0 0 var(--in)}
 .sec.price h2{margin-bottom:var(--in2)}
 
-/* ЛЕНТЫ ЧЕРЕДУЮТСЯ (дописка 7, правка 4). Прежде вся страница шла одним
-   чёрным тоном, и разделы не отделялись друг от друга ничем, кроме полосы цен:
-   ничего не «сидело» на странице. Теперь через один раздел идёт лента во всю
-   ширину окна, и глаз получает опору. Ритм отступов не меняется: у ленты, как
-   у любой коробки, наружный отступ до соседей и внутренний до своей черты, оба
-   из --gap. */
 .sec.windows{margin:var(--gap) 0;padding:var(--gap) 0;background:var(--s1);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .sec.windows+.sec{padding-top:0}
 
-/* ЧЕТЫРЕ ОДИНАКОВЫЕ КАРТОЧКИ СЕТКОЙ 2×2 (дописка 7, правка 5). Высоты равняет
-   сетка: строка растягивает обе карточки по высокой. Кадр вписывается в область
-   260 px целиком и не режется НИ С КАКОЙ стороны — правый край занят нашей
-   панелью, и это закон линии (§8.5 отчёта D4). */
 .sec.windows .cuts{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .cut{margin:0;min-width:0;display:flex;flex-direction:column;background:var(--s2);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-/* ОБЛАСТЬ КАДРА РАСТЁТ ПО КАДРУ И УПИРАЕТСЯ В 260 px, а не назначена числом.
-   Дописка 7 просила ровно 260 у всех четырёх, и на двух из них это дало дыру:
-   полоса над составом — 1401×128, то есть почти одиннадцать к одному, и в
-   коробке 260 px под ней оставалось 212 px пустоты. Пустая зона — ровно то, что
-   владелец запрещает. Теперь высота коробки равна высоте кадра, а карточки
-   одного ряда равняет сетка: два высоких кадра сверху, две широкие полосы
-   снизу. Кадр по-прежнему не режется ни с какой стороны. */
-/* ОБЛАСТЬ КАДРА ТЯНЕТСЯ НА ВЕСЬ ОСТАТОК КАРТОЧКИ (слово владельца 07.09 по
-   кадру показа 2: «скриншоты разной высоты, заголовки и текст не на одном
-   уровне, глаз напрягает»). Сами кадры равной высоты быть не могут: полоса над
-   составом — почти одиннадцать к одному, список проданных — семь к одному, и
-   подогнать их высоту значило бы резать. Равняется КОРОБКА: сетка делает
-   карточки ряда одной высоты, кадр стоит в своей коробке по центру, и подписи
-   встают на одну линию. Проверяет прибор, потолок разброса 2 px. */
 .cut-shot{display:flex;align-items:center;justify-content:center;flex:1;min-height:120px;padding:18px 18px 0}
 .cut-shot img{width:auto;height:auto;max-width:100%;max-height:260px;border:1px solid var(--line);border-radius:8px}
 .cut figcaption{padding:18px 20px 20px;color:var(--dim);font-size:15px;line-height:1.5}
 .cut figcaption b{display:block;color:var(--tx);font-size:18px;letter-spacing:-.02em;margin-bottom:6px}
 
-/* ЧИПЫ ВМЕСТО СПИСКА В ДВЕ КОЛОНКИ (дописка 7, правка 6). Четырнадцать строк
-   двумя колонками давали воздуха между строками больше, чем самих строк
-   (взгляд Fable 07.09, пункт 5). Чипы идут потоком и заполняют место сами:
-   пустым зонам негде собраться. Иконок у чипов нет: литеральных для этих
-   фраз не существует, а нелитеральных мы не ставим. */
-/* ОПИСЬ ТОЧКАМИ В ТРИ КОЛОНКИ — ТОТ ЖЕ ЯЗЫК, ЧТО У СПИСКА ПРЕМИУМА В ПРАЙСЕ.
-   За два круга это место побывало чипами («выглядят дефолтно и неинтересно») и
-   таблицей в клеточку («какая-то стрёмная таблица»), и оба раза беда была одна:
-   список притворялся чем-то другим — то кнопками, то таблицей. Своего вида у
-   нас ровно один: тихая строка с акцентной точкой, и он уже стоит в прайсе.
-   Три колонки вместо двух убирают пустоту справа, ряды выровнены сеткой.
-   Оговорка о неполноте идёт последней строкой во всю ширину: тот же вид, но
-   говорит про весь список сразу, и точка у неё бесцветная. */
 .cells{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px 40px}
 .cells li{color:var(--dim);font-size:15.5px;line-height:1.45;padding-left:18px;position:relative}
 .cells li::before{content:"";position:absolute;left:0;top:.58em;width:6px;height:6px;border-radius:50%;background:rgba(61,216,255,.55)}
-/* Оговорка о неполноте идёт во всю ширину, но НИЧЕМ НЕ ТИШЕ прочих строк:
-   она такой же пункт с такой же точкой (слово владельца 07.09, дважды). Своя
-   бледная краска у неё была, и владелец спросил, баг это или нарочно, — значит,
-   читалась ошибкой, а не замыслом. */
 .cells li:last-child{grid-column:1 / -1}
 .sec-lede{color:var(--dim);font-size:16px;margin:0 0 var(--in);max-width:60ch}
 .promo input{background:var(--s1)}
 
-/* РАЗДЕЛ «ЗАГОЛОВОК СЛЕВА, СОДЕРЖИМОЕ СПРАВА». Прежде «Мелочи», цены, вопросы
-   и релиз стояли в колонке 820 px по центру страницы шириной 1200: содержимое
-   занимало левые 520 px, а справа оставалось около 590 px чёрного. Плюс два
-   разных контейнера (820 и 1200) на одной странице давали разные отступы
-   слева у соседних разделов — страница читалась несобранной.
-   Теперь контейнер один на всю главную, а ширину закрывает сама раскладка. */
 .split{display:grid;grid-template-columns:380px 1fr;gap:var(--in) var(--gap);align-items:start}
 .split-h{position:sticky;top:96px}
-/* Заголовок бокового столбца ростом с заголовок ленты: разный рост у соседних
-   разделов и был тем «одним тоном», от которого лечим страницу. */
 .split-h h2{font-size:40px;margin-bottom:var(--in2)}
 .split-h .lede{color:var(--dim);font-size:15.5px;margin:0;max-width:34ch}
 .split-c{min-width:0}
 
-/* Две колонки простого текста. Волосяные линии под каждой строкой сняты:
-   тринадцать одинаковых линеек — тот же машинный штамп, что и «глазки». */
-/* Строки стояли в 10 px друг от друга при высоте строки 24: список читался
-   сплошным серым пятном (слово владельца 07.09: «0 отступов и воздуха»).
-   Просвет теперь равен строке, колонки разведены шире. */
 .flist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:var(--in) 56px}
 .flist li{color:var(--dim);font-size:15.5px;line-height:1.55;padding-left:18px;position:relative}
 .flist li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:rgba(61,216,255,.55)}
 
-/* Цены лежат на СВОЕЙ ЛЕНТЕ, и лента у них ровно такая же, как у раздела
-   «Что именно добавляет». Прежде тут стоял едва заметный градиент, и на кадре
-   лента цен не читалась лентой вовсе: чередование лент работает, только когда
-   ленты одинаковые, а страница между ними одинаково тёмная. */
 .sec.price{margin:var(--gap) 0;padding:var(--gap) 0;background:var(--s1);
   border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .plan-one{color:var(--dim);font-size:15px;margin:0 0 var(--in)}
-/* ЗОЛОТО ТОЛЬКО У ДЕНЕГ. Цена и строка выгоды были одного цвета, и глаз не
-   понимал, что тут главное (слово владельца 07.09: «цены одного цвета, надо
-   световой гаммой что-то придумать»). Цена осталась тёплой и крупной, выгода
-   стала тихой, а число в ней белым: видно, что это уточнение к цене, а не
-   вторая цена.
-   Место под строку держится пустым и у месячного ключа: без этого три карточки
-   стояли бы разной высоты и ряд читался кривым. */
 .p-cheap{display:block;margin-top:calc(var(--in2)/2);color:var(--dim);font-size:14.5px;min-height:20px}
 .pp-money .p-code{margin:0}
 .p-cheap b{color:var(--tx);font-weight:700}
 .p-cheap-off{visibility:hidden}
-/* Промокод остался ОДНОЙ ТИХОЙ СТРОКОЙ под карточками (правка 7): полка с
-   рамкой и фоном была нужна, пока рядом с ней стояла кнопка «Купить ключ» на
-   весь раздел. Кнопка уехала в сроки, и полке нечего держать. */
-/* Заметка осталась одна: вторая слово в слово повторяла подвал, который стоит
-   на каждой странице. Двум колонкам стало нечего разводить. */
 .price-notes{margin-top:var(--gap2);max-width:70ch}
 .price-notes p{margin:0}
-/* Поле промокода фиксированной ширины. С flex:1 оно растягивалось на всю
-   свободную ширину страницы покупки и уносило «Применить» к правому краю. */
 .promo{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:var(--in) 0 0}
 .promo label{font-size:14px;color:var(--dim)}
 .promo input{flex:none;width:220px;height:48px;padding:0 14px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:var(--s2);color:var(--tx);font:inherit;font-size:15px}
@@ -449,19 +202,10 @@ main>section:last-of-type{padding-bottom:var(--gap)}
 .note,.dim{color:var(--dim);font-size:15px}
 .trust{color:var(--dim);font-size:15px;margin-top:var(--in2)}
 
-/* ВОПРОСЫ СЕТКОЙ, А НЕ ГАЗЕТНЫМИ КОЛОНКАМИ.
-   Газетные колонки льют текст сплошняком: правая начиналась там, где
-   кончилась левая, и заголовки соседних вопросов стояли на разной высоте
-   (слово владельца 07.09: «давай выравнивание по заголовкам»). Сетка ставит
-   пару в один ряд, и оба заголовка ряда начинаются с одной линии.
-   Порядок вопросов подобран так, что в паре стоят ответы одной длины: сперва
-   два четырёхстрочных, потом четыре трёхстрочных. Тогда под коротким ответом
-   не остаётся дыры. */
 .faq{display:grid;grid-template-columns:1fr 1fr;gap:var(--in) 44px;align-items:start}
 .qa{margin:0}
 .qa h3{font-size:16px;margin:0 0 calc(var(--in2)/2)}
 .qa p{color:var(--dim);margin:0;font-size:15.5px;line-height:1.55}
-/* Гармошка осталась только на странице поддержки, где вопросов много. */
 .faq-acc details{border-top:1px solid var(--line)}
 .faq-acc details:last-child{border-bottom:1px solid var(--line)}
 .faq-acc summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:700;font-size:17px}
@@ -471,77 +215,28 @@ main>section:last-of-type{padding-bottom:var(--gap)}
 .paysoon-line{color:var(--dim);font-size:15px;margin:var(--in) 0 0}
 .tgbuy{margin-top:var(--in);width:100%}
 
-/* ЧЕТЫРЕ КАРТОЧКИ В РЯД: «Бесплатно» и три срока (дописка 7, правка 1б).
-   Карточка — колонка, и кнопка в ней прижата к низу: у карточек разная
-   начинка, а ряд обязан читаться ровным. Ту же роль играет сетка: все четыре
-   одной высоты сами, без единого числа высоты в правилах. */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-/* БЕСПЛАТНОЕ СЛЕВА, ПРЕМИУМ СПРАВА (правка 7 и слово владельца 07.09). Четыре
-   равные карточки не годились: у бесплатной было шесть строк, у платных ни
-   одной, и платные ничего о себе не говорили. Писать один и тот же список в
-   каждую из трёх — та же простыня с другой стороны. Список премиума написан
-   один раз и стоит над своими тремя сроками. */
-/* ЦЕНЫ — ОДНА ПАНЕЛЬ, А НЕ РОССЫПЬ КОРОБОК (слово владельца 07.09 по кадру
-   круга 2: «выглядит как разобранный конструктор и мусор»).
-   И он прав по существу: на ленте лежали четыре обведённые коробки разного
-   роста, между ними воздух, и глазу не за что было зацепиться как за ЦЕЛОЕ.
-   Теперь рамка одна на весь прайс, а внутри только волосяные черты: слева
-   бесплатное, справа премиум, под ним три срока. Так делают прайсы, которым
-   верят: одна вещь с разделами, а не пять вещей рядом.
-   Единственный цвет внутри — тёплая подложка у годового срока: он один выгоден
-   по числу, и это видно без единого лишнего слова. */
 .price-panel{display:grid;grid-template-columns:340px 1fr;border:1px solid var(--line);border-radius:16px;background:var(--s2);overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.045)}
-/* Клетка ряда. Ряд равняет обе свои клетки сам — ради этого панель и собрана
-   по рядам, а не по колонкам: заголовки, цены, списки и кнопки стоят на одних
-   линиях, чем бы они внутри ни были заполнены. */
-/* КЛЕТКИ РЯДА РАВНЯЮТСЯ ПО ВЕРХУ, А НЕ ПО СЕРЕДИНЕ, и это не мелочь.
-   Клетки одного ряда одной высоты, но содержимое у них разного роста: слева
-   заголовок с подписью, справа заголовок; слева цена, справа цена со сроком и
-   строкой выгоды. Каждая клетка ставила своё по центру СВОЕЙ высоты, и первые
-   строки расходились. Замер до правки: заголовки 2506 против 2514, цены 2587
-   против 2571, списки 2701 против 2677. Теперь всё начинается от верха клетки,
-   и линия одна. Кнопки, наоборот, прижаты к низу: у них общая нижняя линия. */
 .pp-cell{display:flex;flex-direction:column;justify-content:flex-start;min-width:0;padding:0 26px}
 .pp-a{border-right:1px solid var(--line)}
 .pp-1{padding-top:26px;padding-bottom:var(--in)}
 .pp-2{padding-bottom:var(--in)}
 .pp-3{padding-bottom:var(--in)}
 .pp-4{justify-content:flex-end;padding-bottom:26px}
-/* Заголовок и подпись под ним — одна форма у обеих колонок, поэтому и высота
-   одна. Разный рост заголовков сам по себе сдвигал бы первую строку. */
 .pp-1 h3{font-size:22px;display:flex;flex-direction:column;gap:4px}
 .pp-1 h3 small{font-weight:400;font-size:13px;color:var(--dim)}
-/* Деньги и переключатель срока стоят в одном ряду: переключатель управляет
-   ровно тем числом, что рядом с ним, и разносить их по этажам незачем. */
 .pp-b.pp-2{flex-direction:row;align-items:flex-start;justify-content:space-between;gap:var(--in2) 24px;flex-wrap:wrap}
-/* «Разовый платёж. Автопродления нет» стоит В КЛЕТКЕ ЦЕНЫ, под её содержимым:
-   ряд цен и так выше соседнего слева, и своя строка формы панели не двигает.
-   Слово «подписка» на сайте запрещено сторожем, а сказать про отсутствие
-   рекуррентных списаний модератору платёжки надо ровно там, где он смотрит
-   на число (LEGAL-2, правка 18). */
 .pp-once{width:100%;margin:0;color:var(--dim);font-size:13px}
 .pp-a .btn,.pp-b .btn{width:100%}
-/* ПЕРЕКЛЮЧАТЕЛЬ СРОКА ГОВОРИТ ТЕМ ЖЕ ЯЗЫКОМ, ЧТО ВКЛАДКИ ПЕРВОГО ЭКРАНА:
-   выбранная сторона — своя подложка, рамка и белый текст, одна акцентная точка.
-   На каждой кнопке стоит цена ЗА МЕСЯЦ, и лестница видна не нажимая. */
 .termpick{display:flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--bg);flex-wrap:wrap;flex:none}
 .termpick button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;font:inherit;text-align:left;padding:9px 14px;border:1px solid transparent;border-radius:9px;background:transparent;color:var(--dim);cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease}
 .termpick button b{font-size:14.5px;font-weight:700;letter-spacing:-.01em}
 .termpick button small{font-size:12.5px}
 .termpick button:hover{color:var(--tx)}
 .termpick button[aria-pressed="true"]{background:var(--s1);border-color:var(--line);color:var(--tx)}
-/* ДЕНЬГИ СТОЛБИКОМ, И МЕСТО ПОД СТРОКУ ВЫГОДЫ ДЕРЖИТСЯ ВСЕГДА.
-   У месячного ключа строки «на N % дешевле» нет, у трёх месяцев и года есть, и
-   когда она появлялась при переключении, блок деньги становился выше: ряд
-   пересобирался, переключатель прыгал, и вёрстка «слетала» на глазах (слово
-   владельца 07.09). Место занято заранее пустой строкой той же высоты, и при
-   переключении не двигается ни один пиксель. */
 .pp-money{display:flex;flex-direction:column;gap:4px;margin:0;min-width:0}
 .pp-sum{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px;min-width:0}
 .pp-money .p-price{font-size:40px;margin:0}
-/* Высота строки задана числом, а не множителем: пустая и заполненная обязаны
-   быть одной высоты ДО ПИКСЕЛЯ, иначе при переключении срока панель дышит на
-   единицу, и это видно. Замер: 93 против 94 до правки. */
 .pp-money .p-cheap{min-height:22px;line-height:22px}
 .pp-2 .p-price{font-size:40px;margin:0}
 .p-days{color:var(--dim);font-size:15px}
@@ -552,19 +247,13 @@ main>section:last-of-type{padding-bottom:var(--gap)}
 .plan{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;background:var(--s2);padding:24px;box-shadow:inset 0 1px 0 rgba(255,255,255,.045)}
 .plan h3{font-size:19px;display:flex;flex-direction:column;gap:4px}
 .plan h3 small{font-weight:400;font-size:13px;color:var(--dim)}
-/* Деньги — единственное на сайте, что написано тёплым. Голубой остаётся за
-   органами управления, и цена перестаёт спорить с кнопками за внимание. */
 .p-price{display:block;font-size:34px;font-weight:700;letter-spacing:-.02em;margin:var(--in2) 0 0;color:var(--gold)}
 .p-price small{display:block;font-size:12px;font-weight:400;letter-spacing:0;color:var(--dim);margin-top:4px}
 .p-code{display:none;margin-top:var(--in2);color:var(--ac);font-weight:700;font-size:22px}
 .p-code small{display:block;font-size:12px;font-weight:400;color:var(--dim)}
 body.promo-on .p-code{display:block}
 .plan .btn{margin-top:auto;width:100%}
-/* Просвет перед кнопкой держится строкой выгоды, а не отступом кнопки: кнопка
-   уже прижата к низу, и её собственный отступ сложился бы с пустотой. */
 .plan .p-cheap{margin-bottom:var(--in)}
-/* Шесть бесплатных удобств. Ровно те же слова, что в настройках расширения:
-   человек, поставивший его, узнаёт свои строки. */
 .free-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
 .free-list li{color:var(--dim);font-size:14px;line-height:1.4;padding-left:16px;position:relative}
 .free-list li::before{content:"";position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.3)}
@@ -578,16 +267,8 @@ body.promo-on .p-code{display:block}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
 .kv{margin:0}
 .kv>div{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
-/* Колонка названий ФИКСИРОВАННАЯ, а не «не уже 190». Название длиной больше
-   190 px (например «Идентификационный номер» в реквизитах продавца) при
-   min-width расталкивало свою строку, и значение в ней одной стояло правее
-   всех прочих: таблица с одной сбитой строкой читается сломанной. Теперь
-   длинное название переносится внутри своей колонки, а значения стоят по
-   одному краю. */
 .kv dt{color:var(--dim);flex:0 0 190px;font-size:15px}
 .kv dd{margin:0;font-size:15px}
-/* Контактов два, почта и Telegram, поэтому и колонок две: при трёх справа
-   стояла бы пустая треть. */
 .contacts{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .contact span{display:block;color:var(--dim);font-size:14px;margin-bottom:6px}
 .contact .big{font-size:20px;font-weight:700;text-decoration:none}
@@ -610,24 +291,7 @@ td.pay{color:var(--ac);font-weight:700}
 .docmeta-wrap{margin-bottom:28px}
 .docmeta{display:flex;flex-wrap:wrap;gap:10px 28px;padding:16px 20px;border:1px solid var(--line);border-radius:12px;background:var(--s1);font-size:14px;color:var(--dim)}
 .docmeta b{color:var(--tx);font-weight:500;margin-right:8px}
-/* minmax(0,1fr) ВМЕСТО 1fr, И ЭТО НЕ ПРИДИРКА.
-   У колонки 1fr минимум по умолчанию не ноль, а min-content содержимого. В
-   политике внутри текста стоит длинный неразрывный адрес разрешения на домен
-   ea.com со звёздочками внутри, его min-content на телефоне 381 px, и колонка
-   растягивалась до 381 в контейнере 342. Наружу вылезала не только строка
-   адреса, а ВЕСЬ текст колонки: на 390 у каждой строки срезалось последнее
-   слово. Замерено пробой: .doc-in ширина 390, колонка 381.125. Беда была и до
-   этого кирпича (кадр старой сборки aac2b7f3 такой же), а адрес политики
-   напечатан в карточке Chrome Web Store.
-   САМ ЭТОТ АДРЕС ЗДЕСЬ БОЛЬШЕ НЕ ПИШЕТСЯ СЛОВАМИ: в нём стояла косая черта,
-   звёздочка и снова косая черта, то есть закрывающая пара знаков комментария
-   ПОСЕРЕДИНЕ пояснения. Комментарий кончался на ней, остаток текста браузер
-   читал как имя селектора и выбрасывал вместе с ним следующее правило: сетка
-   бумаг не применялась вовсе, содержание ехало по тексту. Ниже стоит сторож
-   на этот случай. */
 .doc-in{display:grid;grid-template-columns:250px minmax(0,1fr);gap:48px;padding-bottom:96px}
-/* И сам длинный адрес обязан переноситься, иначе он просто торчит за край
-   своей колонки вместо того, чтобы её распирать. */
 .doc code{overflow-wrap:anywhere}
 .toc{position:sticky;top:88px;align-self:start;max-height:calc(100vh - 120px);overflow:auto}
 .toc nav{display:flex;flex-direction:column;gap:9px}
@@ -655,46 +319,23 @@ td.pay{color:var(--ac);font-weight:700}
 .foot-bottom{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:var(--gap2);padding-top:var(--in);border-top:1px solid var(--line);font-size:13px}
 .foot-code{font-size:12px}
 
-/* ДВИЖЕНИЕ НА САЙТЕ, И ЕГО ЗАКОНЫ.
-   Слово владельца 07.09: «не хватает анимок появления, красивых и плавных, как
-   на дорогих сайтах». Дорогое движение — то, которое замечаешь не сразу: одна
-   кривая на весь сайт, один шаг очереди, ничего не отскакивает и не разлетается,
-   и ни один пиксель раскладки от движения не двигается.
-   Кривая одна: медленный старт, длинный выкат. Путь короткий: 14 px вверх. */
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
-/* ПЕРВЫЙ ЭКРАН ПОЯВЛЯЕТСЯ БЕЗ СКРИПТА, ОДНИМИ ПРАВИЛАМИ ВИДА. Скрипт тут был бы
-   лишним риском: он грузится в конце страницы, и до него верх успел бы мигнуть.
-   Три вещи по очереди: слова, деньги, продукт. Дальше очередь не идёт — четвёртый
-   шаг человек уже не читает как движение, а ждёт. */
 .hero-v4 .bb-tag,.hero-v4 .bb-buy,.hero-v4 .show{animation:rise .62s cubic-bezier(.22,.7,.28,1) both}
 .hero-v4 .bb-buy{animation-delay:.09s}
 .hero-v4 .show{animation-delay:.18s}
 
-/* ПОЯВЛЕНИЕ НА ПРОКРУТКЕ. Скрыт только тот блок, которому скрипт сам повесил
-   reveal-wait, то есть который в этот миг лежит ниже экрана. Без скрипта класса
-   нет, и страница обычная: ни одной строчки не пропадает. */
 .reveal-wait{opacity:0;transform:translateY(14px);will-change:opacity,transform}
 .reveal-wait.is-in{opacity:1;transform:none;transition:opacity .6s ease,transform .66s cubic-bezier(.22,.7,.28,1)}
-/* Карточки вступают по очереди шагом в полвздоха: ряд, который проявляется
-   разом, читается вспышкой, а по очереди — движением. */
 .cuts .cut:nth-child(2).reveal-wait.is-in{transition-delay:.07s}
 .cuts .cut:nth-child(3).reveal-wait.is-in{transition-delay:.14s}
 .cuts .cut:nth-child(4).reveal-wait.is-in{transition-delay:.21s}
-/* Строки описи идут волной шагом 40 мс: десять строк укладываются в треть
-   секунды, и это читается одним движением, а не десятью. */
 .cells li:nth-child(2).reveal-wait.is-in{transition-delay:.04s}.cells li:nth-child(3).reveal-wait.is-in{transition-delay:.08s}.cells li:nth-child(4).reveal-wait.is-in{transition-delay:.12s}.cells li:nth-child(5).reveal-wait.is-in{transition-delay:.16s}.cells li:nth-child(6).reveal-wait.is-in{transition-delay:.20s}.cells li:nth-child(7).reveal-wait.is-in{transition-delay:.24s}.cells li:nth-child(8).reveal-wait.is-in{transition-delay:.28s}.cells li:nth-child(9).reveal-wait.is-in{transition-delay:.32s}.cells li:nth-child(10).reveal-wait.is-in{transition-delay:.36s}
 
-/* НАЖАТИЕ КНОПКИ ВИДНО. Кнопка, которая не отвечает на палец, читается
-   картинкой. Один пиксель вниз — ровно столько, чтобы почувствовать, и ровно
-   столько, чтобы не заметить. */
 .btn{transition:background .15s ease,border-color .15s ease,color .15s ease,transform .08s ease}
 .btn:active{transform:translateY(1px)}
-/* Наведение на карточку светлит только рамку. Подъём карточки обещал бы, что по
-   ней можно нажать, а нажимать тут нечего. */
 .cut{transition:border-color .25s ease}
 .cut:hover{border-color:rgba(255,255,255,.16)}
-/* Тень у шапки появляется, когда страница уехала под неё, и уходит наверху. */
 .top{transition:box-shadow .25s ease}
 .top.is-stuck{box-shadow:0 12px 30px rgba(0,0,0,.45)}
 @media (prefers-reduced-motion:reduce){
@@ -702,10 +343,6 @@ td.pay{color:var(--ac);font-weight:700}
   .btn:active{transform:none}
 }
 
-/* СМЕНА ЦЕНЫ ПРИ ВЫБОРЕ СРОКА. Число меняется мгновенно, и без движения это
-   читается сбоем показа, а не ответом на нажатие. Шесть пикселей и четверть
-   секунды: раскладка при этом не двигается вовсе — путь идёт трансформацией,
-   а место под строку выгоды занято заранее. */
 @keyframes swap{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .pp-money.is-swap .p-price,.pp-money.is-swap .p-days,.pp-money.is-swap .p-cheap{animation:swap .26s cubic-bezier(.22,.7,.28,1) both}
 
@@ -716,16 +353,11 @@ td.pay{color:var(--ac);font-weight:700}
 }
 
 @media (max-width:900px){
-  /* На узком экране ритм меньше, но он ОДИН: числа по-прежнему идут из корня,
-     а не расставляются заново по месту. */
   :root{--gap:48px;--gap2:24px;--in:20px;--in2:10px}
   .hero{padding:var(--gap2) 0 0}
   .hero h1{font-size:38px}
   .hero .lede{font-size:17px}
   .hero-sm h1{font-size:30px}
-  /* На узком экране все три варианта складываются в одну колонку и жмутся
-     ВЛЕВО: прижатое вправо уезжало за край экрана. Порядок везде один —
-     слова, потом продукт. */
   .hero h1{max-width:none;font-size:34px}
   .hero-v1 .hero-top{flex-direction:column;align-items:stretch;gap:var(--in)}
   .under{flex-direction:column;align-items:flex-start}
@@ -735,33 +367,13 @@ td.pay{color:var(--ac);font-weight:700}
   .hero-v3 .brandband{flex-direction:column;align-items:stretch}
   .hero-v3 .bb-right{align-items:stretch}
   .hero-v3 .bb-right .hero-sell{text-align:left}
-  /* V2 на телефоне: колонки складываются, и строка «Появилось» уезжает ПОД
-     раму. Иначе над продуктом встают три текстовых ряда вместо двух — ровно та
-     «статья», от которой лечим (§8.5 отчёта D4). Замерено: на 390 без этого
-     прибор показывал h1, строку цены и «Появилось» над рамой. */
-  /* Оговорка «не скрытая» тут обязательна. Правило .panel[hidden] той же
-     силы, а это стоит в стилях ниже — и без оговорки оно возвращало на экран
-     ВСЕ четыре вкладки разом. Поймано кадром 390, а не тестом.
-     И да: обратная кавычка внутри этого пояснения обрывает шаблонную строку
-     стилей — сборка падает на «Unexpected token». Проверено собой. */
   .hero-v2 .panel:not([hidden]){display:flex;flex-direction:column}
-  /* V4 на телефоне: те же четыре группы, но столбиком и по левому краю.
-     ОТДЕЛЬНО про ряд вкладок. Правило .hero-v4 .show-bar сильнее, чем
-     .show-bar в этом же медиазапросе, и его align-items:flex-end побеждал на
-     ЛЮБОЙ ширине: пара «Без · С» переставала растягиваться, жалась вправо и
-     ломала «Без ESHArio» на две строки внутри кнопки высотой 32. Поймано
-     кадром 390. Та же ловушка, что с .panel[hidden] в V2: своё правило с
-     именем варианта незаметно отменяет общее правило телефона. */
   .hero-v4 .brandband{align-items:stretch}
   .hero-v4 .bb-tag{font-size:36px;padding-left:0;border-left:0}
-  /* На телефоне группа денег занимает всю ширину и жмётся ВЛЕВО, как заголовок.
-     margin-left:auto из базы прижимал её вправо, и кнопка висела в углу. */
   .hero-v4 .bb-buy{margin-left:0;width:100%}
   .hero-v4 .acts{flex:1}
   .hero-v4 .acts{width:100%}
   .hero-v4 .bb-mark span{font-size:26px}
-  /* Факты столбиком: три в ряд на 390 не помещаются, а черта слева у первого
-     в столбце читается обрывком. */
   .hero-v4 .show-bar{align-items:stretch}
   .hero-v4 .ab button{height:38px;padding:0 10px}
   .hero-v4 .tabs button{height:36px}
@@ -772,23 +384,15 @@ td.pay{color:var(--ac);font-weight:700}
   .ab-side{justify-content:space-between}
   .ab{flex:1}
   .ab button{flex:1}
-  /* Телефон: знак, «Купить ключ», бургер (дописка 6, шаг 1). Язык уезжает
-     внутрь бургера — в 390 px он отнимал место у кнопки покупки. */
   .nav,.top-right .lang{display:none}
   .burger{display:flex;margin-left:auto}
   .top-in{gap:0 14px}
   .frame-url .navs{display:none}
   .sec h2,.split-h h2{font-size:28px}
-  /* На телефоне карточки идут столбиком, и область кадра ниже: 260 px из
-     четырёх карточек делали простыню в четыре экрана. */
   .cut-shot img{max-height:200px}
 
   .split{grid-template-columns:1fr;gap:var(--in)}
   .split-h{position:static}
-  /* НА ТЕЛЕФОНЕ РЯДЫ СКЛАДЫВАЮТСЯ В СТОЛБИК ПОРЯДКОМ КЛЕТОК, А НЕ ПОРЯДКОМ В
-     РАЗМЕТКЕ. В одну колонку клетки легли бы вперемешку: заголовок бесплатного,
-     заголовок премиума, ноль рублей, цена премиума. Порядок ставит сперва всё
-     бесплатное, потом весь премиум, а черта между ними меняет сторону. */
   .price-panel{grid-template-columns:1fr}
   .pp-a{border-right:0}
   .pp-a.pp-1{order:1}
@@ -803,18 +407,11 @@ td.pay{color:var(--ac);font-weight:700}
   .termpick{width:100%}
   .termpick button{flex:1}
   .prem-list,.cells{grid-template-columns:1fr}
-  /* Четыре колонки на телефоне складываются в одну ЯВНО. Правило .plans-4
-     стоит в стилях ниже общего .plans и без этой строки победило бы здесь:
-     та же ловушка, что дважды поймала эту линию на .panel[hidden] и
-     .hero-v4 .show-bar. */
   .plans,.plans-4,.contacts,.two,.flist,.price-notes,.foot-grid{grid-template-columns:1fr}
   .faq{grid-template-columns:1fr}
   .hero h1{max-width:none}
   .sec.windows .cuts{grid-template-columns:1fr;gap:20px}
   .two,.foot-grid{gap:28px}
-  /* На телефоне содержание встаёт НАД документом, и просвет между ними тот
-     же, что между разделами главной: 24 px читались как «список прилип к
-     заголовку». */
   .doc-in{grid-template-columns:minmax(0,1fr);gap:var(--gap)}
   .toc{position:static;max-height:none}
   .price .big{font-size:36px}
@@ -822,10 +419,6 @@ td.pay{color:var(--ac);font-weight:700}
   .kv dt{flex:0 0 auto}
 }
 
-/* СТРАНИЦА ПАРОЛЯ. Форма в колонке шириной с текст: на 390 поля тянутся во всю
-   ширину и боковой прокрутки не дают, на широком экране не разъезжаются по
-   всей странице. Скрытые состояния держатся правилом ниже: без него любое
-   правило с display на .pw-msg победило бы hidden браузера. */
 [hidden]{display:none!important}
 .pw-box{max-width:420px}
 .pw-form{display:flex;flex-direction:column;gap:6px}
@@ -839,10 +432,6 @@ td.pay{color:var(--ac);font-weight:700}
 .pw-ok{margin:0 0 8px}
 .pw-safety{margin-top:28px;max-width:70ch}
 
-/* НАСТОЯЩИЙ ТЕЛЕФОН, 390 px. Подпись «Нажмите и сравните» стоит в одной строке
-   с парой «Без · С» и не переносится: на 390 пара вылезала за край панели, и
-   кнопка «С ESHArio» обрезалась. Кадром это видно только в честной рамке 390 —
-   окно Chrome на Windows ниже ~504 px не сжимается. */
 @media (max-width:560px){
   .ab-side{flex-direction:column;align-items:stretch;gap:10px}
   .hero h1{font-size:30px}
