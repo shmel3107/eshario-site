@@ -1,2 +1,0 @@
-# eshario-site
-eshario.com
