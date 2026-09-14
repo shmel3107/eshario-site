@@ -82,8 +82,6 @@
       if(buy){
         var msg=one.getAttribute('data-msg');
         if(msg&&buy.classList.contains('tgbuy')){buy.setAttribute('data-msg',msg);buy.href=tgText(buy,promoCode)}
-        var href=one.getAttribute('data-payhref');
-        if(href&&buy.classList.contains('pay')){buy.setAttribute('data-href',href);buy.href=href+(promoCode?'&promo='+encodeURIComponent(promoCode):'')}
       }
     }
     buttons.forEach(function(one){one.addEventListener('click',function(){
@@ -112,21 +110,12 @@
     document.body.classList.add('promo-on');
     if(homeHint)homeHint.textContent=homeHint.getAttribute('data-done');
   });
-  var consents=[].slice.call(document.querySelectorAll('.consent input[type="checkbox"]'));
-  var pays=[].slice.call(document.querySelectorAll('a.pay'));
-  function unticked(){for(var i=0;i<consents.length;i+=1){if(!consents[i].checked)return consents[i]}return null}
-  function sync(){var ok=!unticked();pays.forEach(function(a){a.setAttribute('aria-disabled',ok?'false':'true')});}
-  if(consents.length){consents.forEach(function(c){c.addEventListener('change',sync)});sync()}
-  pays.forEach(function(a){a.addEventListener('click',function(e){
-    if(a.getAttribute('aria-disabled')==='true'){e.preventDefault();var c=unticked();if(c){c.focus();c.closest('.consent').classList.add('nudge')}}
-  })});
   var buyForm=document.getElementById('promo');
   var buyHint=document.getElementById('promo-hint');
   function applyBuy(v){
-    if(!v){document.body.classList.remove('promo-on');fillPromo('');pays.forEach(function(a){a.href=a.getAttribute('data-href')});syncTg('');writeStore('');if(buyHint)buyHint.textContent=buyHint.getAttribute('data-idle');return}
+    if(!v){document.body.classList.remove('promo-on');fillPromo('');syncTg('');writeStore('');if(buyHint)buyHint.textContent=buyHint.getAttribute('data-idle');return}
     fillPromo(v);
     document.body.classList.add('promo-on');
-    pays.forEach(function(a){a.href=a.getAttribute('data-href')+'&promo='+encodeURIComponent(v)});
     syncTg(v);
     writeStore(v);
     if(buyHint)buyHint.textContent=buyHint.getAttribute('data-done');

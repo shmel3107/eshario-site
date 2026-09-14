@@ -435,6 +435,17 @@ td.pay{color:var(--ac);font-weight:700}
 .pw-ok{margin:0 0 8px}
 .pw-safety{margin-top:28px;max-width:70ch}
 
+.checkout{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:var(--in) 0 0}
+.checkout label{font-size:14px;color:var(--dim)}
+.checkout input{flex:1 1 260px;max-width:360px;min-width:0;height:48px;padding:0 14px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:var(--s1);color:var(--tx);font:inherit;font-size:15px}
+.checkout input::placeholder{color:#68738A}
+.checkout input:focus{outline:2px solid rgba(61,216,255,.4);outline-offset:1px}
+.checkout .hint{flex-basis:100%;margin:2px 0 0}
+.pay-line{margin:var(--in2) 0 0}
+.say-calm{color:var(--dim)}
+.ord-no{margin:0 0 10px;color:var(--dim);font-size:15px}
+.ord-no b{color:var(--tx);font-weight:600;letter-spacing:.01em}
+
 @media (max-width:560px){
   .ab-side{flex-direction:column;align-items:stretch;gap:10px}
   .hero h1{font-size:30px}

@@ -10,6 +10,8 @@
 <link rel="alternate" hreflang="en" href="../en/buy/">
 <link rel="stylesheet" href="../fonts/fonts.css">
 <link rel="stylesheet" href="../site.css">
+<meta http-equiv="Content-Security-Policy" content="script-src-elem 'self' https://merchant.intellectmoney.ru https://tracker.pub.intellectmoney.ru 'unsafe-inline';">
+<script async src="https://merchant.intellectmoney.ru/im.tracker.js?organizationId=75492"></script>
 </head>
 <body>
 <header class="top"><div class="wrap top-in">
@@ -30,12 +32,13 @@
 <div class="pp-cell pp-a pp-3"><ul class="free-list"><li>Вход в вебап в один шаг</li><li>Подсчёт налога с продаж</li><li>Шапка ESHArio со счётчиками</li><li>Горячие клавиши для навигации</li><li>Закрытие повторных объявлений</li><li>Поиск в выпадающих меню</li></ul></div>
 <div class="pp-cell pp-b pp-3"><ul class="prem-list"><li>Решатель SBC (задания на сборку составов)</li><li>Покупка карты прямо из экрана сборки</li><li>Отображение цен над карточками</li><li>Удобные списки по всей вебке</li><li>Склад паков (наборов карт) сеткой</li><li>Сохранённые фильтры поиска</li></ul></div>
 <div class="pp-cell pp-a pp-4"><a class="btn btn-ghost" href="https://chromewebstore.google.com/detail/kjnnhmiheifbmlonjofikekecgboanjc" target="_blank" rel="noopener">Установить</a></div>
-<div class="pp-cell pp-b pp-4"><a class="btn btn-ghost tgbuy pp-buy" href="https://t.me/eshaboost?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BA%D0%BB%D1%8E%D1%87%20ESHArio%20%D0%BD%D0%B0%201%20%D0%BC%D0%B5%D1%81%D1%8F%D1%86" data-msg="Хочу ключ ESHArio на 1 месяц" data-promo-word=", промокод " data-tg="https://t.me/eshaboost" target="_blank" rel="noopener"><span>Получить ключ</span></a></div>
+<div class="pp-cell pp-b pp-4"><button class="btn btn-main pay pp-buy" id="buy-go" type="submit" form="buy-form" data-wait="Проверяем…">Оплатить</button></div>
 </div>
-<p class="paysoon-line">Кнопка оплаты появится здесь после подключения платёжного партнёра. Вопросы: support@eshario.com</p>
-<form class="promo" id="promo" autocomplete="off" data-applied-tpl="Промокод {code} применён"><label for="code">Промокод</label><input id="code" name="code" type="text" placeholder="Промокод" maxlength="32" spellcheck="false"><button class="btn btn-ghost" type="submit">Применить</button></form>
-<p class="hint" id="promo-hint" data-idle="Есть промокод? Введите его, и цена пересчитается." data-done="Цена с промокодом показана у каждого срока. Код уйдёт с вами на страницу оплаты, там его проверят.">Есть промокод? Введите его, и цена пересчитается.</p>
 
+<form class="checkout" id="buy-form" novalidate data-api="https://api.eshario.com" data-action="https://merchant.intellectmoney.ru/v2/" data-lang="ru" data-offer="14 сентября 2026" data-privacy="14 сентября 2026"><label for="buy-email">Почта</label><input id="buy-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="100" spellcheck="false" placeholder="you@example.com"><p class="hint">На неё придёт доступ и письмо со ссылкой задать пароль.</p></form>
+<form class="promo" id="promo" autocomplete="off" data-applied-tpl="Промокод {code} применён"><label for="code">Промокод</label><input id="code" name="code" type="text" placeholder="Промокод" maxlength="32" spellcheck="false"><button class="btn btn-ghost" type="submit">Применить</button></form>
+<p class="hint" id="promo-hint" data-idle="Есть промокод? Введите его, и цена пересчитается." data-done="Цена с промокодом показана у каждого срока. Код проверится, когда вы нажмёте «Оплатить».">Есть промокод? Введите его, и цена пересчитается.</p>
+<div class="consent-wrap"><label class="consent"><input type="checkbox" id="consent-1"><span>Принимаю публичную оферту, пользовательское соглашение и политику возвратов.</span></label><label class="consent"><input type="checkbox" id="consent-2"><span>Прошу выдать ключ сразу после оплаты и понимаю, что с момента выдачи право на отказ в 14 дней прекращается.</span></label><p class="note">Оплата на странице платёжного партнёра. Карту мы не видим.</p><p class="note pay-line">Нажимая «Оплатить», вы принимаете <a href="../offer/">оферту</a> и <a href="../privacy/">политику конфиденциальности</a>.</p></div><div class="buy-say" aria-live="polite"><p class="pw-msg" id="buy-emailBad" hidden>Впишите почту целиком: на неё придёт доступ.</p><p class="pw-msg" id="buy-consent" hidden>Отметьте обе галочки выше: без них оплата не начнётся.</p><p class="pw-msg say-calm" id="buy-checking" hidden>Платёжный партнёр проверяет данные перед оплатой. Иногда он просит пройти короткую проверку.</p><p class="pw-msg" id="buy-checkingSlow" hidden>Проверка идёт дольше обычного. Если окно проверки не появилось, нажмите «Оплатить» ещё раз.</p><p class="pw-msg say-calm" id="buy-making" hidden>Готовим счёт…</p><p class="pw-msg say-calm" id="buy-going" hidden>Переходим на страницу оплаты…</p><p class="pw-msg" id="buy-trackerFail" hidden>Проверка не пройдена. Попробуйте ещё раз или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-promoUnknown" hidden>Промокод не подошёл, цена показана без него. Нажмите «Оплатить» ещё раз или исправьте код.</p><p class="pw-msg" id="buy-busy" hidden>Слишком много попыток подряд. Подождите несколько минут и попробуйте снова.</p><p class="pw-msg" id="buy-closed" hidden>Оплата сейчас недоступна. Попробуйте позже или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-offline" hidden>Нет связи с сервером. Проверьте интернет и нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-failed" hidden>Не получилось создать заказ. Попробуйте ещё раз или напишите в поддержку: support@eshario.com.</p></div><noscript><p class="pw-msg">Для оплаты нужен включённый JavaScript.</p></noscript>
 </div></section>
 
 <section class="sec"><div class="wrap two">
@@ -57,6 +60,162 @@
 <div class="foot-bottom"><span>© 2026 ESHArio</span><span>Реквизиты продавца по запросу: <a href="mailto:support@eshario.com">support@eshario.com</a></span></div>
 </div></footer>
 <script src="../site.js"></script>
+<script>(function(){
+  var form=document.getElementById('buy-form');
+  var go=document.getElementById('buy-go');
+  var email=document.getElementById('buy-email');
+  if(!form||!go||!email)return;
+  var label=go.textContent;
+  var api=form.getAttribute('data-api');
+  var action=form.getAttribute('data-action');
+  var names=['emailBad','consent','checking','checkingSlow','making','going','trackerFail','promoUnknown','busy','closed','offline','failed'];
+  var say=function(name){
+    names.forEach(function(one){
+      var node=document.getElementById('buy-'+one);
+      if(node)node.hidden=(one!==name);
+    });
+  };
+  var norm=function(v){return String(v||'').trim().toLowerCase()};
+  var good=function(v){return v.length<=100&&/^[^@\s]{1,64}@[^@\s]{1,190}\.[^@\s.]{2,63}$/.test(v)};
+  var tracker=function(){
+    var t=window.IM&&window.IM.Tracker;
+    return t&&typeof t.setUserID==='function'&&typeof t.forceFlushWithCallback==='function'?t:null;
+  };
+  var waitTracker=function(done){
+    var tries=0;
+    (function look(){
+      var t=tracker();
+      if(t||tries>=20){done(t);return}
+      tries+=1;
+      window.setTimeout(look,250);
+    })();
+  };
+  email.addEventListener('change',function(){
+    var v=norm(email.value);
+    var t=tracker();
+    if(t&&good(v)){try{t.setUserID(v)}catch(err){}}
+  });
+  var consents=[].slice.call(document.querySelectorAll('.consent input[type="checkbox"]'));
+  var unticked=function(){for(var i=0;i<consents.length;i+=1){if(!consents[i].checked)return consents[i]}return null};
+  var term=function(){var on=document.querySelector('[data-termpick] [aria-pressed="true"]');return on?on.getAttribute('data-term'):'m1'};
+  var promo=function(){var input=document.getElementById('code');return document.body.classList.contains('promo-on')&&input?input.value.trim():''};
+  var free=function(){go.disabled=false;go.textContent=label};
+  var hold=function(){go.disabled=true;go.textContent=go.getAttribute('data-wait')};
+  var hex=function(buf){return [].map.call(new Uint8Array(buf),function(b){return ('0'+b.toString(16)).slice(-2)}).join('')};
+  var consentHash=function(){
+    var text=JSON.stringify({
+      offer:form.getAttribute('data-offer'),
+      privacy:form.getAttribute('data-privacy'),
+      lang:form.getAttribute('data-lang'),
+      consents:consents.map(function(c){return c.parentNode.textContent.trim()})
+    });
+    return window.crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)).then(hex);
+  };
+  var post=function(fields){
+    var f=document.createElement('form');
+    f.method='POST';
+    f.action=action;
+    f.acceptCharset='UTF-8';
+    f.hidden=true;
+    Object.keys(fields).forEach(function(k){
+      var input=document.createElement('input');
+      input.type='hidden';
+      input.name=k;
+      input.value=String(fields[k]);
+      f.appendChild(input);
+    });
+    document.body.appendChild(f);
+    f.submit();
+  };
+  var dropPromo=function(){
+    var input=document.getElementById('code');
+    var promoForm=document.getElementById('promo');
+    if(input)input.value='';
+    if(promoForm)promoForm.dispatchEvent(new Event('submit',{cancelable:true}));
+  };
+  var round=0;
+  var order=function(v,mine){
+    say('making');
+    consentHash().then(function(hash){
+      return window.fetch(api+'/v1/orders',{
+        method:'POST',
+        credentials:'omit',
+        headers:{'content-type':'application/json'},
+        body:JSON.stringify({
+          email:v,
+          plan:term(),
+          promo:promo(),
+          lang:form.getAttribute('data-lang'),
+          offerVersion:form.getAttribute('data-offer'),
+          privacyVersion:form.getAttribute('data-privacy'),
+          consentHash:hash
+        })
+      });
+    }).then(function(r){
+      return r.json().then(function(b){return {status:r.status,body:b}},function(){return {status:r.status,body:{}}});
+    }).then(function(res){
+      if(mine!==round)return;
+      var b=res.body||{};
+      if(res.status===201&&b.orderId&&b.form&&b.form.action===action){
+        try{window.sessionStorage.setItem('eshario_order',b.orderId)}catch(err){}
+        say('going');
+        post(b.form.fields);
+        return;
+      }
+      if(res.status===422){dropPromo();say('promoUnknown')}
+      else if(res.status===429)say('busy');
+      else if(res.status===503)say('closed');
+      else if(res.status===400&&b.reason==='bad-email')say('emailBad');
+      else say('failed');
+      free();
+    },function(){
+      if(mine!==round)return;
+      say('offline');
+      free();
+    });
+  };
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+    var v=norm(email.value);
+    if(!good(v)){say('emailBad');email.focus();return}
+    var c=unticked();
+    if(c){
+      say('consent');
+      c.focus();
+      var box=c.closest('.consent');
+      if(box)box.classList.add('nudge');
+      return;
+    }
+    round+=1;
+    var mine=round;
+    hold();
+    say('checking');
+    waitTracker(function(t){
+      if(mine!==round)return;
+      if(!t){say('trackerFail');free();return}
+      var slow=window.setTimeout(function(){if(mine===round){say('checkingSlow');free()}},20000);
+      try{
+        t.setUserID(v);
+        t.forceFlushWithCallback(function(){
+          window.clearTimeout(slow);
+          if(mine!==round)return;
+          hold();
+          order(v,mine);
+        },function(){
+          window.clearTimeout(slow);
+          if(mine!==round)return;
+          say('trackerFail');
+          free();
+        });
+      }catch(err){
+        window.clearTimeout(slow);
+        say('trackerFail');
+        free();
+      }
+    });
+  });
+  window.addEventListener('pageshow',function(event){if(event.persisted){round+=1;say('');free()}});
+})();</script>
 
 </body>
 </html>

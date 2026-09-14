@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ваш заказ ESHArio</title>
+<meta name="description" content="Статус заказа ESHArio после оплаты.">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="../assets/icon-64.png" type="image/png">
+<link rel="alternate" hreflang="en" href="../en/order/">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="../site.css">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Content-Security-Policy" content="script-src-elem 'self' https://merchant.intellectmoney.ru https://tracker.pub.intellectmoney.ru 'unsafe-inline';">
+<script async src="https://merchant.intellectmoney.ru/im.tracker.js?organizationId=75492"></script>
+</head>
+<body>
+<header class="top"><div class="wrap top-in">
+<a class="brand" href="../"><img src="../assets/icon-64.png" alt="" width="28" height="28"><span>ESHArio</span></a>
+<nav class="nav" aria-label="Разделы"><a href="../buy/">Купить ключ</a><a href="https://chromewebstore.google.com/detail/kjnnhmiheifbmlonjofikekecgboanjc" target="_blank" rel="noopener">Установить</a><a href="../partners/">Партнёрам</a><a href="../support/">Поддержка</a></nav>
+<div class="top-right"><a class="lang" href="../en/order/" hreflang="en" title="English version">EN</a></div>
+<details class="burger"><summary title="Разделы" aria-label="Разделы"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><nav class="burger-menu" aria-label="Разделы"><a href="../buy/">Купить ключ</a><a href="https://chromewebstore.google.com/detail/kjnnhmiheifbmlonjofikekecgboanjc" target="_blank" rel="noopener">Установить</a><a href="../partners/">Партнёрам</a><a href="../support/">Поддержка</a><a class="burger-lang" href="../en/order/" hreflang="en" title="English version">EN</a></nav></details>
+</div></header>
+<main>
+<section class="hero hero-sm"><div class="wrap"><h1>Ваш заказ</h1><p class="lede">Здесь видно, дошла ли оплата. Страница обновляется сама.</p></div></section>
+
+<section class="sec first"><div class="wrap">
+<div class="pw-box ord-box" id="ord" data-api="https://api.eshario.com" aria-live="polite">
+<p class="ord-no" id="ord-no" hidden>Заказ <b id="ord-id"></b></p>
+<p class="pw-msg say-calm" id="ord-wait" hidden>Ждём подтверждения оплаты от платёжного партнёра. Обычно это меньше минуты.</p>
+<p class="pw-msg say-calm" id="ord-slow" hidden>Подтверждение ещё не пришло. Если деньги списались, доступ придёт письмом, как только партнёр подтвердит оплату. Письма нет через час: напишите в поддержку с номером заказа.</p>
+<div class="pw-done" id="ord-paid" hidden><p class="pw-ok"><b>Оплата принята.</b> Письмо отправлено на <b class="ord-hint"></b>. Если его нет во входящих, загляните в «Спам».</p><p class="note">Дальше: поставьте расширение и войдите по почте и паролю из письма. <a href="https://chromewebstore.google.com/detail/kjnnhmiheifbmlonjofikekecgboanjc" target="_blank" rel="noopener">Установить</a></p></div>
+<div class="pw-done" id="ord-late" hidden><p class="pw-ok"><b>Оплата принята.</b> Письмо задерживается. Если его нет через 10 минут, напишите в поддержку с номером заказа.</p><p class="note">Дальше: поставьте расширение и войдите по почте и паролю из письма. <a href="https://chromewebstore.google.com/detail/kjnnhmiheifbmlonjofikekecgboanjc" target="_blank" rel="noopener">Установить</a></p></div>
+<div id="ord-failed" hidden><p class="pw-msg">Оплата не прошла. Деньги не списаны, можно попробовать снова.</p><p class="cta"><a class="btn btn-main" href="../buy/">Вернуться к покупке</a></p></div>
+<p class="pw-msg say-calm" id="ord-refunded" hidden>По этому заказу оформлен возврат.</p>
+<p class="pw-msg" id="ord-notFound" hidden>Заказ не найден. Откройте эту страницу по ссылке после оплаты или напишите в поддержку.</p>
+<p class="pw-msg" id="ord-offline" hidden>Нет связи с сервером. Страница попробует ещё раз.</p>
+<noscript><p class="pw-msg">Чтобы увидеть статус заказа, нужен включённый JavaScript. Письмо о покупке придёт в любом случае.</p></noscript>
+</div>
+<p class="note pw-safety">Вопросы: support@eshario.com, укажите номер заказа.</p>
+</div></section>
+</main>
+<footer class="foot"><div class="wrap">
+<div class="foot-grid">
+<div><h4>Правовое</h4><ul><li><a href="../offer/">Публичная оферта</a></li><li><a href="../terms/">Пользовательское соглашение</a></li><li><a href="../refunds/">Политика возвратов</a></li><li><a href="../privacy/">Конфиденциальность</a></li><li><a href="../partners/terms/">Условия партнёрской программы</a></li></ul></div>
+<div><h4>Поддержка</h4><ul><li><a href="https://chromewebstore.google.com/detail/kjnnhmiheifbmlonjofikekecgboanjc" target="_blank" rel="noopener">Установить расширение</a></li><li><a href="mailto:support@eshario.com">support@eshario.com</a></li><li><a href="https://t.me/eshaboost" target="_blank" rel="noopener">Поддержка в Telegram</a></li><li><a href="../support/">Страница поддержки</a></li></ul></div>
+<div><h4>Мы и EA</h4><p>Данные игроков и материалы игры принадлежат EA Sports. Сайт и расширение не связаны с EA Sports.</p><p>EA SPORTS FC является товарным знаком Electronic Arts Inc.</p><p class="foot-rights">Правообладателям: <a href="mailto:support@eshario.com">support@eshario.com</a></p><p class="foot-code">Код проверки: PlaVER</p></div>
+</div>
+<div class="foot-bottom"><span>© 2026 ESHArio</span><span>Реквизиты продавца по запросу: <a href="mailto:support@eshario.com">support@eshario.com</a></span></div>
+</div></footer>
+<script src="../site.js"></script>
+<script>(function(){
+  var box=document.getElementById('ord');
+  if(!box)return;
+  var api=box.getAttribute('data-api');
+  var names=['wait','slow','paid','late','failed','refunded','notFound','offline'];
+  var show=function(name){
+    names.forEach(function(one){
+      var node=document.getElementById('ord-'+one);
+      if(node)node.hidden=(one!==name);
+    });
+  };
+  var id='';
+  try{id=new URLSearchParams(window.location.search).get('id')||''}catch(err){id=''}
+  if(!id){try{id=window.sessionStorage.getItem('eshario_order')||''}catch(err){id=''}}
+  if(!/^ord_[A-Za-z0-9_-]{16}$/.test(id)){show('notFound');return}
+  document.getElementById('ord-id').textContent=id;
+  document.getElementById('ord-no').hidden=false;
+  var started=Date.now();
+  var again=function(){
+    if(Date.now()-started<120000){window.setTimeout(ask,5000);return true}
+    return false;
+  };
+  var ask=function(){
+    window.fetch(api+'/v1/orders/'+id+'/status',{credentials:'omit'}).then(function(r){
+      if(r.status===404)return {status:'missing'};
+      if(!r.ok)throw new Error('status');
+      return r.json();
+    }).then(function(b){
+      if(b.status==='missing'){show('notFound');return}
+      if(b.status==='paid'){
+        [].slice.call(document.querySelectorAll('.ord-hint')).forEach(function(node){node.textContent=String(b.hint||'')});
+        if(b.mailed){
+          show('paid');
+          try{window.sessionStorage.removeItem('eshario_order')}catch(err){}
+          return;
+        }
+        show('late');
+        again();
+        return;
+      }
+      if(b.status==='refunded'){show('refunded');return}
+      if(b.status==='cancelled'){show('failed');return}
+      if(again())show('wait');else show('slow');
+    },function(){
+      if(again())show('offline');else show('slow');
+    });
+  };
+  show('wait');
+  ask();
+})();</script>
+
+</body>
+</html>
