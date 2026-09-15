@@ -63,6 +63,11 @@
     var strong=document.createElement('b');strong.textContent=pct;box.appendChild(strong);
     box.appendChild(document.createTextNode(parts[1]||''));
   }
+  var promoState={code:'',plans:null};
+  var moneyText=function(n){
+    var en=String(document.documentElement.getAttribute('lang')||'').slice(0,2)==='en';
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,en?',':'\u00a0')+'\u00a0\u20bd';
+  };
   var picks=[].slice.call(document.querySelectorAll('[data-termpick]'));
   picks.forEach(function(pick){
     var box=pick.closest('.price-panel');
@@ -70,7 +75,7 @@
     var money=box.querySelector('.pp-money');
     if(!money)return;
     var priceEl=money.querySelector('.p-price'),daysEl=money.querySelector('.p-days');
-    var cheapEl=money.querySelector('.p-cheap'),codeEl=money.querySelector('.p-code b');
+    var cheapEl=money.querySelector('.p-cheap');
     var buy=box.querySelector('.pp-buy');
     var buttons=[].slice.call(pick.querySelectorAll('button'));
     function show(one,moved){
@@ -78,7 +83,7 @@
       if(priceEl)priceEl.textContent=one.getAttribute('data-list');
       if(daysEl)daysEl.textContent=one.getAttribute('data-days');
       fillCheap(cheapEl,one.getAttribute('data-cheap'));
-      if(codeEl&&codeEl.textContent)codeEl.textContent=one.getAttribute('data-promo');
+      fillPromo();
       if(buy){
         var msg=one.getAttribute('data-msg');
         if(msg&&buy.classList.contains('tgbuy')){buy.setAttribute('data-msg',msg);buy.href=tgText(buy,promoCode)}
@@ -92,40 +97,77 @@
     if(on)show(on);
     pick.setAttribute('data-live','1');
   });
-  function fillPromo(v){
+  function fillPromo(){
     picks.forEach(function(pick){
       var box=pick.closest('.price-panel');if(!box)return;
-      var codeEl=box.querySelector('.pp-money .p-code b');
+      var code=box.querySelector('.pp-money .p-code');
+      var codeEl=code&&code.querySelector('b');
       var on=pick.querySelector('[aria-pressed="true"]');
-      if(codeEl)codeEl.textContent=v&&on?on.getAttribute('data-promo'):'';
+      var price=promoState.plans&&on?promoState.plans[on.getAttribute('data-term')]:null;
+      if(codeEl)codeEl.textContent=price?moneyText(price.amount):'';
+      if(code)code.classList.toggle('p-code-off',!price);
     });
   }
-  var homeForm=document.querySelector('.price form[data-promo]');
-  var homeHint=document.querySelector('.price [data-promo-hint]');
-  if(homeForm)homeForm.addEventListener('submit',function(e){
-    e.preventDefault();
-    var v=homeForm.code.value.trim();
-    if(!v){document.body.classList.remove('promo-on');fillPromo('');if(homeHint)homeHint.textContent=homeHint.getAttribute('data-idle');return}
-    fillPromo(v);
-    document.body.classList.add('promo-on');
-    if(homeHint)homeHint.textContent=homeHint.getAttribute('data-done');
-  });
+  function setPromo(code,plans){
+    promoState.code=code;
+    promoState.plans=plans;
+    var body=document.body;
+    if(code&&plans){
+      body.classList.add('promo-on');
+      body.setAttribute('data-promo-code',code);
+      body.setAttribute('data-promo-plans',Object.keys(plans).filter(function(k){return plans[k]}).join(','));
+    }else{
+      body.classList.remove('promo-on');
+      body.removeAttribute('data-promo-code');
+      body.removeAttribute('data-promo-plans');
+    }
+    fillPromo();
+  }
   var buyForm=document.getElementById('promo');
   var buyHint=document.getElementById('promo-hint');
+  var asking=0;
+  function hint(key,code){
+    if(!buyHint)return;
+    buyHint.textContent=String(buyHint.getAttribute('data-'+key)||'').replace('{code}',code||'');
+  }
   function applyBuy(v){
-    if(!v){document.body.classList.remove('promo-on');fillPromo('');syncTg('');writeStore('');if(buyHint)buyHint.textContent=buyHint.getAttribute('data-idle');return}
-    fillPromo(v);
-    document.body.classList.add('promo-on');
-    syncTg(v);
-    writeStore(v);
-    if(buyHint)buyHint.textContent=buyHint.getAttribute('data-done');
+    var code=String(v||'').trim().toLowerCase().slice(0,32);
+    var mine=asking+=1;
+    if(!code){setPromo('',null);syncTg('');writeStore('');hint('idle');return}
+    var api=buyForm&&buyForm.getAttribute('data-api');
+    if(!api||!window.fetch){setPromo('',null);hint('fail');return}
+    hint('wait');
+    window.fetch(api+'/v1/price?promo='+encodeURIComponent(code),{credentials:'omit'}).then(function(r){
+      return r.json().then(function(b){return {status:r.status,body:b}},function(){return {status:r.status,body:{}}});
+    }).then(function(res){
+      if(mine!==asking)return;
+      var b=res.body||{};
+      if(res.status===200&&b.ok&&b.plans){
+        var plans=b.plans;
+        var every=Object.keys(plans).every(function(k){return plans[k]});
+        setPromo(b.promo||code,plans);
+        syncTg(b.promo||code);
+        writeStore(b.promo||code);
+        hint(every?'done':'part',b.promo||code);
+      }else if(res.status===404||res.status===400){
+        setPromo('',null);
+        writeStore('');
+        hint('bad');
+      }else{
+        setPromo('',null);
+        hint('fail');
+      }
+    },function(){
+      if(mine!==asking)return;
+      setPromo('',null);
+      hint('fail');
+    });
   }
   if(buyForm){
-    buyForm.addEventListener('submit',function(e){e.preventDefault();applyBuy(buyForm.code.value.trim())});
+    buyForm.addEventListener('submit',function(e){e.preventDefault();applyBuy(buyForm.code.value)});
     if(promoCode){
       buyForm.code.value=promoCode;
       applyBuy(promoCode);
-      if(buyHint&&buyForm.getAttribute('data-applied-tpl'))buyHint.textContent=buyForm.getAttribute('data-applied-tpl').replace('{code}',promoCode);
     }
   }
 

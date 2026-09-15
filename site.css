@@ -254,6 +254,7 @@ main>section:last-of-type{padding-bottom:var(--gap)}
 .p-code{display:none;margin-top:var(--in2);color:var(--ac);font-weight:700;font-size:22px}
 .p-code small{display:block;font-size:12px;font-weight:400;color:var(--dim)}
 body.promo-on .p-code{display:block}
+body.promo-on .p-code.p-code-off{display:none}
 .plan .btn{margin-top:auto;width:100%}
 .plan .p-cheap{margin-bottom:var(--in)}
 .free-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
@@ -443,6 +444,16 @@ td.pay{color:var(--ac);font-weight:700}
 .checkout .hint{flex-basis:100%;margin:2px 0 0}
 .pay-line{margin:var(--in2) 0 0}
 .say-calm{color:var(--dim)}
+
+.pay.is-wait{position:relative;overflow:hidden}
+.pay.is-wait::before{content:'';display:inline-block;width:16px;height:16px;margin-right:10px;vertical-align:-3px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .8s linear infinite}
+.pay.is-wait::after{content:'';position:absolute;left:-40%;bottom:0;width:40%;height:3px;background:linear-gradient(90deg,transparent,currentColor,transparent);opacity:.55;animation:run 1.4s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes run{to{left:100%}}
+.say-step{display:block}
+.say-step[hidden]{display:none}
+.say-note{display:block;margin-top:4px;font-size:13px}
+@media (prefers-reduced-motion:reduce){.pay.is-wait::before,.pay.is-wait::after{animation:none}.pay.is-wait::after{left:0;width:100%;opacity:.25}}
 .ord-no{margin:0 0 10px;color:var(--dim);font-size:15px}
 .ord-no b{color:var(--tx);font-weight:600;letter-spacing:.01em}
 
