@@ -153,9 +153,11 @@
   var buyForm=document.getElementById('promo');
   var buyHint=document.getElementById('promo-hint');
   var asking=0;
-  function hint(key,code){
+  function hint(key,code,left){
     if(!buyHint)return;
-    buyHint.textContent=String(buyHint.getAttribute('data-'+key)||'').replace('{code}',code||'');
+    var text=String(buyHint.getAttribute('data-'+key)||'').replace('{code}',code||'');
+    if(left)text+=' '+String(buyHint.getAttribute('data-left')||'').replace('{n}',left.n).replace('{limit}',left.limit);
+    buyHint.textContent=text;
   }
   function applyBuy(v){
     var code=String(v||'').trim().toLowerCase().slice(0,32);
@@ -175,7 +177,12 @@
         setPromo(b.promo||code,plans);
         syncTg(b.promo||code);
         writeStore(b.promo||code);
-        hint(every?'done':'part',b.promo||code);
+        var left=typeof b.remaining==='number'&&typeof b.limit==='number'?{n:b.remaining,limit:b.limit}:null;
+        hint(every?'done':'part',b.promo||code,left);
+      }else if(res.status===409&&b.reason==='promo-exhausted'){
+        setPromo('',null);
+        writeStore('');
+        hint('gone');
       }else if(res.status===404||res.status===400){
         setPromo('',null);
         writeStore('');
