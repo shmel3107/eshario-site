@@ -140,7 +140,7 @@
       k.classList.toggle('is-promo',!!p);
       if(old){old.textContent=p?moneyText(p.list):'';old.hidden=!p}
       if(now)now.textContent=p?moneyText(p.amount):on.getAttribute('data-list');
-      if(tag){tag.textContent=p?k.getAttribute('data-tag')+' '+promoState.code:'';tag.hidden=!p}
+      if(tag){tag.textContent=p?k.getAttribute('data-tag')+' '+String(promoState.code).toUpperCase():'';tag.hidden=!p}
       var msg=on.getAttribute('data-msg');
       if(tg&&msg){tg.setAttribute('data-msg',msg);tg.href=tgText(tg,promoState.code||promoCode)}
     };
@@ -153,10 +153,19 @@
   var buyForm=document.getElementById('promo');
   var buyHint=document.getElementById('promo-hint');
   var asking=0;
+  function leftText(left){
+    var show=Number(buyHint.getAttribute('data-left-show'))||0;
+    if(!left||!(left.n<=show))return '';
+    var form='many';
+    try{form=new Intl.PluralRules(document.documentElement.getAttribute('lang')||'ru').select(left.n)}catch(e){}
+    var tpl=buyHint.getAttribute('data-left-'+form)||buyHint.getAttribute('data-left-many')||buyHint.getAttribute('data-left-other')||'';
+    return tpl.replace('{n}',left.n);
+  }
   function hint(key,code,left){
     if(!buyHint)return;
-    var text=String(buyHint.getAttribute('data-'+key)||'').replace('{code}',code||'');
-    if(left)text+=' '+String(buyHint.getAttribute('data-left')||'').replace('{n}',left.n).replace('{limit}',left.limit);
+    var text=String(buyHint.getAttribute('data-'+key)||'').replace('{code}',String(code||'').toUpperCase());
+    var more=leftText(left);
+    if(more)text+=' '+more;
     buyHint.textContent=text;
   }
   function applyBuy(v){
@@ -177,7 +186,7 @@
         setPromo(b.promo||code,plans);
         syncTg(b.promo||code);
         writeStore(b.promo||code);
-        var left=typeof b.remaining==='number'&&typeof b.limit==='number'?{n:b.remaining,limit:b.limit}:null;
+        var left=typeof b.remaining==='number'?{n:b.remaining}:null;
         hint(every?'done':'part',b.promo||code,left);
       }else if(res.status===409&&b.reason==='promo-exhausted'){
         setPromo('',null);
