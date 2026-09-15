@@ -33,6 +33,7 @@
 <div class="pw-done" id="ord-late" hidden><p class="pw-ok"><b>Оплата принята.</b> Письмо задерживается. Если его нет через 10 минут, напишите в поддержку с номером заказа.</p><p class="note">Дальше: поставьте расширение и войдите по почте и паролю из письма. <a href="https://chromewebstore.google.com/detail/kjnnhmiheifbmlonjofikekecgboanjc" target="_blank" rel="noopener">Установить</a></p></div>
 <div id="ord-failed" hidden><p class="pw-msg">Оплата не прошла. Деньги не списаны, можно попробовать снова.</p><p class="cta"><a class="btn btn-main" href="../buy/">Вернуться к покупке</a></p></div>
 <p class="pw-msg say-calm" id="ord-refunded" hidden>По этому заказу оформлен возврат.</p>
+<div class="pw-done" id="ord-landing" hidden><p class="pw-ok"><b>Спасибо!</b> Если оплата прошла, письмо с доступом уже идёт на вашу почту. Не пришло за 10 минут? Напишите в поддержку: <a href="mailto:support@eshario.com">support@eshario.com</a></p></div>
 <p class="pw-msg" id="ord-notFound" hidden>Заказ не найден. Откройте эту страницу по ссылке после оплаты или напишите в поддержку.</p>
 <p class="pw-msg" id="ord-offline" hidden>Нет связи с сервером. Страница попробует ещё раз.</p>
 <noscript><p class="pw-msg">Чтобы увидеть статус заказа, нужен включённый JavaScript. Письмо о покупке придёт в любом случае.</p></noscript>
@@ -53,7 +54,7 @@
   var box=document.getElementById('ord');
   if(!box)return;
   var api=box.getAttribute('data-api');
-  var names=['wait','slow','paid','late','failed','refunded','notFound','offline'];
+  var names=['wait','slow','paid','late','failed','refunded','landing','notFound','offline'];
   var show=function(name){
     names.forEach(function(one){
       var node=document.getElementById('ord-'+one);
@@ -63,6 +64,7 @@
   var id='';
   try{id=new URLSearchParams(window.location.search).get('id')||''}catch(err){id=''}
   if(!id){try{id=window.sessionStorage.getItem('eshario_order')||''}catch(err){id=''}}
+  if(!id){show('landing');return}
   if(!/^ord_[A-Za-z0-9_-]{16}$/.test(id)){show('notFound');return}
   document.getElementById('ord-id').textContent=id;
   document.getElementById('ord-no').hidden=false;

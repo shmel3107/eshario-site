@@ -33,6 +33,7 @@
 <div class="pw-done" id="ord-late" hidden><p class="pw-ok"><b>Payment received.</b> The email is delayed. If it has not arrived in 10 minutes, write to support with the order number.</p><p class="note">Next: install the extension and sign in with the email and the password from the letter. <a href="https://chromewebstore.google.com/detail/kjnnhmiheifbmlonjofikekecgboanjc" target="_blank" rel="noopener">Install</a></p></div>
 <div id="ord-failed" hidden><p class="pw-msg">The payment did not go through. No money was taken, you can try again.</p><p class="cta"><a class="btn btn-main" href="../../en/buy/">Back to the buy page</a></p></div>
 <p class="pw-msg say-calm" id="ord-refunded" hidden>A refund has been issued for this order.</p>
+<div class="pw-done" id="ord-landing" hidden><p class="pw-ok"><b>Thank you!</b> If the payment went through, the email with your access is already on its way. Not there in 10 minutes? Write to support: <a href="mailto:support@eshario.com">support@eshario.com</a></p></div>
 <p class="pw-msg" id="ord-notFound" hidden>Order not found. Open this page from the link after payment or write to support.</p>
 <p class="pw-msg" id="ord-offline" hidden>No connection to the server. The page will try again.</p>
 <noscript><p class="pw-msg">To see the order status, JavaScript must be switched on. The purchase email arrives either way.</p></noscript>
@@ -53,7 +54,7 @@
   var box=document.getElementById('ord');
   if(!box)return;
   var api=box.getAttribute('data-api');
-  var names=['wait','slow','paid','late','failed','refunded','notFound','offline'];
+  var names=['wait','slow','paid','late','failed','refunded','landing','notFound','offline'];
   var show=function(name){
     names.forEach(function(one){
       var node=document.getElementById('ord-'+one);
@@ -63,6 +64,7 @@
   var id='';
   try{id=new URLSearchParams(window.location.search).get('id')||''}catch(err){id=''}
   if(!id){try{id=window.sessionStorage.getItem('eshario_order')||''}catch(err){id=''}}
+  if(!id){show('landing');return}
   if(!/^ord_[A-Za-z0-9_-]{16}$/.test(id)){show('notFound');return}
   document.getElementById('ord-id').textContent=id;
   document.getElementById('ord-no').hidden=false;
