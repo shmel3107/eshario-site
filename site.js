@@ -76,18 +76,12 @@
     if(!money)return;
     var priceEl=money.querySelector('.p-price'),daysEl=money.querySelector('.p-days');
     var cheapEl=money.querySelector('.p-cheap');
-    var buy=box.querySelector('.pp-buy');
     var buttons=[].slice.call(pick.querySelectorAll('button'));
     function show(one,moved){
       if(moved&&money){money.classList.remove('is-swap');void money.offsetWidth;money.classList.add('is-swap')}
       if(priceEl)priceEl.textContent=one.getAttribute('data-list');
       if(daysEl)daysEl.textContent=one.getAttribute('data-days');
       fillCheap(cheapEl,one.getAttribute('data-cheap'));
-      fillPromo();
-      if(buy){
-        var msg=one.getAttribute('data-msg');
-        if(msg&&buy.classList.contains('tgbuy')){buy.setAttribute('data-msg',msg);buy.href=tgText(buy,promoCode)}
-      }
     }
     buttons.forEach(function(one){one.addEventListener('click',function(){
       buttons.forEach(function(other){other.setAttribute('aria-pressed',other===one?'true':'false')});
@@ -97,32 +91,55 @@
     if(on)show(on);
     pick.setAttribute('data-live','1');
   });
-  function fillPromo(){
-    picks.forEach(function(pick){
-      var box=pick.closest('.price-panel');if(!box)return;
-      var code=box.querySelector('.pp-money .p-code');
-      var codeEl=code&&code.querySelector('b');
-      var on=pick.querySelector('[aria-pressed="true"]');
-      var price=promoState.plans&&on?promoState.plans[on.getAttribute('data-term')]:null;
-      if(codeEl)codeEl.textContent=price?moneyText(price.amount):'';
-      if(code)code.classList.toggle('p-code-off',!price);
-    });
-  }
   function setPromo(code,plans){
     promoState.code=code;
     promoState.plans=plans;
     var body=document.body;
     if(code&&plans){
-      body.classList.add('promo-on');
       body.setAttribute('data-promo-code',code);
       body.setAttribute('data-promo-plans',Object.keys(plans).filter(function(k){return plans[k]}).join(','));
     }else{
-      body.classList.remove('promo-on');
       body.removeAttribute('data-promo-code');
       body.removeAttribute('data-promo-plans');
     }
-    fillPromo();
+    if(kassaRender)kassaRender();
   }
+  var kassaRender=null;
+  (function(){
+    var k=document.querySelector('[data-kassa]');
+    if(!k)return;
+    var terms=[].slice.call(k.querySelectorAll('[data-termpick] [data-term]'));
+    var label=k.querySelector('[data-k-label]'),days=k.querySelector('[data-k-days]');
+    var old=k.querySelector('.k-old'),now=k.querySelector('.k-now'),tag=k.querySelector('.k-tag');
+    var tg=k.querySelector('.tgbuy');
+    var priceOf=function(term){var p=promoState.plans&&promoState.plans[term];return p&&p.amount?p:null};
+    kassaRender=function(){
+      var on=null;
+      terms.forEach(function(one){
+        if(one.getAttribute('aria-pressed')==='true')on=one;
+        var p=priceOf(one.getAttribute('data-term'));
+        var was=one.querySelector('.t-old'),is=one.querySelector('.t-price');
+        one.classList.toggle('is-promo',!!p);
+        if(was){was.textContent=p?moneyText(p.list):'';was.hidden=!p}
+        if(is)is.textContent=p?moneyText(p.amount):one.getAttribute('data-list');
+      });
+      if(!on)return;
+      var p=priceOf(on.getAttribute('data-term'));
+      if(label)label.textContent=on.getAttribute('data-label');
+      if(days)days.textContent=on.getAttribute('data-days');
+      k.classList.toggle('is-promo',!!p);
+      if(old){old.textContent=p?moneyText(p.list):'';old.hidden=!p}
+      if(now)now.textContent=p?moneyText(p.amount):on.getAttribute('data-list');
+      if(tag){tag.textContent=p?k.getAttribute('data-tag')+' '+promoState.code:'';tag.hidden=!p}
+      var msg=on.getAttribute('data-msg');
+      if(tg&&msg){tg.setAttribute('data-msg',msg);tg.href=tgText(tg,promoState.code||promoCode)}
+    };
+    terms.forEach(function(one){one.addEventListener('click',function(){
+      terms.forEach(function(other){other.setAttribute('aria-pressed',other===one?'true':'false')});
+      kassaRender();
+    })});
+    kassaRender();
+  })();
   var buyForm=document.getElementById('promo');
   var buyHint=document.getElementById('promo-hint');
   var asking=0;
