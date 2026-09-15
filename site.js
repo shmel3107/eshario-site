@@ -34,14 +34,24 @@
     });
   });
   var PROMO_KEY='eshario_promo';
-  function readStore(){try{return localStorage.getItem(PROMO_KEY)||''}catch(e){return ''}}
-  function writeStore(v){try{localStorage.setItem(PROMO_KEY,v)}catch(e){}}
+  var PROMO_TTL=90*60*1000;
+  function writeStore(v){try{if(v)localStorage.setItem(PROMO_KEY,JSON.stringify({code:v,at:Date.now()}));else localStorage.removeItem(PROMO_KEY)}catch(e){}}
+  function readStore(){
+    var raw='';
+    try{raw=localStorage.getItem(PROMO_KEY)||''}catch(e){return ''}
+    if(!raw)return '';
+    var s=null;
+    try{s=JSON.parse(raw)}catch(e){s=null}
+    if(!s||typeof s.code!=='string'||!s.code||typeof s.at!=='number'||Math.abs(Date.now()-s.at)>PROMO_TTL){writeStore('');return ''}
+    return s.code;
+  }
   var linkPromo='';
   try{
     var q=new URLSearchParams(location.search).get('promo');
     if(q){linkPromo=q.trim().slice(0,32);if(linkPromo)writeStore(linkPromo)}
   }catch(e){}
   var promoCode=linkPromo||readStore();
+  if(promoCode)writeStore(promoCode);
 
   function tgText(a,code){
     var msg=a.getAttribute('data-msg')||'';
