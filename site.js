@@ -122,6 +122,7 @@
     var label=k.querySelector('[data-k-label]'),days=k.querySelector('[data-k-days]');
     var old=k.querySelector('.k-old'),now=k.querySelector('.k-now'),tag=k.querySelector('.k-tag');
     var tg=k.querySelector('.tgbuy');
+    var perTpl=k.getAttribute('data-per')||'';
     var priceOf=function(term){var p=promoState.plans&&promoState.plans[term];return p&&p.amount?p:null};
     kassaRender=function(){
       var on=null;
@@ -132,6 +133,8 @@
         one.classList.toggle('is-promo',!!p);
         if(was){was.textContent=p?moneyText(p.list):'';was.hidden=!p}
         if(is)is.textContent=p?moneyText(p.amount):one.getAttribute('data-list');
+        var sub=one.querySelector('small'),months=Number(one.getAttribute('data-months'))||0;
+        if(sub)sub.textContent=p&&months>1&&perTpl?perTpl.replace('{price}',moneyText(Math.round(p.amount/months))):one.getAttribute('data-sub');
       });
       if(!on)return;
       var p=priceOf(on.getAttribute('data-term'));
@@ -209,7 +212,7 @@
   if(buyForm){
     buyForm.addEventListener('submit',function(e){e.preventDefault();applyBuy(buyForm.code.value)});
     if(promoCode){
-      buyForm.code.value=promoCode;
+      buyForm.code.value=String(promoCode).toUpperCase();
       applyBuy(promoCode);
     }
   }
