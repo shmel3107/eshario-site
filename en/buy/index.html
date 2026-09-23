@@ -32,13 +32,13 @@
 <aside class="k-card" aria-labelledby="k-card-h">
 <h2 id="k-card-h">2. Checkout</h2>
 <p class="k-pick"><b>Premium · <span data-k-label>1 month</span></b><span data-k-days>30 days from issue</span></p>
-<form class="checkout" id="buy-form" novalidate data-api="https://api.eshario.com" data-action="https://merchant.intellectmoney.ru/v2/" data-lang="en" data-offer="14 September 2026" data-privacy="23 September 2026"><label for="buy-email">Email</label><input id="buy-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="100" spellcheck="false" placeholder="you@example.com"><p class="hint">Access and a link to set your password arrive here.</p></form>
+<form class="checkout" id="buy-form" novalidate data-api="https://api.eshario.com" data-action="https://merchant.intellectmoney.ru/v2/" data-pay-origin="https://pay.platega.io" data-lang="en" data-offer="14 September 2026" data-privacy="23 September 2026"><label for="buy-email">Email</label><input id="buy-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="100" spellcheck="false" placeholder="you@example.com"><p class="hint">Access and a link to set your password arrive here.</p></form>
 <form class="promo" id="promo" autocomplete="off" data-api="https://api.eshario.com"><label for="code">Promo code</label><div class="k-row"><input id="code" name="code" type="text" placeholder="If you have one" maxlength="32" spellcheck="false"><button class="btn btn-ghost" type="submit">Apply</button></div></form>
 <p class="hint" id="promo-hint" aria-live="polite" data-idle="The price with the code appears after “Apply”." data-wait="Checking the promo code…" data-done="Promo code {code} applied." data-part="Promo code {code} applied to some terms." data-bad="There is no such promo code." data-fail="Could not check the code. Press “Apply” again." data-gone="This promo code has run out. The price is shown without it." data-left-show="10" data-left-one="Only {n} use left!" data-left-other="Only {n} uses left!">The price with the code appears after “Apply”.</p>
 <div class="consent-wrap"><label class="consent"><input type="checkbox" id="consent-1"><span>I accept the public offer, the terms of use and the refund policy.</span></label><label class="consent"><input type="checkbox" id="consent-2"><span>I ask for the key to be delivered right after payment and understand that from the moment of delivery the 14-day right of withdrawal ends.</span></label><p class="k-mailnote">We occasionally email buyers about discounts. Unsubscribe with one click.</p></div>
 <div class="k-total"><span>Total</span><p class="k-sum"><s class="k-old" hidden></s><b class="k-now">1,149 ₽</b><small class="k-tag" hidden></small></p></div>
 <button class="btn btn-main pay k-pay" id="buy-go" type="submit" form="buy-form" data-wait="Checking…">Pay</button>
-<div class="buy-say" aria-live="polite"><p class="pw-msg" id="buy-emailBad" hidden>Enter your full email: access arrives there.</p><p class="pw-msg" id="buy-consent" hidden>Tick both boxes above: payment does not start without them.</p><p class="pw-msg say-calm" id="buy-checking" hidden><span class="say-step" data-step="0">Checking your payment details…</span><span class="say-step" data-step="1" hidden>The payment partner is verifying the details…</span><span class="say-step" data-step="2" hidden>This usually takes up to 30 seconds.</span> <small class="say-note">Sometimes the partner asks for a short check: its window appears by itself.</small></p><p class="pw-msg" id="buy-checkingSlow" hidden>The check is taking longer than usual. If no check window appeared, press “Pay” again.</p><p class="pw-msg say-calm" id="buy-making" hidden>Preparing the invoice…</p><p class="pw-msg say-calm" id="buy-going" hidden>Opening the payment page…</p><p class="pw-msg" id="buy-trackerFail" hidden>The check did not pass. Try again or write to support: support@eshario.com.</p><p class="pw-msg" id="buy-promoUnknown" hidden>The promo code did not fit, the price is shown without it. Press “Pay” again or correct the code.</p><p class="pw-msg" id="buy-promoGone" hidden>This promo code has run out, the price is shown without it. Press “Pay” again.</p><p class="pw-msg" id="buy-busy" hidden>Too many attempts in a row. Wait a few minutes and try again.</p><p class="pw-msg" id="buy-closed" hidden>Payment is not available right now. Try later or write to support: support@eshario.com.</p><p class="pw-msg" id="buy-offline" hidden>No connection to the server. Check your internet and press “Pay” again.</p><p class="pw-msg" id="buy-failed" hidden>The order could not be created. Try again or write to support: support@eshario.com.</p></div><noscript><p class="pw-msg">Payment needs JavaScript switched on.</p></noscript>
+<div class="buy-say" aria-live="polite"><p class="pw-msg" id="buy-emailBad" hidden>Enter your full email: access arrives there.</p><p class="pw-msg" id="buy-consent" hidden>Tick both boxes above: payment does not start without them.</p><p class="pw-msg say-calm" id="buy-checking" hidden><span class="say-step" data-step="0">Checking your payment details…</span><span class="say-step" data-step="1" hidden>The payment partner is verifying the details…</span><span class="say-step" data-step="2" hidden>This usually takes up to 30 seconds.</span> <small class="say-note">Sometimes the partner asks for a short check: its window appears by itself.</small></p><p class="pw-msg" id="buy-checkingSlow" hidden>The check is taking longer than usual. If no check window appeared, press “Pay” again.</p><p class="pw-msg say-calm" id="buy-making" hidden>Preparing the invoice…</p><p class="pw-msg say-calm" id="buy-going" hidden>Opening the payment page…</p><p class="pw-msg" id="buy-trackerFail" hidden>The check did not pass. Try again or write to support: support@eshario.com.</p><p class="pw-msg" id="buy-promoUnknown" hidden>The promo code did not fit, the price is shown without it. Press “Pay” again or correct the code.</p><p class="pw-msg" id="buy-promoGone" hidden>This promo code has run out, the price is shown without it. Press “Pay” again.</p><p class="pw-msg" id="buy-busy" hidden>Too many attempts in a row. Wait a few minutes and try again.</p><p class="pw-msg" id="buy-closed" hidden>Payment is not available right now. Try later or write to support: support@eshario.com.</p><p class="pw-msg" id="buy-offline" hidden>No connection to the server. Check your internet and press “Pay” again.</p><p class="pw-msg" id="buy-failed" hidden>The order could not be created. Try again or write to support: support@eshario.com.</p><p class="pw-msg" id="buy-payFailed" hidden>The payment did not go through. Try again or write to support: support@eshario.com.</p></div><noscript><p class="pw-msg">Payment needs JavaScript switched on.</p></noscript>
 <p class="k-fine">Payment is made on the payment partner’s page; we never see your card. On your bank statement the payment may appear as “GAME SERVICES PAY”. By pressing “Pay” you accept the <a href="../../en/offer/">offer</a> and the <a href="../../en/privacy/">privacy policy</a>.</p>
 </aside>
 <div class="k-feat">
@@ -67,7 +67,9 @@
   var label=go.textContent;
   var api=form.getAttribute('data-api');
   var action=form.getAttribute('data-action');
-  var names=['emailBad','consent','checking','checkingSlow','making','going','trackerFail','promoUnknown','promoGone','busy','closed','offline','failed'];
+  var payOrigin=form.getAttribute('data-pay-origin');
+  var payLink=function(u){try{var x=new URL(String(u));return x.protocol==='https:'&&x.origin===payOrigin?x.href:''}catch(err){return ''}};
+  var names=['emailBad','consent','checking','checkingSlow','making','going','trackerFail','promoUnknown','promoGone','busy','closed','offline','failed','payFailed'];
   var steps=[].slice.call(document.querySelectorAll('#buy-checking [data-step]'));
   var stepTimer=0;
   var showStep=function(at){steps.forEach(function(s,i){s.hidden=(i!==at)})};
@@ -105,11 +107,6 @@
       window.setTimeout(look,250);
     })();
   };
-  email.addEventListener('change',function(){
-    var v=norm(email.value);
-    var t=tracker();
-    if(t&&good(v)){try{t.setUserID(v)}catch(err){}}
-  });
   var consents=[].slice.call(document.querySelectorAll('.consent input[type="checkbox"]'));
   var unticked=function(){for(var i=0;i<consents.length;i+=1){if(!consents[i].checked)return consents[i]}return null};
   var term=function(){var on=document.querySelector('[data-termpick] [aria-pressed="true"]');return on?on.getAttribute('data-term'):'m1'};
@@ -153,37 +150,45 @@
     if(promoForm)promoForm.dispatchEvent(new Event('submit',{cancelable:true}));
   };
   var round=0;
-  var order=function(v,mine){
+  var keep=function(id){try{window.sessionStorage.setItem('eshario_order',id)}catch(err){}};
+  var order=function(v,mine,retryOf){
     say('making');
     consentHash().then(function(hash){
+      var ask={
+        email:v,
+        plan:term(),
+        promo:promo(),
+        lang:form.getAttribute('data-lang'),
+        offerVersion:form.getAttribute('data-offer'),
+        privacyVersion:form.getAttribute('data-privacy'),
+        consentHash:hash
+      };
+      if(retryOf){ask.retryOf=retryOf;ask.reason='im-unavailable'}
       return window.fetch(api+'/v1/orders',{
         method:'POST',
         credentials:'omit',
         headers:{'content-type':'application/json'},
-        body:JSON.stringify({
-          email:v,
-          plan:term(),
-          promo:promo(),
-          lang:form.getAttribute('data-lang'),
-          offerVersion:form.getAttribute('data-offer'),
-          privacyVersion:form.getAttribute('data-privacy'),
-          consentHash:hash
-        })
+        body:JSON.stringify(ask)
       });
     }).then(function(r){
       return r.json().then(function(b){return {status:r.status,body:b}},function(){return {status:r.status,body:{}}});
     }).then(function(res){
       if(mine!==round)return;
       var b=res.body||{};
-      if(res.status===201&&b.orderId&&b.form&&b.form.action===action){
-        try{window.sessionStorage.setItem('eshario_order',b.orderId)}catch(err){}
-        say('going');
-        post(b.form.fields);
+      if(res.status===201&&b.orderId&&b.form&&b.form.action===action&&!retryOf){
+        imPay(v,mine,b);
         return;
       }
-      if(res.status===422||res.status===409){dropPromo();say(res.status===409?'promoGone':'promoUnknown')}
+      var link=res.status===201&&b.orderId?payLink(b.redirect):'';
+      if(link){
+        keep(b.orderId);
+        say('going');
+        window.location.assign(link);
+        return;
+      }
+      if(res.status===422||(res.status===409&&b.reason==='promo-exhausted')){dropPromo();say(res.status===409?'promoGone':'promoUnknown')}
       else if(res.status===429)say('busy');
-      else if(res.status===503)say('closed');
+      else if(res.status===503||res.status===502)say('closed');
       else if(res.status===400&&b.reason==='bad-email')say('emailBad');
       else say('failed');
       free();
@@ -191,6 +196,33 @@
       if(mine!==round)return;
       say('offline');
       free();
+    });
+  };
+  var imPay=function(v,mine,b){
+    say('checking');
+    waitTracker(function(t){
+      if(mine!==round)return;
+      if(!t){order(v,mine,b.orderId);return}
+      var slow=window.setTimeout(function(){if(mine===round){say('checkingSlow');free()}},30000);
+      try{
+        t.setUserID(v);
+        t.forceFlushWithCallback(function(){
+          window.clearTimeout(slow);
+          if(mine!==round)return;
+          hold();
+          keep(b.orderId);
+          say('going');
+          post(b.form.fields);
+        },function(){
+          window.clearTimeout(slow);
+          if(mine!==round)return;
+          say('trackerFail');
+          free();
+        });
+      }catch(err){
+        window.clearTimeout(slow);
+        if(mine===round)order(v,mine,b.orderId);
+      }
     });
   };
   form.addEventListener('submit',function(event){
@@ -208,32 +240,15 @@
     round+=1;
     var mine=round;
     hold();
-    say('checking');
-    waitTracker(function(t){
-      if(mine!==round)return;
-      if(!t){say('trackerFail');free();return}
-      var slow=window.setTimeout(function(){if(mine===round){say('checkingSlow');free()}},30000);
-      try{
-        t.setUserID(v);
-        t.forceFlushWithCallback(function(){
-          window.clearTimeout(slow);
-          if(mine!==round)return;
-          hold();
-          order(v,mine);
-        },function(){
-          window.clearTimeout(slow);
-          if(mine!==round)return;
-          say('trackerFail');
-          free();
-        });
-      }catch(err){
-        window.clearTimeout(slow);
-        say('trackerFail');
-        free();
-      }
-    });
+    order(v,mine,'');
   });
   window.addEventListener('pageshow',function(event){if(event.persisted){round+=1;say('');free()}});
+  var back='';
+  try{back=new URLSearchParams(window.location.search).get('failed')||''}catch(err){back=''}
+  if(back==='1'){
+    say('payFailed');
+    try{window.history.replaceState(null,'',window.location.pathname)}catch(err){}
+  }
 })();</script>
 
 </body>
