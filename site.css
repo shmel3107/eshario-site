@@ -310,7 +310,6 @@ td.pay{color:var(--ac);font-weight:700}
 .foot a:hover{color:var(--tx)}
 .foot p{margin:0 0 8px;line-height:1.5}
 .foot-bottom{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:var(--gap2);padding-top:var(--in);border-top:1px solid var(--line);font-size:13px}
-.foot-code{font-size:12px}
 
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
