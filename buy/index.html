@@ -37,9 +37,10 @@
 <p class="hint" id="promo-hint" aria-live="polite" data-idle="Цена с кодом появится после «Применить»." data-wait="Проверяем промокод…" data-done="Промокод {code} применён." data-part="Промокод {code} применён к части сроков." data-bad="Такого промокода нет." data-fail="Не получилось проверить код. Нажмите «Применить» ещё раз." data-gone="Промокод закончился. Цена показана без него." data-left-show="10" data-left-one="Осталось всего {n} использование!" data-left-few="Осталось всего {n} использования!" data-left-many="Осталось всего {n} использований!">Цена с кодом появится после «Применить».</p>
 <div class="consent-wrap"><label class="consent"><input type="checkbox" id="consent-1"><span>Принимаю публичную оферту, пользовательское соглашение и политику возвратов.</span></label><label class="consent"><input type="checkbox" id="consent-2"><span>Прошу выдать ключ сразу после оплаты и понимаю, что с момента выдачи право на отказ в 14 дней прекращается.</span></label><p class="k-mailnote">Купившим иногда пишем о скидках. Отказаться можно ссылкой в письме.</p></div>
 <div class="k-total"><span>К оплате</span><p class="k-sum"><s class="k-old" hidden></s><b class="k-now">1 149 ₽</b><small class="k-tag" hidden></small></p></div>
-<button class="btn btn-main pay k-pay" id="buy-go" type="submit" form="buy-form" data-wait="Проверяем…">Оплатить</button>
+<div class="k-ways" id="buy-ways" role="group" aria-label="Способ оплаты" hidden><button class="term k-way" type="button" data-way="sbp" aria-pressed="true"><b>СБП</b></button><button class="term k-way" type="button" data-way="crypto" aria-pressed="false"><b>Криптовалюта</b><small>USDT и другие монеты</small></button></div>
+<button class="btn btn-main pay k-pay" id="buy-go" type="submit" form="buy-form" data-wait="Проверяем…" data-making="Готовим счёт…">Оплатить</button>
 <div class="buy-say" aria-live="polite"><p class="pw-msg" id="buy-emailBad" hidden>Впишите почту целиком: на неё придёт доступ.</p><p class="pw-msg" id="buy-consent" hidden>Отметьте обе галочки выше: без них оплата не начнётся.</p><p class="pw-msg say-calm" id="buy-checking" hidden><span class="say-step" data-step="0">Проверяем данные для оплаты…</span><span class="say-step" data-step="1" hidden>Платёжный партнёр сверяет данные…</span><span class="say-step" data-step="2" hidden>Обычно это занимает до 30 секунд.</span> <small class="say-note">Иногда партнёр просит пройти короткую проверку: её окно появится само.</small></p><p class="pw-msg" id="buy-checkingSlow" hidden>Проверка идёт дольше обычного. Если окно проверки не появилось, нажмите «Оплатить» ещё раз.</p><p class="pw-msg say-calm" id="buy-making" hidden>Готовим счёт…</p><p class="pw-msg say-calm" id="buy-going" hidden>Переходим на страницу оплаты…</p><p class="pw-msg" id="buy-trackerFail" hidden>Проверка не пройдена. Попробуйте ещё раз или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-promoUnknown" hidden>Промокод не подошёл, цена показана без него. Нажмите «Оплатить» ещё раз или исправьте код.</p><p class="pw-msg" id="buy-promoGone" hidden>Промокод закончился, цена показана без него. Нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-busy" hidden>Слишком много попыток подряд. Подождите несколько минут и попробуйте снова.</p><p class="pw-msg" id="buy-closed" hidden>Оплата сейчас недоступна. Попробуйте позже или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-offline" hidden>Нет связи с сервером. Проверьте интернет и нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-failed" hidden>Не получилось создать заказ. Попробуйте ещё раз или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-payFailed" hidden>Оплата не прошла. Попробуйте снова или напишите в поддержку: support@eshario.com.</p></div><noscript><p class="pw-msg">Для оплаты нужен включённый JavaScript.</p></noscript>
-<p class="k-fine">Оплата на странице платёжного партнёра, карту мы не видим. В выписке банка платёж может называться «GAME SERVICES PAY». Нажимая «Оплатить», вы принимаете <a href="../offer/">оферту</a> и <a href="../privacy/">политику конфиденциальности</a>.</p>
+<p class="k-fine">Оплата на странице платёжного партнёра, карту мы не видим. <span id="buy-bank">В выписке банка платёж может называться «GAME SERVICES PAY».</span> Нажимая «Оплатить», вы принимаете <a href="../offer/">оферту</a> и <a href="../privacy/">политику конфиденциальности</a>.</p>
 </aside>
 <div class="k-feat">
 <h2 class="k-h">Что входит в премиум</h2>
@@ -115,8 +116,25 @@
     var plans=(document.body.getAttribute('data-promo-plans')||'').split(',');
     return code&&plans.indexOf(term())>=0?code:'';
   };
+  var way='sbp';
+  var ways=document.getElementById('buy-ways');
+  var bank=document.getElementById('buy-bank');
+  var wayButtons=ways?[].slice.call(ways.querySelectorAll('[data-way]')):[];
+  var pickWay=function(name){
+    way=name;
+    wayButtons.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-way')===name?'true':'false')});
+    if(bank)bank.hidden=(name!=='sbp');
+  };
+  wayButtons.forEach(function(b){b.addEventListener('click',function(){if(!go.disabled)pickWay(b.getAttribute('data-way'))})});
+  if(ways&&wayButtons.length){
+    window.fetch(api+'/v1/pay/methods',{credentials:'omit'}).then(function(r){return r.ok?r.json():null}).then(function(b){
+      var list=b&&b.ok&&Array.isArray(b.methods)?b.methods:[];
+      var shown=wayButtons.filter(function(x){var on=list.indexOf(x.getAttribute('data-way'))>=0;x.hidden=!on;return on});
+      if(shown.length>1&&list.indexOf('sbp')>=0)ways.hidden=false;
+    },function(){});
+  }
   var free=function(){go.disabled=false;go.textContent=label;go.classList.remove('is-wait')};
-  var hold=function(){go.disabled=true;go.textContent=go.getAttribute('data-wait');go.classList.add('is-wait')};
+  var hold=function(){go.disabled=true;go.textContent=go.getAttribute(way==='crypto'?'data-making':'data-wait');go.classList.add('is-wait')};
   var hex=function(buf){return [].map.call(new Uint8Array(buf),function(b){return ('0'+b.toString(16)).slice(-2)}).join('')};
   var consentHash=function(){
     var text=JSON.stringify({
@@ -152,6 +170,7 @@
   var round=0;
   var keep=function(id){try{window.sessionStorage.setItem('eshario_order',id)}catch(err){}};
   var order=function(v,mine,retryOf){
+    var w=retryOf?'sbp':way;
     say('making');
     consentHash().then(function(hash){
       var ask={
@@ -164,6 +183,7 @@
         consentHash:hash
       };
       if(retryOf){ask.retryOf=retryOf;ask.reason='im-unavailable'}
+      if(w==='crypto')ask.method='crypto';
       return window.fetch(api+'/v1/orders',{
         method:'POST',
         credentials:'omit',
@@ -175,7 +195,7 @@
     }).then(function(res){
       if(mine!==round)return;
       var b=res.body||{};
-      if(res.status===201&&b.orderId&&b.form&&b.form.action===action&&!retryOf){
+      if(res.status===201&&b.orderId&&b.form&&b.form.action===action&&!retryOf&&w!=='crypto'){
         imPay(v,mine,b);
         return;
       }
@@ -190,6 +210,7 @@
       else if(res.status===429)say('busy');
       else if(res.status===503||res.status===502)say('closed');
       else if(res.status===400&&b.reason==='bad-email')say('emailBad');
+      else if(res.status===400&&b.reason==='bad-method'){pickWay('sbp');if(ways)ways.hidden=true;say('failed')}
       else say('failed');
       free();
     },function(){

@@ -37,9 +37,10 @@
 <p class="hint" id="promo-hint" aria-live="polite" data-idle="The price with the code appears after “Apply”." data-wait="Checking the promo code…" data-done="Promo code {code} applied." data-part="Promo code {code} applied to some terms." data-bad="There is no such promo code." data-fail="Could not check the code. Press “Apply” again." data-gone="This promo code has run out. The price is shown without it." data-left-show="10" data-left-one="Only {n} use left!" data-left-other="Only {n} uses left!">The price with the code appears after “Apply”.</p>
 <div class="consent-wrap"><label class="consent"><input type="checkbox" id="consent-1"><span>I accept the public offer, the terms of use and the refund policy.</span></label><label class="consent"><input type="checkbox" id="consent-2"><span>I ask for the key to be delivered right after payment and understand that from the moment of delivery the 14-day right of withdrawal ends.</span></label><p class="k-mailnote">We occasionally email buyers about discounts. Unsubscribe with one click.</p></div>
 <div class="k-total"><span>Total</span><p class="k-sum"><s class="k-old" hidden></s><b class="k-now">1,149 ₽</b><small class="k-tag" hidden></small></p></div>
-<button class="btn btn-main pay k-pay" id="buy-go" type="submit" form="buy-form" data-wait="Checking…">Pay</button>
+<div class="k-ways" id="buy-ways" role="group" aria-label="Payment method" hidden><button class="term k-way" type="button" data-way="sbp" aria-pressed="true"><b>SBP</b></button><button class="term k-way" type="button" data-way="crypto" aria-pressed="false"><b>Cryptocurrency</b><small>USDT and other coins</small></button></div>
+<button class="btn btn-main pay k-pay" id="buy-go" type="submit" form="buy-form" data-wait="Checking…" data-making="Preparing the invoice…">Pay</button>
 <div class="buy-say" aria-live="polite"><p class="pw-msg" id="buy-emailBad" hidden>Enter your full email: access arrives there.</p><p class="pw-msg" id="buy-consent" hidden>Tick both boxes above: payment does not start without them.</p><p class="pw-msg say-calm" id="buy-checking" hidden><span class="say-step" data-step="0">Checking your payment details…</span><span class="say-step" data-step="1" hidden>The payment partner is verifying the details…</span><span class="say-step" data-step="2" hidden>This usually takes up to 30 seconds.</span> <small class="say-note">Sometimes the partner asks for a short check: its window appears by itself.</small></p><p class="pw-msg" id="buy-checkingSlow" hidden>The check is taking longer than usual. If no check window appeared, press “Pay” again.</p><p class="pw-msg say-calm" id="buy-making" hidden>Preparing the invoice…</p><p class="pw-msg say-calm" id="buy-going" hidden>Opening the payment page…</p><p class="pw-msg" id="buy-trackerFail" hidden>The check did not pass. Try again or write to support: support@eshario.com.</p><p class="pw-msg" id="buy-promoUnknown" hidden>The promo code did not fit, the price is shown without it. Press “Pay” again or correct the code.</p><p class="pw-msg" id="buy-promoGone" hidden>This promo code has run out, the price is shown without it. Press “Pay” again.</p><p class="pw-msg" id="buy-busy" hidden>Too many attempts in a row. Wait a few minutes and try again.</p><p class="pw-msg" id="buy-closed" hidden>Payment is not available right now. Try later or write to support: support@eshario.com.</p><p class="pw-msg" id="buy-offline" hidden>No connection to the server. Check your internet and press “Pay” again.</p><p class="pw-msg" id="buy-failed" hidden>The order could not be created. Try again or write to support: support@eshario.com.</p><p class="pw-msg" id="buy-payFailed" hidden>The payment did not go through. Try again or write to support: support@eshario.com.</p></div><noscript><p class="pw-msg">Payment needs JavaScript switched on.</p></noscript>
-<p class="k-fine">Payment is made on the payment partner’s page; we never see your card. On your bank statement the payment may appear as “GAME SERVICES PAY”. By pressing “Pay” you accept the <a href="../../en/offer/">offer</a> and the <a href="../../en/privacy/">privacy policy</a>.</p>
+<p class="k-fine">Payment is made on the payment partner’s page; we never see your card. <span id="buy-bank">On your bank statement the payment may appear as “GAME SERVICES PAY”.</span> By pressing “Pay” you accept the <a href="../../en/offer/">offer</a> and the <a href="../../en/privacy/">privacy policy</a>.</p>
 </aside>
 <div class="k-feat">
 <h2 class="k-h">What premium includes</h2>
@@ -115,8 +116,25 @@
     var plans=(document.body.getAttribute('data-promo-plans')||'').split(',');
     return code&&plans.indexOf(term())>=0?code:'';
   };
+  var way='sbp';
+  var ways=document.getElementById('buy-ways');
+  var bank=document.getElementById('buy-bank');
+  var wayButtons=ways?[].slice.call(ways.querySelectorAll('[data-way]')):[];
+  var pickWay=function(name){
+    way=name;
+    wayButtons.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-way')===name?'true':'false')});
+    if(bank)bank.hidden=(name!=='sbp');
+  };
+  wayButtons.forEach(function(b){b.addEventListener('click',function(){if(!go.disabled)pickWay(b.getAttribute('data-way'))})});
+  if(ways&&wayButtons.length){
+    window.fetch(api+'/v1/pay/methods',{credentials:'omit'}).then(function(r){return r.ok?r.json():null}).then(function(b){
+      var list=b&&b.ok&&Array.isArray(b.methods)?b.methods:[];
+      var shown=wayButtons.filter(function(x){var on=list.indexOf(x.getAttribute('data-way'))>=0;x.hidden=!on;return on});
+      if(shown.length>1&&list.indexOf('sbp')>=0)ways.hidden=false;
+    },function(){});
+  }
   var free=function(){go.disabled=false;go.textContent=label;go.classList.remove('is-wait')};
-  var hold=function(){go.disabled=true;go.textContent=go.getAttribute('data-wait');go.classList.add('is-wait')};
+  var hold=function(){go.disabled=true;go.textContent=go.getAttribute(way==='crypto'?'data-making':'data-wait');go.classList.add('is-wait')};
   var hex=function(buf){return [].map.call(new Uint8Array(buf),function(b){return ('0'+b.toString(16)).slice(-2)}).join('')};
   var consentHash=function(){
     var text=JSON.stringify({
@@ -152,6 +170,7 @@
   var round=0;
   var keep=function(id){try{window.sessionStorage.setItem('eshario_order',id)}catch(err){}};
   var order=function(v,mine,retryOf){
+    var w=retryOf?'sbp':way;
     say('making');
     consentHash().then(function(hash){
       var ask={
@@ -164,6 +183,7 @@
         consentHash:hash
       };
       if(retryOf){ask.retryOf=retryOf;ask.reason='im-unavailable'}
+      if(w==='crypto')ask.method='crypto';
       return window.fetch(api+'/v1/orders',{
         method:'POST',
         credentials:'omit',
@@ -175,7 +195,7 @@
     }).then(function(res){
       if(mine!==round)return;
       var b=res.body||{};
-      if(res.status===201&&b.orderId&&b.form&&b.form.action===action&&!retryOf){
+      if(res.status===201&&b.orderId&&b.form&&b.form.action===action&&!retryOf&&w!=='crypto'){
         imPay(v,mine,b);
         return;
       }
@@ -190,6 +210,7 @@
       else if(res.status===429)say('busy');
       else if(res.status===503||res.status===502)say('closed');
       else if(res.status===400&&b.reason==='bad-email')say('emailBad');
+      else if(res.status===400&&b.reason==='bad-method'){pickWay('sbp');if(ways)ways.hidden=true;say('failed')}
       else say('failed');
       free();
     },function(){
