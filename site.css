@@ -535,6 +535,7 @@ td.pay{color:var(--ac);font-weight:700}
 .iroad h2{font-size:20px;line-height:1.3;margin:0 0 14px;letter-spacing:-.01em}
 .iroad-act{margin:0}
 .iroad p:last-child{margin:14px 0 0;color:var(--dim);font-size:15px;line-height:1.5}
+.iroads-one{grid-template-columns:minmax(0,1fr);max-width:440px}
 @media (max-width:700px){.iroads{grid-template-columns:minmax(0,1fr)}}
 .ihint{margin:var(--in2) 0 0;color:var(--dim);font-size:15px;max-width:62ch}
 .ivideo{margin:var(--in2) 0 0;font-size:15px}
