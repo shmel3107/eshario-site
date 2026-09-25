@@ -1,4 +1,4 @@
-// ESHArio page-bundle 2.3.0 88c11d9222dacb54b28e5dbcaccaf0d5309a10ae 2026-09-24T23:00:55Z
+// ESHArio page-bundle 2.3.3 548dd2282cae89b5ee36ac7279857dd9a2336a0b 2026-09-25T15:56:32Z
 (function(){'use strict';
 // Адрес: на чужой странице EA склейка молчит (контракт 1.1).
 if(!(function(h){return /^https:\/\/www\.ea\.com\/.*\/ultimate-team\/web-app.*/.test(h)})(String(globalThis.location&&globalThis.location.href)))return;
@@ -22,7 +22,7 @@ const __eshario_assets=Object.freeze({
 "eshario-asset:ui/club-locked.css":".fx-lock {\n  position: fixed;\n  inset: 0;\n  z-index: 2147482998;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: var(--fx-overlay);\n}\n.fx-lock-box {\n  width: min(720px, 94vw);\n  max-height: 82vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  padding: 18px 16px 16px;\n  border-radius: 10px;\n  background: var(--fx-surface);\n  border: 1px solid var(--fx-line);\n  box-shadow: 0 18px 44px var(--fx-shadow-strong);\n  color: var(--fx-ink);\n  font-size: 13px;\n  line-height: 1.35;\n}\n.fx-lock-hint {\n  margin-bottom: 10px;\n  color: var(--fx-dim);\n  font-size: 12px;\n}\n.fx-lock-cat-box {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  color: var(--fx-dim);\n  font-size: 12px;\n  font-weight: 400;\n}\n\n.fx-lock-cat {\n  padding: 2px 6px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 3px;\n  background: var(--fx-surface-sunken);\n  color: var(--fx-ink);\n  font: inherit;\n  cursor: pointer;\n}\n\n.fx-lock-cat:focus {\n  border-color: var(--fx-accent);\n  color: var(--fx-ink-strong);\n  outline: none;\n}\n.fx-lock-head {\n  margin: 12px 0 4px;\n  color: var(--fx-accent);\n  font-weight: 600;\n  font-size: 12px;\n  letter-spacing: .04em;\n}\n.fx-lock-rows {\n  flex: 1 1 auto;\n  min-height: 0;\n  overflow-y: auto;\n  margin-bottom: 6px;\n}\n.fx-lock-box .fx-hk-help-title,\n.fx-lock-hint,\n.fx-lock-blocked,\n.fx-lock-failed,\n.fx-lock-final,\n.fx-lock-pager,\n.fx-lock-buttons,\n.fx-lock-box > .fx-lock-head,\n.fx-lock-box > .fx-lock-warn {\n  flex: 0 0 auto;\n}\n\n.fx-lock-row {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 7px 2px;\n  border-bottom: 1px solid var(--fx-line);\n}\n\n.fx-lock-row:hover {\n  background: var(--fx-accent-tint);\n}\n.fx-lock-rating {\n  min-width: 32px;\n  padding: 2px 6px;\n  border-radius: 3px;\n  background: var(--fx-surface-2);\n  color: var(--fx-ink);\n  font-weight: 700;\n  font-size: 11px;\n  text-align: center;\n}\n\n.fx-lock-name {\n  flex: 1;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.fx-lock-gone .fx-lock-name {\n  color: var(--fx-dim);\n}\n.fx-lock-row[data-fut-lock-source='mirror'] .fx-lock-name {\n  color: var(--fx-dim);\n}\n.fx-lock-warn {\n  margin: 2px 0 8px;\n  padding: 6px 8px;\n  border: 1px solid var(--fx-warn-dim);\n  border-radius: 4px;\n  background: var(--fx-warn-tint);\n  color: var(--fx-warn);\n  font-size: 12px;\n}\n.fx-lock-tag {\n  flex: 0 0 auto;\n  padding: 1px 6px;\n  border: 1px solid var(--fx-warn-dim);\n  border-radius: 3px;\n  background: var(--fx-warn-tint);\n  color: var(--fx-warn);\n  font-size: 10px;\n  text-transform: uppercase;\n  letter-spacing: 0.02em;\n}\n\n.fx-lock-empty {\n  margin: 10px 0 0;\n  color: var(--fx-dim);\n  font-size: 12px;\n}\n.fx-lock-blocked {\n  margin: 10px 0 0;\n  padding: 8px 10px;\n  border: 1px solid var(--fx-warn-dim);\n  border-radius: 4px;\n  background: var(--fx-warn-tint);\n  color: var(--fx-warn);\n  font-size: 12px;\n}\n.fx-lock-failed {\n  margin-top: 10px;\n  padding: 6px 8px;\n  border: 1px solid var(--fx-danger);\n  border-radius: 4px;\n  background: var(--fx-danger-tint);\n  color: var(--fx-danger);\n  font-size: 12px;\n}\n.fx-lock-final {\n  margin-top: 12px;\n  padding: 9px 11px;\n  border: 1px solid var(--fx-danger);\n  border-radius: 4px;\n  background: var(--fx-danger-tint);\n  color: var(--fx-danger);\n  font-size: 12px;\n  font-weight: 600;\n}\n.fx-lock-pager {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding-top: 10px;\n  border-top: 1px solid var(--fx-line);\n}\n\n.fx-lock-count {\n  color: var(--fx-dim);\n  font-size: 12px;\n}\n\n.fx-lock-buttons {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-top: 14px;\n}\n.fx-lock-off,\n.fx-lock-all,\n.fx-lock-cancel,\n.fx-lock-page,\n.fx-lock-close {\n  background: var(--fx-surface-sunken);\n}\n\n.fx-lock-off:hover,\n.fx-lock-all:hover,\n.fx-lock-cancel:hover,\n.fx-lock-page:hover,\n.fx-lock-close:hover {\n  border-color: var(--fx-accent);\n}\n.fx-lock-page {\n  font-weight: 700;\n}\n.fx-lock-page[disabled] {\n  opacity: .5;\n}\n\n.fx-lock-page[disabled]:hover {\n  border-color: var(--fx-line-strong);\n}\n\n.fx-lock-close {\n  margin-left: auto;\n  border-color: var(--fx-accent-dim);\n}\n.fx-lock-all[data-fut-lock-step='ask'] {\n  border-color: var(--fx-warn);\n  background: var(--fx-warn-tint);\n  color: var(--fx-warn);\n  font-weight: 600;\n}\n.fx-lock-all[data-fut-lock-step='final'] {\n  border-color: var(--fx-danger);\n  background: var(--fx-danger-tint);\n  color: var(--fx-danger);\n  font-weight: 700;\n}\n@media (max-width: 480px) {\n  .fx-lock-row {\n    flex-wrap: wrap;\n  }\n\n  .fx-lock-off {\n    margin-left: 44px;\n  }\n\n  .fx-lock-box .fx-hk-help-title {\n    flex-wrap: wrap;\n  }\n}\n.fx-lock-box[data-fut-lock-cards='1'] {\n  width: min(1392px, 94vw);\n  max-height: 92vh;\n}\n.fx-lock-grid {\n  margin-bottom: 0;\n  height: var(--fut-lock-grid-h);\n  flex-grow: 0;\n}\n.fx-lock-span {\n  grid-column: 1 / -1 !important;\n  min-width: 0;\n}\n.fx-lock-span > .fx-lock-head {\n  margin-top: 0;\n}\n.fx-lock-tile > .fx-lock-tile-off {\n  top: 6px;\n  right: 6px;\n  z-index: 4;\n}\n.fx-lock-tile .entityContainer > .name {\n  margin-right: 28px !important;\n}\n.fx-lock-tile > .fx-lock-tag {\n  position: absolute;\n  right: 6px;\n  bottom: 6px;\n  z-index: 4;\n}\n.fx-lock-buttons > .fx-lock-pager {\n  margin-left: auto;\n  padding-top: 0;\n  border-top: 0;\n}\n[data-fut-card-view][data-fut-card-page='1'].fx-lock-grid > li.fx-lock-tile .entityContainer > :first-child {\n  width: var(--fut-lock-face) !important;\n  height: var(--fut-lock-face-h) !important;\n}\n",
 "eshario-asset:ui/club-bar.css":".fx-club-bar {\n  gap: 4px 14px;\n  font-size: 13px;\n}\n.fx-club-bar[data-fut-club-pinned='1'] {\n  position: sticky;\n  top: 0;\n  z-index: 3;\n}\n.fx-club-stat {\n  display: inline-flex;\n  align-items: baseline;\n  gap: 6px;\n  white-space: nowrap;\n  color: var(--fx-dim);\n}\n.fx-club-stat-value {\n  color: var(--fx-ink);\n}\n.fx-club-stat[data-fut-club-stat='value'] .fx-club-stat-value {\n  color: var(--fx-gold);\n}\n.fx-club-stat[data-fut-club-stat='locked'] .fx-club-stat-value {\n  color: var(--fx-warn);\n}\n.fx-club-stat[data-fut-club-zero='1'] .fx-club-stat-value {\n  color: var(--fx-dim);\n}\n.fx-club-hint {\n  margin-left: 6px;\n  color: var(--fx-muted);\n  font-size: 11px;\n  white-space: nowrap;\n}\n.fx-club-empty {\n  color: var(--fx-dim);\n}\n.fx-club-tail {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  margin-left: auto;\n}\n.fx-club-locked {\n  border-color: var(--fx-accent-dim);\n  background: var(--fx-surface-sunken);\n}\n\n.fx-club-locked:hover {\n  border-color: var(--fx-accent);\n}\n\n.fx-club-locked:focus {\n  border-color: var(--fx-accent);\n  outline: none;\n}\n.fx-club-pin {\n  background: var(--fx-surface-sunken);\n}\n\n.fx-club-pin[data-fut-club-pin='1'] {\n  border-color: var(--fx-accent);\n}\n.fx-club-pin[data-fut-club-pin='0'] {\n  opacity: .45;\n}\n\n.fx-club-pin:hover {\n  border-color: var(--fx-accent);\n  opacity: 1;\n}\n@media (max-width: 720px) {\n  .fx-club-bar {\n    gap: 4px 10px;\n    font-size: 12px;\n  }\n\n  .fx-club-tail {\n    margin-left: 0;\n  }\n}\n[data-fut-club-wide='1'] {\n  max-width: none !important;\n  width: 100% !important;\n}\n[data-fut-club-screen='1'] {\n  width: 100% !important;\n  max-width: none !important;\n  box-sizing: border-box !important;\n  padding-left: clamp(12px, 2vw, 16px) !important;\n  padding-right: clamp(12px, 2vw, 16px) !important;\n}\n\n[data-fut-club-tiles='1'] {\n  display: grid !important;\n  width: 100% !important;\n  max-width: none !important;\n  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;\n  gap: 10px !important;\n  align-content: start !important;\n}\n[data-fut-club-tiles='1'] > * {\n  grid-column: auto !important;\n  grid-row: auto !important;\n  width: auto !important;\n  min-width: 0 !important;\n  max-width: none !important;\n  margin: 0 !important;\n  min-height: 0 !important;\n  height: auto !important;\n  aspect-ratio: 16 / 11 !important;\n  max-height: 34vh !important;\n  overflow: hidden !important;\n}\n@media (max-width: 1100px) {\n  [data-fut-club-tiles='1'] {\n    grid-template-columns: repeat(3, 1fr) !important;\n  }\n}\n\n@media (max-width: 720px) {\n  [data-fut-club-tiles='1'] {\n    grid-template-columns: repeat(2, 1fr) !important;\n  }\n}\n.fx-club-tile {\n  position: relative;\n  cursor: pointer;\n}\n.fx-club-tile:hover {\n  filter: brightness(1.15);\n}\n.fx-club-tile-lock {\n  position: absolute;\n  right: 16px;\n  bottom: 16px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  font-size: 7rem;\n  width: 1em;\n  height: 1em;\n  color: var(--fx-ink);\n  pointer-events: none;\n}\n.fx-club-tile-lock::before {\n  content: '';\n  box-sizing: border-box;\n  width: .375em;\n  height: .268em;\n  border: .054em solid currentColor;\n  border-bottom: 0;\n  border-radius: .16em .16em 0 0;\n  margin-bottom: -.036em;\n}\n.fx-club-tile-lock::after {\n  content: '';\n  width: .589em;\n  height: .429em;\n  border-radius: .09em;\n  background: currentColor;\n}\n@media (max-width: 767px) {\n  .fx-club-tile-lock {\n    font-size: 80px;\n  }\n}\n.fx-club-tile-gone {\n  display: block;\n  margin-top: 2px;\n  color: var(--fx-dim);\n  font-size: 11px;\n}\n",
 "eshario-asset:ui/sbc-storage.css":".sbc-storage-tile:has(> [data-fut-storage-badge]) {\n  position: relative;\n}\n.fx-storage-badge,\n.fx-club-tile-badge {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  z-index: 1;\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  height: 32px;\n  padding: 0 16px;\n  border-radius: 0 22px 0 16px;\n  background: var(--fx-surface);\n  box-shadow: inset 0 0 0 1px var(--fx-accent-dim);\n  font-size: 14px;\n  line-height: 32px;\n  pointer-events: none;\n}\n\n.fx-storage-badge-value,\n.fx-club-tile-badge-value {\n  color: var(--fx-accent);\n  font-weight: 600;\n  font-variant-numeric: tabular-nums;\n}\n.fx-storage-badge .fx-storage-mark,\n.fx-club-tile-badge .fx-club-badge-mark {\n  height: 15px;\n}\n[data-fut-storage-screen] .fut-companion-list-tools > span {\n  display: none;\n}\n\n.fx-storage-chip {\n  order: 1;\n  margin-left: auto;\n  flex: 0 0 auto;\n  white-space: nowrap;\n  color: var(--fx-accent);\n  font-variant-numeric: tabular-nums;\n}\n",
-"eshario-asset:ui/gallery.css":"[data-fut-gallery-open='1'] > .grid.layout-hub {\n  display: none !important;\n}\n.ut-tab-bar-item.fx-gallery-rail {\n  order: 2;\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 5px;\n  background: none;\n  border: 0;\n  cursor: pointer;\n}\n\n.fx-gallery-rail .fx-gallery-ico--frame {\n  width: 27px;\n  height: 27px;\n}\n.ut-tab-bar-item.fx-gallery-rail--on {\n  color: var(--fx-accent);\n}\n\n.fx-gallery-rail--on .fx-gallery-rail-word::after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  bottom: -5px;\n  width: 30px;\n  height: 3px;\n  margin-left: -15px;\n  border-radius: 2px;\n  background: var(--fx-accent);\n}\n.fx-gallery-rail .fx-gallery-rail-mark {\n  position: absolute;\n  top: 2px;\n  left: 16px;\n  height: 9px;\n  pointer-events: none;\n}\n[data-fut-gallery-on='1'] > .ut-tab-bar-item.icon-club.selected {\n  filter: grayscale(1);\n  opacity: .66;\n}\n.ut-tab-bar-item.fx-gallery-rail--locked {\n  color: var(--fx-dim);\n}\n\n.fx-gallery-rail .fx-gallery-rail-lock {\n  position: absolute;\n  top: 2px;\n  right: 14px;\n  font-size: 11px;\n  line-height: 1;\n  pointer-events: none;\n}\n.fx-gallery-ico {\n  display: inline-block;\n  flex: 0 0 auto;\n  width: 13px;\n  height: 13px;\n  background-color: currentColor;\n  -webkit-mask: var(--gallery-ico) center / contain no-repeat;\n  mask: var(--gallery-ico) center / contain no-repeat;\n}\n\n.fx-gallery-ico--frame {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='2.5' y='4' width='23' height='20' rx='2.5' fill='none' stroke='black' stroke-width='2.2'/%3E%3Cpath d='M9.5 8.5h9v8.2L14 19.6l-4.5-2.9z' fill='black'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--badge {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1.6l5.4 2v4.1c0 3.2-2.2 5.6-5.4 6.7-3.2-1.1-5.4-3.5-5.4-6.7V3.6z' fill='none' stroke='black' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--kit {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5.6 2.2L2 4.2l1.5 3 1.5-.8V14h6V6.4l1.5.8L14 4.2l-3.6-2c-.4 1-1.3 1.6-2.4 1.6s-2-.6-2.4-1.6z' fill='none' stroke='black' stroke-width='1.4' stroke-linejoin='round'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--cart {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 2.5h2l1.6 7.5h7l1.4-5.2H4.2' fill='none' stroke='black' stroke-width='1.4' stroke-linejoin='round'/%3E%3Ccircle cx='6' cy='13' r='1.2' fill='black'/%3E%3Ccircle cx='11.5' cy='13' r='1.2' fill='black'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--coin {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6.3' fill='none' stroke='black' stroke-width='1.4'/%3E%3Cpath d='M8 4.2v7.6M9.9 5.7c-.3-.6-1-1-1.9-1-1.1 0-1.9.6-1.9 1.4 0 1.9 3.9 1 3.9 3 0 .8-.9 1.5-2 1.5-.9 0-1.7-.4-2-1.1' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E\");\n}\n.fx-gallery {\n  box-sizing: border-box;\n  height: var(--gallery-h, 70vh);\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding: 10px 12px 12px;\n  border: 1px solid var(--fx-accent-dim);\n  border-radius: 12px;\n  background: linear-gradient(var(--fx-accent-tint), var(--fx-accent-tint)), var(--fx-surface);\n  box-shadow: 0 18px 44px var(--fx-shadow);\n  color: var(--fx-ink);\n  font-size: 13px;\n  line-height: 1.3;\n  container-type: inline-size;\n  container-name: fx-gallery;\n}\n\n.fx-gallery .fx-gallery-gold { color: var(--fx-gold); }\n.fx-gallery .fx-gallery-acc { color: var(--fx-accent); }\n.fx-gallery .fx-gallery-dim { color: var(--fx-dim); }\n.fx-gallery .fx-gallery-muted { color: var(--fx-muted); }\n.fx-gallery .fx-gallery-warn { color: var(--fx-warn); }\n.fx-gallery .fx-gallery-air { flex: 1 1 auto; }\n.fx-gallery .fx-gallery-hint {\n  text-decoration: underline dotted;\n  text-underline-offset: 3px;\n  cursor: help;\n}\n.fx-gallery .fx-action {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  white-space: nowrap;\n}\n\n.fx-gallery .fx-action.on {\n  color: var(--fx-on-accent);\n  background: var(--fx-accent);\n  border-color: var(--fx-accent-dim);\n}\n\n.fx-gallery .fx-action[aria-disabled='true'] {\n  color: var(--fx-muted);\n  cursor: default;\n}\n\n.fx-gallery .fx-action[aria-disabled='true']:hover {\n  border-color: var(--fx-line-strong);\n  color: var(--fx-muted);\n}\n\n.fx-gallery .fx-gallery-n {\n  color: var(--fx-dim);\n}\n\n.fx-gallery .fx-action.on .fx-gallery-n {\n  color: var(--fx-on-accent);\n  opacity: .75;\n}\n.fx-gallery-head {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 6px;\n  row-gap: 6px;\n  flex: 0 0 auto;\n  min-height: 28px;\n}\n.fx-gallery-chips {\n  display: contents;\n}\n.fx-gallery-tools {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  margin-left: auto;\n  white-space: nowrap;\n}\n\n.fx-gallery-plan {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  margin-right: 14px;\n  font-size: 12px;\n  white-space: nowrap;\n  cursor: help;\n}\n\n.fx-gallery-plan-text {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n}\n.fx-gallery input.limit {\n  box-sizing: border-box;\n  width: 52px;\n  padding: 1px 5px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 4px;\n  background: var(--fx-surface-sunken);\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 11px;\n  text-align: center;\n}\n\n.fx-gallery input.limit::placeholder {\n  color: var(--fx-muted);\n}\n\n.fx-gallery-check {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 12px;\n  color: var(--fx-dim);\n  white-space: nowrap;\n}\n\n.fx-gallery-check-line {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n}\n\n.fx-gallery-check b {\n  color: var(--fx-ink);\n  font-weight: 600;\n}\n\n.fx-gallery-pbar,\n.fx-gallery-bar {\n  display: inline-block;\n  height: 4px;\n  border-radius: 2px;\n  background: var(--fx-line-strong);\n  overflow: hidden;\n}\n\n.fx-gallery-pbar { width: 80px; }\n.fx-gallery-bar { width: 54px; }\n\n.fx-gallery-pbar i,\n.fx-gallery-bar i {\n  display: block;\n  height: 100%;\n  background: var(--fx-accent);\n}\n.fx-gallery-body {\n  flex: 1 1 auto;\n  min-height: 0;\n  display: flex;\n  gap: 10px;\n}\n\n.fx-gallery-list {\n  flex: 1 1 0;\n  min-width: 740px;\n  overflow: auto;\n  border: 1px solid var(--fx-line);\n  border-radius: 8px;\n  background: var(--fx-surface);\n}\n\n.fx-gallery-empty {\n  padding: 14px 12px;\n  color: var(--fx-muted);\n  text-align: left;\n}\n\n.fx-gallery-table {\n  width: 100%;\n  border-collapse: collapse;\n}\n\n.fx-gallery-table th {\n  position: sticky;\n  top: 0;\n  z-index: 1;\n  padding: 6px 10px;\n  background: var(--fx-surface-2);\n  color: var(--fx-dim);\n  font-size: 11px;\n  font-weight: 600;\n  text-align: right;\n  white-space: nowrap;\n  cursor: pointer;\n  user-select: none;\n}\n\n.fx-gallery-table th.l { text-align: left; }\n.fx-gallery-table th.c { text-align: center; }\n.fx-gallery-table th.fx-gallery-money { color: var(--fx-gold); }\n.fx-gallery-table th.fx-gallery-sorted { color: var(--fx-accent); }\n.fx-gallery-table th.fx-gallery-hint { cursor: help; }\n\n.fx-gallery-arrow {\n  margin-left: 3px;\n  font-size: 9px;\n}\n\n.fx-gallery-table td {\n  height: 30px;\n  padding: 0 10px;\n  border-top: 1px solid var(--fx-line);\n  text-align: right;\n  font-variant-numeric: tabular-nums;\n  white-space: nowrap;\n}\n\n.fx-gallery-table td.l { text-align: left; }\n.fx-gallery-table td.c { text-align: center; }\n\n.fx-gallery-table td.fx-gallery-crest-cell {\n  width: 26px;\n  padding-right: 0;\n}\n\n.fx-gallery-crest {\n  display: block;\n  width: 24px;\n  height: 24px;\n  object-fit: contain;\n}\n\n.fx-gallery-row { cursor: pointer; }\n.fx-gallery-row:hover td { background: var(--fx-accent-tint); }\n.fx-gallery-row--sel td { background: var(--fx-accent-tint); }\n.fx-gallery-row--sel td:first-child { box-shadow: inset 3px 0 0 var(--fx-accent); }\n.fx-gallery-row.fx-gallery-cut td { border-bottom: 2px dashed var(--fx-accent-dim); }\n\n.fx-gallery-league {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  color: var(--fx-dim);\n}\n\n.fx-gallery-league-ico {\n  width: 18px;\n  height: 18px;\n  object-fit: contain;\n}\n\n.fx-gallery-got {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n}\n.fx-gallery .fx-gallery-club {\n  color: var(--fx-dim);\n  text-decoration: underline dotted;\n  text-underline-offset: 3px;\n  cursor: help;\n}\n\n.fx-gallery-got--club .fx-gallery-bar i { opacity: .45; }\n\n.fx-gallery-lt {\n  box-sizing: border-box;\n  display: inline-grid;\n  place-items: center;\n  flex: 0 0 auto;\n  width: 20px;\n  height: 20px;\n  border: 1.5px solid var(--fx-muted);\n  border-radius: 50%;\n  color: var(--fx-muted);\n  font-size: 11px;\n  font-weight: 800;\n}\n\n.fx-gallery-lt--ok {\n  border-color: var(--fx-ok);\n  background: var(--fx-ok);\n  color: var(--fx-on-accent);\n}\n\n.fx-gallery-lt--can {\n  border-color: var(--fx-accent);\n  color: var(--fx-accent);\n}\n\n.fx-gallery-goal {\n  display: inline-flex;\n  align-items: center;\n  gap: 7px;\n}\n\n.fx-gallery-rwd {\n  display: inline-flex;\n  align-items: center;\n  justify-content: flex-end;\n  gap: 3px;\n  min-width: 44px;\n}\n.fx-gallery-set {\n  box-sizing: border-box;\n  container-type: inline-size;\n  container-name: fx-gallery-set;\n  flex: 0 1 640px;\n  min-width: 420px;\n  min-height: 0;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding: 10px 12px;\n  border: 1px solid var(--fx-line);\n  border-radius: 8px;\n  background: var(--fx-surface);\n}\n\n.fx-gallery-set-head {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  flex: 0 0 auto;\n}\n\n.fx-gallery-set-crest {\n  width: 34px;\n  height: 34px;\n  object-fit: contain;\n}\n\n.fx-gallery-set-name {\n  font-size: 18px;\n  font-weight: 700;\n}\n\n.fx-gallery-need {\n  margin-left: 4px;\n  color: var(--fx-dim);\n  font-size: 13px;\n}\n\n.fx-gallery-need b { color: var(--fx-ink); }\n.fx-gallery-need b.fx-gallery-club { color: var(--fx-dim); }\n\n.fx-gallery-ladder {\n  display: grid;\n  grid-template-columns: repeat(5, minmax(0, 1fr));\n  gap: 6px;\n  flex: 0 0 auto;\n}\n\n.fx-gallery-step {\n  display: flex;\n  flex-direction: column;\n  gap: 3px;\n  min-width: 0;\n  padding: 6px 8px;\n  border: 1px solid var(--fx-line);\n  border-radius: 6px;\n  background: var(--fx-surface-2);\n}\n\n.fx-gallery-step--no { opacity: .72; }\n\n.fx-gallery-step-top {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n\n.fx-gallery-step-th {\n  color: var(--fx-dim);\n  font-size: 11px;\n  white-space: nowrap;\n}\n\n.fx-gallery-step-rw {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  white-space: nowrap;\n  overflow: hidden;\n}\n\n.fx-gallery-step-rw .fx-gallery-ico {\n  width: 14px;\n  height: 14px;\n}\n\n.fx-gallery-step-no {\n  font-size: 12px;\n  white-space: nowrap;\n}\n.fx-gallery-path {\n  flex: 0 0 auto;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  padding: 7px 10px;\n  border: 1px solid var(--fx-line);\n  border-left: 3px solid var(--fx-gold);\n  border-radius: 6px;\n  background: var(--fx-surface-2);\n  cursor: help;\n}\n\n.fx-gallery-path-row {\n  display: grid;\n  grid-template-columns: 22px 150px 1fr auto;\n  gap: 8px;\n  align-items: center;\n  font-size: 13px;\n  font-variant-numeric: tabular-nums;\n}\n\n.fx-gallery-path-loss {\n  font-size: 12px;\n  text-align: right;\n}\n.fx-gallery-slots {\n  display: flex;\n  gap: 6px;\n  flex: 0 0 auto;\n}\n\n.fx-gallery .fx-gallery-later {\n  flex: 1 1 0;\n  justify-content: center;\n  padding: 5px 9px;\n  border-style: dashed;\n  color: var(--fx-muted);\n  cursor: default;\n}\n\n.fx-gallery .fx-gallery-later:hover {\n  border-color: var(--fx-line-strong);\n  color: var(--fx-muted);\n}\n\n.fx-gallery-tag {\n  padding: 0 4px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 3px;\n  font-size: 10px;\n}\n\n.fx-gallery-tabs {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  flex: 0 0 auto;\n}\n\n.fx-gallery-cap { font-size: 11px; }\n.fx-gallery-cards {\n  flex: 1 1 auto;\n  min-height: 0;\n  overflow: auto;\n  display: grid;\n  grid-template-columns: repeat(auto-fill, 94px);\n  justify-content: space-between;\n  align-content: start;\n  gap: 10px 4px;\n  padding-top: 4px;\n}\n\n.fx-gallery-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 3px;\n  cursor: default;\n}\n\n.fx-gallery-face {\n  position: relative;\n  width: 94px;\n  height: 128px;\n  overflow: hidden;\n  pointer-events: none;\n}\n\n.fx-gallery-face > * {\n  position: absolute !important;\n  top: 0 !important;\n  left: 50% !important;\n  margin: 0 !important;\n  transform: translateX(-50%) scale(.64) !important;\n  transform-origin: top center !important;\n  pointer-events: none !important;\n}\n.fx-gallery-face:not(.fx-gallery-face--stats) .player-stats-data-component {\n  visibility: hidden !important;\n}\n\n.fx-gallery-face--none {\n  box-sizing: border-box;\n  border: 1px dashed var(--fx-line-strong);\n  border-radius: 6px;\n}\n.fx-gallery-card--row {\n  grid-column: 1 / -1;\n  order: -1;\n  flex-direction: row;\n  justify-content: flex-start;\n  gap: 8px;\n  height: 24px;\n  border-top: 1px solid var(--fx-line);\n  font-size: 12px;\n}\n.fx-gallery-card {\n  position: relative;\n  padding-top: 21px;\n}\n\n.fx-gallery-card--row {\n  padding-top: 0;\n}\n\n.fx-gallery-card--row .fut-price-badge {\n  position: static !important;\n  margin: 0 !important;\n}\n@container fx-gallery (max-width: 1560px) {\n  .fx-gallery-table .fx-gallery-th-league,\n  .fx-gallery-table .fx-gallery-league-cell {\n    display: none;\n  }\n  .fx-gallery-table th,\n  .fx-gallery-table td {\n    padding-left: 6px;\n    padding-right: 6px;\n  }\n\n  .fx-gallery-table .fx-gallery-bar {\n    width: 36px;\n  }\n}\n@container fx-gallery-set (max-width: 560px) {\n  .fx-gallery-step {\n    padding: 5px 6px;\n  }\n\n  .fx-gallery-step-top {\n    flex-wrap: wrap;\n    gap: 2px 5px;\n  }\n\n  .fx-gallery-step-th,\n  .fx-gallery-step-rw,\n  .fx-gallery-step-no {\n    white-space: normal;\n  }\n\n  .fx-gallery-step-rw {\n    flex-wrap: wrap;\n    gap: 2px 4px;\n  }\n}\n",
+"eshario-asset:ui/gallery.css":"[data-fut-gallery-open='1'] > .grid.layout-hub {\n  display: none !important;\n}\n[data-fut-gallery-open='1'] > .fx-club-bar {\n  display: none !important;\n}\n.ut-tab-bar-item.fx-gallery-rail {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 5px;\n  background: none;\n  border: 0;\n  cursor: pointer;\n}\n\n.fx-gallery-rail .fx-gallery-ico--frame {\n  width: 27px;\n  height: 27px;\n}\n.ut-tab-bar-item.fx-gallery-rail--on {\n  color: var(--fx-accent);\n}\n\n.fx-gallery-rail--on .fx-gallery-rail-word::after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  bottom: -5px;\n  width: 30px;\n  height: 3px;\n  margin-left: -15px;\n  border-radius: 2px;\n  background: var(--fx-accent);\n}\n.fx-gallery-rail .fx-gallery-rail-mark {\n  position: absolute;\n  top: 2px;\n  left: 16px;\n  height: 9px;\n  pointer-events: none;\n}\n[data-fut-gallery-on='1'] > .ut-tab-bar-item.icon-club.selected {\n  filter: grayscale(1);\n  opacity: .66;\n}\n.ut-tab-bar-item.fx-gallery-rail--locked {\n  color: var(--fx-dim);\n}\n\n.fx-gallery-rail .fx-gallery-rail-lock {\n  position: absolute;\n  top: 2px;\n  right: 14px;\n  font-size: 11px;\n  line-height: 1;\n  pointer-events: none;\n}\n.fx-gallery-ico {\n  display: inline-block;\n  flex: 0 0 auto;\n  width: 13px;\n  height: 13px;\n  background-color: currentColor;\n  -webkit-mask: var(--gallery-ico) center / contain no-repeat;\n  mask: var(--gallery-ico) center / contain no-repeat;\n}\n\n.fx-gallery-ico--frame {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='2.5' y='4' width='23' height='20' rx='2.5' fill='none' stroke='black' stroke-width='2.2'/%3E%3Cpath d='M9.5 8.5h9v8.2L14 19.6l-4.5-2.9z' fill='black'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--badge {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1.6l5.4 2v4.1c0 3.2-2.2 5.6-5.4 6.7-3.2-1.1-5.4-3.5-5.4-6.7V3.6z' fill='none' stroke='black' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--kit {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5.6 2.2L2 4.2l1.5 3 1.5-.8V14h6V6.4l1.5.8L14 4.2l-3.6-2c-.4 1-1.3 1.6-2.4 1.6s-2-.6-2.4-1.6z' fill='none' stroke='black' stroke-width='1.4' stroke-linejoin='round'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--cart {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 2.5h2l1.6 7.5h7l1.4-5.2H4.2' fill='none' stroke='black' stroke-width='1.4' stroke-linejoin='round'/%3E%3Ccircle cx='6' cy='13' r='1.2' fill='black'/%3E%3Ccircle cx='11.5' cy='13' r='1.2' fill='black'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--lens {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='6.8' cy='6.8' r='4.6' fill='none' stroke='black' stroke-width='1.6'/%3E%3Cpath d='M10.2 10.2l3.8 3.8' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--coin {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6.3' fill='none' stroke='black' stroke-width='1.4'/%3E%3Cpath d='M8 4.2v7.6M9.9 5.7c-.3-.6-1-1-1.9-1-1.1 0-1.9.6-1.9 1.4 0 1.9 3.9 1 3.9 3 0 .8-.9 1.5-2 1.5-.9 0-1.7-.4-2-1.1' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E\");\n}\n.fx-gallery {\n  box-sizing: border-box;\n  height: var(--gallery-h, 70vh);\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding: 10px 12px 12px;\n  border: 1px solid var(--fx-accent-dim);\n  border-radius: 12px;\n  background: linear-gradient(var(--fx-accent-tint), var(--fx-accent-tint)), var(--fx-surface);\n  box-shadow: 0 18px 44px var(--fx-shadow);\n  color: var(--fx-ink);\n  font-size: 13px;\n  line-height: 1.3;\n  container-type: inline-size;\n  container-name: fx-gallery;\n}\n\n.fx-gallery .fx-gallery-gold { color: var(--fx-gold); }\n.fx-gallery .fx-gallery-acc { color: var(--fx-accent); }\n.fx-gallery .fx-gallery-dim { color: var(--fx-dim); }\n.fx-gallery .fx-gallery-muted { color: var(--fx-muted); }\n.fx-gallery .fx-gallery-warn { color: var(--fx-warn); }\n.fx-gallery .fx-gallery-air { flex: 1 1 auto; }\n.fx-gallery .fx-gallery-hint {\n  text-decoration: underline dotted;\n  text-underline-offset: 3px;\n  cursor: help;\n}\n.fx-gallery .fx-action {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  white-space: nowrap;\n}\n\n.fx-gallery .fx-action.on {\n  color: var(--fx-on-accent);\n  background: var(--fx-accent);\n  border-color: var(--fx-accent-dim);\n}\n\n.fx-gallery .fx-action[aria-disabled='true'] {\n  color: var(--fx-muted);\n  cursor: default;\n}\n\n.fx-gallery .fx-action[aria-disabled='true']:hover {\n  border-color: var(--fx-line-strong);\n  color: var(--fx-muted);\n}\n\n.fx-gallery .fx-gallery-n {\n  color: var(--fx-dim);\n}\n\n.fx-gallery .fx-action.on .fx-gallery-n {\n  color: var(--fx-on-accent);\n  opacity: .75;\n}\n.fx-gallery-head {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 6px;\n  row-gap: 6px;\n  flex: 0 0 auto;\n  min-height: 28px;\n}\n.fx-gallery-chips {\n  display: contents;\n}\n.fx-gallery-tools {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  margin-left: auto;\n  white-space: nowrap;\n}\n\n.fx-gallery-plan {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  margin-right: 14px;\n  font-size: 12px;\n  white-space: nowrap;\n  cursor: help;\n}\n\n.fx-gallery-plan-text {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n}\n.fx-gallery input.limit {\n  box-sizing: border-box;\n  width: 52px;\n  padding: 1px 5px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 4px;\n  background: var(--fx-surface-sunken);\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 11px;\n  text-align: center;\n}\n\n.fx-gallery input.limit::placeholder {\n  color: var(--fx-muted);\n}\n.fx-gallery-find {\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n}\n\n.fx-gallery-find .fx-gallery-ico--lens {\n  position: absolute;\n  left: 8px;\n  width: 11px;\n  height: 11px;\n  color: var(--fx-muted);\n  pointer-events: none;\n}\n\n.fx-gallery .fx-search.fx-gallery-search {\n  width: 150px;\n  min-width: 0;\n  padding-left: 24px;\n}\n.fx-gallery .fx-action.fx-gallery-piggy {\n  border-color: var(--fx-accent-dim);\n  color: var(--fx-accent);\n}\n\n.fx-gallery .fx-action.fx-gallery-piggy.on,\n.fx-gallery .fx-action.fx-gallery-piggy.on .fx-gallery-gold {\n  color: var(--fx-on-accent);\n}\n.fx-gallery-total {\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  min-height: 34px;\n  padding: 4px 10px;\n  border-bottom: 1px solid var(--fx-line);\n  border-left: 3px solid var(--fx-accent);\n  background: var(--fx-accent-tint);\n  color: var(--fx-dim);\n  font-size: 12px;\n  white-space: nowrap;\n}\n\n.fx-gallery-total b { color: var(--fx-ink); }\n.fx-gallery-total b.fx-gallery-gold { color: var(--fx-gold); }\n\n.fx-gallery-total-part {\n  padding: 0 10px;\n  border-left: 1px solid var(--fx-line-strong);\n}\n\n.fx-gallery-total > .fx-gallery-acc { margin-right: 10px; }\n.fx-gallery-total > .fx-gallery-acc + .fx-gallery-total-part { padding-left: 0; border-left: 0; }\n.fx-gallery-table td.fx-gallery-cut-cell {\n  position: relative;\n  overflow: visible;\n  z-index: 2;\n}\n\n.fx-gallery-cut-tag {\n  position: absolute;\n  right: 8px;\n  bottom: -9px;\n  padding: 0 6px;\n  background: var(--fx-surface);\n  color: var(--fx-accent);\n  font-size: 11px;\n  line-height: 16px;\n  white-space: nowrap;\n}\n.fx-gallery-order {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  font-size: 12px;\n  white-space: nowrap;\n}\n.fx-gallery-intro {\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  min-height: 34px;\n  padding: 4px 10px;\n  border-bottom: 1px solid var(--fx-line);\n  border-left: 3px solid var(--fx-accent);\n  background: var(--fx-accent-tint);\n  color: var(--fx-dim);\n  font-size: 12px;\n}\n\n.fx-gallery-intro-text b {\n  margin-right: 5px;\n  color: var(--fx-ink);\n}\n\n.fx-gallery-intro-i {\n  box-sizing: border-box;\n  display: inline-grid;\n  place-items: center;\n  flex: 0 0 auto;\n  width: 16px;\n  height: 16px;\n  border: 1.5px solid var(--fx-accent);\n  border-radius: 50%;\n  color: var(--fx-accent);\n  font-size: 10px;\n  font-style: normal;\n  font-weight: 700;\n}\n\n.fx-gallery-intro-short { display: none; }\n.fx-gallery-intro-n { white-space: nowrap; }\n\n@container fx-gallery-list (max-width: 899px) {\n  .fx-gallery-intro-long,\n  .fx-gallery-intro-n {\n    display: none;\n  }\n\n  .fx-gallery-intro-short { display: inline; }\n}\n\n.fx-gallery-check {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 12px;\n  color: var(--fx-dim);\n  white-space: nowrap;\n}\n\n.fx-gallery-check-line {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n}\n\n.fx-gallery-check b {\n  color: var(--fx-ink);\n  font-weight: 600;\n}\n\n.fx-gallery-pbar,\n.fx-gallery-bar {\n  display: inline-block;\n  height: 4px;\n  border-radius: 2px;\n  background: var(--fx-line-strong);\n  overflow: hidden;\n}\n\n.fx-gallery-pbar { width: 80px; }\n.fx-gallery-bar { width: 54px; }\n\n.fx-gallery-pbar i,\n.fx-gallery-bar i {\n  display: block;\n  height: 100%;\n  background: var(--fx-accent);\n}\n.fx-gallery-body {\n  flex: 1 1 auto;\n  min-height: 0;\n  display: flex;\n  gap: 10px;\n}\n\n.fx-gallery-list {\n  flex: 0 1 900px;\n  min-width: 740px;\n  overflow: auto;\n  border: 1px solid var(--fx-line);\n  border-radius: 8px;\n  background: var(--fx-surface);\n  container-type: inline-size;\n  container-name: fx-gallery-list;\n}\n\n.fx-gallery-empty {\n  padding: 14px 12px;\n  color: var(--fx-muted);\n  text-align: left;\n}\n.fx-gallery-table {\n  width: 100%;\n  border-collapse: collapse;\n  table-layout: fixed;\n}\n\n.fx-gallery-col-crest { width: 34px; }\n.fx-gallery-col-tokenPrice { width: 84px; }\n.fx-gallery-col-goalLetter { width: 56px; }\n.fx-gallery-col-missing { width: 70px; }\n.fx-gallery-col-goal { width: 72px; }\n.fx-gallery-col-reward { width: 76px; }\n.fx-gallery-col-got { width: 164px; }\n.fx-gallery-col-tokens { width: 132px; }\n\n.fx-gallery-table th {\n  position: sticky;\n  top: 0;\n  z-index: 1;\n  padding: 6px 10px;\n  background: var(--fx-surface-2);\n  color: var(--fx-dim);\n  font-size: 11px;\n  font-weight: 600;\n  text-align: right;\n  white-space: nowrap;\n  cursor: pointer;\n  user-select: none;\n}\n\n.fx-gallery-table th.l { text-align: left; }\n.fx-gallery-table th.c { text-align: center; }\n.fx-gallery-table th.fx-gallery-money { color: var(--fx-gold); }\n.fx-gallery-table th.fx-gallery-sorted { color: var(--fx-accent); }\n.fx-gallery-table th.fx-gallery-hint { cursor: help; }\n\n.fx-gallery-arrow {\n  margin-left: 3px;\n  font-size: 9px;\n}\n\n.fx-gallery-table td {\n  height: 30px;\n  padding: 0 10px;\n  border-top: 1px solid var(--fx-line);\n  text-align: right;\n  font-variant-numeric: tabular-nums;\n  white-space: nowrap;\n  overflow: hidden;\n}\n\n.fx-gallery-table td.l { text-align: left; }\n.fx-gallery-table td.c { text-align: center; }\n.fx-gallery-table td.fx-gallery-name { text-overflow: ellipsis; }\n\n.fx-gallery-table td.fx-gallery-crest-cell {\n  padding-right: 0;\n}\n\n.fx-gallery-crest {\n  display: block;\n  width: 24px;\n  height: 24px;\n  object-fit: contain;\n}\n.fx-gallery .fx-gallery-crest-none {\n  display: block;\n  width: 20px;\n  height: 20px;\n  margin-left: 2px;\n  color: var(--fx-muted);\n}\n\n.fx-gallery-row { cursor: pointer; }\n.fx-gallery-row:hover td { background: var(--fx-accent-tint); }\n.fx-gallery-row--sel td { background: var(--fx-accent-tint); }\n.fx-gallery-row--sel td:first-child { box-shadow: inset 3px 0 0 var(--fx-accent); }\n.fx-gallery-row.fx-gallery-cut td { border-bottom: 2px dashed var(--fx-accent-dim); }\n.fx-gallery-got {\n  display: inline-grid;\n  grid-template-columns: 24px 12px 24px 54px 28px;\n  align-items: center;\n  vertical-align: middle;\n}\n\n.fx-gallery-got > :first-child { justify-self: end; }\n.fx-gallery-got .fx-gallery-bar { justify-self: end; }\n\n.fx-gallery-slash {\n  justify-self: center;\n  text-align: center;\n  color: var(--fx-dim);\n}\n\n.fx-gallery-den { justify-self: start; }\n\n.fx-gallery-grade {\n  display: inline-grid;\n  place-items: center;\n  justify-self: center;\n  min-width: 20px;\n}\n.fx-gallery-tok {\n  display: inline-grid;\n  grid-template-columns: 30px 12px 34px;\n  align-items: center;\n  vertical-align: middle;\n}\n\n.fx-gallery-tok > :first-child { justify-self: end; }\n.fx-gallery .fx-gallery-club {\n  color: var(--fx-dim);\n  text-decoration: underline dotted;\n  text-underline-offset: 3px;\n  cursor: help;\n}\n\n.fx-gallery-got--club .fx-gallery-bar i { opacity: .45; }\n\n.fx-gallery-lt {\n  box-sizing: border-box;\n  display: inline-grid;\n  place-items: center;\n  flex: 0 0 auto;\n  width: 20px;\n  height: 20px;\n  border: 1.5px solid var(--fx-muted);\n  border-radius: 50%;\n  color: var(--fx-muted);\n  font-size: 11px;\n  font-weight: 800;\n}\n\n.fx-gallery-lt--ok {\n  border-color: var(--fx-ok);\n  background: var(--fx-ok);\n  color: var(--fx-on-accent);\n}\n\n.fx-gallery-lt--can {\n  border-color: var(--fx-accent);\n  color: var(--fx-accent);\n}\n.fx-gallery-rwd {\n  display: inline-grid;\n  grid-template-columns: 12px 26px;\n  align-items: center;\n  vertical-align: middle;\n}\n.fx-gallery-set {\n  box-sizing: border-box;\n  container-type: inline-size;\n  container-name: fx-gallery-set;\n  flex: 1 1 640px;\n  min-width: 420px;\n  min-height: 0;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding: 10px 12px;\n  border: 1px solid var(--fx-line);\n  border-radius: 8px;\n  background: var(--fx-surface);\n}\n\n.fx-gallery-set-head {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  flex: 0 0 auto;\n}\n\n.fx-gallery-set-crest {\n  width: 34px;\n  height: 34px;\n  object-fit: contain;\n}\n\n.fx-gallery-set-name {\n  font-size: 18px;\n  font-weight: 700;\n}\n\n.fx-gallery-need {\n  margin-left: 4px;\n  color: var(--fx-dim);\n  font-size: 13px;\n}\n\n.fx-gallery-need b { color: var(--fx-ink); }\n.fx-gallery-need b.fx-gallery-club { color: var(--fx-dim); }\n\n.fx-gallery-ladder {\n  display: grid;\n  grid-template-columns: repeat(5, minmax(0, 1fr));\n  gap: 6px;\n  flex: 0 0 auto;\n}\n\n.fx-gallery-step {\n  display: flex;\n  flex-direction: column;\n  gap: 3px;\n  min-width: 0;\n  padding: 6px 8px;\n  border: 1px solid var(--fx-line);\n  border-radius: 6px;\n  background: var(--fx-surface-2);\n}\n\n.fx-gallery-step--no { opacity: .72; }\n.fx-gallery-step.fx-gallery-step--pick { cursor: pointer; }\n.fx-gallery-step.fx-gallery-step--pick:hover { border-color: var(--fx-accent-dim); }\n\n.fx-gallery-step.fx-gallery-step--on {\n  border-color: var(--fx-accent);\n  box-shadow: inset 0 0 0 1px var(--fx-accent);\n}\n\n.fx-gallery-step-seen {\n  margin-left: auto;\n  color: var(--fx-accent);\n  font-size: 10px;\n  white-space: nowrap;\n}\n.fx-gallery-path-row[data-fut-gallery-path-row] { cursor: pointer; }\n\n.fx-gallery-path-row.fx-gallery-path-row--on {\n  border-radius: 4px;\n  background: var(--fx-accent-tint);\n  box-shadow: inset 3px 0 0 var(--fx-accent);\n}\n.fx-gallery-path-sum {\n  grid-column: 1 / -1;\n  line-height: 20px;\n  color: var(--fx-accent);\n  font-size: 12px;\n}\n\n.fx-gallery-card.fx-gallery-card--path {\n  border-radius: 6px;\n  outline: 2px solid var(--fx-accent);\n  outline-offset: -2px;\n}\n\n.fx-gallery-card.fx-gallery-card--path::after {\n  content: attr(data-fut-gallery-path-n);\n  position: absolute;\n  top: 2px;\n  left: 2px;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background: var(--fx-accent);\n  color: var(--fx-on-accent);\n  font-size: 11px;\n  font-weight: 700;\n  line-height: 18px;\n  text-align: center;\n}\n\n.fx-gallery-card.fx-gallery-card--rest { opacity: .38; }\n\n.fx-gallery-step-top {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n\n.fx-gallery-step-th {\n  color: var(--fx-dim);\n  font-size: 11px;\n  white-space: nowrap;\n}\n\n.fx-gallery-step-rw {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  white-space: nowrap;\n  overflow: hidden;\n}\n\n.fx-gallery-step-rw .fx-gallery-ico {\n  width: 14px;\n  height: 14px;\n}\n\n.fx-gallery-step-no {\n  font-size: 12px;\n  white-space: nowrap;\n}\n.fx-gallery-path {\n  flex: 0 0 auto;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  padding: 7px 10px;\n  border: 1px solid var(--fx-line);\n  border-left: 3px solid var(--fx-gold);\n  border-radius: 6px;\n  background: var(--fx-surface-2);\n  cursor: help;\n}\n\n.fx-gallery-path-row {\n  display: grid;\n  grid-template-columns: 22px 150px 1fr auto;\n  gap: 8px;\n  align-items: center;\n  font-size: 13px;\n  font-variant-numeric: tabular-nums;\n}\n\n.fx-gallery-path-loss {\n  font-size: 12px;\n  text-align: right;\n}\n\n.fx-gallery-tabs {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  flex: 0 0 auto;\n}\n\n.fx-gallery-cap { font-size: 11px; }\n.fx-gallery-cards {\n  flex: 1 1 auto;\n  min-height: 0;\n  overflow: auto;\n  display: grid;\n  grid-template-columns: repeat(auto-fill, 94px);\n  justify-content: space-between;\n  align-content: start;\n  gap: 10px 4px;\n  padding-top: 4px;\n}\n\n.fx-gallery-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 3px;\n  cursor: default;\n}\n\n.fx-gallery-face {\n  position: relative;\n  width: 94px;\n  height: 128px;\n  overflow: hidden;\n  pointer-events: none;\n}\n\n.fx-gallery-face > * {\n  position: absolute !important;\n  top: 0 !important;\n  left: 50% !important;\n  margin: 0 !important;\n  transform: translateX(-50%) scale(.64) !important;\n  transform-origin: top center !important;\n  pointer-events: none !important;\n}\n.fx-gallery-face:not(.fx-gallery-face--stats) .player-stats-data-component {\n  visibility: hidden !important;\n}\n\n.fx-gallery-face--none {\n  box-sizing: border-box;\n  border: 1px dashed var(--fx-line-strong);\n  border-radius: 6px;\n}\n.fx-gallery-card--row {\n  grid-column: 1 / -1;\n  order: -1;\n  flex-direction: row;\n  justify-content: flex-start;\n  gap: 8px;\n  height: 24px;\n  border-top: 1px solid var(--fx-line);\n  font-size: 12px;\n}\n.fx-gallery-card {\n  position: relative;\n  padding-top: 21px;\n}\n\n.fx-gallery-card--row {\n  padding-top: 0;\n}\n\n.fx-gallery-card--row .fut-price-badge {\n  position: static !important;\n  margin: 0 !important;\n}\n@container fx-gallery-list (max-width: 899px) {\n  .fx-gallery-table th,\n  .fx-gallery-table td {\n    padding-left: 6px;\n    padding-right: 6px;\n  }\n\n  .fx-gallery-table th {\n    white-space: normal;\n    line-height: 1.2;\n    vertical-align: bottom;\n  }\n\n  .fx-gallery-col-tokenPrice { width: 76px; }\n  .fx-gallery-col-goalLetter { width: 50px; }\n  .fx-gallery-col-missing { width: 60px; }\n  .fx-gallery-col-goal { width: 66px; }\n  .fx-gallery-col-reward { width: 66px; }\n  .fx-gallery-col-got { width: 100px; }\n  .fx-gallery-col-tokens { width: 104px; }\n\n  .fx-gallery-got {\n    grid-template-columns: 24px 12px 24px 28px;\n  }\n\n  .fx-gallery-got .fx-gallery-bar {\n    display: none;\n  }\n}\n@container fx-gallery-set (max-width: 560px) {\n  .fx-gallery-step {\n    padding: 5px 6px;\n  }\n\n  .fx-gallery-step-top {\n    flex-wrap: wrap;\n    gap: 2px 5px;\n  }\n\n  .fx-gallery-step-th,\n  .fx-gallery-step-rw,\n  .fx-gallery-step-no {\n    white-space: normal;\n  }\n\n  .fx-gallery-step-rw {\n    flex-wrap: wrap;\n    gap: 2px 4px;\n  }\n}\n.fx-gallery-path-host { display: contents; }\n.fx-gallery .fx-gallery-offmarket-note {\n  margin: 6px 0 8px;\n  padding: 6px 10px;\n  max-width: 440px;\n  font-size: 12px;\n  line-height: 1.35;\n  color: var(--fx-muted);\n}\n.fx-gallery .fx-gallery-offmarket { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n\n.fx-gallery-hidden { display: none; }\n.fx-gallery-path.fx-gallery-path--buy {\n  position: relative;\n  padding-top: 24px;\n}\n\n.fx-gallery .fx-action.fx-gallery-gear {\n  position: absolute;\n  top: 2px;\n  right: 6px;\n  width: 18px;\n  height: 18px;\n  padding: 0;\n  font-size: 13px;\n  line-height: 16px;\n  color: var(--fx-dim);\n  background: var(--fx-surface);\n  text-decoration: none;\n  cursor: pointer;\n}\n\n.fx-gallery-path-row.fx-gallery-buy-row {\n  grid-template-columns: 22px auto minmax(0, 1fr) auto;\n  cursor: default;\n}\n\n.fx-gallery-buy-say {\n  min-width: 0;\n  overflow: hidden;\n  font-size: 12px;\n  text-align: right;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  color: var(--fx-dim);\n}\n\n.fx-gallery-buy-say b {\n  color: var(--fx-ink);\n  font-weight: 700;\n}\n\n.fx-gallery-buy-say.fx-gallery-warn { color: var(--fx-warn); }\n\n.fx-gallery-buy-acts {\n  display: flex;\n  justify-content: flex-end;\n  gap: 4px;\n}\n.fx-gallery-buy-wait { opacity: .45; }\n\n.fx-gallery .fx-action.fx-gallery-buy-go {\n  border-color: var(--fx-accent-dim);\n  color: var(--fx-accent);\n}\n\n.fx-gallery .fx-action.fx-gallery-buy-stop {\n  border-color: var(--fx-danger);\n  color: var(--fx-danger);\n}\n.fx-hk-capture-box.fx-gallery-buy-box {\n  width: 560px;\n  font-size: 13px;\n}\n\n.fx-gallery-buy-box .fx-gallery-risk {\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  border: 1px solid var(--fx-warn);\n  border-left: 3px solid var(--fx-warn);\n  border-radius: 4px;\n  background: var(--fx-warn-tint);\n  line-height: 1.45;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-line {\n  display: flex;\n  justify-content: space-between;\n  gap: 10px;\n  padding: 4px 0;\n  border-bottom: 1px solid var(--fx-line);\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-line > span { color: var(--fx-dim); }\n\n.fx-gallery-buy-box .fx-gallery-gold { color: var(--fx-gold); }\n\n.fx-gallery-buy-box .fx-gallery-warn { color: var(--fx-warn); }\n\n.fx-gallery-buy-box .fx-gallery-buy-table {\n  width: 100%;\n  margin: 8px 0;\n  border-collapse: collapse;\n  font-size: 12px;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-table th,\n.fx-gallery-buy-box .fx-gallery-buy-table td {\n  padding: 3px 7px;\n  border: 1px solid var(--fx-line);\n  text-align: left;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-table th {\n  background: var(--fx-surface-2);\n  color: var(--fx-dim);\n  font-weight: 400;\n}\n\n.fx-gallery-buy-box .fx-gallery-num {\n  font-variant-numeric: tabular-nums;\n  white-space: nowrap;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-more td {\n  color: var(--fx-accent);\n  cursor: pointer;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-note,\n.fx-gallery-buy-box .fx-gallery-buy-why {\n  color: var(--fx-dim);\n  font-size: 12px;\n  line-height: 1.45;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-why { color: var(--fx-ink); }\n\n.fx-gallery-buy-box .fx-gallery-hidden,\n.fx-gallery-gear-box .fx-gallery-hidden,\n.fx-gallery-gear-box .fx-gallery-gear-row.fx-gallery-hidden { display: none; }\n.fx-hk-btn.fx-gallery-arm {\n  border-color: var(--fx-warn);\n  color: var(--fx-warn);\n}\n.fx-hk-capture-box.fx-gallery-gear-box {\n  width: 420px;\n  font-size: 13px;\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-row {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-top: 8px;\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-key { color: var(--fx-ink); }\n\n.fx-gallery-gear-box .fx-gallery-gear-word {\n  margin-top: 4px;\n  color: var(--fx-dim);\n  font-size: 12px;\n  line-height: 1.45;\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-part {\n  margin-top: 12px;\n  padding-top: 10px;\n  border-top: 1px solid var(--fx-line);\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-modes {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  margin-top: 6px;\n}\n\n.fx-gallery-gear-box .fx-action.on {\n  color: var(--fx-on-accent);\n  background: var(--fx-accent);\n  border-color: var(--fx-accent-dim);\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-say {\n  margin-top: 10px;\n  color: var(--fx-accent);\n  font-weight: 700;\n}\n\n.fx-gallery-gear-box input.fx-gallery-gear-num {\n  box-sizing: border-box;\n  width: 48px;\n  padding: 3px 6px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 4px;\n  background: var(--fx-surface-sunken);\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 12px;\n  text-align: center;\n}\n\n.fx-gallery-gear-box input.fx-gallery-gear-num.fx-bad { border-color: var(--fx-danger); }\n\n.fx-gallery-gear-box .unit {\n  color: var(--fx-muted);\n  font-size: 11px;\n}\n",
 "eshario-asset:ui/transfers-hub.css":":root {\n  --hub-clock: url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g fill='none' stroke='black' stroke-width='2' stroke-linecap='round'><circle cx='12' cy='12' r='9'/><path d='M12 7v5l3.5 2'/></g></svg>\");\n}\n@media (min-width: 768px) {\n  [data-fut-snipe-tiles='1'] > .ut-tile-transfers .transfer-row:last-of-type .label,\n  [data-fut-snipe-tiles='1'] > .ut-tile-transfers .transfer-row:last-of-type .value {\n    font-size: 18px !important;\n  }\n}\n\n@media (min-width: 1440px) and (min-height: 940px) {\n  .layout-hub[data-fut-snipe-tiles='1'] {\n    zoom: 1.15;\n  }\n}\n[data-fut-snipe-tiles='1'] > .ut-tile-transfers .ut-tile-content-transfers {\n  flex-wrap: nowrap !important;\n  justify-content: flex-start !important;\n}\n[data-fut-snipe-tiles='1'] > .ut-tile-transfers .ut-tile-content-transfers > .transfer-row:last-child {\n  margin-top: auto !important;\n}\n.fx-hub-cap {\n  margin-left: 1px;\n  color: var(--fx-dim);\n  font-size: .58em;\n  font-weight: 500;\n}\n[data-fut-snipe-tiles='1'] [data-fut-hub-tone='ok'] .value {\n  color: var(--fx-ok) !important;\n}\n\n[data-fut-snipe-tiles='1'] [data-fut-hub-tone='warn'] .value {\n  color: var(--fx-warn) !important;\n}\n.fx-hub-unsold {\n  color: var(--fx-warn) !important;\n}\n.fx-hub-won {\n  color: var(--fx-ok) !important;\n}\n\n.fx-hub-outbid {\n  color: var(--fx-warn) !important;\n}\n[data-fut-snipe-tiles='1'] [data-fut-hub-stale] {\n  display: none !important;\n}\n[data-fut-snipe-tiles='1'] > .ut-tile-transfers .tileContent {\n  min-height: 0 !important;\n}\n.fx-tile-desk {\n  display: flex;\n  flex: 0 1 auto;\n  flex-direction: column;\n  gap: 6px;\n  min-width: 0;\n  min-height: 0;\n  overflow: hidden;\n  margin-top: 8px;\n}\n[data-fut-snipe-tiles='1'] .total-transfers-data > .fx-tile-desk {\n  margin-top: 4px;\n}\n\n[data-fut-snipe-tiles='1'] .total-transfers-data .fx-hub-soon-value {\n  font-size: 18px;\n  line-height: 22px;\n}\n.fx-tile-chips {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 4px 6px;\n  min-width: 0;\n}\n.fx-hub-soon {\n  display: flex;\n  flex-direction: column;\n  gap: 2px;\n  min-width: 0;\n}\n\n.fx-hub-soon-row {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  min-width: 0;\n}\n\n.fx-hub-soon-value {\n  overflow: hidden;\n  color: var(--fx-accent);\n  font-size: 22px;\n  font-weight: 800;\n  line-height: 26px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.fx-hub-soon-key {\n  overflow: hidden;\n  color: var(--fx-dim);\n  font-size: 11px;\n  line-height: 14px;\n  letter-spacing: .3px;\n  text-transform: uppercase;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.fx-hub-clock {\n  flex: none;\n  display: inline-block;\n  width: 18px;\n  height: 18px;\n  background: var(--fx-accent);\n  -webkit-mask: var(--hub-clock) center / contain no-repeat;\n  mask: var(--hub-clock) center / contain no-repeat;\n}\n.fx-tile-chip {\n  display: inline-block;\n  box-sizing: border-box;\n  max-width: 100%;\n  overflow: hidden;\n  padding: 0 5px;\n  border: 1px solid var(--fx-line);\n  border-radius: 3px;\n  color: var(--fx-dim);\n  font-size: 9px;\n  font-weight: 800;\n  line-height: 14px;\n  letter-spacing: .4px;\n  text-overflow: ellipsis;\n  text-transform: uppercase;\n  white-space: nowrap;\n}\n.fx-tile-chip.fx-ok { border-color: var(--fx-ok); color: var(--fx-ok); }\n.fx-tile-chip.fx-mine { border-color: var(--fx-accent-dim); color: var(--fx-accent); }\n.fx-tile-line {\n  display: flex;\n  align-items: baseline;\n  gap: 8px;\n  min-width: 0;\n}\n\n.fx-tile-line-key {\n  flex: 0 0 auto;\n  color: var(--fx-dim);\n  font-size: 9px;\n  line-height: 16px;\n  letter-spacing: .3px;\n  text-transform: uppercase;\n  white-space: nowrap;\n}\n.fx-tile-line-value {\n  flex: 1 1 auto;\n  min-width: 0;\n  overflow: hidden;\n  color: var(--fx-ink);\n  font-size: 12px;\n  font-weight: 700;\n  line-height: 16px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n",
 "eshario-asset:ui/store-catalog.css":"[data-fut-catalog-host='1'] > .ut-store-pack-details-view,\n[data-fut-catalog-host='1'] > .ut-store-xray-pack-details-view {\n  position: absolute !important;\n  top: -99999px !important;\n  left: -99999px !important;\n  width: 0 !important;\n  height: 0 !important;\n  padding: 0 !important;\n  overflow: hidden !important;\n  pointer-events: none !important;\n}\n[data-fut-catalog-flat='1'] > .ut-store-hub-view--disclaimer {\n  margin: 0 !important;\n  padding: 0 !important;\n}\n.fut-catalog {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(min(270px, 100%), 1fr));\n  gap: 12px;\n  padding: 0 12px 24px;\n  font-family: inherit;\n  font-size: 12px;\n  line-height: 1.25;\n  color: var(--fx-ink);\n  container: fut-catalog / inline-size;\n}\n.fut-catalog-head {\n  grid-column: 1 / -1;\n  padding-right: 38px;\n  order: -2;\n  position: relative;\n}\n.fut-catalog-head[data-fut-catalog-pinned='1'] {\n  position: sticky;\n  top: 0;\n  z-index: 9;\n}\n.fut-catalog-search {\n  flex: 0 1 200px;\n  width: 200px;\n  min-width: 110px;\n}\n\n.fut-catalog-chips {\n  display: flex;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 4px;\n  overflow: hidden;\n}\n.fut-catalog-sort {\n  flex: none;\n  padding: 4px 6px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 3px;\n  background: var(--fx-surface-2);\n  color: var(--fx-ink);\n  font: inherit;\n  cursor: pointer;\n}\n.fut-catalog-sort:focus {\n  border-color: var(--fx-accent);\n  outline: none;\n}\n.fut-catalog-check {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  color: var(--fx-dim);\n  cursor: pointer;\n  white-space: nowrap;\n}\n.fut-catalog-air {\n  flex: 1 1 0;\n  min-width: 0;\n}\n.fut-catalog-chip {\n  appearance: none;\n  border: 0;\n  border-right: 1px solid var(--fx-line-strong);\n  background: transparent;\n  color: var(--fx-dim);\n  font: inherit;\n  font-weight: 600;\n  padding: 3px 10px;\n  cursor: pointer;\n}\n.fut-catalog-chip:last-child {\n  border-right: 0;\n}\n.fut-catalog-chip[data-fut-catalog-chip-on='1'] {\n  background: var(--fx-accent);\n  color: var(--fx-on-accent);\n}\n.fut-catalog-sum {\n  color: var(--fx-dim);\n  white-space: nowrap;\n}\n.fut-catalog-pin {\n  position: absolute;\n  top: 4px;\n  right: 6px;\n  overflow: hidden;\n  background: var(--fx-surface-sunken);\n  font-size: 12px;\n}\n\n.fut-catalog-pin[data-fut-catalog-pin='1'] {\n  border-color: var(--fx-accent);\n}\n.fut-catalog-pin[data-fut-catalog-pin='0'] {\n  opacity: .45;\n}\n\n.fut-catalog-pin:hover {\n  border-color: var(--fx-accent);\n  opacity: 1;\n}\n.fut-catalog-note {\n  grid-column: 1 / -1;\n  order: -1;\n  padding: 8px 2px;\n  color: var(--fx-dim);\n}\n.fut-catalog-note:empty {\n  display: none;\n}\n.fut-catalog-card {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  padding: 8px;\n  background: var(--fx-surface);\n  border: 1px solid var(--fx-line);\n  border-radius: 10px;\n  contain: layout paint;\n}\n.fut-catalog-card[data-fut-catalog-off='1'] {\n  display: none;\n}\n.fut-catalog-card[data-fut-catalog-hidden='1'] {\n  opacity: .62;\n  border-style: dashed;\n}\n.fut-catalog-hide {\n  position: absolute;\n  top: 6px;\n  left: 6px;\n  z-index: 3;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 22px;\n  height: 22px;\n  padding: 0;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 50%;\n  background: var(--fx-surface);\n  color: var(--fx-dim);\n  cursor: pointer;\n}\n.fut-catalog-hide svg {\n  display: block;\n  width: 15px;\n  height: 15px;\n}\n.fut-catalog-hide[data-fut-catalog-hide-on='1'] {\n  color: var(--fx-accent);\n  border-color: var(--fx-accent-dim);\n}\n\n.fut-catalog-art {\n  --fut-catalog-art: 176px;\n  position: relative;\n  flex: none;\n  height: var(--fut-catalog-art);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: visible;\n  padding: 8px;\n  border-radius: 8px;\n  background: var(--fx-surface-2);\n}\n@container fut-catalog (max-width: 1499.98px) {\n  .fut-catalog-art {\n    --fut-catalog-art: 160px;\n  }\n}\n.fut-catalog-shot {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  max-width: 100%;\n}\n.fut-catalog-shot[data-fut-catalog-empty='1'] {\n  width: 100%;\n}\n.fut-catalog-img {\n  display: block;\n  min-width: 96px;\n  min-height: 132px;\n  max-width: 100%;\n  max-height: calc(var(--fut-catalog-art) - 16px);\n  object-fit: contain;\n}\n.fut-catalog-timer {\n  position: absolute;\n  top: 2px;\n  right: 2px;\n  padding: 0 7px;\n  border-radius: 999px;\n  background: var(--fx-surface-2);\n  border: 1px solid var(--fx-line-strong);\n  color: var(--fx-ink);\n  font-size: 11px;\n  line-height: 18px;\n  font-weight: 700;\n  white-space: nowrap;\n}\n.fut-catalog-timer:empty {\n  display: none;\n}\n.fut-catalog-timer[data-fut-catalog-hot='1'] {\n  background: var(--fx-warn);\n  border-color: var(--fx-warn);\n  color: var(--fx-warn-ink);\n}\n.fut-catalog-trade {\n  position: absolute;\n  left: 4px;\n  bottom: 4px;\n  width: 22px;\n  height: 22px;\n  border-radius: 50%;\n  background: var(--fx-surface-2);\n  border: 1px solid var(--fx-line-strong);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: var(--fx-ok);\n}\n.fut-catalog-trade svg {\n  width: 17px;\n  height: 17px;\n}\n.fut-catalog-trade[data-fut-catalog-tradable='0'] {\n  color: var(--fx-danger);\n}\n.fut-catalog-odds-btn {\n  appearance: none;\n  position: absolute;\n  right: 4px;\n  bottom: 4px;\n  max-width: calc(100% - 40px);\n  box-sizing: border-box;\n  height: 22px;\n  padding: 0 8px 0 4px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 11px;\n  background: var(--fx-surface-2);\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 11px;\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  cursor: pointer;\n}\n.fut-catalog-card[data-fut-catalog-odds-has='0'] .fut-catalog-odds-btn {\n  display: none;\n}\n.fut-catalog-odds-sign {\n  color: var(--fx-accent);\n  font-weight: 800;\n}\n.fut-catalog-odds-peek {\n  white-space: nowrap;\n  font-weight: 600;\n}\n.fut-catalog-odds-list,\n.fut-catalog-desc-list {\n  display: none;\n  position: absolute;\n  inset: 0;\n  z-index: 4;\n  flex-direction: column;\n  overflow: hidden;\n  padding: 6px 8px;\n  box-sizing: border-box;\n  border-radius: 8px;\n  border: 1px solid var(--fx-accent-dim);\n  background: var(--fx-surface);\n  box-shadow: 0 6px 18px var(--fx-shadow);\n}\n.fut-catalog-card[data-fut-catalog-odds-open='1'] .fut-catalog-odds-list,\n.fut-catalog-card[data-fut-catalog-desc-open='1'] .fut-catalog-desc-list {\n  display: flex;\n}\n.fut-catalog-odds-head {\n  flex: none;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding-bottom: 4px;\n  margin-bottom: 4px;\n  border-bottom: 1px solid var(--fx-line);\n}\n.fut-catalog-odds-title {\n  flex: 1 1 auto;\n  min-width: 0;\n  font-weight: 700;\n  color: var(--fx-ink);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.fut-catalog-odds-rows,\n.fut-catalog-desc-body {\n  flex: 1 1 auto;\n  min-height: 0;\n  overflow: auto;\n  padding-right: 8px;\n}\n.fut-catalog-odds-group {\n  margin-top: 6px;\n  padding-bottom: 2px;\n  border-bottom: 1px solid var(--fx-line);\n  font-weight: 700;\n  color: var(--fx-accent);\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.fut-catalog-odds-group:first-child {\n  margin-top: 0;\n}\n\n.fut-catalog-odds-row {\n  display: flex;\n  justify-content: space-between;\n  gap: 8px;\n  padding: 2px 0;\n}\n.fut-catalog-odds-name {\n  color: var(--fx-dim);\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.fut-catalog-odds-value {\n  color: var(--fx-ink);\n  font-weight: 700;\n  white-space: nowrap;\n}\n\n.fut-catalog-name {\n  margin-top: 2px;\n  font-size: 13px;\n  font-weight: 700;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.fut-catalog-facts {\n  font-size: 11px;\n  color: var(--fx-dim);\n}\n.fut-catalog-value {\n  display: none;\n  align-items: center;\n  gap: 6px;\n  min-height: 18px;\n  padding-top: 4px;\n  margin-top: 2px;\n  border-top: 1px dashed var(--fx-line-strong);\n}\n.fut-catalog-value[data-fut-catalog-value-has='1'] {\n  display: flex;\n}\n.fut-catalog-value-text {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  color: var(--fx-ink);\n}\n.fut-catalog-value[data-fut-catalog-value-state='unseen'] .fut-catalog-value-text {\n  color: var(--fx-warn);\n}\n.fut-catalog-chip {\n  margin-left: auto;\n  flex: none;\n  padding: 0 5px;\n  border-radius: 3px;\n  font-size: 11px;\n  line-height: 16px;\n  font-weight: 700;\n}\n.fut-catalog-chip:empty {\n  display: none;\n}\n.fut-catalog-value-logo .fx-mark {\n  height: 13px;\n}\n.fut-catalog-value[data-fut-catalog-value-state='seen'] .fut-catalog-value-text {\n  flex: 0 0 auto;\n  padding: 0 6px;\n  border: 1px solid currentColor;\n  border-radius: 4px;\n  font-size: 12px;\n  line-height: 18px;\n  font-weight: 700;\n}\n.fut-catalog-value[data-fut-catalog-value-tone='good'] .fut-catalog-value-text {\n  color: var(--fx-ok);\n  background: var(--fx-ok-tint);\n}\n.fut-catalog-value[data-fut-catalog-value-tone='risk'] .fut-catalog-value-text {\n  color: var(--fx-ink);\n}\n.fut-catalog-value[data-fut-catalog-value-tone='bad'] .fut-catalog-value-text {\n  color: var(--fx-danger);\n  background: var(--fx-danger-tint);\n}\n.fut-catalog-value-text[title],\n.fut-catalog-value-time[title] {\n  cursor: help;\n}\n.fut-catalog-value-time {\n  display: inline-flex;\n  align-items: center;\n  gap: 4px;\n  margin-left: auto;\n  flex: 0 1 auto;\n  min-width: 0;\n  overflow: hidden;\n  white-space: nowrap;\n  color: var(--fx-dim);\n}\n.fut-catalog-value-icon {\n  display: inline-flex;\n  font-size: 14px;\n  line-height: 16px;\n}\n.fut-catalog-value-icon:empty,\n.fut-catalog-value-clock:empty {\n  display: none;\n}\n.fut-catalog-value-icon svg {\n  width: 12px;\n  height: 12px;\n}\n.fut-catalog-reveal {\n  position: absolute;\n  inset: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  pointer-events: none;\n}\n.fut-catalog-reveal > .item {\n  flex: none;\n  transform: scale(0.8);\n}\n.fut-catalog-shot[data-fut-catalog-revealed='1'] .fut-catalog-img {\n  opacity: 0.7;\n}\n@container fut-catalog (max-width: 1499.98px) {\n  .fut-catalog-reveal > .item {\n    transform: scale(0.72);\n  }\n}\n.fut-catalog-row {\n  display: flex;\n  align-items: baseline;\n  gap: 8px;\n  min-width: 0;\n}\n.fut-catalog-row .fut-catalog-facts {\n  flex: 1 1 auto;\n  min-width: 0;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.fut-catalog-num {\n  color: var(--fx-accent);\n  font-weight: 700;\n}\n.fut-catalog-lim {\n  flex: none;\n  padding: 1px 7px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 9px;\n  color: var(--fx-dim);\n  font-size: 11px;\n  white-space: nowrap;\n}\n.fut-catalog-lim:empty {\n  display: none;\n}\n.fut-catalog-lim[data-fut-catalog-lim-tight='1'] {\n  border-color: var(--fx-warn);\n  color: var(--fx-warn);\n}\n.fut-catalog-limit {\n  font-size: 11px;\n  color: var(--fx-dim);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.fut-catalog-limit:empty {\n  display: none;\n}\n.fut-catalog-buy {\n  appearance: none;\n  margin-top: auto;\n  height: 36px;\n  border: 0;\n  border-radius: 6px;\n  background: var(--fx-accent);\n  color: var(--fx-on-accent);\n  font: inherit;\n  font-size: 13px;\n  font-weight: 800;\n  cursor: pointer;\n}\n.fut-catalog-buy[disabled] {\n  background: var(--fx-surface-2);\n  color: var(--fx-muted);\n  cursor: default;\n}\n.fut-catalog-alt {\n  appearance: none;\n  border: 0;\n  background: transparent;\n  color: var(--fx-dim);\n  font: inherit;\n  font-size: 11px;\n  text-align: center;\n  text-decoration: underline;\n  text-decoration-color: var(--fx-line-strong);\n  text-underline-offset: 3px;\n  cursor: pointer;\n  padding: 2px 0 0;\n  min-height: 15px;\n}\n.fut-catalog-alt[data-fut-catalog-alt-has='0'] {\n  visibility: hidden;\n}\n.fut-catalog-alt[disabled] {\n  color: var(--fx-muted);\n  cursor: default;\n}\n.fut-catalog-desc {\n  appearance: none;\n  padding-left: 8px;\n  border-left: 2px solid var(--fx-line-strong);\n  display: flex;\n  align-items: flex-start;\n  gap: 6px;\n  width: 100%;\n  min-width: 0;\n  margin-top: 2px;\n  padding: 0;\n  border: 0;\n  background: none;\n  color: var(--fx-dim);\n  font: inherit;\n  font-size: 12px;\n  line-height: 1.35;\n  text-align: left;\n  cursor: pointer;\n}\n.fut-catalog-card[data-fut-catalog-desc-has='0'] .fut-catalog-desc {\n  display: none;\n}\n.fut-catalog-desc-text {\n  flex: 1 1 auto;\n  min-width: 0;\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 3;\n  line-clamp: 3;\n  overflow: hidden;\n}\n.fut-catalog-desc-sign {\n  flex: none;\n  color: var(--fx-accent);\n  font-weight: 800;\n}\n.fut-catalog-desc:hover .fut-catalog-desc-text {\n  color: var(--fx-ink);\n}\n.fut-catalog-desc-para {\n  margin: 0 0 6px;\n  color: var(--fx-dim);\n  font-size: 11px;\n  line-height: 1.4;\n}\n.fut-catalog-desc-para:last-child {\n  margin-bottom: 0;\n}\n",
 "eshario-asset:ui/unassigned-strip.css":".fx-unassigned-strip {\n  flex-direction: column;\n  align-items: stretch;\n  flex-wrap: nowrap;\n  gap: 0;\n}\n.fx-unassigned-strip[data-fut-unassigned-pinned='1'] {\n  position: sticky;\n  top: 0;\n  z-index: 3;\n}\n.fx-strip-head {\n  position: relative;\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 6px 8px;\n  padding-right: 62px;\n}\n.fx-strip-corner {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: 0;\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n.fx-strip-go {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  box-sizing: border-box;\n  padding: 5px 14px;\n  border: 1px solid var(--fx-accent);\n  border-radius: 4px;\n  background: var(--fx-accent);\n  color: var(--fx-on-accent);\n  font: inherit;\n  line-height: 1.25;\n  text-align: left;\n  cursor: pointer;\n}\n\n.fx-strip-go .t {\n  font-size: 14px;\n  font-weight: 700;\n}\n.fx-strip-go .d {\n  font-size: 11px;\n  opacity: .78;\n}\n\n.fx-strip-go:hover {\n  filter: brightness(1.08);\n}\n.fx-strip-go-off {\n  background: var(--fx-surface-2);\n  color: var(--fx-dim);\n  cursor: default;\n}\n\n.fx-strip-go-off:hover {\n  filter: none;\n}\n.fx-strip-gear {\n  background: var(--fx-surface-sunken);\n}\n\n.fx-strip-gear[data-fut-unassigned-gear='1'] {\n  border-color: var(--fx-accent);\n  color: var(--fx-accent);\n}\n\n.fx-strip-gear:hover {\n  border-color: var(--fx-accent);\n}\n.fx-strip-money {\n  color: var(--fx-gold);\n  font-size: 15px;\n  font-weight: 700;\n  white-space: nowrap;\n}\n.fx-strip-air {\n  flex: 1 1 0;\n  min-width: 0;\n}\n.fx-strip-pin {\n  background: var(--fx-surface-sunken);\n}\n\n.fx-strip-pin[data-fut-unassigned-pin='1'] {\n  border-color: var(--fx-accent);\n}\n.fx-strip-pin[data-fut-unassigned-pin='0'] {\n  opacity: .45;\n}\n\n.fx-strip-pin:hover {\n  border-color: var(--fx-accent);\n  opacity: 1;\n}\n.fx-strip-more-box {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 8px;\n  margin-top: 9px;\n  padding-top: 9px;\n  border-top: 1px solid var(--fx-accent-dim);\n}\n.fx-strip-btn {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  border-color: var(--fx-accent-dim);\n  text-align: left;\n}\n\n.fx-strip-btn .t {\n  font-size: 12.5px;\n  font-weight: 600;\n}\n\n.fx-strip-btn .d {\n  font-size: 11px;\n  color: var(--fx-dim);\n}\n\n.fx-strip-btn:hover {\n  border-color: var(--fx-accent);\n}\n.fx-strip-btn-running {\n  flex: 0 0 auto;\n  border-color: var(--fx-accent);\n  background: var(--fx-accent);\n  color: var(--fx-on-accent);\n  font-weight: 600;\n}\n.fx-strip-note {\n  margin-top: 8px;\n  color: var(--fx-dim);\n}\n.fx-strip-qsell {\n  border: 1px solid var(--fx-line);\n  border-radius: 5px;\n  padding: 3px 8px;\n  color: var(--fx-dim);\n  font-size: 12px;\n  white-space: nowrap;\n}\n.fx-strip-counts {\n  color: var(--fx-dim);\n  font-size: 13px;\n  white-space: nowrap;\n}\n.fx-strip-more-box {\n  flex-direction: column;\n  align-items: stretch;\n  gap: 10px;\n  container-type: inline-size;\n}\n.fx-strip-set,\n.fx-strip-redeem,\n.fx-strip-warn {\n  border: 1px solid var(--fx-line);\n  border-radius: 8px;\n  padding: 8px 12px;\n}\n.fx-strip-calm {\n  padding: 0 2px;\n}\n.fx-strip-calm {\n  color: var(--fx-ok);\n  font-size: 13px;\n  font-weight: 600;\n}\n.fx-strip-calm[data-fut-unassigned-calm='knife'] {\n  color: var(--fx-warn);\n}\n.fx-strip-warn {\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 10px;\n  padding: 5px 10px;\n  border-color: var(--fx-warn);\n  color: var(--fx-dim);\n  font-size: 12.5px;\n}\n\n.fx-strip-warn-text {\n  flex: 1 1 260px;\n  min-width: 0;\n}\n\n.fx-strip-warn b {\n  color: var(--fx-warn);\n}\n.fx-strip-warn-ok {\n  flex: none;\n  padding: 3px 12px;\n  border-color: var(--fx-warn);\n  background: var(--fx-warn);\n  color: var(--fx-warn-ink);\n  font-weight: 700;\n}\n.fx-strip-sets {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 12px;\n}\n\n@container (max-width: 780px) {\n  .fx-strip-sets {\n    grid-template-columns: 1fr;\n  }\n}\n\n.fx-strip-set {\n  background: var(--fx-surface);\n}\n\n.fx-strip-set-head {\n  font-size: 13px;\n  font-weight: 700;\n  letter-spacing: .06em;\n  text-transform: uppercase;\n}\n.fx-strip-set-trad .fx-strip-set-head {\n  color: var(--fx-ok);\n}\n\n.fx-strip-set-untrad .fx-strip-set-head {\n  color: var(--fx-warn);\n}\n.fx-strip-rule {\n  display: grid;\n  grid-template-columns: minmax(0, 1fr) auto;\n  align-items: start;\n  column-gap: 12px;\n  row-gap: 6px;\n  padding: 8px 2px;\n  border-top: 1px solid var(--fx-line);\n}\n.fx-strip-rule > * {\n  grid-column: 1;\n  justify-self: start;\n}\n\n.fx-strip-rule > .fx-strip-pick,\n.fx-strip-rule > .fx-strip-fixed {\n  grid-column: 2;\n  grid-row: 1;\n  justify-self: end;\n}\n\n.fx-strip-rule > .fx-strip-kinds,\n.fx-strip-rule > .fx-strip-foot {\n  grid-column: 1 / -1;\n}\n.fx-strip-rest {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n\n.fx-strip-cond {\n  display: flex;\n  flex-direction: column;\n  gap: 2px;\n  font-size: 13.5px;\n}\n.fx-strip-subline {\n  display: flex;\n  align-items: baseline;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n\n.fx-strip-rule-name {\n  font-weight: 700;\n}\n\n.fx-strip-fields {\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 7px;\n  font-size: 13px;\n}\n\n.fx-strip-or {\n  color: var(--fx-dim);\n  font-size: 11px;\n  text-transform: uppercase;\n  letter-spacing: .05em;\n}\n.fx-strip-field,\n.fx-strip-check {\n  display: inline-flex;\n  align-items: center;\n  border: 1px solid var(--fx-line);\n  border-radius: 6px;\n  padding: 4px 9px;\n  background: var(--fx-surface-2);\n}\n\n.fx-strip-field {\n  gap: 6px;\n}\n\n.fx-strip-field-label {\n  color: var(--fx-dim);\n  font-size: 12px;\n}\n\n.fx-strip-num {\n  width: 68px;\n  border: none;\n  background: none;\n  color: var(--fx-accent);\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n  font-variant-numeric: tabular-nums;\n}\n\n.fx-strip-num:focus {\n  outline: 1px solid var(--fx-accent-dim);\n  outline-offset: 2px;\n}\n\n.fx-strip-num:disabled {\n  color: var(--fx-dim);\n}\n.fx-strip-check {\n  gap: 7px;\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 13px;\n  cursor: pointer;\n}\n\n.fx-strip-check:hover {\n  border-color: var(--fx-accent-dim);\n}\n\n.fx-strip-box {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 15px;\n  height: 15px;\n  flex: none;\n  border: 1px solid var(--fx-accent-dim);\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 800;\n}\n\n.fx-strip-check-on .fx-strip-box {\n  background: var(--fx-accent);\n  border-color: var(--fx-accent);\n  color: var(--fx-on-accent);\n}\n.fx-strip-fold {\n  border: none;\n  background: none;\n  padding: 0;\n  color: var(--fx-accent);\n  font: inherit;\n  font-size: 12px;\n  text-align: left;\n  cursor: pointer;\n}\n.fx-strip-rule-hint,\n.fx-strip-foot {\n  color: var(--fx-dim);\n  font-size: 12px;\n}\n\n.fx-strip-kinds {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  width: 100%;\n  border-left: 2px solid var(--fx-accent-dim);\n  padding-left: 10px;\n}\n\n.fx-strip-kinds-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 7px;\n}\n.fx-strip-fixed {\n  color: var(--fx-accent);\n  font-size: 14px;\n  font-weight: 700;\n}\n.fx-strip-pick {\n  border: 1px solid var(--fx-accent-dim);\n  border-radius: 6px;\n  padding: 5px 9px;\n  background: var(--fx-surface-2);\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n  cursor: pointer;\n}\n.fx-strip-pick-warn {\n  border-color: var(--fx-warn);\n  color: var(--fx-warn);\n}\n.fx-strip-note-left {\n  color: var(--fx-warn);\n}\n.fx-strip-redeem {\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 10px;\n}\n.fx-strip-reset {\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.fx-strip-reset-ask {\n  flex: 1 1 100%;\n}\n.fx-strip-reset-no {\n  flex: none;\n}\n.fx-strip-hint {\n  border-bottom: 1px dotted var(--fx-dim);\n  cursor: help;\n}\n.fx-strip-why {\n  color: var(--fx-dim);\n  font-weight: 400;\n}\n.fx-strip-pile {\n  white-space: nowrap;\n}\n",
@@ -44,7 +44,7 @@ const __eshario_assets=Object.freeze({
 "eshario-asset:ui/home-grid.css":".grid[data-fut-home-grid] {\n  max-width: none !important;\n  display: grid !important;\n  grid-template-columns: repeat(var(--fut-home-columns, 4), minmax(0, 1fr)) !important;\n  align-content: start;\n  gap: 8px !important;\n  padding: calc(16px + var(--fut-home-air, 0px)) 16px 16px !important;\n  zoom: var(--fut-home-zoom, 1);\n  --fut-home-row1: minmax(min-content, min(19vw, 480px, var(--fut-home-row1-max, 100vh)));\n  grid-template-rows: var(--fut-home-row1);\n  grid-auto-rows: minmax(360px, auto);\n}\n.grid[data-fut-home-grid][data-fut-home-strips=\"1\"] {\n  grid-template-rows: auto var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"2\"] {\n  grid-template-rows: repeat(2, auto) var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"3\"] {\n  grid-template-rows: repeat(3, auto) var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"4\"] {\n  grid-template-rows: repeat(4, auto) var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"5\"] {\n  grid-template-rows: repeat(5, auto) var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"6\"] {\n  grid-template-rows: repeat(6, auto) var(--fut-home-row1);\n}\n.grid[data-fut-home-grid] > .ut-unassigned-tile-view,\n.grid[data-fut-home-grid] > .ut-player-picks-tile-view,\n.grid[data-fut-home-grid] > .fc-points-tile,\n.grid[data-fut-home-grid] > .ut-rewards-banner-tile-view {\n  grid-column: 1 / -1;\n  order: -1;\n}\n.grid[data-fut-home-grid] > .ut-hub-messages-tile-view {\n  grid-column: span 2;\n  overflow: hidden;\n  contain: size;\n}\n\n.grid[data-fut-home-grid] > .ut-hub-messages-tile-view .FETImage {\n  max-height: 160px;\n}\n.grid[data-fut-home-grid] > * {\n  max-width: none !important;\n  margin: 0 !important;\n}\n.grid[data-fut-home-grid] > .ut-tile-hub-gamemodeshub {\n  height: auto;\n}\n",
 "eshario-asset:ui/head-top.css":"[data-fut-topless] .fc-header-view { display: none; }\n[data-fut-topless] .ut-root-view { height: 100%; }\n:host([data-fut-topless]) .dock-toggle { display: none; }\n:host([data-fut-topless]) .dock { top: 76px; }\n[data-fut-navcenter].landscape .ut-tab-bar-view.game-navigation .ut-tab-bar::before { content: \"\"; display: block; height: 0; margin-top: auto; }\n[data-fut-navcenter].landscape .ut-tab-bar-view.game-navigation .ut-tab-bar-item.icon-settings { margin-top: auto; }\n",
 "eshario-asset:ui/list-cursor.css":"[data-fut-list-mark] {\n  outline: 2px dashed var(--fx-accent);\n  outline-offset: -2px;\n}\n[data-fut-list-stale] {\n  opacity: 0.55;\n}\n"});
-const __ESB_x=[],__ESB_g=[],__ESB_r=[];for(let i=0;i<285;i++)__ESB_x.push(Object.create(null));
+const __ESB_x=[],__ESB_g=[],__ESB_r=[];for(let i=0;i<289;i++)__ESB_x.push(Object.create(null));
 const __ESB_d=(o,m)=>{for(const k of Object.keys(m))Object.defineProperty(o,k,{enumerable:true,get:m[k]})};
 const __ESB_t=(j,k,v)=>{try{return __ESB_x[j][k]}catch(e){return v}};
 // src/bridge/protocol.js
@@ -237,7 +237,11 @@ featureToggle('hubRewards',{id:'hubRewards',groupIn:'improvements',labelKey:'set
 featureToggle('hubUnlock',{id:'hubUnlock',groupIn:'improvements',labelKey:'settings.organ.view.place.hubUnlock'}),
 {id:'galleryMarks',kind:'choice',labelKey:'settings.organ.view.galleryMarks.label',hintKey:'settings.organ.view.galleryMarks.hint',
 defaultFrom:'GALLERY_MARKS_DEFAULT',store:'toggles.galleryMarks',feature:'gallery'},
-featureToggle('gallery',{id:'gallery',shipped:false})]}),
+featureToggle('gallery',{id:'gallery',shipped:false}),
+{id:'galleryTradeOverpay',kind:'number',shipped:false,labelKey:'gallery.trade.overpay',unit:'seller.field.percent',defaultFrom:'FEATURE_DEFAULTS.galleryTradeOverpay',store:'toggles.galleryTradeOverpay',feature:'gallery'},
+{id:'galleryTradeSellMode',kind:'choice',shipped:false,labelKey:'gallery.trade.sellMode',defaultFrom:'FEATURE_DEFAULTS.galleryTradeSellMode',store:'toggles.galleryTradeSellMode',feature:'gallery'},
+{id:'galleryTradeSellValue',kind:'number',shipped:false,labelKey:'gallery.trade.sellValue',defaultFrom:'FEATURE_DEFAULTS.galleryTradeSellValue',store:'toggles.galleryTradeSellValue',feature:'gallery'},
+{id:'galleryTradeSellDir',kind:'choice',shipped:false,labelKey:'gallery.trade.sellDir',defaultFrom:'FEATURE_DEFAULTS.galleryTradeSellDir',store:'toggles.galleryTradeSellDir',feature:'gallery'}]}),
 section({id:'market',order:2,tier:'all',icon:'prices',tariff:'members',
 titleKey:'settings.section.market.title',hintKey:'settings.section.market.hint',organs:[
 {id:'priceTags',kind:'toggle',level:'main',default:true,
@@ -398,7 +402,7 @@ const COVERS_ALL_FEATURES=togglesInRegistry().length===Object.keys(FEATURES).len
 
 };
 // src/settings/index.js
-__ESB_g[5]=function*(){__ESB_d(__ESB_x[5],{GALLERY_MARKS_DEFAULT:()=>GALLERY_MARKS_DEFAULT,SETTING_CHOICES:()=>SETTING_CHOICES,createSettings:()=>createSettings,defaultToggles:()=>defaultToggles,openDoorlessGates:()=>openDoorlessGates,sanitize:()=>sanitize,settingsChoice:()=>settingsChoice});yield;const{FEATURES}=__ESB_x[3];
+__ESB_g[5]=function*(){__ESB_d(__ESB_x[5],{GALLERY_MARKS_DEFAULT:()=>GALLERY_MARKS_DEFAULT,SETTING_CHOICES:()=>SETTING_CHOICES,SETTING_VALUES:()=>SETTING_VALUES,createSettings:()=>createSettings,defaultToggles:()=>defaultToggles,openDoorlessGates:()=>openDoorlessGates,sanitize:()=>sanitize,setSettingsValue:()=>setSettingsValue,settingsChoice:()=>settingsChoice,settingsValue:()=>settingsValue});yield;const{FEATURES}=__ESB_x[3];
 ;
 ;
 const OFF_BY_DEFAULT=Object.freeze(['promoClose'])
@@ -412,7 +416,15 @@ const labelKeyFor=(feature)=>`settings.feature.${feature}`
 const SETTING_CHOICES=Object.freeze({
 galleryMarks:Object.freeze({feature:'gallery',values:Object.freeze(['off','all','new']),default:'new'})})
 const GALLERY_MARKS_DEFAULT=SETTING_CHOICES.galleryMarks.default
+const SETTING_VALUES=Object.freeze({
+galleryTradeOverpay:Object.freeze({feature:'gallery',min:0,max:50,default:6}),
+galleryTradeSellMode:Object.freeze({feature:'gallery',values:Object.freeze(['market','step','percent']),default:'step'}),
+galleryTradeSellValue:Object.freeze({feature:'gallery',min:0,max:50,default:1}),
+galleryTradeSellDir:Object.freeze({feature:'gallery',values:Object.freeze(['below','above']),default:'below'})})
+function valueFits(meta,value){if(Array.isArray(meta.values))return meta.values.includes(value)
+return Number.isInteger(value)&&value>=meta.min&&value<=meta.max}
 function choicesFor(registry){return Object.entries(SETTING_CHOICES).filter(([,meta])=>Object.hasOwn(registry,meta.feature))}
+function valuesFor(registry){return Object.entries(SETTING_VALUES).filter(([,meta])=>Object.hasOwn(registry,meta.feature))}
 function toggleRegistry(registry=FEATURES){const out={}
 for(const id of Object.keys(registry)){out[id]=Object.freeze({default:!OFF_BY_DEFAULT.includes(id),labelKey:labelKeyFor(id)})}
 return Object.freeze(out)}
@@ -420,6 +432,7 @@ function defaultToggles(registry=FEATURES){const toggles=toggleRegistry(registry
 const out={}
 for(const[id,meta]of Object.entries(toggles))out[id]=meta.default
 for(const[id,meta]of choicesFor(registry))out[id]=meta.default
+for(const[id,meta]of valuesFor(registry))out[id]=meta.default
 return out}
 function sanitize(stored,registry=FEATURES){const result=defaultToggles(registry)
 const bag=stored&&typeof stored==='object'&&!Array.isArray(stored)?stored:{}
@@ -427,6 +440,8 @@ for(const[id,value]of Object.entries(bag)){
 if(Object.hasOwn(result,id)&&typeof value==='boolean') result[id]=value}
 for(const[id,meta]of choicesFor(registry)){const value=bag[id]
 result[id]=meta.values.includes(value)?value:meta.default}
+for(const[id,meta]of valuesFor(registry)){const value=bag[id]
+result[id]=valueFits(meta,value)?value:meta.default}
 return result}
 function createMemoryProvider(initial={}){let state=sanitize(initial)
 return{read:()=>({...state}),write(next){state=sanitize(next)}}}
@@ -435,6 +450,7 @@ const registry=opts.registry??FEATURES
 const isEnabled=opts.isEnabled??(()=>true)
 const toggles=toggleRegistry(registry)
 const choices=Object.fromEntries(choicesFor(registry))
+const values=Object.fromEntries(valuesFor(registry))
 function state(){try{return sanitize(provider.read(),registry)}catch{
 return defaultToggles(registry)}}
 const isKnown=(feature)=>typeof feature==='string'&&Object.hasOwn(toggles,feature)
@@ -451,6 +467,9 @@ set(feature,value){
 if(typeof feature==='string'&&Object.hasOwn(choices,feature)){if(!choices[feature].values.includes(value))return{ok:false,reason:'not-a-choice'}
 try{provider.write({...state(),[feature]:value})}catch(err){return{ok:false,reason:'write-failed',detail:String(err?.message??err)}}
 return{ok:true,reason:null}}
+if(typeof feature==='string'&&Object.hasOwn(values,feature)){if(!valueFits(values[feature],value))return{ok:false,reason:'not-a-value'}
+try{provider.write({...state(),[feature]:value})}catch(err){return{ok:false,reason:'write-failed',detail:String(err?.message??err)}}
+return{ok:true,reason:null}}
 if(!isKnown(feature)) return{ok:false,reason:'unknown-feature'}
 if(typeof value!=='boolean') return{ok:false,reason:'not-a-boolean'}
 const next={...state(),[feature]:value}
@@ -462,6 +481,8 @@ all:()=>state(),
 registry:()=>toggles,
 choice(key){if(typeof key!=='string'||!Object.hasOwn(choices,key))return null
 return state()[key]},
+get(key){if(typeof key!=='string'||!Object.hasOwn(values,key))return null
+return state()[key]},
 isKnown}
 current=api
 return api}
@@ -469,6 +490,13 @@ let current=null
 function settingsChoice(key){if(typeof key!=='string'||!Object.hasOwn(SETTING_CHOICES,key))return null
 try{const value=current?.choice?.(key)
 return typeof value==='string'?value:SETTING_CHOICES[key].default}catch{return SETTING_CHOICES[key].default}}
+function settingsValue(key){if(typeof key!=='string'||!Object.hasOwn(SETTING_VALUES,key))return null
+const meta=SETTING_VALUES[key]
+try{const value=current?.get?.(key)
+return valueFits(meta,value)?value:meta.default}catch{return meta.default}}
+function setSettingsValue(key,value){if(typeof key!=='string'||!Object.hasOwn(SETTING_VALUES,key))return{ok:false,reason:'unknown-value'}
+if(!current||typeof current.set!=='function')return{ok:false,reason:'no-settings'}
+try{return current.set(key,value)}catch(err){return{ok:false,reason:'write-failed',detail:String(err?.message??err)}}}
 
 };
 // src/core/storage-provider.js
@@ -4112,32 +4140,66 @@ const galleryEn=Object.freeze({
 'gallery.all':'All',
 'gallery.cat.leagues':'Leagues',
 'gallery.cat.rarities':'Rarities',
-'gallery.search':'Find a set',
-'gallery.close':'Close and bring back the club tiles',
+'gallery.search':'Find a club',
+'gallery.search.hint':'Finds a set by the club or league name',
 'gallery.empty':'The Gallery catalog has not arrived yet',
 'gallery.nothing':'Nothing found',
 'gallery.plan.want':'I want',
 'gallery.plan.tokens':'tokens:',
-'gallery.plan.loss':'· you lose about',
-'gallery.plan.sets.one':'set ·',
-'gallery.plan.sets.few':'sets ·',
-'gallery.plan.sets.many':'sets ·',
-'gallery.plan.sets.other':'sets ·',
-'gallery.plan.cards.one':'card',
-'gallery.plan.cards.few':'cards',
-'gallery.plan.cards.many':'cards',
-'gallery.plan.cards.other':'cards',
+'gallery.piggy.show':'Show {sets} {setsWord}:',
+'gallery.piggy.show.hint':'Leaves only the piggy bank sets in the list and shows the total: how many cards to buy, what collecting costs and what it costs if you sell the cards back',
+'gallery.piggy.sets.one':'set',
+'gallery.piggy.sets.few':'sets',
+'gallery.piggy.sets.many':'sets',
+'gallery.piggy.sets.other':'sets',
+'gallery.piggy.cards.one':'{n} card',
+'gallery.piggy.cards.few':'{n} cards',
+'gallery.piggy.cards.many':'{n} cards',
+'gallery.piggy.cards.other':'{n} cards',
+'gallery.piggy.buy':'buy',
+'gallery.piggy.cost':'collecting costs',
+'gallery.piggy.loss':'if you sell the cards back, it costs',
+'gallery.piggy.loss.hint':'A card counts forever, even if you sell it. EA takes 5 % of the sale',
+'gallery.piggy.all':'Show all sets',
+'gallery.piggy.give.one':'gives',
+'gallery.piggy.give.few':'give',
+'gallery.piggy.give.many':'give',
+'gallery.piggy.give.other':'give',
+'gallery.piggy.cut':'↑ {sets} {setsWord} above the line {give} {tokens} for {coins}',
 'gallery.plan.short':'not enough sets',
 'gallery.plan.hint':'How many tokens you want (a Hall of FUT player costs from 300). The code takes the cheapest tokens from the top of the list until it has enough: how many coins you need, how much you lose on the 5 % tax if you sell the cards back, how many sets and cards',
+'gallery.order.label':'Order:',
+'gallery.order.value':'Best value',
+'gallery.order.value.hint':'Token price, lowest first',
+'gallery.order.cheap':'Cheaper',
+'gallery.order.cheap.hint':'Coins up to the goal, lowest first',
+'gallery.order.few':'Fewer to buy',
+'gallery.order.few.hint':'Cards up to the goal, fewest first',
+'gallery.order.tokens':'More tokens',
+'gallery.order.tokens.hint':'Tokens the goal gives, most first',
+'gallery.intro.lead.value':'On top: sets where a token is cheapest.',
+'gallery.intro.lead.cheap':'On top: sets that are cheapest to finish to the goal.',
+'gallery.intro.lead.few':'On top: sets with the fewest cards to the goal.',
+'gallery.intro.lead.tokens':'On top: sets whose goal gives the most tokens.',
+'gallery.intro.grey':'Grey Counted numbers come from your club: cards you sold earlier are not seen yet.',
+'gallery.intro.grey.short':'Grey numbers come from your club.',
+'gallery.intro.requests':'up to {n} requests to EA',
+'gallery.intro.hide':'Hide the hint',
 'gallery.col.set':'Set',
-'gallery.col.league':'League',
-'gallery.col.got':'Collected',
-'gallery.col.grade':'Grade',
+'gallery.col.got':'Counted',
+'gallery.col.got.hint':'How many cards of the set already count in the Gallery and which grade you already have. A grey number is counted from your club, before the check',
 'gallery.col.goal':'Goal',
-'gallery.col.goal.hint':'The grade where one token is cheapest: how many cards to buy and for how much. If the tokens cannot be reached with market cards, the nearest grade',
+'gallery.col.goal.hint':'The grade where one token comes out cheapest. If the tokens cannot be reached with market cards, the nearest grade',
+'gallery.col.buy':'Cards to buy',
+'gallery.col.buy.hint':'How many cards to buy up to this grade',
+'gallery.col.cost':'Coins',
+'gallery.col.cost.hint':'How many coins these cards cost at fresh prices',
+'gallery.col.reward':'You get',
+'gallery.col.reward.hint':'How many tokens this grade gives',
 'gallery.col.tokenPrice':'Token price',
 'gallery.col.tokenPrice.hint':'How many coins one Gallery token costs if you buy the cards up to the grade in the Goal column. Lower is better',
-'gallery.col.tokens':'Tokens',
+'gallery.col.tokens':'Tokens now / max',
+'gallery.col.tokens.hint':'Tokens you already got from this set / how many grade S gives',
 'gallery.cards.for.one':'{n} card for',
 'gallery.cards.for.few':'{n} cards for',
 'gallery.cards.for.many':'{n} cards for',
@@ -4156,7 +4218,6 @@ const galleryEn=Object.freeze({
 'gallery.reward.tokens.few':'{n} tokens',
 'gallery.reward.tokens.many':'{n} tokens',
 'gallery.reward.tokens.other':'{n} tokens',
-'gallery.check.club':'collected by club',
 'gallery.check.all':'Check all',
 'gallery.check.league':'Check league',
 'gallery.check.all.hint':'Asks EA about the cards of all sets that are not in your club and not in memory: up to {n} requests one by one, 2.5 s pause, about a minute. Any EA refusal stops it. What is counted we remember forever, later we only ask about what is still missing',
@@ -4184,10 +4245,30 @@ const galleryEn=Object.freeze({
 'gallery.set.points.many':'points',
 'gallery.set.points.other':'points',
 'gallery.set.need':'missing for a grade',
+'gallery.set.first.one':'first owner: {n} card, +{bonus} %',
+'gallery.set.first.few':'first owner: {n} cards, +{bonus} %',
+'gallery.set.first.many':'first owner: {n} cards, +{bonus} %',
+'gallery.set.first.other':'first owner: {n} cards, +{bonus} %',
 'gallery.set.needCards.one':'{n} card',
 'gallery.set.needCards.few':'{n} cards',
 'gallery.set.needCards.many':'{n} cards',
 'gallery.set.needCards.other':'{n} cards',
+'gallery.set.checked':'checked {time}',
+'gallery.set.checked.hint':'EA answered about the cards of this set. A set checks itself when you open it, at most once an hour',
+'gallery.set.byClub':'by club',
+'gallery.set.byClub.hint':'Counted by your club. A set up to 150 cards checks itself when you open it: one request to EA, at most once an hour',
+'gallery.set.maxed':'best grade reached',
+'gallery.set.maxed.hint':'This set already has the best grade it can reach. We do not ask EA about it, here or in Check all',
+'gallery.set.check.one':'Check set · {n} request',
+'gallery.set.check.few':'Check set · {n} requests',
+'gallery.set.check.many':'Check set · {n} requests',
+'gallery.set.check.other':'Check set · {n} requests',
+'gallery.set.check.hint':'This set has more than 150 cards and does not check itself. Asks EA about its cards that are not in your club and not in memory: up to {n} requests one by one, 2.5 s pause',
+'gallery.check.dayCap':'many checks today, risky',
+'gallery.check.dayCap.hint':'The Gallery made {n} requests to EA today, more than our advice of {cap}. Checks still work, but going further is risky and on you: EA may ask for a captcha or limit the market',
+'gallery.market.no':'not on the market',
+'gallery.market.note':'The cards of this set are not sold on the market: SBCs and objectives give them',
+'gallery.market.card':'Not sold on the market',
 'gallery.ladder.fromPoints':'from {n} points',
 'gallery.ladder.from':'from {n}',
 'gallery.ladder.no':'unreachable',
@@ -4196,50 +4277,197 @@ const galleryEn=Object.freeze({
 'gallery.path.priceless.few':'no price for {n} cards',
 'gallery.path.priceless.many':'no price for {n} cards',
 'gallery.path.priceless.other':'no price for {n} cards',
-'gallery.path.hint':'A card counts forever, even if you sell it. Bought, sold back: EA takes 5 % of the sale. Only base points and tags. EA adds the first owner bonus on top',
+'gallery.path.hint':'A card counts forever, even if you sell it. Bought, sold back: EA takes 5 % of the sale. Base points and tags, first owner included',
+'gallery.path.seen':'path cards ▼',
+'gallery.path.pick':'Show the cards the path to this grade buys',
+'gallery.path.to':'Path to {letter}:',
+'gallery.path.legend':'framed: the path cards, faded: other missing cards',
+'gallery.tab.order.cheap':'cheapest first',
 'gallery.slot.buy':'Buy up to a grade',
 'gallery.slot.buy.hint':'Buys the missing cards up to the chosen grade. Comes in stage two',
-'gallery.slot.sell':'Sell after counting',
-'gallery.slot.sell.hint':'Sells the counted cards. Comes in stage three',
 'gallery.slot.stage2':'stage 2',
-'gallery.slot.stage3':'stage 3',
 'gallery.tab.all':'All',
 'gallery.tab.missing':'Missing',
 'gallery.tab.collected':'Collected',
 'gallery.tab.order':'most points first',
-'gallery.pill.price':'FUT.GG price'})
+'gallery.pill.price':'FUT.GG price',
+'gallery.trade.overpay':'Overpay per card',
+'gallery.trade.sellMode':'Listing price',
+'gallery.trade.sellValue':'Listing price amount',
+'gallery.trade.sellDir':'Below or above market',
+'gallery.buy.buy':'Buy',
+'gallery.buy.buy.hint':'Buys the path cards up to this grade at FUT.GG prices plus the gear margin. A window with the sum comes first',
+'gallery.buy.list':'Buy and list',
+'gallery.buy.list.hint':'Buys the path cards and lists them at the gear price. A card counts the moment you buy it',
+'gallery.buy.list.none':'Comes with the next update',
+'gallery.buy.loss':'you lose',
+'gallery.buy.stop':'Stop',
+'gallery.buy.stop.hint':'Finishes the current card and stops',
+'gallery.buy.measuring':'checking price {done} of {total}',
+'gallery.buy.starting':'starting',
+'gallery.buy.progress':'bought {bought} of {planned}',
+'gallery.buy.progress.list':'bought {bought} of {planned} · listed {listed}',
+'gallery.buy.done':'{letter} done',
+'gallery.buy.doneText':'bought {n} for {sum}',
+'gallery.buy.doneText.list':'bought {n} for {sum} · listed {listed}',
+'gallery.buy.short':'{n} missing',
+'gallery.buy.bought':'bought {n} of {of}',
+'gallery.buy.from':'from {real} (expected {expected})',
+'gallery.buy.noLot':'no lots',
+'gallery.buy.topUp':'Buy {n} more for ~{sum}',
+'gallery.buy.topUp.hint':'Opens the same window with real market prices of the missing cards',
+'gallery.buy.inPile':'{n} in unassigned',
+'gallery.buy.listFailed':'{n} not listed',
+'gallery.buy.title.buy.one':'Buy {n} card · {set} to {letter}',
+'gallery.buy.title.buy.few':'Buy {n} cards · {set} to {letter}',
+'gallery.buy.title.buy.many':'Buy {n} cards · {set} to {letter}',
+'gallery.buy.title.buy.other':'Buy {n} cards · {set} to {letter}',
+'gallery.buy.title.list.one':'Buy and list {n} card · {set} to {letter}',
+'gallery.buy.title.list.few':'Buy and list {n} cards · {set} to {letter}',
+'gallery.buy.title.list.many':'Buy and list {n} cards · {set} to {letter}',
+'gallery.buy.title.list.other':'Buy and list {n} cards · {set} to {letter}',
+'gallery.buy.risk':'EA may restrict an account for frequent buying. We do not rush: 2 to 3 s between buys, 1 to 1.3 s between listings. While the run goes, do not use the market in other tabs',
+'gallery.buy.spend':'You spend',
+'gallery.buy.range':'from {from} to {to}',
+'gallery.buy.net':'We list {rule}, you get back net',
+'gallery.buy.about':'about {n}',
+'gallery.buy.result':'Run result',
+'gallery.buy.minus':'minus about {n}',
+'gallery.buy.plus':'plus about {n}',
+'gallery.buy.col.card':'card',
+'gallery.buy.col.ceiling':'buy up to',
+'gallery.buy.col.list':'list for',
+'gallery.buy.more.one':'{n} more card ▾',
+'gallery.buy.more.few':'{n} more cards ▾',
+'gallery.buy.more.many':'{n} more cards ▾',
+'gallery.buy.more.other':'{n} more cards ▾',
+'gallery.buy.requests.one':'about {n} request to EA · {time}',
+'gallery.buy.requests.few':'about {n} requests to EA · {time}',
+'gallery.buy.requests.many':'about {n} requests to EA · {time}',
+'gallery.buy.requests.other':'about {n} requests to EA · {time}',
+'gallery.buy.time':'{lo} to {hi} min',
+'gallery.buy.decimal':'.',
+'gallery.buy.measured':'Cards without a FUT.GG price: {n}. Market checked, searches: {r}',
+'gallery.buy.measuredUpTo':'Cards without a FUT.GG price: {n}. Market checked, searches up to {r}',
+'gallery.buy.failed':'No market price for cards: {n}. The path is counted without them',
+'gallery.buy.unlisted':'Cards without a listing price: {n}',
+'gallery.buy.cancel':'Cancel',
+'gallery.buy.close':'Close',
+'gallery.buy.why.noPath':'There is no path to this grade',
+'gallery.buy.why.reached':'This grade is already done',
+'gallery.buy.why.unreachable':'This grade cannot be reached with market cards',
+'gallery.buy.why.prices':'FUT.GG prices are still loading, try in a minute',
+'gallery.buy.why.priceless':'Some cards have no price even on the market, the path does not work without them',
+'gallery.buy.why.noSeller':'Selling comes with the next update',
+'gallery.buy.why.busy':'Another run is already going',
+'gallery.buy.why.empty':'Nothing to buy',
+'gallery.buy.stop.user':'stopped',
+'gallery.buy.stop.429':'EA asks to slow down',
+'gallery.buy.stop.captcha':'EA asks for a captcha',
+'gallery.buy.stop.fatal':'EA closed access',
+'gallery.buy.stop.coins':'not enough coins',
+'gallery.buy.stop.pile':'unassigned is full',
+'gallery.buy.stop.listFull':'transfer list is full, cards are in unassigned',
+'gallery.buy.stop.busy':'another run is going',
+'gallery.buy.stop.locked':'premium only',
+'gallery.buy.stop.seller':'selling is not available',
+'gallery.buy.stop.refused':'EA refused the listing',
+'gallery.buy.stop.other':'the run stopped',
+'gallery.gear.title':'Buying and selling in the Gallery',
+'gallery.gear.overpay':'Overpay per card at most',
+'gallery.gear.overpay.hint':'From the FUT.GG price. Cheap cards always get two more price steps, so 400 instead of 350 does not stop the buy',
+'gallery.gear.list':'Listing price',
+'gallery.gear.mode.market':'At market',
+'gallery.gear.mode.step':'Price step',
+'gallery.gear.mode.percent':'Percent',
+'gallery.gear.dir':'Which way',
+'gallery.gear.dir.below':'Below',
+'gallery.gear.dir.above':'Above',
+'gallery.gear.value':'How much',
+'gallery.gear.unit.steps.one':'step',
+'gallery.gear.unit.steps.few':'steps',
+'gallery.gear.unit.steps.many':'steps',
+'gallery.gear.unit.steps.other':'steps',
+'gallery.gear.now':'Now: {rule}',
+'gallery.gear.rule.market':'at market',
+'gallery.gear.rule.oneStepBelow':'one step below market',
+'gallery.gear.rule.oneStepAbove':'one step above market',
+'gallery.gear.rule.stepsBelow.one':'{n} step below market',
+'gallery.gear.rule.stepsBelow.few':'{n} steps below market',
+'gallery.gear.rule.stepsBelow.many':'{n} steps below market',
+'gallery.gear.rule.stepsBelow.other':'{n} steps below market',
+'gallery.gear.rule.stepsAbove.one':'{n} step above market',
+'gallery.gear.rule.stepsAbove.few':'{n} steps above market',
+'gallery.gear.rule.stepsAbove.many':'{n} steps above market',
+'gallery.gear.rule.stepsAbove.other':'{n} steps above market',
+'gallery.gear.rule.percentBelow':'{n} % below market',
+'gallery.gear.rule.percentAbove':'{n} % above market'})
 const galleryRu=Object.freeze({
 'gallery.rail':'Галерея',
 'gallery.rail.hint':'Галерея: наборы, что собрано и что нет',
 'gallery.all':'Все',
 'gallery.cat.leagues':'Лиги',
 'gallery.cat.rarities':'Редкости',
-'gallery.search':'Поиск набора',
-'gallery.close':'Закрыть и вернуть плитки клуба',
+'gallery.search':'Найти клуб',
+'gallery.search.hint':'Ищет набор по имени клуба или лиги',
 'gallery.empty':'Каталог Галереи ещё не пришёл',
 'gallery.nothing':'Ничего не нашлось',
 'gallery.plan.want':'Хочу',
 'gallery.plan.tokens':'токенов:',
-'gallery.plan.loss':'· потеряешь около',
-'gallery.plan.sets.one':'набор ·',
-'gallery.plan.sets.few':'набора ·',
-'gallery.plan.sets.many':'наборов ·',
-'gallery.plan.sets.other':'набора ·',
-'gallery.plan.cards.one':'карта',
-'gallery.plan.cards.few':'карты',
-'gallery.plan.cards.many':'карт',
-'gallery.plan.cards.other':'карты',
+'gallery.piggy.show':'Показать {sets} {setsWord}:',
+'gallery.piggy.show.hint':'Оставит в списке только наборы копилки и покажет итог: сколько карт купить, сколько стоит собрать и во что обойдётся, если продать карты обратно',
+'gallery.piggy.sets.one':'набор',
+'gallery.piggy.sets.few':'набора',
+'gallery.piggy.sets.many':'наборов',
+'gallery.piggy.sets.other':'набора',
+'gallery.piggy.cards.one':'{n} карту',
+'gallery.piggy.cards.few':'{n} карты',
+'gallery.piggy.cards.many':'{n} карт',
+'gallery.piggy.cards.other':'{n} карты',
+'gallery.piggy.buy':'купить',
+'gallery.piggy.cost':'собрать стоит',
+'gallery.piggy.loss':'если продать карты обратно, обойдётся в',
+'gallery.piggy.loss.hint':'Карта засчитывается навсегда, даже если её продать. EA берёт 5 % с продажи',
+'gallery.piggy.all':'Показать все наборы',
+'gallery.piggy.give.one':'даст',
+'gallery.piggy.give.few':'дадут',
+'gallery.piggy.give.many':'дадут',
+'gallery.piggy.give.other':'дадут',
+'gallery.piggy.cut':'↑ {sets} {setsWord} выше черты {give} {tokens} за {coins}',
 'gallery.plan.short':'мало наборов',
 'gallery.plan.hint':'Сколько токенов хочешь (игрок Hall of FUT стоит от 300). Код берёт самые дешёвые токены сверху списка, пока не наберёт: сколько монет нужно, сколько потеряешь на налоге 5 %, если продашь карты обратно, сколько наборов и карт',
+'gallery.order.label':'Порядок:',
+'gallery.order.value':'Выгоднее',
+'gallery.order.value.hint':'Цена токена, меньше сверху',
+'gallery.order.cheap':'Дешевле',
+'gallery.order.cheap.hint':'Сумма монет до цели, меньше сверху',
+'gallery.order.few':'Меньше докупить',
+'gallery.order.few.hint':'Карт до цели, меньше сверху',
+'gallery.order.tokens':'Больше токенов',
+'gallery.order.tokens.hint':'Сколько токенов даст цель, больше сверху',
+'gallery.intro.lead.value':'Сверху наборы, где токен дешевле всего.',
+'gallery.intro.lead.cheap':'Сверху наборы, которые дешевле всего собрать до цели.',
+'gallery.intro.lead.few':'Сверху наборы, где до цели меньше всего карт.',
+'gallery.intro.lead.tokens':'Сверху наборы, чья цель даёт больше всего токенов.',
+'gallery.intro.grey':'Серые числа «Засчитано» посчитаны по твоему клубу: проданных раньше карт мы пока не видим.',
+'gallery.intro.grey.short':'Серые числа посчитаны по клубу.',
+'gallery.intro.requests':'до {n} запросов к EA',
+'gallery.intro.hide':'Скрыть подсказку',
 'gallery.col.set':'Набор',
-'gallery.col.league':'Лига',
-'gallery.col.got':'Собрано',
-'gallery.col.grade':'Оценка',
+'gallery.col.got':'Засчитано',
+'gallery.col.got.hint':'Сколько карт набора уже засчитано в Галерею и какая оценка уже есть. Серое число: посчитано по клубу, до проверки',
 'gallery.col.goal':'Цель',
-'gallery.col.goal.hint':'Оценка, до которой токен дешевле всего: сколько карт докупить и за сколько. Если токенов с рынка не достать, ближайшая оценка',
+'gallery.col.goal.hint':'Оценка, до которой токен выходит дешевле всего. Если токенов с рынка не достать, ближайшая оценка',
+'gallery.col.buy':'Купить карт',
+'gallery.col.buy.hint':'Сколько карт купить до этой оценки',
+'gallery.col.cost':'За монет',
+'gallery.col.cost.hint':'Сколько монет стоят эти карты по свежим ценам',
+'gallery.col.reward':'Получишь',
+'gallery.col.reward.hint':'Сколько токенов даст эта оценка',
 'gallery.col.tokenPrice':'Цена токена',
 'gallery.col.tokenPrice.hint':'Сколько монет стоит один токен Галереи, если докупить карты до оценки из столбца «Цель». Меньше значит выгоднее',
-'gallery.col.tokens':'Токены',
+'gallery.col.tokens':'Токенов есть / всего',
+'gallery.col.tokens.hint':'Токенов уже получено из этого набора / сколько даст оценка S',
 'gallery.cards.for.one':'{n} карту за',
 'gallery.cards.for.few':'{n} карты за',
 'gallery.cards.for.many':'{n} карт за',
@@ -4258,7 +4486,6 @@ const galleryRu=Object.freeze({
 'gallery.reward.tokens.few':'{n} токена',
 'gallery.reward.tokens.many':'{n} токенов',
 'gallery.reward.tokens.other':'{n} токена',
-'gallery.check.club':'собрано по клубу',
 'gallery.check.all':'Проверить всё',
 'gallery.check.league':'Проверить лигу',
 'gallery.check.all.hint':'Спросит у EA карты всех наборов, которых нет в клубе и нет в памяти: до {n} запросов по одному, пауза 2,5 с, около минуты. Любой отказ EA останавливает. Засчитанное помним навсегда, потом спрашиваем только несобранное',
@@ -4286,10 +4513,30 @@ const galleryRu=Object.freeze({
 'gallery.set.points.many':'очков',
 'gallery.set.points.other':'очка',
 'gallery.set.need':'до оценки не хватает',
+'gallery.set.first.one':'первый владелец: {n} карта, +{bonus} %',
+'gallery.set.first.few':'первый владелец: {n} карты, +{bonus} %',
+'gallery.set.first.many':'первый владелец: {n} карт, +{bonus} %',
+'gallery.set.first.other':'первый владелец: {n} карты, +{bonus} %',
 'gallery.set.needCards.one':'{n} карты',
 'gallery.set.needCards.few':'{n} карт',
 'gallery.set.needCards.many':'{n} карт',
 'gallery.set.needCards.other':'{n} карты',
+'gallery.set.checked':'проверено {time}',
+'gallery.set.checked.hint':'EA ответила про карты этого набора. Набор проверяется сам, когда его открываешь, не чаще раза в час',
+'gallery.set.byClub':'по клубу',
+'gallery.set.byClub.hint':'Посчитано по клубу. Набор до 150 карт проверяется сам, когда его открываешь: один запрос к EA, не чаще раза в час',
+'gallery.set.maxed':'собран на максимум',
+'gallery.set.maxed.hint':'У набора уже лучшая оценка, до которой он может дойти. EA про него не спрашиваем, ни здесь, ни в «Проверить всё»',
+'gallery.set.check.one':'Проверить набор · {n} запрос',
+'gallery.set.check.few':'Проверить набор · {n} запроса',
+'gallery.set.check.many':'Проверить набор · {n} запросов',
+'gallery.set.check.other':'Проверить набор · {n} запроса',
+'gallery.set.check.hint':'В наборе больше 150 карт, сам он не проверяется. Спросит у EA его карты, которых нет в клубе и нет в памяти: до {n} запросов по одному, пауза 2,5 с',
+'gallery.check.dayCap':'много проверок за сутки, риск',
+'gallery.check.dayCap.hint':'Галерея сделала за сутки {n} запросов к EA, больше нашего совета в {cap}. Проверки работают, но дальше идти опасно, риск на Вас: EA может попросить капчу или ограничить рынок',
+'gallery.market.no':'не с рынка',
+'gallery.market.note':'Карты этого набора не продаются на рынке: их дают SBC и задания',
+'gallery.market.card':'Не продаётся на рынке',
 'gallery.ladder.fromPoints':'от {n} очков',
 'gallery.ladder.from':'от {n}',
 'gallery.ladder.no':'недостижимо',
@@ -4298,18 +4545,131 @@ const galleryRu=Object.freeze({
 'gallery.path.priceless.few':'цены нет у {n} карт',
 'gallery.path.priceless.many':'цены нет у {n} карт',
 'gallery.path.priceless.other':'цены нет у {n} карты',
-'gallery.path.hint':'Карта засчитывается навсегда, даже если её продать. Купил, продал обратно: EA берёт 5 % с продажи. Только базовые очки и теги. Бонус первого владельца EA добавит сверху',
+'gallery.path.hint':'Карта засчитывается навсегда, даже если её продать. Купил, продал обратно: EA берёт 5 % с продажи. Базовые очки и теги, первый владелец тоже',
+'gallery.path.seen':'карты пути ▼',
+'gallery.path.pick':'Показать карты, которые купит путь до этой оценки',
+'gallery.path.to':'Путь до {letter}:',
+'gallery.path.legend':'в рамке карты пути, бледнее остальные, кого не хватает',
+'gallery.tab.order.cheap':'сначала дешевле',
 'gallery.slot.buy':'Докупить до оценки',
 'gallery.slot.buy.hint':'Докупит недостающие до выбранной оценки. Появится вторым этапом',
-'gallery.slot.sell':'Продать после зачёта',
-'gallery.slot.sell.hint':'Продаст засчитанные карты. Появится третьим этапом',
 'gallery.slot.stage2':'этап 2',
-'gallery.slot.stage3':'этап 3',
 'gallery.tab.all':'Все',
 'gallery.tab.missing':'Не хватает',
 'gallery.tab.collected':'Собрано',
 'gallery.tab.order':'сначала больше очков',
-'gallery.pill.price':'цена FUT.GG'})
+'gallery.pill.price':'цена FUT.GG',
+'gallery.trade.overpay':'Переплата за карту',
+'gallery.trade.sellMode':'Цена выставления',
+'gallery.trade.sellValue':'Число цены выставления',
+'gallery.trade.sellDir':'Ниже или выше рынка',
+'gallery.buy.buy':'Купить',
+'gallery.buy.buy.hint':'Купит карты пути до этой оценки по ценам FUT.GG с запасом из шестерёнки. Сначала окно с суммой',
+'gallery.buy.list':'Купить и выставить',
+'gallery.buy.list.hint':'Купит карты пути и выставит их по цене из шестерёнки. Карта засчитывается в миг покупки',
+'gallery.buy.list.none':'Появится после обновления',
+'gallery.buy.loss':'потеряешь',
+'gallery.buy.stop':'Стоп',
+'gallery.buy.stop.hint':'Доделает текущую карту и остановится',
+'gallery.buy.measuring':'замер цены {done} из {total}',
+'gallery.buy.starting':'начинаем',
+'gallery.buy.progress':'куплено {bought} из {planned}',
+'gallery.buy.progress.list':'куплено {bought} из {planned} · выставлено {listed}',
+'gallery.buy.done':'{letter} готова',
+'gallery.buy.doneText':'куплено {n} за {sum}',
+'gallery.buy.doneText.list':'куплено {n} за {sum} · выставлено {listed}',
+'gallery.buy.short':'не хватает {n}',
+'gallery.buy.bought':'куплено {n} из {of}',
+'gallery.buy.from':'от {real} (ждали {expected})',
+'gallery.buy.noLot':'лотов нет',
+'gallery.buy.topUp':'Докупить {n} за ~{sum}',
+'gallery.buy.topUp.hint':'Откроет то же окно с настоящими ценами рынка у недостающих карт',
+'gallery.buy.inPile':'{n} в непринятых',
+'gallery.buy.listFailed':'не выставлено {n}',
+'gallery.buy.title.buy.one':'Купить {n} карту · {set} до {letter}',
+'gallery.buy.title.buy.few':'Купить {n} карты · {set} до {letter}',
+'gallery.buy.title.buy.many':'Купить {n} карт · {set} до {letter}',
+'gallery.buy.title.buy.other':'Купить {n} карты · {set} до {letter}',
+'gallery.buy.title.list.one':'Купить и выставить {n} карту · {set} до {letter}',
+'gallery.buy.title.list.few':'Купить и выставить {n} карты · {set} до {letter}',
+'gallery.buy.title.list.many':'Купить и выставить {n} карт · {set} до {letter}',
+'gallery.buy.title.list.other':'Купить и выставить {n} карты · {set} до {letter}',
+'gallery.buy.risk':'EA может ограничить аккаунт за частые покупки. Мы не спешим: между покупками 2 по 3 с, между выставлениями 1 по 1,3 с. Пока идёт заход, не трогай рынок в других вкладках',
+'gallery.buy.spend':'Потратишь',
+'gallery.buy.range':'от {from} до {to}',
+'gallery.buy.net':'Выставим {rule}, вернётся чистыми',
+'gallery.buy.about':'около {n}',
+'gallery.buy.result':'Итог захода',
+'gallery.buy.minus':'минус около {n}',
+'gallery.buy.plus':'плюс около {n}',
+'gallery.buy.col.card':'карта',
+'gallery.buy.col.ceiling':'купим до',
+'gallery.buy.col.list':'выставим за',
+'gallery.buy.more.one':'ещё {n} карта ▾',
+'gallery.buy.more.few':'ещё {n} карты ▾',
+'gallery.buy.more.many':'ещё {n} карт ▾',
+'gallery.buy.more.other':'ещё {n} карты ▾',
+'gallery.buy.requests.one':'около {n} запроса к EA · {time}',
+'gallery.buy.requests.few':'около {n} запросов к EA · {time}',
+'gallery.buy.requests.many':'около {n} запросов к EA · {time}',
+'gallery.buy.requests.other':'около {n} запроса к EA · {time}',
+'gallery.buy.time':'{lo} по {hi} мин',
+'gallery.buy.decimal':',',
+'gallery.buy.measured':'Без цены FUT.GG карт: {n}. Замерили рынок, поисков: {r}',
+'gallery.buy.measuredUpTo':'Без цены FUT.GG карт: {n}. Замерили рынок, поисков до {r}',
+'gallery.buy.failed':'Цены нет и на рынке у карт: {n}. Путь посчитан без них',
+'gallery.buy.unlisted':'Без цены выставления карт: {n}',
+'gallery.buy.cancel':'Отмена',
+'gallery.buy.close':'Закрыть',
+'gallery.buy.why.noPath':'Пути до этой оценки нет',
+'gallery.buy.why.reached':'Эта оценка уже собрана',
+'gallery.buy.why.unreachable':'До этой оценки не дотянуться картами рынка',
+'gallery.buy.why.prices':'Цены FUT.GG ещё загружаются, попробуй через минуту',
+'gallery.buy.why.priceless':'У части карт нет цены даже на рынке, без них путь не складывается',
+'gallery.buy.why.noSeller':'Продажа появится после обновления',
+'gallery.buy.why.busy':'Уже идёт другой заход',
+'gallery.buy.why.empty':'Покупать нечего',
+'gallery.buy.stop.user':'остановлено',
+'gallery.buy.stop.429':'EA просит помедленнее',
+'gallery.buy.stop.captcha':'EA просит капчу',
+'gallery.buy.stop.fatal':'EA закрыла доступ',
+'gallery.buy.stop.coins':'не хватило монет',
+'gallery.buy.stop.pile':'непринятые заполнены',
+'gallery.buy.stop.listFull':'трансферный лист полон, карты в непринятых',
+'gallery.buy.stop.busy':'идёт другой заход',
+'gallery.buy.stop.locked':'только в премиуме',
+'gallery.buy.stop.seller':'продажа недоступна',
+'gallery.buy.stop.refused':'EA отклонила выставление',
+'gallery.buy.stop.other':'заход встал',
+'gallery.gear.title':'Покупка и продажа в Галерее',
+'gallery.gear.overpay':'Переплата за карту не больше',
+'gallery.gear.overpay.hint':'От цены FUT.GG. У дешёвых карт всегда можно плюс два шага цены, чтобы 400 вместо 350 не останавливало покупку',
+'gallery.gear.list':'Цена выставления',
+'gallery.gear.mode.market':'По рынку',
+'gallery.gear.mode.step':'Шаг цены',
+'gallery.gear.mode.percent':'Процент',
+'gallery.gear.dir':'В какую сторону',
+'gallery.gear.dir.below':'Ниже',
+'gallery.gear.dir.above':'Выше',
+'gallery.gear.value':'Сколько',
+'gallery.gear.unit.steps.one':'шаг',
+'gallery.gear.unit.steps.few':'шага',
+'gallery.gear.unit.steps.many':'шагов',
+'gallery.gear.unit.steps.other':'шага',
+'gallery.gear.now':'Сейчас: {rule}',
+'gallery.gear.rule.market':'по рынку',
+'gallery.gear.rule.oneStepBelow':'на шаг ниже рынка',
+'gallery.gear.rule.oneStepAbove':'на шаг выше рынка',
+'gallery.gear.rule.stepsBelow.one':'на {n} шаг ниже рынка',
+'gallery.gear.rule.stepsBelow.few':'на {n} шага ниже рынка',
+'gallery.gear.rule.stepsBelow.many':'на {n} шагов ниже рынка',
+'gallery.gear.rule.stepsBelow.other':'на {n} шага ниже рынка',
+'gallery.gear.rule.stepsAbove.one':'на {n} шаг выше рынка',
+'gallery.gear.rule.stepsAbove.few':'на {n} шага выше рынка',
+'gallery.gear.rule.stepsAbove.many':'на {n} шагов выше рынка',
+'gallery.gear.rule.stepsAbove.other':'на {n} шага выше рынка',
+'gallery.gear.rule.percentBelow':'на {n} % ниже рынка',
+'gallery.gear.rule.percentAbove':'на {n} % выше рынка'})
 
 };
 // src/i18n/dict.dropdown-search.js
@@ -4359,6 +4719,7 @@ const marketBotEn = Object.freeze({
 'marketBot.stop': 'Stop auto-snipe',
 'marketBot.startHint': 'Start a run right here, with the filter from this screen. The price cap is your own Buy Now Max. You confirm the run in a window before any coin is spent.',
 'marketBot.stopHint': 'Stop the run. Nothing is left half-done: the step already started is finished.',
+'marketBot.tabAwake': 'While the run goes, keep the web app tab open in its own window: do not minimize it and do not switch to another tab. Chrome puts a hidden tab to sleep, and the search slows down or stops.',
 'marketBot.liveTitle': 'Start the run: real coins',
 'marketBot.liveWarn': 'REAL coins will be spent from your account. What is bought cannot be given back.',
 'marketBot.liveAim': 'Looking for: {what} · up to {price}',
@@ -4481,6 +4842,7 @@ const marketBotRu = Object.freeze({
 'marketBot.stop': 'Стоп авто-снайпа',
 'marketBot.startHint': 'Запустить заход прямо здесь, по фильтру с этого экрана. Потолок цены берём из Вашего поля Buy Now Max. Перед тратой монет спросим подтверждение окном.',
 'marketBot.stopHint': 'Остановить заход. Ничего не бросается на половине: начатый шаг доделывается.',
+'marketBot.tabAwake': 'Пока идёт заход, держите вкладку вебапа открытой в своём окне: не сворачивайте её и не уходите на другую вкладку. Скрытую вкладку Chrome усыпляет, и поиск замедляется или встаёт.',
 'marketBot.liveTitle': 'Запуск захода: настоящие монеты',
 'marketBot.liveWarn': 'Тратиться будут НАСТОЯЩИЕ монеты с Вашего аккаунта. Купленное назад не отдают.',
 'marketBot.liveAim': 'Ищу: {what} · не дороже {price}',
@@ -7089,6 +7451,17 @@ const gapX=num(input?.gapX)
 const side=num(input?.side)
 const tile=(box-gapX*(MARKET_COLUMNS-1))/MARKET_COLUMNS
 return tile-side-native>=floor?MARKET_COLUMNS:MARKET_COLUMNS_NARROW}
+const CLUB_FOUR_BELOW=1000
+const CLUB_FIVE_BACK=1020
+const CLUB_THREE_BELOW=890
+const CLUB_FOUR_BACK=910
+function clubColumns(input){const box=Number.isFinite(input?.box)&&input.box>0?input.box:0
+const prev=[PAGE_COLUMNS,4,3].includes(input?.prev)?input.prev:null
+if(box<=0)return prev??PAGE_COLUMNS
+const five=prev!==null&&prev<PAGE_COLUMNS?CLUB_FIVE_BACK:CLUB_FOUR_BELOW
+if(box>=five)return PAGE_COLUMNS
+const four=prev===3?CLUB_FOUR_BACK:CLUB_THREE_BELOW
+return box>=four?4:3}
 const ROW_SELECTOR='li.listFUTItem'
 const BOX_SELECTOR='.entityContainer'
 const BUTTON_SELECTOR='button.btnAction'
@@ -7260,7 +7633,7 @@ const byWidth=tileWidth-side-statsWidth
 const byHeight=(tileRoom-padY)/ratio
 const floor=nameHeight+statsHeight+rowGap+padY
 const face=Math.floor(Math.min(byWidth,byHeight))
-const share=input?.money===true?MARKET_FACE_FLOOR:FACE_FLOOR
+const share=input?.money===true||input?.nativeFloor===true?MARKET_FACE_FLOOR:FACE_FLOOR
 const floorFace=Math.max(1,Math.floor(native*share))
 tried.push({columns,statColumns:stats?.columns??null,rows,
 tileWidth:Math.round(tileWidth*100)/100,tileRoom:Math.round(tileRoom*100)/100,
@@ -7281,7 +7654,7 @@ return{best,tried}}
 const BOX_ASK_LIMIT=3
 const OVER_ASK_LIMIT=3
 const BOX_ASK_MEMORY=4
-const CARD_VIEW_BUILD='W21M1b'
+const CARD_VIEW_BUILD='CGS2a'
 function overflowOf(scrollHeight,clientHeight){const full=Number(scrollHeight)
 const seen=Number(clientHeight)
 if(!Number.isFinite(full)||!Number.isFinite(seen))return 0
@@ -7653,6 +8026,9 @@ let fitPending=false
 let cutTried=null
 let fitted='never'
 let want={columns:PAGE_COLUMNS,money:false}
+let fitWant=false
+let clubPrev=null
+let ratioFirst=null
 function ensure(){ensureTheme(doc)
 return ensureStylesheet(doc,CARD_VIEW_STYLESHEET,CARD_VIEW_LINK_ID)}
 const rowsOf=(list)=>{try{return Array.from(list?.querySelectorAll?.(ROW_SELECTOR)??[])}catch(err){onError(err)
@@ -7734,7 +8110,9 @@ if(list.dataset[STATS_MARK]!==value)list.dataset[STATS_MARK]=value}}
 function apply(lists,order={}){const all=Array.isArray(lists)?lists:[]
 const columns=Number.isSafeInteger(order?.columns)&&order.columns>0?order.columns:PAGE_COLUMNS
 const money=order?.money===true
-if(columns!==want.columns||money!==want.money){want={columns,money}
+const fit=order?.fit===true&&!money
+if(columns!==want.columns||money!==want.money||fit!==fitWant){want={columns,money}
+fitWant=fit
 layout=null
 base=null
 tried=[]
@@ -7794,7 +8172,7 @@ let style=null
 try{style=view?.getComputedStyle?.(list)??null}catch{style=null}
 base={box:list.clientWidth??0,height:roomOf(list,view),
 gapX:px(style?.getPropertyValue?.(GAP_X_VAR)),gapY:px(style?.getPropertyValue?.(GAP_Y_VAR)),
-ratio:heights.faceHeight>0?heights.faceHeight/heights.faceWidth:0,
+ratio:ratioFirst??(ratioFirst=heights.faceHeight>0?heights.faceHeight/heights.faceWidth:null)??0,
 faceNative:heights.faceWidth,
 side:parts.mar+parts.gap+parts.pad+parts.frame,
 padY:heights.padY,nameHeight:heights.nameHeight,rowGap:heights.rowGap,
@@ -7840,6 +8218,9 @@ const faceSmall=takeSmall()
 if(faceSmall>0)base.faceNative=faceSmall
 base.faceMax=faceMax
 if(base.money)base.columns=marketColumns(base)
+else if(fitWant){base.columns=clubColumns({box:base.box,prev:clubPrev})
+clubPrev=base.columns
+base.nativeFloor=base.columns<PAGE_COLUMNS}
 measures+=1
 const made=pageGridPlan(base)
 tried=made.tried
@@ -7946,7 +8327,7 @@ state:()=>({build:CARD_VIEW_BUILD,
 plan:layout?{...layout}:null,base:base?{...base}:null,tried:tried.map((one)=>({...one})),
 asked:asked.map((one)=>({...one})),
 refits,fitted,over,
-want:{...want},
+want:{...want},fit:fitWant,clubPrev,
 tries,waits,fixes,measures,pending,
 styles:Boolean(doc?.getElementById?.(CARD_VIEW_LINK_ID))})}}
 
@@ -10426,7 +10807,7 @@ return Number.isSafeInteger(id)&&id>0?id:null}
 
 };
 // src/adapter/hub-rewards.js
-__ESB_g[93]=function*(){__ESB_d(__ESB_x[93],{claimGroupReward:()=>claimGroupReward,claimHubReward:()=>claimHubReward,fcHubLocked:()=>fcHubLocked,findGroup:()=>findGroup,findLevel:()=>findLevel,grantHubItems:()=>grantHubItems,installHomeHubCapture:()=>installHomeHubCapture,levelClaimable:()=>levelClaimable,loadObjectiveCategories:()=>loadObjectiveCategories,noteRewardLoot:()=>noteRewardLoot,objectivesEnabled:()=>objectivesEnabled,readHubRewards:()=>readHubRewards,readRewardKinds:()=>readRewardKinds,readRewardLoot:()=>readRewardLoot,redrawFcHubTile:()=>redrawFcHubTile,unlockFcHub:()=>unlockFcHub});yield;const{requestData,eaRequestState,EaRequestsOffError}=__ESB_x[90];const{serverSettingKeys}=__ESB_x[91];const{screenPrototype,screenClass}=__ESB_x[74];const{HOME_HUB_DOOR,pileNumber,defaultDispatcher,NOTICE_UNASSIGNED_ADDED}=__ESB_x[92];
+__ESB_g[93]=function*(){__ESB_d(__ESB_x[93],{claimGroupReward:()=>claimGroupReward,claimHubReward:()=>claimHubReward,fcHubLocked:()=>fcHubLocked,fcasReloginFailed:()=>fcasReloginFailed,findGroup:()=>findGroup,findLevel:()=>findLevel,grantHubItems:()=>grantHubItems,installHomeHubCapture:()=>installHomeHubCapture,levelClaimable:()=>levelClaimable,loadObjectiveCategories:()=>loadObjectiveCategories,noteRewardLoot:()=>noteRewardLoot,objectivesEnabled:()=>objectivesEnabled,readFcasAuthFailures:()=>readFcasAuthFailures,readHubRewards:()=>readHubRewards,readRewardKinds:()=>readRewardKinds,readRewardLoot:()=>readRewardLoot,redrawFcHubTile:()=>redrawFcHubTile,restoreFcasAuthFailures:()=>restoreFcasAuthFailures,unlockFcHub:()=>unlockFcHub});yield;const{requestData,eaRequestState,EaRequestsOffError}=__ESB_x[90];const{serverSettingKeys}=__ESB_x[91];const{screenPrototype,screenClass}=__ESB_x[74];const{HOME_HUB_DOOR,pileNumber,defaultDispatcher,NOTICE_UNASSIGNED_ADDED}=__ESB_x[92];
 ;
 ;
 function objectives(win){const service=win?.services?.Objectives
@@ -10728,6 +11109,13 @@ try{payload=await requestData(service.requestActiveCampaign(),'кампания 
 return payload?.campaign&&typeof payload.campaign==='object'
 ?{ok:true,reason:null,status:null}
 :{ok:false,reason:'server',status:null}}
+function readFcasAuthFailures(win){try{const n=win?.services?.Authentication?.failedFcasAuthAttempts
+return Number.isInteger(n)&&n>=0?n:null}catch{return null}}
+function restoreFcasAuthFailures(win,n){if(!Number.isInteger(n)||n<0||readFcasAuthFailures(win)===null)return false
+try{win.services.Authentication.failedFcasAuthAttempts=n
+return readFcasAuthFailures(win)===n}catch{return false}}
+function fcasReloginFailed(win,status){const code=win?.HttpStatusCode?.UNAUTHORIZED
+return typeof code==='number'&&status===code}
 function redrawFcHubTile(win){const home=homeNow?.deref?.()??null
 if(!home||typeof home.onActiveMetaCampaignRequested!=='function')return{ok:false,reason:'no-home'}
 const campaign=activeCampaign(win)
@@ -11528,7 +11916,7 @@ function moveReceiptMatches(data,items){return itemIdsReceiptMatches(data,items)
 
 };
 // src/features/day-budget.js
-__ESB_g[98]=function*(){__ESB_d(__ESB_x[98],{BUDGET_STOPS:()=>BUDGET_STOPS,COUNTER_UNAVAILABLE:()=>COUNTER_UNAVAILABLE,DAY_BUDGET_REFUSAL:()=>DAY_BUDGET_REFUSAL,DAY_REQUEST_CAP:()=>DAY_REQUEST_CAP,EA_LIMIT:()=>EA_LIMIT,THROTTLED:()=>THROTTLED,askBudgetRound:()=>askBudgetRound,askDayBudget:()=>askDayBudget,budgetStopName:()=>budgetStopName,createBudgetOwner:()=>createBudgetOwner,createDayBudget:()=>createDayBudget,createHuntBudget:()=>createHuntBudget,dayBudgetError:()=>dayBudgetError,isDayBudgetError:()=>isDayBudgetError,meterCalls:()=>meterCalls,offMarket:()=>offMarket,readBudgetRound:()=>readBudgetRound,restMarketAfterThrottle:()=>restMarketAfterThrottle,stopOnEaLimit:()=>stopOnEaLimit,stopsRequest:()=>stopsRequest,withDayBudget:()=>withDayBudget});yield;const{createRateWindow,dayKeyOf,adviceLevel,SEARCH_HOUR_CAP,HOUR_MS,untilText}=__ESB_x[78];const{classifyStatus}=__ESB_x[77];
+__ESB_g[98]=function*(){__ESB_d(__ESB_x[98],{BUDGET_STOPS:()=>BUDGET_STOPS,COUNTER_UNAVAILABLE:()=>COUNTER_UNAVAILABLE,DAY_BUDGET_REFUSAL:()=>DAY_BUDGET_REFUSAL,DAY_REQUEST_CAP:()=>DAY_REQUEST_CAP,EA_LIMIT:()=>EA_LIMIT,THROTTLED:()=>THROTTLED,askBudgetRound:()=>askBudgetRound,askDayBudget:()=>askDayBudget,budgetStopName:()=>budgetStopName,createBudgetOwner:()=>createBudgetOwner,createDayBudget:()=>createDayBudget,createHuntBudget:()=>createHuntBudget,dayBudgetError:()=>dayBudgetError,dayKeyOf:()=>__ESB_x[78].dayKeyOf,eaStatusOf:()=>eaStatusOf,isDayBudgetError:()=>isDayBudgetError,meterCalls:()=>meterCalls,offMarket:()=>offMarket,readBudgetRound:()=>readBudgetRound,restMarketAfterThrottle:()=>restMarketAfterThrottle,stopOnEaLimit:()=>stopOnEaLimit,stopsRequest:()=>stopsRequest,withDayBudget:()=>withDayBudget});yield;const{createRateWindow,dayKeyOf,adviceLevel,SEARCH_HOUR_CAP,HOUR_MS,untilText}=__ESB_x[78];const{classifyStatus}=__ESB_x[77];
 ;
 ;
 ;
@@ -11958,7 +12346,7 @@ return `ставки: ${used}/${cap} за час`}}
 
 };
 // src/features/transfer-list.js
-__ESB_g[99]=function*(){__ESB_d(__ESB_x[99],{RELIST_DIRS:()=>RELIST_DIRS,RELIST_MODES:()=>RELIST_MODES,RELIST_MODE_DEFAULT:()=>RELIST_MODE_DEFAULT,RELIST_PERCENT:()=>RELIST_PERCENT,RELIST_PERCENT_DEFAULT:()=>RELIST_PERCENT_DEFAULT,RELIST_PERCENT_MAX:()=>RELIST_PERCENT_MAX,RELIST_PERCENT_MIN:()=>RELIST_PERCENT_MIN,TRANSFER_LIST_FEATURE:()=>TRANSFER_LIST_FEATURE,TRANSFER_LIST_SELECTOR:()=>TRANSFER_LIST_SELECTOR,cardsUnitKey:()=>cardsUnitKey,coinsText:()=>coinsText,enhanceTransferList:()=>enhanceTransferList,lotMoney:()=>lotMoney,relistHasDirection:()=>relistHasDirection,relistPriceOf:()=>relistPriceOf,relistPricingAfter:()=>relistPricingAfter,repaintTransferMoney:()=>repaintTransferMoney,sanitizeRelistPricing:()=>sanitizeRelistPricing,summarizeLots:()=>summarizeLots,syncRelistPricing:()=>syncRelistPricing});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoLink}=__ESB_x[69];const{modalBox,modalButtons}=__ESB_x[70];const{netAfterTax}=__ESB_x[71];const{smartListPrice,nudgeListPrice,atListPrice,DEFAULT_DURATION}=__ESB_x[73];const{nextPrice,floorToValidPrice}=__ESB_x[72];const{priceBadgePeek}=__ESB_x[86];const{boughtOf}=__ESB_x[87];const{cardFrozenNow,cardFrozenKey,frozenReasonOf}=__ESB_x[67];const{itemForEvidenceRow}=__ESB_x[89];const{createAdapter,localizeNumber,pileValueOf}=__ESB_x[95];const{installClearSoldGuard}=__ESB_x[96];const{itemFact,isRelistableAuction,soldFact,pileRoom,createDoorConsent,doorConsentKey,isDoorRefusal,reviewAction,canMoveTo,ALLOWED}=__ESB_x[94];const{receiptItemIds}=__ESB_x[97];const{meterCalls,isDayBudgetError,DAY_BUDGET_REFUSAL,COUNTER_UNAVAILABLE,stopOnEaLimit}=__ESB_x[98];const{PAUSE_MIN_MS,PAUSE_MAX_MS}=__ESB_x[80];const{listPauseMs}=__ESB_x[79];
+__ESB_g[99]=function*(){__ESB_d(__ESB_x[99],{EA_REFUSALS_TOTAL_STOP:()=>EA_REFUSALS_TOTAL_STOP,EA_REFUSALS_TO_STOP:()=>EA_REFUSALS_TO_STOP,RELIST_DIRS:()=>RELIST_DIRS,RELIST_DOWN:()=>RELIST_DOWN,RELIST_MARKET:()=>RELIST_MARKET,RELIST_MODES:()=>RELIST_MODES,RELIST_MODE_DEFAULT:()=>RELIST_MODE_DEFAULT,RELIST_PERCENT:()=>RELIST_PERCENT,RELIST_PERCENT_DEFAULT:()=>RELIST_PERCENT_DEFAULT,RELIST_PERCENT_MAX:()=>RELIST_PERCENT_MAX,RELIST_PERCENT_MIN:()=>RELIST_PERCENT_MIN,RELIST_STEP:()=>RELIST_STEP,RELIST_UP:()=>RELIST_UP,TRANSFER_LIST_FEATURE:()=>TRANSFER_LIST_FEATURE,TRANSFER_LIST_SELECTOR:()=>TRANSFER_LIST_SELECTOR,cardsUnitKey:()=>cardsUnitKey,coinsText:()=>coinsText,enhanceTransferList:()=>enhanceTransferList,lotMoney:()=>lotMoney,relistHasDirection:()=>relistHasDirection,relistPriceOf:()=>relistPriceOf,relistPricingAfter:()=>relistPricingAfter,repaintTransferMoney:()=>repaintTransferMoney,sanitizeRelistPricing:()=>sanitizeRelistPricing,summarizeLots:()=>summarizeLots,syncRelistPricing:()=>syncRelistPricing,transferListScroll:()=>transferListScroll});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoLink}=__ESB_x[69];const{modalBox,modalButtons}=__ESB_x[70];const{netAfterTax}=__ESB_x[71];const{smartListPrice,nudgeListPrice,atListPrice,DEFAULT_DURATION}=__ESB_x[73];const{nextPrice,floorToValidPrice}=__ESB_x[72];const{priceBadgePeek}=__ESB_x[86];const{boughtOf}=__ESB_x[87];const{cardFrozenNow,cardFrozenKey,frozenReasonOf}=__ESB_x[67];const{itemForEvidenceRow}=__ESB_x[89];const{createAdapter,localizeNumber,pileValueOf}=__ESB_x[95];const{installClearSoldGuard}=__ESB_x[96];const{itemFact,isRelistableAuction,soldFact,pileRoom,createDoorConsent,doorConsentKey,isDoorRefusal,reviewAction,canMoveTo,ALLOWED}=__ESB_x[94];const{receiptItemIds}=__ESB_x[97];const{meterCalls,isDayBudgetError,DAY_BUDGET_REFUSAL,COUNTER_UNAVAILABLE,stopOnEaLimit}=__ESB_x[98];const{PAUSE_MIN_MS,PAUSE_MAX_MS}=__ESB_x[80];const{listPauseMs}=__ESB_x[79];
 ;
 ;
 ;
@@ -12040,7 +12428,100 @@ if(!settled)head.insertBefore(tools,anchor)
 if(tools.getAttribute?.('style')!==TOOLS_GUEST)tools.setAttribute?.('style',TOOLS_GUEST)
 if(mark!==null)mark.remove?.()
 return true}
+const KEEP_HOLD_MS=1500
+const KEEP_HAND_MS=400
+const KEEP_FRAMES=3
+const KEEP_SCROLL_KEYS=new Set(['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' ','Spacebar'])
+const KEEP_HAND_EVENTS=['wheel','pointerdown','mousedown','touchstart','keydown']
+const keeps=new Map()
+let keepDoc=null
+let keepWin=null
+let keepHandAt=-Infinity
+const keepCounts={rebuilds:0,holds:0,skipped:0,drops:0,restored:0,kept:0,human:0,last:null}
+const keepNow=()=>{try{const now=Number(keepWin?.performance?.now?.())
+if(Number.isFinite(now))return now}catch{/* часов окна нет */}
+return Date.now()}
+const keepTop=(root)=>{try{const top=Number(root?.scrollTop)
+return Number.isFinite(top)?top:null}catch{return null}}
+const onKeepHand=(event)=>{const type=event?.type
+let hand=type==='wheel'||(type==='keydown'&&KEEP_SCROLL_KEYS.has(event?.key))
+if(!hand&&type!=='keydown'){const target=event?.target??null
+for(const root of keeps.keys()){let inside=false
+try{inside=root===target||root.contains?.(target)===true}catch{inside=false}
+if(inside){hand=true
+break}}}
+if(hand){keepHandAt=keepNow()
+return}
+for(const[root,one] of keeps){if(one.want!==null)continue
+const top=keepTop(root)
+if(top!==null)one.point=top}}
+function keepSeen(root){const one=keeps.get(root)
+if(!one||root.isConnected===false)return
+const top=keepTop(root)
+if(top===null)return
+if(one.want!==null){const hand=keepHandAt>one.wantAt
+if(hand||keepNow()-one.wantAt>KEEP_HOLD_MS){if(hand)keepCounts.human+=1
+one.want=null}
+else{keepBack(root,one,top)
+return}}
+one.point=top}
+function keepBack(root,one,top){if(top===one.want){keepCounts.kept+=1
+return}
+keepCounts.drops+=1
+try{root.scrollTop=one.want}catch{return}
+const after=keepTop(root)
+if(after!==null&&after!==top)keepCounts.restored+=1
+keepCounts.last={lost:Math.round(top),wanted:Math.round(one.want),after:after===null?null:Math.round(after)}}
+function keepFrame(root,one){const frame=keepWin?.requestAnimationFrame
+if(typeof frame!=='function'||one.frames>=KEEP_FRAMES)return
+one.frames+=1
+try{frame.call(keepWin,()=>{if(one.want===null||keeps.get(root)!==one)return
+keepSeen(root)
+keepFrame(root,one)})}catch{/* кадра не будет: остаётся событие прокрутки */}}
+function keepAttach(doc,win,root){keepWin=win
+const known=keeps.get(root)
+if(known)return known
+if(keepDoc!==doc){keepRelease()
+keepDoc=doc
+for(const type of KEEP_HAND_EVENTS){try{doc?.addEventListener?.(type,onKeepHand,{capture:true,passive:true})}catch{/* без руки удержание просто осторожнее */}}}
+const one={point:null,want:null,wantAt:0,frames:0,seen:new WeakSet(),any:false,onScroll:()=>keepSeen(root)}
+keeps.set(root,one)
+try{root.addEventListener?.('scroll',one.onScroll,{passive:true})}catch{/* без слушателя точку помнить нечем */}
+const frame=win?.requestAnimationFrame
+if(typeof frame==='function'){try{frame.call(win,()=>{if(one.point===null&&keeps.get(root)===one)one.point=keepTop(root)})}catch{/* точку даст первая прокрутка */}}
+return one}
+function keepPass(doc,win,root){const one=keepAttach(doc,win,root)
+let fresh=0
+let old=0
+for(const child of Array.from(root.children??[])){let section=false
+try{section=child.matches?.(SECTION_SELECTOR)===true}catch{section=false}
+if(!section)continue
+if(one.seen.has(child))old+=1
+else{fresh+=1
+one.seen.add(child)}}
+if(fresh===0||old>0||!one.any){one.any=one.any||fresh>0
+return}
+keepCounts.rebuilds+=1
+if(one.point===null||keepNow()-keepHandAt<KEEP_HAND_MS){keepCounts.skipped+=1
+return}
+keepCounts.holds+=1
+one.want=one.point
+one.wantAt=keepNow()
+one.frames=0
+keepFrame(root,one)}
+function keepPrune(alive){for(const[root,one] of keeps){if(alive.has(root))continue
+try{root.removeEventListener?.('scroll',one.onScroll,{passive:true})}catch{/* уже снят */}
+keeps.delete(root)}
+if(keeps.size===0)keepRelease()}
+function keepRelease(){for(const[root,one] of keeps){try{root.removeEventListener?.('scroll',one.onScroll,{passive:true})}catch{/* уже снят */}}
+keeps.clear()
+if(keepDoc!==null){for(const type of KEEP_HAND_EVENTS){try{keepDoc.removeEventListener?.(type,onKeepHand,{capture:true})}catch{/* уже снят */}}}
+keepDoc=null
+keepHandAt=-Infinity}
+function transferListScroll(){return{roots:keeps.size,...keepCounts,
+points:Array.from(keeps.values()).map((one)=>({point:one.point,want:one.want}))}}
 function enhanceTransferList({doc,t,isActive,win,sleep,relistPricing:port=null,dayBudget=null,measureMarket=null}){const money=enhanceTransferMoney({doc,t,isActive,win,sleep,relistPricing:port,dayBudget,measureMarket})
+const held=new Set()
 for(const list of LISTS){const roots=doc?.querySelectorAll?.(list[1])??[]
 const active=isActive(list[0])
 for(const root of roots){
@@ -12051,6 +12532,8 @@ let tools=root.querySelector(`.${TOOLS}`)
 if(!active){tools?.remove()
 for(const row of rowsOf(root,list))restore(row);
 continue}
+if(list[0]===TRANSFER_LIST_FEATURE){held.add(root)
+keepPass(doc,win,root)}
 tools??=createTools(doc,root,t,list)
 placeTools(doc,root,tools)
 const input=tools.querySelector('input')
@@ -12059,6 +12542,7 @@ const label=t(labelKeyOf(list))
 if(input.getAttribute?.('placeholder')!==label){input.setAttribute?.('placeholder',label)
 input.setAttribute?.('aria-label',label)}
 applyFilter(root,input.value,list)}}
+keepPrune(held)
 return money}
 const MONEY_STYLESHEET="eshario-asset:ui/transfer-money.css"
 const MONEY_LINK_ID='fut-companion-transfer-money'
@@ -12412,6 +12896,7 @@ return}
 if(money.take>0)put('net',money.take,'fx-mine',lead,false)}
 if(money.section==='SOLD'){if(money.start>0)put('start',money.start,'fx-plain',false)
 if(money.buy>0)put('buy',money.buy,'fx-plain',false)
+if(money.bought>0)put('bought',money.bought,'fx-plain',false)
 take(true)
 return out}
 if(money.section==='ACTIVE'){put('bid',money.soldFor,'fx-plain',false)
@@ -15943,6 +16428,7 @@ if(row.p.length===0&&primary!==null&&primary>=0)row.q=primary
 try{row.y=sbcIneligibleReason(item)??null}catch{row.y=null}
 try{row.w=cardResourceKey(item)??null}catch{row.w=null}
 try{row.z=item.isSpecial?.()===true?1:0}catch{row.z=0}
+if(numberOf(item.owners)===1)row.h=1
 return row}
 function cardFromRow(row){if(!row||typeof row!=='object')return null
 const id=numberOf(row.i)
@@ -16902,7 +17388,7 @@ notes,evicted,sold,moved,refused,busy:busy.size,cap:LOOT_CAP}}}}
 
 };
 // src/automation/sniper.js
-__ESB_g[123]=function*(){let MIN_PRICE,nextPrice,createBreakSchedule,itemIdsReceiptMatches,moveReceiptMatches,ACTION,planSales,purchasePolicyProblems,rankPurchaseCandidates,extractItems,isDoorRefusal,isLotRefusal,ALLOWED,DOOR_UNKNOWN,EA_STATUS,ITEM_EVENTS,createLotFilter,THROTTLED,COUNTER_UNAVAILABLE,restMarketAfterThrottle,askBudgetRound,readBudgetRound,budgetStopName,AFTER_BUY_DEFAULT,AFTER_BUY_PILE,afterBuyOf,SEARCH_REFRESH,SEARCH_REFRESH_KEY,SEARCH_REFRESH_DEFAULT,searchRefreshOf,proceedsOf,HAND_STOPS,lootNameOf,markListed,bandPauseMs,spreadBand,RUN_SPREAD_SHARE,TIME_LIMIT;__ESB_r[123]=()=>{MIN_PRICE=__ESB_t(72,"MIN_PRICE",MIN_PRICE);nextPrice=__ESB_t(72,"nextPrice",nextPrice);createBreakSchedule=__ESB_t(109,"createBreakSchedule",createBreakSchedule);itemIdsReceiptMatches=__ESB_t(97,"itemIdsReceiptMatches",itemIdsReceiptMatches);moveReceiptMatches=__ESB_t(97,"moveReceiptMatches",moveReceiptMatches);ACTION=__ESB_t(111,"ACTION",ACTION);planSales=__ESB_t(111,"planSales",planSales);purchasePolicyProblems=__ESB_t(112,"purchasePolicyProblems",purchasePolicyProblems);rankPurchaseCandidates=__ESB_t(112,"rankPurchaseCandidates",rankPurchaseCandidates);extractItems=__ESB_t(113,"extractItems",extractItems);isDoorRefusal=__ESB_t(94,"isDoorRefusal",isDoorRefusal);isLotRefusal=__ESB_t(94,"isLotRefusal",isLotRefusal);ALLOWED=__ESB_t(94,"ALLOWED",ALLOWED);DOOR_UNKNOWN=__ESB_t(94,"UNKNOWN",DOOR_UNKNOWN);EA_STATUS=__ESB_t(77,"EA_STATUS",EA_STATUS);ITEM_EVENTS=__ESB_t(63,"ITEM_EVENTS",ITEM_EVENTS);createLotFilter=__ESB_t(60,"createLotFilter",createLotFilter);THROTTLED=__ESB_t(98,"THROTTLED",THROTTLED);COUNTER_UNAVAILABLE=__ESB_t(98,"COUNTER_UNAVAILABLE",COUNTER_UNAVAILABLE);restMarketAfterThrottle=__ESB_t(98,"restMarketAfterThrottle",restMarketAfterThrottle);askBudgetRound=__ESB_t(98,"askBudgetRound",askBudgetRound);readBudgetRound=__ESB_t(98,"readBudgetRound",readBudgetRound);budgetStopName=__ESB_t(98,"budgetStopName",budgetStopName);AFTER_BUY_DEFAULT=__ESB_t(120,"AFTER_BUY_DEFAULT",AFTER_BUY_DEFAULT);AFTER_BUY_PILE=__ESB_t(120,"AFTER_BUY_PILE",AFTER_BUY_PILE);afterBuyOf=__ESB_t(120,"afterBuyOf",afterBuyOf);SEARCH_REFRESH=__ESB_t(120,"SEARCH_REFRESH",SEARCH_REFRESH);SEARCH_REFRESH_KEY=__ESB_t(120,"SEARCH_REFRESH_KEY",SEARCH_REFRESH_KEY);SEARCH_REFRESH_DEFAULT=__ESB_t(120,"SEARCH_REFRESH_DEFAULT",SEARCH_REFRESH_DEFAULT);searchRefreshOf=__ESB_t(120,"searchRefreshOf",searchRefreshOf);proceedsOf=__ESB_t(110,"proceedsOf",proceedsOf);HAND_STOPS=__ESB_t(103,"HAND_STOPS",HAND_STOPS);lootNameOf=__ESB_t(122,"lootNameOf",lootNameOf);markListed=__ESB_t(121,"markListed",markListed);bandPauseMs=__ESB_t(79,"bandPauseMs",bandPauseMs);spreadBand=__ESB_t(79,"spreadBand",spreadBand);RUN_SPREAD_SHARE=__ESB_t(108,"RUN_SPREAD_SHARE",RUN_SPREAD_SHARE);TIME_LIMIT=__ESB_t(108,"TIME_LIMIT",TIME_LIMIT)};__ESB_d(__ESB_x[123],{BID_REFRESH_TOP:()=>BID_REFRESH_TOP,BREAK_BAND_MS:()=>BREAK_BAND_MS,BREAK_MS:()=>BREAK_MS,BUY_PAUSE_FLOOR_MS:()=>BUY_PAUSE_FLOOR_MS,BUY_PAUSE_MS:()=>BUY_PAUSE_MS,DEFAULT_SEARCH_BAND_MS:()=>DEFAULT_SEARCH_BAND_MS,DEFAULT_SEARCH_DELAY_MS:()=>DEFAULT_SEARCH_DELAY_MS,HUMAN_BREAK_SHARE:()=>HUMAN_BREAK_SHARE,HUMAN_JITTER_MS:()=>HUMAN_JITTER_MS,MATCH_GUARD_DEFAULT:()=>MATCH_GUARD_DEFAULT,MAX_PER_SEARCH_DEFAULT:()=>MAX_PER_SEARCH_DEFAULT,MIN_BID_FLOOR:()=>MIN_BID_FLOOR,MIN_BID_STEP:()=>MIN_BID_STEP,MIN_BID_TOP:()=>MIN_BID_TOP,MIN_BUY_AIM_SHARE:()=>MIN_BUY_AIM_SHARE,MIN_BUY_FLOOR:()=>MIN_BUY_FLOOR,MIN_BUY_STEP:()=>MIN_BUY_STEP,MIN_BUY_TOP:()=>MIN_BUY_TOP,PAIR_MIN_BID_TOP:()=>PAIR_MIN_BID_TOP,SAFE_PAUSE_FLOOR_MS:()=>SAFE_PAUSE_FLOOR_MS,SESSION_MS:()=>SESSION_MS,STANDARD_UNASSIGNED_LIMIT:()=>STANDARD_UNASSIGNED_LIMIT,WORK_BAND_MS:()=>WORK_BAND_MS,WORK_MS:()=>WORK_MS,bidOutcome:()=>bidOutcome,bidReceiptOf:()=>bidReceiptOf,buyCeilingOf:()=>buyCeilingOf,buyNowPriceOf:()=>buyNowPriceOf,createSniper:()=>createSniper,overflowSafetyProblems:()=>overflowSafetyProblems,pairRing:()=>pairRing,pileOrNull:()=>pileOrNull,priceCapMissing:()=>priceCapMissing,unassignedCountOf:()=>unassignedCountOf});yield;
+__ESB_g[123]=function*(){let MIN_PRICE,nextPrice,createBreakSchedule,itemIdsReceiptMatches,moveReceiptMatches,ACTION,planSales,purchasePolicyProblems,rankPurchaseCandidates,extractItems,isDoorRefusal,isLotRefusal,ALLOWED,DOOR_UNKNOWN,EA_STATUS,ITEM_EVENTS,createLotFilter,THROTTLED,COUNTER_UNAVAILABLE,restMarketAfterThrottle,askBudgetRound,readBudgetRound,budgetStopName,AFTER_BUY_DEFAULT,AFTER_BUY_PILE,afterBuyOf,SEARCH_REFRESH,SEARCH_REFRESH_KEY,SEARCH_REFRESH_DEFAULT,searchRefreshOf,proceedsOf,HAND_STOPS,lootNameOf,markListed,bandPauseMs,spreadBand,RUN_SPREAD_SHARE,TIME_LIMIT;__ESB_r[123]=()=>{MIN_PRICE=__ESB_t(72,"MIN_PRICE",MIN_PRICE);nextPrice=__ESB_t(72,"nextPrice",nextPrice);createBreakSchedule=__ESB_t(109,"createBreakSchedule",createBreakSchedule);itemIdsReceiptMatches=__ESB_t(97,"itemIdsReceiptMatches",itemIdsReceiptMatches);moveReceiptMatches=__ESB_t(97,"moveReceiptMatches",moveReceiptMatches);ACTION=__ESB_t(111,"ACTION",ACTION);planSales=__ESB_t(111,"planSales",planSales);purchasePolicyProblems=__ESB_t(112,"purchasePolicyProblems",purchasePolicyProblems);rankPurchaseCandidates=__ESB_t(112,"rankPurchaseCandidates",rankPurchaseCandidates);extractItems=__ESB_t(113,"extractItems",extractItems);isDoorRefusal=__ESB_t(94,"isDoorRefusal",isDoorRefusal);isLotRefusal=__ESB_t(94,"isLotRefusal",isLotRefusal);ALLOWED=__ESB_t(94,"ALLOWED",ALLOWED);DOOR_UNKNOWN=__ESB_t(94,"UNKNOWN",DOOR_UNKNOWN);EA_STATUS=__ESB_t(77,"EA_STATUS",EA_STATUS);ITEM_EVENTS=__ESB_t(63,"ITEM_EVENTS",ITEM_EVENTS);createLotFilter=__ESB_t(60,"createLotFilter",createLotFilter);THROTTLED=__ESB_t(98,"THROTTLED",THROTTLED);COUNTER_UNAVAILABLE=__ESB_t(98,"COUNTER_UNAVAILABLE",COUNTER_UNAVAILABLE);restMarketAfterThrottle=__ESB_t(98,"restMarketAfterThrottle",restMarketAfterThrottle);askBudgetRound=__ESB_t(98,"askBudgetRound",askBudgetRound);readBudgetRound=__ESB_t(98,"readBudgetRound",readBudgetRound);budgetStopName=__ESB_t(98,"budgetStopName",budgetStopName);AFTER_BUY_DEFAULT=__ESB_t(120,"AFTER_BUY_DEFAULT",AFTER_BUY_DEFAULT);AFTER_BUY_PILE=__ESB_t(120,"AFTER_BUY_PILE",AFTER_BUY_PILE);afterBuyOf=__ESB_t(120,"afterBuyOf",afterBuyOf);SEARCH_REFRESH=__ESB_t(120,"SEARCH_REFRESH",SEARCH_REFRESH);SEARCH_REFRESH_KEY=__ESB_t(120,"SEARCH_REFRESH_KEY",SEARCH_REFRESH_KEY);SEARCH_REFRESH_DEFAULT=__ESB_t(120,"SEARCH_REFRESH_DEFAULT",SEARCH_REFRESH_DEFAULT);searchRefreshOf=__ESB_t(120,"searchRefreshOf",searchRefreshOf);proceedsOf=__ESB_t(110,"proceedsOf",proceedsOf);HAND_STOPS=__ESB_t(103,"HAND_STOPS",HAND_STOPS);lootNameOf=__ESB_t(122,"lootNameOf",lootNameOf);markListed=__ESB_t(121,"markListed",markListed);bandPauseMs=__ESB_t(79,"bandPauseMs",bandPauseMs);spreadBand=__ESB_t(79,"spreadBand",spreadBand);RUN_SPREAD_SHARE=__ESB_t(108,"RUN_SPREAD_SHARE",RUN_SPREAD_SHARE);TIME_LIMIT=__ESB_t(108,"TIME_LIMIT",TIME_LIMIT)};__ESB_d(__ESB_x[123],{BID_REFRESH_TOP:()=>BID_REFRESH_TOP,BREAK_BAND_MS:()=>BREAK_BAND_MS,BREAK_MS:()=>BREAK_MS,BUY_PAUSE_FLOOR_MS:()=>BUY_PAUSE_FLOOR_MS,BUY_PAUSE_MS:()=>BUY_PAUSE_MS,DEFAULT_SEARCH_BAND_MS:()=>DEFAULT_SEARCH_BAND_MS,DEFAULT_SEARCH_DELAY_MS:()=>DEFAULT_SEARCH_DELAY_MS,HUMAN_BREAK_SHARE:()=>HUMAN_BREAK_SHARE,HUMAN_JITTER_MS:()=>HUMAN_JITTER_MS,LOT_TAKEN:()=>LOT_TAKEN,MATCH_GUARD_DEFAULT:()=>MATCH_GUARD_DEFAULT,MAX_PER_SEARCH_DEFAULT:()=>MAX_PER_SEARCH_DEFAULT,MIN_BID_FLOOR:()=>MIN_BID_FLOOR,MIN_BID_STEP:()=>MIN_BID_STEP,MIN_BID_TOP:()=>MIN_BID_TOP,MIN_BUY_AIM_SHARE:()=>MIN_BUY_AIM_SHARE,MIN_BUY_FLOOR:()=>MIN_BUY_FLOOR,MIN_BUY_STEP:()=>MIN_BUY_STEP,MIN_BUY_TOP:()=>MIN_BUY_TOP,PAIR_MIN_BID_TOP:()=>PAIR_MIN_BID_TOP,SAFE_PAUSE_FLOOR_MS:()=>SAFE_PAUSE_FLOOR_MS,SESSION_MS:()=>SESSION_MS,STANDARD_UNASSIGNED_LIMIT:()=>STANDARD_UNASSIGNED_LIMIT,WORK_BAND_MS:()=>WORK_BAND_MS,WORK_MS:()=>WORK_MS,bidOutcome:()=>bidOutcome,bidReceiptOf:()=>bidReceiptOf,buyCeilingOf:()=>buyCeilingOf,buyNowPriceOf:()=>buyNowPriceOf,createSniper:()=>createSniper,overflowSafetyProblems:()=>overflowSafetyProblems,pairRing:()=>pairRing,pileOrNull:()=>pileOrNull,priceCapMissing:()=>priceCapMissing,unassignedCountOf:()=>unassignedCountOf});yield;
 ;
 ;
 ;
@@ -30208,7 +30694,7 @@ const dangerKeys=(only=null)=>{const table=registry()
 const map=bindings()
 return Object.entries(table).filter(([action,meta])=>meta?.danger===true&&meta?.reserved===undefined&&(only===null||action===only)&&(map[action]??'')!=='').map(([action,meta])=>({action,combo:map[action],label:meta.label??(meta.labelKey?t(meta.labelKey):action)}))}
 const confirm=createConfirmWatcher({doc,win,onError,onDone:(result)=>{if(result?.ok!==true&&result?.reason==='no-dialog')return
-if(result?.ok===true&&AUTO_CONFIRM_ACTIONS.has(result.action))onNotice({key:'hotkeys.buy.confirmed',params:{}})}})
+if(result?.ok===true&&result.action==='buyNow')onNotice({key:'hotkeys.buy.confirmed',params:{}})}})
 const window_=createHotkeyWindow({doc,t,bindings,registry,isActive,onError,badgesOn:()=>state().badges,
 onBadges:(on)=>{save({badges:on===true})
 refresh()},
@@ -30323,7 +30809,8 @@ confirm.disarm()}}}
 
 };
 // src/automation/auto-buy.js
-__ESB_g[171]=function*(){__ESB_d(__ESB_x[171],{RECEIPT_UNRESOLVED:()=>RECEIPT_UNRESOLVED,SKIP_FAILURES:()=>SKIP_FAILURES,batchCeiling:()=>batchCeiling,buyCeilingOf:()=>buyCeilingOf,buyTargetOf:()=>buyTargetOf,createAutoBuy:()=>createAutoBuy,createBuyRate:()=>createBuyRate,createLotFinder:()=>createLotFinder,priceLawLimit:()=>priceLawLimit,toleranceFor:()=>toleranceFor,withinPriceLaw:()=>withinPriceLaw});yield;const{createBreakSchedule}=__ESB_x[109];const{bandPauseMs}=__ESB_x[79];const{moveReceiptMatches}=__ESB_x[97];const{bidReceiptOf,bidOutcome,unassignedCountOf,pileOrNull,buyNowPriceOf,STANDARD_UNASSIGNED_LIMIT,WORK_BAND_MS,BREAK_BAND_MS}=__ESB_x[123];const{isDoorRefusal,isLotRefusal,ALLOWED,UNKNOWN:DOOR_UNKNOWN}=__ESB_x[94];const{listingsOf,CARD_THROTTLE_MS}=__ESB_x[80];const{COUNTER_UNAVAILABLE,restMarketAfterThrottle,BUDGET_STOPS}=__ESB_x[98];const{adviceLevel}=__ESB_x[78];
+__ESB_g[171]=function*(){__ESB_d(__ESB_x[171],{AUTO_BUY_RHYTHM:()=>AUTO_BUY_RHYTHM,RACE_LOST:()=>RACE_LOST,RECEIPT_UNRESOLVED:()=>RECEIPT_UNRESOLVED,SKIP_FAILURES:()=>SKIP_FAILURES,SOFT_FAILURES:()=>SOFT_FAILURES,SOFT_REST_BAND_MS:()=>SOFT_REST_BAND_MS,SOFT_STREAK:()=>SOFT_STREAK,STOP_FAILURES:()=>STOP_FAILURES,batchCeiling:()=>batchCeiling,buyCeilingOf:()=>buyCeilingOf,buyTargetOf:()=>buyTargetOf,createAutoBuy:()=>createAutoBuy,createBuyRate:()=>createBuyRate,createLotFinder:()=>createLotFinder,pauseFor:()=>pauseFor,priceLawLimit:()=>priceLawLimit,toleranceFor:()=>toleranceFor,withinPriceLaw:()=>withinPriceLaw});yield;const{createBreakSchedule}=__ESB_x[109];const{bandPauseMs}=__ESB_x[79];const{moveReceiptMatches}=__ESB_x[97];const{bidReceiptOf,bidOutcome,unassignedCountOf,pileOrNull,buyNowPriceOf,STANDARD_UNASSIGNED_LIMIT,WORK_BAND_MS,BREAK_BAND_MS,LOT_TAKEN}=__ESB_x[123];const{EA_STATUS}=__ESB_x[77];const{isDoorRefusal,isLotRefusal,ALLOWED,UNKNOWN:DOOR_UNKNOWN}=__ESB_x[94];const{listingsOf,CARD_THROTTLE_MS}=__ESB_x[80];const{COUNTER_UNAVAILABLE,restMarketAfterThrottle,BUDGET_STOPS}=__ESB_x[98];const{adviceLevel}=__ESB_x[78];
+;
 ;
 ;
 ;
@@ -30342,6 +30829,8 @@ const CARD_THROTTLED='card-throttled'
 const SKIP_FAILURES=Object.freeze(['gone','no-lot','transient','unknown',CARD_THROTTLED])
 const SOFT_FAILURES=Object.freeze(['unknown'])
 const STOP_FAILURES=Object.freeze(['captcha','fatal','out-of-coins','throttled'])
+const RACE_LOST='race-lost'
+const RACE_LOST_CODES=Object.freeze([EA_STATUS.PERMISSION_DENIED,LOT_TAKEN])
 const ACCOUNT_STOPS=Object.freeze(['captcha','fatal','throttled'])
 ;
 const statusOf=(err)=>(typeof err?.status==='number'?err.status:null)
@@ -30489,6 +30978,7 @@ const criteriaOf=typeof deps.criteriaOf==='function'?deps.criteriaOf:null
 if(criteriaOf===null){throw new Error('auto-buy: точечному поиску нужны критерии карты')}
 const budget=deps.budget??null
 const page=Number.isSafeInteger(deps.page)&&deps.page>0?deps.page:LOT_PAGE
+const ceilingOf=typeof deps.ceilingOf==='function'?deps.ceilingOf:buyCeilingOf
 const waitOf=()=>{try{const said=typeof budget?.waitMs==='function'?budget.waitMs():null
 return Number.isFinite(said)&&said>0?said:null}catch{return null}}
 const reserve=async()=>{if(budget===null||typeof budget.take!=='function')return null
@@ -30504,7 +30994,7 @@ await clock.sleep(Math.min(Math.max(Number(wait)||0,0)+BUDGET_PAD_MS,BUDGET_MAX_
 return{word:'budget',waitMs:waitOf()}}
 return async function find(target){const id=target?.id
 if(id===null||id===undefined||id==='')return{ok:false,reason:'no-lot',detail:{field:'id'}}
-const ceiling=buyCeilingOf(target)
+const ceiling=ceilingOf(target)
 if(!isPrice(ceiling))return{ok:false,reason:'no-lot',detail:{field:'price'}}
 const refusal=await reserve()
 if(refusal!==null)return{ok:false,reason:refusal.word,waitMs:refusal.waitMs,detail:{stage:'search'}}
@@ -30528,13 +31018,13 @@ return{ok:false,reason:lots.length>0&&sameCard===0?'wrong-card':'no-lot',detail:
 function pauseFor(range,random){const min=Math.max(0,Number(range?.minMs)||0)
 const max=Math.max(min,Number(range?.maxMs)||min)
 return bandPauseMs(min,max,random)}
-function readTargets(targets){if(!Array.isArray(targets)||targets.length===0){return{ok:false,index:-1,field:'targets'}}
+function readTargets(targets,ceilingOf=buyCeilingOf){if(!Array.isArray(targets)||targets.length===0){return{ok:false,index:-1,field:'targets'}}
 const out=[]
 for(let index=0;index<targets.length;index+=1){const target=targets[index]
 if(!target||typeof target!=='object'||Array.isArray(target)){return{ok:false,index,field:'target'}}
 if((target.lot===null||target.lot===undefined)
 &&(target.id===null||target.id===undefined||target.id==='')){return{ok:false,index,field:'lot'}}
-if(!isPrice(buyCeilingOf(target))){return{ok:false,index,field:'price'}}
+if(!isPrice(ceilingOf(target))){return{ok:false,index,field:'price'}}
 out.push(target)}
 return{ok:true,targets:out}}
 function createAutoBuy(deps={}){const{market,session,stop,clock}=deps
@@ -30544,6 +31034,11 @@ if(!stop||typeof stop.shouldStop!=='function'){throw new Error('auto-buy: нуж
 if(!clock||typeof clock.now!=='function'||typeof clock.sleep!=='function'){throw new Error('auto-buy: нужны часы (правило 6 NIGHT_BRIEF)')}
 const random=typeof deps.random==='function'?deps.random:Math.random
 const moveTo=pileOrNull(deps.moveTo)
+const ceilingOf=typeof deps.ceilingOf==='function'?deps.ceilingOf:buyCeilingOf
+const moveEach=deps.moveEach!==false
+const sniperRefusals=deps.sniperRefusals===true
+const pileKnown=typeof deps.unassigned?.known==='function'?deps.unassigned.known:null
+const pileSeen=typeof deps.unassigned?.seen==='function'?deps.unassigned.seen:null
 const coinBalance=typeof deps.coinBalance==='function'?deps.coinBalance:null
 const findLot=typeof deps.findLot==='function'?deps.findLot:null
 const buyRate=deps.buyRate&&typeof deps.buyRate.take==='function'?deps.buyRate:null
@@ -30602,7 +31097,7 @@ const at=clock.now()
 const previous=lastThrottle!==null&&Number.isFinite(at)&&at-lastThrottle.at<CARD_THROTTLE_MS
 ?lastThrottle.card
 :null
-const market=card===null||(previous!==null&&previous!==card)
+const market=sniperRefusals||card===null||(previous!==null&&previous!==card)
 if(card!==null&&Number.isFinite(at))lastThrottle={card,at}
 if(market&&restMarketAfterThrottle(budget))emit('rest-market',{stage})
 return market?'throttled':CARD_THROTTLED}
@@ -30633,6 +31128,12 @@ const askDoor=(request)=>(typeof market.review==='function'
 ?market.review(request)
 :{verdict:DOOR_UNKNOWN,reason:'no-judge',need:1,fits:null})
 const guardUnassigned=async()=>{if(session.isDryRun?.()===true)return null
+if(pileKnown!==null){let known=null
+try{known=pileKnown()}catch{known=null}
+if(Number.isSafeInteger(known)&&known>=0){unaccepted=known
+return known>=STANDARD_UNASSIGNED_LIMIT
+?{reason:'unassigned-full',detail:{stage:'unassigned',count:known,limit:STANDARD_UNASSIGNED_LIMIT}}
+:null}}
 if(typeof market.requestUnassignedItems!=='function'){emit('failure',{stage:'unassigned',category:'unavailable'})
 return{reason:'unassigned-unavailable',detail:{stage:'unassigned'}}}
 const slot=await budgetDoor('unassigned',true)
@@ -30642,6 +31143,7 @@ try{const count=unassignedCountOf(await market.requestUnassignedItems())
 if(count===null){emit('failure',{stage:'unassigned',category:'bad-shape'})
 return{reason:'unassigned-unavailable',detail:{stage:'unassigned'}}}
 unaccepted=count
+if(pileSeen!==null){try{pileSeen(count)}catch{/* слушатель числа не роняет партию */}}
 return count>=STANDARD_UNASSIGNED_LIMIT
 ?{reason:'unassigned-full',detail:{stage:'unassigned',count,limit:STANDARD_UNASSIGNED_LIMIT}}
 :null}catch(err){const failure=session.recordFailure(statusOf(err))
@@ -30686,7 +31188,7 @@ return{reason:STOP_FAILURES.includes(failure.category)?failure.category:'bad-sta
 return{isRunning:()=>running,
 cancel(){cancelled=true},
 async run(targets,onProgress,context={}){if(running){return{ok:false,reason:'busy',detail:null,planned:0,bought:0,placed:0,spent:0,saved:false,rows:[],stats:session.stats()}}
-const parsed=readTargets(targets)
+const parsed=readTargets(targets,ceilingOf)
 if(parsed.ok!==true){return{ok:false,reason:'bad-state',detail:{stage:'plan',field:parsed.field,index:parsed.index},
 planned:Array.isArray(targets)?targets.length:0,bought:0,placed:0,spent:0,saved:false,rows:[],stats:session.stats()}}
 const plan=parsed.targets
@@ -30696,7 +31198,7 @@ unaccepted=0
 const startedAt=clock.now()
 const rows=plan.map((target,index)=>({index,id:target.id??null,name:target.name??null,
 row:typeof target.row==='string'&&target.row!==''?target.row:null,
-price:buyCeilingOf(target),status:'not-tried',paid:null,reason:null,placedId:null,
+price:ceilingOf(target),status:'not-tried',paid:null,reason:null,placedId:null,
 age:Number.isFinite(target?.age)?target.age:null,
 origin:typeof target?.origin==='string'?target.origin:null}))
 let bought=0
@@ -30730,7 +31232,7 @@ if(pile){stopped=pile
 return finish()}
 for(let index=0;index<plan.length;index+=1){const target=plan[index]
 const row=rows[index]
-const ceiling=buyCeilingOf(target)
+const ceiling=ceilingOf(target)
 if(cancelled){stopped={reason:'cancelled',detail:null}
 break}
 const coins=refreshCoins('batch')
@@ -30825,6 +31327,11 @@ if(buyRate!==null)buyRate.release()
 row.status='skipped'
 row.reason=err.door?.reason==='dead-lot'?'gone':'unknown'
 continue}
+if(sniperRefusals&&RACE_LOST_CODES.includes(statusOf(err))){emit('failure',{stage:'buy',category:RACE_LOST,status:statusOf(err)})
+row.status='skipped'
+row.reason=RACE_LOST
+softStreak=0
+continue}
 const failure=session.recordFailure(statusOf(err))
 const category=failureWord(failure.category,target,'buy')
 emit('failure',{stage:'buy',category})
@@ -30871,10 +31378,10 @@ break}
 if(carried.item===null||carried.item===undefined){
 stopped={reason:RECEIPT_UNRESOLVED,detail:{stage:'place',index,how:carried.how,name:target?.name??null}}
 break}
-const moved=await moveBought(carried.how==='items'?lot:carried.item)
+if(moveEach){const moved=await moveBought(carried.how==='items'?lot:carried.item)
 if(moved){stopped=moved
 break}
-await sleep(AUTO_BUY_RHYTHM.move)
+await sleep(AUTO_BUY_RHYTHM.move)}
 if(place!==null){const card=carried.item
 let put
 try{put=place(target,card,context)}catch(err){put={ok:false,reason:err?.message??'failed'}}
@@ -35507,7 +36014,7 @@ const CARD_GRID_FEATURE='cardGrid'
 const GRID_STYLESHEET="eshario-asset:ui/card-grid.css"
 const GRID_LINK_ID='fut-companion-card-grid'
 const CARD_GRID_SCREENS=Object.freeze([
-Object.freeze({id:'club',root:'.ut-club-search-results-view',host:'.paginated-item-list',list:null,sweeps:false,page:true,columns:PAGE_COLUMNS,money:false,detail:'pick'}),
+Object.freeze({id:'club',root:'.ut-club-search-results-view',host:'.paginated-item-list',list:null,sweeps:false,page:true,columns:PAGE_COLUMNS,money:false,fit:true,detail:'pick'}),
 Object.freeze({id:'market',root:'.SearchResults',host:'.paginated-item-list',list:null,sweeps:false,page:true,columns:MARKET_COLUMNS,money:true,detail:false}),
 Object.freeze({id:'transfer',root:'.ut-transfer-list-view',host:'.ut-sectioned-item-list-view',list:'itemList',sweeps:true,page:false}),
 Object.freeze({id:'targets',root:'.ut-watch-list-view',host:'.ut-sectioned-item-list-view',list:'itemList',sweeps:true,page:false})])
@@ -35763,7 +36270,7 @@ ensureControls(doc)
 styled=true}
 let marked=0
 for(const root of roots){const lists=markLists(root,screen)
-if(screen.page){pages.apply(lists,{columns:screen.columns,money:screen.money===true})
+if(screen.page){pages.apply(lists,{columns:screen.columns,money:screen.money===true,fit:screen.fit===true&&!inDetailColumn(root)})
 watchBox(lists)}
 else views.apply(lists,view)
 marked+=lists.length
@@ -37154,709 +37661,13 @@ function galleryCrestUri(win,clubId){return assetUri(win,'getBadgeImageUri',club
 function galleryLeagueUri(win,leagueId){return assetUri(win,'getLeagueImageUri',leagueId)}
 
 };
-// src/features/gallery-panel.js
-__ESB_g[190]=function*(){__ESB_d(__ESB_x[190],{createGalleryPanel:()=>createGalleryPanel});yield;const{el,clear,ensureTheme,ensureStylesheet,ensureSidebarStyles,logoLink,logoMark}=__ESB_x[68];const{galleryPill}=__ESB_x[81];const{ensureControls}=__ESB_x[69];const{clubRailButton,openClubHub}=__ESB_x[186];const{createGalleryItem,mountGalleryCard,galleryCardName,galleryRarityKnown,galleryCrestUri,galleryLeagueUri,galleryFace,watchGalleryShells}=__ESB_x[189];const{POSITION_ORDER}=__ESB_x[60];const{shortCoins}=__ESB_x[86];const{pressNode}=__ESB_x[134];const{STOP_REASON_KEYS}=__ESB_x[103];
-;
-;
-;
-;
-;
-;
-;
-;
-;
-const GALLERY_FEATURE='gallery'
-const GALLERY_BUILD='GALLERYPANEL-1'
-const GALLERY_OPEN_KEY='futGalleryOpen'
-const GALLERY_OPEN_MARK='data-fut-gallery-open'
-const GALLERY_RAIL_KEY='futGalleryRail'
-const GALLERY_ON_KEY='futGalleryOn'
-const GALLERY_PANEL_KEY='futGalleryPanel'
-const GALLERY_BUILD_KEY='futGalleryBuild'
-const ROW_KEY='futGalleryRow'
-const SORT_KEY='futGallerySort'
-const CHIP_KEY='futGalleryChip'
-const TAB_KEY='futGalleryTab'
-const CARD_KEY='futGalleryCard'
-const CHECK_KEY='futGalleryCheck'
-const GALLERY_STYLESHEET="eshario-asset:ui/gallery.css"
-const GALLERY_LINK_ID='fut-companion-gallery'
-const HUB_ROOT='.ut-club-hub-view'
-const HUB_GRID_CLASS='layout-hub'
-const RAIL_ITEM='.ut-tab-bar-item'
-const PIGGY_DEFAULT=300
-const CHECK_REST_MS=60*60*1000
-const BOTTOM_AIR=0.04
-const MIN_HEIGHT=320
-const SORT_DEFAULT=Object.freeze({key:'tokenPrice',dir:1})
-const FIRST_DIR=Object.freeze({name:1,league:1,got:-1,grade:-1,goal:1,tokenPrice:1,tokens:-1})
-const GRADE_RANK=Object.freeze({S:5,A:4,B:3,C:2,D:1})
-const COLUMNS=Object.freeze([
-['name','gallery.col.set',null,'l'],
-['league','gallery.col.league',null,'l'],
-['got','gallery.col.got',null,''],
-['grade','gallery.col.grade',null,'c'],
-['goal','gallery.col.goal','gallery.col.goal.hint','l'],
-['tokenPrice','gallery.col.tokenPrice','gallery.col.tokenPrice.hint','money'],
-['tokens','gallery.col.tokens',null,'']])
-const DIAMOND='◆'
-const CHECK_MARK='✓'
-const CROSS='×'
-const UNKNOWN='?'
-function sortValue(set,key,categoryName=(id)=>String(id??'')){switch(key){
-case'name':return String(set?.name??'')
-case'league':return categoryName(set?.categoryId)
-case'got':return Number.isFinite(set?.collected)&&set?.cards>0?set.collected/set.cards:null
-case'grade':if(!known(set))return null
-return GRADE_RANK[set?.grade]??0
-case'goal':return Number.isFinite(set?.goal?.cost)?set.goal.cost:null
-case'tokenPrice':if(typeof set?.tokenPrice==='number'&&Number.isFinite(set.tokenPrice))return set.tokenPrice
-return set?.tokenPrice==='x'?Infinity:null
-case'tokens':return Number.isFinite(set?.tokensMax)?set.tokensMax:null
-default:return null}}
-function sortSets(sets,sort,categoryName){const key=sort?.key??SORT_DEFAULT.key
-const dir=sort?.dir===-1?-1:1
-const byName=(a,b)=>String(a?.name??'').localeCompare(String(b?.name??''))
-return[...(sets??[])].sort((a,b)=>{const x=sortValue(a,key,categoryName)
-const y=sortValue(b,key,categoryName)
-if(x===null&&y===null)return byName(a,b)
-if(x===null)return 1
-if(y===null)return-1
-if(typeof x==='string'||typeof y==='string'){const said=String(x).localeCompare(String(y))
-return said!==0?said*dir:byName(a,b)}
-if(x<y)return-dir
-if(x>y)return dir
-return byName(a,b)})}
-function known(set){return set?.collectedSource==='checked'||set?.collectedSource==='complete'}
-function piggyMembers(piggy,sets){if(!piggy||piggy.short===true)return new Set
-if(Array.isArray(piggy.ids))return new Set(piggy.ids)
-const count=Number.isSafeInteger(piggy.sets)?piggy.sets:0
-const ranked=sortSets((sets??[]).filter((one)=>typeof one?.tokenPrice==='number'),SORT_DEFAULT)
-return new Set(ranked.slice(0,count).map((one)=>one.id))}
-function cutRowId(rows,members,sort){if(sort?.key!=='tokenPrice'||sort?.dir!==1)return null
-let last=null
-for(const row of rows??[]){if(members.has(row?.id))last=row.id}
-return last}
-function clockOf(ms){if(!Number.isFinite(ms))return''
-const at=new Date(ms)
-return`${String(at.getHours()).padStart(2,'0')}:${String(at.getMinutes()).padStart(2,'0')}`}
-function checkPhase(state,scopeSets,at,scope='all'){if(!state)return{phase:'none'}
-const running=state.checking
-if(running&&typeof running==='object'){return{phase:'running',done:Number(running.done)||0,total:Number(running.total)||0,eta:Number.isFinite(running.eta)?running.eta:null}}
-if(typeof state.stopped==='string'&&state.stopped!=='')return{phase:'stopped',reason:state.stopped}
-const rest=state.checks?.[scope]
-const all=(scopeSets??[]).length>0&&scopeSets.every(known)
-if(rest&&Number.isFinite(rest.until)){const resting=rest.ready===false||at<rest.until
-if(resting||all)return{phase:'after',checkedAt:Number.isFinite(state.checkedAt)?state.checkedAt:rest.until-CHECK_REST_MS,until:rest.until,resting}}
-if(Number.isFinite(state.checkedAt)&&all){const until=state.checkedAt+CHECK_REST_MS
-return{phase:'after',checkedAt:state.checkedAt,until,resting:!state.checks&&at<until}}
-return{phase:'before'}}
-const STOP_WORDS=Object.freeze({captcha:['gallery.stop.captcha','automation.stop.captcha'],'429':['gallery.stop.429','automation.stop.throttled'],
-'401':['gallery.stop.401',null],fatal:['gallery.stop.fatal','automation.stop.fatal'],network:['gallery.stop.network',null],
-'requests-off':['gallery.stop.off',null],user:['gallery.stop.user',null]})
-const STOP_OTHER=Object.freeze(['gallery.stop.refused',null])
-function createGalleryPanel(deps={}){const doc=deps.doc
-const win=deps.win??doc?.defaultView??null
-const t=typeof deps.t==='function'?deps.t:(key)=>key
-const plural=typeof deps.plural==='function'?deps.plural:(base,count,params)=>{const key=`${base}.many`
-return t(key,params)}
-const engineOf=typeof deps.engine==='function'?deps.engine:()=>null
-const openAccount=typeof deps.openAccount==='function'?deps.openAccount:()=>({ok:false,reason:'no-door'})
-const openHub=typeof deps.openHub==='function'?deps.openHub:()=>openClubHub(win)
-const clubButton=typeof deps.clubButton==='function'?deps.clubButton:()=>clubRailButton(win)
-const pressNative=typeof deps.pressNative==='function'?deps.pressNative:(node)=>pressNode(node,win,onError)
-const blocked=typeof deps.blocked==='function'?deps.blocked:()=>false
-const cardOf=typeof deps.cardOf==='function'?deps.cardOf:()=>null
-const nameOf=typeof deps.nameOf==='function'?deps.nameOf:(id)=>galleryCardName(win,id)
-const crestOf=typeof deps.crestOf==='function'?deps.crestOf:(id)=>galleryCrestUri(win,id)
-const leagueOf=typeof deps.leagueOf==='function'?deps.leagueOf:(id)=>galleryLeagueUri(win,id)
-const rarityKnown=typeof deps.rarityKnown==='function'?deps.rarityKnown:(flag)=>galleryRarityKnown(win,flag)
-const mountCard=typeof deps.mountCard==='function'?deps.mountCard:(host,card,base)=>mountGalleryCard(win,host,createGalleryItem(win,{definitionId:card.defId,rating:base?.rating,rareflag:base?.rareflag,face:card.face,attrs:{leagueId:base?.leagueId,nationId:base?.nationId,teamId:base?.teamId,possiblePositions:base?.positions}}))
-const formatNumber=typeof deps.formatNumber==='function'?deps.formatNumber:(value)=>String(value)
-const now=typeof deps.now==='function'?deps.now:()=>Date.now()
-const catalogNow=typeof deps.catalogNow==='function'?deps.catalogNow:()=>null
-const onError=typeof deps.onError==='function'?deps.onError:()=>{}
-const watchShells=typeof deps.watchShells==='function'?deps.watchShells:(listener)=>watchGalleryShells(win,listener)
-const view={open:false,chip:'all',query:'',sort:{...SORT_DEFAULT},selected:null,picked:false,tab:'missing',want:null}
-const counts={passes:0,renders:0,opens:0,closes:0,locked:0,railPress:0,nativeClose:0,hubMiss:0,cardsMounted:0,cardsFailed:0,cardRows:0,engineErrors:0}
-let rail=null
-let railPainted=null
-let panel=null
-let parts=null
-let hub=null
-let boundEngine=null
-let unbind=[]
-let dirty=true
-let queued=false
-let observer=null
-let listening=false
-let restTimer=null
-let pressing=false
-let lastHeight=null
-let cardsSignature=null
-let started=false
-let disposed=false
-const faces=new Map()
-let seer=null
-const stubbed=new Set()
-let shellWatch=null
-const safe=(fn,fallback=null)=>{try{return fn()}catch(err){onError(err)
-return fallback}}
-function statusNow(){if(typeof deps.statusOf==='function'){const said=safe(()=>deps.statusOf(GALLERY_FEATURE),'unknown')
-return typeof said==='string'?said:'unknown'}
-if(typeof deps.isActive==='function')return safe(()=>deps.isActive(GALLERY_FEATURE),false)===true?'active':'unknown'
-return'unknown'}
-function ensureStyles(){ensureTheme(doc)
-ensureControls(doc)
-ensureSidebarStyles(doc)
-ensureStylesheet(doc,GALLERY_STYLESHEET,GALLERY_LINK_ID)}
-function pass(){counts.passes+=1
-if(disposed)return
-const status=statusNow()
-if(safe(blocked,false)===true||status==='unknown'||status==='switched-off'){clearAll()
-return}
-ensureStyles()
-const club=safe(clubButton)
-const root=hubRoot()
-if(status!=='active')view.open=false
-if(view.open&&root!==null)openPanel(root)
-else closePanel()
-if(club&&club.parentNode)mountRail(club,status,view.open&&root!==null)
-else dropRail()}
-function hubRoot(){try{return doc?.querySelector?.(HUB_ROOT)??null}catch{return null}}
-function mountRail(club,status,on){const nav=club.parentNode
-const locked=status==='not-entitled'
-if(rail===null){rail=el(doc,'button',{class:'ut-tab-bar-item fx-gallery-rail',attrs:{type:'button'},dataset:{[GALLERY_RAIL_KEY]:'1'},
-on:{click:(event)=>{event?.preventDefault?.()
-event?.stopPropagation?.()
-pressRail()}}})
-railPainted=null}
-if(rail.parentNode!==nav)nav.insertBefore(rail,club.nextSibling??null)
-if(on&&nav.dataset?.[GALLERY_ON_KEY]!=='1')nav.dataset[GALLERY_ON_KEY]='1'
-else if(!on&&nav.dataset?.[GALLERY_ON_KEY]!==undefined){try{delete nav.dataset[GALLERY_ON_KEY]}catch{}}
-const label=t('gallery.rail')
-const signature=`${label}|${locked}|${on}`
-if(railPainted===signature)return
-railPainted=signature
-rail.className=`ut-tab-bar-item fx-gallery-rail${on?' fx-gallery-rail--on':''}${locked?' fx-gallery-rail--locked':''}`
-rail.setAttribute('title',locked?t('panel.rail.locked'):t('gallery.rail.hint'))
-clear(rail)
-rail.appendChild(el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--frame'}))
-rail.appendChild(el(doc,'span',{class:'fx-gallery-rail-word',text:label}))
-rail.appendChild(logoMark(doc,'fx-gallery-rail-mark'))
-if(locked)rail.appendChild(el(doc,'span',{class:'fx-gallery-rail-lock',text:'🔒'}))}
-function dropRail(){if(rail!==null){try{rail.remove()}catch{}}
-rail=null
-railPainted=null
-for(const one of Array.from(doc?.querySelectorAll?.('[data-fut-gallery-rail]')??[])){try{one.remove()}catch{}}
-for(const one of Array.from(doc?.querySelectorAll?.('[data-fut-gallery-on]')??[])){try{delete one.dataset[GALLERY_ON_KEY]}catch{}}}
-function pressRail(){counts.railPress+=1
-const status=statusNow()
-if(status==='not-entitled'){counts.locked+=1
-safe(()=>openAccount())
-return}
-if(status!=='active')return
-view.open=true
-counts.opens+=1
-const went=safe(()=>openHub(),null)
-if(!went||went.ok===false){const club=safe(clubButton)
-if(club){pressing=true
-try{pressNative(club)}catch(err){onError(err)}finally{pressing=false}}
-if(went&&went.ok===false)counts.nativeHub=(counts.nativeHub??0)+1}
-pass()}
-function nativePress(event){if(!view.open||pressing)return
-const target=event?.target??null
-const item=target?.closest?.(RAIL_ITEM)??null
-if(!item||item===rail)return
-view.open=false
-counts.nativeClose+=1
-pass()}
-function openPanel(root){if(hub!==null&&hub!==root)unmarkHub()
-hub=root
-if(root.dataset?.[GALLERY_OPEN_KEY]!=='1')root.dataset[GALLERY_OPEN_KEY]='1'
-if(panel===null||parts===null){build()
-dirty=true}
-if(panel.parentNode!==root){const grid=Array.from(root.children??[]).find((one)=>String(one?.className??'').split(/\s+/).includes(HUB_GRID_CLASS))??null
-root.insertBefore(panel,grid)}
-bindEngine()
-if(dirty)render()
-if(lastHeight===null){fit()
-try{win?.requestAnimationFrame?.(()=>fit())}catch{}}}
-function closePanel(){if(panel!==null){disposeFaces()
-try{panel.remove()}catch{}
-panel=null
-parts=null
-cardsSignature=null
-lastHeight=null}
-unbindEngine()
-unmarkHub()}
-function unmarkHub(){if(hub!==null){try{delete hub.dataset[GALLERY_OPEN_KEY]}catch{}}
-hub=null
-for(const one of Array.from(doc?.querySelectorAll?.(`[${GALLERY_OPEN_MARK}]`)??[])){try{delete one.dataset[GALLERY_OPEN_KEY]}catch{}}}
-function clearAll(){view.open=false
-closePanel()
-dropRail()}
-function build(){const chips=el(doc,'span',{class:'fx-gallery-chips'})
-const search=el(doc,'input',{class:'fx-search fx-gallery-search',attrs:{type:'search',placeholder:t('gallery.search'),'aria-label':t('gallery.search')},
-on:{input:(event)=>{view.query=String(event?.target?.value??'')
-render()}}})
-const want=el(doc,'input',{class:'limit inline fx-gallery-want',attrs:{type:'text',inputmode:'numeric',maxlength:'5','aria-label':t('gallery.plan.want')},
-on:{input:(event)=>{const typed=String(event?.target?.value??'').replace(/\D+/g,'')
-view.want=typed===''?null:Number(typed)
-render()}}})
-const planText=el(doc,'span',{class:'fx-gallery-plan-text'})
-const plan=el(doc,'span',{class:'fx-gallery-plan',attrs:{title:t('gallery.plan.hint')}},[
-el(doc,'span',{text:t('gallery.plan.want')}),el(doc,'span',{class:'fx-gallery-acc',text:DIAMOND}),want,
-el(doc,'span',{text:t('gallery.plan.tokens')}),planText])
-const check=el(doc,'span',{class:'fx-gallery-check',dataset:{[CHECK_KEY]:'1'}})
-const close=el(doc,'button',{class:'fx-action fx-action-square fx-gallery-close',text:'✕',attrs:{type:'button',title:t('gallery.close'),'aria-label':t('gallery.close')},
-on:{click:(event)=>{event?.preventDefault?.()
-event?.stopPropagation?.()
-view.open=false
-counts.closes+=1
-pass()}}})
-const tools=el(doc,'span',{class:'fx-gallery-tools'},[plan,check,close])
-const head=el(doc,'div',{class:'fx-gallery-head'},[logoLink(doc),chips,search,tools])
-const list=el(doc,'div',{class:'fx-gallery-list'})
-const column=el(doc,'div',{class:'fx-gallery-set'})
-panel=el(doc,'section',{class:'fx-gallery',dataset:{[GALLERY_PANEL_KEY]:'1',[GALLERY_BUILD_KEY]:GALLERY_BUILD}},[head,el(doc,'div',{class:'fx-gallery-body'},[list,column])])
-parts={chips,search,want,planText,check,list,column,cards:null}}
-function bindEngine(){const engine=safe(engineOf)
-if(engine===boundEngine)return
-unbindEngine()
-boundEngine=engine
-if(!engine||typeof engine.on!=='function')return
-for(const event of['state','check']){const fn=()=>{dirty=true
-schedule()}
-const off=safe(()=>engine.on(event,fn))
-unbind.push(typeof off==='function'?off:()=>{try{engine.off?.(event,fn)}catch{}})}}
-function unbindEngine(){for(const off of unbind){try{off()}catch{}}
-unbind=[]
-boundEngine=null}
-function stateNow(){const engine=boundEngine??safe(engineOf)
-if(!engine||typeof engine.state!=='function')return null
-try{return engine.state()??null}catch(err){counts.engineErrors+=1
-onError(err)
-return null}}
-function render(){if(panel===null||parts===null)return
-counts.renders+=1
-dirty=false
-const state=stateNow()
-const sets=Array.isArray(state?.sets)?state.sets:[]
-const cats=categoriesOf(state,sets)
-if(view.chip!=='all'&&!cats.some((one)=>one.id===view.chip))view.chip='all'
-const nameOfCategory=(id)=>cats.find((one)=>one.id===id)?.name??String(id??'')
-const scoped=view.chip==='all'?sets:sets.filter((one)=>one.categoryId===view.chip)
-const query=view.query.trim().toLowerCase()
-const shown=sortSets(query===''?scoped:scoped.filter((one)=>String(one?.name??'').toLowerCase().includes(query)),view.sort,nameOfCategory)
-const follow=!view.picked&&!(state?.checking&&typeof state.checking==='object')
-if(follow||!shown.some((one)=>one.id===view.selected))view.selected=shown[0]?.id??null
-const want=wantOf(state)
-const piggyFn=typeof state?.piggy==='function'?state.piggy:(typeof boundEngine?.piggy==='function'?boundEngine.piggy.bind(boundEngine):null)
-const piggy=piggyFn?safe(()=>piggyFn(want)):null
-paintChips(cats,sets.length)
-paintPlan(state,want,piggy)
-paintCheck(state,scoped)
-paintList(state,shown,cats,piggyMembers(piggy,sets))
-paintColumn(sets.find((one)=>one.id===view.selected)??null,cats)}
-function schedule(){if(queued||disposed)return
-queued=true
-Promise.resolve().then(()=>{queued=false
-if(panel!==null&&dirty)render()})}
-function wantOf(state){if(Number.isSafeInteger(view.want)&&view.want>0)return view.want
-return Number.isSafeInteger(state?.piggyDefault)&&state.piggyDefault>0?state.piggyDefault:PIGGY_DEFAULT}
-function categoryName(one){if(one?.kind==='leagues')return t('gallery.cat.leagues')
-if(one?.kind==='rarities')return t('gallery.cat.rarities')
-return String(one?.name??one?.id??'')}
-function categoriesOf(state,sets){const count=new Map
-for(const one of sets)count.set(one?.categoryId,(count.get(one?.categoryId)??0)+1)
-const listed=Array.isArray(state?.categories)?state.categories:(Array.isArray(state?.catalog?.categories)?state.catalog.categories:null)
-const cats=listed?listed.map((one)=>({id:one?.id,name:categoryName(one),kind:one?.kind??null,leagueId:Number.isSafeInteger(one?.leagueId)?one.leagueId:null,count:count.get(one?.id)??0}))
-:Array.from(count.keys()).map((id)=>({id,name:String(id??''),kind:null,leagueId:null,count:count.get(id)}))
-return cats.filter((one)=>one.count>0)}
-function paintChips(cats,total){const box=parts.chips
-const signature=`${view.chip}|${total}|${cats.map((one)=>`${one.id}:${one.name}:${one.count}`).join(',')}`
-if(box.dataset.painted===signature)return
-box.dataset.painted=signature
-clear(box)
-const chip=(id,name,count)=>el(doc,'button',{class:view.chip===id?'fx-action on':'fx-action',attrs:{type:'button'},dataset:{[CHIP_KEY]:String(id)},
-on:{click:(event)=>{event?.preventDefault?.()
-view.chip=id
-render()}}},[el(doc,'span',{text:name}),el(doc,'span',{class:'fx-gallery-n',text:String(count)})])
-box.appendChild(chip('all',t('gallery.all'),total))
-for(const one of cats)box.appendChild(chip(one.id,one.name,one.count))}
-function paintPlan(state,want,piggy){const input=parts.want
-const placeholder=String(Number.isSafeInteger(state?.piggyDefault)&&state.piggyDefault>0?state.piggyDefault:PIGGY_DEFAULT)
-if(input.getAttribute?.('placeholder')!==placeholder)input.setAttribute('placeholder',placeholder)
-const box=parts.planText
-clear(box)
-if(!piggy){box.appendChild(el(doc,'b',{class:'fx-gallery-muted',text:UNKNOWN}))
-return}
-const bold=(text,cls)=>el(doc,'b',{class:cls,text})
-const dim=(text)=>el(doc,'span',{class:'fx-gallery-dim',text})
-if(piggy.short===true){box.appendChild(bold(t('gallery.plan.short'),'fx-gallery-muted'))
-return}
-box.appendChild(bold(shortCoins(piggy.coins)??UNKNOWN,'fx-gallery-gold'))
-box.appendChild(dim(t('gallery.plan.loss')))
-box.appendChild(bold(shortCoins(piggy.loss)??'0','fx-gallery-gold'))
-box.appendChild(dim('·'))
-box.appendChild(bold(String(piggy.sets??UNKNOWN),''))
-box.appendChild(dim(plural('gallery.plan.sets',piggy.sets)))
-box.appendChild(bold(String(piggy.cards??UNKNOWN),''))
-box.appendChild(dim(plural('gallery.plan.cards',piggy.cards)))}
-function paintCheck(state,scoped){const box=parts.check
-const scope=view.chip==='all'?'all':view.chip
-const phase=checkPhase(state,scoped,now(),scope)
-const signature=JSON.stringify({phase,scope,has:Boolean(boundEngine),requests:requestsOf(state,scope)})
-if(box.dataset.painted===signature)return
-box.dataset.painted=signature
-clear(box)
-if(restTimer!==null){try{win?.clearTimeout?.(restTimer)}catch{}
-restTimer=null}
-const ask=(label,title,run,enabled=true)=>el(doc,'button',{class:'fx-action fx-gallery-check-button',text:label,
-attrs:{type:'button',title,...(enabled?{}:{'aria-disabled':'true'})},
-on:{click:(event)=>{event?.preventDefault?.()
-event?.stopPropagation?.()
-if(!enabled)return
-safe(run)}}},[])
-const engine=boundEngine
-const checkNow=()=>engine?.check?.(scope)
-const requests=requestsOf(state,scope)
-const hint=scope==='all'
-?(requests!==null?t('gallery.check.all.hint',{n:requests}):t('gallery.check.all.hint.plain'))
-:(requests!==null?t('gallery.check.league.hint',{n:requests}):t('gallery.check.league.hint.plain'))
-const again=t('gallery.check.again')
-if(phase.phase==='running'){const pct=phase.total>0?Math.min(100,Math.round(100*phase.done/phase.total)):0
-const bar=el(doc,'span',{class:'fx-gallery-pbar'},[el(doc,'i',{attrs:{style:`width:${pct}%`}})])
-box.appendChild(el(doc,'span',{class:'fx-gallery-check-line'},[el(doc,'b',{text:t('gallery.check.running',{done:phase.done,total:phase.total})}),bar,
-...(phase.eta!==null?[el(doc,'span',{text:t('gallery.check.eta',{s:Math.max(1,Math.round(phase.eta/1000))})})]:[])]))
-box.appendChild(ask(t('gallery.check.stop'),t('gallery.check.stop.hint'),()=>engine?.stop?.()))
-return}
-if(phase.phase==='stopped'){const[line,full]=STOP_WORDS[phase.reason]??STOP_OTHER
-const said=full?t(full):(STOP_REASON_KEYS[phase.reason]?t(STOP_REASON_KEYS[phase.reason]):null)
-box.appendChild(el(doc,'span',{class:phase.reason==='user'?'fx-gallery-check-line':'fx-gallery-check-line fx-gallery-warn',text:t(line),attrs:said?{title:said}:{}}))
-box.appendChild(ask(again,hint,checkNow,Boolean(engine)))
-return}
-if(phase.phase==='after'){box.appendChild(el(doc,'span',{class:'fx-gallery-check-line'},[el(doc,'span',{text:t('gallery.check.done')}),el(doc,'b',{text:` ${clockOf(phase.checkedAt)}`})]))
-box.appendChild(ask(again,phase.resting?t('gallery.check.again.rest',{time:clockOf(phase.until)}):t('gallery.check.again.hint'),checkNow,Boolean(engine)&&!phase.resting))
-if(phase.resting&&typeof win?.setTimeout==='function'){try{restTimer=win.setTimeout(()=>{restTimer=null
-box.dataset.painted=''
-dirty=true
-schedule()},Math.max(1000,phase.until-now()+500))}catch{restTimer=null}}
-return}
-box.appendChild(el(doc,'span',{class:'fx-gallery-check-line fx-gallery-dim',text:t('gallery.check.club'),attrs:{title:t('gallery.club.hint')}}))
-box.appendChild(ask(scope==='all'?t('gallery.check.all'):t('gallery.check.league'),hint,checkNow,Boolean(engine)&&phase.phase!=='none'))}
-function requestsOf(state,scope){const pools=state?.pools??state?.catalog?.pools??null
-const one=scope==='all'?pools?.total?.requests:pools?.byLeague?.[scope]?.requests
-return Number.isSafeInteger(one)&&one>=0?one:null}
-function paintList(state,shown,cats,members){const box=parts.list
-clear(box)
-if(!state){box.appendChild(el(doc,'div',{class:'fx-gallery-empty',text:t('gallery.empty')}))
-return}
-const withLeague=view.chip==='all'
-const columns=COLUMNS.filter(([key])=>key!=='league'||withLeague)
-const head=el(doc,'tr',{},columns.map(([key,label,hint,align])=>{const sorted=view.sort.key===key
-const classes=[`fx-gallery-th-${key}`,align==='money'?'fx-gallery-money':align,sorted?'fx-gallery-sorted':'',hint?'fx-gallery-hint':''].filter(Boolean).join(' ')
-return el(doc,'th',{class:classes,attrs:{...(hint?{title:t(hint)}:{}),colspan:key==='name'?'2':'1'},dataset:{[SORT_KEY]:key},
-on:{click:(event)=>{event?.preventDefault?.()
-sortBy(key)}}},[el(doc,'span',{text:t(label)}),...(sorted?[el(doc,'span',{class:'fx-gallery-arrow',text:view.sort.dir>0?'▲':'▼'})]:[])])}))
-const cut=cutRowId(shown,members,view.sort)
-const body=el(doc,'tbody')
-for(const set of shown)body.appendChild(row(set,cats,withLeague,set.id===cut))
-if(shown.length===0)body.appendChild(el(doc,'tr',{},[el(doc,'td',{class:'fx-gallery-empty',attrs:{colspan:String(columns.length+1)},text:t('gallery.nothing')})]))
-box.appendChild(el(doc,'table',{class:'fx-gallery-table'},[el(doc,'thead',{},[head]),body]))}
-function sortBy(key){view.picked=true
-if(view.sort.key===key)view.sort={key,dir:-view.sort.dir}
-else view.sort={key,dir:FIRST_DIR[key]??1}
-render()}
-function row(set,cats,withLeague,cut){const classes=['fx-gallery-row']
-if(set.id===view.selected)classes.push('fx-gallery-row--sel')
-if(cut)classes.push('fx-gallery-cut')
-const cells=[crestCell(set?.crest?.clubId,'fx-gallery-crest'),el(doc,'td',{class:'l fx-gallery-name',text:String(set?.name??'')})]
-if(withLeague)cells.push(leagueCell(cats.find((one)=>one.id===set.categoryId)??null))
-cells.push(gotCell(set),gradeCell(set),goalCell(set),tokenPriceCell(set),tokensCell(set))
-return el(doc,'tr',{class:classes.join(' '),dataset:{[ROW_KEY]:String(set.id)},
-on:{click:(event)=>{event?.preventDefault?.()
-view.picked=true
-if(view.selected===set.id)return
-view.selected=set.id
-render()}}},cells)}
-function crestCell(clubId,cls){const uri=Number.isSafeInteger(clubId)?safe(()=>crestOf(clubId)):null
-return el(doc,'td',{class:`${cls}-cell`},uri?[el(doc,'img',{class:cls,attrs:{src:uri,alt:''}})]:[])}
-function leagueCell(cat){const uri=cat?.leagueId?safe(()=>leagueOf(cat.leagueId)):null
-return el(doc,'td',{class:'l fx-gallery-league-cell'},[el(doc,'span',{class:'fx-gallery-league'},[...(uri?[el(doc,'img',{class:'fx-gallery-league-ico',attrs:{src:uri,alt:''}})]:[]),el(doc,'span',{text:cat?.name??''})])])}
-const muted=()=>el(doc,'span',{class:'fx-gallery-muted',text:UNKNOWN})
-function gotCell(set){const cards=Number.isSafeInteger(set?.cards)?set.cards:null
-if(!Number.isFinite(set?.collected)){return el(doc,'td',{},[el(doc,'span',{class:'fx-gallery-got'},[muted(),el(doc,'span',{class:'fx-gallery-muted',text:` / ${cards??UNKNOWN}`}),el(doc,'span',{class:'fx-gallery-bar'})])])}
-const club=!known(set)
-const pct=cards>0?Math.min(100,Math.round(100*set.collected/cards)):0
-return el(doc,'td',{},[el(doc,'span',{class:club?'fx-gallery-got fx-gallery-got--club':'fx-gallery-got'},[
-el(doc,'span',{class:club?'fx-gallery-club':'fx-gallery-count',text:String(set.collected),attrs:club?{title:t('gallery.club.hint')}:{}}),
-el(doc,'span',{class:'fx-gallery-dim',text:` / ${cards??UNKNOWN}`}),
-el(doc,'span',{class:'fx-gallery-bar'},[el(doc,'i',{attrs:{style:`width:${pct}%`}})])])])}
-function gradeCell(set){if(!known(set))return el(doc,'td',{class:'c'},[muted()])
-if(typeof set?.grade==='string'&&set.grade!=='')return el(doc,'td',{class:'c'},[letter(set.grade,'ok')])
-return el(doc,'td',{class:'c'},[el(doc,'span',{class:'fx-gallery-dim fx-gallery-hint',text:t('gallery.grade.none'),attrs:{title:t('gallery.grade.none.hint')}})])}
-function letter(text,kind){return el(doc,'span',{class:`fx-gallery-lt${kind?` fx-gallery-lt--${kind}`:''}`,text})}
-function reward(goal){if(Number.isFinite(goal?.tokens)&&goal.tokens>0)return el(doc,'span',{class:'fx-gallery-rwd fx-gallery-acc',text:`${DIAMOND}${goal.tokens}`})
-if(goal?.badge)return el(doc,'span',{class:'fx-gallery-rwd fx-gallery-dim',attrs:{title:t('gallery.reward.badge')}},[el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--badge'})])
-if(goal?.kit)return el(doc,'span',{class:'fx-gallery-rwd fx-gallery-dim',attrs:{title:t('gallery.reward.kit')}},[el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--kit'})])
-return el(doc,'span',{class:'fx-gallery-rwd'})}
-function goalCell(set){const goal=set?.goal
-if(!goal)return el(doc,'td',{class:'l'},[muted()])
-return el(doc,'td',{class:'l'},[el(doc,'span',{class:'fx-gallery-goal'},[letter(String(goal.letter??''),'can'),
-el(doc,'span',{},[el(doc,'span',{text:`${plural('gallery.cards.for',goal.missing,{n:goal.missing??UNKNOWN})} `}),el(doc,'b',{class:'fx-gallery-gold',text:shortCoins(goal.cost)??UNKNOWN})]),reward(goal)])])}
-function tokenPriceCell(set){const price=set?.tokenPrice
-if(typeof price==='number'&&Number.isFinite(price)){const tip=set?.goal?plural('gallery.tokenPrice.cell',set.goal.tokens,{cost:shortCoins(set.goal.cost)??UNKNOWN,n:set.goal.tokens??UNKNOWN}):null
-return el(doc,'td',{class:'fx-gallery-gold',attrs:tip?{title:tip}:{}},[el(doc,'b',{text:shortCoins(price)??UNKNOWN})])}
-if(price==='x')return el(doc,'td',{},[el(doc,'span',{class:'fx-gallery-muted',text:CROSS,attrs:{title:t('gallery.tokenPrice.x')}})])
-return el(doc,'td',{},[muted()])}
-function tokensCell(set){if(!Number.isFinite(set?.tokensNow))return el(doc,'td',{},[muted(),el(doc,'span',{class:'fx-gallery-dim',text:` / ${set?.tokensMax??UNKNOWN}`})])
-return el(doc,'td',{},[el(doc,'span',{class:'fx-gallery-acc',text:String(set.tokensNow)}),el(doc,'span',{class:'fx-gallery-dim',text:` / ${set?.tokensMax??UNKNOWN}`})])}
-function paintColumn(set,cats){const box=parts.column
-if(!set){disposeFaces()
-cardsSignature=null
-clear(box)
-parts.cards=null
-box.dataset.painted=''
-return}
-const signature=JSON.stringify({id:set.id,src:set.collectedSource,c:set.collected,p:set.points,g:set.grades,tab:view.tab,cards:cardsOf(set).length,lang:t('gallery.tab.all')})
-if(box.dataset.painted===signature&&parts.cards!==null){paintCards(set)
-return}
-box.dataset.painted=signature
-disposeFaces()
-cardsSignature=null
-clear(box)
-box.appendChild(columnHead(set))
-box.appendChild(ladder(set))
-const path=pathBlock(set)
-if(path)box.appendChild(path)
-box.appendChild(slots())
-const list=cardsOf(set)
-box.appendChild(tabs(list))
-parts.cards=el(doc,'div',{class:'fx-gallery-cards'})
-box.appendChild(parts.cards)
-paintCards(set)}
-function columnHead(set){const uri=Number.isSafeInteger(set?.crest?.clubId)?safe(()=>crestOf(set.crest.clubId)):null
-const need=[]
-if(Number.isFinite(set?.collected)){const club=!known(set)
-need.push(el(doc,'b',{class:club?'fx-gallery-club':'',text:String(set.collected),attrs:club?{title:t('gallery.club.hint')}:{}}),el(doc,'span',{text:` / ${set.cards} · `}))}
-if(Number.isFinite(set?.points))need.push(el(doc,'b',{text:formatNumber(set.points)}),el(doc,'span',{text:` ${plural('gallery.set.points',set.points)} · `}))
-const missing=(set?.grades??[]).map((one)=>one?.missing).find((one)=>Number.isFinite(one))
-if(Number.isFinite(missing)&&missing>0)need.push(el(doc,'span',{text:`${t('gallery.set.need')} `}),el(doc,'b',{text:plural('gallery.set.needCards',missing,{n:missing})}))
-return el(doc,'div',{class:'fx-gallery-set-head'},[...(uri?[el(doc,'img',{class:'fx-gallery-set-crest',attrs:{src:uri,alt:''}})]:[]),
-el(doc,'span',{class:'fx-gallery-set-name',text:String(set?.name??'')}),el(doc,'span',{class:'fx-gallery-need'},need)])}
-function rewardWords(rewards){const out=[]
-if(Number.isFinite(rewards?.tokens)&&rewards.tokens>0)out.push(el(doc,'span',{text:plural('gallery.reward.tokens',rewards.tokens,{n:rewards.tokens})}))
-if(rewards?.badge)out.push(el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--badge'}),el(doc,'span',{text:t('gallery.reward.badge')}))
-if(rewards?.kit)out.push(el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--kit'}),el(doc,'span',{text:t('gallery.reward.kit')}))
-return out}
-function ladder(set){const steps=(set?.grades??[]).map((grade,index)=>{const reached=grade?.reached===true
-const reachable=grade?.reachable===true
-const kind=reached?'ok':(reachable?'can':'')
-const threshold=Number.isFinite(grade?.threshold)?formatNumber(grade.threshold):UNKNOWN
-const kids=[el(doc,'div',{class:'fx-gallery-step-top'},[letter(String(grade?.letter??''),kind),el(doc,'span',{class:'fx-gallery-step-th',text:index===0?t('gallery.ladder.fromPoints',{n:threshold}):t('gallery.ladder.from',{n:threshold})})]),
-el(doc,'div',{class:'fx-gallery-step-rw'},rewardWords(grade?.rewards))]
-if(grade?.reachable===false&&!reached)kids.push(el(doc,'span',{class:'fx-gallery-step-no fx-gallery-muted',text:t('gallery.ladder.no')}))
-return el(doc,'div',{class:grade?.reachable===false&&!reached?'fx-gallery-step fx-gallery-step--no':'fx-gallery-step'},kids)})
-return el(doc,'div',{class:'fx-gallery-ladder'},steps)}
-function pathBlock(set){const rows=(set?.grades??[]).filter((grade)=>grade?.reachable===true&&grade?.reached!==true).map((grade)=>{const priceless=Number.isFinite(grade?.priceless)?grade.priceless:(grade?.priceless===true?1:0)
-const sum=priceless>0?el(doc,'span',{class:'fx-gallery-muted',text:plural('gallery.path.priceless',priceless,{n:priceless})})
-:el(doc,'span',{},[el(doc,'span',{text:`${plural('gallery.cards.for',grade.missing,{n:grade.missing??UNKNOWN})} `}),el(doc,'b',{class:'fx-gallery-gold',text:shortCoins(grade.cost)??UNKNOWN})])
-return el(doc,'div',{class:'fx-gallery-path-row'},[letter(String(grade.letter??''),'can'),sum,el(doc,'span',{class:'fx-gallery-dim fx-gallery-path-loss',text:t('gallery.path.loss')}),
-el(doc,'b',{class:'fx-gallery-gold',text:priceless>0?UNKNOWN:(shortCoins(grade.lossOnResell)??'0')})])})
-if(rows.length===0)return null
-return el(doc,'div',{class:'fx-gallery-path',attrs:{title:t('gallery.path.hint')}},rows)}
-function slots(){const later=(icon,label,tag,hint)=>el(doc,'span',{class:'fx-action fx-gallery-later',attrs:{title:t(hint),'aria-disabled':'true',role:'button'}},[
-el(doc,'i',{class:`fx-gallery-ico fx-gallery-ico--${icon}`}),el(doc,'span',{text:t(label)}),el(doc,'span',{class:'fx-gallery-tag',text:t(tag)})])
-return el(doc,'div',{class:'fx-gallery-slots'},[later('cart','gallery.slot.buy','gallery.slot.stage2','gallery.slot.buy.hint'),later('coin','gallery.slot.sell','gallery.slot.stage3','gallery.slot.sell.hint')])}
-function tabs(list){const count=(tab)=>list.filter((card)=>inTab(card,tab)).length
-const tab=(id,label)=>el(doc,'button',{class:view.tab===id?'fx-action on':'fx-action',attrs:{type:'button'},dataset:{[TAB_KEY]:id},
-on:{click:(event)=>{event?.preventDefault?.()
-if(view.tab===id)return
-view.tab=id
-render()}}},[el(doc,'span',{text:t(label)}),el(doc,'span',{class:'fx-gallery-n',text:String(count(id))})])
-return el(doc,'div',{class:'fx-gallery-tabs'},[tab('all','gallery.tab.all'),tab('missing','gallery.tab.missing'),tab('collected','gallery.tab.collected'),
-el(doc,'span',{class:'fx-gallery-air'}),el(doc,'span',{class:'fx-gallery-dim fx-gallery-cap',text:t('gallery.tab.order')})])}
-function inTab(card,tab){if(tab==='missing')return card?.collected!==true
-if(tab==='collected')return card?.collected===true
-return true}
-function cardsOf(set){const engine=boundEngine
-if(!set||typeof engine?.cards!=='function')return[]
-const list=safe(()=>engine.cards(set.id),[])
-if(!Array.isArray(list))return[]
-return list.map((card)=>{const said=typeof engine.mark==='function'?safe(()=>engine.mark(card?.defId)):null
-return{defId:card?.defId,price:Number.isFinite(card?.price)?card.price:null,
-score:Number.isFinite(said?.score)?said.score:(Number.isFinite(card?.score)?card.score:null),
-collected:typeof said?.collected==='boolean'?said.collected:card?.collected===true,
-face:galleryFace(card?.face)}}).filter((card)=>Number.isSafeInteger(card.defId))}
-function paintCards(set){const grid=parts.cards
-if(!grid)return
-const shown=cardsOf(set).filter((card)=>inTab(card,view.tab)).sort((a,b)=>(b.score??-1)-(a.score??-1)||a.defId-b.defId)
-const signature=`${set.id}|${view.tab}|${shown.map((card)=>`${card.defId}:${card.price}:${card.score}:${card.collected}:${card.face?1:0}`).join(',')}`
-if(cardsSignature===signature)return
-cardsSignature=signature
-disposeFaces()
-clear(grid)
-for(const card of shown)grid.appendChild(cardCell(card))
-watchFaces(grid)}
-function cardCell(card){const base=safe(()=>cardOf(card.defId))
-const name=safe(()=>nameOf(card.defId))
-const position=Array.isArray(base?.positions)&&Number.isSafeInteger(base.positions[0])?POSITION_ORDER[base.positions[0]]??'':''
-const title=[name??`#${card.defId}`,[base?.rating,position].filter(Boolean).join(' ')].filter(Boolean).join(', ')
-const stop=(event)=>{event?.preventDefault?.()
-event?.stopPropagation?.()}
-const rarity=base?safe(()=>rarityKnown(base.rareflag)):false
-const unknownSpecial=rarity===false&&Number.isSafeInteger(base?.rareflag)&&base.rareflag>1
-if(!base||unknownSpecial||stubbed.has(String(card.defId))){counts.cardRows+=1
-return el(doc,'div',{class:'fx-gallery-card fx-gallery-card--row',attrs:{title},dataset:{[CARD_KEY]:String(card.defId)},on:{click:stop,mousedown:stop,mouseup:stop}},[pill(card),
-el(doc,'span',{class:'fx-gallery-card-line',text:[base?.rating,position,name??`#${card.defId}`].filter(Boolean).join(' ')})])}
-const face=el(doc,'div',{class:card.face?'fx-gallery-face fx-gallery-face--stats':'fx-gallery-face',dataset:{futGalleryFace:String(card.defId)}})
-face.__galleryCard={card,base}
-return el(doc,'div',{class:'fx-gallery-card',attrs:{title},dataset:{[CARD_KEY]:String(card.defId)},on:{click:stop,mousedown:stop,mouseup:stop}},[pill(card),face])}
-function pill(card){const half=card.collected===true?{kind:'check'}:(Number.isFinite(card.score)?{kind:'score',score:card.score}:null)
-return galleryPill(doc,{t,priceText:shortCoins(card.price)??UNKNOWN,priceTitle:t('gallery.pill.price'),half})}
-function onStub(hit){let key=null
-for(const[one,done]of faces){if(hit?.root&&done?.node===hit.root){key=one
-break}}
-if(key===null)return
-stubbed.add(key)
-counts.stubs=(counts.stubs??0)+1
-const done=faces.get(key)
-faces.delete(key)
-try{done?.dispose?.()}catch{}
-const grid=parts?.cards
-const cell=grid?.querySelector?.(`[data-fut-gallery-card="${key}"]`)??null
-const host=cell?.querySelector?.('[data-fut-gallery-face]')??null
-const card=host?.__galleryCard?.card
-if(!cell||!card)return
-try{cell.replaceWith(cardCell(card))}catch(err){onError(err)}}
-function watchFaces(grid){if(seer!==null){try{seer.disconnect()}catch{}
-seer=null}
-const hosts=Array.from(grid.querySelectorAll?.('[data-fut-gallery-face]')??[])
-const Seer=win?.IntersectionObserver
-if(typeof Seer!=='function'){for(const host of hosts)mountFace(host)
-return}
-try{seer=new Seer((entries)=>{for(const one of entries){if(one.isIntersecting){try{seer?.unobserve?.(one.target)}catch{}
-mountFace(one.target)}}},{root:grid,rootMargin:'260px 0px'})
-for(const host of hosts)seer.observe(host)}catch{seer=null
-for(const host of hosts)mountFace(host)}}
-function mountFace(host){const key=host?.dataset?.futGalleryFace
-if(!key||faces.has(key))return
-const {card,base}=host.__galleryCard??{}
-if(!card)return
-let done=null
-try{done=mountCard(host,card,base)}catch(err){onError(err)
-done=null}
-if(done&&done.ok===true){faces.set(key,done)
-counts.cardsMounted+=1}
-else{counts.cardsFailed+=1
-host.classList?.add?.('fx-gallery-face--none')}}
-function disposeFaces(){if(seer!==null){try{seer.disconnect()}catch{}
-seer=null}
-for(const done of faces.values()){try{done.dispose?.()}catch{}}
-faces.clear()}
-function fit(){if(panel===null||hub===null)return
-let top=null
-let frameTop=null
-try{top=panel.getBoundingClientRect?.()?.top??null}catch{top=null}
-try{frameTop=hub.getBoundingClientRect?.()?.top??null}catch{frameTop=null}
-const height=win?.innerHeight
-if(!Number.isFinite(top)||!Number.isFinite(frameTop)||!Number.isFinite(height)||height<=0)return
-const bottom=height-(height-frameTop)*BOTTOM_AIR
-const value=Math.max(MIN_HEIGHT,Math.round(bottom-top))
-if(value===lastHeight)return
-lastHeight=value
-try{panel.style.setProperty('--gallery-h',`${value}px`)}catch{}}
-function probes(){const engine=safe(engineOf)
-const state=engine?safe(()=>engine.state()):null
-const parsed=safe(catalogNow)
-const sets=Array.isArray(state?.sets)?state.sets:[]
-const table=parsed?.scoreTable??{}
-const want={81:null,79:null}
-if(typeof engine?.cards==='function'){for(const set of sets){if(want[81]!==null&&want[79]!==null)break
-const list=safe(()=>engine.cards(set.id),[])
-for(const card of Array.isArray(list)?list:[]){const base=safe(()=>cardOf(card?.defId))
-const rating=base?.rating
-if((rating!==81&&rating!==79)||want[rating]!==null)continue
-if(!Number.isSafeInteger(base?.rareflag)||base.rareflag>1)continue
-const key=String(base.rareflag)
-want[rating]={set:set.id,defId:card.defId,rating,rarity:base.rareflag,score:card.score??null,
-table:table?.[key]?.[String(rating)]??null,byDefault:table?.default?.[String(rating)]??null}}}}
-const levels=(Array.isArray(parsed?.tags)?parsed.tags:[]).filter((tag)=>String(tag?.rule?.attribute??'').toUpperCase()==='LEVEL')
-.map((tag)=>({id:tag.id,name:tag.name,values:Array.isArray(tag?.rule?.values)?tag.rule.values.slice():tag?.rule?.values??null}))
-const faces=parsed?.face instanceof Map?parsed.face:null
-const firstFace=faces?faces.entries().next().value??null:null
-const piggy=typeof state?.piggy==='function'?safe(()=>state.piggy(PIGGY_DEFAULT)):null
-const starters=sets.filter((set)=>set?.reason==='any').map((set)=>({id:set.id,name:set.name,pool:Array.isArray(set.pool)?set.pool.length:null,
-inPiggy300:Array.isArray(piggy?.ids)?piggy.ids.includes(set.id):null,tokenPrice:set.tokenPrice??null}))
-return{catalog:parsed?{version:parsed.version??null,capturedAt:parsed.capturedAt??null,sets:sets.length,dropped:parsed.dropped??null,tags:Array.isArray(parsed.tags)?parsed.tags.length:0,scoreKeys:Object.keys(table)}:null,
-score81:want[81],score79:want[79],levels,face:{cards:faces?faces.size:0,first:firstFace?{defId:firstFace[0],face:firstFace[1]}:null},starters}}
-function publishProbe(){try{const bag=win?.__eshario
-if(!bag||typeof bag!=='object'||typeof bag.galleryPanel==='function')return
-bag.galleryPanel=()=>({...api.state(),why:api.why(),probes:probes()})}catch{
-}}
-function ours(node){for(let at=node,depth=0;at&&depth<40;at=at.parentNode,depth+=1){if(at===panel)return true}
-return false}
-function mount(){if(started||disposed)return{ok:false,reason:started?'started':'disposed'}
-started=true
-publishProbe()
-try{shellWatch=watchShells(onStub)}catch(err){onError(err)
-shellWatch=null}
-const Observer=win?.MutationObserver
-const watchRoot=doc?.body??doc?.documentElement??null
-if(typeof Observer==='function'&&watchRoot){try{observer=new Observer((records)=>{let foreign=false
-for(const one of records??[]){if(!ours(one?.target)){foreign=true
-break}}
-if(foreign)queuePass()})
-observer.observe(watchRoot,{childList:true,subtree:true})}catch(err){onError(err)
-observer=null}}
-try{doc?.addEventListener?.('click',nativePress,true)
-doc?.addEventListener?.('mouseup',nativePress,true)
-win?.addEventListener?.('resize',onResize)
-listening=true}catch(err){onError(err)}
-pass()
-return{ok:true,reason:null}}
-let passQueued=false
-function queuePass(){if(passQueued||disposed)return
-passQueued=true
-Promise.resolve().then(()=>{passQueued=false
-pass()})}
-function onResize(){lastHeight=null
-fit()}
-function dispose(){if(disposed)return
-clearAll()
-disposed=true
-try{shellWatch?.dispose?.()}catch{}
-shellWatch=null
-try{observer?.disconnect?.()}catch{}
-observer=null
-if(listening){try{doc?.removeEventListener?.('click',nativePress,true)
-doc?.removeEventListener?.('mouseup',nativePress,true)
-win?.removeEventListener?.('resize',onResize)}catch{}
-listening=false}
-if(restTimer!==null){try{win?.clearTimeout?.(restTimer)}catch{}
-restTimer=null}}
-const api={mount,pass,dispose,probes,
-press:pressRail,
-nativePress,
-render:()=>{dirty=true
-if(panel!==null)render()},
-isOpen:()=>view.open&&panel!==null,
-why:()=>({status:statusNow(),clubFound:Boolean(safe(clubButton)),railMounted:rail!==null&&rail.isConnected!==false,
-observing:observer!==null,blocked:safe(blocked,false)===true,passes:counts.passes}),
-state:()=>({build:GALLERY_BUILD,open:view.open,mounted:panel!==null,chip:view.chip,query:view.query,sort:{...view.sort},selected:view.selected,tab:view.tab,want:view.want,
-faces:faces.size,nodes:panel?.querySelectorAll?.('*')?.length??0,height:lastHeight,counts:{...counts}})}
-return api}
-
-};
 // src/features/gallery-catalog.js
-__ESB_g[191]=function*(){__ESB_d(__ESB_x[191],{createGalleryCatalogFeed:()=>createGalleryCatalogFeed,galleryDoorFetch:()=>galleryDoorFetch,galleryDoorStore:()=>galleryDoorStore,readGalleryCatalog:()=>readGalleryCatalog});yield;
+__ESB_g[190]=function*(){__ESB_d(__ESB_x[190],{createGalleryCatalogFeed:()=>createGalleryCatalogFeed,galleryDoorFetch:()=>galleryDoorFetch,galleryDoorStore:()=>galleryDoorStore,readGalleryCatalog:()=>readGalleryCatalog});yield;
 const GALLERY_GAME='fc27'
 const GALLERY_ORIGIN='https://api.eshario.com'
 function galleryCatalogUrl(game=GALLERY_GAME){return `${GALLERY_ORIGIN}/v1/gallery/${game}`}
 function galleryFingerprintUrl(game=GALLERY_GAME){return `${galleryCatalogUrl(game)}/fingerprint`}
-const CATALOG_EVERY_MS=6*60*60*1000
+const CATALOG_EVERY_MS=60*60*1000
 const CATALOG_RETRY_MS=30*60*1000
 const CATALOG_KEY='gallery.catalog'
 const CATALOG_SCHEMA=1
@@ -38026,15 +37837,17 @@ checkedAt,nextAt,store:store!==null,net:fetchText!==null,...stats})}}
 
 };
 // src/features/gallery-engine.js
-__ESB_g[192]=function*(){__ESB_d(__ESB_x[192],{CHECK_BATCH:()=>CHECK_BATCH,UNANSWERED_PREFIX:()=>UNANSWERED_PREFIX,createGalleryCounter:()=>createGalleryCounter,createGalleryEngine:()=>createGalleryEngine,createGalleryMemory:()=>createGalleryMemory,createGalleryPriceBook:()=>createGalleryPriceBook,personaKeyOf:()=>personaKeyOf,readRawMark:()=>readRawMark});yield;const{askDayBudget,restMarketAfterThrottle}=__ESB_x[98];const{isLoanItem}=__ESB_x[119];const{readGalleryCatalog}=__ESB_x[191];const{SAFE_PAUSE_FLOOR_MS,DEFAULT_SEARCH_BAND_MS}=__ESB_x[123];
+__ESB_g[191]=function*(){__ESB_d(__ESB_x[191],{CHECK_BATCH:()=>CHECK_BATCH,RESELL_TAX:()=>RESELL_TAX,SET_CHECK_MAX:()=>SET_CHECK_MAX,UNANSWERED_PREFIX:()=>UNANSWERED_PREFIX,checkRequestsCap:()=>checkRequestsCap,createGalleryCounter:()=>createGalleryCounter,createGalleryEngine:()=>createGalleryEngine,createGalleryMemory:()=>createGalleryMemory,createGalleryPriceBook:()=>createGalleryPriceBook,personaKeyOf:()=>personaKeyOf,readRawMark:()=>readRawMark});yield;const{askDayBudget,restMarketAfterThrottle,dayKeyOf}=__ESB_x[98];const{isLoanItem}=__ESB_x[119];const{readGalleryCatalog}=__ESB_x[190];const{SAFE_PAUSE_FLOOR_MS,DEFAULT_SEARCH_BAND_MS}=__ESB_x[123];
 ;
 ;
 ;
 ;
-const CHECK_BATCH=250
+const CHECK_BATCH=150
 const CHECK_PAUSE_MS=Math.max(2_500,SAFE_PAUSE_FLOOR_MS,DEFAULT_SEARCH_BAND_MS?.maxMs??0)
 const CHECK_JITTER_MS=300
 const CHECK_COOLDOWN_MS=60*60*1000
+const SET_CHECK_MAX=CHECK_BATCH
+const GALLERY_DAY_CAP=100
 const RESELL_TAX=0.05
 const PRICELESS=1e10
 const MEMORY_PREFIX='gallery.collected.'
@@ -38066,10 +37879,16 @@ return club===''?key:`${key}.${club}`}
 function clubCard(row){if(!isPlain(row)&&typeof row!=='object')return null
 const defId=positive(row?.definitionId??row?.defId??row?.d)
 if(defId===null)return null
-return{definitionId:defId,loans:row?.loans??row?.o??-1,limitedUseType:row?.limitedUseType??row?.x??0}}
+return{definitionId:defId,loans:row?.loans??row?.o??-1,limitedUseType:row?.limitedUseType??row?.x??0,
+first:row?.h===1||row?.owners===1}}
 function clubCollectedIds(rows){const out=new Set()
 for(const row of rows??[]){const card=clubCard(row)
 if(card===null||isLoanItem(card))continue
+out.add(card.definitionId)}
+return out}
+function clubFirstIds(rows){const out=new Set()
+for(const row of rows??[]){const card=clubCard(row)
+if(card===null||!card.first||isLoanItem(card))continue
 out.add(card.definitionId)}
 return out}
 function cleanIds(raw,cap=MEMORY_CAP){const out=new Set()
@@ -38088,12 +37907,14 @@ let loading=null
 let writing=false
 let dirty=false
 let blocked=false
+let log=null
 const stats={loads:0,writes:0,failures:0,added:0}
 const flush=()=>{if(store===null||key===null||status!=='ready'||writing||!dirty||blocked)return
 writing=true
 dirty=false
 const target=key
 const value={v:1,ids:[...ids].sort((a,b)=>a-b).slice(0,MEMORY_CAP)}
+if(log!==null)value.checks=log
 Promise.resolve().then(()=>store.set(target,value)).then(()=>{stats.writes+=1},(err)=>{stats.failures+=1
 dirty=true
 blocked=true
@@ -38106,6 +37927,7 @@ status='loading'
 try{const kept=await store.get(target)
 if(target!==key)return
 for(const id of cleanIds(isPlain(kept)?kept.ids:null))ids.add(id)
+if(isPlain(kept)&&isPlain(kept.checks))log=mergeCheckLog(kept.checks,log)
 status='ready'}catch(err){if(target!==key)return
 status='failed'
 stats.failures+=1
@@ -38118,6 +37940,7 @@ next=typeof raw==='string'&&raw!==''?prefix+raw:null}catch{next=null}
 if(next===key)return
 key=next
 ids=new Set()
+log=null
 loading=null
 dirty=false
 blocked=false
@@ -38153,8 +37976,29 @@ if(gone>0){dirty=true
 blocked=false
 flush()}
 return gone},
+checks(){sync()
+return log===null?null:readCheckLog(log)},
+putChecks(next){sync()
+log=readCheckLog(next)
+dirty=true
+blocked=false
+flush()},
 state(){sync()
 return{status,size:ids.size,key:key===null?null:key.slice(prefix.length),store:store!==null,...stats}}}}
+function readCheckLog(raw){const day=typeof raw?.day==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(raw.day)?raw.day:null
+const used=Number.isSafeInteger(raw?.used)&&raw.used>0?raw.used:0
+const sets={}
+if(isPlain(raw?.sets))for(const[id,at]of Object.entries(raw.sets)){if(id.length>80||!Number.isSafeInteger(at)||at<=0)continue
+sets[id]=at}
+return{day,used,sets}}
+function mergeCheckLog(disk,session){const a=readCheckLog(disk)
+if(session===null||session===undefined)return a
+const b=readCheckLog(session)
+const day=a.day===b.day?a.day:((a.day??'')>(b.day??'')?a.day:b.day)
+const used=a.day===b.day?a.used+b.used:(day===a.day?a.used:b.used)
+const sets={...a.sets}
+for(const[id,at]of Object.entries(b.sets))sets[id]=Math.max(sets[id]??0,at)
+return{day,used,sets}}
 function createGalleryCounter(budget){if(!budget||typeof budget.take!=='function')return null
 return{take:()=>askDayBudget(budget,1,{market:true}),rest:()=>restMarketAfterThrottle(budget)}}
 function levelOf(rating){const value=Number(rating)
@@ -38162,6 +38006,8 @@ if(!Number.isFinite(value))return null
 return value>=75?'gold':value>=65?'silver':'bronze'}
 const LEVEL_NAMES=Object.freeze({gold:['gold','3'],silver:['silver','2'],bronze:['bronze','1']})
 function attributeValues(card,attribute){if(!card)return null
+if(attribute==='FIRST_OWNED')return[card.first===true?'1':'0']
+if(card.bare===true)return null
 switch(attribute){case 'CLUB':return[card.club]
 case 'LEAGUEID':return[card.league]
 case 'NATION':return[card.nation]
@@ -38316,15 +38162,23 @@ for(const item of level.items.slice(0,state.k)){ids.push(item.id)
 score+=item.score}}
 out[g]={cost:best.c,score,ids}}
 return out}
-function lineupsWithTags(slots,candidates,thresholds,bonusOf){const first=cheapestLineups(slots,candidates,thresholds)
-const answer=first.map((one)=>(one===null?null:{...one,bonus:bonusOf?bonusOf(one.ids):0}))
+function tagLineups(slots,candidates,thresholds,bonusOf,lock){const lockIds=lock?.ids??[]
+const lockScore=lock?.score??0
+const free=slots-lockIds.length
+if(free<0)return thresholds.map(()=>null)
+const held=new Set(lockIds)
+const pool=lockIds.length===0?candidates:candidates.filter((card)=>!held.has(card.id))
+const solve=(targets)=>(free===0?targets.map((target)=>(target<=lockScore?{cost:0,score:0,ids:[]}:null))
+:cheapestLineups(free,pool,targets.map((target)=>Math.max(0,target-lockScore))))
+.map((one)=>(one===null?null:{cost:one.cost,score:one.score+lockScore,ids:lockIds.concat(one.ids)}))
+const answer=solve(thresholds).map((one)=>(one===null?null:{...one,bonus:bonusOf?bonusOf(one.ids):0}))
 if(!bonusOf)return answer
-const topIds=candidates.slice().sort((a,b)=>b.score-a.score||a.cost-b.cost).slice(0,slots).map((card)=>card.id)
+const topIds=lockIds.concat(pool.slice().sort((a,b)=>b.score-a.score||a.cost-b.cost).slice(0,free).map((card)=>card.id))
 const topBonus=bonusOf(topIds)
 let guess=answer.map((one)=>(one===null?topBonus:one.bonus))
 for(let round=0;round<3;round+=1){const lowered=thresholds.map((threshold,g)=>(guess[g]>0?Math.ceil(threshold*100/(100+guess[g])):threshold))
 if(lowered.every((value,g)=>value>=thresholds[g]))break
-const tried=cheapestLineups(slots,candidates,lowered)
+const tried=solve(lowered)
 let moved=false
 for(let g=0;g<thresholds.length;g+=1){const one=tried[g]
 if(one===null||lowered[g]>=thresholds[g])continue
@@ -38334,6 +38188,25 @@ if(bonus!==guess[g]){guess[g]=bonus
 moved=true}}
 if(!moved)break}
 return answer}
+function lineupsWithTags(slots,candidates,thresholds,bonusOf,locks=[]){let best=tagLineups(slots,candidates,thresholds,bonusOf,null)
+for(const lock of locks){const one=tagLineups(slots,candidates,thresholds,bonusOf,lock)
+best=best.map((was,g)=>{const next=one[g]
+if(next===null)return was
+if(was===null)return next
+if(next.cost<was.cost)return next
+if(next.cost===was.cost&&next.score*(100+next.bonus)>was.score*(100+was.bonus))return next
+return was})}
+return best}
+function firstOwnerTags(tags){const list=(tags??[]).filter((tag)=>String(tag?.rule?.attribute??'').toUpperCase()==='FIRST_OWNED')
+const counts=new Set()
+for(const tag of list)for(const step of tag.steps??[])if(Number.isSafeInteger(step?.count)&&step.count>0)counts.add(step.count)
+return{tags:list,counts:[...counts].sort((a,b)=>a-b)}}
+function firstLocks(slots,own,counts){const firsts=own.filter((card)=>card.first===true).sort((a,b)=>b.score-a.score||a.id-b.id)
+const out=[]
+for(const count of counts){if(count>slots||count>firsts.length)continue
+const ids=firsts.slice(0,count)
+out.push({ids:ids.map((card)=>card.id),score:sumOf(ids,'score')})}
+return out}
 function goalOf(grades,current){if(current>=grades.length-1)return{goal:null,tokenPrice:null}
 const upTo=[]
 let running=0
@@ -38375,6 +38248,27 @@ const short=tokens<need
 if(short)return{coins:null,loss:null,sets:null,cards:null,short:true,ids:[],tokens}
 return{coins,loss:Math.round(coins*RESELL_TAX),sets:ids.length,cards,short:false,ids,tokens}}
 function isAnySet(set){return set?.rule?.anyCommon===true}
+const NOT_MARKET_RULE=/squad foundations/i
+function marketOf(set,tradable){let no=0
+let unknown=0
+let yes=0
+for(const defId of set?.pool??[]){let said=null
+try{said=tradable(defId)}catch{said=null}
+if(said===false)no+=1
+else if(said===true)yes+=1
+else unknown+=1}
+const named=NOT_MARKET_RULE.test(String(set?.rule?.description??''))
+const market=named?false:yes>0?true:!(no>0&&unknown===0)
+return{market,no,unknown,yes}}
+function maxGradeOf(set){if(!set||set.reason==='any'||typeof set.grade!=='string'||set.grade==='')return false
+const grades=Array.isArray(set.grades)?set.grades:[]
+const at=grades.findIndex((grade)=>grade?.letter===set.grade)
+if(at<0)return false
+if(set.market===false)return at===grades.length-1
+let unknown=false
+for(let i=at+1;i<grades.length;i+=1){if(grades[i]?.reachable===true)return false
+if(grades[i]?.reachable!==false)unknown=true}
+return unknown?null:true}
 function poolsOf(parsed){const count=(value)=>(Number.isSafeInteger(value)&&value>=0?value:null)
 const box=(raw)=>({cards:count(raw?.cards),requests:count(raw?.requests)})
 const given=parsed?.pools
@@ -38389,6 +38283,10 @@ for(const id of set.pool){ids.add(id)
 all.add(id)}}
 byLeague[category.id]={cards:ids.size,requests:Math.ceil(ids.size/CHECK_BATCH)}}
 return{byLeague,total:{cards:all.size,requests:Math.ceil(all.size/CHECK_BATCH)}}}
+function checkRequestsCap(box){const cards=box?.cards
+if(Number.isSafeInteger(cards)&&cards>=0)return 2*Math.ceil(cards/CHECK_BATCH)
+const requests=box?.requests
+return Number.isSafeInteger(requests)&&requests>=0?2*requests:null}
 function pricePort(raw){if(typeof raw==='function')return{price:raw,tradable:()=>null,ready:()=>true,stamp:()=>null,onChange:null}
 if(raw&&typeof raw==='object'&&typeof raw.price==='function'){return{price:(id)=>raw.price(id),
 tradable:typeof raw.tradable==='function'?(id)=>raw.tradable(id):()=>null,
@@ -38494,6 +38392,14 @@ let cache=null
 let feeding=false
 const stats={checks:0,requests:0,answered:0,cards:0,extra:0,unanswered:0,unansweredIds:[],pauses:[],refusals:[],swept:0}
 const emit=(event,value)=>{for(const fn of listeners[event]??[]){try{fn(value)}catch(err){onError(err)}}}
+let memoryWatched=null
+const watchMemory=()=>{let status=null
+try{status=memory.state?.()?.status??null}catch{status=null}
+if(status!=='loading'||typeof memory.load!=='function')return
+const reading=memory.load()
+if(reading===memoryWatched)return
+memoryWatched=reading
+Promise.resolve(reading).then(()=>emit('state',api.state()),onError)}
 const markOf=(defId)=>{const mine=checked.get(defId)
 let seen=null
 try{seen=door?.mark?.(defId)??null}catch{seen=null}
@@ -38518,9 +38424,10 @@ const rating=String(card.rating)
 const row=table[String(card.rarity)]
 const value=row?.[rating]??table.default?.[rating]
 return Number.isFinite(value)?value:null}
-const setState=(set,parsed,collected,falseIds,lostIds)=>{if(isAnySet(set))return anySetState(set)
+const setState=(set,parsed,collected,falseIds,lostIds,firstIds=new Set())=>{if(isAnySet(set))return anySetState(set)
 const pool=set.pool
 const slots=set.cards
+const market=marketOf(set,(id)=>prices.tradable(id)).market
 const own=[]
 const buy=[]
 let known=0
@@ -38528,13 +38435,13 @@ let waiting=0
 let unanswered=0
 for(const defId of pool){const score=scoreOf(defId,parsed.scoreTable)
 if(collected.has(defId)){known+=1
-own.push({id:defId,score:score??NO_SCORE,cost:0})
+own.push({id:defId,score:score??NO_SCORE,cost:0,first:firstIds.has(defId)})
 continue}
 if(lostIds.has(defId)){known+=1
 unanswered+=1
 continue}
 if(falseIds.has(defId))known+=1
-if(score===null)continue
+if(score===null||!market)continue
 if(!prices.ready())continue
 const raw=prices.price(defId)
 if(raw===undefined){waiting+=1
@@ -38547,16 +38454,33 @@ buy.push({id:defId,score,cost:PRICELESS})}
 const collectedIds=own.map((card)=>card.id)
 const n=collectedIds.length
 const source=n>=slots?'complete':known===pool.length&&pool.length>0?'checked':'club'
-const bonusOf=cardOf===null||parsed.tags.length===0?null:(ids)=>tagBonus(parsed.tags,ids.map((id)=>{const card=cardOf(id)
-return card===null?null:{...card,defId:id}}))
+const ownFirst=new Set(own.filter((card)=>card.first).map((card)=>card.id))
+const cardFor=(id)=>{const base=cardOf?.(id)??null
+return base===null?{bare:true,defId:id,first:ownFirst.has(id)}:{...base,defId:id,first:ownFirst.has(id)}}
+const bonusOf=parsed.tags.length===0?null:(ids)=>tagBonus(parsed.tags,ids.map(cardFor))
+const firstTag=firstOwnerTags(parsed.tags)
+const locks=bonusOf===null?[]:firstLocks(slots,own,firstTag.counts)
 const ownTop=own.slice().sort((a,b)=>b.score-a.score).slice(0,slots)
-const points=sumOf(ownTop,'score')
-let current=-1
-if(n>=slots){const bonus=bonusOf?bonusOf(ownTop.map((card)=>card.id)):0
-for(let i=0;i<set.grades.length;i+=1)if(points*(100+bonus)>=set.grades[i].threshold*100)current=i}
+const rest=(held)=>{const skip=new Set(held)
+return own.filter((card)=>!skip.has(card.id)).sort((a,b)=>b.score-a.score).slice(0,slots-held.length)}
+const choices=[ownTop.map((card)=>card.id)]
+for(const lock of locks)choices.push(lock.ids.concat(rest(lock.ids).map((card)=>card.id)))
+const scoreById=new Map(own.map((card)=>[card.id,card.score]))
+let best=null
+for(const ids of choices){const score=ids.reduce((total,id)=>total+(scoreById.get(id)??0),0)
+const bonus=bonusOf?bonusOf(ids):0
+const total=score*(100+bonus)
+if(best===null||total>best.total)best={ids,score,bonus,total}}
+const points=best.score
 const thresholds=set.grades.map((grade)=>grade.threshold)
+let current=-1
+if(n>=slots){for(let i=0;i<set.grades.length;i+=1)if(best.total>=set.grades[i].threshold*100)current=i
+const mine=lineupsWithTags(slots,own,thresholds,bonusOf,locks)
+for(let i=current+1;i<mine.length;i+=1)if(mine[i]!==null)current=i}
+const firstIn=best.ids.filter((id)=>ownFirst.has(id))
+const firstOwner={cards:firstIn.length,bonus:firstIn.length>0?tagBonus(firstTag.tags,best.ids.map(cardFor)):0}
 const priced=prices.ready()&&waiting===0
-const paths=priced?lineupsWithTags(slots,own.concat(buy),thresholds,bonusOf):thresholds.map(()=>undefined)
+const paths=priced?lineupsWithTags(slots,own.concat(buy),thresholds,bonusOf,locks):thresholds.map(()=>undefined)
 const costOf=new Map(buy.map((card)=>[card.id,card.cost]))
 const grades=set.grades.map((grade,i)=>{const base={letter:grade.letter,threshold:grade.threshold,rewards:{...grade.rewards}}
 if(i<=current)return{...base,reachable:true,reached:true,missing:0,cost:0,priceless:0,lossOnResell:0,ids:[]}
@@ -38577,15 +38501,16 @@ const tokensUp=[]
 let total=0
 for(const grade of set.grades){total+=grade.rewards.tokens
 tokensUp.push(total)}
-const decided=priced?goalOf(grades,current):{goal:null,tokenPrice:null}
+const decided=priced&&market?goalOf(grades,current):{goal:null,tokenPrice:null}
 const aimed=decided.goal===null?null:grades.find((grade)=>grade.letter===decided.goal.letter)??null
 return{id:set.id,name:set.name,categoryId:set.categoryId,cards:slots,
 collected:Math.min(n,slots),collectedSource:source,collectedIds,
 grade:current>=0?set.grades[current].letter:null,
 grades:grades.map(({ids,...rest})=>rest),goal:decided.goal,tokenPrice:decided.tokenPrice,
 tokensNow:current>=0?tokensUp[current]:0,tokensMax:total,
-crest:set.crest,points,pool:pool.slice(),missing:Math.max(0,slots-n),known,unanswered,
-path:aimed===null?null:aimed.ids.slice(),reason:null,
+crest:set.crest,points,firstOwner,pool:pool.slice(),missing:Math.max(0,slots-n),known,unanswered,
+path:aimed===null?null:aimed.ids.slice(),reason:null,market,
+maxGrade:maxGradeOf({grade:current>=0?set.grades[current].letter:null,grades,market}),
 paths:grades.map((grade)=>grade.ids)}}
 const anySetState=(set)=>{let total=0
 for(const grade of set.grades)total+=grade.rewards.tokens
@@ -38593,9 +38518,9 @@ return{id:set.id,name:set.name,categoryId:set.categoryId,cards:set.cards,
 collected:null,collectedSource:'club',collectedIds:[],grade:null,
 grades:set.grades.map((grade)=>({letter:grade.letter,threshold:grade.threshold,rewards:{...grade.rewards},
 reachable:null,reached:false,missing:null,cost:null,priceless:0,lossOnResell:null})),
-goal:null,tokenPrice:null,tokensNow:null,tokensMax:total,crest:set.crest,points:null,
-pool:[],missing:null,known:0,unanswered:0,path:null,reason:'any',paths:[]}}
-const signature=(parsed,collected,falseIds,lostIds)=>{let sum=0
+goal:null,tokenPrice:null,tokensNow:null,tokensMax:total,crest:set.crest,points:null,firstOwner:null,
+pool:[],missing:null,known:0,unanswered:0,path:null,reason:'any',market:true,maxGrade:false,paths:[]}}
+const signature=(parsed,collected,falseIds,lostIds,firstIds)=>{let sum=0
 let mix=0
 for(const id of collected){sum=(sum+id)%2147483647
 mix^=id}
@@ -38603,10 +38528,12 @@ let off=0
 for(const id of falseIds)off=(off+id)%2147483647
 let gone=0
 for(const id of lostIds)gone=(gone+id)%2147483647
+let first=0
+for(const id of firstIds)first=(first+id)%2147483647
 let rev=0
 try{rev=door?.revision?.()??0}catch{rev=0}
 const stamp=prices.stamp()
-return[parsed?.version??'-',parsed?.fingerprint??'-',collected.size,sum,mix,falseIds.size,off,lostIds.size,gone,rev,checked.size,
+return[parsed?.version??'-',parsed?.fingerprint??'-',collected.size,sum,mix,falseIds.size,off,lostIds.size,gone,firstIds.size,first,rev,checked.size,
 prices.ready()?1:0,stamp===null?Math.floor(now()/60_000):stamp].join('|')}
 const compute=()=>{const parsed=catalog.current()
 if(!parsed)return{parsed:null,sets:[],categories:[]}
@@ -38617,10 +38544,11 @@ for(const category of parsed.categories)for(const set of category.sets)every.pus
 for(const set of every)for(const defId of set.pool){if(collected.has(defId))continue
 if(markOf(defId)?.collected===false)falseIds.add(defId)}
 const lostIds=lost.ids()
-const key=signature(parsed,collected,falseIds,lostIds)
+const firstIds=clubFirstIds(clubRows())
+const key=signature(parsed,collected,falseIds,lostIds,firstIds)
 if(cache!==null&&cache.key===key)return cache
-const sets=every.map((set)=>setState(set,parsed,collected,falseIds,lostIds))
-cache={key,parsed,sets,categories:parsed.categories.map((category)=>({id:category.id,name:category.name,kind:category.kind,
+const sets=every.map((set)=>setState(set,parsed,collected,falseIds,lostIds,firstIds))
+cache={key,parsed,sets,asks:asksOf(parsed,sets,collected),categories:parsed.categories.map((category)=>({id:category.id,name:category.name,kind:category.kind,
 leagueId:category.leagueId,sets:category.sets.length}))}
 return cache}
 const publicSet=(set)=>{const{paths,known,...rest}=set
@@ -38630,17 +38558,41 @@ for(const one of parsed?.tokenStore??[])if(best===null||one.tokens<best)best=one
 return best??PIGGY_DEFAULT}
 const scopeIds=(scope)=>{const{parsed,sets}=compute()
 if(!parsed)return null
-const collected=collectedSet()
-const out=[]
+return idsOfScope(sets,scope,collectedSet())}
+const idsOfScope=(sets,scope,collected,keepMax=false)=>{const out=[]
 const seen=new Set()
 for(const set of sets){if(scope!=='all'&&set.categoryId!==scope)continue
+if(set.maxGrade===true&&!keepMax)continue
 for(const defId of set.pool){if(seen.has(defId)||collected.has(defId))continue
 seen.add(defId)
 out.push(defId)}}
 return out}
+const asksOf=(parsed,sets,collected)=>{const byLeague={}
+const box=(cards)=>({cards,requests:Math.ceil(cards/CHECK_BATCH)})
+for(const category of parsed.categories)byLeague[category.id]=box(idsOfScope(sets,category.id,collected).length)
+return{byLeague,total:box(idsOfScope(sets,'all',collected).length)}}
+let sessionLog=null
+const logNow=()=>{let raw=null
+try{raw=typeof memory.checks==='function'?memory.checks():sessionLog}catch{raw=sessionLog}
+const log=readCheckLog(raw)
+const today=dayKeyOf(now())
+if(log.day!==today){log.day=today
+log.used=0}
+return log}
+const logWrite=(log)=>{// ВРЕМЯ НАБОРА СТАРШЕ СУТОК НЕ НУЖНО НИКОМУ: покой набора час.
+const edge=now()-24*60*60*1000
+for(const[id,at]of Object.entries(log.sets))if(at<edge)delete log.sets[id]
+try{if(typeof memory.putChecks==='function')memory.putChecks(log)
+else sessionLog=log}catch(err){sessionLog=log
+onError(err)}}
+const dayUsed=()=>logNow().used
+const setCheckedAt=(id)=>logNow().sets[id]??null
+const setStats={count:0,last:null}
 const scopesOf=(scope,parsed)=>(scope==='all'?['all',...parsed.categories.map((category)=>category.id)]:[scope])
 const wordOf=(reason)=>(STOP_WORDS.includes(reason)?reason:'refused')
-const run=async(scope,ids)=>{const batches=[]
+const run=async(scope,ids,opts={})=>{const batches=[]
+const setId=typeof opts.set==='string'?opts.set:null
+const lostBefore=setId===null?null:lost.ids()
 for(let i=0;i<ids.length;i+=CHECK_BATCH)batches.push(ids.slice(i,i+CHECK_BATCH))
 const total=batches.length
 const perStep=CHECK_PAUSE_MS+CHECK_JITTER_MS/2
@@ -38663,6 +38615,9 @@ if(typeof refusal==='string'){stopped=refusal
 stats.refusals.push({at:now(),word:refusal,batch:index})
 break}
 stats.requests+=1
+const log=logNow()
+log.used+=1
+logWrite(log)
 let answer
 try{answer=await door.ask(batches[index])}catch(err){answer={ok:false,reason:'network',error:String(err?.message??err)}}
 if(!answer||answer.ok!==true){const word=wordOf(answer?.reason)
@@ -38685,8 +38640,9 @@ checked.set(defId,mark)
 if(mark.collected===true)trues.push(defId)}
 if(trues.length>0)memory.add(trues)
 for(const defId of asked)unanswered.add(defId)
-if(index===batches.length-1&&!retried&&unanswered.size>0){retried=true
-const again=[...unanswered]
+const fresh=lostBefore===null?[...unanswered]:[...unanswered].filter((defId)=>!lostBefore.has(defId))
+if(index===batches.length-1&&!retried&&fresh.length>0){retried=true
+const again=fresh
 for(let i=0;i<again.length;i+=CHECK_BATCH)batches.push(again.slice(i,i+CHECK_BATCH))}
 checking={done:index+1,total:batches.length,eta:(batches.length-index-1)*perStep,scope}
 emit('check',{...checking})
@@ -38697,35 +38653,88 @@ const finished=!stopAsked&&stopped===null
 lost.remove(answered)
 if(finished&&unanswered.size>0)lost.add(unanswered)
 checking=null
-if(finished){checkedAt=now()
-const{parsed}=compute()
-for(const one of scopesOf(scope,parsed))cooldown.set(one,checkedAt+CHECK_COOLDOWN_MS)}
+if(finished){const at=now()
+const{parsed,sets}=compute()
+const log=logNow()
+if(setId!==null)log.sets[setId]=at
+else{checkedAt=at
+for(const one of scopesOf(scope,parsed))cooldown.set(one,at+CHECK_COOLDOWN_MS)
+for(const set of sets)if((scope==='all'||set.categoryId===scope)&&set.maxGrade!==true&&set.reason!=='any')log.sets[set.id]=at}
+logWrite(log)}
 emit('check',null)
 emit('state',api.state())
 return{ok:finished,reason:finished?null:(stopped??'stopped'),requests:stats.requests}}
+const checkSet=(scope)=>{const id=typeof scope.set==='string'?scope.set:String(scope.set??'')
+const auto=scope.auto===true
+const say=(reason,extra={})=>{if(reason!=='pending')setStats.last={id,requests:0,at:now(),reason:reason??'ok',auto}
+return Promise.resolve({ok:false,reason,...extra})}
+if(door===null||typeof door.ask!=='function')return say('no-door')
+const plan=api.setCheckPlan(id,{auto})
+if(plan.reason!==null)return say(plan.reason,plan.until!==undefined?{until:plan.until}:{})
+stopped=null
+stopAsked=false
+stats.checks+=1
+setStats.count+=1
+const before=stats.requests
+running=run(`set:${id}`,plan.ids,{set:id}).then((res)=>{const reason=res.ok?'ok':res.reason
+setStats.last={id,requests:stats.requests-before,at:now(),reason,auto}
+return{...res,requests:stats.requests-before}},(err)=>{onError(err)
+checking=null
+stopped='refused'
+emit('check',null)
+setStats.last={id,requests:stats.requests-before,at:now(),reason:'refused',auto}
+return{ok:false,reason:'refused'}}).finally(()=>{running=null})
+return running}
 const api={
-state(){
+state(){watchMemory()
 if(!feeding&&catalog.feed?.due?.()===true){feeding=true
 catalog.feed.refresh().then(()=>{feeding=false
 emit('state',api.state())},(err)=>{feeding=false
 onError(err)})}
-const{parsed,sets,categories}=compute()
+const{parsed,sets,categories,asks}=compute()
 const list=sets.map(publicSet)
 const checks={}
 for(const[scope,until]of cooldown)checks[scope]={until,ready:now()>=until}
+const log=logNow()
 return{catalog:{version:parsed?.version??null,sets:list.length},checkedAt,
 checking:checking===null?null:{...checking},stopped,sets:list,
 piggy:(n)=>piggyOf(list,n),
-categories,piggyDefault:piggyDefault(parsed),checks,memory:memory.state(),pools:poolsOf(parsed)}},
+categories,piggyDefault:piggyDefault(parsed),checks,memory:memory.state(),pools:poolsOf(parsed),
+asks:asks??null,setChecks:{...log.sets},day:{used:log.used,cap:GALLERY_DAY_CAP}}},
 mark(defId){const id=positive(defId)
 if(id===null)return{collected:null,score:null}
 const mark=markOf(id)
 const remembered=memory.has(id)
 const collected=mark?.collected===true||remembered?true:mark?.collected===false?false:null
 return{collected,score:mark!==null&&Number.isFinite(mark.score)?mark.score:null}},
+pathFor(setId,letter,opts={}){const{parsed}=compute()
+if(!parsed)return null
+let set=null
+for(const category of parsed.categories)for(const one of category.sets)if(one.id===setId)set=one
+if(set===null||isAnySet(set))return null
+const index=set.grades.findIndex((grade)=>grade.letter===letter)
+if(index<0)return null
+const collected=collectedSet()
+for(const one of opts.owned??[]){const id=positive(one)
+if(id!==null)collected.add(id)}
+const lostIds=lost.ids()
+for(const one of opts.exclude??[]){const id=positive(one)
+if(id!==null&&!collected.has(id))lostIds.add(id)}
+const state=setState(set,parsed,collected,new Set(),lostIds,clubFirstIds(clubRows()))
+const grade=state.grades[index]
+const ids=Array.isArray(state.paths[index])?state.paths[index].slice():[]
+const priceOf={}
+for(const id of ids){const raw=prices.ready()?prices.price(id):undefined
+const number=Number(raw)
+priceOf[id]=raw!==null&&raw!==undefined&&Number.isFinite(number)&&number>0?number:null}
+return{letter,reachable:grade.reachable,reached:grade.reached===true,ids,prices:priceOf}},
+markCollected(ids){const added=memory.add(ids)
+if(added>0)emit('state',api.state())
+return added},
 tokens(){try{const value=door?.tokens?.()
 return Number.isFinite(value)?value:null}catch{return null}},
-check(scope='all'){if(running!==null)return Promise.resolve({ok:false,reason:'busy'})
+check(scope='all'){if(isPlain(scope))return checkSet(scope)
+if(running!==null)return Promise.resolve({ok:false,reason:'busy'})
 if(door===null||typeof door.ask!=='function')return Promise.resolve({ok:false,reason:'no-door'})
 const until=cooldown.get(scope)
 if(until!==undefined&&now()<until)return Promise.resolve({ok:false,reason:'cooldown',until})
@@ -38740,6 +38749,22 @@ stopped='refused'
 emit('check',null)
 return{ok:false,reason:'refused'}}).finally(()=>{running=null})
 return running},
+setCheckPlan(setId,opts={}){const{parsed,sets}=compute()
+if(!parsed)return{reason:'no-catalog'}
+const set=sets.find((one)=>one.id===setId)
+if(!set)return{reason:'no-set'}
+if(set.reason==='any')return{reason:'empty'}
+if(set.maxGrade===true)return{reason:'max-grade'}
+if(set.maxGrade===null&&opts.auto===true)return{reason:'pending'}
+if(opts.auto===true&&set.pool.length>SET_CHECK_MAX)return{reason:'big',requests:checkRequestsCap({cards:set.pool.length})}
+const at=setCheckedAt(set.id)
+if(at!==null&&now()<at+CHECK_COOLDOWN_MS)return{reason:'cooldown',until:at+CHECK_COOLDOWN_MS}
+if(running!==null)return{reason:'busy'}
+const collected=collectedSet()
+const ids=[]
+for(const defId of new Set(set.pool))if(!collected.has(defId))ids.push(defId)
+if(ids.length===0)return{reason:'nothing'}
+return{reason:null,ids,requests:checkRequestsCap({cards:ids.length})}},
 stop(){if(running===null)return false
 stopAsked=true
 stopped='user'
@@ -38753,7 +38778,7 @@ const set=sets.find((one)=>one.id===setId)
 if(!set)return[]
 const collected=new Set(set.collectedIds)
 const faces=parsed.face instanceof Map?parsed.face:null
-return set.pool.map((defId)=>{const price=prices.ready()?Number(prices.price(defId)):NaN
+return set.pool.map((defId)=>{const price=prices.ready()&&set.market!==false?Number(prices.price(defId)):NaN
 const card={defId,score:scoreOf(defId,parsed.scoreTable),price:Number.isFinite(price)&&price>0?price:null,
 collected:collected.has(defId)?true:markOf(defId)?.collected===false?false:null}
 const face=faces?.get(defId)
@@ -38766,15 +38791,1699 @@ pauseFloor:CHECK_PAUSE_MS,refusals:stats.refusals.slice(-10),stopped,checking,ch
 memory:memory.state(),
 unansweredKept:{...lost.state(),ids:[...lost.ids()].sort((a,b)=>a-b).slice(0,500)},
 pools:poolsOf(catalog.current()),
+setChecks:{count:setStats.count,last:setStats.last===null?null:{...setStats.last},day:{used:dayUsed(),cap:GALLERY_DAY_CAP}},
+market:marketProbe(),
+maxed:maxedProbe(),
+asks:compute().asks??null,
 catalog:catalog.feed?.state?.()??{version:catalog.current()?.version??null}}}}
+function maxedProbe(){const{parsed,sets}=compute()
+if(!parsed)return null
+const list=sets.filter((set)=>set.maxGrade===true)
+const collected=collectedSet()
+const before=idsOfScope(sets,'all',collected,true).length
+const after=idsOfScope(sets,'all',collected).length
+return{sets:list.length,names:list.slice(0,40).map((set)=>set.name),cardsSaved:before-after,
+requestsBefore:checkRequestsCap({cards:before}),requestsAfter:checkRequestsCap({cards:after})}}
+function marketProbe(){const parsed=catalog.current()
+const out=[]
+for(const category of parsed?.categories??[])for(const set of category.sets){if(isAnySet(set))continue
+const said=marketOf(set,(id)=>prices.tradable(id))
+if(said.market&&!NOT_MARKET_RULE.test(String(set?.rule?.description??'')))continue
+let priced=0
+for(const id of set.pool){const raw=prices.ready()?prices.price(id):undefined
+if(Number.isFinite(raw)&&raw>0)priced+=1}
+out.push({id:set.id,name:set.name,pool:set.pool.length,market:said.market,tradable:{no:said.no,unknown:said.unknown,yes:said.yes},priced,rule:set?.rule?.description??null})}
+return out}
 try{door?.onTokens?.((value)=>emit('tokens',value))}catch(err){onError(err)}
 try{door?.attach?.(api)}catch(err){onError(err)}
 try{prices.onChange?.(()=>emit('state',api.state()))}catch(err){onError(err)}
 return api}
 
 };
+// src/features/gallery-trade-hub.js
+__ESB_g[192]=function*(){__ESB_d(__ESB_x[192],{gallerySeller:()=>gallerySeller,setGallerySeller:()=>setGallerySeller});yield;
+const hub={seller:null}
+function setGallerySeller(seller){hub.seller=seller&&typeof seller==='object'?seller:null}
+function gallerySeller(){return hub.seller}
+
+};
+// src/features/gallery-buy.js
+__ESB_g[193]=function*(){__ESB_d(__ESB_x[193],{SHOWN_ROWS:()=>SHOWN_ROWS,createGalleryBuyer:()=>createGalleryBuyer});yield;const{floorToValidPrice,nextPrice,AUCTION_MAX_BID}=__ESB_x[72];const{bandPauseMs}=__ESB_x[79];const{gallerySeller}=__ESB_x[192];const{settingsValue}=__ESB_x[5];const{createAutoBuy,createLotFinder,AUTO_BUY_RHYTHM,SOFT_REST_BAND_MS,SOFT_FAILURES,SOFT_STREAK,STOP_FAILURES,RACE_LOST,pauseFor}=__ESB_x[171];const{createBreakSchedule}=__ESB_x[109];const{createSession}=__ESB_x[107];const{createStopConditions}=__ESB_x[108];const{moveReceiptMatches}=__ESB_x[97];const{STANDARD_UNASSIGNED_LIMIT}=__ESB_x[123];const{isDoorRefusal}=__ESB_x[94];const{ITEM_PILE}=__ESB_x[119];const{RESELL_TAX}=__ESB_x[191];const{COUNTER_UNAVAILABLE}=__ESB_x[98];
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+const GALLERY_BUY_FEATURE='gallery'
+const GALLERY_BUY_BUILD='GALLERYBUY-1'
+const CEILING_STEPS=2
+const ROUND_MIN=2
+const ROUND_MAX=5
+const REST_BAND_MS=Object.freeze({minMs:4_000,maxMs:10_000})
+const RACE_RETRIES=1
+const SHOWN_ROWS=3
+const MEASURE_ROUNDS=3
+const MEASURE_SEARCHES=5
+const MODES=Object.freeze(['buy','list'])
+const isPrice=(value)=>typeof value==='number'&&Number.isFinite(value)&&value>0
+const isMoney=(value)=>Number.isSafeInteger(value)&&value>=0
+const positive=(value)=>{const number=Number(value)
+return Number.isSafeInteger(number)&&number>0?number:null}
+const statusOf=(err)=>(typeof err?.status==='number'?err.status:null)
+const keyOf=(setId,letter)=>`${String(setId)}|${String(letter)}`
+function overpayNow(read=settingsValue){let value=null
+try{value=read('galleryTradeOverpay')}catch{value=null}
+return Number.isSafeInteger(value)&&value>=0?value:6}
+function ceilingFor(price,overpay){if(!isPrice(price))return null
+const share=Number.isFinite(overpay)&&overpay>=0?overpay:0
+const base=floorToValidPrice(price)
+let steps=base
+for(let i=0;i<CEILING_STEPS;i+=1)steps=nextPrice(steps)
+const byShare=floorToValidPrice(price*(100+share)/100)
+return Math.min(AUCTION_MAX_BID,Math.max(byShare,steps))}
+function shuffle(list,random=Math.random){const out=[...(list??[])]
+for(let i=out.length-1;i>0;i-=1){const j=Math.min(i,Math.floor(random()*(i+1)))
+const one=out[i]
+out[i]=out[j]
+out[j]=one}
+return out}
+function ownRhythm(random=Math.random){const size=ROUND_MIN+Math.min(ROUND_MAX-ROUND_MIN,Math.floor(random()*(ROUND_MAX-ROUND_MIN+1)))
+return{roundSize:size,method:null,restMs:bandPauseMs(REST_BAND_MS.minMs,REST_BAND_MS.maxMs,random)}}
+function rhythmOf(raw,random=Math.random){const own=ownRhythm(random)
+const size=Number.isSafeInteger(raw?.roundSize)?Math.min(ROUND_MAX,Math.max(ROUND_MIN,raw.roundSize)):own.roundSize
+const rest=Number.isFinite(raw?.restMs)?Math.max(REST_BAND_MS.minMs,raw.restMs):own.restMs
+const method=raw?.method==='direct'?'direct':'batch'
+return{roundSize:size,method,restMs:rest}}
+function sellerReady(seller){return Boolean(seller)&&typeof seller==='object'&&typeof seller.priceFor==='function'
+&&typeof seller.rhythm==='function'&&typeof seller.sellRound==='function'}
+function listPriceOf(seller,defId,market){if(!sellerReady(seller)||!isPrice(market))return null
+let said=null
+try{said=seller.priceFor({defId,market})}catch{said=null}
+return isPrice(said?.buyNow)?said.buyNow:null}
+function requestsEstimate(count,mode){const n=Math.max(0,Math.floor(Number(count)||0))
+if(n===0)return{about:0,most:0}
+const buy=1+2*n
+if(mode!=='list'){const moves=Math.ceil(n/STANDARD_UNASSIGNED_LIMIT)
+return{about:buy+moves,most:buy+Math.ceil(n/ROUND_MIN)}}
+const rounds=n/((ROUND_MIN+ROUND_MAX)/2)
+const about=Math.round(buy+2*n+0.7*rounds+0.3*n)
+return{about,most:buy+3*n}}
+function timeEstimate(count,mode){const n=Math.max(0,Math.floor(Number(count)||0))
+if(n===0)return{loMs:0,hiMs:0}
+const answer={lo:400,hi:800}
+const buy=AUTO_BUY_RHYTHM.buy
+const roundsLo=Math.max(0,Math.ceil(n/ROUND_MAX)-1)
+const roundsHi=Math.max(0,Math.ceil(n/ROUND_MIN)-1)
+let lo=n*(buy.minMs+answer.lo)+roundsLo*REST_BAND_MS.minMs
+let hi=n*(buy.maxMs+answer.hi)+roundsHi*REST_BAND_MS.maxMs
+if(mode==='list'){lo+=n*(1_000+answer.lo)
+hi+=n*(1_300+2*answer.hi)}
+return{loMs:lo,hiMs:hi}}
+function planOf(input){const mode=MODES.includes(input?.mode)?input.mode:'buy'
+const seller=mode==='list'?input?.seller??null:null
+const overpay=Number.isFinite(input?.overpay)?input.overpay:6
+const rows=[]
+const priceless=[]
+for(const card of input?.cards??[]){const defId=positive(card?.defId)
+if(defId===null)continue
+const price=isPrice(card?.price)?card.price:null
+if(price===null){priceless.push({defId,name:card?.name??null})
+continue}
+const listFor=mode==='list'?listPriceOf(seller,defId,price):null
+rows.push({defId,name:card?.name??null,price,ceiling:ceilingFor(price,overpay),listFor,source:card?.source??'futgg'})}
+let from=0
+let to=0
+let net=0
+let unlisted=0
+for(const row of rows){from+=row.price
+to+=row.ceiling
+if(mode==='list'){if(isPrice(row.listFor))net+=Math.floor(row.listFor*(1-RESELL_TAX))
+else unlisted+=1}}
+const requests=requestsEstimate(rows.length,mode)
+return{setId:input?.setId??null,letter:input?.letter??null,mode,overpay,rows,priceless,from,to,
+net:mode==='list'?net:null,loss:mode==='list'?from-net:null,unlisted,requests,time:timeEstimate(rows.length,mode),
+ok:rows.length>0&&priceless.length===0,reason:rows.length===0?'empty':(priceless.length>0?'priceless':null)}}
+function createGalleryBuyer(deps={}){const engineOf=typeof deps.engine==='function'?deps.engine:()=>null
+const statusOf=typeof deps.statusOf==='function'?deps.statusOf:()=>'unknown'
+const sellerOf=typeof deps.seller==='function'?deps.seller:gallerySeller
+const read=typeof deps.value==='function'?deps.value:settingsValue
+const marketOf=typeof deps.market==='function'?deps.market:()=>null
+const clock=deps.clock??null
+const random=typeof deps.random==='function'?deps.random:Math.random
+const nameOf=typeof deps.nameOf==='function'?deps.nameOf:()=>null
+const busy=typeof deps.busy==='function'?deps.busy:()=>false
+const onEvent=typeof deps.onEvent==='function'?deps.onEvent:()=>{}
+const onError=typeof deps.onError==='function'?deps.onError:()=>{}
+const listeners=new Set()
+const results=new Map()
+let live=null
+let stopAsked=false
+let current=null
+let abort=null
+const stats={runs:0,measures:0,requests:0,lastStop:null}
+const safe=(fn,fallback=null)=>{try{return fn()}catch(err){onError(err)
+return fallback}}
+const say=(name,payload)=>{try{onEvent(name,payload)}catch(err){onError(err)}}
+const tell=()=>{for(const fn of listeners){try{fn()}catch(err){onError(err)}}}
+const sellerNow=()=>{const one=safe(sellerOf)
+return sellerReady(one)?one:null}
+const active=()=>safe(()=>statusOf(GALLERY_BUY_FEATURE),'unknown')==='active'
+const nameFor=(defId)=>{const said=safe(()=>nameOf(defId))
+return typeof said==='string'&&said!==''?said:`#${defId}`}
+const pathOf=(setId,letter,opts)=>{const engine=safe(engineOf)
+if(!engine||typeof engine.pathFor!=='function')return null
+return safe(()=>engine.pathFor(setId,letter,opts))}
+const cardsOf=(path,override)=>path.ids.map((defId)=>{const own=override?.[defId]
+const price=isPrice(own)?own:(isPrice(path.prices?.[defId])?path.prices[defId]:null)
+return{defId,name:nameFor(defId),price,source:isPrice(own)?'live':'futgg'}})
+const planNow=(setId,letter,mode,opts={})=>{const path=pathOf(setId,letter,{exclude:opts.exclude??[]})
+const base={setId,letter,mode}
+if(path===null)return{...planOf({...base,cards:[],overpay:overpayNow(read)}),ok:false,reason:'no-path'}
+if(path.reached)return{...planOf({...base,cards:[],overpay:overpayNow(read)}),ok:false,reason:'reached'}
+if(path.reachable!==true)return{...planOf({...base,cards:[],overpay:overpayNow(read)}),ok:false,reason:path.reachable===false?'unreachable':'prices'}
+const plan=planOf({...base,cards:cardsOf(path,opts.override),overpay:overpayNow(read),seller:mode==='list'?sellerNow():null})
+if(mode==='list'&&sellerNow()===null)return{...plan,ok:false,reason:'no-seller'}
+return plan}
+const prepare=async(setId,letter,mode,opts={})=>{if(live!==null)return{...planNow(setId,letter,mode,opts),ok:false,reason:'busy'}
+const override={...(opts.override??{})}
+const exclude=new Set(opts.exclude??[])
+const measured={cards:0,requests:0,known:true,failed:[]}
+let plan=planNow(setId,letter,mode,{override,exclude})
+if(plan.reason!=='priceless')return{...plan,measured}
+if(!active())return{...plan,ok:false,reason:'not-entitled',measured}
+live={phase:'measure',key:keyOf(setId,letter),setId,letter,mode,done:0,total:plan.priceless.length}
+tell()
+try{for(let round=0;round<MEASURE_ROUNDS&&plan.reason==='priceless';round+=1){live.total=measured.cards+plan.priceless.length
+for(const card of plan.priceless){let res=null
+if(typeof deps.measure==='function'){try{res=await deps.measure(card.defId)}catch(err){onError(err)
+res={ok:false,reason:String(err?.message??err)}}}
+measured.cards+=1
+stats.measures+=1
+if(Number.isFinite(res?.requests))measured.requests+=res.requests
+else measured.known=false
+live.done=measured.cards
+tell()
+if(res?.ok===true&&isPrice(res.price))override[card.defId]=res.price
+else{exclude.add(card.defId)
+measured.failed.push({defId:card.defId,name:card.name})}}
+plan=planNow(setId,letter,mode,{override,exclude})}}
+finally{live=null
+tell()}
+return{...plan,measured,override,exclude:[...exclude]}}
+const dayDoor=async(budget)=>{if(!budget||typeof budget.call!=='function')return null
+let said=budget.call(1)
+if(said===COUNTER_UNAVAILABLE&&typeof budget.warm==='function'){let asked=COUNTER_UNAVAILABLE
+try{asked=await budget.warm(1)}catch{asked=COUNTER_UNAVAILABLE}
+if(typeof asked==='string')return asked
+said=budget.call(1)}
+if(said!==null)return said
+if(typeof budget.settle!=='function')return null
+let settled=null
+try{settled=await budget.settle({market:false})}catch{settled=COUNTER_UNAVAILABLE}
+return typeof settled==='string'?settled:null}
+const counted=(market,count)=>{const DOORS=new Set(['searchTransferMarket','bid','move','requestUnassignedItems'])
+return new Proxy(market,{get(target,key){const value=target[key]
+if(typeof value!=='function')return value
+return(...args)=>{if(DOORS.has(key))count(key)
+return value.apply(target,args)}}})}
+const run=async(plan)=>{const key=keyOf(plan.setId,plan.letter)
+const seller=plan.mode==='list'?sellerNow():null
+const market=safe(marketOf)
+const refuse=(reason)=>{const out={ok:false,key,setId:plan.setId,letter:plan.letter,mode:plan.mode,reason,planned:plan.rows.length,
+bought:0,listed:0,spent:0,requests:0,unfound:[],pile:0,at:clock?.now?.()??null}
+stats.lastStop=reason
+return out}
+if(!plan.ok)return refuse(plan.reason??'plan')
+if(!active())return refuse('not-entitled')
+if(plan.mode==='list'&&seller===null)return refuse('no-seller')
+if(safe(busy,false)===true)return refuse('busy')
+if(!market||typeof market.bid!=='function'||typeof market.searchTransferMarket!=='function'||typeof deps.criteriaOf!=='function')return refuse('market')
+if(!clock||typeof clock.sleep!=='function'||typeof clock.now!=='function')return refuse('clock')
+try{await deps.ready?.()}catch(err){onError(err)}
+let coins=null
+try{coins=deps.coins?.()}catch{coins=null}
+if(!isMoney(coins))return refuse('coins')
+const requests={total:0,byDoor:{}}
+const count=(door)=>{requests.total+=1
+requests.byDoor[door]=(requests.byDoor[door]??0)+1
+stats.requests+=1}
+const ea=counted(market,count)
+const session=createSession({clock,dryRun:false,startingCoins:coins})
+const stop=createStopConditions({minCoins:0,maxSpend:plan.to},{clock})
+const rows=new Map(plan.rows.map((row)=>[row.defId,{...row}]))
+const pile={count:null}
+let lastItem=null
+const ceilingOf=(target)=>target?.ceiling??null
+const engine=createAutoBuy({market:ea,session,stop,clock,coinBalance:deps.coins,buyRate:deps.buyRate??null,
+budget:deps.budget??null,random,ceilingOf,moveEach:false,sniperRefusals:true,
+findLot:createLotFinder({market:ea,clock,budget:deps.marketBudget??null,ceilingOf,
+criteriaOf:(id,type)=>deps.criteriaOf(id,type)}),
+unassigned:{known:()=>pile.count,seen:(value)=>{pile.count=value}},
+place:(target,card)=>{lastItem=card
+return{ok:true,id:card?.id??null}},
+onEvent:(name,payload)=>say(`buy:${name}`,payload)})
+current=engine
+const bought=[]
+const pending=[]
+const listedIds=new Set()
+const movedIds=new Set()
+const failedList=[]
+const tries=new Map()
+const excluded=new Set()
+let unfound=[]
+let queue=shuffle(plan.rows.map((row)=>row.defId),random)
+let spent=0
+let softStreak=0
+let stopped=null
+let sellerRequests=0
+const breaks=createBreakSchedule({...AUTO_BUY_RHYTHM.breaks,random})
+const startedAt=clock.now()
+live={phase:'run',key,setId:plan.setId,letter:plan.letter,mode:plan.mode,planned:rows.size,bought:0,listed:0,spent:0}
+tell()
+const progress=()=>{live.planned=bought.length+queue.length+unfound.length
+live.bought=bought.length
+live.listed=listedIds.size
+live.spent=spent
+tell()}
+const moveToClub=async()=>{if(pending.length===0)return null
+const refusal=await dayDoor(deps.budget)
+if(refusal!==null)return refusal
+const items=pending.map((one)=>one.item)
+let receipt=null
+try{receipt=await ea.move(items,ITEM_PILE.CLUB)}catch(err){if(isDoorRefusal(err))return'move-blocked'
+const failure=session.recordFailure(statusOf(err))
+say('buy:failure',{stage:'club',category:failure.category})
+return STOP_FAILURES.includes(failure.category)?failure.category:'move-failed'}
+if(!moveReceiptMatches(receipt,items)){say('buy:failure',{stage:'club',category:'receipt'})
+return'move-failed'}
+session.recordMove?.(items.length)
+for(const one of pending)movedIds.add(String(one.item?.id))
+pile.count=Math.max(0,(pile.count??pending.length)-pending.length)
+say('buy:club',{moved:items.length})
+pending.length=0
+await clock.sleep(pauseFor(AUTO_BUY_RHYTHM.move,random))
+return null}
+const sell=async(cards,method)=>{if(cards.length===0||seller===null)return null
+abort=typeof AbortController==='function'?new AbortController():null
+let out=null
+try{out=await seller.sellRound({cards,method,signal:abort?.signal,onEvent:(event)=>{const id=event?.itemId
+if(event?.type==='moved'){for(const one of Array.isArray(id)?id:[id])if(one!==undefined&&one!==null)movedIds.add(String(one))}
+if(event?.type==='listed'){for(const one of Array.isArray(id)?id:[id])if(one!==undefined&&one!==null){listedIds.add(String(one))
+movedIds.add(String(one))}
+progress()}
+say('sell:event',{type:event?.type??null,requests:event?.requests??null})}})}catch(err){onError(err)
+out={listed:[],failed:cards.map((one)=>one.itemId),requests:0,stop:'ea-refused'}}
+for(const id of Array.isArray(out?.listed)?out.listed:[]){listedIds.add(String(id))
+movedIds.add(String(id))}
+for(const one of Array.isArray(out?.failed)?out.failed:[])failedList.push(one)
+if(Number.isFinite(out?.requests))sellerRequests+=out.requests
+const left=cards.filter((one)=>movedIds.has(String(one.itemId))).length
+pile.count=Math.max(0,(pile.count??cards.length)-left)
+progress()
+const word=typeof out?.stop==='string'?out.stop:null
+if(word===null&&(Array.isArray(out?.failed)?out.failed:[]).some((one)=>one?.reason==='capacity'))return'list-full'
+if(word===null)return null
+return word==='stopped'?'cancelled':`seller-${word}`}
+const replace=()=>{const own=bought.map((one)=>one.defId)
+const next=pathOf(plan.setId,plan.letter,{exclude:excluded,owned:own})
+if(next===null||next.reachable!==true)return false
+const need=next.ids.filter((id)=>!own.includes(id))
+let sum=spent
+const fresh=[]
+for(const id of need){let row=rows.get(id)
+if(!row){const price=next.prices?.[id]
+if(!isPrice(price))return false
+row={defId:id,name:nameFor(id),price,ceiling:ceilingFor(price,plan.overpay),
+listFor:plan.mode==='list'?listPriceOf(seller,id,price):null,source:'futgg',replacement:true}
+fresh.push(row)}
+sum+=row.ceiling}
+if(sum>plan.to)return false
+for(const row of fresh)rows.set(row.defId,row)
+const keep=queue.filter((id)=>need.includes(id))
+const added=shuffle(need.filter((id)=>!keep.includes(id)),random)
+queue=[...keep,...added]
+unfound=[]
+say('buy:replace',{added:added.length,dropped:plan.rows.length-keep.length,sum})
+return true}
+const buyOne=async(row)=>{lastItem=null
+const target={id:row.defId,name:row.name,ceiling:row.ceiling}
+let out=null
+try{out=await engine.run([target])}catch(err){onError(err)
+return{kind:'stop',reason:'bad-state'}}
+const one=Array.isArray(out?.rows)?out.rows[0]:null
+if(one?.status==='placed'||one?.status==='bought'){const paid=isPrice(one.paid)?one.paid:row.ceiling
+return{kind:'bought',paid,item:lastItem}}
+if(one?.status==='skipped'&&out?.reason===null)return{kind:'skip',reason:one.reason??'no-lot'}
+return{kind:'stop',reason:out?.reason??'bad-state',detail:out?.detail??null}}
+try{let first=true
+while(queue.length>0&&stopped===null&&!stopAsked){const rhythm=seller!==null?rhythmOf(safe(()=>seller.rhythm()),random):ownRhythm(random)
+const round=[]
+if(!first){say('buy:rest',{forMs:rhythm.restMs})
+await clock.sleep(rhythm.restMs)}
+for(let i=0;i<rhythm.roundSize&&queue.length>0;i+=1){if(stopAsked){stopped='cancelled'
+break}
+if(safe(busy,false)===true){stopped='busy'
+break}
+if(pile.count!==null&&pile.count>=STANDARD_UNASSIGNED_LIMIT){if(plan.mode==='buy'&&pending.length>0){stopped=await moveToClub()
+if(stopped!==null)break}
+else if(round.length>0)break
+else{stopped='unassigned-full'
+break}}
+if(!first&&i>0){await clock.sleep(pauseFor(AUTO_BUY_RHYTHM.buy,random))
+if(stopAsked){stopped='cancelled'
+break}}
+first=false
+const defId=queue.shift()
+const row=rows.get(defId)
+const got=await buyOne(row)
+if(got.kind==='bought'){spent+=got.paid
+softStreak=0
+pile.count=(pile.count??0)+1
+bought.push({defId,paid:got.paid,item:got.item})
+safe(()=>engineOf()?.markCollected?.([defId]))
+try{deps.onBought?.(got.item,got.paid)}catch(err){onError(err)}
+const card={defId,itemId:got.item?.id??null,market:row.price,item:got.item??null,paid:got.paid}
+if(plan.mode==='buy')pending.push({defId,item:got.item})
+else if(rhythm.method==='direct'){progress()
+stopped=await sell([card],'direct')
+if(stopped!==null)break}
+else round.push(card)
+progress()}
+else if(got.kind==='skip'){say('buy:skip',{defId,reason:got.reason})
+softStreak=SOFT_FAILURES.includes(got.reason)?softStreak+1:0
+if(softStreak>=SOFT_STREAK){softStreak=0
+const rest=pauseFor(SOFT_REST_BAND_MS,random)
+say('buy:rest',{forMs:rest,why:'soft-streak'})
+await clock.sleep(rest)}
+if(got.reason===RACE_LOST&&(tries.get(defId)??0)<RACE_RETRIES){tries.set(defId,(tries.get(defId)??0)+1)
+queue.unshift(defId)
+continue}
+excluded.add(defId)
+if(!replace())unfound.push(defId)
+progress()}
+else{stopped=got.reason
+break}
+const due=breaks.shouldRest(clock.now()-startedAt)
+if(due.rest){say('buy:rest',{forMs:due.forMs,why:'break'})
+await clock.sleep(due.forMs)}}
+if(stopAsked&&stopped===null)stopped='cancelled'
+if(round.length>0&&stopped===null)stopped=await sell(round,'batch')}
+if(stopAsked&&stopped===null)stopped='cancelled'
+if(plan.mode==='buy'&&pending.length>0&&(stopped===null||stopped==='cancelled')){const moved=await moveToClub()
+if(moved!==null&&stopped===null)stopped=moved}
+const found=[]
+if(stopped===null&&unfound.length>0){const finder=createLotFinder({market:ea,clock,budget:deps.marketBudget??null,
+ceilingOf:()=>AUCTION_MAX_BID,criteriaOf:(id,type)=>deps.criteriaOf(id,type)})
+for(const defId of unfound){if(stopAsked)break
+await clock.sleep(pauseFor(AUTO_BUY_RHYTHM.buy,random))
+let res=null
+try{res=await finder({id:defId})}catch(err){onError(err)
+res={ok:false}}
+const row=rows.get(defId)
+found.push({defId,name:row?.name??nameFor(defId),expected:row?.price??null,real:res?.ok===true&&isPrice(res.price)?res.price:null})}}
+else for(const defId of unfound){const row=rows.get(defId)
+found.push({defId,name:row?.name??nameFor(defId),expected:row?.price??null,real:null})}
+const inPile=bought.filter((one)=>!movedIds.has(String(one.item?.id))).length
+const result={ok:stopped===null&&unfound.length===0&&queue.length===0&&(plan.mode!=='list'||failedList.length===0),
+key,setId:plan.setId,letter:plan.letter,mode:plan.mode,reason:stopped,planned:bought.length+queue.length+unfound.length,
+bought:bought.length,listed:listedIds.size,failedList:failedList.length,spent,requests:requests.total+sellerRequests,
+eaRequests:{...requests.byDoor,seller:sellerRequests},unfound:found,left:queue.length,pile:plan.mode==='buy'?pending.length:inPile,
+override:Object.fromEntries(found.filter((one)=>isPrice(one.real)).map((one)=>[one.defId,one.real])),
+at:clock.now(),stats:session.stats?.()??null}
+stats.lastStop=stopped
+return result}
+finally{current=null
+abort=null}}
+const api={
+running:()=>live!==null,
+live:()=>(live===null?null:{...live}),
+resultOf:(setId,letter)=>results.get(keyOf(setId,letter))??null,
+plan:planNow,
+prepare,
+async launch(plan){if(live!==null||!plan)return{ok:false,reason:'busy'}
+live={phase:'start',key:keyOf(plan.setId,plan.letter),setId:plan.setId,letter:plan.letter,mode:plan.mode,planned:plan.rows?.length??0,bought:0,listed:0,spent:0}
+stopAsked=false
+stats.runs+=1
+results.delete(keyOf(plan.setId,plan.letter))
+let out
+try{out=await run(plan)}catch(err){onError(err)
+out={ok:false,key:keyOf(plan.setId,plan.letter),setId:plan.setId,letter:plan.letter,mode:plan.mode,reason:'bad-state',
+planned:plan.rows?.length??0,bought:0,listed:0,spent:0,requests:0,unfound:[],pile:0,at:clock?.now?.()??null}}
+finally{live=null
+stopAsked=false}
+results.set(out.key,out)
+say('buy:done',{reason:out.reason,bought:out.bought,listed:out.listed,spent:out.spent,requests:out.requests})
+tell()
+return out},
+stop(why='user'){if(live===null)return{ok:false}
+stopAsked=true
+try{current?.cancel?.()}catch(err){onError(err)}
+try{abort?.abort?.(why)}catch(err){onError(err)}
+tell()
+return{ok:true}},
+sellerReady:()=>sellerNow()!==null,
+signature:()=>JSON.stringify({live,results:[...results.values()].map((one)=>[one.key,one.reason,one.bought,one.at]),seller:sellerNow()!==null}),
+on(fn){if(typeof fn!=='function')return()=>{}
+listeners.add(fn)
+return()=>listeners.delete(fn)},
+probe:()=>({build:GALLERY_BUY_BUILD,live:live===null?null:{...live},stats:{...stats},seller:sellerNow()!==null,
+overpay:overpayNow(read),results:[...results.values()].map((one)=>({key:one.key,reason:one.reason,bought:one.bought,listed:one.listed,
+spent:one.spent,requests:one.requests,eaRequests:one.eaRequests??null,unfound:one.unfound?.length??0}))})}
+return api}
+
+};
+// src/features/gallery-panel.js
+__ESB_g[194]=function*(){__ESB_d(__ESB_x[194],{createGalleryPanel:()=>createGalleryPanel});yield;const{el,clear,ensureTheme,ensureStylesheet,ensureSidebarStyles,logoLink,logoMark}=__ESB_x[68];const{galleryPill}=__ESB_x[81];const{ensureControls}=__ESB_x[69];const{clubRailButton,openClubHub}=__ESB_x[186];const{createGalleryItem,mountGalleryCard,galleryCardName,galleryRarityKnown,galleryCrestUri,galleryLeagueUri,galleryFace,watchGalleryShells}=__ESB_x[189];const{POSITION_ORDER}=__ESB_x[60];const{shortCoins}=__ESB_x[86];const{pressNode}=__ESB_x[134];const{STOP_REASON_KEYS}=__ESB_x[103];const{checkRequestsCap,SET_CHECK_MAX}=__ESB_x[191];const{modalBox,modalButtons}=__ESB_x[70];const{SHOWN_ROWS}=__ESB_x[193];const{settingsValue,setSettingsValue,SETTING_VALUES}=__ESB_x[5];
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+const GALLERY_FEATURE='gallery'
+const GALLERY_BUILD='GALLERY-SET-CHECK-1e'
+const GALLERY_OPEN_KEY='futGalleryOpen'
+const GALLERY_OPEN_MARK='data-fut-gallery-open'
+const GALLERY_RAIL_KEY='futGalleryRail'
+const GALLERY_ON_KEY='futGalleryOn'
+const GALLERY_PANEL_KEY='futGalleryPanel'
+const GALLERY_BUILD_KEY='futGalleryBuild'
+const ROW_KEY='futGalleryRow'
+const SORT_KEY='futGallerySort'
+const CHIP_KEY='futGalleryChip'
+const TAB_KEY='futGalleryTab'
+const CARD_KEY='futGalleryCard'
+const CHECK_KEY='futGalleryCheck'
+const ORDER_KEY='futGalleryOrder'
+const INTRO_KEY='futGalleryIntro'
+const PIGGY_KEY='futGalleryPiggy'
+const STEP_KEY='futGalleryStep'
+const PATH_ROW_KEY='futGalleryPathRow'
+const SET_CHECK_KEY='futGallerySetCheck'
+const SET_CHECK_DELAY_MS=600
+const GALLERY_STYLESHEET="eshario-asset:ui/gallery.css"
+const GALLERY_LINK_ID='fut-companion-gallery'
+const HUB_ROOT='.ut-club-hub-view'
+const HUB_GRID_CLASS='layout-hub'
+const RAIL_ITEM='.ut-tab-bar-item'
+const SQUAD_ICON_CLASS='icon-squad'
+const RAIL_ORDER_MS=1000
+const PIGGY_DEFAULT=300
+const CHECK_REST_MS=60*60*1000
+const BOTTOM_AIR=0.04
+const SETTLE_MS=Object.freeze([400,1500])
+const MIN_HEIGHT=320
+const SORT_DEFAULT=Object.freeze({key:'tokenPrice',dir:1})
+const FIRST_DIR=Object.freeze({name:1,tokenPrice:1,goalLetter:-1,missing:1,goal:1,reward:-1,got:-1,tokens:-1})
+const GRADE_RANK=Object.freeze({S:5,A:4,B:3,C:2,D:1})
+const COLUMNS=Object.freeze([
+['name','gallery.col.set',null,'l'],
+['tokenPrice','gallery.col.tokenPrice','gallery.col.tokenPrice.hint','money'],
+['goalLetter','gallery.col.goal','gallery.col.goal.hint','c'],
+['missing','gallery.col.buy','gallery.col.buy.hint',''],
+['goal','gallery.col.cost','gallery.col.cost.hint','money'],
+['reward','gallery.col.reward','gallery.col.reward.hint','l'],
+['got','gallery.col.got','gallery.col.got.hint',''],
+['tokens','gallery.col.tokens','gallery.col.tokens.hint','']])
+const ORDER_BUTTONS=Object.freeze([
+Object.freeze({id:'value',key:'tokenPrice',dir:1,label:'gallery.order.value',hint:'gallery.order.value.hint',lead:'gallery.intro.lead.value'}),
+Object.freeze({id:'cheap',key:'goal',dir:1,label:'gallery.order.cheap',hint:'gallery.order.cheap.hint',lead:'gallery.intro.lead.cheap'}),
+Object.freeze({id:'few',key:'missing',dir:1,label:'gallery.order.few',hint:'gallery.order.few.hint',lead:'gallery.intro.lead.few'}),
+Object.freeze({id:'tokens',key:'reward',dir:-1,label:'gallery.order.tokens',hint:'gallery.order.tokens.hint',lead:'gallery.intro.lead.tokens'})])
+function orderButtonOf(sort){return ORDER_BUTTONS.find((one)=>one.key===sort?.key&&one.dir===sort?.dir)??null}
+function everChecked(state){if(Number.isFinite(state?.checkedAt))return true
+const checks=state?.checks
+return Boolean(checks&&typeof checks==='object'&&Object.keys(checks).length>0)}
+const INTRO_HIDDEN_KEY='eshario.galleryIntroHidden'
+const DIAMOND='◆'
+const CHECK_MARK='✓'
+const CROSS='×'
+const UNKNOWN='?'
+function sortValue(set,key){switch(key){
+case'name':return String(set?.name??'')
+case'got':return Number.isFinite(set?.collected)&&set?.cards>0?set.collected/set.cards:null
+case'goalLetter':return GRADE_RANK[set?.goal?.letter]??null
+case'missing':return Number.isFinite(set?.goal?.missing)?set.goal.missing:null
+case'goal':return Number.isFinite(set?.goal?.cost)?set.goal.cost:null
+case'reward':return Number.isFinite(set?.goal?.tokens)?set.goal.tokens:null
+case'tokenPrice':if(typeof set?.tokenPrice==='number'&&Number.isFinite(set.tokenPrice))return set.tokenPrice
+return set?.tokenPrice==='x'?Infinity:null
+case'tokens':return Number.isFinite(set?.tokensMax)?set.tokensMax:null
+default:return null}}
+function sortSets(sets,sort){const key=sort?.key??SORT_DEFAULT.key
+const dir=sort?.dir===-1?-1:1
+const byName=(a,b)=>String(a?.name??'').localeCompare(String(b?.name??''))
+return[...(sets??[])].sort((a,b)=>{const off=(a?.market===false?1:0)-(b?.market===false?1:0)
+if(off!==0)return off
+const x=sortValue(a,key)
+const y=sortValue(b,key)
+if(x===null&&y===null)return byName(a,b)
+if(x===null)return 1
+if(y===null)return-1
+if(typeof x==='string'||typeof y==='string'){const said=String(x).localeCompare(String(y))
+return said!==0?said*dir:byName(a,b)}
+if(x<y)return-dir
+if(x>y)return dir
+return byName(a,b)})}
+function known(set){return set?.collectedSource==='checked'||set?.collectedSource==='complete'}
+function piggyMembers(piggy,sets){if(!piggy||piggy.short===true)return new Set
+if(Array.isArray(piggy.ids))return new Set(piggy.ids)
+const count=Number.isSafeInteger(piggy.sets)?piggy.sets:0
+const ranked=sortSets((sets??[]).filter((one)=>typeof one?.tokenPrice==='number'),SORT_DEFAULT)
+return new Set(ranked.slice(0,count).map((one)=>one.id))}
+function cutRowId(rows,members,sort){if(sort?.key!=='tokenPrice'||sort?.dir!==1)return null
+let last=null
+for(const row of rows??[]){if(members.has(row?.id))last=row.id}
+return last}
+function clockOf(ms){if(!Number.isFinite(ms))return''
+const at=new Date(ms)
+return`${String(at.getHours()).padStart(2,'0')}:${String(at.getMinutes()).padStart(2,'0')}`}
+function checkPhase(state,scopeSets,at,scope='all'){if(!state)return{phase:'none'}
+const running=state.checking
+if(running&&typeof running==='object'){return{phase:'running',done:Number(running.done)||0,total:Number(running.total)||0,eta:Number.isFinite(running.eta)?running.eta:null}}
+if(typeof state.stopped==='string'&&state.stopped!=='')return{phase:'stopped',reason:state.stopped}
+const rest=state.checks?.[scope]
+const all=(scopeSets??[]).length>0&&scopeSets.every(known)
+if(rest&&Number.isFinite(rest.until)){const resting=rest.ready===false||at<rest.until
+if(resting||all)return{phase:'after',checkedAt:Number.isFinite(state.checkedAt)?state.checkedAt:rest.until-CHECK_REST_MS,until:rest.until,resting}}
+if(Number.isFinite(state.checkedAt)&&all){const until=state.checkedAt+CHECK_REST_MS
+return{phase:'after',checkedAt:state.checkedAt,until,resting:!state.checks&&at<until}}
+return{phase:'before'}}
+function dayCapped(state){const day=state?.day
+return Number.isSafeInteger(day?.used)&&Number.isSafeInteger(day?.cap)&&day.used>=day.cap}
+function setCheckOf(set,state,at){const pool=Array.isArray(set?.pool)?set.pool:[]
+const stamp=state?.setChecks?.[set?.id]
+const checkedAt=Number.isFinite(stamp)?stamp:null
+const until=checkedAt===null?null:checkedAt+CHECK_REST_MS
+const resting=until!==null&&at<until
+const capped=dayCapped(state)
+const maxed=set?.maxGrade===true
+const any=set?.reason==='any'||pool.length===0
+const word=maxed?'maxed':checkedAt!==null?'checked':any?null:known(set)?null:'club'
+const left=Math.max(0,new Set(pool).size-(Array.isArray(set?.collectedIds)?set.collectedIds.length:0))
+const big=!maxed&&!any&&pool.length>SET_CHECK_MAX
+return{word,checkedAt,until,resting,capped,big,requests:big?checkRequestsCap({cards:left}):null}}
+const STOP_WORDS=Object.freeze({captcha:['gallery.stop.captcha','automation.stop.captcha'],'429':['gallery.stop.429','automation.stop.throttled'],
+'401':['gallery.stop.401',null],fatal:['gallery.stop.fatal','automation.stop.fatal'],network:['gallery.stop.network',null],
+'requests-off':['gallery.stop.off',null],user:['gallery.stop.user',null]})
+const STOP_OTHER=Object.freeze(['gallery.stop.refused',null])
+const BUY_WINDOW_MARK='futGalleryBuyWindow'
+const GEAR_WINDOW_MARK='futGalleryGear'
+const BUY_KEY='futGalleryBuy'
+const GEAR_KEY='futGalleryGearOpen'
+const BUY_STOP_WORDS=Object.freeze({cancelled:'gallery.buy.stop.user',throttled:'gallery.buy.stop.429',captcha:'gallery.buy.stop.captcha',
+fatal:'gallery.buy.stop.fatal','out-of-coins':'gallery.buy.stop.coins','unassigned-full':'gallery.buy.stop.pile',
+busy:'gallery.buy.stop.busy','not-entitled':'gallery.buy.stop.locked','no-seller':'gallery.buy.stop.seller','seller-ea-429':'gallery.buy.stop.429',
+'seller-ea-458':'gallery.buy.stop.captcha','seller-ea-refused':'gallery.buy.stop.refused','list-full':'gallery.buy.stop.listFull'})
+const PLAN_WHY=Object.freeze({'no-path':'gallery.buy.why.noPath',reached:'gallery.buy.why.reached',unreachable:'gallery.buy.why.unreachable',
+prices:'gallery.buy.why.prices',priceless:'gallery.buy.why.priceless','no-seller':'gallery.buy.why.noSeller',busy:'gallery.buy.why.busy',
+'not-entitled':'panel.rail.locked',empty:'gallery.buy.why.empty'})
+const SELL_MODES=Object.freeze([['market','gallery.gear.mode.market'],['step','gallery.gear.mode.step'],['percent','gallery.gear.mode.percent']])
+const SELL_DIRS=Object.freeze([['below','gallery.gear.dir.below'],['above','gallery.gear.dir.above']])
+function createGalleryPanel(deps={}){const doc=deps.doc
+const win=deps.win??doc?.defaultView??null
+const t=typeof deps.t==='function'?deps.t:(key)=>key
+const plural=typeof deps.plural==='function'?deps.plural:(base,count,params)=>{const key=`${base}.many`
+return t(key,params)}
+const engineOf=typeof deps.engine==='function'?deps.engine:()=>null
+const openAccount=typeof deps.openAccount==='function'?deps.openAccount:()=>({ok:false,reason:'no-door'})
+const openHub=typeof deps.openHub==='function'?deps.openHub:()=>openClubHub(win)
+const clubButton=typeof deps.clubButton==='function'?deps.clubButton:()=>clubRailButton(win)
+const pressNative=typeof deps.pressNative==='function'?deps.pressNative:(node)=>pressNode(node,win,onError)
+const blocked=typeof deps.blocked==='function'?deps.blocked:()=>false
+const cardOf=typeof deps.cardOf==='function'?deps.cardOf:()=>null
+const nameOf=typeof deps.nameOf==='function'?deps.nameOf:(id)=>galleryCardName(win,id)
+const crestOf=typeof deps.crestOf==='function'?deps.crestOf:(id)=>galleryCrestUri(win,id)
+const leagueOf=typeof deps.leagueOf==='function'?deps.leagueOf:(id)=>galleryLeagueUri(win,id)
+const rarityKnown=typeof deps.rarityKnown==='function'?deps.rarityKnown:(flag)=>galleryRarityKnown(win,flag)
+const mountCard=typeof deps.mountCard==='function'?deps.mountCard:(host,card,base)=>mountGalleryCard(win,host,createGalleryItem(win,{definitionId:card.defId,rating:base?.rating,rareflag:base?.rareflag,face:card.face,attrs:{leagueId:base?.leagueId,nationId:base?.nationId,teamId:base?.teamId,possiblePositions:base?.positions}}))
+const formatNumber=typeof deps.formatNumber==='function'?deps.formatNumber:(value)=>String(value)
+const now=typeof deps.now==='function'?deps.now:()=>Date.now()
+const catalogNow=typeof deps.catalogNow==='function'?deps.catalogNow:()=>null
+const onError=typeof deps.onError==='function'?deps.onError:()=>{}
+const watchShells=typeof deps.watchShells==='function'?deps.watchShells:(listener)=>watchGalleryShells(win,listener)
+const buyerOf=typeof deps.buyer==='function'?deps.buyer:()=>deps.buyer??null
+const readValue=typeof deps.value==='function'?deps.value:settingsValue
+const writeValue=typeof deps.setValue==='function'?deps.setValue:setSettingsValue
+const introStore=deps.introStore&&typeof deps.introStore==='object'?deps.introStore:{
+get:()=>{try{return win?.localStorage?.getItem?.(INTRO_HIDDEN_KEY)==='1'}catch{return false}},
+set:()=>{try{win?.localStorage?.setItem?.(INTRO_HIDDEN_KEY,'1')}catch{}}}
+const view={open:false,chip:'all',query:'',sort:{...SORT_DEFAULT},selected:null,picked:false,tab:'missing',want:null,introHidden:null,piggyOnly:false,path:{set:null,letter:null}}
+const counts={passes:0,renders:0,opens:0,closes:0,locked:0,railPress:0,nativeClose:0,hubMiss:0,cardsMounted:0,cardsFailed:0,cardRows:0,engineErrors:0}
+let rail=null
+let railPainted=null
+let railOrder=null
+let railOrderAt=0
+let railOrderOf=null
+let panel=null
+let parts=null
+let hub=null
+let boundEngine=null
+let unbind=[]
+let dirty=true
+let queued=false
+let observer=null
+let listening=false
+let restTimer=null
+let autoTimer=null
+let autoFor=null
+let autoDone=null
+let autoSeen=null
+let autoFollowUsed=false
+let columnTimer=null
+let settleTimers=[]
+let pressing=false
+let lastHeight=null
+let cardsSignature=null
+let started=false
+let disposed=false
+let buyWindow=null
+let gearWindow=null
+let buyerOff=null
+const faces=new Map()
+let seer=null
+const stubbed=new Set()
+let shellWatch=null
+const safe=(fn,fallback=null)=>{try{return fn()}catch(err){onError(err)
+return fallback}}
+function statusNow(){if(typeof deps.statusOf==='function'){const said=safe(()=>deps.statusOf(GALLERY_FEATURE),'unknown')
+return typeof said==='string'?said:'unknown'}
+if(typeof deps.isActive==='function')return safe(()=>deps.isActive(GALLERY_FEATURE),false)===true?'active':'unknown'
+return'unknown'}
+function ensureStyles(){ensureTheme(doc)
+ensureControls(doc)
+ensureSidebarStyles(doc)
+ensureStylesheet(doc,GALLERY_STYLESHEET,GALLERY_LINK_ID)}
+function pass(){counts.passes+=1
+if(disposed)return
+const status=statusNow()
+if(safe(blocked,false)===true||status==='unknown'||status==='switched-off'){clearAll()
+return}
+ensureStyles()
+const club=safe(clubButton)
+const root=hubRoot()
+if(status!=='active')view.open=false
+if(view.open&&root!==null)openPanel(root)
+else closePanel()
+if(club&&club.parentNode)mountRail(club,status,view.open&&root!==null)
+else dropRail()}
+function hubRoot(){try{return doc?.querySelector?.(HUB_ROOT)??null}catch{return null}}
+function mountRail(club,status,on){const nav=club.parentNode
+const locked=status==='not-entitled'
+if(rail===null){rail=el(doc,'button',{class:'ut-tab-bar-item fx-gallery-rail',attrs:{type:'button'},dataset:{[GALLERY_RAIL_KEY]:'1'},
+on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+pressRail()}}})
+railPainted=null}
+placeRail(nav,club)
+if(on&&nav.dataset?.[GALLERY_ON_KEY]!=='1')nav.dataset[GALLERY_ON_KEY]='1'
+else if(!on&&nav.dataset?.[GALLERY_ON_KEY]!==undefined){try{delete nav.dataset[GALLERY_ON_KEY]}catch{}}
+const label=t('gallery.rail')
+const signature=`${label}|${locked}|${on}`
+if(railPainted===signature)return
+railPainted=signature
+rail.className=`ut-tab-bar-item fx-gallery-rail${on?' fx-gallery-rail--on':''}${locked?' fx-gallery-rail--locked':''}`
+rail.setAttribute('title',locked?t('panel.rail.locked'):t('gallery.rail.hint'))
+clear(rail)
+rail.appendChild(el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--frame'}))
+rail.appendChild(el(doc,'span',{class:'fx-gallery-rail-word',text:label}))
+rail.appendChild(logoMark(doc,'fx-gallery-rail-mark'))
+if(locked)rail.appendChild(el(doc,'span',{class:'fx-gallery-rail-lock',text:'🔒'}))}
+function placeRail(nav,club){const squad=Array.from(nav.children??[]).find((one)=>String(one?.className??'').split(/\s+/).includes(SQUAD_ICON_CLASS))??null
+const anchor=squad??club
+if(rail.previousElementSibling!==anchor)nav.insertBefore(rail,anchor.nextSibling??null)
+const at=now()
+if(railOrder===null||railOrderOf!==anchor||at-railOrderAt>=RAIL_ORDER_MS){railOrderAt=at
+railOrderOf=anchor
+railOrder=orderOf(anchor)}
+const style=rail.style
+if(!style)return
+if(railOrder===''){if(style.getPropertyValue?.('order'))style.removeProperty('order')}
+else if(style.getPropertyValue?.('order')!==railOrder)style.setProperty('order',railOrder)}
+function orderOf(node){let value=''
+try{value=String(win?.getComputedStyle?.(node)?.order??'').trim()}catch{value=''}
+return value===''||value==='0'||!/^-?\d+$/.test(value)?'':value}
+function dropRail(){if(rail!==null){try{rail.remove()}catch{}}
+rail=null
+railPainted=null
+railOrder=null
+railOrderAt=0
+railOrderOf=null
+for(const one of Array.from(doc?.querySelectorAll?.('[data-fut-gallery-rail]')??[])){try{one.remove()}catch{}}
+for(const one of Array.from(doc?.querySelectorAll?.('[data-fut-gallery-on]')??[])){try{delete one.dataset[GALLERY_ON_KEY]}catch{}}}
+function pressRail(){counts.railPress+=1
+const status=statusNow()
+if(status==='not-entitled'){counts.locked+=1
+safe(()=>openAccount())
+return}
+if(status!=='active')return
+view.open=true
+counts.opens+=1
+const went=safe(()=>openHub(),null)
+if(!went||went.ok===false){const club=safe(clubButton)
+if(club){pressing=true
+try{pressNative(club)}catch(err){onError(err)}finally{pressing=false}}
+if(went&&went.ok===false)counts.nativeHub=(counts.nativeHub??0)+1}
+pass()}
+function nativePress(event){if(!view.open||pressing)return
+const target=event?.target??null
+const item=target?.closest?.(RAIL_ITEM)??null
+if(!item||item===rail)return
+view.open=false
+counts.nativeClose+=1
+pass()}
+function openPanel(root){if(hub!==null&&hub!==root)unmarkHub()
+hub=root
+if(root.dataset?.[GALLERY_OPEN_KEY]!=='1')root.dataset[GALLERY_OPEN_KEY]='1'
+if(panel===null||parts===null){build()
+dirty=true}
+if(panel.parentNode!==root){const grid=Array.from(root.children??[]).find((one)=>String(one?.className??'').split(/\s+/).includes(HUB_GRID_CLASS))??null
+root.insertBefore(panel,grid)}
+bindEngine()
+if(dirty)render()
+if(lastHeight===null){fit()
+try{win?.requestAnimationFrame?.(()=>fit())}catch{}
+settle()}}
+function settle(){clearSettle()
+if(typeof win?.setTimeout!=='function')return
+for(const ms of SETTLE_MS){try{settleTimers.push(win.setTimeout(()=>fit(),ms))}catch{}}}
+function clearSettle(){for(const id of settleTimers){try{win?.clearTimeout?.(id)}catch{}}
+settleTimers=[]}
+function closePanel(){clearAuto()
+autoDone=null
+autoSeen=null
+autoFollowUsed=false
+if(panel!==null){disposeFaces()
+try{panel.remove()}catch{}
+panel=null
+parts=null
+cardsSignature=null
+lastHeight=null}
+clearSettle()
+unbindEngine()
+unmarkHub()}
+function unmarkHub(){if(hub!==null){try{delete hub.dataset[GALLERY_OPEN_KEY]}catch{}}
+hub=null
+for(const one of Array.from(doc?.querySelectorAll?.(`[${GALLERY_OPEN_MARK}]`)??[])){try{delete one.dataset[GALLERY_OPEN_KEY]}catch{}}}
+function clearAll(){view.open=false
+closePanel()
+dropRail()}
+function build(){const chips=el(doc,'span',{class:'fx-gallery-chips'})
+const search=el(doc,'input',{class:'fx-search fx-gallery-search',attrs:{type:'search',placeholder:t('gallery.search'),'aria-label':t('gallery.search'),title:t('gallery.search.hint')},
+on:{input:(event)=>{view.query=String(event?.target?.value??'')
+autoFollowUsed=false
+render()}}})
+const find=el(doc,'span',{class:'fx-gallery-find'},[el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--lens'}),search])
+const want=el(doc,'input',{class:'limit inline fx-gallery-want',attrs:{type:'text',inputmode:'numeric',maxlength:'5','aria-label':t('gallery.plan.want')},
+on:{input:(event)=>{const typed=String(event?.target?.value??'').replace(/\D+/g,'')
+view.want=typed===''?null:Number(typed)
+render()}}})
+const planText=el(doc,'span',{class:'fx-gallery-plan-text'})
+const plan=el(doc,'span',{class:'fx-gallery-plan',attrs:{title:t('gallery.plan.hint')}},[
+el(doc,'span',{text:t('gallery.plan.want')}),el(doc,'span',{class:'fx-gallery-acc',text:DIAMOND}),want,
+el(doc,'span',{text:t('gallery.plan.tokens')}),planText])
+const check=el(doc,'span',{class:'fx-gallery-check',dataset:{[CHECK_KEY]:'1'}})
+const head=el(doc,'div',{class:'fx-gallery-head'},[logoLink(doc),chips,el(doc,'span',{class:'fx-gallery-air'}),find])
+const order=el(doc,'span',{class:'fx-gallery-order'})
+const tools=el(doc,'span',{class:'fx-gallery-tools'},[plan,check])
+const head2=el(doc,'div',{class:'fx-gallery-head fx-gallery-head2'},[order,tools])
+const list=el(doc,'div',{class:'fx-gallery-list'})
+const column=el(doc,'div',{class:'fx-gallery-set'})
+panel=el(doc,'section',{class:'fx-gallery',dataset:{[GALLERY_PANEL_KEY]:'1',[GALLERY_BUILD_KEY]:GALLERY_BUILD}},[head,head2,el(doc,'div',{class:'fx-gallery-body'},[list,column])])
+parts={chips,search,want,planText,check,order,list,column,cards:null}}
+function bindEngine(){const engine=safe(engineOf)
+if(engine===boundEngine)return
+unbindEngine()
+boundEngine=engine
+if(!engine||typeof engine.on!=='function')return
+for(const event of['state','check']){const fn=()=>{dirty=true
+schedule()}
+const off=safe(()=>engine.on(event,fn))
+unbind.push(typeof off==='function'?off:()=>{try{engine.off?.(event,fn)}catch{}})}
+bindBuyer()}
+function bindBuyer(){if(buyerOff!==null)return
+const buyer=safe(buyerOf)
+if(!buyer||typeof buyer.on!=='function')return
+const off=safe(()=>buyer.on(()=>{dirty=true
+schedule()}))
+buyerOff=typeof off==='function'?off:()=>{}}
+function unbindEngine(){for(const off of unbind){try{off()}catch{}}
+unbind=[]
+boundEngine=null
+if(buyerOff!==null){try{buyerOff()}catch{}
+buyerOff=null}}
+function stateNow(){const engine=boundEngine??safe(engineOf)
+if(!engine||typeof engine.state!=='function')return null
+try{return engine.state()??null}catch(err){counts.engineErrors+=1
+onError(err)
+return null}}
+function render(){if(panel===null||parts===null)return
+counts.renders+=1
+dirty=false
+const state=stateNow()
+const sets=Array.isArray(state?.sets)?state.sets:[]
+const cats=categoriesOf(state,sets)
+if(view.chip!=='all'&&!cats.some((one)=>one.id===view.chip))view.chip='all'
+const scoped=view.chip==='all'?sets:sets.filter((one)=>one.categoryId===view.chip)
+const query=view.query.trim().toLowerCase()
+const sorted=sortSets(query===''?scoped:scoped.filter((one)=>String(one?.name??'').toLowerCase().includes(query)),view.sort)
+const want=wantOf(state)
+const piggyFn=typeof state?.piggy==='function'?state.piggy:(typeof boundEngine?.piggy==='function'?boundEngine.piggy.bind(boundEngine):null)
+const piggy=piggyFn?safe(()=>piggyFn(want)):null
+const members=piggyMembers(piggy,sets)
+if(view.piggyOnly&&(!piggy||piggy.short===true||members.size===0))view.piggyOnly=false
+const shown=view.piggyOnly?sorted.filter((one)=>members.has(one?.id)):sorted
+const follow=!view.picked&&!(state?.checking&&typeof state.checking==='object')
+if(follow||!shown.some((one)=>one.id===view.selected))view.selected=shown[0]?.id??null
+const intro=introShown(state,scoped)
+paintChips(cats,sets.length)
+paintOrder()
+paintPlan(state,want,piggy)
+paintCheck(state,scoped,intro)
+paintList(state,shown,cats,members,intro?introStrip(state,scoped):null,view.piggyOnly?piggyTotal(piggy,want):null,view.piggyOnly?null:cutTag(piggy,want))
+const open=sets.find((one)=>one.id===view.selected)??null
+paintColumn(open,cats,state)
+autoCheck(open,follow)}
+function autoCheck(set,follow){if(!set||!boundEngine||typeof boundEngine.check!=='function')return
+if(autoSeen!==set.id){autoSeen=set.id
+autoDone=null}
+if(autoDone===set.id)return
+if(follow&&autoFollowUsed)return
+if(autoTimer!==null&&autoFor===set.id)return
+clearAuto()
+if(typeof win?.setTimeout!=='function')return
+autoFor=set.id
+try{autoTimer=win.setTimeout(()=>{autoTimer=null
+fireAuto(set.id,follow)},SET_CHECK_DELAY_MS)}catch{autoTimer=null}}
+function fireAuto(id,follow){if(panel===null||!view.open||view.selected!==id||statusNow()!=='active')return
+const engine=boundEngine
+if(!engine||typeof engine.check!=='function')return
+autoDone=id
+if(follow)autoFollowUsed=true
+counts.setChecks=(counts.setChecks??0)+1
+const said=safe(()=>engine.check({set:id,auto:true}))
+Promise.resolve(said).then((res)=>{if(res?.reason!=='pending')return
+if(autoDone===id)autoDone=null
+if(follow)autoFollowUsed=false},onError)}
+function clearAuto(){if(autoTimer!==null){try{win?.clearTimeout?.(autoTimer)}catch{}}
+autoTimer=null
+autoFor=null
+if(columnTimer!==null){try{win?.clearTimeout?.(columnTimer)}catch{}}
+columnTimer=null}
+function introShown(state,scoped){if(!state||!boundEngine)return false
+if(view.introHidden===null)view.introHidden=safe(()=>introStore.get(),false)===true
+if(view.introHidden||everChecked(state))return false
+const scope=view.chip==='all'?'all':view.chip
+return checkPhase(state,scoped,now(),scope).phase==='before'}
+function paintOrder(){const box=parts.order
+const on=orderButtonOf(view.sort)?.id??''
+const signature=`${on}|${t('gallery.order.label')}`
+if(box.dataset.painted===signature)return
+box.dataset.painted=signature
+clear(box)
+box.appendChild(el(doc,'span',{class:'fx-gallery-dim',text:t('gallery.order.label')}))
+for(const one of ORDER_BUTTONS){box.appendChild(el(doc,'button',{class:one.id===on?'fx-action on':'fx-action',text:t(one.label),
+attrs:{type:'button',title:t(one.hint)},dataset:{[ORDER_KEY]:one.id},
+on:{click:(event)=>{event?.preventDefault?.()
+view.picked=true
+view.sort={key:one.key,dir:one.dir}
+render()}}}))}}
+function introStrip(state,scoped){const scope=view.chip==='all'?'all':view.chip
+const requests=requestsOf(state,scope)
+const lead=orderButtonOf(view.sort)?.lead??null
+const hint=scope==='all'
+?(requests!==null?t('gallery.check.all.hint',{n:requests}):t('gallery.check.all.hint.plain'))
+:(requests!==null?t('gallery.check.league.hint',{n:requests}):t('gallery.check.league.hint.plain'))
+const engine=boundEngine
+return el(doc,'div',{class:'fx-gallery-intro',dataset:{[INTRO_KEY]:'1'}},[el(doc,'i',{class:'fx-gallery-intro-i',text:'i'}),
+el(doc,'span',{class:'fx-gallery-intro-text'},[...(lead?[el(doc,'b',{text:t(lead)})]:[]),
+el(doc,'span',{class:'fx-gallery-intro-long',text:t('gallery.intro.grey')}),el(doc,'span',{class:'fx-gallery-intro-short',text:t('gallery.intro.grey.short')})]),
+el(doc,'span',{class:'fx-gallery-air'}),
+...(requests!==null?[el(doc,'span',{class:'fx-gallery-dim fx-gallery-intro-n',text:t('gallery.intro.requests',{n:requests})})]:[]),
+el(doc,'button',{class:'fx-action fx-gallery-check-button fx-gallery-buy-go',text:scope==='all'?t('gallery.check.all'):t('gallery.check.league'),
+attrs:{type:'button',title:hint},dataset:{[INTRO_KEY]:'check'},on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+safe(()=>engine?.check?.(scope))}}}),
+el(doc,'button',{class:'fx-action fx-action-square fx-gallery-intro-x',text:CROSS,attrs:{type:'button',title:t('gallery.intro.hide'),'aria-label':t('gallery.intro.hide')},dataset:{[INTRO_KEY]:'hide'},
+on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+view.introHidden=true
+safe(()=>introStore.set())
+render()}}})])}
+function schedule(){if(queued||disposed)return
+queued=true
+Promise.resolve().then(()=>{queued=false
+if(panel!==null&&dirty)render()})}
+function wantOf(state){if(Number.isSafeInteger(view.want)&&view.want>0)return view.want
+return Number.isSafeInteger(state?.piggyDefault)&&state.piggyDefault>0?state.piggyDefault:PIGGY_DEFAULT}
+function categoryName(one){if(one?.kind==='leagues')return t('gallery.cat.leagues')
+if(one?.kind==='rarities')return t('gallery.cat.rarities')
+return String(one?.name??one?.id??'')}
+function categoriesOf(state,sets){const count=new Map
+for(const one of sets)count.set(one?.categoryId,(count.get(one?.categoryId)??0)+1)
+const listed=Array.isArray(state?.categories)?state.categories:(Array.isArray(state?.catalog?.categories)?state.catalog.categories:null)
+const cats=listed?listed.map((one)=>({id:one?.id,name:categoryName(one),kind:one?.kind??null,leagueId:Number.isSafeInteger(one?.leagueId)?one.leagueId:null,count:count.get(one?.id)??0}))
+:Array.from(count.keys()).map((id)=>({id,name:String(id??''),kind:null,leagueId:null,count:count.get(id)}))
+return cats.filter((one)=>one.count>0)}
+function paintChips(cats,total){const box=parts.chips
+const signature=`${view.chip}|${total}|${cats.map((one)=>`${one.id}:${one.name}:${one.count}`).join(',')}`
+if(box.dataset.painted===signature)return
+box.dataset.painted=signature
+clear(box)
+const chip=(id,name,count)=>el(doc,'button',{class:view.chip===id?'fx-action on':'fx-action',attrs:{type:'button'},dataset:{[CHIP_KEY]:String(id)},
+on:{click:(event)=>{event?.preventDefault?.()
+view.chip=id
+autoFollowUsed=false
+render()}}},[el(doc,'span',{text:name}),el(doc,'span',{class:'fx-gallery-n',text:String(count)})])
+box.appendChild(chip('all',t('gallery.all'),total))
+for(const one of cats)box.appendChild(chip(one.id,one.name,one.count))}
+function paintPlan(state,want,piggy){const input=parts.want
+const placeholder=String(Number.isSafeInteger(state?.piggyDefault)&&state.piggyDefault>0?state.piggyDefault:PIGGY_DEFAULT)
+if(input.getAttribute?.('placeholder')!==placeholder)input.setAttribute('placeholder',placeholder)
+const box=parts.planText
+clear(box)
+if(!piggy){box.appendChild(el(doc,'b',{class:'fx-gallery-muted',text:UNKNOWN}))
+return}
+if(piggy.short===true){box.appendChild(el(doc,'b',{class:'fx-gallery-muted',text:t('gallery.plan.short')}))
+return}
+const sets=Number.isSafeInteger(piggy.sets)?piggy.sets:null
+const cards=Number.isSafeInteger(piggy.cards)?piggy.cards:null
+box.appendChild(el(doc,'button',{class:view.piggyOnly?'fx-action on fx-gallery-piggy':'fx-action fx-gallery-piggy',attrs:{type:'button',title:t('gallery.piggy.show.hint')},dataset:{[PIGGY_KEY]:'show'},
+on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+view.piggyOnly=!view.piggyOnly
+render()}}},[el(doc,'span',{text:t('gallery.piggy.show',{sets:sets??UNKNOWN,setsWord:plural('gallery.piggy.sets',sets??0)})}),
+el(doc,'span',{text:plural('gallery.cards.for',cards??0,{n:cards??UNKNOWN})}),el(doc,'b',{class:'fx-gallery-gold',text:shortCoins(piggy.coins)??UNKNOWN})]))}
+function piggyTotal(piggy,want){const sets=Number.isSafeInteger(piggy?.sets)?piggy.sets:0
+const cards=Number.isSafeInteger(piggy?.cards)?piggy.cards:0
+const part=(kids,attrs={})=>el(doc,'span',{class:'fx-gallery-total-part',attrs},kids)
+const bold=(text,cls='')=>el(doc,'b',{class:cls,text})
+const words=(text)=>el(doc,'span',{text})
+return el(doc,'div',{class:'fx-gallery-total',dataset:{[PIGGY_KEY]:'total'}},[
+el(doc,'span',{class:'fx-gallery-acc',text:`${DIAMOND}${plural('gallery.reward.tokens',want,{n:want})}:`}),
+part([bold(String(sets)),words(` ${plural('gallery.piggy.sets',sets)}`)]),
+part([words(`${t('gallery.piggy.buy')} `),bold(plural('gallery.piggy.cards',cards,{n:cards}))]),
+part([words(`${t('gallery.piggy.cost')} `),bold(shortCoins(piggy?.coins)??UNKNOWN,'fx-gallery-gold')]),
+part([words(`${t('gallery.piggy.loss')} `),bold(shortCoins(piggy?.loss)??'0','fx-gallery-gold')],{title:t('gallery.piggy.loss.hint')}),
+el(doc,'span',{class:'fx-gallery-air'}),
+el(doc,'button',{class:'fx-action',text:t('gallery.piggy.all'),attrs:{type:'button'},dataset:{[PIGGY_KEY]:'all'},
+on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+view.piggyOnly=false
+render()}}})])}
+function cutTag(piggy,want){const sets=Number.isSafeInteger(piggy?.sets)?piggy.sets:0
+return el(doc,'span',{class:'fx-gallery-cut-tag',text:t('gallery.piggy.cut',{sets,setsWord:plural('gallery.piggy.sets',sets),give:plural('gallery.piggy.give',sets),
+tokens:plural('gallery.reward.tokens',want,{n:want}),coins:shortCoins(piggy?.coins)??UNKNOWN})})}
+function paintCheck(state,scoped,intro=false){const box=parts.check
+const scope=view.chip==='all'?'all':view.chip
+if(intro){if(box.dataset.painted!=='intro'){box.dataset.painted='intro'
+clear(box)}
+return}
+const phase=checkPhase(state,scoped,now(),scope)
+const capped=dayCapped(state)
+const signature=JSON.stringify({phase,scope,has:Boolean(boundEngine),requests:requestsOf(state,scope),capped})
+if(box.dataset.painted===signature)return
+box.dataset.painted=signature
+clear(box)
+if(restTimer!==null){try{win?.clearTimeout?.(restTimer)}catch{}
+restTimer=null}
+const ask=(label,title,run,enabled=true)=>el(doc,'button',{class:'fx-action fx-gallery-check-button',text:label,
+attrs:{type:'button',title,...(enabled?{}:{'aria-disabled':'true'})},
+on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+if(!enabled)return
+safe(run)}}},[])
+const engine=boundEngine
+const checkNow=()=>engine?.check?.(scope)
+const requests=requestsOf(state,scope)
+const hint=scope==='all'
+?(requests!==null?t('gallery.check.all.hint',{n:requests}):t('gallery.check.all.hint.plain'))
+:(requests!==null?t('gallery.check.league.hint',{n:requests}):t('gallery.check.league.hint.plain'))
+const again=t('gallery.check.again')
+if(phase.phase==='running'){const pct=phase.total>0?Math.min(100,Math.round(100*phase.done/phase.total)):0
+const bar=el(doc,'span',{class:'fx-gallery-pbar'},[el(doc,'i',{attrs:{style:`width:${pct}%`}})])
+box.appendChild(el(doc,'span',{class:'fx-gallery-check-line'},[el(doc,'b',{text:t('gallery.check.running',{done:phase.done,total:phase.total})}),bar,
+...(phase.eta!==null?[el(doc,'span',{text:t('gallery.check.eta',{s:Math.max(1,Math.round(phase.eta/1000))})})]:[])]))
+box.appendChild(ask(t('gallery.check.stop'),t('gallery.check.stop.hint'),()=>engine?.stop?.()))
+return}
+if(capped)box.appendChild(el(doc,'span',{class:'fx-gallery-check-line fx-gallery-warn',text:t('gallery.check.dayCap'),dataset:{[SET_CHECK_KEY]:'capped'},
+attrs:{title:t('gallery.check.dayCap.hint',{n:state.day.used,cap:state.day.cap})}}))
+if(phase.phase==='stopped'){const[line,full]=STOP_WORDS[phase.reason]??STOP_OTHER
+const said=full?t(full,{n:state?.day?.used??''}):(STOP_REASON_KEYS[phase.reason]?t(STOP_REASON_KEYS[phase.reason]):null)
+box.appendChild(el(doc,'span',{class:phase.reason==='user'?'fx-gallery-check-line':'fx-gallery-check-line fx-gallery-warn',text:t(line),attrs:said?{title:said}:{}}))
+box.appendChild(ask(again,hint,checkNow,Boolean(engine)))
+return}
+if(phase.phase==='after'){box.appendChild(el(doc,'span',{class:'fx-gallery-check-line'},[el(doc,'span',{text:t('gallery.check.done')}),el(doc,'b',{text:` ${clockOf(phase.checkedAt)}`})]))
+box.appendChild(ask(again,phase.resting?t('gallery.check.again.rest',{time:clockOf(phase.until)}):t('gallery.check.again.hint'),checkNow,Boolean(engine)&&!phase.resting))
+if(phase.resting&&typeof win?.setTimeout==='function'){try{restTimer=win.setTimeout(()=>{restTimer=null
+box.dataset.painted=''
+dirty=true
+schedule()},Math.max(1000,phase.until-now()+500))}catch{restTimer=null}}
+return}
+box.appendChild(ask(scope==='all'?t('gallery.check.all'):t('gallery.check.league'),hint,checkNow,Boolean(engine)&&phase.phase!=='none'))}
+function requestsOf(state,scope){// ЧИСЛО ПОСЛЕ ВЫЧЕТА (GALLERY-SET-CHECK-1 §2 п.2): засчитанное и наборы на
+const asks=state?.asks??null
+const own=scope==='all'?asks?.total:asks?.byLeague?.[scope]
+if(own)return checkRequestsCap(own)
+const pools=state?.pools??state?.catalog?.pools??null
+const box=scope==='all'?pools?.total:pools?.byLeague?.[scope]
+return checkRequestsCap(box)}
+function paintList(state,shown,cats,members,strip=null,total=null,tag=null){const box=parts.list
+clear(box)
+if(!state){box.appendChild(el(doc,'div',{class:'fx-gallery-empty',text:t('gallery.empty')}))
+return}
+if(strip)box.appendChild(strip)
+if(total)box.appendChild(total)
+const cols=el(doc,'colgroup',{},[el(doc,'col',{class:'fx-gallery-col-crest'}),...COLUMNS.map(([key])=>el(doc,'col',{class:`fx-gallery-col-${key}`}))])
+const head=el(doc,'tr',{},COLUMNS.map(([key,label,hint,align])=>{const sorted=view.sort.key===key
+const classes=[`fx-gallery-th-${key}`,align==='money'?'fx-gallery-money':align,sorted?'fx-gallery-sorted':'',hint?'fx-gallery-hint':''].filter(Boolean).join(' ')
+return el(doc,'th',{class:classes,attrs:{...(hint?{title:t(hint)}:{}),colspan:key==='name'?'2':'1'},dataset:{[SORT_KEY]:key},
+on:{click:(event)=>{event?.preventDefault?.()
+sortBy(key)}}},[el(doc,'span',{text:t(label)}),...(sorted?[el(doc,'span',{class:'fx-gallery-arrow',text:view.sort.dir>0?'▲':'▼'})]:[])])}))
+const cut=total?null:cutRowId(shown,members,view.sort)
+const body=el(doc,'tbody')
+for(const set of shown)body.appendChild(row(set,cats,set.id===cut,set.id===cut?tag:null))
+if(shown.length===0)body.appendChild(el(doc,'tr',{},[el(doc,'td',{class:'fx-gallery-empty',attrs:{colspan:String(COLUMNS.length+1)},text:t('gallery.nothing')})]))
+box.appendChild(el(doc,'table',{class:'fx-gallery-table'},[cols,el(doc,'thead',{},[head]),body]))}
+function sortBy(key){view.picked=true
+if(view.sort.key===key)view.sort={key,dir:-view.sort.dir}
+else view.sort={key,dir:FIRST_DIR[key]??1}
+render()}
+function row(set,cats,cut,tag=null){const classes=['fx-gallery-row']
+if(set.id===view.selected)classes.push('fx-gallery-row--sel')
+if(cut)classes.push('fx-gallery-cut')
+const category=cats.find((one)=>one.id===set?.categoryId)?.name??null
+const name=String(set?.name??'')
+const money=set?.market===false?[el(doc,'td',{class:'l fx-gallery-muted fx-gallery-offmarket',text:t('gallery.market.no'),attrs:{colspan:'5',title:t('gallery.market.note')}})]
+:[tokenPriceCell(set),...goalCells(set)]
+const cells=[crestCell(set?.crest?.clubId,'fx-gallery-crest'),el(doc,'td',{class:'l fx-gallery-name',text:name,attrs:{title:category?`${name} · ${category}`:name}}),
+...money,gotCell(set),tokensCell(set)]
+if(tag){const last=cells.at(-1)
+last.className=`${last.className??''} fx-gallery-cut-cell`.trim()
+last.appendChild(tag)}
+return el(doc,'tr',{class:classes.join(' '),dataset:{[ROW_KEY]:String(set.id)},
+on:{click:(event)=>{event?.preventDefault?.()
+const was=view.picked
+view.picked=true
+if(view.selected===set.id){if(!was)render()
+return}
+view.selected=set.id
+render()}}},cells)}
+function crestCell(clubId,cls){const uri=Number.isSafeInteger(clubId)?safe(()=>crestOf(clubId)):null
+return el(doc,'td',{class:`${cls}-cell`},uri?[el(doc,'img',{class:cls,attrs:{src:uri,alt:''}})]:[el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--frame fx-gallery-crest-none'})])}
+const muted=()=>el(doc,'span',{class:'fx-gallery-muted',text:UNKNOWN})
+function gotCell(set){const cards=Number.isSafeInteger(set?.cards)?set.cards:null
+const slash=()=>el(doc,'span',{class:'fx-gallery-slash',text:'/'})
+const denom=(cls)=>el(doc,'span',{class:`fx-gallery-den ${cls}`,text:String(cards??UNKNOWN)})
+if(!Number.isFinite(set?.collected)){return el(doc,'td',{},[el(doc,'span',{class:'fx-gallery-got'},[muted(),slash(),denom('fx-gallery-muted'),el(doc,'span',{class:'fx-gallery-bar'}),gradeSlot(set)])])}
+const club=!known(set)
+const pct=cards>0?Math.min(100,Math.round(100*set.collected/cards)):0
+return el(doc,'td',{},[el(doc,'span',{class:club?'fx-gallery-got fx-gallery-got--club':'fx-gallery-got'},[
+el(doc,'span',{class:club?'fx-gallery-club':'fx-gallery-count',text:String(set.collected),attrs:club?{title:t('gallery.club.hint')}:{}}),
+slash(),denom('fx-gallery-dim'),
+el(doc,'span',{class:'fx-gallery-bar'},[el(doc,'i',{attrs:{style:`width:${pct}%`}})]),gradeSlot(set)])])}
+function gradeSlot(set){const kids=[]
+if(known(set)){if(typeof set?.grade==='string'&&set.grade!=='')kids.push(letter(set.grade,'ok'))
+else kids.push(el(doc,'span',{class:'fx-gallery-dim fx-gallery-hint',text:t('gallery.grade.none'),attrs:{title:t('gallery.grade.none.hint')}}))}
+return el(doc,'span',{class:'fx-gallery-grade'},kids)}
+function letter(text,kind){return el(doc,'span',{class:`fx-gallery-lt${kind?` fx-gallery-lt--${kind}`:''}`,text})}
+function reward(goal){if(Number.isFinite(goal?.tokens)&&goal.tokens>0)return el(doc,'span',{class:'fx-gallery-rwd fx-gallery-acc'},[el(doc,'span',{text:DIAMOND}),el(doc,'span',{text:String(goal.tokens)})])
+if(goal?.badge)return el(doc,'span',{class:'fx-gallery-rwd fx-gallery-dim',attrs:{title:t('gallery.reward.badge')}},[el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--badge'})])
+if(goal?.kit)return el(doc,'span',{class:'fx-gallery-rwd fx-gallery-dim',attrs:{title:t('gallery.reward.kit')}},[el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--kit'})])
+return el(doc,'span',{class:'fx-gallery-rwd'})}
+function goalCells(set){const goal=set?.goal
+if(!goal)return[el(doc,'td',{class:'c'},[muted()]),el(doc,'td',{},[muted()]),el(doc,'td',{},[muted()]),el(doc,'td',{class:'l'})]
+return[el(doc,'td',{class:'c'},[letter(String(goal.letter??''),'can')]),
+el(doc,'td',{class:'fx-gallery-buy-n',text:String(goal.missing??UNKNOWN)}),
+el(doc,'td',{class:'fx-gallery-gold'},[el(doc,'b',{text:shortCoins(goal.cost)??UNKNOWN})]),
+el(doc,'td',{class:'l'},[reward(goal)])]}
+function tokenPriceCell(set){const price=set?.tokenPrice
+if(typeof price==='number'&&Number.isFinite(price)){const tip=set?.goal?plural('gallery.tokenPrice.cell',set.goal.tokens,{cost:shortCoins(set.goal.cost)??UNKNOWN,n:set.goal.tokens??UNKNOWN}):null
+return el(doc,'td',{class:'fx-gallery-gold fx-gallery-price',attrs:tip?{title:tip}:{}},[el(doc,'b',{text:shortCoins(price)??UNKNOWN})])}
+if(price==='x')return el(doc,'td',{class:'fx-gallery-price'},[el(doc,'span',{class:'fx-gallery-muted',text:CROSS,attrs:{title:t('gallery.tokenPrice.x')}})])
+return el(doc,'td',{class:'fx-gallery-price'},[muted()])}
+function tokensCell(set){const now=Number.isFinite(set?.tokensNow)?el(doc,'span',{class:'fx-gallery-acc',text:String(set.tokensNow)}):muted()
+return el(doc,'td',{},[el(doc,'span',{class:'fx-gallery-tok'},[now,el(doc,'span',{class:'fx-gallery-slash',text:'/'}),el(doc,'span',{class:'fx-gallery-den fx-gallery-dim',text:String(set?.tokensMax??UNKNOWN)})])])}
+function paintColumn(set,cats,state=null){const box=parts.column
+if(!set){disposeFaces()
+cardsSignature=null
+clear(box)
+parts.cards=null
+parts.pathHost=null
+box.dataset.painted=''
+return}
+const pick=pathLetterOf(set)
+const check=setCheckOf(set,state,now())
+const busy=Boolean(state?.checking&&typeof state.checking==='object')
+const signature=JSON.stringify({id:set.id,src:set.collectedSource,c:set.collected,p:set.points,fo:set.firstOwner??null,g:set.grades,tab:view.tab,pick,cards:cardsOf(set).length,lang:t('gallery.tab.all'),check,busy})
+if(box.dataset.painted===signature&&parts.cards!==null){paintPath(set)
+paintCards(set)
+return}
+box.dataset.painted=signature
+disposeFaces()
+cardsSignature=null
+clear(box)
+box.appendChild(columnHead(set,check,busy))
+box.appendChild(ladder(set))
+parts.pathHost=el(doc,'div',{class:'fx-gallery-path-host'})
+parts.pathSignature=null
+box.appendChild(parts.pathHost)
+paintPath(set)
+const list=cardsOf(set)
+box.appendChild(tabs(list,set))
+parts.cards=el(doc,'div',{class:'fx-gallery-cards'})
+box.appendChild(parts.cards)
+paintCards(set)}
+function columnHead(set,check=null,busy=false){const uri=Number.isSafeInteger(set?.crest?.clubId)?safe(()=>crestOf(set.crest.clubId)):null
+const need=[]
+if(Number.isFinite(set?.collected)){const club=!known(set)
+need.push(el(doc,'b',{class:club?'fx-gallery-club':'',text:String(set.collected),attrs:club?{title:t('gallery.club.hint')}:{}}),el(doc,'span',{text:` / ${set.cards} · `}))}
+if(Number.isFinite(set?.points))need.push(el(doc,'b',{text:formatNumber(set.points)}),el(doc,'span',{text:` ${plural('gallery.set.points',set.points)} · `}))
+const said=checkWord(check)
+if(said)need.push(said,el(doc,'span',{text:' · '}))
+const first=set?.firstOwner
+if(Number.isSafeInteger(first?.cards)&&first.cards>0)need.push(el(doc,'span',{class:'fx-gallery-first',text:`${plural('gallery.set.first',first.cards,{n:first.cards,bonus:Number.isFinite(first.bonus)?first.bonus:0})} · `}))
+const missing=(set?.grades??[]).map((one)=>one?.missing).find((one)=>Number.isFinite(one))
+if(Number.isFinite(missing)&&missing>0)need.push(el(doc,'span',{text:`${t('gallery.set.need')} `}),el(doc,'b',{text:plural('gallery.set.needCards',missing,{n:missing})}))
+return el(doc,'div',{class:'fx-gallery-set-head'},[...(uri?[el(doc,'img',{class:'fx-gallery-set-crest',attrs:{src:uri,alt:''}})]:[]),
+el(doc,'span',{class:'fx-gallery-set-name',text:String(set?.name??'')}),el(doc,'span',{class:'fx-gallery-need'},need),
+...(check?.big?[bigCheck(set,check,busy)]:[])])}
+function checkWord(check){switch(check?.word){
+case'maxed':return el(doc,'span',{class:'fx-gallery-dim fx-gallery-hint',text:t('gallery.set.maxed'),attrs:{title:t('gallery.set.maxed.hint')},dataset:{[SET_CHECK_KEY]:'maxed'}})
+case'checked':return el(doc,'span',{class:'fx-gallery-dim',text:t('gallery.set.checked',{time:clockOf(check.checkedAt)}),attrs:{title:t('gallery.set.checked.hint')},dataset:{[SET_CHECK_KEY]:'checked'}})
+case'club':return el(doc,'span',{class:'fx-gallery-club',text:t('gallery.set.byClub'),attrs:{title:t('gallery.set.byClub.hint')},dataset:{[SET_CHECK_KEY]:'club'}})
+default:return null}}
+function bigCheck(set,check,busy){const enabled=Boolean(boundEngine)&&!busy&&!check.resting
+const title=check.resting?t('gallery.check.again.rest',{time:clockOf(check.until)}):t('gallery.set.check.hint',{n:check.requests??UNKNOWN})
+if(check.resting&&columnTimer===null&&typeof win?.setTimeout==='function'){try{columnTimer=win.setTimeout(()=>{columnTimer=null
+if(parts?.column)parts.column.dataset.painted=''
+dirty=true
+schedule()},Math.max(1000,check.until-now()+500))}catch{columnTimer=null}}
+const engine=boundEngine
+return el(doc,'button',{class:'fx-action fx-gallery-check-button fx-gallery-set-check',text:plural('gallery.set.check',check.requests??0,{n:check.requests??UNKNOWN}),
+attrs:{type:'button',title,...(enabled?{}:{'aria-disabled':'true'})},dataset:{[SET_CHECK_KEY]:'big'},
+on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+if(!enabled)return
+safe(()=>engine?.check?.({set:set.id}))}}})}
+function rewardWords(rewards){const out=[]
+if(Number.isFinite(rewards?.tokens)&&rewards.tokens>0)out.push(el(doc,'span',{text:plural('gallery.reward.tokens',rewards.tokens,{n:rewards.tokens})}))
+if(rewards?.badge)out.push(el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--badge'}),el(doc,'span',{text:t('gallery.reward.badge')}))
+if(rewards?.kit)out.push(el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--kit'}),el(doc,'span',{text:t('gallery.reward.kit')}))
+return out}
+function ladder(set){const steps=(set?.grades??[]).map((grade,index)=>{const reached=grade?.reached===true
+const reachable=grade?.reachable===true
+const kind=reached?'ok':(reachable?'can':'')
+const threshold=Number.isFinite(grade?.threshold)?formatNumber(grade.threshold):UNKNOWN
+const kids=[el(doc,'div',{class:'fx-gallery-step-top'},[letter(String(grade?.letter??''),kind),el(doc,'span',{class:'fx-gallery-step-th',text:index===0?t('gallery.ladder.fromPoints',{n:threshold}):t('gallery.ladder.from',{n:threshold})})]),
+el(doc,'div',{class:'fx-gallery-step-rw'},rewardWords(grade?.rewards))]
+if(grade?.reachable===false&&!reached)kids.push(el(doc,'span',{class:'fx-gallery-step-no fx-gallery-muted',text:t('gallery.ladder.no')}))
+const mark=String(grade?.letter??'')
+if(pickable(set,grade)){const on=pathLetterOf(set)===mark
+if(on)kids[0].appendChild(el(doc,'span',{class:'fx-gallery-step-seen',text:t('gallery.path.seen')}))
+return el(doc,'div',{class:on?'fx-gallery-step fx-gallery-step--pick fx-gallery-step--on':'fx-gallery-step fx-gallery-step--pick',attrs:{title:t('gallery.path.pick')},dataset:{[STEP_KEY]:mark},
+on:{click:(event)=>{event?.preventDefault?.()
+pickPath(set,mark)}}},kids)}
+return el(doc,'div',{class:grade?.reachable===false&&!reached?'fx-gallery-step fx-gallery-step--no':'fx-gallery-step'},kids)})
+return el(doc,'div',{class:'fx-gallery-ladder'},steps)}
+function pickable(set,grade){return set?.market!==false&&grade?.reachable===true&&grade?.reached!==true&&Boolean(safe(buyerOf))}
+function pathLetterOf(set){if(!set)return null
+if(view.path.set!==set.id){const goal=String(set?.goal?.letter??'')
+const grade=(set?.grades??[]).find((one)=>String(one?.letter??'')===goal)
+view.path={set:set.id,letter:grade&&pickable(set,grade)?goal:null}}
+const grade=(set?.grades??[]).find((one)=>String(one?.letter??'')===view.path.letter)
+return grade&&pickable(set,grade)?view.path.letter:null}
+function pickPath(set,mark){if(view.path.set===set?.id&&view.path.letter===mark)return
+view.path={set:set?.id??null,letter:mark}
+view.tab='missing'
+render()}
+function pathCards(set,mark){const buyer=safe(buyerOf)
+const draw=buyer?.plan
+if(!buyer||!mark||typeof draw!=='function')return null
+const plan=safe(()=>draw.call(buyer,set.id,mark,'buy'))
+const priced=(Array.isArray(plan?.rows)?plan.rows:[]).filter((one)=>Number.isSafeInteger(one?.defId)).sort((a,b)=>a.price-b.price||a.defId-b.defId)
+const priceless=(Array.isArray(plan?.priceless)?plan.priceless:[]).filter((one)=>Number.isSafeInteger(one?.defId))
+const ids=[...priced.map((one)=>one.defId),...priceless.map((one)=>one.defId)]
+if(ids.length===0)return null
+return{ids,sum:Number.isFinite(plan?.from)?plan.from:null,priceless:priceless.length}}
+function pathBlock(set){const buyer=safe(buyerOf)
+const live=buyer?safe(()=>buyer.live?.()):null
+const rows=[]
+for(const grade of set?.grades??[]){const mark=String(grade?.letter??'')
+const result=buyer?safe(()=>buyer.resultOf?.(set.id,mark)):null
+const open=grade?.reachable===true&&grade?.reached!==true
+const going=live!==null&&live?.setId===set?.id&&live?.letter===mark
+if(!open&&!going&&!(result&&grade?.reached===true))continue
+const line=buyer?buyRow(set,grade,buyer,live,result,open):plainRow(grade)
+if(open&&pickable(set,grade)){line.dataset[PATH_ROW_KEY]=mark
+if(pathLetterOf(set)===mark)line.className=`${line.className} fx-gallery-path-row--on`
+line.addEventListener?.('click',(event)=>{event?.preventDefault?.()
+pickPath(set,mark)})}
+rows.push(line)}
+if(rows.length===0)return null
+if(!buyer)return el(doc,'div',{class:'fx-gallery-path',attrs:{title:t('gallery.path.hint')}},rows)
+return el(doc,'div',{class:'fx-gallery-path fx-gallery-path--buy',attrs:{title:t('gallery.path.hint')}},[gearButton(),...rows])}
+function plainRow(grade){const priceless=pricelessOf(grade)
+return el(doc,'div',{class:'fx-gallery-path-row'},[letter(String(grade.letter??''),'can'),pathSum(grade),el(doc,'span',{class:'fx-gallery-dim fx-gallery-path-loss',text:t('gallery.path.loss')}),
+el(doc,'b',{class:'fx-gallery-gold',text:priceless>0?UNKNOWN:(shortCoins(grade.lossOnResell)??'0')})])}
+function pricelessOf(grade){return Number.isFinite(grade?.priceless)?grade.priceless:(grade?.priceless===true?1:0)}
+function pathSum(grade){const priceless=pricelessOf(grade)
+return priceless>0?el(doc,'span',{class:'fx-gallery-muted',text:plural('gallery.path.priceless',priceless,{n:priceless})})
+:el(doc,'span',{},[el(doc,'span',{text:`${plural('gallery.cards.for',grade.missing,{n:grade.missing??UNKNOWN})} `}),el(doc,'b',{class:'fx-gallery-gold',text:shortCoins(grade.cost)??UNKNOWN})])}
+function shortLoss(grade){const priceless=pricelessOf(grade)
+return el(doc,'span',{class:'fx-gallery-path-loss fx-gallery-dim'},[el(doc,'span',{text:`${t('gallery.buy.loss')} `}),
+el(doc,'b',{class:'fx-gallery-gold',text:priceless>0?UNKNOWN:(shortCoins(grade.lossOnResell)??'0')})])}
+const coins=(value)=>(Number.isFinite(value)?formatNumber(Math.round(value)):UNKNOWN)
+function buyRow(set,grade,buyer,live,result,open){const mark=String(grade.letter??'')
+const mine=live!==null&&live?.setId===set.id&&live?.letter===mark
+if(mine)return el(doc,'div',{class:'fx-gallery-path-row fx-gallery-buy-row fx-gallery-buy-row--live'},[letter(mark,'can'),open?pathSum(grade):el(doc,'span',{}),
+el(doc,'span',{class:'fx-gallery-buy-say'},[el(doc,'b',{text:liveText(live)})]),
+el(doc,'span',{class:'fx-gallery-buy-acts'},live.phase==='run'||live.phase==='start'?[el(doc,'button',{class:'fx-action fx-gallery-buy-stop',text:t('gallery.buy.stop'),
+attrs:{type:'button',title:t('gallery.buy.stop.hint')},dataset:{[BUY_KEY]:`stop:${mark}`},on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+safe(()=>buyer.stop())}}})]:[])])
+if(result&&!open)return doneRow(typeof set?.grade==='string'&&set.grade!==''?set.grade:mark,result)
+if(result&&result.unfound?.length>0)return shortRow(set,grade,buyer,live,result)
+const busy=live!==null
+const kids=[letter(mark,'can'),pathSum(grade)]
+if(result&&result.ok!==true)kids.push(el(doc,'span',{class:'fx-gallery-buy-say fx-gallery-warn',text:stopText(result),attrs:reasonTitle(result.reason)}))
+else kids.push(shortLoss(grade))
+kids.push(el(doc,'span',{class:busy?'fx-gallery-buy-acts fx-gallery-buy-wait':'fx-gallery-buy-acts'},buyButtons(set.id,mark,buyer,busy)))
+return el(doc,'div',{class:'fx-gallery-path-row fx-gallery-buy-row'},kids)}
+function doneRow(mark,result){const said=[result.mode==='list'
+?t('gallery.buy.doneText.list',{n:result.bought,sum:coins(result.spent),listed:result.listed})
+:t('gallery.buy.doneText',{n:result.bought,sum:coins(result.spent)})]
+if(Number.isSafeInteger(result.failedList)&&result.failedList>0)said.push(t('gallery.buy.listFailed',{n:result.failedList}))
+if(Number.isSafeInteger(result.pile)&&result.pile>0)said.push(t('gallery.buy.inPile',{n:result.pile}))
+const text=said.join(' · ')
+return el(doc,'div',{class:'fx-gallery-path-row fx-gallery-buy-row fx-gallery-buy-row--done'},[letter(CHECK_MARK,'ok'),
+el(doc,'b',{text:t('gallery.buy.done',{letter:mark})}),el(doc,'span',{class:'fx-gallery-buy-say',text:text}),el(doc,'span',{})])}
+function shortRow(set,grade,buyer,live,result){const mark=String(grade.letter??'')
+const names=result.unfound.map((one)=>`${one.name} ${Number.isFinite(one.real)?t('gallery.buy.from',{real:coins(one.real),expected:coins(one.expected)}):t('gallery.buy.noLot')}`)
+const text=[t('gallery.buy.bought',{n:result.bought,of:result.planned}),...names].join(' · ')
+const topUp=safe(()=>buyer.plan(set.id,mark,result.mode,{override:result.override??{}}))
+const count=(topUp?.rows?.length??0)+(topUp?.priceless?.length??0)
+const busy=live!==null
+const button=el(doc,'button',{class:busy?'fx-action':'fx-action fx-gallery-buy-go',text:t('gallery.buy.topUp',{n:count,sum:coins(topUp?.from)}),
+attrs:{type:'button',title:t('gallery.buy.topUp.hint'),...(busy?{'aria-disabled':'true'}:{})},dataset:{[BUY_KEY]:`topup:${mark}`},
+on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+if(busy)return
+void startFlow(set.id,mark,result.mode,{override:result.override??{}})}}})
+return el(doc,'div',{class:'fx-gallery-path-row fx-gallery-buy-row fx-gallery-buy-row--short'},[letter(mark,'can'),
+el(doc,'b',{class:'fx-gallery-warn',text:t('gallery.buy.short',{n:result.unfound.length})}),el(doc,'span',{class:'fx-gallery-buy-say',text,attrs:{title:text}}),
+el(doc,'span',{class:busy?'fx-gallery-buy-acts fx-gallery-buy-wait':'fx-gallery-buy-acts'},[button])])}
+function liveText(live){if(live.phase==='measure')return t('gallery.buy.measuring',{done:live.done??0,total:live.total??0})
+if(live.phase==='start')return t('gallery.buy.starting')
+return live.mode==='list'?t('gallery.buy.progress.list',{bought:live.bought,planned:live.planned,listed:live.listed})
+:t('gallery.buy.progress',{bought:live.bought,planned:live.planned})}
+function stopText(result){const said=[]
+if(typeof result.reason==='string'&&result.reason!=='')said.push(t(BUY_STOP_WORDS[result.reason]??'gallery.buy.stop.other'))
+said.push(t('gallery.buy.bought',{n:result.bought,of:result.planned}))
+if(Number.isSafeInteger(result.pile)&&result.pile>0)said.push(t('gallery.buy.inPile',{n:result.pile}))
+if(Number.isSafeInteger(result.failedList)&&result.failedList>0)said.push(t('gallery.buy.listFailed',{n:result.failedList}))
+return said.join(' · ')}
+function reasonTitle(reason){const key=STOP_REASON_KEYS[reason]
+return key?{title:t(key)}:{}}
+function buyButtons(setId,mark,buyer,busy){const locked=statusNow()!=='active'
+const sellable=safe(()=>buyer.sellerReady?.(),false)===true
+const one=(mode,label,hint,enabled)=>el(doc,'button',{class:enabled?'fx-action fx-gallery-buy-go':'fx-action',text:locked?`🔒 ${t(label)}`:t(label),
+attrs:{type:'button',title:locked?t('panel.rail.locked'):t(hint),...(enabled?{}:{'aria-disabled':'true'})},dataset:{[BUY_KEY]:`${mode}:${mark}`},
+on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+if(locked){counts.locked+=1
+safe(()=>openAccount())
+return}
+if(!enabled)return
+void startFlow(setId,mark,mode)}}})
+return[one('buy','gallery.buy.buy','gallery.buy.buy.hint',!busy),
+one('list','gallery.buy.list',sellable?'gallery.buy.list.hint':'gallery.buy.list.none',!busy&&sellable)]}
+function gearButton(){return el(doc,'button',{class:'fx-action fx-action-square fx-gallery-gear',text:'⚙',
+attrs:{type:'button',title:t('gallery.gear.title'),'aria-label':t('gallery.gear.title')},dataset:{[GEAR_KEY]:'1'},
+on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+openGear()}}})}
+function paintPath(set){const host=parts?.pathHost
+if(!host)return
+const buyer=safe(buyerOf)
+const signature=JSON.stringify({id:set?.id,g:set?.grades,m:set?.market,b:buyer?safe(()=>buyer.signature?.()):null,s:statusNow(),r:sellRule(),pick:pathLetterOf(set),lang:t('gallery.buy.buy')})
+if(parts.pathSignature===signature)return
+parts.pathSignature=signature
+clear(host)
+if(set?.market===false){host.appendChild(el(doc,'div',{class:'fx-gallery-offmarket-note fx-gallery-muted',text:t('gallery.market.note')}))
+return}
+const block=pathBlock(set)
+if(block)host.appendChild(block)}
+async function startFlow(setId,mark,mode,opts={}){const buyer=safe(buyerOf)
+if(!buyer)return
+if(statusNow()!=='active'){safe(()=>openAccount())
+return}
+if(safe(()=>buyer.running?.(),false)===true)return
+let plan=null
+try{plan=await buyer.prepare(setId,mark,mode,opts)}catch(err){onError(err)
+return}
+if(disposed)return
+openBuyWindow(plan)}
+function setName(setId){const sets=stateNow()?.sets
+const found=Array.isArray(sets)?sets.find((one)=>one?.id===setId):null
+return String(found?.name??setId??'')}
+function sellRule(){const mode=safe(()=>readValue('galleryTradeSellMode'),'step')
+const value=safe(()=>readValue('galleryTradeSellValue'),1)
+const dir=safe(()=>readValue('galleryTradeSellDir'),'below')
+const up=dir==='above'
+if(mode==='market')return t('gallery.gear.rule.market')
+if(mode==='percent')return up?t('gallery.gear.rule.percentAbove',{n:value}):t('gallery.gear.rule.percentBelow',{n:value})
+if(value===1)return up?t('gallery.gear.rule.oneStepAbove'):t('gallery.gear.rule.oneStepBelow')
+return up?plural('gallery.gear.rule.stepsAbove',value,{n:value}):plural('gallery.gear.rule.stepsBelow',value,{n:value})}
+function minutes(ms){const half=Math.max(0.5,Math.round(ms/30_000)/2)
+return String(half).replace('.',t('gallery.buy.decimal'))}
+function closeBuyWindow(){try{buyWindow?.remove?.()}catch{}
+buyWindow=null}
+function openBuyWindow(plan){closeBuyWindow()
+const buyer=safe(buyerOf)
+const n=plan?.rows?.length??0
+const title=plural(plan?.mode==='list'?'gallery.buy.title.list':'gallery.buy.title.buy',n,{n,set:setName(plan?.setId),letter:String(plan?.letter??'')})
+const line=(label,value,cls='fx-gallery-gold')=>el(doc,'div',{class:'fx-gallery-buy-line'},[el(doc,'span',{text:label}),el(doc,'b',{class:cls,text:value})])
+const kids=[]
+if(!plan||plan.ok!==true){kids.push(el(doc,'div',{class:'fx-gallery-buy-why',text:t(PLAN_WHY[plan?.reason]??'gallery.buy.why.empty')}))
+buyWindow=modalBox(doc,{mark:BUY_WINDOW_MARK,box:'fx-hk-capture-box fx-gallery-buy-box',title,closeLabel:t('gallery.buy.close'),onBack:closeBuyWindow},
+[...kids,modalButtons(doc,[{text:t('gallery.buy.close'),mark:'futGalleryBuyClose',on:closeBuyWindow}])])
+;(doc.body??doc.documentElement)?.appendChild?.(buyWindow)
+return}
+kids.push(el(doc,'div',{class:'fx-gallery-risk',text:t('gallery.buy.risk')}))
+kids.push(line(t('gallery.buy.spend'),t('gallery.buy.range',{from:coins(plan.from),to:coins(plan.to)})))
+if(plan.mode==='list'){kids.push(line(t('gallery.buy.net',{rule:sellRule()}),t('gallery.buy.about',{n:coins(plan.net)})))
+const loss=plan.loss??0
+kids.push(line(t('gallery.buy.result'),loss>=0?t('gallery.buy.minus',{n:coins(loss)}):t('gallery.buy.plus',{n:coins(-loss)}),''))}
+const head=el(doc,'tr',{},[el(doc,'th',{text:t('gallery.buy.col.card')}),el(doc,'th',{text:t('gallery.buy.col.ceiling')}),
+...(plan.mode==='list'?[el(doc,'th',{text:t('gallery.buy.col.list')})]:[])])
+const body=el(doc,'tbody')
+const rowOf=(row,hidden)=>el(doc,'tr',{class:hidden?'fx-gallery-buy-more-row fx-gallery-hidden':'',dataset:{futGalleryBuyCard:String(row.defId)}},[el(doc,'td',{text:row.name??`#${row.defId}`}),
+el(doc,'td',{class:'fx-gallery-num',text:coins(row.ceiling)}),...(plan.mode==='list'?[el(doc,'td',{class:'fx-gallery-num',text:Number.isFinite(row.listFor)?coins(row.listFor):UNKNOWN})]:[])])
+plan.rows.forEach((row,index)=>body.appendChild(rowOf(row,index>=SHOWN_ROWS)))
+if(plan.rows.length>SHOWN_ROWS){const rest=plan.rows.length-SHOWN_ROWS
+const more=el(doc,'tr',{class:'fx-gallery-buy-more',dataset:{futGalleryBuyMore:'1'},on:{click:(event)=>{event?.preventDefault?.()
+for(const one of body.querySelectorAll?.('.fx-gallery-buy-more-row')??[])one.className=''
+try{more.remove()}catch{}}}},[el(doc,'td',{attrs:{colspan:plan.mode==='list'?'3':'2'},text:plural('gallery.buy.more',rest,{n:rest})})])
+body.appendChild(more)}
+kids.push(el(doc,'table',{class:'fx-gallery-buy-table'},[el(doc,'thead',{},[head]),body]))
+kids.push(el(doc,'div',{class:'fx-gallery-buy-note',text:plural('gallery.buy.requests',plan.requests.about,{n:plan.requests.about,
+time:t('gallery.buy.time',{lo:minutes(plan.time.loMs),hi:minutes(plan.time.hiMs)})})}))
+const measured=plan.measured
+if(measured&&measured.cards>0)kids.push(el(doc,'div',{class:'fx-gallery-buy-note',text:measured.known
+?t('gallery.buy.measured',{n:measured.cards,r:measured.requests}):t('gallery.buy.measuredUpTo',{n:measured.cards,r:measured.cards*5})}))
+if(measured&&measured.failed?.length>0)kids.push(el(doc,'div',{class:'fx-gallery-buy-note fx-gallery-warn',text:t('gallery.buy.failed',{n:measured.failed.length})}))
+if(plan.mode==='list'&&plan.unlisted>0)kids.push(el(doc,'div',{class:'fx-gallery-buy-note',text:t('gallery.buy.unlisted',{n:plan.unlisted})}))
+const go=()=>{closeBuyWindow()
+if(!buyer)return
+void Promise.resolve(buyer.launch(plan)).catch(onError)}
+buyWindow=modalBox(doc,{mark:BUY_WINDOW_MARK,box:'fx-hk-capture-box fx-gallery-buy-box',title,closeLabel:t('gallery.buy.cancel'),onBack:closeBuyWindow},
+[...kids,modalButtons(doc,[{text:t(plan.mode==='list'?'gallery.buy.list':'gallery.buy.buy'),kind:'fx-gallery-arm',mark:'futGalleryBuyGo',on:go},
+{text:t('gallery.buy.cancel'),mark:'futGalleryBuyCancel',on:closeBuyWindow}])])
+;(doc.body??doc.documentElement)?.appendChild?.(buyWindow)}
+function closeGear(){try{gearWindow?.remove?.()}catch{}
+gearWindow=null}
+function openGear(){closeGear()
+const overpay=el(doc,'input',{class:'limit inline fx-gallery-gear-num',attrs:{type:'text',inputmode:'numeric',maxlength:'2','aria-label':t('gallery.gear.overpay'),
+placeholder:String(SETTING_VALUES.galleryTradeOverpay.default)},dataset:{futGalleryGearOverpay:'1'},
+on:{input:(event)=>{const typed=String(event?.target?.value??'').replace(/\D+/g,'')
+if(typed==='')return
+const said=safe(()=>writeValue('galleryTradeOverpay',Number(typed)))
+overpay.className=said?.ok===true?'limit inline fx-gallery-gear-num':'limit inline fx-gallery-gear-num fx-bad'
+paint()}}})
+const value=el(doc,'input',{class:'limit inline fx-gallery-gear-num',attrs:{type:'text',inputmode:'numeric',maxlength:'2','aria-label':t('gallery.gear.value')},
+dataset:{futGalleryGearValue:'1'},on:{input:(event)=>{const typed=String(event?.target?.value??'').replace(/\D+/g,'')
+if(typed==='')return
+const said=safe(()=>writeValue('galleryTradeSellValue',Number(typed)))
+value.className=said?.ok===true?'limit inline fx-gallery-gear-num':'limit inline fx-gallery-gear-num fx-bad'
+paint()}}})
+const pick=(key,id,label)=>el(doc,'button',{class:'fx-action',text:t(label),attrs:{type:'button'},dataset:{futGalleryGearPick:`${key}:${id}`},
+on:{click:(event)=>{event?.preventDefault?.()
+safe(()=>writeValue(key,id))
+paint()}}})
+const modes=SELL_MODES.map(([id,label])=>pick('galleryTradeSellMode',id,label))
+const dirs=SELL_DIRS.map(([id,label])=>pick('galleryTradeSellDir',id,label))
+const unit=el(doc,'span',{class:'unit'})
+const dirRow=el(doc,'div',{class:'fx-gallery-gear-row'},[el(doc,'span',{class:'fx-gallery-gear-key',text:t('gallery.gear.dir')}),...dirs])
+const valueRow=el(doc,'div',{class:'fx-gallery-gear-row'},[el(doc,'span',{class:'fx-gallery-gear-key',text:t('gallery.gear.value')}),value,unit])
+const now=el(doc,'div',{class:'fx-gallery-gear-say'})
+function paint(){const mode=safe(()=>readValue('galleryTradeSellMode'),'step')
+const dir=safe(()=>readValue('galleryTradeSellDir'),'below')
+const have=safe(()=>readValue('galleryTradeSellValue'),1)
+const pct=safe(()=>readValue('galleryTradeOverpay'),SETTING_VALUES.galleryTradeOverpay.default)
+modes.forEach((node,index)=>{node.className=SELL_MODES[index][0]===mode?'fx-action on':'fx-action'})
+dirs.forEach((node,index)=>{node.className=SELL_DIRS[index][0]===dir?'fx-action on':'fx-action'})
+dirRow.className=mode==='market'?'fx-gallery-gear-row fx-gallery-hidden':'fx-gallery-gear-row'
+valueRow.className=mode==='market'?'fx-gallery-gear-row fx-gallery-hidden':'fx-gallery-gear-row'
+unit.textContent=mode==='percent'?'%':plural('gallery.gear.unit.steps',have,{n:have})
+if(doc.activeElement!==value&&String(value.value??'')!==String(have))value.value=String(have)
+if(doc.activeElement!==overpay&&String(overpay.value??'')!==String(pct))overpay.value=String(pct)
+now.textContent=t('gallery.gear.now',{rule:sellRule()})
+if(parts)parts.pathSignature=null
+dirty=true
+schedule()}
+gearWindow=modalBox(doc,{mark:GEAR_WINDOW_MARK,box:'fx-hk-capture-box fx-gallery-gear-box',title:t('gallery.gear.title'),closeLabel:t('gallery.buy.close'),onBack:closeGear},
+[el(doc,'div',{class:'fx-gallery-gear-row'},[el(doc,'span',{class:'fx-gallery-gear-key',text:t('gallery.gear.overpay')}),overpay,el(doc,'span',{class:'unit',text:'%'})]),
+el(doc,'div',{class:'fx-gallery-gear-word',text:t('gallery.gear.overpay.hint')}),
+el(doc,'div',{class:'fx-gallery-gear-part'},[el(doc,'div',{class:'fx-gallery-gear-key',text:t('gallery.gear.list')}),
+el(doc,'div',{class:'fx-gallery-gear-modes'},modes),dirRow,valueRow,now]),
+modalButtons(doc,[{text:t('gallery.buy.close'),mark:'futGalleryGearDone',on:closeGear}])])
+;(doc.body??doc.documentElement)?.appendChild?.(gearWindow)
+paint()}
+function tabs(list,set){const count=(tab)=>list.filter((card)=>inTab(card,tab)).length
+const path=pathOn(set)
+const lit=path?'missing':view.tab
+const tab=(id,label)=>el(doc,'button',{class:lit===id?'fx-action on':'fx-action',attrs:{type:'button'},dataset:{[TAB_KEY]:id},
+on:{click:(event)=>{event?.preventDefault?.()
+if(view.tab===id&&!pathOn(set))return
+view.tab=id
+if(set)view.path={set:set.id,letter:null}
+render()}}},[el(doc,'span',{text:t(label)}),el(doc,'span',{class:'fx-gallery-n',text:String(count(id))})])
+return el(doc,'div',{class:'fx-gallery-tabs'},[tab('all','gallery.tab.all'),tab('missing','gallery.tab.missing'),tab('collected','gallery.tab.collected'),
+el(doc,'span',{class:'fx-gallery-air'}),el(doc,'span',{class:'fx-gallery-dim fx-gallery-cap',text:t(path?'gallery.tab.order.cheap':'gallery.tab.order')})])}
+function pathOn(set){const mark=pathLetterOf(set)
+return mark!==null&&pathCards(set,mark)!==null}
+function inTab(card,tab){if(tab==='missing')return card?.collected!==true
+if(tab==='collected')return card?.collected===true
+return true}
+function cardsOf(set){const engine=boundEngine
+if(!set||typeof engine?.cards!=='function')return[]
+const list=safe(()=>engine.cards(set.id),[])
+if(!Array.isArray(list))return[]
+return list.map((card)=>{const said=typeof engine.mark==='function'?safe(()=>engine.mark(card?.defId)):null
+return{defId:card?.defId,price:Number.isFinite(card?.price)&&set.market!==false?card.price:null,offMarket:set.market===false,
+score:Number.isFinite(said?.score)?said.score:(Number.isFinite(card?.score)?card.score:null),
+collected:typeof said?.collected==='boolean'?said.collected:card?.collected===true,
+face:galleryFace(card?.face)}}).filter((card)=>Number.isSafeInteger(card.defId))}
+function paintCards(set){const grid=parts.cards
+if(!grid)return
+const mark=pathLetterOf(set)
+const path=mark?pathCards(set,mark):null
+if(path){paintPathCards(set,grid,mark,path)
+return}
+const shown=cardsOf(set).filter((card)=>inTab(card,view.tab)).sort((a,b)=>(b.score??-1)-(a.score??-1)||a.defId-b.defId)
+const signature=`${set.id}|${set.market}|${view.tab}|${shown.map((card)=>`${card.defId}:${card.price}:${card.score}:${card.collected}:${card.face?1:0}`).join(',')}`
+if(cardsSignature===signature)return
+cardsSignature=signature
+disposeFaces()
+clear(grid)
+for(const card of shown)grid.appendChild(cardCell(card))
+watchFaces(grid)}
+function paintPathCards(set,grid,mark,path){const missing=cardsOf(set).filter((card)=>card.collected!==true)
+const byId=new Map(missing.map((card)=>[card.defId,card]))
+const inPath=path.ids.map((id)=>byId.get(id)).filter(Boolean)
+const rest=missing.filter((card)=>!path.ids.includes(card.defId)).sort((a,b)=>(a.price??Infinity)-(b.price??Infinity)||a.defId-b.defId)
+const signature=`${set.id}|path:${mark}|${path.ids.join(',')}|${path.sum}|${missing.map((card)=>`${card.defId}:${card.price}:${card.score}:${card.face?1:0}`).join(',')}`
+if(cardsSignature===signature)return
+cardsSignature=signature
+disposeFaces()
+clear(grid)
+const count=path.ids.length
+grid.appendChild(el(doc,'div',{class:'fx-gallery-path-sum',dataset:{[PATH_ROW_KEY]:`sum:${mark}`}},[el(doc,'span',{text:`${t('gallery.path.to',{letter:mark})} `}),
+el(doc,'span',{text:`${plural('gallery.cards.for',count,{n:count})} `}),el(doc,'b',{class:'fx-gallery-gold',text:path.priceless>0?UNKNOWN:(shortCoins(path.sum)??UNKNOWN)}),
+el(doc,'span',{class:'fx-gallery-dim',text:` · ${t('gallery.path.legend')}`})]))
+inPath.forEach((card,index)=>{const cell=cardCell(card)
+cell.className=`${cell.className} fx-gallery-card--path`
+cell.dataset.futGalleryPathN=String(index+1)
+grid.appendChild(cell)})
+for(const card of rest){const cell=cardCell(card)
+cell.className=`${cell.className} fx-gallery-card--rest`
+grid.appendChild(cell)}
+watchFaces(grid)}
+function cardCell(card){const base=safe(()=>cardOf(card.defId))
+const name=safe(()=>nameOf(card.defId))
+const position=Array.isArray(base?.positions)&&Number.isSafeInteger(base.positions[0])?POSITION_ORDER[base.positions[0]]??'':''
+const title=[name??`#${card.defId}`,[base?.rating,position].filter(Boolean).join(' ')].filter(Boolean).join(', ')
+const stop=(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()}
+const rarity=base?safe(()=>rarityKnown(base.rareflag)):false
+const unknownSpecial=rarity===false&&Number.isSafeInteger(base?.rareflag)&&base.rareflag>1
+if(!base||unknownSpecial||stubbed.has(String(card.defId))){counts.cardRows+=1
+return el(doc,'div',{class:'fx-gallery-card fx-gallery-card--row',attrs:{title},dataset:{[CARD_KEY]:String(card.defId)},on:{click:stop,mousedown:stop,mouseup:stop}},[pill(card),
+el(doc,'span',{class:'fx-gallery-card-line',text:[base?.rating,position,name??`#${card.defId}`].filter(Boolean).join(' ')})])}
+const face=el(doc,'div',{class:card.face?'fx-gallery-face fx-gallery-face--stats':'fx-gallery-face',dataset:{futGalleryFace:String(card.defId)}})
+face.__galleryCard={card,base}
+return el(doc,'div',{class:'fx-gallery-card',attrs:{title},dataset:{[CARD_KEY]:String(card.defId)},on:{click:stop,mousedown:stop,mouseup:stop}},[pill(card),face])}
+function pill(card){const half=card.collected===true?{kind:'check'}:(Number.isFinite(card.score)?{kind:'score',score:card.score}:null)
+if(card.offMarket===true)return galleryPill(doc,{t,priceText:CROSS,priceTitle:t('gallery.market.card'),half})
+return galleryPill(doc,{t,priceText:shortCoins(card.price)??UNKNOWN,priceTitle:t('gallery.pill.price'),half})}
+function onStub(hit){let key=null
+for(const[one,done]of faces){if(hit?.root&&done?.node===hit.root){key=one
+break}}
+if(key===null)return
+stubbed.add(key)
+counts.stubs=(counts.stubs??0)+1
+const done=faces.get(key)
+faces.delete(key)
+try{done?.dispose?.()}catch{}
+const grid=parts?.cards
+const cell=grid?.querySelector?.(`[data-fut-gallery-card="${key}"]`)??null
+const host=cell?.querySelector?.('[data-fut-gallery-face]')??null
+const card=host?.__galleryCard?.card
+if(!cell||!card)return
+try{cell.replaceWith(cardCell(card))}catch(err){onError(err)}}
+function watchFaces(grid){if(seer!==null){try{seer.disconnect()}catch{}
+seer=null}
+const hosts=Array.from(grid.querySelectorAll?.('[data-fut-gallery-face]')??[])
+const Seer=win?.IntersectionObserver
+if(typeof Seer!=='function'){for(const host of hosts)mountFace(host)
+return}
+try{seer=new Seer((entries)=>{for(const one of entries){if(one.isIntersecting){try{seer?.unobserve?.(one.target)}catch{}
+mountFace(one.target)}}},{root:grid,rootMargin:'260px 0px'})
+for(const host of hosts)seer.observe(host)}catch{seer=null
+for(const host of hosts)mountFace(host)}}
+function mountFace(host){const key=host?.dataset?.futGalleryFace
+if(!key||faces.has(key))return
+const {card,base}=host.__galleryCard??{}
+if(!card)return
+let done=null
+try{done=mountCard(host,card,base)}catch(err){onError(err)
+done=null}
+if(done&&done.ok===true){faces.set(key,done)
+counts.cardsMounted+=1}
+else{counts.cardsFailed+=1
+host.classList?.add?.('fx-gallery-face--none')}}
+function disposeFaces(){if(seer!==null){try{seer.disconnect()}catch{}
+seer=null}
+for(const done of faces.values()){try{done.dispose?.()}catch{}}
+faces.clear()}
+function fit(){if(panel===null||hub===null)return
+let box=null
+let frame=null
+try{box=panel.getBoundingClientRect?.()??null}catch{box=null}
+try{frame=hub.getBoundingClientRect?.()??null}catch{frame=null}
+const top=box?.top??null
+const frameTop=frame?.top??null
+const height=win?.innerHeight
+if(!Number.isFinite(top)||!Number.isFinite(frameTop)||!Number.isFinite(height)||height<=0)return
+if(!(box?.width>0)||!(frame?.width>0))return
+if(!(frameTop>0))return
+const bottom=height-(height-frameTop)*BOTTOM_AIR
+const value=Math.max(MIN_HEIGHT,Math.round(bottom-top))
+if(value===lastHeight)return
+lastHeight=value
+try{panel.style.setProperty('--gallery-h',`${value}px`)}catch{}}
+function probes(){const engine=safe(engineOf)
+const state=engine?safe(()=>engine.state()):null
+const parsed=safe(catalogNow)
+const sets=Array.isArray(state?.sets)?state.sets:[]
+const table=parsed?.scoreTable??{}
+const want={81:null,79:null}
+if(typeof engine?.cards==='function'){for(const set of sets){if(want[81]!==null&&want[79]!==null)break
+const list=safe(()=>engine.cards(set.id),[])
+for(const card of Array.isArray(list)?list:[]){const base=safe(()=>cardOf(card?.defId))
+const rating=base?.rating
+if((rating!==81&&rating!==79)||want[rating]!==null)continue
+if(!Number.isSafeInteger(base?.rareflag)||base.rareflag>1)continue
+const key=String(base.rareflag)
+want[rating]={set:set.id,defId:card.defId,rating,rarity:base.rareflag,score:card.score??null,
+table:table?.[key]?.[String(rating)]??null,byDefault:table?.default?.[String(rating)]??null}}}}
+const levels=(Array.isArray(parsed?.tags)?parsed.tags:[]).filter((tag)=>String(tag?.rule?.attribute??'').toUpperCase()==='LEVEL')
+.map((tag)=>({id:tag.id,name:tag.name,values:Array.isArray(tag?.rule?.values)?tag.rule.values.slice():tag?.rule?.values??null}))
+const faces=parsed?.face instanceof Map?parsed.face:null
+const firstFace=faces?faces.entries().next().value??null:null
+const piggy=typeof state?.piggy==='function'?safe(()=>state.piggy(PIGGY_DEFAULT)):null
+const starters=sets.filter((set)=>set?.reason==='any').map((set)=>({id:set.id,name:set.name,pool:Array.isArray(set.pool)?set.pool.length:null,
+inPiggy300:Array.isArray(piggy?.ids)?piggy.ids.includes(set.id):null,tokenPrice:set.tokenPrice??null}))
+return{catalog:parsed?{version:parsed.version??null,capturedAt:parsed.capturedAt??null,sets:sets.length,dropped:parsed.dropped??null,tags:Array.isArray(parsed.tags)?parsed.tags.length:0,scoreKeys:Object.keys(table)}:null,
+score81:want[81],score79:want[79],levels,face:{cards:faces?faces.size:0,first:firstFace?{defId:firstFace[0],face:firstFace[1]}:null},starters}}
+function publishProbe(){try{const bag=win?.__eshario
+if(!bag||typeof bag!=='object'||typeof bag.galleryPanel==='function')return
+bag.galleryPanel=()=>({...api.state(),why:api.why(),probes:probes()})}catch{
+}}
+function ours(node){for(let at=node,depth=0;at&&depth<40;at=at.parentNode,depth+=1){if(at===panel)return true}
+return false}
+function mount(){if(started||disposed)return{ok:false,reason:started?'started':'disposed'}
+started=true
+publishProbe()
+try{shellWatch=watchShells(onStub)}catch(err){onError(err)
+shellWatch=null}
+const Observer=win?.MutationObserver
+const watchRoot=doc?.body??doc?.documentElement??null
+if(typeof Observer==='function'&&watchRoot){try{observer=new Observer((records)=>{let foreign=false
+for(const one of records??[]){if(!ours(one?.target)){foreign=true
+break}}
+if(foreign)queuePass()})
+observer.observe(watchRoot,{childList:true,subtree:true})}catch(err){onError(err)
+observer=null}}
+try{doc?.addEventListener?.('click',nativePress,true)
+doc?.addEventListener?.('mouseup',nativePress,true)
+win?.addEventListener?.('resize',onResize)
+listening=true}catch(err){onError(err)}
+pass()
+return{ok:true,reason:null}}
+let passQueued=false
+function queuePass(){if(passQueued||disposed)return
+passQueued=true
+Promise.resolve().then(()=>{passQueued=false
+pass()})}
+function onResize(){lastHeight=null
+fit()}
+function dispose(){if(disposed)return
+clearAll()
+disposed=true
+try{shellWatch?.dispose?.()}catch{}
+shellWatch=null
+try{observer?.disconnect?.()}catch{}
+observer=null
+if(listening){try{doc?.removeEventListener?.('click',nativePress,true)
+doc?.removeEventListener?.('mouseup',nativePress,true)
+win?.removeEventListener?.('resize',onResize)}catch{}
+listening=false}
+if(restTimer!==null){try{win?.clearTimeout?.(restTimer)}catch{}
+restTimer=null}}
+const api={mount,pass,dispose,probes,
+press:pressRail,
+nativePress,
+render:()=>{dirty=true
+if(panel!==null)render()},
+isOpen:()=>view.open&&panel!==null,
+why:()=>({status:statusNow(),clubFound:Boolean(safe(clubButton)),railMounted:rail!==null&&rail.isConnected!==false,
+observing:observer!==null,blocked:safe(blocked,false)===true,passes:counts.passes}),
+state:()=>({build:GALLERY_BUILD,open:view.open,mounted:panel!==null,chip:view.chip,query:view.query,sort:{...view.sort},order:orderButtonOf(view.sort)?.id??null,
+intro:Boolean(panel?.querySelector?.('[data-fut-gallery-intro="1"]')),introHidden:view.introHidden===true,piggyOnly:view.piggyOnly,path:view.path.letter,selected:view.selected,tab:view.tab,want:view.want,
+faces:faces.size,nodes:panel?.querySelectorAll?.('*')?.length??0,height:lastHeight,counts:{...counts}})}
+return api}
+
+};
 // src/adapter/wallet.js
-__ESB_g[193]=function*(){__ESB_d(__ESB_x[193],{createWalletAdapter:()=>createWalletAdapter});yield;
+__ESB_g[195]=function*(){__ESB_d(__ESB_x[195],{createWalletAdapter:()=>createWalletAdapter});yield;
 const isBalance=(value)=>typeof value==='number'&&Number.isFinite(value)&&value>=0
 const COINS_TYPE='COINS'
 function createWalletAdapter(win=globalThis){return{
@@ -38788,7 +40497,7 @@ return null}}}}
 
 };
 // src/adapter/gallery-door.js
-__ESB_g[194]=function*(){__ESB_d(__ESB_x[194],{createGalleryDoor:()=>createGalleryDoor,installGalleryCapture:()=>installGalleryCapture,publishGalleryProbe:()=>publishGalleryProbe});yield;const{findEnum}=__ESB_x[57];const{appMain}=__ESB_x[58];const{criteriaClass}=__ESB_x[60];const{eaRequestsOff,BEFORE_CALL}=__ESB_x[90];const{classifyStatus,HTTP_STATUS}=__ESB_x[77];const{createWalletAdapter}=__ESB_x[193];const{readRawMark,personaKeyOf,CHECK_BATCH}=__ESB_x[192];
+__ESB_g[196]=function*(){__ESB_d(__ESB_x[196],{createGalleryDoor:()=>createGalleryDoor,installGalleryCapture:()=>installGalleryCapture,publishGalleryProbe:()=>publishGalleryProbe});yield;const{findEnum}=__ESB_x[57];const{appMain}=__ESB_x[58];const{criteriaClass}=__ESB_x[60];const{eaRequestsOff,BEFORE_CALL}=__ESB_x[90];const{classifyStatus,HTTP_STATUS}=__ESB_x[77];const{createWalletAdapter}=__ESB_x[195];const{readRawMark,personaKeyOf,CHECK_BATCH}=__ESB_x[191];
 ;
 ;
 ;
@@ -38973,7 +40682,7 @@ return true}catch{return false}}
 
 };
 // src/adapter/storage-screen.js
-__ESB_g[195]=function*(){__ESB_d(__ESB_x[195],{SCREEN_SELECTOR:()=>SCREEN_SELECTOR,installStorageScreenCapture:()=>installStorageScreenCapture});yield;const{refusesSuperclass}=__ESB_x[116];const{screenPrototype}=__ESB_x[74];
+__ESB_g[197]=function*(){__ESB_d(__ESB_x[197],{SCREEN_SELECTOR:()=>SCREEN_SELECTOR,installStorageScreenCapture:()=>installStorageScreenCapture});yield;const{refusesSuperclass}=__ESB_x[116];const{screenPrototype}=__ESB_x[74];
 ;
 const installations=new WeakMap()
 ;
@@ -39022,7 +40731,7 @@ installations.delete(proto)}}}
 
 };
 // src/features/sbc-storage.js
-__ESB_g[196]=function*(){__ESB_d(__ESB_x[196],{createSbcStorage:()=>createSbcStorage,moveStorageToClub:()=>moveStorageToClub});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoMark}=__ESB_x[69];const{SBC_FEATURE}=__ESB_x[164];const{SCREEN_SELECTOR}=__ESB_x[195];const{meterCalls,dayBudgetError,isDayBudgetError,COUNTER_UNAVAILABLE}=__ESB_x[98];
+__ESB_g[198]=function*(){__ESB_d(__ESB_x[198],{createSbcStorage:()=>createSbcStorage,moveStorageToClub:()=>moveStorageToClub});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoMark}=__ESB_x[69];const{SBC_FEATURE}=__ESB_x[164];const{SCREEN_SELECTOR}=__ESB_x[197];const{meterCalls,dayBudgetError,isDayBudgetError,COUNTER_UNAVAILABLE}=__ESB_x[98];
 ;
 ;
 ;
@@ -39500,7 +41209,7 @@ clearAll()}}}
 
 };
 // src/features/transfers-hub.js
-__ESB_g[197]=function*(){__ESB_d(__ESB_x[197],{createTransfersHub:()=>createTransfersHub});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{pileRoom}=__ESB_x[94];const{ensureControls,logoMark}=__ESB_x[69];const{TRANSFERS_HUB_ROOT,TRANSFERS_HUB_GRID,TRANSFER_LIST_TILE,TRANSFER_TARGETS_TILE,TILE_CONTENT_SELECTOR,TILE_BIG_VALUE,tradePileNow,watchPileNow,auctionSecondsLeft,auctionWonNow,auctionWinningNow,auctionOutbidNow}=__ESB_x[106];const{lotMoney,summarizeLots,coinsText,cardsUnitKey}=__ESB_x[99];const{priceBadgePeek}=__ESB_x[86];const{boughtOf}=__ESB_x[87];const{cardFrozenNow,cardFrozenKey}=__ESB_x[67];const{searchScreenRoot,SNIPE_FEATURE}=__ESB_x[125];
+__ESB_g[199]=function*(){__ESB_d(__ESB_x[199],{createTransfersHub:()=>createTransfersHub});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{pileRoom}=__ESB_x[94];const{ensureControls,logoMark}=__ESB_x[69];const{TRANSFERS_HUB_ROOT,TRANSFERS_HUB_GRID,TRANSFER_LIST_TILE,TRANSFER_TARGETS_TILE,TILE_CONTENT_SELECTOR,TILE_BIG_VALUE,tradePileNow,watchPileNow,auctionSecondsLeft,auctionWonNow,auctionWinningNow,auctionOutbidNow}=__ESB_x[106];const{lotMoney,summarizeLots,coinsText,cardsUnitKey}=__ESB_x[99];const{priceBadgePeek}=__ESB_x[86];const{boughtOf}=__ESB_x[87];const{cardFrozenNow,cardFrozenKey}=__ESB_x[67];const{searchScreenRoot,SNIPE_FEATURE}=__ESB_x[125];
 ;
 ;
 ;
@@ -39891,7 +41600,7 @@ dispose(){try{clearAll()}catch(err){onError(err)}}}}
 
 };
 // src/features/pack-value.js
-__ESB_g[198]=function*(){__ESB_d(__ESB_x[198],{PACK_VALUE_BUILD:()=>PACK_VALUE_BUILD,peekGiftOf:()=>peekGiftOf,peekSums:()=>peekSums,peekVerdictWords:()=>peekVerdictWords});yield;const{netAfterTax}=__ESB_x[71];const{peekItemFacts,peekItemGift,peekItemMisc}=__ESB_x[187];
+__ESB_g[200]=function*(){__ESB_d(__ESB_x[200],{PACK_VALUE_BUILD:()=>PACK_VALUE_BUILD,peekGiftOf:()=>peekGiftOf,peekSums:()=>peekSums,peekVerdictWords:()=>peekVerdictWords});yield;const{netAfterTax}=__ESB_x[71];const{peekItemFacts,peekItemGift,peekItemMisc}=__ESB_x[187];
 ;
 ;
 const PACK_VALUE_BUILD='PACKVALUE-1'
@@ -39973,7 +41682,7 @@ return{kind,tone,word,approx,title:notes.join('. ')}}
 
 };
 // src/features/store-catalog.js
-__ESB_g[199]=function*(){__ESB_d(__ESB_x[199],{CATALOG_SORT_DEFAULT:()=>CATALOG_SORT_DEFAULT,createStoreCatalog:()=>createStoreCatalog,printMark:()=>printMark,sanitizeCatalogSort:()=>sanitizeCatalogSort});yield;const{el,clear,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoLink}=__ESB_x[69];const{ensureWindow,WINDOW_CLOSE_CLASS,WINDOW_CLOSE_MARK}=__ESB_x[70];const{previewDefinitionId,promoTimeLeft}=__ESB_x[92];const{peekSums,peekVerdictWords}=__ESB_x[198];const{mountRevealCard}=__ESB_x[187];const{priceBadgePeek}=__ESB_x[86];const{packLockKey}=__ESB_x[65];
+__ESB_g[201]=function*(){__ESB_d(__ESB_x[201],{CATALOG_SORT_DEFAULT:()=>CATALOG_SORT_DEFAULT,createStoreCatalog:()=>createStoreCatalog,printMark:()=>printMark,sanitizeCatalogSort:()=>sanitizeCatalogSort});yield;const{el,clear,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoLink}=__ESB_x[69];const{ensureWindow,WINDOW_CLOSE_CLASS,WINDOW_CLOSE_MARK}=__ESB_x[70];const{previewDefinitionId,promoTimeLeft}=__ESB_x[92];const{peekSums,peekVerdictWords}=__ESB_x[200];const{mountRevealCard}=__ESB_x[187];const{priceBadgePeek}=__ESB_x[86];const{packLockKey}=__ESB_x[65];
 ;
 ;
 ;
@@ -40797,7 +42506,7 @@ lastPress,work:{settles,renders,captures}})}}
 
 };
 // src/features/pack-bulk.js
-__ESB_g[200]=function*(){__ESB_d(__ESB_x[200],{BULK_HOLD_LAST:()=>BULK_HOLD_LAST,BULK_HOLD_RETRY:()=>BULK_HOLD_RETRY,BULK_REASON_SERVER:()=>BULK_REASON_SERVER,bulkDoorReason:()=>bulkDoorReason,createPackBulk:()=>createPackBulk});yield;
+__ESB_g[202]=function*(){__ESB_d(__ESB_x[202],{BULK_HOLD_LAST:()=>BULK_HOLD_LAST,BULK_HOLD_RETRY:()=>BULK_HOLD_RETRY,BULK_REASON_SERVER:()=>BULK_REASON_SERVER,bulkDoorReason:()=>bulkDoorReason,createPackBulk:()=>createPackBulk});yield;
 const BULK_PAUSE_MIN_MS=1200
 const BULK_PAUSE_SPREAD_MS=1300
 const BULK_ANSWER_TIMEOUT_MS=20_000
@@ -41024,7 +42733,7 @@ last=null}}}
 
 };
 // src/features/unassigned-brain.js
-__ESB_g[201]=function*(){__ESB_d(__ESB_x[201],{DESTINATIONS:()=>DESTINATIONS,DUPE_ABOVE_DESTS:()=>DUPE_ABOVE_DESTS,DUPE_BELOW_DESTS:()=>DUPE_BELOW_DESTS,DUPE_NONE_DESTS:()=>DUPE_NONE_DESTS,DUPE_PRICE_DEFAULT:()=>DUPE_PRICE_DEFAULT,TIER_BRONZE:()=>TIER_BRONZE,TIER_GOLD:()=>TIER_GOLD,TIER_SILVER:()=>TIER_SILVER,adoptDefaults:()=>adoptDefaults,defaultUnassignedRules:()=>defaultUnassignedRules,planByRules:()=>planByRules,planCounts:()=>planCounts,rulesForStore:()=>rulesForStore,sanitizeUnassignedRules:()=>sanitizeUnassignedRules});yield;
+__ESB_g[203]=function*(){__ESB_d(__ESB_x[203],{DESTINATIONS:()=>DESTINATIONS,DUPE_ABOVE_DESTS:()=>DUPE_ABOVE_DESTS,DUPE_BELOW_DESTS:()=>DUPE_BELOW_DESTS,DUPE_NONE_DESTS:()=>DUPE_NONE_DESTS,DUPE_PRICE_DEFAULT:()=>DUPE_PRICE_DEFAULT,TIER_BRONZE:()=>TIER_BRONZE,TIER_GOLD:()=>TIER_GOLD,TIER_SILVER:()=>TIER_SILVER,adoptDefaults:()=>adoptDefaults,defaultUnassignedRules:()=>defaultUnassignedRules,planByRules:()=>planByRules,planCounts:()=>planCounts,rulesForStore:()=>rulesForStore,sanitizeUnassignedRules:()=>sanitizeUnassignedRules});yield;
 const DESTINATIONS=Object.freeze(['transfer','club','quicksell'])
 const TIER_NONE=0
 const TIER_BRONZE=1
@@ -41288,7 +42997,7 @@ locked:int(plan?.locked)??0,keep:int(plan?.keep)??0}}
 
 };
 // src/features/unassigned-strip.js
-__ESB_g[202]=function*(){__ESB_d(__ESB_x[202],{EXPENSIVE_FROM_DEFAULT:()=>EXPENSIVE_FROM_DEFAULT,createPackFlowLine:()=>createPackFlowLine,createUnassignedStrip:()=>createUnassignedStrip,packFlowText:()=>packFlowText,sanitizeExpensiveFrom:()=>sanitizeExpensiveFrom});yield;const{bandPauseMs}=__ESB_x[79];const{STOP_REASON_KEYS}=__ESB_x[103];const{netAfterTax}=__ESB_x[71];const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoLink}=__ESB_x[69];const{createCardViews,cardViewButton,sanitizeCardView,CARD_VIEW_DEFAULT,markScrollGutter,clearScrollGutter,SCROLL_MARK}=__ESB_x[76];const{priceBadgePeek}=__ESB_x[86];const{sanitizeUnassignedRules,rulesForStore,defaultUnassignedRules,adoptDefaults,planByRules,planCounts,DESTINATIONS,DUPE_ABOVE_DESTS,DUPE_BELOW_DESTS,DUPE_NONE_DESTS,TIER_BRONZE,TIER_SILVER,TIER_GOLD,DUPE_PRICE_DEFAULT}=__ESB_x[201];
+__ESB_g[204]=function*(){__ESB_d(__ESB_x[204],{EXPENSIVE_FROM_DEFAULT:()=>EXPENSIVE_FROM_DEFAULT,createPackFlowLine:()=>createPackFlowLine,createUnassignedStrip:()=>createUnassignedStrip,packFlowText:()=>packFlowText,sanitizeExpensiveFrom:()=>sanitizeExpensiveFrom});yield;const{bandPauseMs}=__ESB_x[79];const{STOP_REASON_KEYS}=__ESB_x[103];const{netAfterTax}=__ESB_x[71];const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoLink}=__ESB_x[69];const{createCardViews,cardViewButton,sanitizeCardView,CARD_VIEW_DEFAULT,markScrollGutter,clearScrollGutter,SCROLL_MARK}=__ESB_x[76];const{priceBadgePeek}=__ESB_x[86];const{sanitizeUnassignedRules,rulesForStore,defaultUnassignedRules,adoptDefaults,planByRules,planCounts,DESTINATIONS,DUPE_ABOVE_DESTS,DUPE_BELOW_DESTS,DUPE_NONE_DESTS,TIER_BRONZE,TIER_SILVER,TIER_GOLD,DUPE_PRICE_DEFAULT}=__ESB_x[203];
 ;
 ;
 ;
@@ -42426,7 +44135,7 @@ dispose(){remove()}}}
 
 };
 // src/adapter/unassigned-screen.js
-__ESB_g[203]=function*(){__ESB_d(__ESB_x[203],{createUnassignedNativeStep:()=>createUnassignedNativeStep,createUnassignedPerform:()=>createUnassignedPerform,installUnassignedScreenCapture:()=>installUnassignedScreenCapture,itemIdOf:()=>itemIdOf});yield;const{stopOnEaLimit,stopsRequest,EA_LIMIT,askDayBudget}=__ESB_x[98];const{toPromise}=__ESB_x[90];const{pileRoom,storagePileEnabled,reviewAction,redeemableEntity,ALLOWED,UNKNOWN}=__ESB_x[94];const{screenPrototype,screenClass}=__ESB_x[74];const{pileNumber,UNASSIGNED_LIST_DOOR}=__ESB_x[92];const{localizationUtil}=__ESB_x[128];
+__ESB_g[205]=function*(){__ESB_d(__ESB_x[205],{createUnassignedNativeStep:()=>createUnassignedNativeStep,createUnassignedPerform:()=>createUnassignedPerform,installUnassignedScreenCapture:()=>installUnassignedScreenCapture,itemIdOf:()=>itemIdOf});yield;const{stopOnEaLimit,stopsRequest,EA_LIMIT,askDayBudget}=__ESB_x[98];const{toPromise}=__ESB_x[90];const{pileRoom,storagePileEnabled,reviewAction,redeemableEntity,ALLOWED,UNKNOWN}=__ESB_x[94];const{screenPrototype,screenClass}=__ESB_x[74];const{pileNumber,UNASSIGNED_LIST_DOOR}=__ESB_x[92];const{localizationUtil}=__ESB_x[128];
 ;
 ;
 ;
@@ -42736,7 +44445,7 @@ return{ok:true,reason:null,count:taken}}
 
 };
 // src/features/store-grid.js
-__ESB_g[204]=function*(){__ESB_d(__ESB_x[204],{STORE_GRID_FEATURE:()=>STORE_GRID_FEATURE,createStoreGrid:()=>createStoreGrid});yield;const{el,clear,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoLink}=__ESB_x[69];const{packLockKey,openOwnedPack}=__ESB_x[65];const{printMark}=__ESB_x[199];const{createPackBulk,bulkDoorReason,BULK_HOLD_LAST,BULK_HOLD_RETRY,BULK_REASON_SERVER}=__ESB_x[200];const{restMarketAfterThrottle,askDayBudget,COUNTER_UNAVAILABLE}=__ESB_x[98];const{createPackFlowLine,packFlowText}=__ESB_x[202];const{createPackAdapter}=__ESB_x[95];const{unassignedInCache,unassignedCacheFresh,notePackOpened,goToUnassigned,backFromUnassigned,readPackContents,pickShowItem,showPackAnimation,packNoticePlan,backPlan,JUMP_CALLS,HUB_CALLS}=__ESB_x[92];const{installUnassignedScreenCapture}=__ESB_x[203];
+__ESB_g[206]=function*(){__ESB_d(__ESB_x[206],{STORE_GRID_FEATURE:()=>STORE_GRID_FEATURE,createStoreGrid:()=>createStoreGrid});yield;const{el,clear,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoLink}=__ESB_x[69];const{packLockKey,openOwnedPack}=__ESB_x[65];const{printMark}=__ESB_x[201];const{createPackBulk,bulkDoorReason,BULK_HOLD_LAST,BULK_HOLD_RETRY,BULK_REASON_SERVER}=__ESB_x[202];const{restMarketAfterThrottle,askDayBudget,COUNTER_UNAVAILABLE}=__ESB_x[98];const{createPackFlowLine,packFlowText}=__ESB_x[204];const{createPackAdapter}=__ESB_x[95];const{unassignedInCache,unassignedCacheFresh,notePackOpened,goToUnassigned,backFromUnassigned,readPackContents,pickShowItem,showPackAnimation,packNoticePlan,backPlan,JUMP_CALLS,HUB_CALLS}=__ESB_x[92];const{installUnassignedScreenCapture}=__ESB_x[205];
 ;
 ;
 ;
@@ -43446,7 +45155,7 @@ last=null}}}
 
 };
 // src/features/preview-memory.js
-__ESB_g[205]=function*(){__ESB_d(__ESB_x[205],{createPreviewMemory:()=>createPreviewMemory});yield;const{createCachedProvider}=__ESB_x[6];const{peekGiftOf}=__ESB_x[198];
+__ESB_g[207]=function*(){__ESB_d(__ESB_x[207],{createPreviewMemory:()=>createPreviewMemory});yield;const{createCachedProvider}=__ESB_x[6];const{peekGiftOf}=__ESB_x[200];
 ;
 ;
 const PREVIEW_MEMORY_KEY='preview.packs'
@@ -43553,7 +45262,7 @@ state:()=>({loaded,packs:Object.keys(provider.read().packs).length})}}
 
 };
 // src/features/pack-peek.js
-__ESB_g[206]=function*(){__ESB_d(__ESB_x[206],{PACK_PEEK_SURFACE:()=>PACK_PEEK_SURFACE,createPackPeek:()=>createPackPeek});yield;const{el,clear,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoLink}=__ESB_x[69];const{enhancePriceBadges,priceBadgePeek,priceBadgeCoins,onPriceBadgeMeasured}=__ESB_x[86];const{installPackRevealCapture,peekItemFacts}=__ESB_x[187];const{peekSums,peekVerdictWords,PACK_VALUE_BUILD}=__ESB_x[198];
+__ESB_g[208]=function*(){__ESB_d(__ESB_x[208],{PACK_PEEK_SURFACE:()=>PACK_PEEK_SURFACE,createPackPeek:()=>createPackPeek});yield;const{el,clear,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoLink}=__ESB_x[69];const{enhancePriceBadges,priceBadgePeek,priceBadgeCoins,onPriceBadgeMeasured}=__ESB_x[86];const{installPackRevealCapture,peekItemFacts}=__ESB_x[187];const{peekSums,peekVerdictWords,PACK_VALUE_BUILD}=__ESB_x[200];
 ;
 ;
 ;
@@ -43687,7 +45396,7 @@ capture={ok:false,reason:'disposed',dispose(){}}}}}
 
 };
 // src/features/pick-prices.js
-__ESB_g[207]=function*(){__ESB_d(__ESB_x[207],{PICK_BY_PRICE_FEATURE:()=>PICK_BY_PRICE_FEATURE,PICK_PRESELECT:()=>PICK_PRESELECT,PICK_PRESELECTS:()=>PICK_PRESELECTS,PICK_PRESELECT_DEFAULT:()=>PICK_PRESELECT_DEFAULT,createPickPrices:()=>createPickPrices,sanitizePickPreselect:()=>sanitizePickPreselect});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{PRICE_BADGE_FEATURE,priceBadgeCoins,shortCoins,definitionOf}=__ESB_x[86];const{pickItemFacts}=__ESB_x[75];
+__ESB_g[209]=function*(){__ESB_d(__ESB_x[209],{PICK_BY_PRICE_FEATURE:()=>PICK_BY_PRICE_FEATURE,PICK_PRESELECT:()=>PICK_PRESELECT,PICK_PRESELECTS:()=>PICK_PRESELECTS,PICK_PRESELECT_DEFAULT:()=>PICK_PRESELECT_DEFAULT,createPickPrices:()=>createPickPrices,sanitizePickPreselect:()=>sanitizePickPreselect});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{PRICE_BADGE_FEATURE,priceBadgeCoins,shortCoins,definitionOf}=__ESB_x[86];const{pickItemFacts}=__ESB_x[75];
 ;
 ;
 ;
@@ -44553,7 +46262,7 @@ dispose(){forget()}}}
 
 };
 // src/features/pack-show.js
-__ESB_g[208]=function*(){__ESB_d(__ESB_x[208],{PACK_SHOW_DEFAULTS:()=>PACK_SHOW_DEFAULTS,PACK_SHOW_MODES:()=>PACK_SHOW_MODES,PACK_SHOW_MODE_DEFAULT:()=>PACK_SHOW_MODE_DEFAULT,SHOW_RATING_DEFAULT:()=>SHOW_RATING_DEFAULT,createPackShow:()=>createPackShow,packShowModeOf:()=>packShowModeOf,packShowPatchOf:()=>packShowPatchOf,sanitizePackShowPolicy:()=>sanitizePackShowPolicy,sanitizeShowRating:()=>sanitizeShowRating});yield;
+__ESB_g[210]=function*(){__ESB_d(__ESB_x[210],{PACK_SHOW_DEFAULTS:()=>PACK_SHOW_DEFAULTS,PACK_SHOW_MODES:()=>PACK_SHOW_MODES,PACK_SHOW_MODE_DEFAULT:()=>PACK_SHOW_MODE_DEFAULT,SHOW_RATING_DEFAULT:()=>SHOW_RATING_DEFAULT,createPackShow:()=>createPackShow,packShowModeOf:()=>packShowModeOf,packShowPatchOf:()=>packShowPatchOf,sanitizePackShowPolicy:()=>sanitizePackShowPolicy,sanitizeShowRating:()=>sanitizeShowRating});yield;
 const PACK_SHOW_FEATURE='packShow'
 const SHOW_RATING_DEFAULT=86
 const SHOW_RATING_FLOOR=40
@@ -44669,7 +46378,7 @@ dispose(){contents=null}}}
 
 };
 // src/features/solver-options.js
-__ESB_g[209]=function*(){__ESB_d(__ESB_x[209],{SOLVER_DEFAULTS:()=>SOLVER_DEFAULTS,sanitizeSolverOptions:()=>sanitizeSolverOptions});yield;
+__ESB_g[211]=function*(){__ESB_d(__ESB_x[211],{SOLVER_DEFAULTS:()=>SOLVER_DEFAULTS,sanitizeSolverOptions:()=>sanitizeSolverOptions});yield;
 const SOLVER_DEFAULTS=Object.freeze({keepActiveSquad:true,adviseBuy:true})
 const SOLVER_FIELDS=Object.freeze(Object.keys(SOLVER_DEFAULTS))
 function sanitizeSolverOptions(stored){const out={...SOLVER_DEFAULTS}
@@ -44679,7 +46388,7 @@ return out}
 
 };
 // src/adapter/persona.js
-__ESB_g[210]=function*(){__ESB_d(__ESB_x[210],{createPersonaAdapter:()=>createPersonaAdapter});yield;const{appMain}=__ESB_x[58];
+__ESB_g[212]=function*(){__ESB_d(__ESB_x[212],{createPersonaAdapter:()=>createPersonaAdapter});yield;const{appMain}=__ESB_x[58];
 function platformOfSku(win,persona,sku){let own=null
 try{own=persona?.platform??null}catch{own=null}
 if(typeof own==='string'&&own!=='')return own
@@ -44727,7 +46436,7 @@ return controller.switchPersona(persona)}}}
 
 };
 // src/adapter/head-bar.js
-__ESB_g[211]=function*(){__ESB_d(__ESB_x[211],{PLATFORM_SIGN_HOST:()=>PLATFORM_SIGN_HOST,createPlatformSign:()=>createPlatformSign,createRivalsSource:()=>createRivalsSource});yield;const{eaRequestsOff,BEFORE_CALL}=__ESB_x[90];const{findDoor}=__ESB_x[57];const{serverSettingKeys}=__ESB_x[91];const{askDayBudget}=__ESB_x[98];const{createPersonaAdapter}=__ESB_x[210];
+__ESB_g[213]=function*(){__ESB_d(__ESB_x[213],{PLATFORM_SIGN_HOST:()=>PLATFORM_SIGN_HOST,createPlatformSign:()=>createPlatformSign,createRivalsSource:()=>createRivalsSource});yield;const{eaRequestsOff,BEFORE_CALL}=__ESB_x[90];const{findDoor}=__ESB_x[57];const{serverSettingKeys}=__ESB_x[91];const{askDayBudget}=__ESB_x[98];const{createPersonaAdapter}=__ESB_x[212];
 ;
 ;
 ;
@@ -44921,7 +46630,7 @@ return platformSignOf(platform,win)}}
 
 };
 // src/features/update-notice.js
-__ESB_g[212]=function*(){__ESB_d(__ESB_x[212],{placeUpdateLine:()=>placeUpdateLine,updateLine:()=>updateLine});yield;const{createBridgeClient}=__ESB_x[2];const{createI18n}=__ESB_x[56];const{el}=__ESB_x[68];
+__ESB_g[214]=function*(){__ESB_d(__ESB_x[214],{placeUpdateLine:()=>placeUpdateLine,updateLine:()=>updateLine});yield;const{createBridgeClient}=__ESB_x[2];const{createI18n}=__ESB_x[56];const{el}=__ESB_x[68];
 ;
 ;
 ;
@@ -45104,7 +46813,7 @@ if(box&&typeof box==='object'&&typeof box.update!=='function'){box.update=(what)
 
 };
 // src/features/account-door.js
-__ESB_g[213]=function*(){__ESB_d(__ESB_x[213],{openAccountDoor:()=>openAccountDoor,watchAccountDoor:()=>watchAccountDoor});yield;const{createBridgeClient}=__ESB_x[2];const{CHANNEL,FROM_CONTENT,KIND_EVENT}=__ESB_x[0];const{ACCOUNT_OPEN}=__ESB_x[11];
+__ESB_g[215]=function*(){__ESB_d(__ESB_x[215],{openAccountDoor:()=>openAccountDoor,watchAccountDoor:()=>watchAccountDoor});yield;const{createBridgeClient}=__ESB_x[2];const{CHANNEL,FROM_CONTENT,KIND_EVENT}=__ESB_x[0];const{ACCOUNT_OPEN}=__ESB_x[11];
 ;
 ;
 ;
@@ -45148,7 +46857,7 @@ if(box&&typeof box==='object'&&typeof box.accountDoor!=='function')box.accountDo
 
 };
 // src/features/head-bar.js
-__ESB_g[214]=function*(){__ESB_d(__ESB_x[214],{PANEL_DOOR_SELECTOR:()=>PANEL_DOOR_SELECTOR,chipScale:()=>chipScale,createHeadBar:()=>createHeadBar,defaultHeadView:()=>defaultHeadView,sanitizeHeadView:()=>sanitizeHeadView});yield;const{el,ensureStylesheet,ensureTheme,logoMark}=__ESB_x[68];const{createPlatformSign,PLATFORM_SIGN_HOST}=__ESB_x[211];const{BUDGET_LIMIT}=__ESB_x[80];const{untilText,SBC_HOUR_CAP,SBC_DAY_CAP,SEARCH_HOUR_CAP}=__ESB_x[78];const{DAY_REQUEST_CAP}=__ESB_x[98];const{placeUpdateLine}=__ESB_x[212];const{openAccountDoor,watchAccountDoor}=__ESB_x[213];const{GALLERY_FEATURE,galleryTokens,onGalleryTokens}=__ESB_x[82];
+__ESB_g[216]=function*(){__ESB_d(__ESB_x[216],{PANEL_DOOR_SELECTOR:()=>PANEL_DOOR_SELECTOR,chipScale:()=>chipScale,createHeadBar:()=>createHeadBar,defaultHeadView:()=>defaultHeadView,sanitizeHeadView:()=>sanitizeHeadView});yield;const{el,ensureStylesheet,ensureTheme,logoMark}=__ESB_x[68];const{createPlatformSign,PLATFORM_SIGN_HOST}=__ESB_x[213];const{BUDGET_LIMIT}=__ESB_x[80];const{untilText,SBC_HOUR_CAP,SBC_DAY_CAP,SEARCH_HOUR_CAP}=__ESB_x[78];const{DAY_REQUEST_CAP}=__ESB_x[98];const{placeUpdateLine}=__ESB_x[214];const{openAccountDoor,watchAccountDoor}=__ESB_x[215];const{GALLERY_FEATURE,galleryTokens,onGalleryTokens}=__ESB_x[82];
 ;
 ;
 ;
@@ -45571,7 +47280,7 @@ drop()}}}
 
 };
 // src/features/market-filter-memory.js
-__ESB_g[215]=function*(){__ESB_d(__ESB_x[215],{createMarketFilterMemory:()=>createMarketFilterMemory,defaultMarketFilterView:()=>defaultMarketFilterView,sanitizeMarketFilterView:()=>sanitizeMarketFilterView});yield;const{FIELD_NAMES,FILTER_FIELDS,isValidValue}=__ESB_x[59];const{EPOCH_REASON}=__ESB_x[105];
+__ESB_g[217]=function*(){__ESB_d(__ESB_x[217],{createMarketFilterMemory:()=>createMarketFilterMemory,defaultMarketFilterView:()=>defaultMarketFilterView,sanitizeMarketFilterView:()=>sanitizeMarketFilterView});yield;const{FIELD_NAMES,FILTER_FIELDS,isValidValue}=__ESB_x[59];const{EPOCH_REASON}=__ESB_x[105];
 ;
 ;
 const MARKET_MEMORY_BUILD='M2TPL'
@@ -45837,7 +47546,7 @@ seenRest=null}}}
 
 };
 // src/features/ui-state.js
-__ESB_g[216]=function*(){__ESB_d(__ESB_x[216],{SBC_COLUMNS_DEFAULT:()=>SBC_COLUMNS_DEFAULT,SBC_COLUMNS_MAX:()=>SBC_COLUMNS_MAX,SBC_COLUMNS_MIN:()=>SBC_COLUMNS_MIN,SBC_PINNED_DEFAULT:()=>SBC_PINNED_DEFAULT,SBC_SORTS:()=>SBC_SORTS,createBridgeUiProvider:()=>createBridgeUiProvider,createUiState:()=>createUiState,defaultUiState:()=>defaultUiState,pickPreselectFromToggles:()=>pickPreselectFromToggles,sanitizeHotkeyProfile:()=>sanitizeHotkeyProfile,sanitizeUiState:()=>sanitizeUiState});yield;const{createCachedProvider}=__ESB_x[6];const{sanitizeSbcPolicy}=__ESB_x[156];const{sanitizeBindings}=__ESB_x[127];const{sanitizePackShowPolicy,sanitizeShowRating,PACK_SHOW_DEFAULTS}=__ESB_x[208];const{sanitizeSolverOptions,SOLVER_DEFAULTS}=__ESB_x[209];const{sanitizeExpensiveFrom,EXPENSIVE_FROM_DEFAULT}=__ESB_x[202];const{sanitizeUnassignedRules,defaultUnassignedRules}=__ESB_x[201];const{sanitizeCardGridView,defaultCardGridView}=__ESB_x[183];const{sanitizeClubBarView,defaultClubBarView}=__ESB_x[185];const{sanitizeCardView,CARD_VIEWS,CARD_VIEW_DEFAULT}=__ESB_x[76];const{sanitizeVolume,VOLUME_LEVELS,VOLUME_DEFAULT}=__ESB_x[146];const{sanitizeRelistPricing,relistPricingAfter,RELIST_MODES,RELIST_DIRS,RELIST_PERCENT_MIN,RELIST_PERCENT_MAX}=__ESB_x[99];const{sanitizeHeadView,defaultHeadView}=__ESB_x[214];const{sanitizeCatalogSort,CATALOG_SORT_DEFAULT}=__ESB_x[199];const{sanitizeMarketBotView,defaultMarketBotView}=__ESB_x[126];const{sanitizeMarketFilterView,defaultMarketFilterView}=__ESB_x[215];const{sanitizePickPreselect,PICK_PRESELECT}=__ESB_x[207];const{SUPPORTED_LOCALES}=__ESB_x[56];
+__ESB_g[218]=function*(){__ESB_d(__ESB_x[218],{SBC_COLUMNS_DEFAULT:()=>SBC_COLUMNS_DEFAULT,SBC_COLUMNS_MAX:()=>SBC_COLUMNS_MAX,SBC_COLUMNS_MIN:()=>SBC_COLUMNS_MIN,SBC_PINNED_DEFAULT:()=>SBC_PINNED_DEFAULT,SBC_SORTS:()=>SBC_SORTS,createBridgeUiProvider:()=>createBridgeUiProvider,createUiState:()=>createUiState,defaultUiState:()=>defaultUiState,pickPreselectFromToggles:()=>pickPreselectFromToggles,sanitizeHotkeyProfile:()=>sanitizeHotkeyProfile,sanitizeUiState:()=>sanitizeUiState});yield;const{createCachedProvider}=__ESB_x[6];const{sanitizeSbcPolicy}=__ESB_x[156];const{sanitizeBindings}=__ESB_x[127];const{sanitizePackShowPolicy,sanitizeShowRating,PACK_SHOW_DEFAULTS}=__ESB_x[210];const{sanitizeSolverOptions,SOLVER_DEFAULTS}=__ESB_x[211];const{sanitizeExpensiveFrom,EXPENSIVE_FROM_DEFAULT}=__ESB_x[204];const{sanitizeUnassignedRules,defaultUnassignedRules}=__ESB_x[203];const{sanitizeCardGridView,defaultCardGridView}=__ESB_x[183];const{sanitizeClubBarView,defaultClubBarView}=__ESB_x[185];const{sanitizeCardView,CARD_VIEWS,CARD_VIEW_DEFAULT}=__ESB_x[76];const{sanitizeVolume,VOLUME_LEVELS,VOLUME_DEFAULT}=__ESB_x[146];const{sanitizeRelistPricing,relistPricingAfter,RELIST_MODES,RELIST_DIRS,RELIST_PERCENT_MIN,RELIST_PERCENT_MAX}=__ESB_x[99];const{sanitizeHeadView,defaultHeadView}=__ESB_x[216];const{sanitizeCatalogSort,CATALOG_SORT_DEFAULT}=__ESB_x[201];const{sanitizeMarketBotView,defaultMarketBotView}=__ESB_x[126];const{sanitizeMarketFilterView,defaultMarketFilterView}=__ESB_x[217];const{sanitizePickPreselect,PICK_PRESELECT}=__ESB_x[209];const{SUPPORTED_LOCALES}=__ESB_x[56];
 ;
 ;
 ;
@@ -46206,7 +47915,7 @@ return{read:()=>({...value}),write(next){value=sanitizeUiState(next)}}}
 
 };
 // src/features/sbc-tab.js
-__ESB_g[217]=function*(){__ESB_d(__ESB_x[217],{createSbcTab:()=>createSbcTab,expiresSoon:()=>expiresSoon});yield;const{el,clear,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoLink}=__ESB_x[69];const{parseRequirements,needOf,COMPARE,REQUIREMENT_KEY,RATING_TIER,TIER_BOUNDS,tierOf}=__ESB_x[150];const{demandClasses,classCoversCard,classPrice,neededTiers}=__ESB_x[153];const{LADDER_MIN_RATING}=__ESB_x[158];const{setFactsOf,categoryFactsOf,challengesWithMemory,challengeMemorySize,forgetChallenges,installSetDtoCapture,submittedOf,submittedMemorySize,forgetSubmitted,tileHostOf,tilePartOf,toolbarSlotOf,TILE_ROOT_SELECTOR,TILE_REWARD_SELECTOR,TILE_EXPIRY_SELECTOR}=__ESB_x[177];const{SBC_COLUMNS_MIN,SBC_COLUMNS_MAX,SBC_COLUMNS_DEFAULT,SBC_PINNED_DEFAULT,SBC_SORTS}=__ESB_x[216];
+__ESB_g[219]=function*(){__ESB_d(__ESB_x[219],{createSbcTab:()=>createSbcTab,expiresSoon:()=>expiresSoon});yield;const{el,clear,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoLink}=__ESB_x[69];const{parseRequirements,needOf,COMPARE,REQUIREMENT_KEY,RATING_TIER,TIER_BOUNDS,tierOf}=__ESB_x[150];const{demandClasses,classCoversCard,classPrice,neededTiers}=__ESB_x[153];const{LADDER_MIN_RATING}=__ESB_x[158];const{setFactsOf,categoryFactsOf,challengesWithMemory,challengeMemorySize,forgetChallenges,installSetDtoCapture,submittedOf,submittedMemorySize,forgetSubmitted,tileHostOf,tilePartOf,toolbarSlotOf,TILE_ROOT_SELECTOR,TILE_REWARD_SELECTOR,TILE_EXPIRY_SELECTOR}=__ESB_x[177];const{SBC_COLUMNS_MIN,SBC_COLUMNS_MAX,SBC_COLUMNS_DEFAULT,SBC_PINNED_DEFAULT,SBC_SORTS}=__ESB_x[218];
 ;
 ;
 ;
@@ -47269,7 +48978,7 @@ return count}
 
 };
 // src/features/sbc-set.js
-__ESB_g[218]=function*(){__ESB_d(__ESB_x[218],{createSbcSet:()=>createSbcSet});yield;const{rewardSaleOf,setFactsOf}=__ESB_x[177];const{CHALLENGE_CONTENT_SELECTOR,SET_INFO_SELECTOR,SET_STATUS_SELECTOR,SET_EXPIRY_SELECTOR,challengeFactsOf,requirementPairsOf}=__ESB_x[176];const{chipsOf,packChips}=__ESB_x[163];const{expiresSoon}=__ESB_x[217];const{el,clear,ensureTheme,ensureStylesheet,logoLink}=__ESB_x[68];const{ensureControls}=__ESB_x[69];
+__ESB_g[220]=function*(){__ESB_d(__ESB_x[220],{createSbcSet:()=>createSbcSet});yield;const{rewardSaleOf,setFactsOf}=__ESB_x[177];const{CHALLENGE_CONTENT_SELECTOR,SET_INFO_SELECTOR,SET_STATUS_SELECTOR,SET_EXPIRY_SELECTOR,challengeFactsOf,requirementPairsOf}=__ESB_x[176];const{chipsOf,packChips}=__ESB_x[163];const{expiresSoon}=__ESB_x[219];const{el,clear,ensureTheme,ensureStylesheet,logoLink}=__ESB_x[68];const{ensureControls}=__ESB_x[69];
 ;
 ;
 ;
@@ -47709,7 +49418,9 @@ return}
 if(node===null||!connected(node)||node.parentNode!==info){node?.remove?.()
 node=el(doc,'div',{class:'fut-sbc-set-more',dataset:{[MORE_KEY]:'1'}})
 info.appendChild(node)}
-node.textContent=t('sbcSet.more',{list:last.more})}
+const said=t('sbcSet.more',{list:last.more})
+if(node.textContent!==said)node.textContent=said
+if(node.getAttribute?.('title')!==said)node.setAttribute?.('title',said)}
 return{
 apply(capture){if(!capture?.host||!capture?.root)return false
 stats.captures+=1
@@ -47825,7 +49536,7 @@ return count}
 
 };
 // src/adapter/futgg-sbc.js
-__ESB_g[219]=function*(){__ESB_d(__ESB_x[219],{createFutggSbc:()=>createFutggSbc});yield;
+__ESB_g[221]=function*(){__ESB_d(__ESB_x[221],{createFutggSbc:()=>createFutggSbc});yield;
 const FUTGG_ORIGIN='https://www.fut.gg'
 const LIST_PATH='/api/fut/sbc/'
 const VOTES_PATH='/api/voting/entities/'
@@ -47953,7 +49664,7 @@ return Number.isFinite(n)&&n>0?Math.round(n):null}
 
 };
 // src/features/sbc-ladder-warm.js
-__ESB_g[220]=function*(){__ESB_d(__ESB_x[220],{awaitLadderWarm:()=>awaitLadderWarm,createSbcLadderWarm:()=>createSbcLadderWarm});yield;const{unionClasses}=__ESB_x[157];const{bucketsWanted,identityWantsFrom,LADDER_FROM_WARM,ladderLedger,liveClassesFrom}=__ESB_x[160];
+__ESB_g[222]=function*(){__ESB_d(__ESB_x[222],{awaitLadderWarm:()=>awaitLadderWarm,createSbcLadderWarm:()=>createSbcLadderWarm});yield;const{unionClasses}=__ESB_x[157];const{bucketsWanted,identityWantsFrom,LADDER_FROM_WARM,ladderLedger,liveClassesFrom}=__ESB_x[160];
 ;
 ;
 const LADDER_WARM_QUEUE_LIMIT=8
@@ -48182,7 +49893,7 @@ if(done!==null)done()}}}
 
 };
 // src/features/sbc-warm.js
-__ESB_g[221]=function*(){__ESB_d(__ESB_x[221],{BACKGROUND_TIME_MS:()=>BACKGROUND_TIME_MS,createSbcWarm:()=>createSbcWarm});yield;const{setFactsOf}=__ESB_x[177];const{awaitLadderWarm}=__ESB_x[220];
+__ESB_g[223]=function*(){__ESB_d(__ESB_x[223],{BACKGROUND_TIME_MS:()=>BACKGROUND_TIME_MS,createSbcWarm:()=>createSbcWarm});yield;const{setFactsOf}=__ESB_x[177];const{awaitLadderWarm}=__ESB_x[222];
 ;
 ;
 const BACKGROUND_TIME_MS=15000
@@ -48316,7 +50027,7 @@ running=false}}}
 
 };
 // src/features/sbc-submit-hook.js
-__ESB_g[222]=function*(){__ESB_d(__ESB_x[222],{createSubmitGuardHook:()=>createSubmitGuardHook});yield;const{SUBMIT_GESTURE,SUBMIT_TARGET_SELECTOR,SUBMIT_DOORS,submitButtonsOf,installSubmitServiceGuard}=__ESB_x[117];const{createSbcSubmits}=__ESB_x[78];const{stopOnEaLimit}=__ESB_x[98];
+__ESB_g[224]=function*(){__ESB_d(__ESB_x[224],{createSubmitGuardHook:()=>createSubmitGuardHook});yield;const{SUBMIT_GESTURE,SUBMIT_TARGET_SELECTOR,SUBMIT_DOORS,submitButtonsOf,installSubmitServiceGuard}=__ESB_x[117];const{createSbcSubmits}=__ESB_x[78];const{stopOnEaLimit}=__ESB_x[98];
 ;
 ;
 ;
@@ -48539,7 +50250,7 @@ gesture=null}}}
 
 };
 // src/ui/boot-splash.js
-__ESB_g[223]=function*(){__ESB_d(__ESB_x[223],{createBootSplash:()=>createBootSplash});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoMark}=__ESB_x[69];
+__ESB_g[225]=function*(){__ESB_d(__ESB_x[225],{createBootSplash:()=>createBootSplash});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoMark}=__ESB_x[69];
 ;
 ;
 const LOADER_ID='futweb-loader'
@@ -48622,7 +50333,7 @@ dispose(){hide()}}}
 
 };
 // src/adapter/squad-search.js
-__ESB_g[224]=function*(){__ESB_d(__ESB_x[224],{createSlotSearchScreen:()=>createSlotSearchScreen,slotSearchSupport:()=>slotSearchSupport});yield;const{findDoor}=__ESB_x[57];const{FILTERS_SCREEN_DOOR,searchTypes,noWindow}=__ESB_x[60];
+__ESB_g[226]=function*(){__ESB_d(__ESB_x[226],{createSlotSearchScreen:()=>createSlotSearchScreen,slotSearchSupport:()=>slotSearchSupport});yield;const{findDoor}=__ESB_x[57];const{FILTERS_SCREEN_DOOR,searchTypes,noWindow}=__ESB_x[60];
 ;
 ;
 const SLOT_MODEL_DOOR=Object.freeze({name:'slot-search-model',
@@ -48661,7 +50372,7 @@ function slotSearchSupport(win){return{filters:typeof classOf(win,FILTERS_SCREEN
 
 };
 // src/adapter/squad-builder.js
-__ESB_g[225]=function*(){__ESB_d(__ESB_x[225],{arrangeByPositions:()=>arrangeByPositions});yield;const{findDoor}=__ESB_x[57];
+__ESB_g[227]=function*(){__ESB_d(__ESB_x[227],{arrangeByPositions:()=>arrangeByPositions});yield;const{findDoor}=__ESB_x[57];
 ;
 const SQUAD_BUILDER_DOOR=Object.freeze({name:'squad-builder-model',
 declares:['generatePlayerCollection','filterDuplicates','findBestFitByPosition'],want:'class'})
@@ -48683,7 +50394,7 @@ return out.some((item)=>item===null||item===undefined)?null:out}
 
 };
 // src/adapter/trade-access.js
-__ESB_g[226]=function*(){__ESB_d(__ESB_x[226],{readTradeAccess:()=>readTradeAccess});yield;
+__ESB_g[228]=function*(){__ESB_d(__ESB_x[228],{readTradeAccess:()=>readTradeAccess});yield;
 const TRADE_ACCESS=Object.freeze({NONE:0,BANNED:1,ALLOWED:2,CONSOLE_ONLY:3,UNAVAILABLE:4,MAINTENANCE:100})
 const levelOf=(win,name)=>{const value=win?.TradeAccessLevel?.[name]
 return Number.isFinite(value)?value:TRADE_ACCESS[name]}
@@ -48699,7 +50410,7 @@ return{known:true,allowed,consoleOnly:allowed===false&&level!==null&&level===lev
 
 };
 // src/adapter/notification.js
-__ESB_g[227]=function*(){__ESB_d(__ESB_x[227],{sayEaNotice:()=>sayEaNotice});yield;
+__ESB_g[229]=function*(){__ESB_d(__ESB_x[229],{sayEaNotice:()=>sayEaNotice});yield;
 const EA_NOTICE_TYPE=Object.freeze({POSITIVE:0,NEUTRAL:1,NEGATIVE:2})
 const typeOf=(win,name)=>{let live
 try{live=win?.UINotificationType?.[name]}catch{live=undefined}
@@ -48714,7 +50425,7 @@ return true}catch{return false}}
 
 };
 // src/features/market-rating-search.js
-__ESB_g[228]=function*(){__ESB_d(__ESB_x[228],{createRatingSearch:()=>createRatingSearch});yield;const{el,ensureTheme,ensureStylesheet,logoMark}=__ESB_x[68];const{modalBox}=__ESB_x[70];const{SNIPE_FEATURE}=__ESB_x[125];
+__ESB_g[230]=function*(){__ESB_d(__ESB_x[230],{createRatingSearch:()=>createRatingSearch});yield;const{el,ensureTheme,ensureStylesheet,logoMark}=__ESB_x[68];const{modalBox}=__ESB_x[70];const{SNIPE_FEATURE}=__ESB_x[125];
 ;
 ;
 ;
@@ -48961,7 +50672,7 @@ dispose(){clearAll()}}}
 
 };
 // src/features/market-bot-bar.js
-__ESB_g[229]=function*(){__ESB_d(__ESB_x[229],{createMarketBotBar:()=>createMarketBotBar});yield;const{el,ensureTheme,ensureStylesheet,logoLink,logoMark}=__ESB_x[68];const{ensureControls}=__ESB_x[69];const{SEARCH_BUTTON_BOX,NATIVE_BUTTON_CLASS}=__ESB_x[106];const{AFTER_BUY_KEY,afterBuyOf,afterBuyShownOf,parseOptions}=__ESB_x[120];const{buyCeilingOf}=__ESB_x[123];const{stopReasonKey}=__ESB_x[103];const{FILTER_CHANGED,COLUMN_SELECTOR}=__ESB_x[126];const{modalBox,modalButtons}=__ESB_x[70];const{SNIPE_FEATURE,searchScreenRoot,targetFromCriteria,TARGET_NO_CAP,controlModel,clockWords,digitsOf,AFTER_BUY_CHOICES,stopLadder,consentLabelKey,consentTextDiffers,CONSENT_TEXT_MISMATCH,DISCLAIMER_TEXT_KEY,narrowWords,cardIdOf,huntsSpecial}=__ESB_x[125];const{createMarketBotColumn}=__ESB_x[126];const{createRatingSearch}=__ESB_x[228];
+__ESB_g[231]=function*(){__ESB_d(__ESB_x[231],{createMarketBotBar:()=>createMarketBotBar});yield;const{el,ensureTheme,ensureStylesheet,logoLink,logoMark}=__ESB_x[68];const{ensureControls}=__ESB_x[69];const{SEARCH_BUTTON_BOX,NATIVE_BUTTON_CLASS}=__ESB_x[106];const{AFTER_BUY_KEY,afterBuyOf,afterBuyShownOf,parseOptions}=__ESB_x[120];const{buyCeilingOf}=__ESB_x[123];const{stopReasonKey}=__ESB_x[103];const{FILTER_CHANGED,COLUMN_SELECTOR}=__ESB_x[126];const{modalBox,modalButtons}=__ESB_x[70];const{SNIPE_FEATURE,searchScreenRoot,targetFromCriteria,TARGET_NO_CAP,controlModel,clockWords,digitsOf,AFTER_BUY_CHOICES,stopLadder,consentLabelKey,consentTextDiffers,CONSENT_TEXT_MISMATCH,DISCLAIMER_TEXT_KEY,narrowWords,cardIdOf,huntsSpecial}=__ESB_x[125];const{createMarketBotColumn}=__ESB_x[126];const{createRatingSearch}=__ESB_x[230];
 ;
 ;
 ;
@@ -49611,7 +51322,7 @@ node.setAttribute('placeholder',t('snipe.runNoLimit'))}
 if(button!==null){const text=model.running?t('marketBot.stop'):t('marketBot.start')
 const label=button.querySelector?.('.fx-mbot-btn-text')??null
 if(label&&label.textContent!==text)label.textContent=text
-const hint=model.running?t('marketBot.stopHint'):t('marketBot.startHint')
+const hint=`${model.running?t('marketBot.stopHint'):t('marketBot.startHint')}\n\n${t('marketBot.tabAwake')}`
 if(button.getAttribute('title')!==hint)button.setAttribute('title',hint)
 const run=model.running?'1':'0'
 if(button.dataset[MARKET_RUN_MARK]!==run)button.dataset[MARKET_RUN_MARK]=run}
@@ -49747,7 +51458,7 @@ rating.dispose()}}}
 
 };
 // src/adapter/search-names.js
-__ESB_g[230]=function*(){__ESB_d(__ESB_x[230],{createSearchNames:()=>createSearchNames});yield;
+__ESB_g[232]=function*(){__ESB_d(__ESB_x[232],{createSearchNames:()=>createSearchNames});yield;
 const TEAM_KEY=(year,id)=>`global.teamabbr15.${year}.team${id}`
 const LEAGUE_KEY=(year,id)=>`global.leagueabbr15.${year}.league${id}`
 const RARITY_KEY=(id)=>`item.raretype${id}`
@@ -49792,7 +51503,7 @@ return{club:(value)=>ask(value,'team'),league:(value)=>ask(value,'league'),rarit
 
 };
 // src/adapter/item-card.js
-__ESB_g[231]=function*(){__ESB_d(__ESB_x[231],{mountItemCard:()=>mountItemCard});yield;const{createConceptItem}=__ESB_x[148];
+__ESB_g[233]=function*(){__ESB_d(__ESB_x[233],{mountItemCard:()=>mountItemCard});yield;const{createConceptItem}=__ESB_x[148];
 ;
 const CARD_STEPS=Object.freeze(['no-factory','no-item','create','init','render','no-root','mount'])
 function mountItemCard(win,host,source={}){if(!win||!host)return{ok:false,step:'no-factory'}
@@ -49819,7 +51530,7 @@ return{ok:false,step}}
 
 };
 // src/features/market-price.js
-__ESB_g[232]=function*(){__ESB_d(__ESB_x[232],{createMarketPriceSource:()=>createMarketPriceSource,criteriaForCard:()=>criteriaForCard,marketCacheKey:()=>marketCacheKey});yield;const{findMinBin,DEFAULT_MAX_REQUESTS:MIN_BIN_MAX_REQUESTS}=__ESB_x[80];const{normalizeKey}=__ESB_x[83];
+__ESB_g[234]=function*(){__ESB_d(__ESB_x[234],{createMarketPriceSource:()=>createMarketPriceSource,criteriaForCard:()=>criteriaForCard,marketCacheKey:()=>marketCacheKey});yield;const{findMinBin,DEFAULT_MAX_REQUESTS:MIN_BIN_MAX_REQUESTS}=__ESB_x[80];const{normalizeKey}=__ESB_x[83];
 ;
 ;
 const MARKET_PRICE_FEATURES=Object.freeze(['minBinSearch'])
@@ -49893,7 +51604,7 @@ return id>0?id:null}
 
 };
 // src/sync/settings-schema.js
-__ESB_g[233]=function*(){__ESB_d(__ESB_x[233],{MAX_SYNC_BYTES:()=>MAX_SYNC_BYTES,SYNC_NAMESPACES:()=>SYNC_NAMESPACES,SYNC_SCHEMA:()=>SYNC_SCHEMA,SYNC_STATE_KEY:()=>SYNC_STATE_KEY,SYNC_STORAGE_KEYS:()=>SYNC_STORAGE_KEYS,applyLocalSettings:()=>applyLocalSettings,collectLocalSettings:()=>collectLocalSettings,defaultSyncNamespaces:()=>defaultSyncNamespaces,parseRemoteSettings:()=>parseRemoteSettings,sameSyncValue:()=>sameSyncValue,sanitizeSyncMetadata:()=>sanitizeSyncMetadata,sanitizeSyncNamespaces:()=>sanitizeSyncNamespaces});yield;const{defaultToggles,sanitize:sanitizeFeatures}=__ESB_x[5];const{MAX_BYTES:MAX_FILTER_BYTES,MAX_SETS,sanitizeStored}=__ESB_x[64];const{parseFilterSet}=__ESB_x[59];const{sanitizeLimitInput}=__ESB_x[124];const{sanitizeOptionInput}=__ESB_x[120];const{sanitizeSellerOptions}=__ESB_x[141];const{defaultUiState,sanitizeUiState,pickPreselectFromToggles}=__ESB_x[216];const{sanitizePackLocks}=__ESB_x[65];const{PICK_BY_PRICE_FEATURE,PICK_PRESELECT_DEFAULT}=__ESB_x[207];
+__ESB_g[235]=function*(){__ESB_d(__ESB_x[235],{MAX_SYNC_BYTES:()=>MAX_SYNC_BYTES,SYNC_NAMESPACES:()=>SYNC_NAMESPACES,SYNC_SCHEMA:()=>SYNC_SCHEMA,SYNC_STATE_KEY:()=>SYNC_STATE_KEY,SYNC_STORAGE_KEYS:()=>SYNC_STORAGE_KEYS,applyLocalSettings:()=>applyLocalSettings,collectLocalSettings:()=>collectLocalSettings,defaultSyncNamespaces:()=>defaultSyncNamespaces,parseRemoteSettings:()=>parseRemoteSettings,sameSyncValue:()=>sameSyncValue,sanitizeSyncMetadata:()=>sanitizeSyncMetadata,sanitizeSyncNamespaces:()=>sanitizeSyncNamespaces});yield;const{defaultToggles,sanitize:sanitizeFeatures}=__ESB_x[5];const{MAX_BYTES:MAX_FILTER_BYTES,MAX_SETS,sanitizeStored}=__ESB_x[64];const{parseFilterSet}=__ESB_x[59];const{sanitizeLimitInput}=__ESB_x[124];const{sanitizeOptionInput}=__ESB_x[120];const{sanitizeSellerOptions}=__ESB_x[141];const{defaultUiState,sanitizeUiState,pickPreselectFromToggles}=__ESB_x[218];const{sanitizePackLocks}=__ESB_x[65];const{PICK_BY_PRICE_FEATURE,PICK_PRESELECT_DEFAULT}=__ESB_x[209];
 ;
 ;
 ;
@@ -50090,7 +51801,7 @@ return JSON.stringify(a) === JSON.stringify(b);
 
 };
 // src/sync/chrome-sync-transport.js
-__ESB_g[234]=function*(){__ESB_d(__ESB_x[234],{CHROME_SYNC_SUBJECT:()=>CHROME_SYNC_SUBJECT,CHUNK_PREFIX:()=>CHUNK_PREFIX,META_KEY:()=>META_KEY,createChromeSyncTransport:()=>createChromeSyncTransport});yield;const{MAX_SYNC_BYTES,SYNC_SCHEMA}=__ESB_x[233];
+__ESB_g[236]=function*(){__ESB_d(__ESB_x[236],{CHROME_SYNC_SUBJECT:()=>CHROME_SYNC_SUBJECT,CHUNK_PREFIX:()=>CHUNK_PREFIX,META_KEY:()=>META_KEY,createChromeSyncTransport:()=>createChromeSyncTransport});yield;const{MAX_SYNC_BYTES,SYNC_SCHEMA}=__ESB_x[235];
 ;
 const CHROME_SYNC_SUBJECT = 'chrome-sync';
 const META_KEY = 'settings.cloud.meta';
@@ -50269,7 +51980,7 @@ return { read, write };
 
 };
 // src/sync/settings-client.js
-__ESB_g[235]=function*(){__ESB_d(__ESB_x[235],{createSettingsSync:()=>createSettingsSync,planSettingsSync:()=>planSettingsSync});yield;const{SYNC_NAMESPACES,SYNC_SCHEMA,applyLocalSettings,collectLocalSettings,defaultSyncNamespaces,parseRemoteSettings,sameSyncValue,sanitizeSyncMetadata,sanitizeSyncNamespaces}=__ESB_x[233];
+__ESB_g[237]=function*(){__ESB_d(__ESB_x[237],{createSettingsSync:()=>createSettingsSync,planSettingsSync:()=>planSettingsSync});yield;const{SYNC_NAMESPACES,SYNC_SCHEMA,applyLocalSettings,collectLocalSettings,defaultSyncNamespaces,parseRemoteSettings,sameSyncValue,sanitizeSyncMetadata,sanitizeSyncNamespaces}=__ESB_x[235];
 ;
 const changed = (from, to) => SYNC_NAMESPACES.filter(
 (key) => !sameSyncValue(from[key], to[key]),
@@ -50417,7 +52128,7 @@ busy = false;
 
 };
 // src/sync/cloud-auto-push.js
-__ESB_g[236]=function*(){__ESB_d(__ESB_x[236],{CLOUD_STATUS_KEY:()=>CLOUD_STATUS_KEY});yield;const{SYNC_STATE_KEY,SYNC_STORAGE_KEYS,sanitizeSyncMetadata}=__ESB_x[233];const{createSettingsSync}=__ESB_x[235];const{CHROME_SYNC_SUBJECT}=__ESB_x[234];
+__ESB_g[238]=function*(){__ESB_d(__ESB_x[238],{CLOUD_STATUS_KEY:()=>CLOUD_STATUS_KEY});yield;const{SYNC_STATE_KEY,SYNC_STORAGE_KEYS,sanitizeSyncMetadata}=__ESB_x[235];const{createSettingsSync}=__ESB_x[237];const{CHROME_SYNC_SUBJECT}=__ESB_x[236];
 ;
 ;
 ;
@@ -50544,7 +52255,7 @@ push,
 
 };
 // src/sync/bridge-storage.js
-__ESB_g[237]=function*(){__ESB_d(__ESB_x[237],{createBridgeArea:()=>createBridgeArea,createBridgeCloud:()=>createBridgeCloud});yield;const{SYNC_STATE_KEY,SYNC_STORAGE_KEYS}=__ESB_x[233];const{CHUNK_PREFIX,META_KEY}=__ESB_x[234];
+__ESB_g[239]=function*(){__ESB_d(__ESB_x[239],{createBridgeArea:()=>createBridgeArea,createBridgeCloud:()=>createBridgeCloud});yield;const{SYNC_STATE_KEY,SYNC_STORAGE_KEYS}=__ESB_x[235];const{CHUNK_PREFIX,META_KEY}=__ESB_x[236];
 ;
 ;
 const CLOUD_READ = 'cloud.read';
@@ -50655,7 +52366,7 @@ throw new Error(`bridge cloud: мост не сносил ${missed.join(', ')}`)
 
 };
 // src/sync/settings-file.js
-__ESB_g[238]=function*(){__ESB_d(__ESB_x[238],{applyFileSettings:()=>applyFileSettings,parseSettingsFile:()=>parseSettingsFile,serializeSettingsFile:()=>serializeSettingsFile,settingsFileName:()=>settingsFileName});yield;const{SYNC_SCHEMA,SYNC_STORAGE_KEYS,parseRemoteSettings,sanitizeSyncNamespaces}=__ESB_x[233];const{sanitizeUiState}=__ESB_x[216];
+__ESB_g[240]=function*(){__ESB_d(__ESB_x[240],{applyFileSettings:()=>applyFileSettings,parseSettingsFile:()=>parseSettingsFile,serializeSettingsFile:()=>serializeSettingsFile,settingsFileName:()=>settingsFileName});yield;const{SYNC_SCHEMA,SYNC_STORAGE_KEYS,parseRemoteSettings,sanitizeSyncNamespaces}=__ESB_x[235];const{sanitizeUiState}=__ESB_x[218];
 ;
 ;
 const FILE_SUBJECT = 'file';
@@ -50719,7 +52430,7 @@ sbcPolicy: JSON.parse(JSON.stringify(clean.interface.sbcPolicy)),
 
 };
 // src/sync/cloud-desk.js
-__ESB_g[239]=function*(){__ESB_d(__ESB_x[239],{createCloudDesk:()=>createCloudDesk});yield;const{CHROME_SYNC_SUBJECT,createChromeSyncTransport}=__ESB_x[234];const{CLOUD_STATUS_KEY}=__ESB_x[236];const{createSettingsSync,planSettingsSync}=__ESB_x[235];const{collectLocalSettings,parseRemoteSettings,sameSyncValue}=__ESB_x[233];const{createBridgeArea,createBridgeCloud}=__ESB_x[237];const{applyFileSettings,parseSettingsFile,serializeSettingsFile,settingsFileName}=__ESB_x[238];
+__ESB_g[241]=function*(){__ESB_d(__ESB_x[241],{createCloudDesk:()=>createCloudDesk});yield;const{CHROME_SYNC_SUBJECT,createChromeSyncTransport}=__ESB_x[236];const{CLOUD_STATUS_KEY}=__ESB_x[238];const{createSettingsSync,planSettingsSync}=__ESB_x[237];const{collectLocalSettings,parseRemoteSettings,sameSyncValue}=__ESB_x[235];const{createBridgeArea,createBridgeCloud}=__ESB_x[239];const{applyFileSettings,parseSettingsFile,serializeSettingsFile,settingsFileName}=__ESB_x[240];
 ;
 ;
 ;
@@ -50905,7 +52616,7 @@ pushNow: () => Promise.resolve({ ok: false, reason: 'off' }),
 
 };
 // src/sync/transfer-port.js
-__ESB_g[240]=function*(){__ESB_d(__ESB_x[240],{createSettingsTransfer:()=>createSettingsTransfer,watchSettingsApplied:()=>watchSettingsApplied});yield;const{CHANNEL,FROM_CONTENT,KIND_EVENT}=__ESB_x[0];
+__ESB_g[242]=function*(){__ESB_d(__ESB_x[242],{createSettingsTransfer:()=>createSettingsTransfer,watchSettingsApplied:()=>watchSettingsApplied});yield;const{CHANNEL,FROM_CONTENT,KIND_EVENT}=__ESB_x[0];
 ;
 const TRANSFER_METHOD = 'settings.transfer';
 const TRANSFER_REASONS = Object.freeze([
@@ -50960,7 +52671,7 @@ return true;
 
 };
 // src/features/problem-report.js
-__ESB_g[241]=function*(){__ESB_d(__ESB_x[241],{createProblemReport:()=>createProblemReport});yield;const{sanitizeSyncNamespaces}=__ESB_x[233];
+__ESB_g[243]=function*(){__ESB_d(__ESB_x[243],{createProblemReport:()=>createProblemReport});yield;const{sanitizeSyncNamespaces}=__ESB_x[235];
 ;
 const REPORT_SCHEMA = 1;
 const REPORT_MAX_BYTES = 24 * 1024;
@@ -51178,7 +52889,7 @@ return closed?.done?.length > 0 ? { ok: true } : { ok: false, reason: 'cancel' }
 
 };
 // src/features/price-trap.js
-__ESB_g[242]=function*(){__ESB_d(__ESB_x[242],{createPriceTrap:()=>createPriceTrap});yield;
+__ESB_g[244]=function*(){__ESB_d(__ESB_x[244],{createPriceTrap:()=>createPriceTrap});yield;
 const COLLAPSE_FACTOR=2
 const TRAP_GAP_MS=60_000
 const TRAP_KEEP=8
@@ -51246,7 +52957,7 @@ const idOrNull=(value)=>Number.isSafeInteger(value)&&value>0?value:null
 
 };
 // src/features/price-quarantine.js
-__ESB_g[243]=function*(){__ESB_d(__ESB_x[243],{createPriceQuarantine:()=>createPriceQuarantine});yield;const{stepFrom}=__ESB_x[158];
+__ESB_g[245]=function*(){__ESB_d(__ESB_x[245],{createPriceQuarantine:()=>createPriceQuarantine});yield;const{stepFrom}=__ESB_x[158];
 ;
 const QUARANTINE_FACTOR=2
 const QUARANTINE_KEEP=2000
@@ -51347,7 +53058,7 @@ return{factor,keep,keys:memo.size,now,...stats}}}}
 
 };
 // src/features/futgg-rarities.js
-__ESB_g[244]=function*(){__ESB_d(__ESB_x[244],{createRarityGroups:()=>createRarityGroups});yield;const{manifestUrl,futggBlobUrl,currentGame,MANIFEST_TTL_MS}=__ESB_x[85];
+__ESB_g[246]=function*(){__ESB_d(__ESB_x[246],{createRarityGroups:()=>createRarityGroups});yield;const{manifestUrl,futggBlobUrl,currentGame,MANIFEST_TTL_MS}=__ESB_x[85];
 ;
 const NON_PROMO_BLOBS=Object.freeze(['manifest','fc-core-data','config','config-web','config-ios','config-android','all-evolutions','active-evolutions','metarank-definition','icon-swaps','token-store','playstyle-ranking','playstyle-ranking-per-player','play-styles','roles','player-prices-ps5','player-prices-pc','player-prices-index','player-prices-ps5-dyn','player-prices-pc-dyn','player-gg-ratings','player-gg-rating-ranks'])
 function promoNames(manifest){if(!manifest||typeof manifest!=='object'||Array.isArray(manifest))return[]
@@ -51402,7 +53113,7 @@ return inFlight}}}
 
 };
 // src/adapter/sbc.js
-__ESB_g[245]=function*(){__ESB_d(__ESB_x[245],{createSbc:()=>createSbc,createSquad:()=>createSquad});yield;const{itemPiles}=__ESB_x[62];const{EaRequestError,requestData}=__ESB_x[90];const{eaTable}=__ESB_x[60];
+__ESB_g[247]=function*(){__ESB_d(__ESB_x[247],{createSbc:()=>createSbc,createSquad:()=>createSquad});yield;const{itemPiles}=__ESB_x[62];const{EaRequestError,requestData}=__ESB_x[90];const{eaTable}=__ESB_x[60];
 ;
 ;
 ;
@@ -51519,7 +53230,7 @@ return data}
 
 };
 // src/adapter/sbc-work-area.js
-__ESB_g[246]=function*(){__ESB_d(__ESB_x[246],{createWorkAreaProbe:()=>createWorkAreaProbe});yield;const{findDoor}=__ESB_x[57];
+__ESB_g[248]=function*(){__ESB_d(__ESB_x[248],{createWorkAreaProbe:()=>createWorkAreaProbe});yield;const{findDoor}=__ESB_x[57];
 const seen={overview:null,installed:false}
 const stats={calls:0,restored:0,watched:0}
 const RESTORE_FRAMES=60
@@ -51561,7 +53272,7 @@ return true}
 
 };
 // src/adapter/team-config.js
-__ESB_g[247]=function*(){__ESB_d(__ESB_x[247],{createTeamConfig:()=>createTeamConfig});yield;
+__ESB_g[249]=function*(){__ESB_d(__ESB_x[249],{createTeamConfig:()=>createTeamConfig});yield;
 function createTeamConfig(win=globalThis){const repo=win?.repositories?.TeamConfig
 const get=typeof repo?.getLinkedTeam==='function'?repo.getLinkedTeam.bind(repo):null
 return{
@@ -51574,7 +53285,7 @@ return teamId}}}}
 
 };
 // src/features/card-catalog.js
-__ESB_g[248]=function*(){__ESB_d(__ESB_x[248],{POS_FULL:()=>POS_FULL,POS_NONE:()=>POS_NONE,POS_PRIMARY:()=>POS_PRIMARY,UNKNOWN:()=>UNKNOWN,createCardCatalog:()=>createCardCatalog,createCardLane:()=>createCardLane});yield;const{manifestUrl,futggBlobUrl,currentGame,MANIFEST_TTL_MS}=__ESB_x[85];const{seasonOf,seasonFits}=__ESB_x[84];
+__ESB_g[250]=function*(){__ESB_d(__ESB_x[250],{POS_FULL:()=>POS_FULL,POS_NONE:()=>POS_NONE,POS_PRIMARY:()=>POS_PRIMARY,UNKNOWN:()=>UNKNOWN,createCardCatalog:()=>createCardCatalog,createCardLane:()=>createCardLane});yield;const{manifestUrl,futggBlobUrl,currentGame,MANIFEST_TTL_MS}=__ESB_x[85];const{seasonOf,seasonFits}=__ESB_x[84];
 ;
 ;
 const CATALOG_SCHEMA=1
@@ -51882,7 +53593,7 @@ return Number.isSafeInteger(n)&&n>0?n:null}
 
 };
 // src/features/card-base.js
-__ESB_g[249]=function*(){__ESB_d(__ESB_x[249],{baseDefinitions:()=>baseDefinitions,createCardBaseFeed:()=>createCardBaseFeed});yield;const{UNKNOWN,POS_NONE,POS_PRIMARY,POS_FULL}=__ESB_x[248];const{seasonFits}=__ESB_x[84];
+__ESB_g[251]=function*(){__ESB_d(__ESB_x[251],{baseDefinitions:()=>baseDefinitions,createCardBaseFeed:()=>createCardBaseFeed});yield;const{UNKNOWN,POS_NONE,POS_PRIMARY,POS_FULL}=__ESB_x[250];const{seasonFits}=__ESB_x[84];
 ;
 ;
 const CARD_BASE_SCHEMA=1
@@ -52080,7 +53791,7 @@ function positive(value){return Number.isSafeInteger(value)&&value>0?value:null}
 
 };
 // src/features/rarity-group-book.js
-__ESB_g[250]=function*(){__ESB_d(__ESB_x[250],{createRarityGroupBook:()=>createRarityGroupBook});yield;const{seasonOf,seasonFits}=__ESB_x[84];
+__ESB_g[252]=function*(){__ESB_d(__ESB_x[252],{createRarityGroupBook:()=>createRarityGroupBook});yield;const{seasonOf,seasonFits}=__ESB_x[84];
 ;
 const GROUP_BOOK_SCHEMA=1
 function groupsOfItem(item){let raw=null
@@ -52206,12 +53917,12 @@ return{schema:GROUP_BOOK_SCHEMA,season:seasonNow(),rarities:book.size,pairs,drop
 
 };
 // src/core/clock.js
-__ESB_g[251]=function*(){__ESB_d(__ESB_x[251],{createClock:()=>createClock});yield;
+__ESB_g[253]=function*(){__ESB_d(__ESB_x[253],{createClock:()=>createClock});yield;
 function createClock(){return{now:()=>Date.now(),sleep:(ms)=>new Promise((resolve)=>{setTimeout(resolve,Math.max(0,Number(ms)||0))})}}
 
 };
 // src/ui/dialog.js
-__ESB_g[252]=function*(){__ESB_d(__ESB_x[252],{createDialogs:()=>createDialogs});yield;const{el,clear}=__ESB_x[68];const{modalBox,modalButtons,noteWindowRaised}=__ESB_x[70];
+__ESB_g[254]=function*(){__ESB_d(__ESB_x[254],{createDialogs:()=>createDialogs});yield;const{el,clear}=__ESB_x[68];const{modalBox,modalButtons,noteWindowRaised}=__ESB_x[70];
 ;
 ;
 function createDialogs(deps){const{doc,root,t}=deps
@@ -52292,7 +54003,7 @@ return{isOpen,close:()=>close(current?.cancelValue),ask:askDialog,show:showDialo
 
 };
 // src/settings/registry-values.js
-__ESB_g[253]=function*(){__ESB_d(__ESB_x[253],{REGISTRY_SOURCES:()=>REGISTRY_SOURCES});yield;const{SAFE_LIMIT_DEFAULTS,LIMIT_FIELDS}=__ESB_x[114];const{OPTION_FIELDS,AFTER_BUY_DEFAULT,SEARCH_REFRESH_DEFAULT,CONFIRM_EACH_RUN_DEFAULT,RATING_SEARCH_NOW_DEFAULT,defaultOptionInput}=__ESB_x[120];const{DEFAULT_SEARCH_DELAY_MS,BUY_PAUSE_MS,SAFE_PAUSE_FLOOR_MS,BUY_PAUSE_FLOOR_MS,WORK_MS,BREAK_MS,MAX_PER_SEARCH_DEFAULT,MATCH_GUARD_DEFAULT}=__ESB_x[123];const{SELLER_FIELDS,sanitizeSellerOptions}=__ESB_x[141];const{PACK_SHOW_DEFAULTS,SHOW_RATING_DEFAULT,PACK_SHOW_MODE_DEFAULT}=__ESB_x[208];const{SOLVER_DEFAULTS}=__ESB_x[209];const{THRESHOLD_DEFAULT:SNIPE_KEY_THRESHOLD_DEFAULT}=__ESB_x[140];const{RELIST_MODE_DEFAULT,RELIST_PERCENT_DEFAULT}=__ESB_x[99];const{VOLUME_DEFAULT}=__ESB_x[146];const{PICK_PRESELECT_DEFAULT}=__ESB_x[207];const{defaultToggles,GALLERY_MARKS_DEFAULT}=__ESB_x[5];
+__ESB_g[255]=function*(){__ESB_d(__ESB_x[255],{REGISTRY_SOURCES:()=>REGISTRY_SOURCES});yield;const{SAFE_LIMIT_DEFAULTS,LIMIT_FIELDS}=__ESB_x[114];const{OPTION_FIELDS,AFTER_BUY_DEFAULT,SEARCH_REFRESH_DEFAULT,CONFIRM_EACH_RUN_DEFAULT,RATING_SEARCH_NOW_DEFAULT,defaultOptionInput}=__ESB_x[120];const{DEFAULT_SEARCH_DELAY_MS,BUY_PAUSE_MS,SAFE_PAUSE_FLOOR_MS,BUY_PAUSE_FLOOR_MS,WORK_MS,BREAK_MS,MAX_PER_SEARCH_DEFAULT,MATCH_GUARD_DEFAULT}=__ESB_x[123];const{SELLER_FIELDS,sanitizeSellerOptions}=__ESB_x[141];const{PACK_SHOW_DEFAULTS,SHOW_RATING_DEFAULT,PACK_SHOW_MODE_DEFAULT}=__ESB_x[210];const{SOLVER_DEFAULTS}=__ESB_x[211];const{THRESHOLD_DEFAULT:SNIPE_KEY_THRESHOLD_DEFAULT}=__ESB_x[140];const{RELIST_MODE_DEFAULT,RELIST_PERCENT_DEFAULT}=__ESB_x[99];const{VOLUME_DEFAULT}=__ESB_x[146];const{PICK_PRESELECT_DEFAULT}=__ESB_x[209];const{defaultToggles,GALLERY_MARKS_DEFAULT}=__ESB_x[5];
 ;
 ;
 ;
@@ -52315,7 +54026,7 @@ const REGISTRY_SOURCES=Object.freeze({constants:REGISTRY_CONSTANTS,scaleOf})
 
 };
 // src/ui/panel-model.js
-__ESB_g[254]=function*(){__ESB_d(__ESB_x[254],{DEEDS:()=>DEEDS,FIRST_SECTION:()=>FIRST_SECTION,ORDERED_SECTIONS:()=>ORDERED_SECTIONS,dockModel:()=>dockModel,isBelowFloor:()=>isBelowFloor,leverOf:()=>leverOf,openSectionOf:()=>openSectionOf,outOfBounds:()=>outOfBounds,resetPlan:()=>resetPlan,searchModel:()=>searchModel,sectionModel:()=>sectionModel,settingsModel:()=>settingsModel,signedIn:()=>signedIn});yield;const{SECTIONS,defaultOf,floorOf,inWindow}=__ESB_x[4];const{REGISTRY_SOURCES}=__ESB_x[253];const{AFTER_BUY,AFTER_BUY_KEY,AFTER_BUY_SHOWN,afterBuyShownOf,SEARCH_REFRESH,SEARCH_REFRESH_KEY,searchRefreshOf,OPTION_FIELDS}=__ESB_x[120];const{LIMIT_FIELDS,boundsOf}=__ESB_x[114];const{sanitizePackShowPolicy,PACK_SHOW_MODES,packShowModeOf,packShowPatchOf}=__ESB_x[208];const{stopReasonKey}=__ESB_x[124];const{relistHasDirection,relistPriceOf,RELIST_PERCENT,RELIST_PERCENT_DEFAULT,sanitizeRelistPricing}=__ESB_x[99];const{PICK_PRESELECTS,PICK_PRESELECT_DEFAULT,sanitizePickPreselect}=__ESB_x[207];const{SETTING_CHOICES,settingsChoice}=__ESB_x[5];
+__ESB_g[256]=function*(){__ESB_d(__ESB_x[256],{DEEDS:()=>DEEDS,FIRST_SECTION:()=>FIRST_SECTION,ORDERED_SECTIONS:()=>ORDERED_SECTIONS,dockModel:()=>dockModel,isBelowFloor:()=>isBelowFloor,leverOf:()=>leverOf,openSectionOf:()=>openSectionOf,outOfBounds:()=>outOfBounds,resetPlan:()=>resetPlan,searchModel:()=>searchModel,sectionModel:()=>sectionModel,settingsModel:()=>settingsModel,signedIn:()=>signedIn});yield;const{SECTIONS,defaultOf,floorOf,inWindow}=__ESB_x[4];const{REGISTRY_SOURCES}=__ESB_x[255];const{AFTER_BUY,AFTER_BUY_KEY,AFTER_BUY_SHOWN,afterBuyShownOf,SEARCH_REFRESH,SEARCH_REFRESH_KEY,searchRefreshOf,OPTION_FIELDS}=__ESB_x[120];const{LIMIT_FIELDS,boundsOf}=__ESB_x[114];const{sanitizePackShowPolicy,PACK_SHOW_MODES,packShowModeOf,packShowPatchOf}=__ESB_x[210];const{stopReasonKey}=__ESB_x[124];const{relistHasDirection,relistPriceOf,RELIST_PERCENT,RELIST_PERCENT_DEFAULT,sanitizeRelistPricing}=__ESB_x[99];const{PICK_PRESELECTS,PICK_PRESELECT_DEFAULT,sanitizePickPreselect}=__ESB_x[209];const{SETTING_CHOICES,settingsChoice}=__ESB_x[5];
 ;
 ;
 ;
@@ -52760,7 +54471,7 @@ label:t('panel.tabs')}}}
 
 };
 // src/ui/panel-home.js
-__ESB_g[255]=function*(){__ESB_d(__ESB_x[255],{renderLever:()=>renderLever});yield;const{el}=__ESB_x[68];const{logoLink}=__ESB_x[69];
+__ESB_g[257]=function*(){__ESB_d(__ESB_x[257],{renderLever:()=>renderLever});yield;const{el}=__ESB_x[68];const{logoLink}=__ESB_x[69];
 ;
 ;
 function renderLever(doc,lever,onOrgan){if(!lever)return null
@@ -52776,7 +54487,7 @@ return el(doc,'section',{class:'day-x',dataset:{dayXRow:'1'}},[el(doc,'div',{cla
 
 };
 // src/ui/panel-section.js
-__ESB_g[256]=function*(){__ESB_d(__ESB_x[256],{glyphOf:()=>glyphOf,renderSection:()=>renderSection});yield;const{el,clear}=__ESB_x[68];const{isBelowFloor,outOfBounds}=__ESB_x[254];
+__ESB_g[258]=function*(){__ESB_d(__ESB_x[258],{glyphOf:()=>glyphOf,renderSection:()=>renderSection});yield;const{el,clear}=__ESB_x[68];const{isBelowFloor,outOfBounds}=__ESB_x[256];
 ;
 ;
 const GLYPHS=Object.freeze({view:'🖼️',prices:'🏷️',snipe:'🛒',seller:'💸',solver:'🧩',packs:'🎁',keys:'⌨️',ledger:'💰',premium:'🔑',diagnostics:'🩺'})
@@ -52944,7 +54655,7 @@ return{row:el(doc,'div',{class:'row deed'},[node]),extra:[]}}
 
 };
 // src/ui/settings-window.js
-__ESB_g[257]=function*(){__ESB_d(__ESB_x[257],{SETTINGS_LINK_ID:()=>SETTINGS_LINK_ID,SETTINGS_STYLESHEET:()=>SETTINGS_STYLESHEET,renderSettingsWindow:()=>renderSettingsWindow});yield;const{el}=__ESB_x[68];const{renderSection,glyphOf}=__ESB_x[256];const{modalBox}=__ESB_x[70];const{updateLine}=__ESB_x[212];
+__ESB_g[259]=function*(){__ESB_d(__ESB_x[259],{SETTINGS_LINK_ID:()=>SETTINGS_LINK_ID,SETTINGS_STYLESHEET:()=>SETTINGS_STYLESHEET,renderSettingsWindow:()=>renderSettingsWindow});yield;const{el}=__ESB_x[68];const{renderSection,glyphOf}=__ESB_x[258];const{modalBox}=__ESB_x[70];const{updateLine}=__ESB_x[214];
 ;
 ;
 ;
@@ -53030,13 +54741,13 @@ return el(doc,'div',{class:'search-screen',dataset:{panelSearchScreen:'1'}},kids
 
 };
 // src/licensing/buy-url.js
-__ESB_g[258]=function*(){__ESB_d(__ESB_x[258],{buyUrlOf:()=>buyUrlOf});yield;
+__ESB_g[260]=function*(){__ESB_d(__ESB_x[260],{buyUrlOf:()=>buyUrlOf});yield;
 const BUY_URL = Object.freeze({ ru: 'https://eshario.com/ru/buy/', en: 'https://eshario.com/buy/' });
 const buyUrlOf = (locale) => (typeof locale === 'string' && Object.hasOwn(BUY_URL, locale) ? BUY_URL[locale] : BUY_URL.en);
 
 };
 // src/ui/panel.js
-__ESB_g[259]=function*(){__ESB_d(__ESB_x[259],{PANEL_BUILD:()=>PANEL_BUILD,PANEL_ID:()=>PANEL_ID,mountPanel:()=>mountPanel});yield;const{el,replaceChildren,ensureTheme,THEME_STYLESHEET,SITE_URL}=__ESB_x[68];const{CONTROLS_STYLESHEET}=__ESB_x[69];const{WINDOW_STYLESHEET,WINDOW_BUTTON_CLASS,onWindowRaised}=__ESB_x[70];const{createDialogs}=__ESB_x[252];const{dockModel,sectionModel,searchModel,settingsModel,resetPlan,leverOf,openSectionOf,ORDERED_SECTIONS,FIRST_SECTION,signedIn}=__ESB_x[254];const{renderLever}=__ESB_x[255];const{renderSettingsWindow,SETTINGS_STYLESHEET,SETTINGS_LINK_ID}=__ESB_x[257];const{stopReasonKey}=__ESB_x[124];const{ALLOW_UNASSIGNED_OVERFLOW,bidsEnabled}=__ESB_x[120];const{SNIPE_FEATURE}=__ESB_x[125];const{taxRows,listingRows,netLine,TAX_RATE_PERCENT}=__ESB_x[147];const{journalRows}=__ESB_x[143];const{totalRows,dealRows}=__ESB_x[145];const{rejectLabelKey}=__ESB_x[10];const{buyUrlOf}=__ESB_x[258];const{allowedUnassignedDispositions}=__ESB_x[137];const{CLUB_TABLE_FILTERS,viewClubItemTable}=__ESB_x[115];const{HOTKEY_ACTIONS,detectConflicts}=__ESB_x[127];const{sanitizePackShowPolicy}=__ESB_x[208];
+__ESB_g[261]=function*(){__ESB_d(__ESB_x[261],{PANEL_BUILD:()=>PANEL_BUILD,PANEL_ID:()=>PANEL_ID,mountPanel:()=>mountPanel});yield;const{el,replaceChildren,ensureTheme,THEME_STYLESHEET,SITE_URL}=__ESB_x[68];const{CONTROLS_STYLESHEET}=__ESB_x[69];const{WINDOW_STYLESHEET,WINDOW_BUTTON_CLASS,onWindowRaised}=__ESB_x[70];const{createDialogs}=__ESB_x[254];const{dockModel,sectionModel,searchModel,settingsModel,resetPlan,leverOf,openSectionOf,ORDERED_SECTIONS,FIRST_SECTION,signedIn}=__ESB_x[256];const{renderLever}=__ESB_x[257];const{renderSettingsWindow,SETTINGS_STYLESHEET,SETTINGS_LINK_ID}=__ESB_x[259];const{stopReasonKey}=__ESB_x[124];const{ALLOW_UNASSIGNED_OVERFLOW,bidsEnabled}=__ESB_x[120];const{SNIPE_FEATURE}=__ESB_x[125];const{taxRows,listingRows,netLine,TAX_RATE_PERCENT}=__ESB_x[147];const{journalRows}=__ESB_x[143];const{totalRows,dealRows}=__ESB_x[145];const{rejectLabelKey}=__ESB_x[10];const{buyUrlOf}=__ESB_x[260];const{allowedUnassignedDispositions}=__ESB_x[137];const{CLUB_TABLE_FILTERS,viewClubItemTable}=__ESB_x[115];const{HOTKEY_ACTIONS,detectConflicts}=__ESB_x[127];const{sanitizePackShowPolicy}=__ESB_x[210];
 ;
 ;
 ;
@@ -53671,7 +55382,7 @@ return api.update()}
 
 };
 // src/features/autologin-actions.js
-__ESB_g[260]=function*(){__ESB_d(__ESB_x[260],{createLandingWatch:()=>createLandingWatch,startAutologin:()=>startAutologin});yield;const{runAutologin,createLandingTally,pressLanding,EMPTY_LANDING}=__ESB_x[104];
+__ESB_g[262]=function*(){__ESB_d(__ESB_x[262],{createLandingWatch:()=>createLandingWatch,startAutologin:()=>startAutologin});yield;const{runAutologin,createLandingTally,pressLanding,EMPTY_LANDING}=__ESB_x[104];
 ;
 const AUTOLOGIN_FEATURE='autologin'
 const IDLE_LANDING=EMPTY_LANDING
@@ -53704,7 +55415,7 @@ loginRunning:typeof personas.loginRunning==='function'?()=>personas.loginRunning
 
 };
 // src/adapter/landing.js
-__ESB_g[261]=function*(){__ESB_d(__ESB_x[261],{createLandingDoor:()=>createLandingDoor});yield;const{pressNode}=__ESB_x[134];const{appMain}=__ESB_x[58];
+__ESB_g[263]=function*(){__ESB_d(__ESB_x[263],{createLandingDoor:()=>createLandingDoor});yield;const{pressNode}=__ESB_x[134];const{appMain}=__ESB_x[58];
 ;
 ;
 const LANDING_BUTTON='.ut-login .ut-login-content button.btn-standard.primary'
@@ -53761,7 +55472,7 @@ return value&&typeof value==='object'?value:null}catch{return null}}}}
 
 };
 // src/features/dim-owned.js
-__ESB_g[262]=function*(){__ESB_d(__ESB_x[262],{createDimOwned:()=>createDimOwned});yield;const{ensureStylesheet}=__ESB_x[68];const{identityOf,ITEM_PILE}=__ESB_x[119];const{inDetailColumn}=__ESB_x[76];const{SCREEN_SELECTOR:STORAGE_SCREEN}=__ESB_x[195];const{PRICE_BADGE_SURFACES}=__ESB_x[86];const{PACK_PEEK_SURFACE}=__ESB_x[206];
+__ESB_g[264]=function*(){__ESB_d(__ESB_x[264],{createDimOwned:()=>createDimOwned});yield;const{ensureStylesheet}=__ESB_x[68];const{identityOf,ITEM_PILE}=__ESB_x[119];const{inDetailColumn}=__ESB_x[76];const{SCREEN_SELECTOR:STORAGE_SCREEN}=__ESB_x[197];const{PRICE_BADGE_SURFACES}=__ESB_x[86];const{PACK_PEEK_SURFACE}=__ESB_x[208];
 ;
 ;
 ;
@@ -53893,8 +55604,341 @@ state:()=>({active:safeActive(isActive),...last,...dimOwnedPeek()}),
 dispose(){try{dropAllDimMarks(doc)}catch(err){onError(err)}}}}
 
 };
+// src/features/gallery-rhythm.js
+__ESB_g[265]=function*(){__ESB_d(__ESB_x[265],{METHOD_BATCH:()=>METHOD_BATCH,METHOD_DIRECT:()=>METHOD_DIRECT,rhythmOf:()=>rhythmOf,shuffled:()=>shuffled});yield;const{bandPauseMs}=__ESB_x[79];
+;
+const ROUND_MIN=2
+const ROUND_MAX=5
+const REST_MIN_MS=4000
+const REST_MAX_MS=10000
+const METHOD_BATCH='batch'
+const METHOD_DIRECT='direct'
+const METHODS=Object.freeze([METHOD_BATCH,METHOD_DIRECT])
+const BATCH_OF_TEN=7
+function roundSizeOf(random){return bandPauseMs(ROUND_MIN,ROUND_MAX,random)}
+function methodOf(random){return bandPauseMs(1,10,random)<=BATCH_OF_TEN?METHOD_BATCH:METHOD_DIRECT}
+function restMsOf(random){return bandPauseMs(REST_MIN_MS,REST_MAX_MS,random)}
+function rhythmOf(random){const roundSize=roundSizeOf(random)
+const method=methodOf(random)
+const restMs=restMsOf(random)
+return Object.freeze({roundSize,method,restMs})}
+function shuffled(list,random){const out=Array.isArray(list)?[...list]:[]
+for(let i=out.length-1;i>0;i-=1){const j=bandPauseMs(0,i,random)
+if(j===i)continue
+const keep=out[i]
+out[i]=out[j]
+out[j]=keep}
+return out}
+
+};
+// src/features/gallery-sell.js
+__ESB_g[266]=function*(){__ESB_d(__ESB_x[266],{createGallerySeller:()=>createGallerySeller});yield;const{listPauseMs}=__ESB_x[79];const{relistPriceOf,EA_REFUSALS_TO_STOP,EA_REFUSALS_TOTAL_STOP,RELIST_MARKET,RELIST_STEP,RELIST_PERCENT,RELIST_UP,RELIST_DOWN}=__ESB_x[99];const{withinListingBand,readPriceLimits,DEFAULT_DURATION}=__ESB_x[73];const{startingBidFor}=__ESB_x[110];const{receiptItemIds}=__ESB_x[97];const{netAfterTax}=__ESB_x[71];const{meterCalls,isDayBudgetError,stopOnEaLimit,eaStatusOf}=__ESB_x[98];const{frozenReasonOf}=__ESB_x[67];const{GALLERY_FEATURE}=__ESB_x[82];const{rhythmOf,shuffled,METHOD_BATCH,METHOD_DIRECT}=__ESB_x[265];const{settingsValue}=__ESB_x[5];const{createAdapter,pileValueOf}=__ESB_x[95];const{isDoorRefusal}=__ESB_x[94];const{EaRequestsOffError}=__ESB_x[90];const{classifyStatus}=__ESB_x[77];const{itemIdOf}=__ESB_x[205];
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+const SELL_MODE_KEY='galleryTradeSellMode'
+const SELL_VALUE_KEY='galleryTradeSellValue'
+const SELL_DIR_KEY='galleryTradeSellDir'
+const SELL_DEFAULTS=Object.freeze({mode:'step',value:1,dir:'below'})
+const SELL_MODES=Object.freeze(['market','step','percent'])
+const SELL_DIRS=Object.freeze(['below','above'])
+const SELL_VALUE_MAX=50
+const LIST_DURATION_S=DEFAULT_DURATION
+const BUDGET_STAGE='gallery-sell'
+const JOURNAL_SIZE=20
+const PROBE_MAX=5
+function sellRuleOf(settings){const read=(key)=>{try{return typeof settings?.get==='function'?settings.get(key):undefined}catch{return undefined}}
+return sanitizeRule({mode:read(SELL_MODE_KEY),value:read(SELL_VALUE_KEY),dir:read(SELL_DIR_KEY)})}
+function sanitizeRule(rule){const mode=SELL_MODES.includes(rule?.mode)?rule.mode:SELL_DEFAULTS.mode
+const dir=SELL_DIRS.includes(rule?.dir)?rule.dir:SELL_DEFAULTS.dir
+const raw=rule?.value
+const value=Number.isSafeInteger(raw)&&raw>=0&&raw<=SELL_VALUE_MAX?raw:SELL_DEFAULTS.value
+return Object.freeze({mode,value,dir})}
+function galleryListPrice(rule,market,limits=null,eaSaysNone=false){const view=sanitizeRule(rule)
+const reference=Number(market)
+if(!Number.isFinite(reference)||reference<=0)return{ok:false,reason:'no-reference'}
+const direction=view.dir==='above'?RELIST_UP:RELIST_DOWN
+let price=null
+if(view.mode==='market'||view.value===0)price=relistPriceOf({mode:RELIST_MARKET},reference,limits,eaSaysNone)
+else if(view.mode==='percent')price=relistPriceOf({mode:RELIST_PERCENT,direction,percent:view.value},reference,limits,eaSaysNone)
+else{let from=reference
+for(let step=0;step<view.value;step+=1){price=relistPriceOf({mode:RELIST_STEP,direction},from,limits,eaSaysNone)
+if(price.ok!==true)return price
+from=price.buyNow}}
+if(price?.ok!==true)return price??{ok:false,reason:'no-reference'}
+const pair=withinListingBand({buyNow:price.buyNow,startingBid:startingBidFor(price.buyNow),limits,eaSaysNone})
+if(pair.ok!==true)return pair
+return{ok:true,startingBid:pair.startingBid,buyNow:pair.buyNow,clamped:price.clamped??pair.clamped??null}}
+function bandOf(entity){try{return readPriceLimits(entity?.getPriceLimits?.()??null)}catch{return null}}
+const coinsOrNull=(value)=>(Number.isSafeInteger(value)&&value>0?value:null)
+function paidOf(card,entity){const said=coinsOrNull(card?.paid)
+if(said!==null)return said
+try{return coinsOrNull(entity?.lastSalePrice)}catch{return null}}
+const itemsOf=(data)=>(data&&typeof data==='object'&&!Array.isArray(data)&&Array.isArray(data.items)?data.items:null)
+function createGallerySeller(deps={}){const win=deps.win??null
+const random=typeof deps.random==='function'?deps.random:undefined
+const sleep=typeof deps.sleep==='function'?deps.sleep:(ms)=>new Promise((resolve)=>setTimeout(resolve,ms))
+const now=typeof deps.now==='function'?deps.now:()=>Date.now()
+const settings=deps.settings===undefined?{get:settingsValue}:deps.settings
+const dayBudget=deps.dayBudget??null
+const rounds=[]
+const rhythms=[]
+let busy=false
+const remember=(list,entry)=>{list.push(entry)
+if(list.length>JOURNAL_SIZE)list.splice(0,list.length-JOURNAL_SIZE)}
+const entitled=()=>{try{return typeof deps.isActive==='function'&&deps.isActive(GALLERY_FEATURE)===true}catch{return false}}
+function doorsNow(){if(!dayBudget||typeof dayBudget.take!=='function'||typeof dayBudget.warm!=='function')return{ok:false,stop:'day-budget'}
+let adapter=null
+try{adapter=createAdapter(win)}catch{return{ok:false,stop:'no-adapter'}}
+const pile=pileValueOf(win,'TRANSFER')
+if(!adapter?.item||pile===null||pile===undefined)return{ok:false,stop:'no-adapter'}
+return{ok:true,pile,item:meterCalls(adapter.item,dayBudget,['list','move','requestPriceLimits','requestUnassignedItems'],{stage:BUDGET_STAGE})}}
+function priceFor(input){const price=galleryListPrice(sellRuleOf(settings),input?.market,null,true)
+return price.ok===true?Object.freeze({start:price.startingBid,buyNow:price.buyNow}):null}
+function rhythm(){const drawn=rhythmOf(random)
+remember(rhythms,{at:now(),...drawn})
+return drawn}
+async function sellRound(opts={}){const cards=Array.isArray(opts?.cards)?opts.cards:[]
+const asked=opts?.method
+const signal=opts?.signal??null
+const onEvent=typeof opts?.onEvent==='function'?opts.onEvent:null
+const listed=[]
+const failed=[]
+let requests=0
+let used=asked
+const emit=(event)=>{if(onEvent===null)return
+try{onEvent(Object.freeze({...event,requests}))}catch{/* чужой слушатель круг не роняет */}}
+const fail=(itemId,reason)=>{failed.push(Object.freeze({itemId,reason}))
+emit({type:'failed',itemId,reason})}
+const finish=(stop)=>{if(stop!==null)emit({type:'stop',stop})
+remember(rounds,{at:now(),asked,used,cards:cards.length,listed:listed.length,failed:failed.length,requests,stop})
+return Object.freeze({listed:[...listed],failed:[...failed],requests,stop})}
+const idsOf=(list)=>list.map((card)=>itemIdOf(card?.itemId)??card?.itemId??null)
+const aborted=()=>signal?.aborted===true
+if(busy){for(const id of idsOf(cards))fail(id,'busy')
+return finish('busy')}
+if(!entitled()){for(const id of idsOf(cards))fail(id,'premium')
+return finish('premium')}
+if(asked!==METHOD_BATCH&&asked!==METHOD_DIRECT){for(const id of idsOf(cards))fail(id,'bad-method')
+return finish('bad-method')}
+if(aborted()){for(const id of idsOf(cards))fail(id,'stopped')
+return finish('stopped')}
+const doors=doorsNow()
+if(doors.ok!==true){for(const id of idsOf(cards))fail(id,doors.stop)
+return finish(doors.stop)}
+busy=true
+try{return await runRound()}finally{busy=false}
+async function runRound(){const rule=sellRuleOf(settings)
+const item=doors.item
+let eaRow=0
+let eaTotal=0
+const settled=new Set()
+const drop=(one,reason)=>{settled.add(one)
+fail(one.id,reason)}
+const send=async(call,one=null)=>{const ms=listPauseMs(random)
+emit({type:'pause',ms})
+await sleep(ms)
+if(one?.begun!==true&&aborted())return{ok:false,kind:'stopped'}
+if(one!==null)one.begun=true
+try{const data=await call()
+requests+=1
+return{ok:true,data}}catch(err){if(isDayBudgetError(err))return{ok:false,kind:'budget',err}
+if(isDoorRefusal(err))return{ok:false,kind:'door',err}
+if(err instanceof EaRequestsOffError)return{ok:false,kind:'off',err}
+requests+=1
+return{ok:false,kind:'ea',err}}}
+const eaStop=(err)=>{const limit=stopOnEaLimit(dayBudget,err)
+if(limit==='captcha')return 'ea-458'
+if(limit!==null)return 'ea-429'
+if(classifyStatus(eaStatusOf(err))==='fatal')return 'ea-refused'
+eaRow+=1
+eaTotal+=1
+return eaRow>=EA_REFUSALS_TO_STOP||eaTotal>=EA_REFUSALS_TOTAL_STOP?'ea-refused':null}
+const hardStop=(answer)=>(answer.kind==='budget'?'day-budget'
+:(answer.kind==='off'?'requests-off':(answer.kind==='stopped'?'stopped':null)))
+const whyOf=(answer)=>(answer.kind==='door'?String(answer.err?.door?.reason??'door')
+:'ea:'+String(eaStatusOf(answer.err)??'?'))
+const halt=(list,from,stop,current=null)=>{if(current!==null&&!settled.has(current))drop(current,stop)
+for(const one of list.slice(from))if(!settled.has(one))drop(one,stop==='stopped'?'stopped':'not-reached')
+return finish(stop)}
+const wanted=[]
+const seen=new Set()
+for(const card of cards){const id=itemIdOf(card?.itemId)
+if(id===null||id<=0){fail(card?.itemId??null,'bad-card')
+continue}
+if(seen.has(id)){fail(id,'duplicate')
+continue}
+seen.add(id)
+const own=card?.item&&typeof card.item==='object'&&itemIdOf(card.item.id)===id?card.item:null
+wanted.push({card,id,entity:own,price:null,begun:false})}
+let missing='not-found'
+if(wanted.some((one)=>one.entity===null)){const read=await send(()=>item.requestUnassignedItems())
+const stop=hardStop(read)
+if(stop!==null)return halt(wanted,0,stop)
+if(read.ok){const found=new Map()
+for(const entity of itemsOf(read.data)??[]){const id=itemIdOf(entity?.id)
+if(id!==null)found.set(id,entity)}
+for(const one of wanted)if(one.entity===null)one.entity=found.get(one.id)??null
+eaRow=0}
+else{missing=whyOf(read)
+if(read.kind==='ea'){const why=eaStop(read.err)
+if(why!==null){for(const one of wanted)if(one.entity===null)drop(one,missing)
+return halt(wanted,0,why)}}}}
+const ready=[]
+for(const one of wanted){if(one.entity===null){drop(one,missing)
+continue}
+const defId=Number(one.card?.defId)
+let own=null
+try{own=one.entity.definitionId}catch{own=null}
+if(Number.isSafeInteger(defId)&&defId>0&&own!==defId){drop(one,'mismatch')
+continue}
+const chill=frozenReasonOf(one.id)
+if(chill!==null){drop(one,chill==='unreadable'?'frozen-unreadable':'frozen-card')
+continue}
+ready.push(one)}
+const order=shuffled(ready,random)
+const priceCard=async(one)=>{let limits=bandOf(one.entity)
+let none=false
+if(limits===null){const band=await send(()=>item.requestPriceLimits(one.entity),one)
+const stop=hardStop(band)
+if(stop!==null)return{ok:false,stop}
+if(band.ok){eaRow=0
+limits=bandOf(one.entity)}
+else if(band.kind==='ea'&&eaStatusOf(band.err)===404)none=true
+else if(band.kind==='ea'){drop(one,'no-band')
+return{ok:false,stop:eaStop(band.err)}}
+if(limits===null&&!none){drop(one,'no-band')
+return{ok:false,stop:null}}}
+const price=galleryListPrice(rule,one.card?.market,limits,none)
+if(price.ok!==true){drop(one,price.reason)
+return{ok:false,stop:null}}
+one.price=price
+return{ok:true,stop:null}}
+const inList=(one)=>{try{return one.entity.pile===doors.pile}catch{return false}}
+const listOne=async(one)=>{const answer=await send(()=>item.list(one.entity,one.price.startingBid,one.price.buyNow,LIST_DURATION_S,{fresh:false,rows:null}),one)
+const stop=hardStop(answer)
+if(stop!==null)return stop
+if(answer.ok){eaRow=0
+listed.push(one.id)
+settled.add(one)
+const net=netAfterTax(one.price.buyNow)
+const paid=paidOf(one.card,one.entity)
+const event={type:'listed',itemId:one.id,start:one.price.startingBid,buyNow:one.price.buyNow,net,clamped:one.price.clamped??null}
+if(paid!==null&&paid>net)event.loss=paid-net
+emit(event)
+return null}
+drop(one,whyOf(answer))
+return answer.kind==='ea'?eaStop(answer.err):null}
+const moveList=async(list,one)=>{const answer=await send(()=>item.move(list.map((card)=>card.entity),doors.pile),one)
+if(!answer.ok)return{ok:false,answer}
+const said=receiptItemIds(answer.data)
+if(said===null)return{ok:true,landed:null}
+eaRow=0
+return{ok:true,landed:new Set(said.map((id)=>itemIdOf(id)).filter((id)=>id!==null))}}
+const direct=async(list,priced)=>{for(let at=0;at<list.length;at+=1){const one=list[at]
+if(aborted())return halt(list,at,'stopped')
+if(!priced){const price=await priceCard(one)
+if(!price.ok){if(price.stop!==null)return halt(list,at,price.stop,one)
+continue}}
+if(!inList(one)){const moved=await moveList([one],one)
+if(!moved.ok){const stop=hardStop(moved.answer)
+if(stop!==null)return halt(list,at,stop,one)
+drop(one,whyOf(moved.answer))
+const why=moved.answer.kind==='ea'?eaStop(moved.answer.err):null
+if(why!==null)return halt(list,at+1,why)
+continue}
+if(moved.landed===null){drop(one,'uncertain')
+return halt(list,at+1,'uncertain')}
+if(!moved.landed.has(one.id)){drop(one,'ea-kept')
+continue}
+emit({type:'moved',itemId:one.id})}
+const stop=await listOne(one)
+if(stop!==null)return halt(list,at+1,stop,one)}
+return finish(null)}
+if(asked===METHOD_DIRECT)return direct(order,false)
+const priced=[]
+for(let at=0;at<order.length;at+=1){const one=order[at]
+if(aborted())return halt(order,0,'stopped')
+const price=await priceCard(one)
+if(!price.ok){if(price.stop!==null)return halt(order,0,price.stop,one)
+continue}
+priced.push(one)}
+if(priced.length===0)return finish(null)
+for(const one of priced)one.begun=false
+const going=priced.filter((one)=>!inList(one))
+if(going.length>0){const moved=await moveList(going,null)
+if(!moved.ok){const stop=hardStop(moved.answer)
+if(stop!==null)return halt(priced,0,stop)
+if(moved.answer.kind==='ea'){const why=eaStop(moved.answer.err)
+if(why!==null)return halt(priced,0,why)}
+used='batch-fallback'
+return direct(priced,true)}
+if(moved.landed===null){for(const one of going)drop(one,'uncertain')
+return halt(priced,0,'uncertain')}
+for(const one of going){if(moved.landed.has(one.id))emit({type:'moved',itemId:one.id})
+else drop(one,'ea-kept')}}
+const selling=priced.filter((one)=>!settled.has(one))
+for(let at=0;at<selling.length;at+=1){const one=selling[at]
+if(aborted())return halt(selling,at,'stopped')
+const stop=await listOne(one)
+if(stop!==null)return halt(selling,at+1,stop,one)}
+return finish(null)}}
+async function probeMove(opts={}){const expect=opts?.expect
+if(!entitled())return Object.freeze({ok:false,reason:'premium',requests:0})
+if(!Number.isSafeInteger(expect)||expect<1||expect>PROBE_MAX)return Object.freeze({ok:false,reason:'expect',requests:0})
+if(busy)return Object.freeze({ok:false,reason:'busy',requests:0})
+const doors=doorsNow()
+if(doors.ok!==true)return Object.freeze({ok:false,reason:doors.stop,requests:0})
+busy=true
+let requests=0
+const call=async(run)=>{try{const data=await run()
+requests+=1
+return{ok:true,data}}catch(err){if(isDayBudgetError(err)||isDoorRefusal(err)||err instanceof EaRequestsOffError)return{ok:false,err,sent:false}
+requests+=1
+stopOnEaLimit(dayBudget,err)
+return{ok:false,err,sent:true}}}
+try{const read=await call(()=>doors.item.requestUnassignedItems())
+if(!read.ok)return Object.freeze({ok:false,reason:read.sent?'ea:'+String(eaStatusOf(read.err)??'?'):String(read.err?.door?.reason??read.err?.reason??'no-request'),requests})
+const items=itemsOf(read.data)
+if(items===null)return Object.freeze({ok:false,reason:'unreadable',requests})
+if(items.length!==expect)return Object.freeze({ok:false,reason:'count',found:items.length,requests})
+await sleep(listPauseMs(random))
+const moved=await call(()=>doors.item.move(items,doors.pile))
+if(!moved.ok)return Object.freeze({ok:false,reason:moved.sent?'ea:'+String(eaStatusOf(moved.err)??'?'):String(moved.err?.door?.reason??moved.err?.reason??'no-request'),requests})
+const said=receiptItemIds(moved.data)
+if(said===null)return Object.freeze({ok:false,reason:'uncertain',requests})
+const landed=new Set(said.map((id)=>itemIdOf(id)).filter((id)=>id!==null))
+const ids=items.map((one)=>itemIdOf(one?.id))
+return Object.freeze({ok:true,reason:null,requests,moved:ids.filter((id)=>landed.has(id)),kept:ids.filter((id)=>!landed.has(id))})}
+finally{busy=false}}
+const state=()=>Object.freeze({busy,rule:sellRuleOf(settings),rounds:rounds.map((one)=>({...one})),rhythms:rhythms.map((one)=>({...one}))})
+const seller=Object.freeze({priceFor,rhythm,sellRound,probeMove,state})
+publishProbe(win,seller)
+return seller}
+let latest=null
+function publishProbe(win,seller){latest=seller
+try{const bag=win?.__eshario
+if(!bag||typeof bag!=='object')return false
+if(typeof bag.gallerySell!=='function')bag.gallerySell=()=>latest?.state?.()??null
+if(typeof bag.gallerySellMove!=='function')bag.gallerySellMove=(expect)=>latest?.probeMove?.({expect})??null
+return true}catch{return false}}
+
+};
 // src/adapter/unassigned-bulk.js
-__ESB_g[263]=function*(){__ESB_d(__ESB_x[263],{BUSY_FRAMES:()=>BUSY_FRAMES,createUnassignedBulk:()=>createUnassignedBulk});yield;const{stopOnEaLimit,stopsRequest,EA_LIMIT,askDayBudget}=__ESB_x[98];const{reviewAction,createDoorConsent,doorConsentKey,ALLOWED,UNKNOWN}=__ESB_x[94];const{itemIdOf}=__ESB_x[203];
+__ESB_g[267]=function*(){__ESB_d(__ESB_x[267],{BUSY_FRAMES:()=>BUSY_FRAMES,createUnassignedBulk:()=>createUnassignedBulk});yield;const{stopOnEaLimit,stopsRequest,EA_LIMIT,askDayBudget}=__ESB_x[98];const{reviewAction,createDoorConsent,doorConsentKey,ALLOWED,UNKNOWN}=__ESB_x[94];const{itemIdOf}=__ESB_x[205];
 ;
 ;
 ;
@@ -54248,7 +56292,7 @@ consent.forget()}}}
 
 };
 // src/adapter/game-rewards.js
-__ESB_g[264]=function*(){__ESB_d(__ESB_x[264],{installGameRewardsCapture:()=>installGameRewardsCapture,installPackRewardCapture:()=>installPackRewardCapture});yield;const{refusesSuperclass}=__ESB_x[116];const{packCardName}=__ESB_x[92];const{screenPrototype}=__ESB_x[74];
+__ESB_g[268]=function*(){__ESB_d(__ESB_x[268],{installGameRewardsCapture:()=>installGameRewardsCapture,installPackRewardCapture:()=>installPackRewardCapture});yield;const{refusesSuperclass}=__ESB_x[116];const{packCardName}=__ESB_x[92];const{screenPrototype}=__ESB_x[74];
 ;
 ;
 ;
@@ -54393,7 +56437,7 @@ return handleOf(record,record.packs,onArrived)}
 
 };
 // src/features/reward-flow.js
-__ESB_g[265]=function*(){__ESB_d(__ESB_x[265],{createRewardFlow:()=>createRewardFlow});yield;const{SBC_FEATURE}=__ESB_x[164];
+__ESB_g[269]=function*(){__ESB_d(__ESB_x[269],{createRewardFlow:()=>createRewardFlow});yield;const{SBC_FEATURE}=__ESB_x[164];
 ;
 const REWARD_FLOW_FEATURE=SBC_FEATURE
 const REWARD_PRESS_FRAMES=2
@@ -54463,7 +56507,7 @@ dispose(){last=null}}}
 
 };
 // src/adapter/live-message.js
-__ESB_g[266]=function*(){__ESB_d(__ESB_x[266],{installLiveMessageCapture:()=>installLiveMessageCapture});yield;const{findDoor}=__ESB_x[57];const{refusesSuperclass}=__ESB_x[116];const{pressNode}=__ESB_x[134];
+__ESB_g[270]=function*(){__ESB_d(__ESB_x[270],{installLiveMessageCapture:()=>installLiveMessageCapture});yield;const{findDoor}=__ESB_x[57];const{refusesSuperclass}=__ESB_x[116];const{pressNode}=__ESB_x[134];
 ;
 ;
 ;
@@ -54570,7 +56614,7 @@ installations.delete(record.ctrlProto)}}}
 
 };
 // src/features/promo-close.js
-__ESB_g[267]=function*(){__ESB_d(__ESB_x[267],{createPromoClose:()=>createPromoClose});yield;
+__ESB_g[271]=function*(){__ESB_d(__ESB_x[271],{createPromoClose:()=>createPromoClose});yield;
 const PROMO_CLOSE_FEATURE='promoClose'
 const PROMO_PRESS_FRAMES=2
 const PROMO_STALE_MS=1500
@@ -54657,7 +56701,7 @@ return Number.isFinite(n)&&n>0?n:0}
 
 };
 // src/features/claim-rewards.js
-__ESB_g[268]=function*(){__ESB_d(__ESB_x[268],{createClaimRewards:()=>createClaimRewards});yield;const{bandPauseMs}=__ESB_x[79];const{mustStop,classifyStatus}=__ESB_x[77];const{askDayBudget,COUNTER_UNAVAILABLE}=__ESB_x[98];const{STOP_REASON_KEYS}=__ESB_x[103];
+__ESB_g[272]=function*(){__ESB_d(__ESB_x[272],{createClaimRewards:()=>createClaimRewards});yield;const{bandPauseMs}=__ESB_x[79];const{mustStop,classifyStatus}=__ESB_x[77];const{askDayBudget,COUNTER_UNAVAILABLE}=__ESB_x[98];const{STOP_REASON_KEYS}=__ESB_x[103];
 ;
 ;
 ;
@@ -54860,7 +56904,7 @@ failure=null}}}
 
 };
 // src/features/hub-button.js
-__ESB_g[269]=function*(){__ESB_d(__ESB_x[269],{createHubButton:()=>createHubButton});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoMark}=__ESB_x[69];
+__ESB_g[273]=function*(){__ESB_d(__ESB_x[273],{createHubButton:()=>createHubButton});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoMark}=__ESB_x[69];
 ;
 ;
 const HUB_BUTTON_MARK='futHubClaim'
@@ -54942,7 +56986,7 @@ root=null}}}
 
 };
 // src/adapter/home-grid.js
-__ESB_g[270]=function*(){__ESB_d(__ESB_x[270],{homeGridOf:()=>homeGridOf,homeStripsIn:()=>homeStripsIn});yield;
+__ESB_g[274]=function*(){__ESB_d(__ESB_x[274],{homeGridOf:()=>homeGridOf,homeStripsIn:()=>homeStripsIn});yield;
 const HOME_GRID_SELECTOR='.grid.layout-hub'
 function homeGridOf(node){try{if(node===null||node===undefined)return null
 if(typeof node.closest==='function'){const found=node.closest(HOME_GRID_SELECTOR)
@@ -54962,7 +57006,7 @@ return count}catch{return 0}}
 
 };
 // src/features/home-grid.js
-__ESB_g[271]=function*(){__ESB_d(__ESB_x[271],{createHomeGrid:()=>createHomeGrid});yield;const{homeGridOf,homeStripsIn}=__ESB_x[270];const{ensureStylesheet}=__ESB_x[68];
+__ESB_g[275]=function*(){__ESB_d(__ESB_x[275],{createHomeGrid:()=>createHomeGrid});yield;const{homeGridOf,homeStripsIn}=__ESB_x[274];const{ensureStylesheet}=__ESB_x[68];
 ;
 ;
 const COLUMNS=4
@@ -55217,35 +57261,90 @@ fitPending=false}}}
 
 };
 // src/features/hub-unlock.js
-__ESB_g[272]=function*(){__ESB_d(__ESB_x[272],{HUB_UNLOCK_FEATURE:()=>HUB_UNLOCK_FEATURE,createHubUnlock:()=>createHubUnlock});yield;
+__ESB_g[276]=function*(){__ESB_d(__ESB_x[276],{HUB_UNLOCK_FEATURE:()=>HUB_UNLOCK_FEATURE,createHubUnlock:()=>createHubUnlock});yield;
 const HUB_UNLOCK_FEATURE='hubUnlock'
 const HUB_UNLOCK_ATTEMPTS=1
+const HUB_UNLOCK_RETRY_MS=5000
+const HUB_UNLOCK_RETRY_JITTER_MS=1000
+const HUB_UNLOCK_RETRIES=1
 function createHubUnlock(deps={}){const adapter=deps.adapter??{}
 const allowed=typeof deps.allowed==='function'?deps.allowed:()=>false
 const now=typeof deps.now==='function'?deps.now:()=>Date.now()
 const onError=typeof deps.onError==='function'?deps.onError:()=>{}
+const setTimer=typeof deps.setTimer==='function'?deps.setTimer:(fn,ms)=>setTimeout(fn,ms)
+const clearTimer=typeof deps.clearTimer==='function'?deps.clearTimer:(id)=>clearTimeout(id)
+const random=typeof deps.random==='function'?deps.random:()=>Math.random()
 let attempts=0
 let result=null
 let status=null
 let redraw=null
 let at=null
 let disposed=false
+let retries=0
+let retried=false
+let retryResult=null
+let retryAt=null
+let timer=null
+let counterBefore=null
+let counterAfter=null
 function isAllowed(){try{return allowed()===true}catch(err){onError(err)
 return false}}
 function lockedNow(){try{const value=typeof adapter.locked==='function'?adapter.locked():null
 return typeof value==='boolean'?value:null}catch(err){onError(err)
 return null}}
-async function attempt(){let out=null
-try{out=await adapter.unlock()}catch(err){onError(err)
-out={ok:false,reason:'failed',status:null}}
-if(disposed)return
-if(out?.ok!==true){result=typeof out?.reason==='string'?out.reason:'failed'
-status=typeof out?.status==='number'?out.status:null
-return}
-result='ok'
-try{const drawn=typeof adapter.redraw==='function'?adapter.redraw():null
+function readCounter(){try{const n=typeof adapter.counter==='function'?adapter.counter():null
+return Number.isInteger(n)?n:null}catch(err){onError(err)
+return null}}
+function restoreCounter(){if(counterBefore===null||typeof adapter.restoreCounter!=='function')return
+try{adapter.restoreCounter(counterBefore)}catch(err){onError(err)}}
+function reloginFailed(code){try{return typeof adapter.reloginFailed==='function'&&adapter.reloginFailed(code)===true}catch(err){onError(err)
+return false}}
+async function ask(){try{return await adapter.unlock()}catch(err){onError(err)
+return{ok:false,reason:'failed',status:null}}}
+function drawTile(){try{const drawn=typeof adapter.redraw==='function'?adapter.redraw():null
 redraw=drawn?.ok===true?'ok':(typeof drawn?.reason==='string'?drawn.reason:'failed')}catch(err){onError(err)
 redraw='failed'}}
+function refused(out){result=typeof out?.reason==='string'?out.reason:'failed'
+status=typeof out?.status==='number'?out.status:null
+return reloginFailed(status)}
+async function attempt(){counterBefore=readCounter()
+const out=await ask()
+if(disposed)return
+if(out?.ok===true){result='ok'
+drawTile()
+counterAfter=readCounter()
+return}
+const relogin=refused(out)
+counterAfter=readCounter()
+if(!relogin)return
+if(counterBefore===null){retryResult='no-counter'
+return}
+if(lockedNow()===true){retryResult='locked'
+return}
+if(retries>=HUB_UNLOCK_RETRIES)return
+retries+=1
+let dice=0
+try{dice=Math.floor(Math.max(0,Math.min(1,Number(random())||0))*HUB_UNLOCK_RETRY_JITTER_MS)}catch(err){onError(err)}
+const delay=HUB_UNLOCK_RETRY_MS+Math.min(dice,HUB_UNLOCK_RETRY_JITTER_MS)
+retryAt=now()+delay
+retryResult='pending'
+timer=setTimer(()=>{timer=null
+void retry()},delay)}
+async function retry(){if(disposed)return
+restoreCounter()
+retried=true
+const out=await ask()
+if(disposed)return
+if(out?.ok===true){result='ok'
+status=null
+retryResult='ok'
+drawTile()
+counterAfter=readCounter()
+return}
+refused(out)
+retryResult=result
+restoreCounter()
+counterAfter=readCounter()}
 function apply(shown){void shown
 if(disposed)return false
 if(!isAllowed())return false
@@ -55257,13 +57356,16 @@ at=now()
 result='pending'
 void attempt()
 return true}
-function state(){return{allowed:isAllowed(),locked:lockedNow(),attempts,result,status,redraw,at}}
+function state(){return{allowed:isAllowed(),locked:lockedNow(),attempts,result,status,redraw,at,
+retried,retryResult,retryAt,counter:{before:counterBefore,after:counterAfter}}}
 return{apply,state,
-dispose(){disposed=true}}}
+dispose(){disposed=true
+if(timer!==null){try{clearTimer(timer)}catch(err){onError(err)}
+timer=null}}}}
 
 };
 // src/features/head-top.js
-__ESB_g[273]=function*(){__ESB_d(__ESB_x[273],{createHeadTop:()=>createHeadTop});yield;const{el,ensureStylesheet,ensureTheme}=__ESB_x[68];const{PANEL_DOOR_SELECTOR}=__ESB_x[214];
+__ESB_g[277]=function*(){__ESB_d(__ESB_x[277],{createHeadTop:()=>createHeadTop});yield;const{el,ensureStylesheet,ensureTheme}=__ESB_x[68];const{PANEL_DOOR_SELECTOR}=__ESB_x[216];
 ;
 ;
 const TOPLESS_MARK='data-fut-topless'
@@ -55418,7 +57520,7 @@ navReason='disposed'}}}
 
 };
 // src/features/rail-packs.js
-__ESB_g[274]=function*(){__ESB_d(__ESB_x[274],{createRailPacks:()=>createRailPacks});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{installPackRewardCapture}=__ESB_x[264];const{STORE_GRID_FEATURE}=__ESB_x[204];const{askDayBudget}=__ESB_x[98];const{bandPauseMs,spreadBand,RETRY_SPREAD_SHARE}=__ESB_x[79];
+__ESB_g[278]=function*(){__ESB_d(__ESB_x[278],{createRailPacks:()=>createRailPacks});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{installPackRewardCapture}=__ESB_x[268];const{STORE_GRID_FEATURE}=__ESB_x[206];const{askDayBudget}=__ESB_x[98];const{bandPauseMs,spreadBand,RETRY_SPREAD_SHARE}=__ESB_x[79];
 ;
 ;
 ;
@@ -55726,7 +57828,7 @@ settleTimer=null}}}}
 
 };
 // src/features/list-cursor.js
-__ESB_g[275]=function*(){__ESB_d(__ESB_x[275],{createListCursor:()=>createListCursor});yield;const{ensureStylesheet,ensureTheme}=__ESB_x[68];const{pressNode}=__ESB_x[134];const{LIST_ROWS,CURSOR_ATTR,CURSOR_KEY,ENTER_KEY,MARK_KEY,STALE_ATTR,STALE_KEY,MODE_PRESS,MODE_SAY,axisOf,rowKindOf,rowsOf,rectsOf,listNow,indexIn,markedRow,enterMarkOf,marksRow,drawsMark,enterTargets,primaryButton,followButton,stepIndex,startIndex,groupsOf,zoneOf}=__ESB_x[168];
+__ESB_g[279]=function*(){__ESB_d(__ESB_x[279],{createListCursor:()=>createListCursor});yield;const{ensureStylesheet,ensureTheme}=__ESB_x[68];const{pressNode}=__ESB_x[134];const{LIST_ROWS,CURSOR_ATTR,CURSOR_KEY,ENTER_KEY,MARK_KEY,STALE_ATTR,STALE_KEY,MODE_PRESS,MODE_SAY,axisOf,rowKindOf,rowsOf,rectsOf,listNow,indexIn,markedRow,enterMarkOf,marksRow,drawsMark,enterTargets,primaryButton,followButton,stepIndex,startIndex,groupsOf,zoneOf}=__ESB_x[168];
 ;
 ;
 ;
@@ -55824,7 +57926,7 @@ return{step,enter,state,clear}}
 
 };
 // src/features/notfound-watch.js
-__ESB_g[276]=function*(){__ESB_d(__ESB_x[276],{ensureNotFoundWatch:()=>ensureNotFoundWatch});yield;const{installShellWatch,shellFacts,shellLabel,screenTitle,eaBuild,askShell,shellSlot}=__ESB_x[188];const{eaRequestState}=__ESB_x[90];const{VIEW_SELECTOR}=__ESB_x[76];const{CARD_GRID_FEATURE}=__ESB_x[183];
+__ESB_g[280]=function*(){__ESB_d(__ESB_x[280],{ensureNotFoundWatch:()=>ensureNotFoundWatch});yield;const{installShellWatch,shellFacts,shellLabel,screenTitle,eaBuild,askShell,shellSlot}=__ESB_x[188];const{eaRequestState}=__ESB_x[90];const{VIEW_SELECTOR}=__ESB_x[76];const{CARD_GRID_FEATURE}=__ESB_x[183];
 ;
 ;
 ;
@@ -56081,7 +58183,9 @@ return room===undefined?null:report(room)}
 
 };
 // src/page/wiring.js
-__ESB_g[277]=function*(){__ESB_d(__ESB_x[277],{wirePage:()=>wirePage});yield;const{installHotkeys,confirmPlan}=__ESB_x[170];const{notePanelCard}=__ESB_x[134];const{ownConfirmButton,visibleDialogs,pressNode,pressTarget,layerVisible}=__ESB_x[134];const{HOTKEY_ACTIONS}=__ESB_x[127];const{publishLiveCriteria}=__ESB_x[139];const{readMarketFilterCriteria,restoreLiveMarketCriteria}=__ESB_x[106];const{startAutologin,createLandingWatch}=__ESB_x[260];const{createLandingDoor}=__ESB_x[261];const{findMinBin,countListings,minBinLabel,minBinTarget}=__ESB_x[80];const{listAtMinNotice}=__ESB_x[149];const{enhanceTransferList,syncRelistPricing}=__ESB_x[99];const{forgetPurchases}=__ESB_x[87];const{installItemEvidenceCapture,itemForEvidenceRow}=__ESB_x[89];const{enhancePriceBadges,relabelPriceBadges,dropAllPriceBadges,notePriceBadgeCard,priceBadgePeek}=__ESB_x[86];const{createDimOwned}=__ESB_x[262];const{createGalleryMarks}=__ESB_x[82];const{installSbcSetCapture}=__ESB_x[176];const{installSbcHubCapture}=__ESB_x[177];const{installStorageScreenCapture}=__ESB_x[195];const{installGalleryCapture,publishGalleryProbe}=__ESB_x[194];const{installSelectedPlayerCapture,selectedPlayerRecord}=__ESB_x[130];const{searchTypeOf}=__ESB_x[95];const{installQuickListCapture}=__ESB_x[100];const{installItemDetailsCapture}=__ESB_x[101];const{installSquadSlotCapture}=__ESB_x[129];const{installSquadScreenCapture,installSquadActionsCapture,installClubPickCapture}=__ESB_x[128];const{installSbcScreenCapture}=__ESB_x[116];const{installStorePacksCapture,installStoreCatalogCapture,installStoreTabCapture,openMyPacks,installPackOpenCapture,installPackAnimationCapture,goStorePacks,backPlan,BACK_CALLS}=__ESB_x[92];const{installPlayerPicksCapture,installPlayerPickControls}=__ESB_x[75];const{installItemEvents}=__ESB_x[63];const{applyItemEvent}=__ESB_x[159];const{installUnassignedScreenCapture,createUnassignedPerform,createUnassignedNativeStep}=__ESB_x[203];const{createUnassignedBulk,BUSY_FRAMES}=__ESB_x[263];const{createDoorConsent,doorConsentKey,isDoorRefusal,reviewAction,ALLOWED,UNKNOWN}=__ESB_x[94];const{extractItems}=__ESB_x[113];const{createUnassignedStrip}=__ESB_x[202];const{installGameRewardsCapture}=__ESB_x[264];const{createRewardFlow}=__ESB_x[265];const{installLiveMessageCapture}=__ESB_x[266];const{createPromoClose}=__ESB_x[267];const{installHomeHubCapture,readHubRewards,findLevel,claimHubReward,grantHubItems,readRewardKinds,readRewardLoot,noteRewardLoot,loadObjectiveCategories,findGroup,claimGroupReward,fcHubLocked,unlockFcHub,redrawFcHubTile}=__ESB_x[93];const{storeRailButton,unopenedPackCount,requestPackSplit,installObjectiveRewardWatch}=__ESB_x[186];const{createClaimRewards}=__ESB_x[268];const{createHubButton}=__ESB_x[269];const{createHomeGrid}=__ESB_x[271];const{createHubUnlock,HUB_UNLOCK_FEATURE}=__ESB_x[272];const{createHeadTop}=__ESB_x[273];const{PANEL_ID}=__ESB_x[259];const{createRailPacks}=__ESB_x[274];const{offMarket,meterCalls,isDayBudgetError,askDayBudget}=__ESB_x[98];const{createListCursor}=__ESB_x[275];const{AXIS_X,AXIS_Y}=__ESB_x[168];const{ensureNotFoundWatch}=__ESB_x[276];
+__ESB_g[281]=function*(){__ESB_d(__ESB_x[281],{wirePage:()=>wirePage});yield;const{installHotkeys,confirmPlan}=__ESB_x[170];const{notePanelCard}=__ESB_x[134];const{ownConfirmButton,visibleDialogs,pressNode,pressTarget,layerVisible}=__ESB_x[134];const{HOTKEY_ACTIONS}=__ESB_x[127];const{publishLiveCriteria}=__ESB_x[139];const{readMarketFilterCriteria,restoreLiveMarketCriteria}=__ESB_x[106];const{startAutologin,createLandingWatch}=__ESB_x[262];const{createLandingDoor}=__ESB_x[263];const{findMinBin,countListings,minBinLabel,minBinTarget}=__ESB_x[80];const{listAtMinNotice}=__ESB_x[149];const{enhanceTransferList,syncRelistPricing}=__ESB_x[99];const{forgetPurchases}=__ESB_x[87];const{installItemEvidenceCapture,itemForEvidenceRow}=__ESB_x[89];const{enhancePriceBadges,relabelPriceBadges,dropAllPriceBadges,notePriceBadgeCard,priceBadgePeek}=__ESB_x[86];const{createDimOwned}=__ESB_x[264];const{createGalleryMarks}=__ESB_x[82];const{createGallerySeller}=__ESB_x[266];const{setGallerySeller}=__ESB_x[192];const{installSbcSetCapture}=__ESB_x[176];const{installSbcHubCapture}=__ESB_x[177];const{installStorageScreenCapture}=__ESB_x[197];const{installGalleryCapture,publishGalleryProbe}=__ESB_x[196];const{installSelectedPlayerCapture,selectedPlayerRecord}=__ESB_x[130];const{searchTypeOf}=__ESB_x[95];const{installQuickListCapture}=__ESB_x[100];const{installItemDetailsCapture}=__ESB_x[101];const{installSquadSlotCapture}=__ESB_x[129];const{installSquadScreenCapture,installSquadActionsCapture,installClubPickCapture}=__ESB_x[128];const{installSbcScreenCapture}=__ESB_x[116];const{installStorePacksCapture,installStoreCatalogCapture,installStoreTabCapture,openMyPacks,installPackOpenCapture,installPackAnimationCapture,goStorePacks,backPlan,BACK_CALLS}=__ESB_x[92];const{installPlayerPicksCapture,installPlayerPickControls}=__ESB_x[75];const{installItemEvents}=__ESB_x[63];const{applyItemEvent}=__ESB_x[159];const{installUnassignedScreenCapture,createUnassignedPerform,createUnassignedNativeStep}=__ESB_x[205];const{createUnassignedBulk,BUSY_FRAMES}=__ESB_x[267];const{createDoorConsent,doorConsentKey,isDoorRefusal,reviewAction,ALLOWED,UNKNOWN}=__ESB_x[94];const{extractItems}=__ESB_x[113];const{createUnassignedStrip}=__ESB_x[204];const{installGameRewardsCapture}=__ESB_x[268];const{createRewardFlow}=__ESB_x[269];const{installLiveMessageCapture}=__ESB_x[270];const{createPromoClose}=__ESB_x[271];const{installHomeHubCapture,readHubRewards,findLevel,claimHubReward,grantHubItems,readRewardKinds,readRewardLoot,noteRewardLoot,loadObjectiveCategories,findGroup,claimGroupReward,fcHubLocked,unlockFcHub,redrawFcHubTile,readFcasAuthFailures,restoreFcasAuthFailures,fcasReloginFailed}=__ESB_x[93];const{storeRailButton,unopenedPackCount,requestPackSplit,installObjectiveRewardWatch}=__ESB_x[186];const{createClaimRewards}=__ESB_x[272];const{createHubButton}=__ESB_x[273];const{createHomeGrid}=__ESB_x[275];const{createHubUnlock,HUB_UNLOCK_FEATURE}=__ESB_x[276];const{createHeadTop}=__ESB_x[277];const{PANEL_ID}=__ESB_x[261];const{createRailPacks}=__ESB_x[278];const{offMarket,meterCalls,isDayBudgetError,askDayBudget}=__ESB_x[98];const{createListCursor}=__ESB_x[279];const{AXIS_X,AXIS_Y}=__ESB_x[168];const{ensureNotFoundWatch}=__ESB_x[280];
+;
+;
 ;
 ;
 ;
@@ -56166,6 +58270,7 @@ const paintFrame=typeof win?.requestAnimationFrame==='function'
 const rewardFlow=createRewardFlow({isActive,t,frame:paintFrame===null?undefined:paintFrame,now:()=>clock.now(),say:notice,onError})
 const promoClose=createPromoClose({isActive,t,frame:paintFrame===null?undefined:paintFrame,now:()=>clock.now(),say:notice,onError})
 const offMarketBudget=offMarket(dayBudget)
+setGallerySeller(createGallerySeller({win,isActive,dayBudget:offMarketBudget}))
 const claimRewards=createClaimRewards({isActive,t,say:notice,onError,
 budget:offMarketBudget,
 read:()=>readHubRewards(win),
@@ -56194,7 +58299,8 @@ return false}}
 const homeGrid=createHomeGrid({doc,onError})
 const hubUnlock=createHubUnlock({onError,now:()=>clock.now(),
 allowed:()=>isActive(HUB_UNLOCK_FEATURE)===true,
-adapter:{locked:()=>fcHubLocked(win),unlock:()=>unlockFcHub(win),redraw:()=>redrawFcHubTile(win)}})
+adapter:{locked:()=>fcHubLocked(win),unlock:()=>unlockFcHub(win),redraw:()=>redrawFcHubTile(win),
+counter:()=>readFcasAuthFailures(win),restoreCounter:(n)=>restoreFcasAuthFailures(win,n),reloginFailed:(code)=>fcasReloginFailed(win,code)}})
 let homeShown=null
 const headTop=createHeadTop({doc,isActive,panelHost:()=>doc.getElementById?.(PANEL_ID)??null,onError})
 const railPacks=createRailPacks({doc,t,isActive,onError,
@@ -56773,7 +58879,7 @@ observer?.disconnect?.()}}}
 
 };
 // src/page/buyer-door.js
-__ESB_g[278]=function*(){__ESB_d(__ESB_x[278],{createBuyerDoor:()=>createBuyerDoor});yield;
+__ESB_g[282]=function*(){__ESB_d(__ESB_x[282],{createBuyerDoor:()=>createBuyerDoor});yield;
 const BUYER_OFF_SCREEN='panel.start.onScreen'
 const BUYER_NO_ENGINE='snipe.noEngine'
 function createBuyerDoor({bar=()=>null,engine=null,onError=()=>{}}={}){
@@ -56802,7 +58908,7 @@ ready:()=>ready(barNow())}}
 
 };
 // src/page/settings-door.js
-__ESB_g[279]=function*(){__ESB_d(__ESB_x[279],{createSettingsDoor:()=>createSettingsDoor});yield;
+__ESB_g[283]=function*(){__ESB_d(__ESB_x[283],{createSettingsDoor:()=>createSettingsDoor});yield;
 function createSettingsDoor({update=()=>{}}={}){
 let open=null
 let last=null
@@ -56821,7 +58927,7 @@ return true}}}
 
 };
 // src/page/live-evidence.js
-__ESB_g[280]=function*(){__ESB_d(__ESB_x[280],{buildLiveEvidence:()=>buildLiveEvidence,createLiveEvidenceRecorder:()=>createLiveEvidenceRecorder,createPhaseLog:()=>createPhaseLog,domEvidence:()=>domEvidence,sanitizeLiveEvidenceSnapshot:()=>sanitizeLiveEvidenceSnapshot});yield;const{FEATURES}=__ESB_x[3];
+__ESB_g[284]=function*(){__ESB_d(__ESB_x[284],{buildLiveEvidence:()=>buildLiveEvidence,createLiveEvidenceRecorder:()=>createLiveEvidenceRecorder,createPhaseLog:()=>createPhaseLog,domEvidence:()=>domEvidence,sanitizeLiveEvidenceSnapshot:()=>sanitizeLiveEvidenceSnapshot});yield;const{FEATURES}=__ESB_x[3];
 ;
 const LIVE_EVIDENCE_SCHEMA=1
 const LIVE_EVIDENCE_LIMIT=50
@@ -57078,7 +59184,7 @@ function positiveInteger(value,fallback){return Number.isInteger(value)&&value>0
 
 };
 // src/page/live-control.js
-__ESB_g[281]=function*(){__ESB_d(__ESB_x[281],{createBridgeLiveControlProvider:()=>createBridgeLiveControlProvider,createLiveControlSession:()=>createLiveControlSession});yield;const{createCachedProvider}=__ESB_x[6];const{sanitizeLiveEvidenceSnapshot}=__ESB_x[280];
+__ESB_g[285]=function*(){__ESB_d(__ESB_x[285],{createBridgeLiveControlProvider:()=>createBridgeLiveControlProvider,createLiveControlSession:()=>createLiveControlSession});yield;const{createCachedProvider}=__ESB_x[6];const{sanitizeLiveEvidenceSnapshot}=__ESB_x[284];
 ;
 ;
 const LIVE_CONTROL_SCHEMA=2
@@ -57136,7 +59242,7 @@ function finite(value){return typeof value==='number'&&Number.isFinite(value)?va
 
 };
 // src/page/wait-notice.js
-__ESB_g[282]=function*(){__ESB_d(__ESB_x[282],{createWaitNotice:()=>createWaitNotice});yield;
+__ESB_g[286]=function*(){__ESB_d(__ESB_x[286],{createWaitNotice:()=>createWaitNotice});yield;
 function createWaitNotice({name,now,record,out=globalThis.console,
 prefix='[ESHArio]',
 pending='ещё не поднялась, попробуем позже',
@@ -57174,7 +59280,7 @@ state(){return{said,closed,tries,startedAt}}}}
 
 };
 // src/features/code-version.js
-__ESB_g[283]=function*(){__ESB_d(__ESB_x[283],{CODE_LINE_BUILD:()=>CODE_LINE_BUILD,askCodeVersion:()=>askCodeVersion});yield;
+__ESB_g[287]=function*(){__ESB_d(__ESB_x[287],{CODE_LINE_BUILD:()=>CODE_LINE_BUILD,askCodeVersion:()=>askCodeVersion});yield;
 const CODE_LINE_BUILD='FCHUB1'
 const CODE_STATUS_DOOR='code.status'
 const VERSION_RE=/^\d{1,5}(?:\.\d{1,5}){1,3}$/
@@ -57189,7 +59295,10 @@ return typeof version==='string'&&VERSION_RE.test(version)?version:null}
 
 };
 // src/page/page-entry.js
-__ESB_g[284]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{createBridgeProvider,READ_METHOD:SETTINGS_READ}=__ESB_x[7];const{createSettings,openDoorlessGates}=__ESB_x[5];const{createLicensing}=__ESB_x[8];const{createKeyProvider,createBridgeLicenseProvider}=__ESB_x[10];const{createAccountProvider,createMigrationProvider,ACCOUNT_OPEN}=__ESB_x[11];const{createI18n,chooseLocale,currentTimeZone}=__ESB_x[56];const{doors}=__ESB_x[57];const{createNavigation,appMain}=__ESB_x[58];const{createCriteria,createClubCriteria,createSbcStorageCriteria,createFiltersScreen,readUserCriteria}=__ESB_x[60];const{installMarketSearchQuick,tapSearchWire,widenMarketPage,marketSearchPageViews,marketPageSetting,WIDE_PAGE_LOTS}=__ESB_x[61];const{installItemEvents}=__ESB_x[63];const{createFilterStore,createBridgeFilterProvider}=__ESB_x[64];const{createBridgePackLockProvider,setPackLock,isPackLocked,isPackHidden,setPackHidden}=__ESB_x[65];const{createBridgeCardLockProvider,isCardLocked,setCardLock,sanitizeCardLocks,lockedIdsFor,cardLockRecreatedRows,noteCardsRecreated}=__ESB_x[66];const{createBridgeCardFrozenProvider,isCardFrozen,setCardFrozen,frozenIdsFor}=__ESB_x[67];const{createFrozenMarks}=__ESB_x[102];const{createDropdownSearch}=__ESB_x[135];const{previewPackAutomation,runPackAutomationStep,inspectPackAutomationOutcome,hydratePackAutomationOutcome,beginPackAutomationSession,recordPackAutomationSessionOutcome,previewPackAutomationOutcomeAction,runPackAutomationPickOutcome,runPackAutomationRecoveryOutcome,runPackAutomationDiscardOutcome,previewPackAutomationContinuation,runPackAutomationContinuation}=__ESB_x[138];const{setPlayerPickSelection,reviewPlayerPickSelection,runPickStep,pickPolicy}=__ESB_x[136];const{invalidateUnassignedRecovery,refreshUnassignedRecovery,setUnassignedDisposition,resetUnassignedDispositions,reviewUnassignedRecovery,runRecoveryStep,recoveryPolicy,previewUnassignedDiscard,runDiscardStep}=__ESB_x[137];const{applyFilter,saveCurrentFilter,renameFilter,removeFilter,exportFilters,importFilters}=__ESB_x[139];const{createAutomation,createBridgeLimitsProvider,createBridgeOptionsProvider}=__ESB_x[124];const{createSnipeKey}=__ESB_x[140];const{sanitizeOptionInput,parseOptions,AFTER_BUY_KEY,SEARCH_REFRESH_KEY,searchRefreshOf}=__ESB_x[120];const{createSellerControl,createBridgeSellerProvider}=__ESB_x[141];const{createJournal,createBridgeJournalProvider,BUYER,SELLER}=__ESB_x[142];const{journalText,JOURNAL_ROWS}=__ESB_x[143];const{createLedger,createBridgeLedgerProvider}=__ESB_x[144];const{ledgerText,ledgerCsv}=__ESB_x[145];const{createSounds}=__ESB_x[146];const{createSellSidebar}=__ESB_x[149];const{createCardLockMark}=__ESB_x[165];const{createLockBadges}=__ESB_x[166];const{createSquadBar}=__ESB_x[179];const{createSquadPick}=__ESB_x[180];const{createCardGrid,CARD_GRID_FEATURE,moneyScreenLive}=__ESB_x[183];const{createDealPanel}=__ESB_x[181];const{createClubBar}=__ESB_x[185];const{createGalleryPanel}=__ESB_x[190];const{createGalleryEngine,createGalleryMemory,createGalleryCounter,createGalleryPriceBook,personaKeyOf,UNANSWERED_PREFIX}=__ESB_x[192];const{createGalleryCatalogFeed,galleryDoorStore,galleryDoorFetch}=__ESB_x[191];const{createGalleryDoor}=__ESB_x[194];const{setGalleryEngine,galleryEngine}=__ESB_x[82];const{createSbcStorage,moveStorageToClub}=__ESB_x[196];const{createTransfersHub}=__ESB_x[197];const{itemForEvidenceRow}=__ESB_x[89];const{priceBadgeState,priceBadgeCoins,priceBadgePeek}=__ESB_x[86];const{createSbcWindow}=__ESB_x[175];const{createStoreGrid}=__ESB_x[204];const{createStoreCatalog}=__ESB_x[199];const{createPreviewMemory}=__ESB_x[205];const{createPackPeek}=__ESB_x[206];const{createPickPrices,PICK_BY_PRICE_FEATURE}=__ESB_x[207];const{createSbcTab}=__ESB_x[217];const{createSbcSet}=__ESB_x[218];const{rewardTextOf}=__ESB_x[176];const{createFutggSbc}=__ESB_x[219];const{createFrozenStore}=__ESB_x[174];const{createSbcStrip,withStrip}=__ESB_x[178];const{squadFieldSignature}=__ESB_x[116];const{createSbcWarm,BACKGROUND_TIME_MS}=__ESB_x[221];const{createSbcLadderWarm}=__ESB_x[220];const{createPackShow,sanitizeShowRating}=__ESB_x[208];const{goStoreHub,unassignedInCache}=__ESB_x[92];const{prepareChallenge,resolveClubPool,showPreparedOnPitch,searchBuyOnMarket,placeBoughtCard,planSlotsFor,twiceInPlan,mismatchInPlan,judgeSubmit,recreatedLockNotice,warmShieldStop,poolForSearch,searchableCards,SBC_FEATURE,solvePhases,columnTotal,pricesForClub,createPrepCache}=__ESB_x[164];const{createSubmitGuardHook}=__ESB_x[222];const{liveSubmitSnapshot,sbcIneligibleReason,cardResourceKey}=__ESB_x[117];const{readSbcStorageItems,ITEM_PILE}=__ESB_x[119];const{createClubMirror,readClubOnce,readVerdict,playersInStats,MIRROR_SHARDS,CLUB_SESSION_RESCUE_READS}=__ESB_x[118];const{createBootSplash}=__ESB_x[223];const{mergePool,laddersFrom,identityWantsFrom,createAgedMemo,valuationFrom,explainSolve,dumpSolve,clubWorth,liveClassesFrom,liveRatingsFrom,bucketsFrom,bucketsWanted,ladderLedger,ladderFromOf,IDENTITY_MEMO_KEEP,BLOB_SLICE_MS}=__ESB_x[160];const{createConceptItem,conceptSupport}=__ESB_x[148];const{createSlotSearchScreen,slotSearchSupport}=__ESB_x[224];const{arrangeByPositions}=__ESB_x[225];const{readTradeAccess}=__ESB_x[226];const{sayEaNotice}=__ESB_x[227];const{createPoolCache,createActiveSquadCache,PoolFeedError,poolHunger,poolPriceWatch,createPoolPriceEye}=__ESB_x[159];const{analyzeClubAction,valueNotice,cardLabel,CLUB_FEATURE,PRICE_FEATURE}=__ESB_x[162];const{defaultClubTableFilters,exportClubItemTableCsv}=__ESB_x[115];const{mountMarketResultSummary,showMarketDeals}=__ESB_x[182];const{createMarketBotBar}=__ESB_x[229];const{createSearchNames}=__ESB_x[230];const{readLiveMarketCriteria,playerEntryOf,marketResultsLive,SEARCH_SCREEN_ROOT,liveSearchButton,readMarketFilterCriteria,readLiveMarketDefaults,restoreLiveMarketCriteria,showSearchMinBid,restoreSearchMinBid,showSearchPair,restoreSearchPair,marketPriceControl}=__ESB_x[106];const{createMarketFilterMemory}=__ESB_x[215];const{mountItemCard}=__ESB_x[231];const{createPriceCache,createPriceLookup,createPriceFallback}=__ESB_x[83];const{createMarketPriceSource,marketCacheKey,criteriaForCard}=__ESB_x[232];const{createLivePrices,measureQueueFrom,lagReport}=__ESB_x[172];const{createMarketBudget,BUDGET_LIMIT}=__ESB_x[80];const{DEFAULT_SEARCH_BAND_MS,SAFE_PAUSE_FLOOR_MS,MIN_BID_FLOOR,MIN_BID_STEP,MIN_BID_TOP,BID_REFRESH_TOP,MIN_BUY_FLOOR,MIN_BUY_STEP,MIN_BUY_TOP,MIN_BUY_AIM_SHARE,PAIR_MIN_BID_TOP,pairRing}=__ESB_x[123];const{createDayBudget,withDayBudget,createHuntBudget,offMarket,meterCalls,isDayBudgetError,dayBudgetError,createBudgetOwner,stopOnEaLimit}=__ESB_x[98];const{createHeadBar,chipScale}=__ESB_x[214];const{createRivalsSource}=__ESB_x[211];const{headCountersLine}=__ESB_x[78];const{createAutoBuy,createBuyRate,createLotFinder,buyTargetOf,batchCeiling}=__ESB_x[171];const{createSession}=__ESB_x[107];const{createStopConditions}=__ESB_x[108];const{TAX_FEATURE}=__ESB_x[147];const{createUiState,createBridgeUiProvider,pickPreselectFromToggles,sanitizeHotkeyProfile}=__ESB_x[216];const{createCloudDesk}=__ESB_x[239];const{createSettingsTransfer,watchSettingsApplied}=__ESB_x[240];const{createProblemReport}=__ESB_x[241];const{SYNC_STORAGE_KEYS}=__ESB_x[233];const{setEaRequestPort,eaRequestState}=__ESB_x[90];const{createFutggSource,priceCacheKey,currentGame,isUntradableSource,MANIFEST_TTL_MS:FUTGG_MANIFEST_TTL_MS}=__ESB_x[85];const{seasonOf}=__ESB_x[84];const{createLadderService,createSolvePriceReader,LADDER_TTL_MS}=__ESB_x[158];const{createPriceTrap}=__ESB_x[242];const{createPriceQuarantine}=__ESB_x[243];const{createRarityGroups}=__ESB_x[244];const{createBridgeFetch,CARDS_METHOD,CARDS_TIMEOUT_MS}=__ESB_x[2];const{createSbc,createSquad}=__ESB_x[245];const{demandClasses}=__ESB_x[153];const{parseRequirements}=__ESB_x[150];const{createWorkAreaProbe}=__ESB_x[246];const{createAdapter,createPackAdapter,createClubMemory,createStorageMemory,searchTypeOf}=__ESB_x[95];const{createPersonaAdapter}=__ESB_x[210];const{createSessionEpoch,sessionSince,stopRunning,stopQueue}=__ESB_x[105];const{createWalletAdapter}=__ESB_x[193];const{squadRatingFloatEnabled}=__ESB_x[91];const{createTeamConfig}=__ESB_x[247];const{createStaticPlayers}=__ESB_x[173];const{createCardCatalog,createCardLane}=__ESB_x[248];const{createCardBaseFeed,baseDefinitions}=__ESB_x[249];const{createRarityGroupBook}=__ESB_x[250];const{createDemandMemory,unionClasses}=__ESB_x[157];const{installPurchaseLog,purchaseLogState,notePurchasedItem,notePaid}=__ESB_x[87];const{createHuntLoot}=__ESB_x[122];const{createClock}=__ESB_x[251];const{storageFailed}=__ESB_x[6];const{mountPanel,PANEL_BUILD}=__ESB_x[259];const{ourWindowOpen}=__ESB_x[70];const{FIRST_SECTION,DEEDS}=__ESB_x[254];const{HOTKEYS_FEATURE}=__ESB_x[170];const{publishTemplateMenu,pressNode,cardMatchProbe}=__ESB_x[134];const{wirePage}=__ESB_x[277];const{createBuyerDoor}=__ESB_x[278];const{createSettingsDoor}=__ESB_x[279];const{createLiveEvidenceRecorder,createPhaseLog,domEvidence,buildLiveEvidence}=__ESB_x[280];const{createBridgeLiveControlProvider,createLiveControlSession}=__ESB_x[281];const{createWaitNotice}=__ESB_x[282];const{askCodeVersion,CODE_LINE_BUILD}=__ESB_x[283];
+__ESB_g[288]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{createBridgeProvider,READ_METHOD:SETTINGS_READ}=__ESB_x[7];const{createSettings,openDoorlessGates}=__ESB_x[5];const{createLicensing}=__ESB_x[8];const{createKeyProvider,createBridgeLicenseProvider}=__ESB_x[10];const{createAccountProvider,createMigrationProvider,ACCOUNT_OPEN}=__ESB_x[11];const{createI18n,chooseLocale,currentTimeZone}=__ESB_x[56];const{doors}=__ESB_x[57];const{createNavigation,appMain}=__ESB_x[58];const{createCriteria,createClubCriteria,createSbcStorageCriteria,createFiltersScreen,readUserCriteria}=__ESB_x[60];const{installMarketSearchQuick,tapSearchWire,widenMarketPage,marketSearchPageViews,marketPageSetting,WIDE_PAGE_LOTS}=__ESB_x[61];const{installItemEvents}=__ESB_x[63];const{createFilterStore,createBridgeFilterProvider}=__ESB_x[64];const{createBridgePackLockProvider,setPackLock,isPackLocked,isPackHidden,setPackHidden}=__ESB_x[65];const{createBridgeCardLockProvider,isCardLocked,setCardLock,sanitizeCardLocks,lockedIdsFor,cardLockRecreatedRows,noteCardsRecreated}=__ESB_x[66];const{createBridgeCardFrozenProvider,isCardFrozen,setCardFrozen,frozenIdsFor}=__ESB_x[67];const{createFrozenMarks}=__ESB_x[102];const{createDropdownSearch}=__ESB_x[135];const{previewPackAutomation,runPackAutomationStep,inspectPackAutomationOutcome,hydratePackAutomationOutcome,beginPackAutomationSession,recordPackAutomationSessionOutcome,previewPackAutomationOutcomeAction,runPackAutomationPickOutcome,runPackAutomationRecoveryOutcome,runPackAutomationDiscardOutcome,previewPackAutomationContinuation,runPackAutomationContinuation}=__ESB_x[138];const{setPlayerPickSelection,reviewPlayerPickSelection,runPickStep,pickPolicy}=__ESB_x[136];const{invalidateUnassignedRecovery,refreshUnassignedRecovery,setUnassignedDisposition,resetUnassignedDispositions,reviewUnassignedRecovery,runRecoveryStep,recoveryPolicy,previewUnassignedDiscard,runDiscardStep}=__ESB_x[137];const{applyFilter,saveCurrentFilter,renameFilter,removeFilter,exportFilters,importFilters}=__ESB_x[139];const{createAutomation,createBridgeLimitsProvider,createBridgeOptionsProvider}=__ESB_x[124];const{createSnipeKey}=__ESB_x[140];const{sanitizeOptionInput,parseOptions,AFTER_BUY_KEY,SEARCH_REFRESH_KEY,searchRefreshOf}=__ESB_x[120];const{createSellerControl,createBridgeSellerProvider}=__ESB_x[141];const{createJournal,createBridgeJournalProvider,BUYER,SELLER}=__ESB_x[142];const{journalText,JOURNAL_ROWS}=__ESB_x[143];const{createLedger,createBridgeLedgerProvider}=__ESB_x[144];const{ledgerText,ledgerCsv}=__ESB_x[145];const{createSounds}=__ESB_x[146];const{createSellSidebar}=__ESB_x[149];const{createCardLockMark}=__ESB_x[165];const{createLockBadges}=__ESB_x[166];const{createSquadBar}=__ESB_x[179];const{createSquadPick}=__ESB_x[180];const{createCardGrid,CARD_GRID_FEATURE,moneyScreenLive}=__ESB_x[183];const{createDealPanel}=__ESB_x[181];const{createClubBar}=__ESB_x[185];const{createGalleryPanel}=__ESB_x[194];const{createGalleryBuyer}=__ESB_x[193];const{galleryCardName}=__ESB_x[189];const{createGalleryEngine,createGalleryMemory,createGalleryCounter,createGalleryPriceBook,personaKeyOf,UNANSWERED_PREFIX}=__ESB_x[191];const{createGalleryCatalogFeed,galleryDoorStore,galleryDoorFetch}=__ESB_x[190];const{createGalleryDoor}=__ESB_x[196];const{setGalleryEngine,galleryEngine}=__ESB_x[82];const{createSbcStorage,moveStorageToClub}=__ESB_x[198];const{createTransfersHub}=__ESB_x[199];const{transferListScroll}=__ESB_x[99];const{itemForEvidenceRow}=__ESB_x[89];const{priceBadgeState,priceBadgeCoins,priceBadgePeek}=__ESB_x[86];const{createSbcWindow}=__ESB_x[175];const{createStoreGrid}=__ESB_x[206];const{createStoreCatalog}=__ESB_x[201];const{createPreviewMemory}=__ESB_x[207];const{createPackPeek}=__ESB_x[208];const{createPickPrices,PICK_BY_PRICE_FEATURE}=__ESB_x[209];const{createSbcTab}=__ESB_x[219];const{createSbcSet}=__ESB_x[220];const{rewardTextOf}=__ESB_x[176];const{createFutggSbc}=__ESB_x[221];const{createFrozenStore}=__ESB_x[174];const{createSbcStrip,withStrip}=__ESB_x[178];const{squadFieldSignature}=__ESB_x[116];const{createSbcWarm,BACKGROUND_TIME_MS}=__ESB_x[223];const{createSbcLadderWarm}=__ESB_x[222];const{createPackShow,sanitizeShowRating}=__ESB_x[210];const{goStoreHub,unassignedInCache}=__ESB_x[92];const{prepareChallenge,resolveClubPool,showPreparedOnPitch,searchBuyOnMarket,placeBoughtCard,planSlotsFor,twiceInPlan,mismatchInPlan,judgeSubmit,recreatedLockNotice,warmShieldStop,poolForSearch,searchableCards,SBC_FEATURE,solvePhases,columnTotal,pricesForClub,createPrepCache}=__ESB_x[164];const{createSubmitGuardHook}=__ESB_x[224];const{liveSubmitSnapshot,sbcIneligibleReason,cardResourceKey}=__ESB_x[117];const{readSbcStorageItems,ITEM_PILE}=__ESB_x[119];const{createClubMirror,readClubOnce,readVerdict,playersInStats,MIRROR_SHARDS,CLUB_SESSION_RESCUE_READS}=__ESB_x[118];const{createBootSplash}=__ESB_x[225];const{mergePool,laddersFrom,identityWantsFrom,createAgedMemo,valuationFrom,explainSolve,dumpSolve,clubWorth,liveClassesFrom,liveRatingsFrom,bucketsFrom,bucketsWanted,ladderLedger,ladderFromOf,IDENTITY_MEMO_KEEP,BLOB_SLICE_MS}=__ESB_x[160];const{createConceptItem,conceptSupport}=__ESB_x[148];const{createSlotSearchScreen,slotSearchSupport}=__ESB_x[226];const{arrangeByPositions}=__ESB_x[227];const{readTradeAccess}=__ESB_x[228];const{sayEaNotice}=__ESB_x[229];const{createPoolCache,createActiveSquadCache,PoolFeedError,poolHunger,poolPriceWatch,createPoolPriceEye}=__ESB_x[159];const{analyzeClubAction,valueNotice,cardLabel,CLUB_FEATURE,PRICE_FEATURE}=__ESB_x[162];const{defaultClubTableFilters,exportClubItemTableCsv}=__ESB_x[115];const{mountMarketResultSummary,showMarketDeals}=__ESB_x[182];const{createMarketBotBar}=__ESB_x[231];const{createSearchNames}=__ESB_x[232];const{readLiveMarketCriteria,playerEntryOf,marketResultsLive,SEARCH_SCREEN_ROOT,liveSearchButton,readMarketFilterCriteria,readLiveMarketDefaults,restoreLiveMarketCriteria,showSearchMinBid,restoreSearchMinBid,showSearchPair,restoreSearchPair,marketPriceControl}=__ESB_x[106];const{createMarketFilterMemory}=__ESB_x[217];const{mountItemCard}=__ESB_x[233];const{createPriceCache,createPriceLookup,createPriceFallback}=__ESB_x[83];const{createMarketPriceSource,marketCacheKey,criteriaForCard}=__ESB_x[234];const{createLivePrices,measureQueueFrom,lagReport}=__ESB_x[172];const{createMarketBudget,BUDGET_LIMIT}=__ESB_x[80];const{DEFAULT_SEARCH_BAND_MS,SAFE_PAUSE_FLOOR_MS,MIN_BID_FLOOR,MIN_BID_STEP,MIN_BID_TOP,BID_REFRESH_TOP,MIN_BUY_FLOOR,MIN_BUY_STEP,MIN_BUY_TOP,MIN_BUY_AIM_SHARE,PAIR_MIN_BID_TOP,pairRing}=__ESB_x[123];const{createDayBudget,withDayBudget,createHuntBudget,offMarket,meterCalls,isDayBudgetError,dayBudgetError,createBudgetOwner,stopOnEaLimit}=__ESB_x[98];const{createHeadBar,chipScale}=__ESB_x[216];const{createRivalsSource}=__ESB_x[213];const{headCountersLine}=__ESB_x[78];const{createAutoBuy,createBuyRate,createLotFinder,buyTargetOf,batchCeiling}=__ESB_x[171];const{createSession}=__ESB_x[107];const{createStopConditions}=__ESB_x[108];const{TAX_FEATURE}=__ESB_x[147];const{createUiState,createBridgeUiProvider,pickPreselectFromToggles,sanitizeHotkeyProfile}=__ESB_x[218];const{createCloudDesk}=__ESB_x[241];const{createSettingsTransfer,watchSettingsApplied}=__ESB_x[242];const{createProblemReport}=__ESB_x[243];const{SYNC_STORAGE_KEYS}=__ESB_x[235];const{setEaRequestPort,eaRequestState}=__ESB_x[90];const{createFutggSource,priceCacheKey,currentGame,isUntradableSource,MANIFEST_TTL_MS:FUTGG_MANIFEST_TTL_MS}=__ESB_x[85];const{seasonOf}=__ESB_x[84];const{createLadderService,createSolvePriceReader,LADDER_TTL_MS}=__ESB_x[158];const{createPriceTrap}=__ESB_x[244];const{createPriceQuarantine}=__ESB_x[245];const{createRarityGroups}=__ESB_x[246];const{createBridgeFetch,CARDS_METHOD,CARDS_TIMEOUT_MS}=__ESB_x[2];const{createSbc,createSquad}=__ESB_x[247];const{demandClasses}=__ESB_x[153];const{parseRequirements}=__ESB_x[150];const{createWorkAreaProbe}=__ESB_x[248];const{createAdapter,createPackAdapter,createClubMemory,createStorageMemory,searchTypeOf}=__ESB_x[95];const{createPersonaAdapter}=__ESB_x[212];const{createSessionEpoch,sessionSince,stopRunning,stopQueue}=__ESB_x[105];const{createWalletAdapter}=__ESB_x[195];const{squadRatingFloatEnabled}=__ESB_x[91];const{createTeamConfig}=__ESB_x[249];const{createStaticPlayers}=__ESB_x[173];const{createCardCatalog,createCardLane}=__ESB_x[250];const{createCardBaseFeed,baseDefinitions}=__ESB_x[251];const{createRarityGroupBook}=__ESB_x[252];const{createDemandMemory,unionClasses}=__ESB_x[157];const{installPurchaseLog,purchaseLogState,notePurchasedItem,notePaid}=__ESB_x[87];const{createHuntLoot}=__ESB_x[122];const{createClock}=__ESB_x[253];const{storageFailed}=__ESB_x[6];const{mountPanel,PANEL_BUILD}=__ESB_x[261];const{ourWindowOpen}=__ESB_x[70];const{FIRST_SECTION,DEEDS}=__ESB_x[256];const{HOTKEYS_FEATURE}=__ESB_x[170];const{publishTemplateMenu,pressNode,cardMatchProbe}=__ESB_x[134];const{wirePage}=__ESB_x[281];const{createBuyerDoor}=__ESB_x[282];const{createSettingsDoor}=__ESB_x[283];const{createLiveEvidenceRecorder,createPhaseLog,domEvidence,buildLiveEvidence}=__ESB_x[284];const{createBridgeLiveControlProvider,createLiveControlSession}=__ESB_x[285];const{createWaitNotice}=__ESB_x[286];const{askCodeVersion,CODE_LINE_BUILD}=__ESB_x[287];
+;
+;
+;
 ;
 ;
 ;
@@ -58811,7 +60920,8 @@ const sessionEpochStops=[
 {name:'sbc-warm',act(){return stopQueue(sbcWarm,'session-epoch')}},
 {name:'ladder-warm',act(){return stopQueue(ladderWarm,'session-epoch')}},
 {name:'price-queue',act(){return livePrices.cancel('session-epoch')}},
-{name:'sbc-window',act(){return sbcWindow.sessionEpoch.stop()}}]
+{name:'sbc-window',act(){return sbcWindow.sessionEpoch.stop()}},
+{name:'gallery-buy',act(){try{return galleryBuyer.stop('session-epoch')?.ok===true}catch{return false}}}]
 const sessionEpochForgets=[
 {name:'club-pool',act(){return poolCache.markStale('session-epoch')===true}},
 {name:'sbc-window',act(){return sbcWindow.sessionEpoch.forget()}},
@@ -58880,8 +60990,20 @@ door:createGalleryDoor(window),counter:createGalleryCounter(marketBudget),
 cards:(id)=>{const card=catalog.get(id)
 return card===null?null:{rating:card.rating,rarity:card.rareflag,club:card.teamId,league:card.leagueId,nation:card.nationId,positions:card.positions}},
 now:()=>priceClock.now(),onError:(err)=>note(`gallery: ${err?.message??err}`)}))
+const galleryBuyer=createGalleryBuyer({engine:()=>galleryEngine(),statusOf:settings.statusOf,
+market:marketOrNull,clock:createClock(),coins:wallet.coins,buyRate,budget:huntBudget,marketBudget,
+criteriaOf:(id)=>criteriaForCard(id,null),
+measure:(id)=>marketEvidenceOfItem({definitionId:id}),
+nameOf:(id)=>galleryCardName(window,id),
+busy:()=>(buyBatch!==null||automation.isRunning?.()===true||seller.isRunning?.()===true),
+ready:()=>Promise.all([buyRate.load(),dayBudget.load()]),
+onBought:(item,price)=>notePaid(item,price),
+onEvent:(name,payload)=>{if(name==='buy:failure')note(`gallery buy: отказ ${payload?.stage??'?'}: ${payload?.category??'?'}`)
+if(name==='buy:done')note(`gallery buy: куплено ${payload?.bought??0}, выставлено ${payload?.listed??0}, потрачено ${payload?.spent??0}, запросов ${payload?.requests??0}, причина ${payload?.reason??'нет'}`)},
+onError:(err)=>note(`gallery buy: ${err?.message??err}`)})
 const galleryPanel=createGalleryPanel({doc:document,win:window,t,statusOf:settings.statusOf,
 engine:()=>galleryEngine(),
+buyer:galleryBuyer,
 cardOf:(id)=>catalog.get(id),
 catalogNow:()=>galleryCatalog.current(),
 formatNumber:(value)=>i18n.formatNumber(value),
@@ -59064,6 +61186,7 @@ state.rewardFlow=()=>wiring?.rewardFlow?.()??null;
 state.storage=()=>wiring?.storage?.()??null;
 state.hubRewards=()=>wiring?.hubRewards?.()??null;
 state.hubUnlock=()=>wiring?.hubUnlock?.()??null;
+state.galleryBuy=()=>galleryBuyer.probe();
 state.railPacks=()=>wiring?.railPacks?.()??null;
 state.headTop=()=>wiring?.headTop?.()??null;
 state.promoClose=()=>wiring?.promoClose?.()??null;
@@ -59101,6 +61224,7 @@ line:'карт '+own.size
 +' · ответ '+(base?.status??'?')+(base?.reason?(' ('+base.reason+')'):'')
 +' · хранилище '+(bytes===null?'?':(Math.round(bytes/1024)+' КБ'))}};
 state.purchases=()=>purchaseLogState();
+state.transferListScroll=()=>transferListScroll();
 state.club=()=>({...clubMirror.state(),boot:{...bootState},decision:clubDecision===null?null:{...clubDecision,counts:{...clubWhy}},splash:bootSplash.state()});
 state.rarityLadders=()=>rarityLaddersNow();
 state.priceProbe=async()=>{const prices=livePrices.applyTo({...(await priceLadder.read()),rarityLadders:await rarityLaddersNow()})
@@ -59234,7 +61358,7 @@ note(err?.message??err)});
 
 };
 // Запуск: шаг первый всем модулям (геттеры, подъём функций), потом тела по порядку браузера.
-const __ESB_o=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284],__ESB_a=new Set([]),__ESB_c=[80,86,120,123];
+const __ESB_o=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288],__ESB_a=new Set([]),__ESB_c=[80,86,120,123];
 const __ESB_it=[];for(const i of __ESB_o){const g=__ESB_g[i].call(void 0);__ESB_it[i]=g;g.next()}
 const __ESB_ring=()=>{for(const j of __ESB_c)__ESB_r[j]()};
 const __ESB_run=(k)=>{for(;k<__ESB_o.length;k++){__ESB_ring();const i=__ESB_o[k],r=__ESB_it[i].next();if(__ESB_a.has(i))return r.then(()=>__ESB_run(k+1))}__ESB_ring()};
