@@ -1,4 +1,4 @@
-// ESHArio page-bundle 2.3.5 3ac792dba92525ed2766a5571033f300004d02c8 2026-09-26T10:51:52Z
+// ESHArio page-bundle 2.3.9 f8529c5e30f9727df7c54e9736d587b11de6d492 2026-09-26T14:43:49Z
 (function(){'use strict';
 // Адрес: на чужой странице EA склейка молчит (контракт 1.1).
 if(!(function(h){return /^https:\/\/www\.ea\.com\/.*\/ultimate-team\/web-app.*/.test(h)})(String(globalThis.location&&globalThis.location.href)))return;
@@ -4250,6 +4250,8 @@ const galleryEn=Object.freeze({
 'gallery.set.first.few':'first owner: {n} cards, +{bonus} %',
 'gallery.set.first.many':'first owner: {n} cards, +{bonus} %',
 'gallery.set.first.other':'first owner: {n} cards, +{bonus} %',
+'gallery.set.tagsTruth':'tag bonus: checking with the game',
+'gallery.set.tagsTruth.hint':'The game gives a bonus for the set tags. We count only the checked ones; the rest will be added after checking, so our grade may be lower than in the game',
 'gallery.set.needCards.one':'{n} card',
 'gallery.set.needCards.few':'{n} cards',
 'gallery.set.needCards.many':'{n} cards',
@@ -4519,6 +4521,8 @@ const galleryRu=Object.freeze({
 'gallery.set.first.few':'первый владелец: {n} карты, +{bonus} %',
 'gallery.set.first.many':'первый владелец: {n} карт, +{bonus} %',
 'gallery.set.first.other':'первый владелец: {n} карты, +{bonus} %',
+'gallery.set.tagsTruth':'бонус тегов сверяем с игрой',
+'gallery.set.tagsTruth.hint':'Игра даёт бонус за теги набора. Мы считаем только проверенные; остальные добавим после сверки, поэтому оценка у нас может быть ниже, чем в игре',
 'gallery.set.needCards.one':'{n} карты',
 'gallery.set.needCards.few':'{n} карт',
 'gallery.set.needCards.many':'{n} карт',
@@ -37877,7 +37881,7 @@ checkedAt,nextAt,store:store!==null,net:fetchText!==null,...stats})}}
 
 };
 // src/features/gallery-engine.js
-__ESB_g[191]=function*(){__ESB_d(__ESB_x[191],{CHECK_BATCH:()=>CHECK_BATCH,RESELL_TAX:()=>RESELL_TAX,SET_CHECK_MAX:()=>SET_CHECK_MAX,UNANSWERED_PREFIX:()=>UNANSWERED_PREFIX,checkRequestsCap:()=>checkRequestsCap,createGalleryCounter:()=>createGalleryCounter,createGalleryEngine:()=>createGalleryEngine,createGalleryMemory:()=>createGalleryMemory,createGalleryPriceBook:()=>createGalleryPriceBook,personaKeyOf:()=>personaKeyOf,readRawMark:()=>readRawMark});yield;const{askDayBudget,restMarketAfterThrottle,dayKeyOf}=__ESB_x[98];const{isLoanItem}=__ESB_x[119];const{readGalleryCatalog}=__ESB_x[190];const{SAFE_PAUSE_FLOOR_MS,DEFAULT_SEARCH_BAND_MS}=__ESB_x[123];
+__ESB_g[191]=function*(){__ESB_d(__ESB_x[191],{CHECK_BATCH:()=>CHECK_BATCH,FIRST_OWNER_PREFIX:()=>FIRST_OWNER_PREFIX,RESELL_TAX:()=>RESELL_TAX,SET_CHECK_MAX:()=>SET_CHECK_MAX,UNANSWERED_PREFIX:()=>UNANSWERED_PREFIX,checkRequestsCap:()=>checkRequestsCap,createGalleryCounter:()=>createGalleryCounter,createGalleryEngine:()=>createGalleryEngine,createGalleryMemory:()=>createGalleryMemory,createGalleryPriceBook:()=>createGalleryPriceBook,personaKeyOf:()=>personaKeyOf,readRawMark:()=>readRawMark});yield;const{askDayBudget,restMarketAfterThrottle,dayKeyOf}=__ESB_x[98];const{isLoanItem}=__ESB_x[119];const{readGalleryCatalog}=__ESB_x[190];const{SAFE_PAUSE_FLOOR_MS,DEFAULT_SEARCH_BAND_MS}=__ESB_x[123];
 ;
 ;
 ;
@@ -37892,6 +37896,7 @@ const RESELL_TAX=0.05
 const PRICELESS=1e10
 const MEMORY_PREFIX='gallery.collected.'
 const UNANSWERED_PREFIX='gallery.unanswered.'
+const FIRST_OWNER_PREFIX='gallery.firstowner.'
 const MEMORY_CAP=100_000
 const PIGGY_DEFAULT=300
 const NO_SCORE=0
@@ -38042,51 +38047,67 @@ return{day,used,sets}}
 function createGalleryCounter(budget){if(!budget||typeof budget.take!=='function')return null
 return{take:()=>askDayBudget(budget,1,{market:true}),rest:()=>restMarketAfterThrottle(budget)}}
 function levelOf(rating){const value=Number(rating)
-if(!Number.isFinite(value))return null
+if(!Number.isFinite(value)||value<1)return null
 return value>=75?'gold':value>=65?'silver':'bronze'}
 const LEVEL_NAMES=Object.freeze({gold:['gold','3'],silver:['silver','2'],bronze:['bronze','1']})
+const POSITION_NAMES=Object.freeze(['GK','SW','RWB','RB','RCB','CB','LCB','LB','LWB','RDM','CDM','LDM','RM','RCM','CM','LCM','LM','RAM','CAM','LAM','RF','CF','LF','RW','RS','ST','LS','LW'])
+const positionName=(one)=>(typeof one==='number'?POSITION_NAMES[one]??null:one)
+const idOf=(value)=>(Number.isSafeInteger(value)&&value>=0?[value]:[])
 function attributeValues(card,attribute){if(!card)return null
 if(attribute==='FIRST_OWNED')return[card.first===true?'1':'0']
 if(card.bare===true)return null
-switch(attribute){case 'CLUB':return[card.club]
-case 'LEAGUEID':return[card.league]
-case 'NATION':return[card.nation]
-case 'RARE':return[card.rarity]
+switch(attribute){case 'CLUB':return idOf(card.club)
+case 'LEAGUEID':return idOf(card.league)
+case 'NATION':return idOf(card.nation)
+case 'RARE':return idOf(card.rarity)
 case 'BASE_DEF_ID':return[card.base??card.defId]
 case 'SKILL_MOVES':return[card.skillMoves]
 case 'WEAK_FOOT':return[card.weakFoot]
-case 'POSSIBLE_POSITIONS':return Array.isArray(card.positions)?card.positions:[]
+case 'POSSIBLE_POSITIONS':return Array.isArray(card.positions)?card.positions.map(positionName):[]
 case 'LEVEL':{const level=levelOf(card.rating)
 return level===null?[]:LEVEL_NAMES[level]}
 default:return null}}
 const known=(value)=>value!==null&&value!==undefined&&value!==''&&!(typeof value==='number'&&!Number.isFinite(value))
-function tagCount(rule,cards){const type=rule?.type
+const scoreOfCard=(card)=>{const value=Number(card?.score)
+return Number.isFinite(value)&&value>0?value:0}
+function tagMatched(rule,cards){const type=rule?.type
 const attribute=rule?.attribute
 const wanted=new Set((rule?.values??[]).map((one)=>String(one).toLowerCase()))
 const per=cards.map((card)=>attributeValues(card,attribute))
 if(per.some((values)=>values===null))return null
-if(type==='COUNT'||type==='COUNT_ANY'){let count=0
-for(const values of per){const list=values.filter(known).map((one)=>String(one).toLowerCase())
-if(wanted.size===0?list.length>0:list.some((one)=>wanted.has(one)))count+=1}
-return count}
-if(type==='COUNT_DIFF'){const seen=new Set()
-for(const values of per)for(const one of values)if(known(one))seen.add(String(one))
-return seen.size}
-if(type==='MAX_COUNT_ALL_SAME'){const counts=new Map()
-for(const values of per){const first=values.find(known)
-if(first===undefined)continue
+if(type==='COUNT'||type==='COUNT_ANY'){const out=[]
+per.forEach((values,at)=>{const list=values.filter(known).map((one)=>String(one).toLowerCase())
+if(wanted.size===0?list.length>0:list.some((one)=>wanted.has(one)))out.push(at)})
+return out}
+const groups=new Map()
+per.forEach((values,at)=>{const first=values.find(known)
+if(first===undefined)return
 const key=String(first)
-counts.set(key,(counts.get(key)??0)+1)}
-let best=0
-for(const value of counts.values())best=Math.max(best,value)
+const list=groups.get(key)
+if(list===undefined)groups.set(key,[at])
+else list.push(at)})
+const sum=(list)=>list.reduce((total,at)=>total+scoreOfCard(cards[at]),0)
+if(type==='COUNT_DIFF'){const out=[]
+for(const list of groups.values())out.push(list.reduce((best,at)=>(scoreOfCard(cards[at])>scoreOfCard(cards[best])?at:best)))
+return out}
+if(type==='MAX_COUNT_ALL_SAME'){let best=[]
+for(const list of groups.values())if(list.length>best.length||(list.length===best.length&&sum(list)<sum(best)))best=list
 return best}
 return null}
-function tagBonus(tags,cards){let total=0
-for(const tag of tags??[]){const count=tagCount(tag.rule,cards)
-if(count===null)continue
-let bonus=0
-for(const step of tag.steps)if(count>=step.count)bonus=Math.max(bonus,step.bonus)
-total+=bonus}
+const VERIFIED_TAG_RULES=Object.freeze(new Set(['FIRST_OWNED/COUNT','NATION/MAX_COUNT_ALL_SAME','CLUB/MAX_COUNT_ALL_SAME',
+'LEAGUEID/MAX_COUNT_ALL_SAME','NATION/COUNT_DIFF','CLUB/COUNT_DIFF','LEVEL/COUNT','POSSIBLE_POSITIONS/COUNT_ANY']))
+const ruleKey=(tag)=>`${String(tag?.rule?.attribute??'').toUpperCase()}/${String(tag?.rule?.type??'').toUpperCase()}`
+function tagDetails(tags,cards,verified=VERIFIED_TAG_RULES){return(tags??[]).map((tag)=>{const matched=tagMatched(tag.rule,cards)
+const count=matched===null?null:matched.length
+let percent=0
+if(count!==null)for(const step of tag.steps??[])if(count>=step.count)percent=Math.max(percent,step.bonus)
+const trusted=verified.has(ruleKey(tag))
+const base=matched===null?0:matched.reduce((total,at)=>total+scoreOfCard(cards[at]),0)
+return{id:tag.id??null,name:tag.name??null,rule:ruleKey(tag),verified:trusted,count,percent,base,
+points:trusted&&percent>0?Math.floor(base*percent/100):0,
+ids:matched===null?[]:matched.map((at)=>cards[at]?.defId??null)}})}
+function tagPoints(tags,cards,verified=VERIFIED_TAG_RULES){let total=0
+for(const one of tagDetails(tags,cards,verified))total+=one.points
 return total}
 function skyline(slots,candidates){const sorted=candidates.slice().sort((a,b)=>b.score-a.score||a.cost-b.cost||a.id-b.id)
 const kept=[]
@@ -38216,14 +38237,14 @@ if(!bonusOf)return answer
 const topIds=lockIds.concat(pool.slice().sort((a,b)=>b.score-a.score||a.cost-b.cost).slice(0,free).map((card)=>card.id))
 const topBonus=bonusOf(topIds)
 let guess=answer.map((one)=>(one===null?topBonus:one.bonus))
-for(let round=0;round<3;round+=1){const lowered=thresholds.map((threshold,g)=>(guess[g]>0?Math.ceil(threshold*100/(100+guess[g])):threshold))
+for(let round=0;round<3;round+=1){const lowered=thresholds.map((threshold,g)=>(guess[g]>0?Math.max(0,threshold-guess[g]):threshold))
 if(lowered.every((value,g)=>value>=thresholds[g]))break
 const tried=solve(lowered)
 let moved=false
 for(let g=0;g<thresholds.length;g+=1){const one=tried[g]
 if(one===null||lowered[g]>=thresholds[g])continue
 const bonus=bonusOf(one.ids)
-if(one.score*(100+bonus)>=thresholds[g]*100&&(answer[g]===null||one.cost<answer[g].cost))answer[g]={...one,bonus}
+if(one.score+bonus>=thresholds[g]&&(answer[g]===null||one.cost<answer[g].cost))answer[g]={...one,bonus}
 if(bonus!==guess[g]){guess[g]=bonus
 moved=true}}
 if(!moved)break}
@@ -38234,7 +38255,7 @@ best=best.map((was,g)=>{const next=one[g]
 if(next===null)return was
 if(was===null)return next
 if(next.cost<was.cost)return next
-if(next.cost===was.cost&&next.score*(100+next.bonus)>was.score*(100+was.bonus))return next
+if(next.cost===was.cost&&next.score+next.bonus>was.score+was.bonus)return next
 return was})}
 return best}
 function firstOwnerTags(tags){const list=(tags??[]).filter((tag)=>String(tag?.rule?.attribute??'').toUpperCase()==='FIRST_OWNED')
@@ -38243,10 +38264,33 @@ for(const tag of list)for(const step of tag.steps??[])if(Number.isSafeInteger(st
 return{tags:list,counts:[...counts].sort((a,b)=>a-b)}}
 function firstLocks(slots,own,counts){const firsts=own.filter((card)=>card.first===true).sort((a,b)=>b.score-a.score||a.id-b.id)
 const out=[]
-for(const count of counts){if(count>slots||count>firsts.length)continue
+const every=Math.min(slots,firsts.length)
+const all=counts.length>0&&every>=counts[0]&&!counts.includes(every)?counts.concat(every):counts
+for(const count of all){if(count>slots||count>firsts.length)continue
 const ids=firsts.slice(0,count)
 out.push({ids:ids.map((card)=>card.id),score:sumOf(ids,'score')})}
 return out}
+const CLIMB_ROUNDS=10
+const CLIMB_POOL=50
+function climbLineup(start,own,scoreById,bonusOf){let best=start
+const weight=(card)=>(card.first?card.score*6:card.score)
+const inStart=new Set(start.ids)
+const pool=own.filter((card)=>!inStart.has(card.id)).sort((a,b)=>weight(b)-weight(a)||a.id-b.id).slice(0,CLIMB_POOL).map((card)=>card.id)
+for(let round=0;round<CLIMB_ROUNDS;round+=1){let found=null
+const inside=new Set(best.ids)
+for(let at=0;at<best.ids.length;at+=1){const out=best.ids[at]
+for(const id of pool){if(inside.has(id))continue
+const ids=best.ids.slice()
+ids[at]=id
+const score=best.score-(scoreById.get(out)??0)+(scoreById.get(id)??0)
+const bonus=bonusOf(ids)
+const total=score+bonus
+if(total>(found?.total??best.total))found={ids,score,bonus,total}}}
+if(found===null)break
+const left=new Set(found.ids)
+for(const id of best.ids)if(!left.has(id)&&!pool.includes(id))pool.push(id)
+best=found}
+return best}
 function goalOf(grades,current){if(current>=grades.length-1)return{goal:null,tokenPrice:null}
 const upTo=[]
 let running=0
@@ -38410,6 +38454,7 @@ function createGalleryEngine(deps={}){const catalog=catalogPort(deps.catalog)
 const prices=pricePort(deps.prices)
 const clubRows=clubPort(deps.club)
 const memory=deps.memory??createGalleryMemory({})
+const firstMemory=deps.firstOwners??createGalleryMemory({prefix:FIRST_OWNER_PREFIX})
 const lost=deps.unanswered??createGalleryMemory({prefix:UNANSWERED_PREFIX})
 const door=deps.door??null
 const counter=deps.counter??null
@@ -38432,14 +38477,21 @@ let cache=null
 let feeding=false
 const stats={checks:0,requests:0,answered:0,cards:0,extra:0,unanswered:0,unansweredIds:[],pauses:[],refusals:[],swept:0}
 const emit=(event,value)=>{for(const fn of listeners[event]??[]){try{fn(value)}catch(err){onError(err)}}}
-let memoryWatched=null
-const watchMemory=()=>{let status=null
-try{status=memory.state?.()?.status??null}catch{status=null}
-if(status!=='loading'||typeof memory.load!=='function')return
-const reading=memory.load()
-if(reading===memoryWatched)return
-memoryWatched=reading
+const memoryWatched=new Map()
+const watchOne=(one)=>{let status=null
+try{status=one.state?.()?.status??null}catch{status=null}
+if(status!=='loading'||typeof one.load!=='function')return
+const reading=one.load()
+if(reading===memoryWatched.get(one))return
+memoryWatched.set(one,reading)
 Promise.resolve(reading).then(()=>emit('state',api.state()),onError)}
+const watchMemory=()=>{watchOne(memory)
+watchOne(firstMemory)}
+const firstSet=()=>{const club=clubFirstIds(clubRows())
+try{firstMemory.add([...club])}catch(err){onError(err)}
+const out=new Set(club)
+try{for(const id of firstMemory.ids())out.add(id)}catch(err){onError(err)}
+return out}
 const markOf=(defId)=>{const mine=checked.get(defId)
 let seen=null
 try{seen=door?.mark?.(defId)??null}catch{seen=null}
@@ -38495,9 +38547,11 @@ const collectedIds=own.map((card)=>card.id)
 const n=collectedIds.length
 const source=n>=slots?'complete':known===pool.length&&pool.length>0?'checked':'club'
 const ownFirst=new Set(own.filter((card)=>card.first).map((card)=>card.id))
+const scoreById=new Map(own.concat(buy).map((card)=>[card.id,card.score]))
 const cardFor=(id)=>{const base=cardOf?.(id)??null
-return base===null?{bare:true,defId:id,first:ownFirst.has(id)}:{...base,defId:id,first:ownFirst.has(id)}}
-const bonusOf=parsed.tags.length===0?null:(ids)=>tagBonus(parsed.tags,ids.map(cardFor))
+const score=scoreById.get(id)??0
+return base===null?{bare:true,defId:id,first:ownFirst.has(id),score}:{...base,defId:id,first:ownFirst.has(id),score}}
+const bonusOf=parsed.tags.length===0?null:(ids)=>tagPoints(parsed.tags,ids.map(cardFor))
 const firstTag=firstOwnerTags(parsed.tags)
 const locks=bonusOf===null?[]:firstLocks(slots,own,firstTag.counts)
 const ownTop=own.slice().sort((a,b)=>b.score-a.score).slice(0,slots)
@@ -38505,20 +38559,27 @@ const rest=(held)=>{const skip=new Set(held)
 return own.filter((card)=>!skip.has(card.id)).sort((a,b)=>b.score-a.score).slice(0,slots-held.length)}
 const choices=[ownTop.map((card)=>card.id)]
 for(const lock of locks)choices.push(lock.ids.concat(rest(lock.ids).map((card)=>card.id)))
-const scoreById=new Map(own.map((card)=>[card.id,card.score]))
+for(const tag of firstTag.tags)for(const step of tag.steps??[]){const pct=Number(step?.bonus)
+if(!Number.isFinite(pct)||pct<=0)continue
+const weight=(card)=>(card.first?card.score*(100+pct):card.score*100)
+choices.push(own.slice().sort((a,b)=>weight(b)-weight(a)||a.id-b.id).slice(0,slots).map((card)=>card.id))}
 let best=null
 for(const ids of choices){const score=ids.reduce((total,id)=>total+(scoreById.get(id)??0),0)
 const bonus=bonusOf?bonusOf(ids):0
-const total=score*(100+bonus)
+const total=score+bonus
 if(best===null||total>best.total)best={ids,score,bonus,total}}
+if(bonusOf!==null&&own.length>slots)best=climbLineup(best,own,scoreById,bonusOf)
 const points=best.score
 const thresholds=set.grades.map((grade)=>grade.threshold)
 let current=-1
-if(n>=slots){for(let i=0;i<set.grades.length;i+=1)if(best.total>=set.grades[i].threshold*100)current=i
+if(n>=slots){for(let i=0;i<set.grades.length;i+=1)if(best.total>=set.grades[i].threshold)current=i
 const mine=lineupsWithTags(slots,own,thresholds,bonusOf,locks)
 for(let i=current+1;i<mine.length;i+=1)if(mine[i]!==null)current=i}
 const firstIn=best.ids.filter((id)=>ownFirst.has(id))
-const firstOwner={cards:firstIn.length,bonus:firstIn.length>0?tagBonus(firstTag.tags,best.ids.map(cardFor)):0}
+const tags=tagDetails(parsed.tags,best.ids.map(cardFor))
+let firstPercent=0
+for(const one of tags)if(one.rule==='FIRST_OWNED/COUNT'&&one.verified)firstPercent=Math.max(firstPercent,one.percent)
+const firstOwner={cards:firstIn.length,bonus:firstIn.length>0?firstPercent:0}
 const priced=prices.ready()&&waiting===0
 const paths=priced?lineupsWithTags(slots,own.concat(buy),thresholds,bonusOf,locks):thresholds.map(()=>undefined)
 const costOf=new Map(buy.map((card)=>[card.id,card.cost]))
@@ -38548,7 +38609,8 @@ collected:Math.min(n,slots),collectedSource:source,collectedIds,
 grade:current>=0?set.grades[current].letter:null,
 grades:grades.map(({ids,...rest})=>rest),goal:decided.goal,tokenPrice:decided.tokenPrice,
 tokensNow:current>=0?tokensUp[current]:0,tokensMax:total,
-crest:set.crest,points,firstOwner,pool:pool.slice(),missing:Math.max(0,slots-n),known,unanswered,
+crest:set.crest,points,
+bonus:best.bonus,firstOwner,tags,pool:pool.slice(),missing:Math.max(0,slots-n),known,unanswered,
 path:aimed===null?null:aimed.ids.slice(),reason:null,market,
 maxGrade:maxGradeOf({grade:current>=0?set.grades[current].letter:null,grades,market}),
 paths:grades.map((grade)=>grade.ids)}}
@@ -38558,7 +38620,7 @@ return{id:set.id,name:set.name,categoryId:set.categoryId,cards:set.cards,
 collected:null,collectedSource:'club',collectedIds:[],grade:null,
 grades:set.grades.map((grade)=>({letter:grade.letter,threshold:grade.threshold,rewards:{...grade.rewards},
 reachable:null,reached:false,missing:null,cost:null,priceless:0,lossOnResell:null})),
-goal:null,tokenPrice:null,tokensNow:null,tokensMax:total,crest:set.crest,points:null,firstOwner:null,
+goal:null,tokenPrice:null,tokensNow:null,tokensMax:total,crest:set.crest,points:null,bonus:null,firstOwner:null,
 pool:[],missing:null,known:0,unanswered:0,path:null,reason:'any',market:true,maxGrade:false,paths:[]}}
 const signature=(parsed,collected,falseIds,lostIds,firstIds)=>{let sum=0
 let mix=0
@@ -38584,14 +38646,14 @@ for(const category of parsed.categories)for(const set of category.sets)every.pus
 for(const set of every)for(const defId of set.pool){if(collected.has(defId))continue
 if(markOf(defId)?.collected===false)falseIds.add(defId)}
 const lostIds=lost.ids()
-const firstIds=clubFirstIds(clubRows())
+const firstIds=firstSet()
 const key=signature(parsed,collected,falseIds,lostIds,firstIds)
 if(cache!==null&&cache.key===key)return cache
 const sets=every.map((set)=>setState(set,parsed,collected,falseIds,lostIds,firstIds))
 cache={key,parsed,sets,asks:asksOf(parsed,sets,collected),categories:parsed.categories.map((category)=>({id:category.id,name:category.name,kind:category.kind,
 leagueId:category.leagueId,sets:category.sets.length}))}
 return cache}
-const publicSet=(set)=>{const{paths,known,...rest}=set
+const publicSet=(set)=>{const{paths,known,tags,...rest}=set
 return rest}
 const piggyDefault=(parsed)=>{let best=null
 for(const one of parsed?.tokenStore??[])if(best===null||one.tokens<best)best=one.tokens
@@ -38743,6 +38805,15 @@ checking:checking===null?null:{...checking},stopped,sets:list,
 piggy:(n)=>piggyOf(list,n),
 categories,piggyDefault:piggyDefault(parsed),checks,memory:memory.state(),pools:poolsOf(parsed),
 asks:asks??null,setChecks:{...log.sets},day:{used:log.used,cap:GALLERY_DAY_CAP}}},
+tagsOf(setId){const one=compute().sets.find((set)=>set.id===setId)??null
+if(one===null||!Array.isArray(one.tags))return null
+const points=Number.isFinite(one.points)?one.points:0
+const bonus=Number.isFinite(one.bonus)?one.bonus:0
+let remembered=null
+try{remembered=[...firstMemory.ids()].length}catch{remembered=null}
+return{id:one.id,name:one.name,points,bonus,total:points+bonus,
+firstRemembered:remembered,
+tags:one.tags.filter((tag)=>tag.count!==null&&tag.count>0).map((tag)=>({...tag,ids:tag.ids.slice()}))}},
 mark(defId){const id=positive(defId)
 if(id===null)return{collected:null,score:null}
 const mark=markOf(id)
@@ -38762,7 +38833,7 @@ if(id!==null)collected.add(id)}
 const lostIds=lost.ids()
 for(const one of opts.exclude??[]){const id=positive(one)
 if(id!==null&&!collected.has(id))lostIds.add(id)}
-const state=setState(set,parsed,collected,new Set(),lostIds,clubFirstIds(clubRows()))
+const state=setState(set,parsed,collected,new Set(),lostIds,firstSet())
 const grade=state.grades[index]
 const ids=Array.isArray(state.paths[index])?state.paths[index].slice():[]
 const priceOf={}
@@ -39338,6 +39409,7 @@ const PIGGY_KEY='futGalleryPiggy'
 const STEP_KEY='futGalleryStep'
 const PATH_ROW_KEY='futGalleryPathRow'
 const SET_CHECK_KEY='futGallerySetCheck'
+const TAGS_TRUTH_KEY='futGalleryTagsTruth'
 const SET_CHECK_DELAY_MS=600
 const GALLERY_STYLESHEET="eshario-asset:ui/gallery.css"
 const GALLERY_LINK_ID='fut-companion-gallery'
@@ -40022,6 +40094,7 @@ const said=checkWord(check)
 if(said)need.push(said,el(doc,'span',{text:' · '}))
 const first=set?.firstOwner
 if(Number.isSafeInteger(first?.cards)&&first.cards>0)need.push(el(doc,'span',{class:'fx-gallery-first',text:`${plural('gallery.set.first',first.cards,{n:first.cards,bonus:Number.isFinite(first.bonus)?first.bonus:0})} · `}))
+if(Number.isFinite(set?.points))need.push(el(doc,'span',{class:'fx-gallery-dim fx-gallery-hint',text:t('gallery.set.tagsTruth'),attrs:{title:t('gallery.set.tagsTruth.hint')},dataset:{[TAGS_TRUTH_KEY]:'1'}}),el(doc,'span',{text:' · '}))
 const missing=(set?.grades??[]).map((one)=>one?.missing).find((one)=>Number.isFinite(one))
 if(Number.isFinite(missing)&&missing>0)need.push(el(doc,'span',{text:`${t('gallery.set.need')} `}),el(doc,'b',{text:plural('gallery.set.needCards',missing,{n:missing})}))
 return el(doc,'div',{class:'fx-gallery-set-head'},[...(uri?[el(doc,'img',{class:'fx-gallery-set-crest',attrs:{src:uri,alt:''}})]:[]),
@@ -40468,7 +40541,13 @@ return{catalog:parsed?{version:parsed.version??null,capturedAt:parsed.capturedAt
 score81:want[81],score79:want[79],levels,face:{cards:faces?faces.size:0,first:firstFace?{defId:firstFace[0],face:firstFace[1]}:null},starters}}
 function publishProbe(){try{const bag=win?.__eshario
 if(!bag||typeof bag!=='object'||typeof bag.galleryPanel==='function')return
-bag.galleryPanel=()=>({...api.state(),why:api.why(),probes:probes()})}catch{
+bag.galleryPanel=()=>({...api.state(),why:api.why(),probes:probes()})
+bag.galleryTags=(name)=>{const engine=boundEngine
+if(typeof engine?.tagsOf!=='function')return null
+const want=String(name??'').trim().toLowerCase()
+const sets=safe(()=>engine.state().sets,[])
+const one=(Array.isArray(sets)?sets:[]).find((set)=>String(set?.id).toLowerCase()===want||String(set?.name??'').toLowerCase()===want)??null
+return one===null?null:engine.tagsOf(one.id)}}catch{
 }}
 function ours(node){for(let at=node,depth=0;at&&depth<40;at=at.parentNode,depth+=1){if(at===panel)return true}
 return false}
@@ -59389,7 +59468,7 @@ return typeof version==='string'&&VERSION_RE.test(version)?version:null}
 
 };
 // src/page/page-entry.js
-__ESB_g[288]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{createBridgeProvider,READ_METHOD:SETTINGS_READ}=__ESB_x[7];const{createSettings,openDoorlessGates}=__ESB_x[5];const{createLicensing}=__ESB_x[8];const{createKeyProvider,createBridgeLicenseProvider}=__ESB_x[10];const{createAccountProvider,createMigrationProvider,ACCOUNT_OPEN}=__ESB_x[11];const{createI18n,chooseLocale,currentTimeZone}=__ESB_x[56];const{doors}=__ESB_x[57];const{createNavigation,appMain}=__ESB_x[58];const{createCriteria,createClubCriteria,createSbcStorageCriteria,createFiltersScreen,readUserCriteria}=__ESB_x[60];const{installMarketSearchQuick,tapSearchWire,widenMarketPage,marketSearchPageViews,marketPageSetting,WIDE_PAGE_LOTS}=__ESB_x[61];const{installItemEvents}=__ESB_x[63];const{createFilterStore,createBridgeFilterProvider}=__ESB_x[64];const{createBridgePackLockProvider,setPackLock,isPackLocked,isPackHidden,setPackHidden}=__ESB_x[65];const{createBridgeCardLockProvider,isCardLocked,setCardLock,sanitizeCardLocks,lockedIdsFor,cardLockRecreatedRows,noteCardsRecreated}=__ESB_x[66];const{createBridgeCardFrozenProvider,isCardFrozen,setCardFrozen,frozenIdsFor}=__ESB_x[67];const{createFrozenMarks}=__ESB_x[102];const{createDropdownSearch}=__ESB_x[135];const{previewPackAutomation,runPackAutomationStep,inspectPackAutomationOutcome,hydratePackAutomationOutcome,beginPackAutomationSession,recordPackAutomationSessionOutcome,previewPackAutomationOutcomeAction,runPackAutomationPickOutcome,runPackAutomationRecoveryOutcome,runPackAutomationDiscardOutcome,previewPackAutomationContinuation,runPackAutomationContinuation}=__ESB_x[138];const{setPlayerPickSelection,reviewPlayerPickSelection,runPickStep,pickPolicy}=__ESB_x[136];const{invalidateUnassignedRecovery,refreshUnassignedRecovery,setUnassignedDisposition,resetUnassignedDispositions,reviewUnassignedRecovery,runRecoveryStep,recoveryPolicy,previewUnassignedDiscard,runDiscardStep}=__ESB_x[137];const{applyFilter,saveCurrentFilter,renameFilter,removeFilter,exportFilters,importFilters}=__ESB_x[139];const{createAutomation,createBridgeLimitsProvider,createBridgeOptionsProvider}=__ESB_x[124];const{createSnipeKey}=__ESB_x[140];const{sanitizeOptionInput,parseOptions,AFTER_BUY_KEY,SEARCH_REFRESH_KEY,searchRefreshOf}=__ESB_x[120];const{createSellerControl,createBridgeSellerProvider}=__ESB_x[141];const{createJournal,createBridgeJournalProvider,BUYER,SELLER}=__ESB_x[142];const{journalText,JOURNAL_ROWS}=__ESB_x[143];const{createLedger,createBridgeLedgerProvider}=__ESB_x[144];const{ledgerText,ledgerCsv}=__ESB_x[145];const{createSounds}=__ESB_x[146];const{createSellSidebar}=__ESB_x[149];const{createCardLockMark}=__ESB_x[165];const{createLockBadges}=__ESB_x[166];const{createSquadBar}=__ESB_x[179];const{createSquadPick}=__ESB_x[180];const{createCardGrid,CARD_GRID_FEATURE,moneyScreenLive}=__ESB_x[183];const{createDealPanel}=__ESB_x[181];const{createClubBar}=__ESB_x[185];const{createGalleryPanel}=__ESB_x[194];const{createGalleryBuyer}=__ESB_x[193];const{galleryCardName}=__ESB_x[189];const{createGalleryEngine,createGalleryMemory,createGalleryCounter,createGalleryPriceBook,personaKeyOf,UNANSWERED_PREFIX}=__ESB_x[191];const{createGalleryCatalogFeed,galleryDoorStore,galleryDoorFetch}=__ESB_x[190];const{createGalleryDoor}=__ESB_x[196];const{setGalleryEngine,galleryEngine}=__ESB_x[82];const{createSbcStorage,moveStorageToClub}=__ESB_x[198];const{createTransfersHub}=__ESB_x[199];const{transferListScroll}=__ESB_x[99];const{itemForEvidenceRow}=__ESB_x[89];const{priceBadgeState,priceBadgeCoins,priceBadgePeek}=__ESB_x[86];const{createSbcWindow}=__ESB_x[175];const{createStoreGrid}=__ESB_x[206];const{createStoreCatalog}=__ESB_x[201];const{createPreviewMemory}=__ESB_x[207];const{createPackPeek}=__ESB_x[208];const{createPickPrices,PICK_BY_PRICE_FEATURE}=__ESB_x[209];const{createSbcTab}=__ESB_x[219];const{createSbcSet}=__ESB_x[220];const{rewardTextOf}=__ESB_x[176];const{createFutggSbc}=__ESB_x[221];const{createFrozenStore}=__ESB_x[174];const{createSbcStrip,withStrip}=__ESB_x[178];const{squadFieldSignature}=__ESB_x[116];const{createSbcWarm,BACKGROUND_TIME_MS}=__ESB_x[223];const{createSbcLadderWarm}=__ESB_x[222];const{createPackShow,sanitizeShowRating}=__ESB_x[210];const{goStoreHub,unassignedInCache}=__ESB_x[92];const{prepareChallenge,resolveClubPool,showPreparedOnPitch,searchBuyOnMarket,placeBoughtCard,planSlotsFor,twiceInPlan,mismatchInPlan,judgeSubmit,recreatedLockNotice,warmShieldStop,poolForSearch,searchableCards,SBC_FEATURE,solvePhases,columnTotal,pricesForClub,createPrepCache}=__ESB_x[164];const{createSubmitGuardHook}=__ESB_x[224];const{liveSubmitSnapshot,sbcIneligibleReason,cardResourceKey}=__ESB_x[117];const{readSbcStorageItems,ITEM_PILE}=__ESB_x[119];const{createClubMirror,readClubOnce,readVerdict,playersInStats,MIRROR_SHARDS,CLUB_SESSION_RESCUE_READS}=__ESB_x[118];const{createBootSplash}=__ESB_x[225];const{mergePool,laddersFrom,identityWantsFrom,createAgedMemo,valuationFrom,explainSolve,dumpSolve,clubWorth,liveClassesFrom,liveRatingsFrom,bucketsFrom,bucketsWanted,ladderLedger,ladderFromOf,IDENTITY_MEMO_KEEP,BLOB_SLICE_MS}=__ESB_x[160];const{createConceptItem,conceptSupport}=__ESB_x[148];const{createSlotSearchScreen,slotSearchSupport}=__ESB_x[226];const{arrangeByPositions}=__ESB_x[227];const{readTradeAccess}=__ESB_x[228];const{sayEaNotice}=__ESB_x[229];const{createPoolCache,createActiveSquadCache,PoolFeedError,poolHunger,poolPriceWatch,createPoolPriceEye}=__ESB_x[159];const{analyzeClubAction,valueNotice,cardLabel,CLUB_FEATURE,PRICE_FEATURE}=__ESB_x[162];const{defaultClubTableFilters,exportClubItemTableCsv}=__ESB_x[115];const{mountMarketResultSummary,showMarketDeals}=__ESB_x[182];const{createMarketBotBar}=__ESB_x[231];const{createSearchNames}=__ESB_x[232];const{readLiveMarketCriteria,playerEntryOf,marketResultsLive,SEARCH_SCREEN_ROOT,liveSearchButton,readMarketFilterCriteria,readLiveMarketDefaults,restoreLiveMarketCriteria,showSearchMinBid,restoreSearchMinBid,showSearchPair,restoreSearchPair,marketPriceControl}=__ESB_x[106];const{createMarketFilterMemory}=__ESB_x[217];const{mountItemCard}=__ESB_x[233];const{createPriceCache,createPriceLookup,createPriceFallback}=__ESB_x[83];const{createMarketPriceSource,marketCacheKey,criteriaForCard}=__ESB_x[234];const{createLivePrices,measureQueueFrom,lagReport}=__ESB_x[172];const{createMarketBudget,BUDGET_LIMIT}=__ESB_x[80];const{DEFAULT_SEARCH_BAND_MS,SAFE_PAUSE_FLOOR_MS,MIN_BID_FLOOR,MIN_BID_STEP,MIN_BID_TOP,BID_REFRESH_TOP,MIN_BUY_FLOOR,MIN_BUY_STEP,MIN_BUY_TOP,MIN_BUY_AIM_SHARE,PAIR_MIN_BID_TOP,pairRing}=__ESB_x[123];const{createDayBudget,withDayBudget,createHuntBudget,offMarket,meterCalls,isDayBudgetError,dayBudgetError,createBudgetOwner,stopOnEaLimit}=__ESB_x[98];const{createHeadBar,chipScale}=__ESB_x[216];const{createRivalsSource}=__ESB_x[213];const{headCountersLine}=__ESB_x[78];const{createAutoBuy,createBuyRate,createLotFinder,buyTargetOf,batchCeiling}=__ESB_x[171];const{createSession}=__ESB_x[107];const{createStopConditions}=__ESB_x[108];const{TAX_FEATURE}=__ESB_x[147];const{createUiState,createBridgeUiProvider,pickPreselectFromToggles,sanitizeHotkeyProfile}=__ESB_x[218];const{createCloudDesk}=__ESB_x[241];const{createSettingsTransfer,watchSettingsApplied}=__ESB_x[242];const{createProblemReport}=__ESB_x[243];const{SYNC_STORAGE_KEYS}=__ESB_x[235];const{setEaRequestPort,eaRequestState}=__ESB_x[90];const{createFutggSource,priceCacheKey,currentGame,isUntradableSource,MANIFEST_TTL_MS:FUTGG_MANIFEST_TTL_MS}=__ESB_x[85];const{seasonOf}=__ESB_x[84];const{createLadderService,createSolvePriceReader,LADDER_TTL_MS}=__ESB_x[158];const{createPriceTrap}=__ESB_x[244];const{createPriceQuarantine}=__ESB_x[245];const{createRarityGroups}=__ESB_x[246];const{createBridgeFetch,CARDS_METHOD,CARDS_TIMEOUT_MS}=__ESB_x[2];const{createSbc,createSquad}=__ESB_x[247];const{demandClasses}=__ESB_x[153];const{parseRequirements}=__ESB_x[150];const{createWorkAreaProbe}=__ESB_x[248];const{createAdapter,createPackAdapter,createClubMemory,createStorageMemory,searchTypeOf}=__ESB_x[95];const{createPersonaAdapter}=__ESB_x[212];const{createSessionEpoch,sessionSince,stopRunning,stopQueue}=__ESB_x[105];const{createWalletAdapter}=__ESB_x[195];const{squadRatingFloatEnabled}=__ESB_x[91];const{createTeamConfig}=__ESB_x[249];const{createStaticPlayers}=__ESB_x[173];const{createCardCatalog,createCardLane}=__ESB_x[250];const{createCardBaseFeed,baseDefinitions,withStaticCardBase}=__ESB_x[251];const{createRarityGroupBook}=__ESB_x[252];const{createDemandMemory,unionClasses}=__ESB_x[157];const{installPurchaseLog,purchaseLogState,notePurchasedItem,notePaid}=__ESB_x[87];const{createHuntLoot}=__ESB_x[122];const{createClock}=__ESB_x[253];const{storageFailed}=__ESB_x[6];const{mountPanel,PANEL_BUILD}=__ESB_x[261];const{ourWindowOpen}=__ESB_x[70];const{FIRST_SECTION,DEEDS}=__ESB_x[256];const{HOTKEYS_FEATURE}=__ESB_x[170];const{publishTemplateMenu,pressNode,cardMatchProbe}=__ESB_x[134];const{wirePage}=__ESB_x[281];const{createBuyerDoor}=__ESB_x[282];const{createSettingsDoor}=__ESB_x[283];const{createLiveEvidenceRecorder,createPhaseLog,domEvidence,buildLiveEvidence}=__ESB_x[284];const{createBridgeLiveControlProvider,createLiveControlSession}=__ESB_x[285];const{createWaitNotice}=__ESB_x[286];const{askCodeVersion,CODE_LINE_BUILD}=__ESB_x[287];
+__ESB_g[288]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{createBridgeProvider,READ_METHOD:SETTINGS_READ}=__ESB_x[7];const{createSettings,openDoorlessGates}=__ESB_x[5];const{createLicensing}=__ESB_x[8];const{createKeyProvider,createBridgeLicenseProvider}=__ESB_x[10];const{createAccountProvider,createMigrationProvider,ACCOUNT_OPEN}=__ESB_x[11];const{createI18n,chooseLocale,currentTimeZone}=__ESB_x[56];const{doors}=__ESB_x[57];const{createNavigation,appMain}=__ESB_x[58];const{createCriteria,createClubCriteria,createSbcStorageCriteria,createFiltersScreen,readUserCriteria}=__ESB_x[60];const{installMarketSearchQuick,tapSearchWire,widenMarketPage,marketSearchPageViews,marketPageSetting,WIDE_PAGE_LOTS}=__ESB_x[61];const{installItemEvents}=__ESB_x[63];const{createFilterStore,createBridgeFilterProvider}=__ESB_x[64];const{createBridgePackLockProvider,setPackLock,isPackLocked,isPackHidden,setPackHidden}=__ESB_x[65];const{createBridgeCardLockProvider,isCardLocked,setCardLock,sanitizeCardLocks,lockedIdsFor,cardLockRecreatedRows,noteCardsRecreated}=__ESB_x[66];const{createBridgeCardFrozenProvider,isCardFrozen,setCardFrozen,frozenIdsFor}=__ESB_x[67];const{createFrozenMarks}=__ESB_x[102];const{createDropdownSearch}=__ESB_x[135];const{previewPackAutomation,runPackAutomationStep,inspectPackAutomationOutcome,hydratePackAutomationOutcome,beginPackAutomationSession,recordPackAutomationSessionOutcome,previewPackAutomationOutcomeAction,runPackAutomationPickOutcome,runPackAutomationRecoveryOutcome,runPackAutomationDiscardOutcome,previewPackAutomationContinuation,runPackAutomationContinuation}=__ESB_x[138];const{setPlayerPickSelection,reviewPlayerPickSelection,runPickStep,pickPolicy}=__ESB_x[136];const{invalidateUnassignedRecovery,refreshUnassignedRecovery,setUnassignedDisposition,resetUnassignedDispositions,reviewUnassignedRecovery,runRecoveryStep,recoveryPolicy,previewUnassignedDiscard,runDiscardStep}=__ESB_x[137];const{applyFilter,saveCurrentFilter,renameFilter,removeFilter,exportFilters,importFilters}=__ESB_x[139];const{createAutomation,createBridgeLimitsProvider,createBridgeOptionsProvider}=__ESB_x[124];const{createSnipeKey}=__ESB_x[140];const{sanitizeOptionInput,parseOptions,AFTER_BUY_KEY,SEARCH_REFRESH_KEY,searchRefreshOf}=__ESB_x[120];const{createSellerControl,createBridgeSellerProvider}=__ESB_x[141];const{createJournal,createBridgeJournalProvider,BUYER,SELLER}=__ESB_x[142];const{journalText,JOURNAL_ROWS}=__ESB_x[143];const{createLedger,createBridgeLedgerProvider}=__ESB_x[144];const{ledgerText,ledgerCsv}=__ESB_x[145];const{createSounds}=__ESB_x[146];const{createSellSidebar}=__ESB_x[149];const{createCardLockMark}=__ESB_x[165];const{createLockBadges}=__ESB_x[166];const{createSquadBar}=__ESB_x[179];const{createSquadPick}=__ESB_x[180];const{createCardGrid,CARD_GRID_FEATURE,moneyScreenLive}=__ESB_x[183];const{createDealPanel}=__ESB_x[181];const{createClubBar}=__ESB_x[185];const{createGalleryPanel}=__ESB_x[194];const{createGalleryBuyer}=__ESB_x[193];const{galleryCardName}=__ESB_x[189];const{createGalleryEngine,createGalleryMemory,createGalleryCounter,createGalleryPriceBook,personaKeyOf,UNANSWERED_PREFIX,FIRST_OWNER_PREFIX}=__ESB_x[191];const{createGalleryCatalogFeed,galleryDoorStore,galleryDoorFetch}=__ESB_x[190];const{createGalleryDoor}=__ESB_x[196];const{setGalleryEngine,galleryEngine}=__ESB_x[82];const{createSbcStorage,moveStorageToClub}=__ESB_x[198];const{createTransfersHub}=__ESB_x[199];const{transferListScroll}=__ESB_x[99];const{itemForEvidenceRow}=__ESB_x[89];const{priceBadgeState,priceBadgeCoins,priceBadgePeek}=__ESB_x[86];const{createSbcWindow}=__ESB_x[175];const{createStoreGrid}=__ESB_x[206];const{createStoreCatalog}=__ESB_x[201];const{createPreviewMemory}=__ESB_x[207];const{createPackPeek}=__ESB_x[208];const{createPickPrices,PICK_BY_PRICE_FEATURE}=__ESB_x[209];const{createSbcTab}=__ESB_x[219];const{createSbcSet}=__ESB_x[220];const{rewardTextOf}=__ESB_x[176];const{createFutggSbc}=__ESB_x[221];const{createFrozenStore}=__ESB_x[174];const{createSbcStrip,withStrip}=__ESB_x[178];const{squadFieldSignature}=__ESB_x[116];const{createSbcWarm,BACKGROUND_TIME_MS}=__ESB_x[223];const{createSbcLadderWarm}=__ESB_x[222];const{createPackShow,sanitizeShowRating}=__ESB_x[210];const{goStoreHub,unassignedInCache}=__ESB_x[92];const{prepareChallenge,resolveClubPool,showPreparedOnPitch,searchBuyOnMarket,placeBoughtCard,planSlotsFor,twiceInPlan,mismatchInPlan,judgeSubmit,recreatedLockNotice,warmShieldStop,poolForSearch,searchableCards,SBC_FEATURE,solvePhases,columnTotal,pricesForClub,createPrepCache}=__ESB_x[164];const{createSubmitGuardHook}=__ESB_x[224];const{liveSubmitSnapshot,sbcIneligibleReason,cardResourceKey}=__ESB_x[117];const{readSbcStorageItems,ITEM_PILE}=__ESB_x[119];const{createClubMirror,readClubOnce,readVerdict,playersInStats,MIRROR_SHARDS,CLUB_SESSION_RESCUE_READS}=__ESB_x[118];const{createBootSplash}=__ESB_x[225];const{mergePool,laddersFrom,identityWantsFrom,createAgedMemo,valuationFrom,explainSolve,dumpSolve,clubWorth,liveClassesFrom,liveRatingsFrom,bucketsFrom,bucketsWanted,ladderLedger,ladderFromOf,IDENTITY_MEMO_KEEP,BLOB_SLICE_MS}=__ESB_x[160];const{createConceptItem,conceptSupport}=__ESB_x[148];const{createSlotSearchScreen,slotSearchSupport}=__ESB_x[226];const{arrangeByPositions}=__ESB_x[227];const{readTradeAccess}=__ESB_x[228];const{sayEaNotice}=__ESB_x[229];const{createPoolCache,createActiveSquadCache,PoolFeedError,poolHunger,poolPriceWatch,createPoolPriceEye}=__ESB_x[159];const{analyzeClubAction,valueNotice,cardLabel,CLUB_FEATURE,PRICE_FEATURE}=__ESB_x[162];const{defaultClubTableFilters,exportClubItemTableCsv}=__ESB_x[115];const{mountMarketResultSummary,showMarketDeals}=__ESB_x[182];const{createMarketBotBar}=__ESB_x[231];const{createSearchNames}=__ESB_x[232];const{readLiveMarketCriteria,playerEntryOf,marketResultsLive,SEARCH_SCREEN_ROOT,liveSearchButton,readMarketFilterCriteria,readLiveMarketDefaults,restoreLiveMarketCriteria,showSearchMinBid,restoreSearchMinBid,showSearchPair,restoreSearchPair,marketPriceControl}=__ESB_x[106];const{createMarketFilterMemory}=__ESB_x[217];const{mountItemCard}=__ESB_x[233];const{createPriceCache,createPriceLookup,createPriceFallback}=__ESB_x[83];const{createMarketPriceSource,marketCacheKey,criteriaForCard}=__ESB_x[234];const{createLivePrices,measureQueueFrom,lagReport}=__ESB_x[172];const{createMarketBudget,BUDGET_LIMIT}=__ESB_x[80];const{DEFAULT_SEARCH_BAND_MS,SAFE_PAUSE_FLOOR_MS,MIN_BID_FLOOR,MIN_BID_STEP,MIN_BID_TOP,BID_REFRESH_TOP,MIN_BUY_FLOOR,MIN_BUY_STEP,MIN_BUY_TOP,MIN_BUY_AIM_SHARE,PAIR_MIN_BID_TOP,pairRing}=__ESB_x[123];const{createDayBudget,withDayBudget,createHuntBudget,offMarket,meterCalls,isDayBudgetError,dayBudgetError,createBudgetOwner,stopOnEaLimit}=__ESB_x[98];const{createHeadBar,chipScale}=__ESB_x[216];const{createRivalsSource}=__ESB_x[213];const{headCountersLine}=__ESB_x[78];const{createAutoBuy,createBuyRate,createLotFinder,buyTargetOf,batchCeiling}=__ESB_x[171];const{createSession}=__ESB_x[107];const{createStopConditions}=__ESB_x[108];const{TAX_FEATURE}=__ESB_x[147];const{createUiState,createBridgeUiProvider,pickPreselectFromToggles,sanitizeHotkeyProfile}=__ESB_x[218];const{createCloudDesk}=__ESB_x[241];const{createSettingsTransfer,watchSettingsApplied}=__ESB_x[242];const{createProblemReport}=__ESB_x[243];const{SYNC_STORAGE_KEYS}=__ESB_x[235];const{setEaRequestPort,eaRequestState}=__ESB_x[90];const{createFutggSource,priceCacheKey,currentGame,isUntradableSource,MANIFEST_TTL_MS:FUTGG_MANIFEST_TTL_MS}=__ESB_x[85];const{seasonOf}=__ESB_x[84];const{createLadderService,createSolvePriceReader,LADDER_TTL_MS}=__ESB_x[158];const{createPriceTrap}=__ESB_x[244];const{createPriceQuarantine}=__ESB_x[245];const{createRarityGroups}=__ESB_x[246];const{createBridgeFetch,CARDS_METHOD,CARDS_TIMEOUT_MS}=__ESB_x[2];const{createSbc,createSquad}=__ESB_x[247];const{demandClasses}=__ESB_x[153];const{parseRequirements}=__ESB_x[150];const{createWorkAreaProbe}=__ESB_x[248];const{createAdapter,createPackAdapter,createClubMemory,createStorageMemory,searchTypeOf}=__ESB_x[95];const{createPersonaAdapter}=__ESB_x[212];const{createSessionEpoch,sessionSince,stopRunning,stopQueue}=__ESB_x[105];const{createWalletAdapter}=__ESB_x[195];const{squadRatingFloatEnabled}=__ESB_x[91];const{createTeamConfig}=__ESB_x[249];const{createStaticPlayers}=__ESB_x[173];const{createCardCatalog,createCardLane}=__ESB_x[250];const{createCardBaseFeed,baseDefinitions,withStaticCardBase}=__ESB_x[251];const{createRarityGroupBook}=__ESB_x[252];const{createDemandMemory,unionClasses}=__ESB_x[157];const{installPurchaseLog,purchaseLogState,notePurchasedItem,notePaid}=__ESB_x[87];const{createHuntLoot}=__ESB_x[122];const{createClock}=__ESB_x[253];const{storageFailed}=__ESB_x[6];const{mountPanel,PANEL_BUILD}=__ESB_x[261];const{ourWindowOpen}=__ESB_x[70];const{FIRST_SECTION,DEEDS}=__ESB_x[256];const{HOTKEYS_FEATURE}=__ESB_x[170];const{publishTemplateMenu,pressNode,cardMatchProbe}=__ESB_x[134];const{wirePage}=__ESB_x[281];const{createBuyerDoor}=__ESB_x[282];const{createSettingsDoor}=__ESB_x[283];const{createLiveEvidenceRecorder,createPhaseLog,domEvidence,buildLiveEvidence}=__ESB_x[284];const{createBridgeLiveControlProvider,createLiveControlSession}=__ESB_x[285];const{createWaitNotice}=__ESB_x[286];const{askCodeVersion,CODE_LINE_BUILD}=__ESB_x[287];
 ;
 ;
 ;
@@ -61083,6 +61162,7 @@ stamp:()=>futggSource.publishedAt()?.at??null,now:()=>priceClock.now(),onError:(
 club:clubMirror,
 memory:createGalleryMemory({store:galleryStore,persona:()=>personaKeyOf(personas.selectedPersona())}),
 unanswered:createGalleryMemory({store:galleryStore,persona:()=>personaKeyOf(personas.selectedPersona()),prefix:UNANSWERED_PREFIX}),
+firstOwners:createGalleryMemory({store:galleryStore,persona:()=>personaKeyOf(personas.selectedPersona()),prefix:FIRST_OWNER_PREFIX}),
 door:createGalleryDoor(window),counter:createGalleryCounter(marketBudget),
 cards:(id)=>{const card=catalog.get(id)
 return card===null?null:{rating:card.rating,rarity:card.rareflag,club:card.teamId,league:card.leagueId,nation:card.nationId,positions:card.positions}},
