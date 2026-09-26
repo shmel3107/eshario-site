@@ -1,4 +1,4 @@
-// ESHArio page-bundle 2.3.8 c78ca2429491c195d9cea65e5c8374d0b520fa3b 2026-09-26T14:09:52Z
+// ESHArio page-bundle 2.3.11 c7bfd675ab9af5e6ebf55964d9a5093007995cbe 2026-09-26T22:24:49Z
 (function(){'use strict';
 // Адрес: на чужой странице EA склейка молчит (контракт 1.1).
 if(!(function(h){return /^https:\/\/www\.ea\.com\/.*\/ultimate-team\/web-app.*/.test(h)})(String(globalThis.location&&globalThis.location.href)))return;
@@ -44,7 +44,7 @@ const __eshario_assets=Object.freeze({
 "eshario-asset:ui/home-grid.css":".grid[data-fut-home-grid] {\n  max-width: none !important;\n  display: grid !important;\n  grid-template-columns: repeat(var(--fut-home-columns, 4), minmax(0, 1fr)) !important;\n  align-content: start;\n  gap: 8px !important;\n  padding: calc(16px + var(--fut-home-air, 0px)) 16px 16px !important;\n  zoom: var(--fut-home-zoom, 1);\n  --fut-home-row1: minmax(min-content, min(19vw, 480px, var(--fut-home-row1-max, 100vh)));\n  grid-template-rows: var(--fut-home-row1);\n  grid-auto-rows: minmax(360px, auto);\n}\n.grid[data-fut-home-grid][data-fut-home-strips=\"1\"] {\n  grid-template-rows: auto var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"2\"] {\n  grid-template-rows: repeat(2, auto) var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"3\"] {\n  grid-template-rows: repeat(3, auto) var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"4\"] {\n  grid-template-rows: repeat(4, auto) var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"5\"] {\n  grid-template-rows: repeat(5, auto) var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"6\"] {\n  grid-template-rows: repeat(6, auto) var(--fut-home-row1);\n}\n.grid[data-fut-home-grid] > .ut-unassigned-tile-view,\n.grid[data-fut-home-grid] > .ut-player-picks-tile-view,\n.grid[data-fut-home-grid] > .fc-points-tile,\n.grid[data-fut-home-grid] > .ut-rewards-banner-tile-view {\n  grid-column: 1 / -1;\n  order: -1;\n}\n.grid[data-fut-home-grid] > .ut-hub-messages-tile-view {\n  grid-column: span 2;\n  overflow: hidden;\n  contain: size;\n}\n\n.grid[data-fut-home-grid] > .ut-hub-messages-tile-view .FETImage {\n  max-height: 160px;\n}\n.grid[data-fut-home-grid] > * {\n  max-width: none !important;\n  margin: 0 !important;\n}\n.grid[data-fut-home-grid] > .ut-tile-hub-gamemodeshub {\n  height: auto;\n}\n",
 "eshario-asset:ui/head-top.css":"[data-fut-topless] .fc-header-view { display: none; }\n[data-fut-topless] .ut-root-view { height: 100%; }\n:host([data-fut-topless]) .dock-toggle { display: none; }\n:host([data-fut-topless]) .dock { top: 76px; }\n[data-fut-navcenter].landscape .ut-tab-bar-view.game-navigation .ut-tab-bar::before { content: \"\"; display: block; height: 0; margin-top: auto; }\n[data-fut-navcenter].landscape .ut-tab-bar-view.game-navigation .ut-tab-bar-item.icon-settings { margin-top: auto; }\n",
 "eshario-asset:ui/list-cursor.css":"[data-fut-list-mark] {\n  outline: 2px dashed var(--fx-accent);\n  outline-offset: -2px;\n}\n[data-fut-list-stale] {\n  opacity: 0.55;\n}\n"});
-const __ESB_x=[],__ESB_g=[],__ESB_r=[];for(let i=0;i<289;i++)__ESB_x.push(Object.create(null));
+const __ESB_x=[],__ESB_g=[],__ESB_r=[];for(let i=0;i<290;i++)__ESB_x.push(Object.create(null));
 const __ESB_d=(o,m)=>{for(const k of Object.keys(m))Object.defineProperty(o,k,{enumerable:true,get:m[k]})};
 const __ESB_t=(j,k,v)=>{try{return __ESB_x[j][k]}catch(e){return v}};
 // src/bridge/protocol.js
@@ -37881,7 +37881,7 @@ checkedAt,nextAt,store:store!==null,net:fetchText!==null,...stats})}}
 
 };
 // src/features/gallery-engine.js
-__ESB_g[191]=function*(){__ESB_d(__ESB_x[191],{CHECK_BATCH:()=>CHECK_BATCH,RESELL_TAX:()=>RESELL_TAX,SET_CHECK_MAX:()=>SET_CHECK_MAX,UNANSWERED_PREFIX:()=>UNANSWERED_PREFIX,checkRequestsCap:()=>checkRequestsCap,createGalleryCounter:()=>createGalleryCounter,createGalleryEngine:()=>createGalleryEngine,createGalleryMemory:()=>createGalleryMemory,createGalleryPriceBook:()=>createGalleryPriceBook,personaKeyOf:()=>personaKeyOf,readRawMark:()=>readRawMark});yield;const{askDayBudget,restMarketAfterThrottle,dayKeyOf}=__ESB_x[98];const{isLoanItem}=__ESB_x[119];const{readGalleryCatalog}=__ESB_x[190];const{SAFE_PAUSE_FLOOR_MS,DEFAULT_SEARCH_BAND_MS}=__ESB_x[123];
+__ESB_g[191]=function*(){__ESB_d(__ESB_x[191],{CHECK_BATCH:()=>CHECK_BATCH,FIRST_OWNER_PREFIX:()=>FIRST_OWNER_PREFIX,RESELL_TAX:()=>RESELL_TAX,SET_CHECK_MAX:()=>SET_CHECK_MAX,UNANSWERED_PREFIX:()=>UNANSWERED_PREFIX,checkRequestsCap:()=>checkRequestsCap,createGalleryCounter:()=>createGalleryCounter,createGalleryEngine:()=>createGalleryEngine,createGalleryMemory:()=>createGalleryMemory,createGalleryPriceBook:()=>createGalleryPriceBook,personaKeyOf:()=>personaKeyOf,readRawMark:()=>readRawMark});yield;const{askDayBudget,restMarketAfterThrottle,dayKeyOf}=__ESB_x[98];const{isLoanItem}=__ESB_x[119];const{readGalleryCatalog}=__ESB_x[190];const{SAFE_PAUSE_FLOOR_MS,DEFAULT_SEARCH_BAND_MS}=__ESB_x[123];
 ;
 ;
 ;
@@ -37896,6 +37896,7 @@ const RESELL_TAX=0.05
 const PRICELESS=1e10
 const MEMORY_PREFIX='gallery.collected.'
 const UNANSWERED_PREFIX='gallery.unanswered.'
+const FIRST_OWNER_PREFIX='gallery.firstowner.'
 const MEMORY_CAP=100_000
 const PIGGY_DEFAULT=300
 const NO_SCORE=0
@@ -38059,13 +38060,17 @@ switch(attribute){case 'CLUB':return idOf(card.club)
 case 'LEAGUEID':return idOf(card.league)
 case 'NATION':return idOf(card.nation)
 case 'RARE':return idOf(card.rarity)
-case 'BASE_DEF_ID':return[card.base??card.defId]
-case 'SKILL_MOVES':return[card.skillMoves]
-case 'WEAK_FOOT':return[card.weakFoot]
+case 'BASE_DEF_ID':return Number.isSafeInteger(card.base)&&card.base>0?[card.base]:null
+case 'SKILL_MOVES':return starsOf(card.skillMoves,1)
+case 'WEAK_FOOT':return starsOf(card.weakFoot,0)
+case 'HYPER_COSMETIC_TYPE':{const code=card.holographic
+if(code===0)return[]
+return code===1||code===2?[String(code-1)]:null}
 case 'POSSIBLE_POSITIONS':return Array.isArray(card.positions)?card.positions.map(positionName):[]
 case 'LEVEL':{const level=levelOf(card.rating)
 return level===null?[]:LEVEL_NAMES[level]}
 default:return null}}
+const starsOf=(value,shift)=>(Number.isSafeInteger(value)&&value>=1&&value<=5?[value-shift]:null)
 const known=(value)=>value!==null&&value!==undefined&&value!==''&&!(typeof value==='number'&&!Number.isFinite(value))
 const scoreOfCard=(card)=>{const value=Number(card?.score)
 return Number.isFinite(value)&&value>0?value:0}
@@ -38074,6 +38079,11 @@ const attribute=rule?.attribute
 const wanted=new Set((rule?.values??[]).map((one)=>String(one).toLowerCase()))
 const per=cards.map((card)=>attributeValues(card,attribute))
 if(per.some((values)=>values===null))return null
+if(type==='MIN_COUNT'){const floor=Math.min(...(rule?.values??[]).map(Number).filter(Number.isFinite))
+if(!Number.isFinite(floor))return null
+const out=[]
+per.forEach((values,at)=>{if(values.some((one)=>Number(one)>=floor))out.push(at)})
+return out}
 if(type==='COUNT'||type==='COUNT_ANY'){const out=[]
 per.forEach((values,at)=>{const list=values.filter(known).map((one)=>String(one).toLowerCase())
 if(wanted.size===0?list.length>0:list.some((one)=>wanted.has(one)))out.push(at)})
@@ -38094,17 +38104,25 @@ for(const list of groups.values())if(list.length>best.length||(list.length===bes
 return best}
 return null}
 const VERIFIED_TAG_RULES=Object.freeze(new Set(['FIRST_OWNED/COUNT','NATION/MAX_COUNT_ALL_SAME','CLUB/MAX_COUNT_ALL_SAME',
-'LEAGUEID/MAX_COUNT_ALL_SAME','NATION/COUNT_DIFF','CLUB/COUNT_DIFF','LEVEL/COUNT','POSSIBLE_POSITIONS/COUNT_ANY']))
+'LEAGUEID/MAX_COUNT_ALL_SAME','NATION/COUNT_DIFF','CLUB/COUNT_DIFF','LEVEL/COUNT','POSSIBLE_POSITIONS/COUNT_ANY',
+'LEAGUEID/COUNT_DIFF','RARE/COUNT:3','RARE/COUNT:72','BASE_DEF_ID/MAX_COUNT_ALL_SAME','SKILL_MOVES/MIN_COUNT','WEAK_FOOT/MIN_COUNT']))
 const ruleKey=(tag)=>`${String(tag?.rule?.attribute??'').toUpperCase()}/${String(tag?.rule?.type??'').toUpperCase()}`
-function tagDetails(tags,cards,verified=VERIFIED_TAG_RULES){return(tags??[]).map((tag)=>{const matched=tagMatched(tag.rule,cards)
+const valueKey=(tag)=>`${ruleKey(tag)}:${(tag?.rule?.values??[]).map(String).sort().join(',')}`
+const trustedRule=(verified,tag)=>verified.has(ruleKey(tag))||verified.has(valueKey(tag))
+function tagDetails(tags,cards,verified=VERIFIED_TAG_RULES){const list=(tags??[]).map((tag)=>{const matched=tagMatched(tag.rule,cards)
 const count=matched===null?null:matched.length
 let percent=0
 if(count!==null)for(const step of tag.steps??[])if(count>=step.count)percent=Math.max(percent,step.bonus)
-const trusted=verified.has(ruleKey(tag))
+const trusted=trustedRule(verified,tag)
 const base=matched===null?0:matched.reduce((total,at)=>total+scoreOfCard(cards[at]),0)
 return{id:tag.id??null,name:tag.name??null,rule:ruleKey(tag),verified:trusted,count,percent,base,
-points:trusted&&percent>0?Math.floor(base*percent/100):0,
-ids:matched===null?[]:matched.map((at)=>cards[at]?.defId??null)}})}
+points:trusted&&percent>0?Math.floor(base*percent/100):0,dropped:false,
+ids:matched===null?[]:matched.map((at)=>cards[at]?.defId??null)}})
+const order=list.map((one,at)=>at).filter((at)=>list[at].points>0).sort((a,b)=>list[b].points-list[a].points||a-b)
+for(const at of order.slice(MAX_COUNTED_TAGS)){list[at].points=0
+list[at].dropped=true}
+return list}
+const MAX_COUNTED_TAGS=10
 function tagPoints(tags,cards,verified=VERIFIED_TAG_RULES){let total=0
 for(const one of tagDetails(tags,cards,verified))total+=one.points
 return total}
@@ -38453,6 +38471,7 @@ function createGalleryEngine(deps={}){const catalog=catalogPort(deps.catalog)
 const prices=pricePort(deps.prices)
 const clubRows=clubPort(deps.club)
 const memory=deps.memory??createGalleryMemory({})
+const firstMemory=deps.firstOwners??createGalleryMemory({prefix:FIRST_OWNER_PREFIX})
 const lost=deps.unanswered??createGalleryMemory({prefix:UNANSWERED_PREFIX})
 const door=deps.door??null
 const counter=deps.counter??null
@@ -38475,14 +38494,21 @@ let cache=null
 let feeding=false
 const stats={checks:0,requests:0,answered:0,cards:0,extra:0,unanswered:0,unansweredIds:[],pauses:[],refusals:[],swept:0}
 const emit=(event,value)=>{for(const fn of listeners[event]??[]){try{fn(value)}catch(err){onError(err)}}}
-let memoryWatched=null
-const watchMemory=()=>{let status=null
-try{status=memory.state?.()?.status??null}catch{status=null}
-if(status!=='loading'||typeof memory.load!=='function')return
-const reading=memory.load()
-if(reading===memoryWatched)return
-memoryWatched=reading
+const memoryWatched=new Map()
+const watchOne=(one)=>{let status=null
+try{status=one.state?.()?.status??null}catch{status=null}
+if(status!=='loading'||typeof one.load!=='function')return
+const reading=one.load()
+if(reading===memoryWatched.get(one))return
+memoryWatched.set(one,reading)
 Promise.resolve(reading).then(()=>emit('state',api.state()),onError)}
+const watchMemory=()=>{watchOne(memory)
+watchOne(firstMemory)}
+const firstSet=()=>{const club=clubFirstIds(clubRows())
+try{firstMemory.add([...club])}catch(err){onError(err)}
+const out=new Set(club)
+try{for(const id of firstMemory.ids())out.add(id)}catch(err){onError(err)}
+return out}
 const markOf=(defId)=>{const mine=checked.get(defId)
 let seen=null
 try{seen=door?.mark?.(defId)??null}catch{seen=null}
@@ -38637,7 +38663,7 @@ for(const category of parsed.categories)for(const set of category.sets)every.pus
 for(const set of every)for(const defId of set.pool){if(collected.has(defId))continue
 if(markOf(defId)?.collected===false)falseIds.add(defId)}
 const lostIds=lost.ids()
-const firstIds=clubFirstIds(clubRows())
+const firstIds=firstSet()
 const key=signature(parsed,collected,falseIds,lostIds,firstIds)
 if(cache!==null&&cache.key===key)return cache
 const sets=every.map((set)=>setState(set,parsed,collected,falseIds,lostIds,firstIds))
@@ -38800,7 +38826,11 @@ tagsOf(setId){const one=compute().sets.find((set)=>set.id===setId)??null
 if(one===null||!Array.isArray(one.tags))return null
 const points=Number.isFinite(one.points)?one.points:0
 const bonus=Number.isFinite(one.bonus)?one.bonus:0
+let remembered=null
+try{remembered=[...firstMemory.ids()].length}catch{remembered=null}
 return{id:one.id,name:one.name,points,bonus,total:points+bonus,
+firstRemembered:remembered,
+unknown:one.tags.filter((tag)=>tag.count===null).map((tag)=>tag.name),
 tags:one.tags.filter((tag)=>tag.count!==null&&tag.count>0).map((tag)=>({...tag,ids:tag.ids.slice()}))}},
 mark(defId){const id=positive(defId)
 if(id===null)return{collected:null,score:null}
@@ -38821,7 +38851,7 @@ if(id!==null)collected.add(id)}
 const lostIds=lost.ids()
 for(const one of opts.exclude??[]){const id=positive(one)
 if(id!==null&&!collected.has(id))lostIds.add(id)}
-const state=setState(set,parsed,collected,new Set(),lostIds,clubFirstIds(clubRows()))
+const state=setState(set,parsed,collected,new Set(),lostIds,firstSet())
 const grade=state.grades[index]
 const ids=Array.isArray(state.paths[index])?state.paths[index].slice():[]
 const priceOf={}
@@ -53846,6 +53876,7 @@ const groups=typeof deps.groups==='function'?deps.groups:null
 const seasonNow=typeof deps.season==='function'?deps.season:()=>null
 const gameNow=typeof deps.game==='function'?deps.game:()=>null
 const now=typeof deps.now==='function'?deps.now:()=>0
+const need=typeof deps.need==='function'?deps.need:()=>false
 const onError=typeof deps.onError==='function'?deps.onError:()=>{}
 let seeded=null
 let loaded=false
@@ -53861,7 +53892,11 @@ if(!Number.isSafeInteger(game))return{ok:false,reason:'no-season'}
 stats.asks+=1
 stats.why=typeof why==='string'?why:null
 stats.askedAt=now()
-const etag=seeded!==null&&seeded.game===game?seeded.etag:null
+let etag=seeded!==null&&seeded.game===game?seeded.etag:null
+if(etag!==null){let body=false
+try{body=need()===true}catch(err){onError(err)}
+if(body){etag=null
+stats.why=`${stats.why??'?'}+body`}}
 const soon=seeded!==null&&seeded.game===game&&seeded.complete===false
 let answer=null
 const startedAsk=now()
@@ -53951,8 +53986,111 @@ function count(value){return Number.isSafeInteger(value)&&value>=0?value:UNKNOWN
 function positive(value){return Number.isSafeInteger(value)&&value>0?value:null}
 
 };
+// src/features/gallery-columns.js
+__ESB_g[252]=function*(){__ESB_d(__ESB_x[252],{createGalleryColumns:()=>createGalleryColumns,galleryCardOf:()=>galleryCardOf});yield;
+const COLUMNS_SCHEMA=1
+const COLUMNS_KEY='gallery.columns'
+const NONE_STARS=0
+const NONE_HOLO=3
+const stars=(value)=>(Number.isSafeInteger(value)&&value>=1&&value<=5?value:null)
+const holoOf=(value)=>(Number.isSafeInteger(value)&&value>=0&&value<=2?value:null)
+const positive=(value)=>(Number.isSafeInteger(value)&&value>0?value:null)
+function pack(sm,wf,holo){return(sm??NONE_STARS)+6*(wf??NONE_STARS)+36*(holo??NONE_HOLO)}
+function unpack(code){const sm=code%6
+const wf=Math.floor(code/6)%6
+const holo=Math.floor(code/36)
+return{skillMoves:sm===NONE_STARS?null:sm,weakFoot:wf===NONE_STARS?null:wf,holographic:holo===NONE_HOLO?null:holo}}
+function columnsOfRow(index,row){if(!Array.isArray(row)||!index)return null
+const at=(name)=>(index[name]===undefined?undefined:row[index[name]])
+const id=positive(at('eaId'))
+if(id===null)return null
+return{id,base:positive(at('basePlayerEaId')),skillMoves:stars(at('skillMoves')),weakFoot:stars(at('weakFoot')),holographic:holoOf(at('holographic'))}}
+function columnsBuilder(game){const rows=[]
+return{add(base,from=0,to=Number.MAX_SAFE_INTEGER){if(!base||!Array.isArray(base.rows))return 0
+const end=Math.min(to,base.rows.length)
+let added=0
+for(let at=Math.max(0,from);at<end;at+=1){const one=columnsOfRow(base.index,base.rows[at])
+if(one===null)continue
+rows.push(one)
+added+=1}
+return added},
+done(){const list=rows.slice().sort((a,b)=>a.id-b.id)
+const ids=[]
+const packed=[]
+const bases=[]
+let last=0
+for(const one of list){if(one.id===last)continue
+ids.push(one.id-last)
+last=one.id
+packed.push(pack(one.skillMoves,one.weakFoot,one.holographic))
+if(one.base!==one.id)bases.push(one.id,one.base??0)}
+return{v:COLUMNS_SCHEMA,game,count:ids.length,ids,packed,bases}}}}
+function readColumns(raw){if(!raw||typeof raw!=='object'||Array.isArray(raw))return null
+if(raw.v!==COLUMNS_SCHEMA||!Number.isSafeInteger(raw.game))return null
+const{ids,packed,bases}=raw
+if(!Array.isArray(ids)||!Array.isArray(packed)||!Array.isArray(bases)||ids.length!==packed.length||bases.length%2!==0)return null
+const map=new Map()
+let id=0
+for(let at=0;at<ids.length;at+=1){const step=ids[at]
+const code=packed[at]
+if(!Number.isSafeInteger(step)||step<=0||!Number.isSafeInteger(code)||code<0||code>143)return null
+id+=step
+map.set(id,code)}
+const other=new Map()
+for(let at=0;at<bases.length;at+=2){const one=bases[at]
+const base=bases[at+1]
+if(!map.has(one)||!Number.isSafeInteger(base)||base<0)return null
+other.set(one,base)}
+return{game:raw.game,count:map.size,get(defId){const code=map.get(defId)
+if(code===undefined)return null
+const base=other.has(defId)?positive(other.get(defId)):defId
+return{base,...unpack(code)}}}}
+function createGalleryColumns(deps={}){const store=deps.store??null
+const gameNow=typeof deps.game==='function'?deps.game:()=>null
+const onError=typeof deps.onError==='function'?deps.onError:()=>{}
+let table=null
+let asked=false
+const stats={source:null,loaded:false,saved:null,reason:null}
+const fits=()=>table!==null&&table.game===gameNow()
+return{
+async load(){stats.loaded=true
+if(store===null){stats.reason='no-store'
+return false}
+try{const next=readColumns(await store.get(COLUMNS_KEY))
+if(next===null){stats.reason='empty'
+return false}
+table=next
+stats.source='disk'
+stats.reason=null
+return true}catch(err){onError(err)
+stats.reason=typeof err?.reason==='string'?err.reason:'store-failed'
+return false}},
+need(){if(fits()||asked)return false
+asked=true
+return true},
+builder(game){const build=columnsBuilder(game)
+return{add:(base,from,to)=>build.add(base,from,to),
+commit(){const raw=build.done()
+const next=readColumns(raw)
+if(next===null)return 0
+table=next
+stats.source='base'
+if(store!==null){try{const result=store.set(COLUMNS_KEY,raw)
+if(result&&typeof result.then==='function')result.then(()=>{stats.saved=true},(err)=>{stats.saved=false
+stats.reason=typeof err?.reason==='string'?err.reason:'store-failed'
+onError(err)})}catch(err){stats.saved=false
+onError(err)}}
+return next.count}}},
+get(defId){return fits()?table.get(defId):null},
+state(){return{loaded:stats.loaded,source:stats.source,game:table?.game??null,cards:table?.count??0,
+fits:fits(),saved:stats.saved,reason:stats.reason,asked}}}}
+function galleryCardOf(card,columns){if(card===null||card===undefined)return null
+return{rating:card.rating,rarity:card.rareflag,club:card.teamId,league:card.leagueId,nation:card.nationId,positions:card.positions,
+base:columns?.base??null,skillMoves:columns?.skillMoves??null,weakFoot:columns?.weakFoot??null,holographic:columns?.holographic??null}}
+
+};
 // src/features/rarity-group-book.js
-__ESB_g[252]=function*(){__ESB_d(__ESB_x[252],{createRarityGroupBook:()=>createRarityGroupBook});yield;const{seasonOf,seasonFits}=__ESB_x[84];
+__ESB_g[253]=function*(){__ESB_d(__ESB_x[253],{createRarityGroupBook:()=>createRarityGroupBook});yield;const{seasonOf,seasonFits}=__ESB_x[84];
 ;
 const GROUP_BOOK_SCHEMA=1
 function groupsOfItem(item){let raw=null
@@ -54078,12 +54216,12 @@ return{schema:GROUP_BOOK_SCHEMA,season:seasonNow(),rarities:book.size,pairs,drop
 
 };
 // src/core/clock.js
-__ESB_g[253]=function*(){__ESB_d(__ESB_x[253],{createClock:()=>createClock});yield;
+__ESB_g[254]=function*(){__ESB_d(__ESB_x[254],{createClock:()=>createClock});yield;
 function createClock(){return{now:()=>Date.now(),sleep:(ms)=>new Promise((resolve)=>{setTimeout(resolve,Math.max(0,Number(ms)||0))})}}
 
 };
 // src/ui/dialog.js
-__ESB_g[254]=function*(){__ESB_d(__ESB_x[254],{createDialogs:()=>createDialogs});yield;const{el,clear}=__ESB_x[68];const{modalBox,modalButtons,noteWindowRaised}=__ESB_x[70];
+__ESB_g[255]=function*(){__ESB_d(__ESB_x[255],{createDialogs:()=>createDialogs});yield;const{el,clear}=__ESB_x[68];const{modalBox,modalButtons,noteWindowRaised}=__ESB_x[70];
 ;
 ;
 function createDialogs(deps){const{doc,root,t}=deps
@@ -54164,7 +54302,7 @@ return{isOpen,close:()=>close(current?.cancelValue),ask:askDialog,show:showDialo
 
 };
 // src/settings/registry-values.js
-__ESB_g[255]=function*(){__ESB_d(__ESB_x[255],{REGISTRY_SOURCES:()=>REGISTRY_SOURCES});yield;const{SAFE_LIMIT_DEFAULTS,LIMIT_FIELDS}=__ESB_x[114];const{OPTION_FIELDS,AFTER_BUY_DEFAULT,SEARCH_REFRESH_DEFAULT,CONFIRM_EACH_RUN_DEFAULT,RATING_SEARCH_NOW_DEFAULT,defaultOptionInput}=__ESB_x[120];const{DEFAULT_SEARCH_DELAY_MS,BUY_PAUSE_MS,SAFE_PAUSE_FLOOR_MS,BUY_PAUSE_FLOOR_MS,WORK_MS,BREAK_MS,MAX_PER_SEARCH_DEFAULT,MATCH_GUARD_DEFAULT}=__ESB_x[123];const{SELLER_FIELDS,sanitizeSellerOptions}=__ESB_x[141];const{PACK_SHOW_DEFAULTS,SHOW_RATING_DEFAULT,PACK_SHOW_MODE_DEFAULT}=__ESB_x[210];const{SOLVER_DEFAULTS}=__ESB_x[211];const{THRESHOLD_DEFAULT:SNIPE_KEY_THRESHOLD_DEFAULT}=__ESB_x[140];const{RELIST_MODE_DEFAULT,RELIST_PERCENT_DEFAULT}=__ESB_x[99];const{VOLUME_DEFAULT}=__ESB_x[146];const{PICK_PRESELECT_DEFAULT}=__ESB_x[209];const{defaultToggles,GALLERY_MARKS_DEFAULT}=__ESB_x[5];
+__ESB_g[256]=function*(){__ESB_d(__ESB_x[256],{REGISTRY_SOURCES:()=>REGISTRY_SOURCES});yield;const{SAFE_LIMIT_DEFAULTS,LIMIT_FIELDS}=__ESB_x[114];const{OPTION_FIELDS,AFTER_BUY_DEFAULT,SEARCH_REFRESH_DEFAULT,CONFIRM_EACH_RUN_DEFAULT,RATING_SEARCH_NOW_DEFAULT,defaultOptionInput}=__ESB_x[120];const{DEFAULT_SEARCH_DELAY_MS,BUY_PAUSE_MS,SAFE_PAUSE_FLOOR_MS,BUY_PAUSE_FLOOR_MS,WORK_MS,BREAK_MS,MAX_PER_SEARCH_DEFAULT,MATCH_GUARD_DEFAULT}=__ESB_x[123];const{SELLER_FIELDS,sanitizeSellerOptions}=__ESB_x[141];const{PACK_SHOW_DEFAULTS,SHOW_RATING_DEFAULT,PACK_SHOW_MODE_DEFAULT}=__ESB_x[210];const{SOLVER_DEFAULTS}=__ESB_x[211];const{THRESHOLD_DEFAULT:SNIPE_KEY_THRESHOLD_DEFAULT}=__ESB_x[140];const{RELIST_MODE_DEFAULT,RELIST_PERCENT_DEFAULT}=__ESB_x[99];const{VOLUME_DEFAULT}=__ESB_x[146];const{PICK_PRESELECT_DEFAULT}=__ESB_x[209];const{defaultToggles,GALLERY_MARKS_DEFAULT}=__ESB_x[5];
 ;
 ;
 ;
@@ -54187,7 +54325,7 @@ const REGISTRY_SOURCES=Object.freeze({constants:REGISTRY_CONSTANTS,scaleOf})
 
 };
 // src/ui/panel-model.js
-__ESB_g[256]=function*(){__ESB_d(__ESB_x[256],{DEEDS:()=>DEEDS,FIRST_SECTION:()=>FIRST_SECTION,ORDERED_SECTIONS:()=>ORDERED_SECTIONS,dockModel:()=>dockModel,isBelowFloor:()=>isBelowFloor,leverOf:()=>leverOf,openSectionOf:()=>openSectionOf,outOfBounds:()=>outOfBounds,resetPlan:()=>resetPlan,searchModel:()=>searchModel,sectionModel:()=>sectionModel,settingsModel:()=>settingsModel,signedIn:()=>signedIn});yield;const{SECTIONS,defaultOf,floorOf,inWindow}=__ESB_x[4];const{REGISTRY_SOURCES}=__ESB_x[255];const{AFTER_BUY,AFTER_BUY_KEY,AFTER_BUY_SHOWN,afterBuyShownOf,SEARCH_REFRESH,SEARCH_REFRESH_KEY,searchRefreshOf,OPTION_FIELDS}=__ESB_x[120];const{LIMIT_FIELDS,boundsOf}=__ESB_x[114];const{sanitizePackShowPolicy,PACK_SHOW_MODES,packShowModeOf,packShowPatchOf}=__ESB_x[210];const{stopReasonKey}=__ESB_x[124];const{relistHasDirection,relistPriceOf,RELIST_PERCENT,RELIST_PERCENT_DEFAULT,sanitizeRelistPricing}=__ESB_x[99];const{PICK_PRESELECTS,PICK_PRESELECT_DEFAULT,sanitizePickPreselect}=__ESB_x[209];const{SETTING_CHOICES,settingsChoice}=__ESB_x[5];
+__ESB_g[257]=function*(){__ESB_d(__ESB_x[257],{DEEDS:()=>DEEDS,FIRST_SECTION:()=>FIRST_SECTION,ORDERED_SECTIONS:()=>ORDERED_SECTIONS,dockModel:()=>dockModel,isBelowFloor:()=>isBelowFloor,leverOf:()=>leverOf,openSectionOf:()=>openSectionOf,outOfBounds:()=>outOfBounds,resetPlan:()=>resetPlan,searchModel:()=>searchModel,sectionModel:()=>sectionModel,settingsModel:()=>settingsModel,signedIn:()=>signedIn});yield;const{SECTIONS,defaultOf,floorOf,inWindow}=__ESB_x[4];const{REGISTRY_SOURCES}=__ESB_x[256];const{AFTER_BUY,AFTER_BUY_KEY,AFTER_BUY_SHOWN,afterBuyShownOf,SEARCH_REFRESH,SEARCH_REFRESH_KEY,searchRefreshOf,OPTION_FIELDS}=__ESB_x[120];const{LIMIT_FIELDS,boundsOf}=__ESB_x[114];const{sanitizePackShowPolicy,PACK_SHOW_MODES,packShowModeOf,packShowPatchOf}=__ESB_x[210];const{stopReasonKey}=__ESB_x[124];const{relistHasDirection,relistPriceOf,RELIST_PERCENT,RELIST_PERCENT_DEFAULT,sanitizeRelistPricing}=__ESB_x[99];const{PICK_PRESELECTS,PICK_PRESELECT_DEFAULT,sanitizePickPreselect}=__ESB_x[209];const{SETTING_CHOICES,settingsChoice}=__ESB_x[5];
 ;
 ;
 ;
@@ -54632,7 +54770,7 @@ label:t('panel.tabs')}}}
 
 };
 // src/ui/panel-home.js
-__ESB_g[257]=function*(){__ESB_d(__ESB_x[257],{renderLever:()=>renderLever});yield;const{el}=__ESB_x[68];const{logoLink}=__ESB_x[69];
+__ESB_g[258]=function*(){__ESB_d(__ESB_x[258],{renderLever:()=>renderLever});yield;const{el}=__ESB_x[68];const{logoLink}=__ESB_x[69];
 ;
 ;
 function renderLever(doc,lever,onOrgan){if(!lever)return null
@@ -54648,7 +54786,7 @@ return el(doc,'section',{class:'day-x',dataset:{dayXRow:'1'}},[el(doc,'div',{cla
 
 };
 // src/ui/panel-section.js
-__ESB_g[258]=function*(){__ESB_d(__ESB_x[258],{glyphOf:()=>glyphOf,renderSection:()=>renderSection});yield;const{el,clear}=__ESB_x[68];const{isBelowFloor,outOfBounds}=__ESB_x[256];
+__ESB_g[259]=function*(){__ESB_d(__ESB_x[259],{glyphOf:()=>glyphOf,renderSection:()=>renderSection});yield;const{el,clear}=__ESB_x[68];const{isBelowFloor,outOfBounds}=__ESB_x[257];
 ;
 ;
 const GLYPHS=Object.freeze({view:'🖼️',prices:'🏷️',snipe:'🛒',seller:'💸',solver:'🧩',packs:'🎁',keys:'⌨️',ledger:'💰',premium:'🔑',diagnostics:'🩺'})
@@ -54816,7 +54954,7 @@ return{row:el(doc,'div',{class:'row deed'},[node]),extra:[]}}
 
 };
 // src/ui/settings-window.js
-__ESB_g[259]=function*(){__ESB_d(__ESB_x[259],{SETTINGS_LINK_ID:()=>SETTINGS_LINK_ID,SETTINGS_STYLESHEET:()=>SETTINGS_STYLESHEET,renderSettingsWindow:()=>renderSettingsWindow});yield;const{el}=__ESB_x[68];const{renderSection,glyphOf}=__ESB_x[258];const{modalBox}=__ESB_x[70];const{updateLine}=__ESB_x[214];
+__ESB_g[260]=function*(){__ESB_d(__ESB_x[260],{SETTINGS_LINK_ID:()=>SETTINGS_LINK_ID,SETTINGS_STYLESHEET:()=>SETTINGS_STYLESHEET,renderSettingsWindow:()=>renderSettingsWindow});yield;const{el}=__ESB_x[68];const{renderSection,glyphOf}=__ESB_x[259];const{modalBox}=__ESB_x[70];const{updateLine}=__ESB_x[214];
 ;
 ;
 ;
@@ -54902,13 +55040,13 @@ return el(doc,'div',{class:'search-screen',dataset:{panelSearchScreen:'1'}},kids
 
 };
 // src/licensing/buy-url.js
-__ESB_g[260]=function*(){__ESB_d(__ESB_x[260],{buyUrlOf:()=>buyUrlOf});yield;
+__ESB_g[261]=function*(){__ESB_d(__ESB_x[261],{buyUrlOf:()=>buyUrlOf});yield;
 const BUY_URL = Object.freeze({ ru: 'https://eshario.com/ru/buy/', en: 'https://eshario.com/buy/' });
 const buyUrlOf = (locale) => (typeof locale === 'string' && Object.hasOwn(BUY_URL, locale) ? BUY_URL[locale] : BUY_URL.en);
 
 };
 // src/ui/panel.js
-__ESB_g[261]=function*(){__ESB_d(__ESB_x[261],{PANEL_BUILD:()=>PANEL_BUILD,PANEL_ID:()=>PANEL_ID,mountPanel:()=>mountPanel});yield;const{el,replaceChildren,ensureTheme,THEME_STYLESHEET,SITE_URL}=__ESB_x[68];const{CONTROLS_STYLESHEET}=__ESB_x[69];const{WINDOW_STYLESHEET,WINDOW_BUTTON_CLASS,onWindowRaised}=__ESB_x[70];const{createDialogs}=__ESB_x[254];const{dockModel,sectionModel,searchModel,settingsModel,resetPlan,leverOf,openSectionOf,ORDERED_SECTIONS,FIRST_SECTION,signedIn}=__ESB_x[256];const{renderLever}=__ESB_x[257];const{renderSettingsWindow,SETTINGS_STYLESHEET,SETTINGS_LINK_ID}=__ESB_x[259];const{stopReasonKey}=__ESB_x[124];const{ALLOW_UNASSIGNED_OVERFLOW,bidsEnabled}=__ESB_x[120];const{SNIPE_FEATURE}=__ESB_x[125];const{taxRows,listingRows,netLine,TAX_RATE_PERCENT}=__ESB_x[147];const{journalRows}=__ESB_x[143];const{totalRows,dealRows}=__ESB_x[145];const{rejectLabelKey}=__ESB_x[10];const{buyUrlOf}=__ESB_x[260];const{allowedUnassignedDispositions}=__ESB_x[137];const{CLUB_TABLE_FILTERS,viewClubItemTable}=__ESB_x[115];const{HOTKEY_ACTIONS,detectConflicts}=__ESB_x[127];const{sanitizePackShowPolicy}=__ESB_x[210];
+__ESB_g[262]=function*(){__ESB_d(__ESB_x[262],{PANEL_BUILD:()=>PANEL_BUILD,PANEL_ID:()=>PANEL_ID,mountPanel:()=>mountPanel});yield;const{el,replaceChildren,ensureTheme,THEME_STYLESHEET,SITE_URL}=__ESB_x[68];const{CONTROLS_STYLESHEET}=__ESB_x[69];const{WINDOW_STYLESHEET,WINDOW_BUTTON_CLASS,onWindowRaised}=__ESB_x[70];const{createDialogs}=__ESB_x[255];const{dockModel,sectionModel,searchModel,settingsModel,resetPlan,leverOf,openSectionOf,ORDERED_SECTIONS,FIRST_SECTION,signedIn}=__ESB_x[257];const{renderLever}=__ESB_x[258];const{renderSettingsWindow,SETTINGS_STYLESHEET,SETTINGS_LINK_ID}=__ESB_x[260];const{stopReasonKey}=__ESB_x[124];const{ALLOW_UNASSIGNED_OVERFLOW,bidsEnabled}=__ESB_x[120];const{SNIPE_FEATURE}=__ESB_x[125];const{taxRows,listingRows,netLine,TAX_RATE_PERCENT}=__ESB_x[147];const{journalRows}=__ESB_x[143];const{totalRows,dealRows}=__ESB_x[145];const{rejectLabelKey}=__ESB_x[10];const{buyUrlOf}=__ESB_x[261];const{allowedUnassignedDispositions}=__ESB_x[137];const{CLUB_TABLE_FILTERS,viewClubItemTable}=__ESB_x[115];const{HOTKEY_ACTIONS,detectConflicts}=__ESB_x[127];const{sanitizePackShowPolicy}=__ESB_x[210];
 ;
 ;
 ;
@@ -55543,7 +55681,7 @@ return api.update()}
 
 };
 // src/features/autologin-actions.js
-__ESB_g[262]=function*(){__ESB_d(__ESB_x[262],{createLandingWatch:()=>createLandingWatch,startAutologin:()=>startAutologin});yield;const{runAutologin,createLandingTally,pressLanding,EMPTY_LANDING}=__ESB_x[104];
+__ESB_g[263]=function*(){__ESB_d(__ESB_x[263],{createLandingWatch:()=>createLandingWatch,startAutologin:()=>startAutologin});yield;const{runAutologin,createLandingTally,pressLanding,EMPTY_LANDING}=__ESB_x[104];
 ;
 const AUTOLOGIN_FEATURE='autologin'
 const IDLE_LANDING=EMPTY_LANDING
@@ -55576,7 +55714,7 @@ loginRunning:typeof personas.loginRunning==='function'?()=>personas.loginRunning
 
 };
 // src/adapter/landing.js
-__ESB_g[263]=function*(){__ESB_d(__ESB_x[263],{createLandingDoor:()=>createLandingDoor});yield;const{pressNode}=__ESB_x[134];const{appMain}=__ESB_x[58];
+__ESB_g[264]=function*(){__ESB_d(__ESB_x[264],{createLandingDoor:()=>createLandingDoor});yield;const{pressNode}=__ESB_x[134];const{appMain}=__ESB_x[58];
 ;
 ;
 const LANDING_BUTTON='.ut-login .ut-login-content button.btn-standard.primary'
@@ -55633,7 +55771,7 @@ return value&&typeof value==='object'?value:null}catch{return null}}}}
 
 };
 // src/features/dim-owned.js
-__ESB_g[264]=function*(){__ESB_d(__ESB_x[264],{createDimOwned:()=>createDimOwned});yield;const{ensureStylesheet}=__ESB_x[68];const{identityOf,ITEM_PILE}=__ESB_x[119];const{inDetailColumn}=__ESB_x[76];const{SCREEN_SELECTOR:STORAGE_SCREEN}=__ESB_x[197];const{PRICE_BADGE_SURFACES}=__ESB_x[86];const{PACK_PEEK_SURFACE}=__ESB_x[208];
+__ESB_g[265]=function*(){__ESB_d(__ESB_x[265],{createDimOwned:()=>createDimOwned});yield;const{ensureStylesheet}=__ESB_x[68];const{identityOf,ITEM_PILE}=__ESB_x[119];const{inDetailColumn}=__ESB_x[76];const{SCREEN_SELECTOR:STORAGE_SCREEN}=__ESB_x[197];const{PRICE_BADGE_SURFACES}=__ESB_x[86];const{PACK_PEEK_SURFACE}=__ESB_x[208];
 ;
 ;
 ;
@@ -55766,7 +55904,7 @@ dispose(){try{dropAllDimMarks(doc)}catch(err){onError(err)}}}}
 
 };
 // src/features/gallery-rhythm.js
-__ESB_g[265]=function*(){__ESB_d(__ESB_x[265],{METHOD_BATCH:()=>METHOD_BATCH,METHOD_DIRECT:()=>METHOD_DIRECT,rhythmOf:()=>rhythmOf,shuffled:()=>shuffled});yield;const{bandPauseMs}=__ESB_x[79];
+__ESB_g[266]=function*(){__ESB_d(__ESB_x[266],{METHOD_BATCH:()=>METHOD_BATCH,METHOD_DIRECT:()=>METHOD_DIRECT,rhythmOf:()=>rhythmOf,shuffled:()=>shuffled});yield;const{bandPauseMs}=__ESB_x[79];
 ;
 const ROUND_MIN=2
 const ROUND_MAX=5
@@ -55793,7 +55931,7 @@ return out}
 
 };
 // src/features/gallery-sell.js
-__ESB_g[266]=function*(){__ESB_d(__ESB_x[266],{createGallerySeller:()=>createGallerySeller});yield;const{listPauseMs}=__ESB_x[79];const{relistPriceOf,EA_REFUSALS_TO_STOP,EA_REFUSALS_TOTAL_STOP,RELIST_MARKET,RELIST_STEP,RELIST_PERCENT,RELIST_UP,RELIST_DOWN}=__ESB_x[99];const{withinListingBand,readPriceLimits,DEFAULT_DURATION}=__ESB_x[73];const{startingBidFor}=__ESB_x[110];const{receiptItemIds}=__ESB_x[97];const{netAfterTax}=__ESB_x[71];const{meterCalls,isDayBudgetError,stopOnEaLimit,eaStatusOf}=__ESB_x[98];const{frozenReasonOf}=__ESB_x[67];const{GALLERY_FEATURE}=__ESB_x[82];const{rhythmOf,shuffled,METHOD_BATCH,METHOD_DIRECT}=__ESB_x[265];const{settingsValue}=__ESB_x[5];const{createAdapter,pileValueOf}=__ESB_x[95];const{isDoorRefusal}=__ESB_x[94];const{EaRequestsOffError}=__ESB_x[90];const{classifyStatus}=__ESB_x[77];const{itemIdOf}=__ESB_x[205];
+__ESB_g[267]=function*(){__ESB_d(__ESB_x[267],{createGallerySeller:()=>createGallerySeller});yield;const{listPauseMs}=__ESB_x[79];const{relistPriceOf,EA_REFUSALS_TO_STOP,EA_REFUSALS_TOTAL_STOP,RELIST_MARKET,RELIST_STEP,RELIST_PERCENT,RELIST_UP,RELIST_DOWN}=__ESB_x[99];const{withinListingBand,readPriceLimits,DEFAULT_DURATION}=__ESB_x[73];const{startingBidFor}=__ESB_x[110];const{receiptItemIds}=__ESB_x[97];const{netAfterTax}=__ESB_x[71];const{meterCalls,isDayBudgetError,stopOnEaLimit,eaStatusOf}=__ESB_x[98];const{frozenReasonOf}=__ESB_x[67];const{GALLERY_FEATURE}=__ESB_x[82];const{rhythmOf,shuffled,METHOD_BATCH,METHOD_DIRECT}=__ESB_x[266];const{settingsValue}=__ESB_x[5];const{createAdapter,pileValueOf}=__ESB_x[95];const{isDoorRefusal}=__ESB_x[94];const{EaRequestsOffError}=__ESB_x[90];const{classifyStatus}=__ESB_x[77];const{itemIdOf}=__ESB_x[205];
 ;
 ;
 ;
@@ -56099,7 +56237,7 @@ return true}catch{return false}}
 
 };
 // src/adapter/unassigned-bulk.js
-__ESB_g[267]=function*(){__ESB_d(__ESB_x[267],{BUSY_FRAMES:()=>BUSY_FRAMES,createUnassignedBulk:()=>createUnassignedBulk});yield;const{stopOnEaLimit,stopsRequest,EA_LIMIT,askDayBudget}=__ESB_x[98];const{reviewAction,createDoorConsent,doorConsentKey,ALLOWED,UNKNOWN}=__ESB_x[94];const{itemIdOf}=__ESB_x[205];
+__ESB_g[268]=function*(){__ESB_d(__ESB_x[268],{BUSY_FRAMES:()=>BUSY_FRAMES,createUnassignedBulk:()=>createUnassignedBulk});yield;const{stopOnEaLimit,stopsRequest,EA_LIMIT,askDayBudget}=__ESB_x[98];const{reviewAction,createDoorConsent,doorConsentKey,ALLOWED,UNKNOWN}=__ESB_x[94];const{itemIdOf}=__ESB_x[205];
 ;
 ;
 ;
@@ -56453,7 +56591,7 @@ consent.forget()}}}
 
 };
 // src/adapter/game-rewards.js
-__ESB_g[268]=function*(){__ESB_d(__ESB_x[268],{installGameRewardsCapture:()=>installGameRewardsCapture,installPackRewardCapture:()=>installPackRewardCapture});yield;const{refusesSuperclass}=__ESB_x[116];const{packCardName}=__ESB_x[92];const{screenPrototype}=__ESB_x[74];
+__ESB_g[269]=function*(){__ESB_d(__ESB_x[269],{installGameRewardsCapture:()=>installGameRewardsCapture,installPackRewardCapture:()=>installPackRewardCapture});yield;const{refusesSuperclass}=__ESB_x[116];const{packCardName}=__ESB_x[92];const{screenPrototype}=__ESB_x[74];
 ;
 ;
 ;
@@ -56598,7 +56736,7 @@ return handleOf(record,record.packs,onArrived)}
 
 };
 // src/features/reward-flow.js
-__ESB_g[269]=function*(){__ESB_d(__ESB_x[269],{createRewardFlow:()=>createRewardFlow});yield;const{SBC_FEATURE}=__ESB_x[164];
+__ESB_g[270]=function*(){__ESB_d(__ESB_x[270],{createRewardFlow:()=>createRewardFlow});yield;const{SBC_FEATURE}=__ESB_x[164];
 ;
 const REWARD_FLOW_FEATURE=SBC_FEATURE
 const REWARD_PRESS_FRAMES=2
@@ -56668,7 +56806,7 @@ dispose(){last=null}}}
 
 };
 // src/adapter/live-message.js
-__ESB_g[270]=function*(){__ESB_d(__ESB_x[270],{installLiveMessageCapture:()=>installLiveMessageCapture});yield;const{findDoor}=__ESB_x[57];const{refusesSuperclass}=__ESB_x[116];const{pressNode}=__ESB_x[134];
+__ESB_g[271]=function*(){__ESB_d(__ESB_x[271],{installLiveMessageCapture:()=>installLiveMessageCapture});yield;const{findDoor}=__ESB_x[57];const{refusesSuperclass}=__ESB_x[116];const{pressNode}=__ESB_x[134];
 ;
 ;
 ;
@@ -56775,7 +56913,7 @@ installations.delete(record.ctrlProto)}}}
 
 };
 // src/features/promo-close.js
-__ESB_g[271]=function*(){__ESB_d(__ESB_x[271],{createPromoClose:()=>createPromoClose});yield;
+__ESB_g[272]=function*(){__ESB_d(__ESB_x[272],{createPromoClose:()=>createPromoClose});yield;
 const PROMO_CLOSE_FEATURE='promoClose'
 const PROMO_PRESS_FRAMES=2
 const PROMO_STALE_MS=1500
@@ -56862,7 +57000,7 @@ return Number.isFinite(n)&&n>0?n:0}
 
 };
 // src/features/claim-rewards.js
-__ESB_g[272]=function*(){__ESB_d(__ESB_x[272],{createClaimRewards:()=>createClaimRewards});yield;const{bandPauseMs}=__ESB_x[79];const{mustStop,classifyStatus}=__ESB_x[77];const{askDayBudget,COUNTER_UNAVAILABLE}=__ESB_x[98];const{STOP_REASON_KEYS}=__ESB_x[103];
+__ESB_g[273]=function*(){__ESB_d(__ESB_x[273],{createClaimRewards:()=>createClaimRewards});yield;const{bandPauseMs}=__ESB_x[79];const{mustStop,classifyStatus}=__ESB_x[77];const{askDayBudget,COUNTER_UNAVAILABLE}=__ESB_x[98];const{STOP_REASON_KEYS}=__ESB_x[103];
 ;
 ;
 ;
@@ -57065,7 +57203,7 @@ failure=null}}}
 
 };
 // src/features/hub-button.js
-__ESB_g[273]=function*(){__ESB_d(__ESB_x[273],{createHubButton:()=>createHubButton});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoMark}=__ESB_x[69];
+__ESB_g[274]=function*(){__ESB_d(__ESB_x[274],{createHubButton:()=>createHubButton});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoMark}=__ESB_x[69];
 ;
 ;
 const HUB_BUTTON_MARK='futHubClaim'
@@ -57147,7 +57285,7 @@ root=null}}}
 
 };
 // src/adapter/home-grid.js
-__ESB_g[274]=function*(){__ESB_d(__ESB_x[274],{homeGridOf:()=>homeGridOf,homeStripsIn:()=>homeStripsIn});yield;
+__ESB_g[275]=function*(){__ESB_d(__ESB_x[275],{homeGridOf:()=>homeGridOf,homeStripsIn:()=>homeStripsIn});yield;
 const HOME_GRID_SELECTOR='.grid.layout-hub'
 function homeGridOf(node){try{if(node===null||node===undefined)return null
 if(typeof node.closest==='function'){const found=node.closest(HOME_GRID_SELECTOR)
@@ -57167,7 +57305,7 @@ return count}catch{return 0}}
 
 };
 // src/features/home-grid.js
-__ESB_g[275]=function*(){__ESB_d(__ESB_x[275],{createHomeGrid:()=>createHomeGrid});yield;const{homeGridOf,homeStripsIn}=__ESB_x[274];const{ensureStylesheet}=__ESB_x[68];
+__ESB_g[276]=function*(){__ESB_d(__ESB_x[276],{createHomeGrid:()=>createHomeGrid});yield;const{homeGridOf,homeStripsIn}=__ESB_x[275];const{ensureStylesheet}=__ESB_x[68];
 ;
 ;
 const COLUMNS=4
@@ -57422,7 +57560,7 @@ fitPending=false}}}
 
 };
 // src/features/hub-unlock.js
-__ESB_g[276]=function*(){__ESB_d(__ESB_x[276],{HUB_UNLOCK_FEATURE:()=>HUB_UNLOCK_FEATURE,createHubUnlock:()=>createHubUnlock});yield;
+__ESB_g[277]=function*(){__ESB_d(__ESB_x[277],{HUB_UNLOCK_FEATURE:()=>HUB_UNLOCK_FEATURE,createHubUnlock:()=>createHubUnlock});yield;
 const HUB_UNLOCK_FEATURE='hubUnlock'
 const HUB_UNLOCK_ATTEMPTS=1
 const HUB_UNLOCK_RETRY_MS=5000
@@ -57526,7 +57664,7 @@ timer=null}}}}
 
 };
 // src/features/head-top.js
-__ESB_g[277]=function*(){__ESB_d(__ESB_x[277],{createHeadTop:()=>createHeadTop});yield;const{el,ensureStylesheet,ensureTheme}=__ESB_x[68];const{PANEL_DOOR_SELECTOR}=__ESB_x[216];
+__ESB_g[278]=function*(){__ESB_d(__ESB_x[278],{createHeadTop:()=>createHeadTop});yield;const{el,ensureStylesheet,ensureTheme}=__ESB_x[68];const{PANEL_DOOR_SELECTOR}=__ESB_x[216];
 ;
 ;
 const TOPLESS_MARK='data-fut-topless'
@@ -57681,7 +57819,7 @@ navReason='disposed'}}}
 
 };
 // src/features/rail-packs.js
-__ESB_g[278]=function*(){__ESB_d(__ESB_x[278],{createRailPacks:()=>createRailPacks});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{installPackRewardCapture}=__ESB_x[268];const{STORE_GRID_FEATURE}=__ESB_x[206];const{askDayBudget}=__ESB_x[98];const{bandPauseMs,spreadBand,RETRY_SPREAD_SHARE}=__ESB_x[79];
+__ESB_g[279]=function*(){__ESB_d(__ESB_x[279],{createRailPacks:()=>createRailPacks});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{installPackRewardCapture}=__ESB_x[269];const{STORE_GRID_FEATURE}=__ESB_x[206];const{askDayBudget}=__ESB_x[98];const{bandPauseMs,spreadBand,RETRY_SPREAD_SHARE}=__ESB_x[79];
 ;
 ;
 ;
@@ -57989,7 +58127,7 @@ settleTimer=null}}}}
 
 };
 // src/features/list-cursor.js
-__ESB_g[279]=function*(){__ESB_d(__ESB_x[279],{createListCursor:()=>createListCursor});yield;const{ensureStylesheet,ensureTheme}=__ESB_x[68];const{pressNode}=__ESB_x[134];const{LIST_ROWS,CURSOR_ATTR,CURSOR_KEY,ENTER_KEY,MARK_KEY,STALE_ATTR,STALE_KEY,MODE_PRESS,MODE_SAY,axisOf,rowKindOf,rowsOf,rectsOf,listNow,indexIn,markedRow,enterMarkOf,marksRow,drawsMark,enterTargets,primaryButton,followButton,stepIndex,startIndex,groupsOf,zoneOf}=__ESB_x[168];
+__ESB_g[280]=function*(){__ESB_d(__ESB_x[280],{createListCursor:()=>createListCursor});yield;const{ensureStylesheet,ensureTheme}=__ESB_x[68];const{pressNode}=__ESB_x[134];const{LIST_ROWS,CURSOR_ATTR,CURSOR_KEY,ENTER_KEY,MARK_KEY,STALE_ATTR,STALE_KEY,MODE_PRESS,MODE_SAY,axisOf,rowKindOf,rowsOf,rectsOf,listNow,indexIn,markedRow,enterMarkOf,marksRow,drawsMark,enterTargets,primaryButton,followButton,stepIndex,startIndex,groupsOf,zoneOf}=__ESB_x[168];
 ;
 ;
 ;
@@ -58087,7 +58225,7 @@ return{step,enter,state,clear}}
 
 };
 // src/features/notfound-watch.js
-__ESB_g[280]=function*(){__ESB_d(__ESB_x[280],{ensureNotFoundWatch:()=>ensureNotFoundWatch});yield;const{installShellWatch,shellFacts,shellLabel,screenTitle,eaBuild,askShell,shellSlot}=__ESB_x[188];const{eaRequestState}=__ESB_x[90];const{VIEW_SELECTOR}=__ESB_x[76];const{CARD_GRID_FEATURE}=__ESB_x[183];
+__ESB_g[281]=function*(){__ESB_d(__ESB_x[281],{ensureNotFoundWatch:()=>ensureNotFoundWatch});yield;const{installShellWatch,shellFacts,shellLabel,screenTitle,eaBuild,askShell,shellSlot}=__ESB_x[188];const{eaRequestState}=__ESB_x[90];const{VIEW_SELECTOR}=__ESB_x[76];const{CARD_GRID_FEATURE}=__ESB_x[183];
 ;
 ;
 ;
@@ -58344,7 +58482,7 @@ return room===undefined?null:report(room)}
 
 };
 // src/page/wiring.js
-__ESB_g[281]=function*(){__ESB_d(__ESB_x[281],{wirePage:()=>wirePage});yield;const{installHotkeys,confirmPlan}=__ESB_x[170];const{notePanelCard}=__ESB_x[134];const{ownConfirmButton,visibleDialogs,pressNode,pressTarget,layerVisible}=__ESB_x[134];const{HOTKEY_ACTIONS}=__ESB_x[127];const{publishLiveCriteria}=__ESB_x[139];const{readMarketFilterCriteria,restoreLiveMarketCriteria}=__ESB_x[106];const{startAutologin,createLandingWatch}=__ESB_x[262];const{createLandingDoor}=__ESB_x[263];const{findMinBin,countListings,minBinLabel,minBinTarget}=__ESB_x[80];const{listAtMinNotice}=__ESB_x[149];const{enhanceTransferList,syncRelistPricing}=__ESB_x[99];const{forgetPurchases}=__ESB_x[87];const{installItemEvidenceCapture,itemForEvidenceRow}=__ESB_x[89];const{enhancePriceBadges,relabelPriceBadges,dropAllPriceBadges,notePriceBadgeCard,priceBadgePeek}=__ESB_x[86];const{createDimOwned}=__ESB_x[264];const{createGalleryMarks}=__ESB_x[82];const{createGallerySeller}=__ESB_x[266];const{setGallerySeller}=__ESB_x[192];const{installSbcSetCapture}=__ESB_x[176];const{installSbcHubCapture}=__ESB_x[177];const{installStorageScreenCapture}=__ESB_x[197];const{installGalleryCapture,publishGalleryProbe}=__ESB_x[196];const{installSelectedPlayerCapture,selectedPlayerRecord}=__ESB_x[130];const{searchTypeOf}=__ESB_x[95];const{installQuickListCapture}=__ESB_x[100];const{installItemDetailsCapture}=__ESB_x[101];const{installSquadSlotCapture}=__ESB_x[129];const{installSquadScreenCapture,installSquadActionsCapture,installClubPickCapture}=__ESB_x[128];const{installSbcScreenCapture}=__ESB_x[116];const{installStorePacksCapture,installStoreCatalogCapture,installStoreTabCapture,openMyPacks,installPackOpenCapture,installPackAnimationCapture,goStorePacks,backPlan,BACK_CALLS}=__ESB_x[92];const{installPlayerPicksCapture,installPlayerPickControls}=__ESB_x[75];const{installItemEvents}=__ESB_x[63];const{applyItemEvent}=__ESB_x[159];const{installUnassignedScreenCapture,createUnassignedPerform,createUnassignedNativeStep}=__ESB_x[205];const{createUnassignedBulk,BUSY_FRAMES}=__ESB_x[267];const{createDoorConsent,doorConsentKey,isDoorRefusal,reviewAction,ALLOWED,UNKNOWN}=__ESB_x[94];const{extractItems}=__ESB_x[113];const{createUnassignedStrip}=__ESB_x[204];const{installGameRewardsCapture}=__ESB_x[268];const{createRewardFlow}=__ESB_x[269];const{installLiveMessageCapture}=__ESB_x[270];const{createPromoClose}=__ESB_x[271];const{installHomeHubCapture,readHubRewards,findLevel,claimHubReward,grantHubItems,readRewardKinds,readRewardLoot,noteRewardLoot,loadObjectiveCategories,findGroup,claimGroupReward,fcHubLocked,unlockFcHub,redrawFcHubTile,readFcasAuthFailures,restoreFcasAuthFailures,fcasReloginFailed}=__ESB_x[93];const{storeRailButton,unopenedPackCount,requestPackSplit,installObjectiveRewardWatch}=__ESB_x[186];const{createClaimRewards}=__ESB_x[272];const{createHubButton}=__ESB_x[273];const{createHomeGrid}=__ESB_x[275];const{createHubUnlock,HUB_UNLOCK_FEATURE}=__ESB_x[276];const{createHeadTop}=__ESB_x[277];const{PANEL_ID}=__ESB_x[261];const{createRailPacks}=__ESB_x[278];const{offMarket,meterCalls,isDayBudgetError,askDayBudget}=__ESB_x[98];const{createListCursor}=__ESB_x[279];const{AXIS_X,AXIS_Y}=__ESB_x[168];const{ensureNotFoundWatch}=__ESB_x[280];
+__ESB_g[282]=function*(){__ESB_d(__ESB_x[282],{wirePage:()=>wirePage});yield;const{installHotkeys,confirmPlan}=__ESB_x[170];const{notePanelCard}=__ESB_x[134];const{ownConfirmButton,visibleDialogs,pressNode,pressTarget,layerVisible}=__ESB_x[134];const{HOTKEY_ACTIONS}=__ESB_x[127];const{publishLiveCriteria}=__ESB_x[139];const{readMarketFilterCriteria,restoreLiveMarketCriteria}=__ESB_x[106];const{startAutologin,createLandingWatch}=__ESB_x[263];const{createLandingDoor}=__ESB_x[264];const{findMinBin,countListings,minBinLabel,minBinTarget}=__ESB_x[80];const{listAtMinNotice}=__ESB_x[149];const{enhanceTransferList,syncRelistPricing}=__ESB_x[99];const{forgetPurchases}=__ESB_x[87];const{installItemEvidenceCapture,itemForEvidenceRow}=__ESB_x[89];const{enhancePriceBadges,relabelPriceBadges,dropAllPriceBadges,notePriceBadgeCard,priceBadgePeek}=__ESB_x[86];const{createDimOwned}=__ESB_x[265];const{createGalleryMarks}=__ESB_x[82];const{createGallerySeller}=__ESB_x[267];const{setGallerySeller}=__ESB_x[192];const{installSbcSetCapture}=__ESB_x[176];const{installSbcHubCapture}=__ESB_x[177];const{installStorageScreenCapture}=__ESB_x[197];const{installGalleryCapture,publishGalleryProbe}=__ESB_x[196];const{installSelectedPlayerCapture,selectedPlayerRecord}=__ESB_x[130];const{searchTypeOf}=__ESB_x[95];const{installQuickListCapture}=__ESB_x[100];const{installItemDetailsCapture}=__ESB_x[101];const{installSquadSlotCapture}=__ESB_x[129];const{installSquadScreenCapture,installSquadActionsCapture,installClubPickCapture}=__ESB_x[128];const{installSbcScreenCapture}=__ESB_x[116];const{installStorePacksCapture,installStoreCatalogCapture,installStoreTabCapture,openMyPacks,installPackOpenCapture,installPackAnimationCapture,goStorePacks,backPlan,BACK_CALLS}=__ESB_x[92];const{installPlayerPicksCapture,installPlayerPickControls}=__ESB_x[75];const{installItemEvents}=__ESB_x[63];const{applyItemEvent}=__ESB_x[159];const{installUnassignedScreenCapture,createUnassignedPerform,createUnassignedNativeStep}=__ESB_x[205];const{createUnassignedBulk,BUSY_FRAMES}=__ESB_x[268];const{createDoorConsent,doorConsentKey,isDoorRefusal,reviewAction,ALLOWED,UNKNOWN}=__ESB_x[94];const{extractItems}=__ESB_x[113];const{createUnassignedStrip}=__ESB_x[204];const{installGameRewardsCapture}=__ESB_x[269];const{createRewardFlow}=__ESB_x[270];const{installLiveMessageCapture}=__ESB_x[271];const{createPromoClose}=__ESB_x[272];const{installHomeHubCapture,readHubRewards,findLevel,claimHubReward,grantHubItems,readRewardKinds,readRewardLoot,noteRewardLoot,loadObjectiveCategories,findGroup,claimGroupReward,fcHubLocked,unlockFcHub,redrawFcHubTile,readFcasAuthFailures,restoreFcasAuthFailures,fcasReloginFailed}=__ESB_x[93];const{storeRailButton,unopenedPackCount,requestPackSplit,installObjectiveRewardWatch}=__ESB_x[186];const{createClaimRewards}=__ESB_x[273];const{createHubButton}=__ESB_x[274];const{createHomeGrid}=__ESB_x[276];const{createHubUnlock,HUB_UNLOCK_FEATURE}=__ESB_x[277];const{createHeadTop}=__ESB_x[278];const{PANEL_ID}=__ESB_x[262];const{createRailPacks}=__ESB_x[279];const{offMarket,meterCalls,isDayBudgetError,askDayBudget}=__ESB_x[98];const{createListCursor}=__ESB_x[280];const{AXIS_X,AXIS_Y}=__ESB_x[168];const{ensureNotFoundWatch}=__ESB_x[281];
 ;
 ;
 ;
@@ -59040,7 +59178,7 @@ observer?.disconnect?.()}}}
 
 };
 // src/page/buyer-door.js
-__ESB_g[282]=function*(){__ESB_d(__ESB_x[282],{createBuyerDoor:()=>createBuyerDoor});yield;
+__ESB_g[283]=function*(){__ESB_d(__ESB_x[283],{createBuyerDoor:()=>createBuyerDoor});yield;
 const BUYER_OFF_SCREEN='panel.start.onScreen'
 const BUYER_NO_ENGINE='snipe.noEngine'
 function createBuyerDoor({bar=()=>null,engine=null,onError=()=>{}}={}){
@@ -59069,7 +59207,7 @@ ready:()=>ready(barNow())}}
 
 };
 // src/page/settings-door.js
-__ESB_g[283]=function*(){__ESB_d(__ESB_x[283],{createSettingsDoor:()=>createSettingsDoor});yield;
+__ESB_g[284]=function*(){__ESB_d(__ESB_x[284],{createSettingsDoor:()=>createSettingsDoor});yield;
 function createSettingsDoor({update=()=>{}}={}){
 let open=null
 let last=null
@@ -59088,7 +59226,7 @@ return true}}}
 
 };
 // src/page/live-evidence.js
-__ESB_g[284]=function*(){__ESB_d(__ESB_x[284],{buildLiveEvidence:()=>buildLiveEvidence,createLiveEvidenceRecorder:()=>createLiveEvidenceRecorder,createPhaseLog:()=>createPhaseLog,domEvidence:()=>domEvidence,sanitizeLiveEvidenceSnapshot:()=>sanitizeLiveEvidenceSnapshot});yield;const{FEATURES}=__ESB_x[3];
+__ESB_g[285]=function*(){__ESB_d(__ESB_x[285],{buildLiveEvidence:()=>buildLiveEvidence,createLiveEvidenceRecorder:()=>createLiveEvidenceRecorder,createPhaseLog:()=>createPhaseLog,domEvidence:()=>domEvidence,sanitizeLiveEvidenceSnapshot:()=>sanitizeLiveEvidenceSnapshot});yield;const{FEATURES}=__ESB_x[3];
 ;
 const LIVE_EVIDENCE_SCHEMA=1
 const LIVE_EVIDENCE_LIMIT=50
@@ -59345,7 +59483,7 @@ function positiveInteger(value,fallback){return Number.isInteger(value)&&value>0
 
 };
 // src/page/live-control.js
-__ESB_g[285]=function*(){__ESB_d(__ESB_x[285],{createBridgeLiveControlProvider:()=>createBridgeLiveControlProvider,createLiveControlSession:()=>createLiveControlSession});yield;const{createCachedProvider}=__ESB_x[6];const{sanitizeLiveEvidenceSnapshot}=__ESB_x[284];
+__ESB_g[286]=function*(){__ESB_d(__ESB_x[286],{createBridgeLiveControlProvider:()=>createBridgeLiveControlProvider,createLiveControlSession:()=>createLiveControlSession});yield;const{createCachedProvider}=__ESB_x[6];const{sanitizeLiveEvidenceSnapshot}=__ESB_x[285];
 ;
 ;
 const LIVE_CONTROL_SCHEMA=2
@@ -59403,7 +59541,7 @@ function finite(value){return typeof value==='number'&&Number.isFinite(value)?va
 
 };
 // src/page/wait-notice.js
-__ESB_g[286]=function*(){__ESB_d(__ESB_x[286],{createWaitNotice:()=>createWaitNotice});yield;
+__ESB_g[287]=function*(){__ESB_d(__ESB_x[287],{createWaitNotice:()=>createWaitNotice});yield;
 function createWaitNotice({name,now,record,out=globalThis.console,
 prefix='[ESHArio]',
 pending='ещё не поднялась, попробуем позже',
@@ -59441,7 +59579,7 @@ state(){return{said,closed,tries,startedAt}}}}
 
 };
 // src/features/code-version.js
-__ESB_g[287]=function*(){__ESB_d(__ESB_x[287],{CODE_LINE_BUILD:()=>CODE_LINE_BUILD,askCodeVersion:()=>askCodeVersion});yield;
+__ESB_g[288]=function*(){__ESB_d(__ESB_x[288],{CODE_LINE_BUILD:()=>CODE_LINE_BUILD,askCodeVersion:()=>askCodeVersion});yield;
 const CODE_LINE_BUILD='FCHUB1'
 const CODE_STATUS_DOOR='code.status'
 const VERSION_RE=/^\d{1,5}(?:\.\d{1,5}){1,3}$/
@@ -59456,7 +59594,8 @@ return typeof version==='string'&&VERSION_RE.test(version)?version:null}
 
 };
 // src/page/page-entry.js
-__ESB_g[288]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{createBridgeProvider,READ_METHOD:SETTINGS_READ}=__ESB_x[7];const{createSettings,openDoorlessGates}=__ESB_x[5];const{createLicensing}=__ESB_x[8];const{createKeyProvider,createBridgeLicenseProvider}=__ESB_x[10];const{createAccountProvider,createMigrationProvider,ACCOUNT_OPEN}=__ESB_x[11];const{createI18n,chooseLocale,currentTimeZone}=__ESB_x[56];const{doors}=__ESB_x[57];const{createNavigation,appMain}=__ESB_x[58];const{createCriteria,createClubCriteria,createSbcStorageCriteria,createFiltersScreen,readUserCriteria}=__ESB_x[60];const{installMarketSearchQuick,tapSearchWire,widenMarketPage,marketSearchPageViews,marketPageSetting,WIDE_PAGE_LOTS}=__ESB_x[61];const{installItemEvents}=__ESB_x[63];const{createFilterStore,createBridgeFilterProvider}=__ESB_x[64];const{createBridgePackLockProvider,setPackLock,isPackLocked,isPackHidden,setPackHidden}=__ESB_x[65];const{createBridgeCardLockProvider,isCardLocked,setCardLock,sanitizeCardLocks,lockedIdsFor,cardLockRecreatedRows,noteCardsRecreated}=__ESB_x[66];const{createBridgeCardFrozenProvider,isCardFrozen,setCardFrozen,frozenIdsFor}=__ESB_x[67];const{createFrozenMarks}=__ESB_x[102];const{createDropdownSearch}=__ESB_x[135];const{previewPackAutomation,runPackAutomationStep,inspectPackAutomationOutcome,hydratePackAutomationOutcome,beginPackAutomationSession,recordPackAutomationSessionOutcome,previewPackAutomationOutcomeAction,runPackAutomationPickOutcome,runPackAutomationRecoveryOutcome,runPackAutomationDiscardOutcome,previewPackAutomationContinuation,runPackAutomationContinuation}=__ESB_x[138];const{setPlayerPickSelection,reviewPlayerPickSelection,runPickStep,pickPolicy}=__ESB_x[136];const{invalidateUnassignedRecovery,refreshUnassignedRecovery,setUnassignedDisposition,resetUnassignedDispositions,reviewUnassignedRecovery,runRecoveryStep,recoveryPolicy,previewUnassignedDiscard,runDiscardStep}=__ESB_x[137];const{applyFilter,saveCurrentFilter,renameFilter,removeFilter,exportFilters,importFilters}=__ESB_x[139];const{createAutomation,createBridgeLimitsProvider,createBridgeOptionsProvider}=__ESB_x[124];const{createSnipeKey}=__ESB_x[140];const{sanitizeOptionInput,parseOptions,AFTER_BUY_KEY,SEARCH_REFRESH_KEY,searchRefreshOf}=__ESB_x[120];const{createSellerControl,createBridgeSellerProvider}=__ESB_x[141];const{createJournal,createBridgeJournalProvider,BUYER,SELLER}=__ESB_x[142];const{journalText,JOURNAL_ROWS}=__ESB_x[143];const{createLedger,createBridgeLedgerProvider}=__ESB_x[144];const{ledgerText,ledgerCsv}=__ESB_x[145];const{createSounds}=__ESB_x[146];const{createSellSidebar}=__ESB_x[149];const{createCardLockMark}=__ESB_x[165];const{createLockBadges}=__ESB_x[166];const{createSquadBar}=__ESB_x[179];const{createSquadPick}=__ESB_x[180];const{createCardGrid,CARD_GRID_FEATURE,moneyScreenLive}=__ESB_x[183];const{createDealPanel}=__ESB_x[181];const{createClubBar}=__ESB_x[185];const{createGalleryPanel}=__ESB_x[194];const{createGalleryBuyer}=__ESB_x[193];const{galleryCardName}=__ESB_x[189];const{createGalleryEngine,createGalleryMemory,createGalleryCounter,createGalleryPriceBook,personaKeyOf,UNANSWERED_PREFIX}=__ESB_x[191];const{createGalleryCatalogFeed,galleryDoorStore,galleryDoorFetch}=__ESB_x[190];const{createGalleryDoor}=__ESB_x[196];const{setGalleryEngine,galleryEngine}=__ESB_x[82];const{createSbcStorage,moveStorageToClub}=__ESB_x[198];const{createTransfersHub}=__ESB_x[199];const{transferListScroll}=__ESB_x[99];const{itemForEvidenceRow}=__ESB_x[89];const{priceBadgeState,priceBadgeCoins,priceBadgePeek}=__ESB_x[86];const{createSbcWindow}=__ESB_x[175];const{createStoreGrid}=__ESB_x[206];const{createStoreCatalog}=__ESB_x[201];const{createPreviewMemory}=__ESB_x[207];const{createPackPeek}=__ESB_x[208];const{createPickPrices,PICK_BY_PRICE_FEATURE}=__ESB_x[209];const{createSbcTab}=__ESB_x[219];const{createSbcSet}=__ESB_x[220];const{rewardTextOf}=__ESB_x[176];const{createFutggSbc}=__ESB_x[221];const{createFrozenStore}=__ESB_x[174];const{createSbcStrip,withStrip}=__ESB_x[178];const{squadFieldSignature}=__ESB_x[116];const{createSbcWarm,BACKGROUND_TIME_MS}=__ESB_x[223];const{createSbcLadderWarm}=__ESB_x[222];const{createPackShow,sanitizeShowRating}=__ESB_x[210];const{goStoreHub,unassignedInCache}=__ESB_x[92];const{prepareChallenge,resolveClubPool,showPreparedOnPitch,searchBuyOnMarket,placeBoughtCard,planSlotsFor,twiceInPlan,mismatchInPlan,judgeSubmit,recreatedLockNotice,warmShieldStop,poolForSearch,searchableCards,SBC_FEATURE,solvePhases,columnTotal,pricesForClub,createPrepCache}=__ESB_x[164];const{createSubmitGuardHook}=__ESB_x[224];const{liveSubmitSnapshot,sbcIneligibleReason,cardResourceKey}=__ESB_x[117];const{readSbcStorageItems,ITEM_PILE}=__ESB_x[119];const{createClubMirror,readClubOnce,readVerdict,playersInStats,MIRROR_SHARDS,CLUB_SESSION_RESCUE_READS}=__ESB_x[118];const{createBootSplash}=__ESB_x[225];const{mergePool,laddersFrom,identityWantsFrom,createAgedMemo,valuationFrom,explainSolve,dumpSolve,clubWorth,liveClassesFrom,liveRatingsFrom,bucketsFrom,bucketsWanted,ladderLedger,ladderFromOf,IDENTITY_MEMO_KEEP,BLOB_SLICE_MS}=__ESB_x[160];const{createConceptItem,conceptSupport}=__ESB_x[148];const{createSlotSearchScreen,slotSearchSupport}=__ESB_x[226];const{arrangeByPositions}=__ESB_x[227];const{readTradeAccess}=__ESB_x[228];const{sayEaNotice}=__ESB_x[229];const{createPoolCache,createActiveSquadCache,PoolFeedError,poolHunger,poolPriceWatch,createPoolPriceEye}=__ESB_x[159];const{analyzeClubAction,valueNotice,cardLabel,CLUB_FEATURE,PRICE_FEATURE}=__ESB_x[162];const{defaultClubTableFilters,exportClubItemTableCsv}=__ESB_x[115];const{mountMarketResultSummary,showMarketDeals}=__ESB_x[182];const{createMarketBotBar}=__ESB_x[231];const{createSearchNames}=__ESB_x[232];const{readLiveMarketCriteria,playerEntryOf,marketResultsLive,SEARCH_SCREEN_ROOT,liveSearchButton,readMarketFilterCriteria,readLiveMarketDefaults,restoreLiveMarketCriteria,showSearchMinBid,restoreSearchMinBid,showSearchPair,restoreSearchPair,marketPriceControl}=__ESB_x[106];const{createMarketFilterMemory}=__ESB_x[217];const{mountItemCard}=__ESB_x[233];const{createPriceCache,createPriceLookup,createPriceFallback}=__ESB_x[83];const{createMarketPriceSource,marketCacheKey,criteriaForCard}=__ESB_x[234];const{createLivePrices,measureQueueFrom,lagReport}=__ESB_x[172];const{createMarketBudget,BUDGET_LIMIT}=__ESB_x[80];const{DEFAULT_SEARCH_BAND_MS,SAFE_PAUSE_FLOOR_MS,MIN_BID_FLOOR,MIN_BID_STEP,MIN_BID_TOP,BID_REFRESH_TOP,MIN_BUY_FLOOR,MIN_BUY_STEP,MIN_BUY_TOP,MIN_BUY_AIM_SHARE,PAIR_MIN_BID_TOP,pairRing}=__ESB_x[123];const{createDayBudget,withDayBudget,createHuntBudget,offMarket,meterCalls,isDayBudgetError,dayBudgetError,createBudgetOwner,stopOnEaLimit}=__ESB_x[98];const{createHeadBar,chipScale}=__ESB_x[216];const{createRivalsSource}=__ESB_x[213];const{headCountersLine}=__ESB_x[78];const{createAutoBuy,createBuyRate,createLotFinder,buyTargetOf,batchCeiling}=__ESB_x[171];const{createSession}=__ESB_x[107];const{createStopConditions}=__ESB_x[108];const{TAX_FEATURE}=__ESB_x[147];const{createUiState,createBridgeUiProvider,pickPreselectFromToggles,sanitizeHotkeyProfile}=__ESB_x[218];const{createCloudDesk}=__ESB_x[241];const{createSettingsTransfer,watchSettingsApplied}=__ESB_x[242];const{createProblemReport}=__ESB_x[243];const{SYNC_STORAGE_KEYS}=__ESB_x[235];const{setEaRequestPort,eaRequestState}=__ESB_x[90];const{createFutggSource,priceCacheKey,currentGame,isUntradableSource,MANIFEST_TTL_MS:FUTGG_MANIFEST_TTL_MS}=__ESB_x[85];const{seasonOf}=__ESB_x[84];const{createLadderService,createSolvePriceReader,LADDER_TTL_MS}=__ESB_x[158];const{createPriceTrap}=__ESB_x[244];const{createPriceQuarantine}=__ESB_x[245];const{createRarityGroups}=__ESB_x[246];const{createBridgeFetch,CARDS_METHOD,CARDS_TIMEOUT_MS}=__ESB_x[2];const{createSbc,createSquad}=__ESB_x[247];const{demandClasses}=__ESB_x[153];const{parseRequirements}=__ESB_x[150];const{createWorkAreaProbe}=__ESB_x[248];const{createAdapter,createPackAdapter,createClubMemory,createStorageMemory,searchTypeOf}=__ESB_x[95];const{createPersonaAdapter}=__ESB_x[212];const{createSessionEpoch,sessionSince,stopRunning,stopQueue}=__ESB_x[105];const{createWalletAdapter}=__ESB_x[195];const{squadRatingFloatEnabled}=__ESB_x[91];const{createTeamConfig}=__ESB_x[249];const{createStaticPlayers}=__ESB_x[173];const{createCardCatalog,createCardLane}=__ESB_x[250];const{createCardBaseFeed,baseDefinitions,withStaticCardBase}=__ESB_x[251];const{createRarityGroupBook}=__ESB_x[252];const{createDemandMemory,unionClasses}=__ESB_x[157];const{installPurchaseLog,purchaseLogState,notePurchasedItem,notePaid}=__ESB_x[87];const{createHuntLoot}=__ESB_x[122];const{createClock}=__ESB_x[253];const{storageFailed}=__ESB_x[6];const{mountPanel,PANEL_BUILD}=__ESB_x[261];const{ourWindowOpen}=__ESB_x[70];const{FIRST_SECTION,DEEDS}=__ESB_x[256];const{HOTKEYS_FEATURE}=__ESB_x[170];const{publishTemplateMenu,pressNode,cardMatchProbe}=__ESB_x[134];const{wirePage}=__ESB_x[281];const{createBuyerDoor}=__ESB_x[282];const{createSettingsDoor}=__ESB_x[283];const{createLiveEvidenceRecorder,createPhaseLog,domEvidence,buildLiveEvidence}=__ESB_x[284];const{createBridgeLiveControlProvider,createLiveControlSession}=__ESB_x[285];const{createWaitNotice}=__ESB_x[286];const{askCodeVersion,CODE_LINE_BUILD}=__ESB_x[287];
+__ESB_g[289]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{createBridgeProvider,READ_METHOD:SETTINGS_READ}=__ESB_x[7];const{createSettings,openDoorlessGates}=__ESB_x[5];const{createLicensing}=__ESB_x[8];const{createKeyProvider,createBridgeLicenseProvider}=__ESB_x[10];const{createAccountProvider,createMigrationProvider,ACCOUNT_OPEN}=__ESB_x[11];const{createI18n,chooseLocale,currentTimeZone}=__ESB_x[56];const{doors}=__ESB_x[57];const{createNavigation,appMain}=__ESB_x[58];const{createCriteria,createClubCriteria,createSbcStorageCriteria,createFiltersScreen,readUserCriteria}=__ESB_x[60];const{installMarketSearchQuick,tapSearchWire,widenMarketPage,marketSearchPageViews,marketPageSetting,WIDE_PAGE_LOTS}=__ESB_x[61];const{installItemEvents}=__ESB_x[63];const{createFilterStore,createBridgeFilterProvider}=__ESB_x[64];const{createBridgePackLockProvider,setPackLock,isPackLocked,isPackHidden,setPackHidden}=__ESB_x[65];const{createBridgeCardLockProvider,isCardLocked,setCardLock,sanitizeCardLocks,lockedIdsFor,cardLockRecreatedRows,noteCardsRecreated}=__ESB_x[66];const{createBridgeCardFrozenProvider,isCardFrozen,setCardFrozen,frozenIdsFor}=__ESB_x[67];const{createFrozenMarks}=__ESB_x[102];const{createDropdownSearch}=__ESB_x[135];const{previewPackAutomation,runPackAutomationStep,inspectPackAutomationOutcome,hydratePackAutomationOutcome,beginPackAutomationSession,recordPackAutomationSessionOutcome,previewPackAutomationOutcomeAction,runPackAutomationPickOutcome,runPackAutomationRecoveryOutcome,runPackAutomationDiscardOutcome,previewPackAutomationContinuation,runPackAutomationContinuation}=__ESB_x[138];const{setPlayerPickSelection,reviewPlayerPickSelection,runPickStep,pickPolicy}=__ESB_x[136];const{invalidateUnassignedRecovery,refreshUnassignedRecovery,setUnassignedDisposition,resetUnassignedDispositions,reviewUnassignedRecovery,runRecoveryStep,recoveryPolicy,previewUnassignedDiscard,runDiscardStep}=__ESB_x[137];const{applyFilter,saveCurrentFilter,renameFilter,removeFilter,exportFilters,importFilters}=__ESB_x[139];const{createAutomation,createBridgeLimitsProvider,createBridgeOptionsProvider}=__ESB_x[124];const{createSnipeKey}=__ESB_x[140];const{sanitizeOptionInput,parseOptions,AFTER_BUY_KEY,SEARCH_REFRESH_KEY,searchRefreshOf}=__ESB_x[120];const{createSellerControl,createBridgeSellerProvider}=__ESB_x[141];const{createJournal,createBridgeJournalProvider,BUYER,SELLER}=__ESB_x[142];const{journalText,JOURNAL_ROWS}=__ESB_x[143];const{createLedger,createBridgeLedgerProvider}=__ESB_x[144];const{ledgerText,ledgerCsv}=__ESB_x[145];const{createSounds}=__ESB_x[146];const{createSellSidebar}=__ESB_x[149];const{createCardLockMark}=__ESB_x[165];const{createLockBadges}=__ESB_x[166];const{createSquadBar}=__ESB_x[179];const{createSquadPick}=__ESB_x[180];const{createCardGrid,CARD_GRID_FEATURE,moneyScreenLive}=__ESB_x[183];const{createDealPanel}=__ESB_x[181];const{createClubBar}=__ESB_x[185];const{createGalleryPanel}=__ESB_x[194];const{createGalleryBuyer}=__ESB_x[193];const{galleryCardName}=__ESB_x[189];const{createGalleryEngine,createGalleryMemory,createGalleryCounter,createGalleryPriceBook,personaKeyOf,UNANSWERED_PREFIX,FIRST_OWNER_PREFIX}=__ESB_x[191];const{createGalleryCatalogFeed,galleryDoorStore,galleryDoorFetch}=__ESB_x[190];const{createGalleryDoor}=__ESB_x[196];const{setGalleryEngine,galleryEngine}=__ESB_x[82];const{createSbcStorage,moveStorageToClub}=__ESB_x[198];const{createTransfersHub}=__ESB_x[199];const{transferListScroll}=__ESB_x[99];const{itemForEvidenceRow}=__ESB_x[89];const{priceBadgeState,priceBadgeCoins,priceBadgePeek}=__ESB_x[86];const{createSbcWindow}=__ESB_x[175];const{createStoreGrid}=__ESB_x[206];const{createStoreCatalog}=__ESB_x[201];const{createPreviewMemory}=__ESB_x[207];const{createPackPeek}=__ESB_x[208];const{createPickPrices,PICK_BY_PRICE_FEATURE}=__ESB_x[209];const{createSbcTab}=__ESB_x[219];const{createSbcSet}=__ESB_x[220];const{rewardTextOf}=__ESB_x[176];const{createFutggSbc}=__ESB_x[221];const{createFrozenStore}=__ESB_x[174];const{createSbcStrip,withStrip}=__ESB_x[178];const{squadFieldSignature}=__ESB_x[116];const{createSbcWarm,BACKGROUND_TIME_MS}=__ESB_x[223];const{createSbcLadderWarm}=__ESB_x[222];const{createPackShow,sanitizeShowRating}=__ESB_x[210];const{goStoreHub,unassignedInCache}=__ESB_x[92];const{prepareChallenge,resolveClubPool,showPreparedOnPitch,searchBuyOnMarket,placeBoughtCard,planSlotsFor,twiceInPlan,mismatchInPlan,judgeSubmit,recreatedLockNotice,warmShieldStop,poolForSearch,searchableCards,SBC_FEATURE,solvePhases,columnTotal,pricesForClub,createPrepCache}=__ESB_x[164];const{createSubmitGuardHook}=__ESB_x[224];const{liveSubmitSnapshot,sbcIneligibleReason,cardResourceKey}=__ESB_x[117];const{readSbcStorageItems,ITEM_PILE}=__ESB_x[119];const{createClubMirror,readClubOnce,readVerdict,playersInStats,MIRROR_SHARDS,CLUB_SESSION_RESCUE_READS}=__ESB_x[118];const{createBootSplash}=__ESB_x[225];const{mergePool,laddersFrom,identityWantsFrom,createAgedMemo,valuationFrom,explainSolve,dumpSolve,clubWorth,liveClassesFrom,liveRatingsFrom,bucketsFrom,bucketsWanted,ladderLedger,ladderFromOf,IDENTITY_MEMO_KEEP,BLOB_SLICE_MS}=__ESB_x[160];const{createConceptItem,conceptSupport}=__ESB_x[148];const{createSlotSearchScreen,slotSearchSupport}=__ESB_x[226];const{arrangeByPositions}=__ESB_x[227];const{readTradeAccess}=__ESB_x[228];const{sayEaNotice}=__ESB_x[229];const{createPoolCache,createActiveSquadCache,PoolFeedError,poolHunger,poolPriceWatch,createPoolPriceEye}=__ESB_x[159];const{analyzeClubAction,valueNotice,cardLabel,CLUB_FEATURE,PRICE_FEATURE}=__ESB_x[162];const{defaultClubTableFilters,exportClubItemTableCsv}=__ESB_x[115];const{mountMarketResultSummary,showMarketDeals}=__ESB_x[182];const{createMarketBotBar}=__ESB_x[231];const{createSearchNames}=__ESB_x[232];const{readLiveMarketCriteria,playerEntryOf,marketResultsLive,SEARCH_SCREEN_ROOT,liveSearchButton,readMarketFilterCriteria,readLiveMarketDefaults,restoreLiveMarketCriteria,showSearchMinBid,restoreSearchMinBid,showSearchPair,restoreSearchPair,marketPriceControl}=__ESB_x[106];const{createMarketFilterMemory}=__ESB_x[217];const{mountItemCard}=__ESB_x[233];const{createPriceCache,createPriceLookup,createPriceFallback}=__ESB_x[83];const{createMarketPriceSource,marketCacheKey,criteriaForCard}=__ESB_x[234];const{createLivePrices,measureQueueFrom,lagReport}=__ESB_x[172];const{createMarketBudget,BUDGET_LIMIT}=__ESB_x[80];const{DEFAULT_SEARCH_BAND_MS,SAFE_PAUSE_FLOOR_MS,MIN_BID_FLOOR,MIN_BID_STEP,MIN_BID_TOP,BID_REFRESH_TOP,MIN_BUY_FLOOR,MIN_BUY_STEP,MIN_BUY_TOP,MIN_BUY_AIM_SHARE,PAIR_MIN_BID_TOP,pairRing}=__ESB_x[123];const{createDayBudget,withDayBudget,createHuntBudget,offMarket,meterCalls,isDayBudgetError,dayBudgetError,createBudgetOwner,stopOnEaLimit}=__ESB_x[98];const{createHeadBar,chipScale}=__ESB_x[216];const{createRivalsSource}=__ESB_x[213];const{headCountersLine}=__ESB_x[78];const{createAutoBuy,createBuyRate,createLotFinder,buyTargetOf,batchCeiling}=__ESB_x[171];const{createSession}=__ESB_x[107];const{createStopConditions}=__ESB_x[108];const{TAX_FEATURE}=__ESB_x[147];const{createUiState,createBridgeUiProvider,pickPreselectFromToggles,sanitizeHotkeyProfile}=__ESB_x[218];const{createCloudDesk}=__ESB_x[241];const{createSettingsTransfer,watchSettingsApplied}=__ESB_x[242];const{createProblemReport}=__ESB_x[243];const{SYNC_STORAGE_KEYS}=__ESB_x[235];const{setEaRequestPort,eaRequestState}=__ESB_x[90];const{createFutggSource,priceCacheKey,currentGame,isUntradableSource,MANIFEST_TTL_MS:FUTGG_MANIFEST_TTL_MS}=__ESB_x[85];const{seasonOf}=__ESB_x[84];const{createLadderService,createSolvePriceReader,LADDER_TTL_MS}=__ESB_x[158];const{createPriceTrap}=__ESB_x[244];const{createPriceQuarantine}=__ESB_x[245];const{createRarityGroups}=__ESB_x[246];const{createBridgeFetch,CARDS_METHOD,CARDS_TIMEOUT_MS}=__ESB_x[2];const{createSbc,createSquad}=__ESB_x[247];const{demandClasses}=__ESB_x[153];const{parseRequirements}=__ESB_x[150];const{createWorkAreaProbe}=__ESB_x[248];const{createAdapter,createPackAdapter,createClubMemory,createStorageMemory,searchTypeOf}=__ESB_x[95];const{createPersonaAdapter}=__ESB_x[212];const{createSessionEpoch,sessionSince,stopRunning,stopQueue}=__ESB_x[105];const{createWalletAdapter}=__ESB_x[195];const{squadRatingFloatEnabled}=__ESB_x[91];const{createTeamConfig}=__ESB_x[249];const{createStaticPlayers}=__ESB_x[173];const{createCardCatalog,createCardLane}=__ESB_x[250];const{createCardBaseFeed,baseDefinitions,withStaticCardBase}=__ESB_x[251];const{createGalleryColumns,galleryCardOf}=__ESB_x[252];const{createRarityGroupBook}=__ESB_x[253];const{createDemandMemory,unionClasses}=__ESB_x[157];const{installPurchaseLog,purchaseLogState,notePurchasedItem,notePaid}=__ESB_x[87];const{createHuntLoot}=__ESB_x[122];const{createClock}=__ESB_x[254];const{storageFailed}=__ESB_x[6];const{mountPanel,PANEL_BUILD}=__ESB_x[262];const{ourWindowOpen}=__ESB_x[70];const{FIRST_SECTION,DEEDS}=__ESB_x[257];const{HOTKEYS_FEATURE}=__ESB_x[170];const{publishTemplateMenu,pressNode,cardMatchProbe}=__ESB_x[134];const{wirePage}=__ESB_x[282];const{createBuyerDoor}=__ESB_x[283];const{createSettingsDoor}=__ESB_x[284];const{createLiveEvidenceRecorder,createPhaseLog,domEvidence,buildLiveEvidence}=__ESB_x[285];const{createBridgeLiveControlProvider,createLiveControlSession}=__ESB_x[286];const{createWaitNotice}=__ESB_x[287];const{askCodeVersion,CODE_LINE_BUILD}=__ESB_x[288];
+;
 ;
 ;
 ;
@@ -60241,6 +60380,8 @@ return cardLane.read()}).then((lane)=>{const ids=Array.isArray(lane?.ids)?lane.i
 if(ids.length===0)return
 catalog.setUniverse(ids)
 seedInSlices(ids.length,(from,to)=>catalog.seedPositions(lane,from,to))}).catch((err)=>note(`catalog seed: ${err?.message??err}`))
+const galleryColumns=createGalleryColumns({store:galleryDoorStore((method,params)=>bridge.request(method,params)),
+game:()=>currentGame()})
 const cardBase=createCardBaseFeed({
 ask:withStaticCardBase({ask:(params)=>bridge.request(CARDS_METHOD,params,{timeoutMs:CARDS_TIMEOUT_MS}),
 fetch:galleryDoorFetch((method,params)=>bridge.request(method,params,{timeoutMs:65000}),60000),
@@ -60250,14 +60391,18 @@ storage:{read:()=>bridge.request('cardbase.read'),write:(value)=>bridge.request(
 season:()=>seasonOf(),
 game:()=>currentGame(),
 now:()=>clock.now(),
+need:()=>galleryColumns.need(),
 seed:(base)=>new Promise((resolve)=>{let cards=0
-seedInSlices(base.count,(from,to)=>{cards+=catalog.seedAttributes(baseDefinitions(base,from,to))},()=>resolve({cards}))}),
+const columns=galleryColumns.builder(base.game)
+seedInSlices(base.count,(from,to)=>{cards+=catalog.seedAttributes(baseDefinitions(base,from,to))
+columns.add(base,from,to)},()=>{columns.commit()
+resolve({cards})})}),
 groups:(dictionary)=>{groupBook.seedGroups(dictionary,'base')},
 onError:(err)=>note(`card base: ${err?.message??err}`)})
 const CARD_BASE_TICK_MS=1_800_000
 const cardBaseTick=(why)=>{void cardBase.refresh(why).catch((err)=>note(`card base: ${err?.message??err}`))
 setTimeout(()=>cardBaseTick('tick'),CARD_BASE_TICK_MS)}
-void catalogReady.then(()=>cardBase.load()).then(()=>{cardBaseTick('start')}).catch((err)=>note(`card base: ${err?.message??err}`))
+void catalogReady.then(()=>cardBase.load()).then(()=>galleryColumns.load()).then(()=>{cardBaseTick('start')}).catch((err)=>note(`card base: ${err?.message??err}`))
 const priceEvidenceOfItem=async(item)=>{if(!settings.isActive(PRICE_FEATURE))return null
 const key=priceCacheKey(item?.definitionId??item?.defId,{platform:personas.pricePlatform()})
 if(key===null)return null
@@ -61150,9 +61295,9 @@ stamp:()=>futggSource.publishedAt()?.at??null,now:()=>priceClock.now(),onError:(
 club:clubMirror,
 memory:createGalleryMemory({store:galleryStore,persona:()=>personaKeyOf(personas.selectedPersona())}),
 unanswered:createGalleryMemory({store:galleryStore,persona:()=>personaKeyOf(personas.selectedPersona()),prefix:UNANSWERED_PREFIX}),
+firstOwners:createGalleryMemory({store:galleryStore,persona:()=>personaKeyOf(personas.selectedPersona()),prefix:FIRST_OWNER_PREFIX}),
 door:createGalleryDoor(window),counter:createGalleryCounter(marketBudget),
-cards:(id)=>{const card=catalog.get(id)
-return card===null?null:{rating:card.rating,rarity:card.rareflag,club:card.teamId,league:card.leagueId,nation:card.nationId,positions:card.positions}},
+cards:(id)=>galleryCardOf(catalog.get(id),galleryColumns.get(id)),
 now:()=>priceClock.now(),onError:(err)=>note(`gallery: ${err?.message??err}`)}))
 const galleryBuyer=createGalleryBuyer({engine:()=>galleryEngine(),statusOf:settings.statusOf,
 market:marketOrNull,clock:createClock(),coins:wallet.coins,buyRate,budget:huntBudget,marketBudget,
@@ -61376,6 +61521,7 @@ state.catalog=()=>{const own=catalog.state();
 const base=cardBase.state();
 const bytes=base?.worker?.storageBytes ?? null;
 return{...own,base,storageBytes:bytes,
+galleryColumns:galleryColumns.state(),
 line:'карт '+own.size
 +' · рейтинг '+own.rated
 +' · нация '+own.knownNation
@@ -61522,7 +61668,7 @@ note(err?.message??err)});
 
 };
 // Запуск: шаг первый всем модулям (геттеры, подъём функций), потом тела по порядку браузера.
-const __ESB_o=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288],__ESB_a=new Set([]),__ESB_c=[80,86,120,123];
+const __ESB_o=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289],__ESB_a=new Set([]),__ESB_c=[80,86,120,123];
 const __ESB_it=[];for(const i of __ESB_o){const g=__ESB_g[i].call(void 0);__ESB_it[i]=g;g.next()}
 const __ESB_ring=()=>{for(const j of __ESB_c)__ESB_r[j]()};
 const __ESB_run=(k)=>{for(;k<__ESB_o.length;k++){__ESB_ring();const i=__ESB_o[k],r=__ESB_it[i].next();if(__ESB_a.has(i))return r.then(()=>__ESB_run(k+1))}__ESB_ring()};
