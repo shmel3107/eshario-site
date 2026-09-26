@@ -1,4 +1,4 @@
-// ESHArio page-bundle 2.3.4 c2d938c55bc1acbb82a43588cbddcdea294bb293 2026-09-26T10:02:46Z
+// ESHArio page-bundle 2.3.7 c86c6eaca3598a20f1b0e70c878b1c76d47070b2 2026-09-26T13:56:32Z
 (function(){'use strict';
 // Адрес: на чужой странице EA склейка молчит (контракт 1.1).
 if(!(function(h){return /^https:\/\/www\.ea\.com\/.*\/ultimate-team\/web-app.*/.test(h)})(String(globalThis.location&&globalThis.location.href)))return;
@@ -4250,6 +4250,8 @@ const galleryEn=Object.freeze({
 'gallery.set.first.few':'first owner: {n} cards, +{bonus} %',
 'gallery.set.first.many':'first owner: {n} cards, +{bonus} %',
 'gallery.set.first.other':'first owner: {n} cards, +{bonus} %',
+'gallery.set.tagsTruth':'tag bonus: checking with the game',
+'gallery.set.tagsTruth.hint':'The game gives a bonus for the set tags. We count only the checked ones; the rest will be added after checking, so our grade may be lower than in the game',
 'gallery.set.needCards.one':'{n} card',
 'gallery.set.needCards.few':'{n} cards',
 'gallery.set.needCards.many':'{n} cards',
@@ -4519,6 +4521,8 @@ const galleryRu=Object.freeze({
 'gallery.set.first.few':'первый владелец: {n} карты, +{bonus} %',
 'gallery.set.first.many':'первый владелец: {n} карт, +{bonus} %',
 'gallery.set.first.other':'первый владелец: {n} карты, +{bonus} %',
+'gallery.set.tagsTruth':'бонус тегов сверяем с игрой',
+'gallery.set.tagsTruth.hint':'Игра даёт бонус за теги набора. Мы считаем только проверенные; остальные добавим после сверки, поэтому оценка у нас может быть ниже, чем в игре',
 'gallery.set.needCards.one':'{n} карты',
 'gallery.set.needCards.few':'{n} карт',
 'gallery.set.needCards.many':'{n} карт',
@@ -37671,6 +37675,13 @@ function galleryCatalogUrl(game=GALLERY_GAME){return `${GALLERY_ORIGIN}/v1/galle
 function galleryFingerprintUrl(game=GALLERY_GAME){return `${galleryCatalogUrl(game)}/fingerprint`}
 const CATALOG_FILE_ORIGINS=Object.freeze(['https://files.eshario.com','https://api.eshario.com'])
 const FINGERPRINT_RE=/^[0-9a-f]{32}$/
+async function sha256Text(text){const subtle=globalThis.crypto?.subtle
+if(!subtle)throw Object.assign(new Error('sha256: нет crypto.subtle'),{reason:'no-hash'})
+const bytes=new Uint8Array(await subtle.digest('SHA-256',new TextEncoder().encode(text)))
+let hex=''
+for(const b of bytes)hex+=b.toString(16).padStart(2,'0')
+return hex}
+const SHA256_RE=/^[0-9a-f]{64}$/
 function galleryStaticUrl(fingerprint,game=GALLERY_GAME){return `${CATALOG_FILE_ORIGINS[0]}/gallery/${game}/${fingerprint}.json`}
 const CATALOG_EVERY_MS=60*60*1000
 const CATALOG_RETRY_MS=30*60*1000
@@ -37784,43 +37795,54 @@ const store=deps.store??null
 const now=typeof deps.now==='function'?deps.now:()=>Date.now()
 const onError=typeof deps.onError==='function'?deps.onError:()=>{}
 const game=text(deps.game)??GALLERY_GAME
+const hashOf=typeof deps.sha256==='function'?deps.sha256:sha256Text
 let current=null
 let checkedAt=null
 let nextAt=0
 let loading=null
 let refreshing=null
-const stats={loads:0,fingerprints:0,files:0,kept:0,failures:0,lastReason:null,source:null,lastUrl:null}
+const stats={loads:0,fingerprints:0,files:0,kept:0,failures:0,lastReason:null,source:null,lastUrl:null,
+verified:null,hashReason:null}
 const save=async()=>{if(store===null||current===null)return
-try{await store.set(CATALOG_KEY,{v:1,at:checkedAt,catalog:current.raw})}catch(err){stats.lastReason='store-failed'
+try{await store.set(CATALOG_KEY,{v:1,at:checkedAt,catalog:current.raw,sha:current.sha??null})}catch(err){stats.lastReason='store-failed'
 onError(err)}}
-const adopt=(raw)=>{const parsed=readGalleryCatalog(raw)
+const adopt=(raw,sha)=>{const parsed=readGalleryCatalog(raw)
 if(parsed===null)return false
-current={raw,parsed}
+current={raw,parsed,sha:typeof sha==='string'&&SHA256_RE.test(sha)?sha:null}
 return true}
 const load=()=>{if(loading!==null)return loading
 loading=(async()=>{stats.loads+=1
 if(store===null)return current?.parsed??null
 try{const kept=await store.get(CATALOG_KEY)
-if(isPlain(kept)&&kept.v===1&&adopt(kept.catalog)){checkedAt=Number.isFinite(kept.at)?kept.at:null
+if(isPlain(kept)&&kept.v===1&&adopt(kept.catalog,kept.sha)){checkedAt=Number.isFinite(kept.at)?kept.at:null
 nextAt=checkedAt===null?0:checkedAt+CATALOG_EVERY_MS}}catch(err){stats.lastReason=err?.reason??'store-failed'
 onError(err)}
 return current?.parsed??null})()
 return loading}
-const ask=async(url)=>{const answer=await fetchText(url)
+const askText=async(url)=>{const answer=await fetchText(url)
 if(answer.status!==200)throw Object.assign(new Error(`gallery catalog: HTTP ${answer.status}`),{reason:answer.status===503?'building':`http-${answer.status}`})
-return JSON.parse(answer.body)}
-const fetchFile=async(fp)=>{const tries=[]
+return answer.body}
+const ask=async(url)=>JSON.parse(await askText(url))
+const fetchFile=async(fp,sha)=>{const tries=[]
 if(fp!==null&&FINGERPRINT_RE.test(fp))tries.push({source:'static',url:galleryStaticUrl(fp,game)})
 tries.push({source:'api',url:galleryCatalogUrl(game)})
 let last=null
+stats.hashReason=null
 for(const one of tries){stats.lastUrl=one.url
-try{const raw=await ask(one.url)
+try{if(one.source==='static'&&sha===null)throw Object.assign(new Error('gallery catalog: нет свидетеля для статики'),{reason:'no-witness'})
+const body=await askText(one.url)
+let verified=null
+if(sha!==null){if(await hashOf(body)!==sha)throw Object.assign(new Error(`gallery catalog: байты ${one.source} не равны свидетелю api`),{reason:one.source==='static'?'static-hash':'api-hash'})
+verified=true}
+const raw=JSON.parse(body)
 const parsed=readGalleryCatalog(raw)
 if(parsed===null)throw Object.assign(new Error('gallery catalog: форма не та'),{reason:'bad-catalog'})
 if(one.source==='static'&&parsed.fingerprint!==fp)throw Object.assign(new Error('gallery catalog: чужой отпечаток на статике'),{reason:'static-mismatch'})
-current={raw,parsed}
+current={raw,parsed,sha:verified===true?sha:null}
 stats.source=one.source
+stats.verified=verified
 return}catch(err){last=err
+if(err?.reason==='static-hash'||err?.reason==='api-hash'||err?.reason==='no-witness')stats.hashReason=err.reason
 onError(err)}}
 throw last}
 const refresh=(opts={})=>{if(refreshing!==null)return refreshing
@@ -37832,13 +37854,15 @@ try{
 stats.fingerprints+=1
 const mark=await ask(galleryFingerprintUrl(game))
 const fp=isPlain(mark)?text(mark.fingerprint):null
-if(current!==null&&fp!==null&&fp===current.parsed.fingerprint){stats.kept+=1
+const sha=isPlain(mark)&&typeof mark.sha256==='string'&&SHA256_RE.test(mark.sha256)?mark.sha256:null
+if(current!==null&&fp!==null&&fp===current.parsed.fingerprint&&(sha===null||current.sha===sha)){stats.kept+=1
+if(sha!==null)stats.verified=true
 checkedAt=at
 nextAt=at+CATALOG_EVERY_MS
 await save()
 return current.parsed}
 stats.files+=1
-await fetchFile(fp)
+await fetchFile(fp,sha)
 checkedAt=at
 nextAt=at+CATALOG_EVERY_MS
 stats.lastReason=null
@@ -38022,51 +38046,67 @@ return{day,used,sets}}
 function createGalleryCounter(budget){if(!budget||typeof budget.take!=='function')return null
 return{take:()=>askDayBudget(budget,1,{market:true}),rest:()=>restMarketAfterThrottle(budget)}}
 function levelOf(rating){const value=Number(rating)
-if(!Number.isFinite(value))return null
+if(!Number.isFinite(value)||value<1)return null
 return value>=75?'gold':value>=65?'silver':'bronze'}
 const LEVEL_NAMES=Object.freeze({gold:['gold','3'],silver:['silver','2'],bronze:['bronze','1']})
+const POSITION_NAMES=Object.freeze(['GK','SW','RWB','RB','RCB','CB','LCB','LB','LWB','RDM','CDM','LDM','RM','RCM','CM','LCM','LM','RAM','CAM','LAM','RF','CF','LF','RW','RS','ST','LS','LW'])
+const positionName=(one)=>(typeof one==='number'?POSITION_NAMES[one]??null:one)
+const idOf=(value)=>(Number.isSafeInteger(value)&&value>=0?[value]:[])
 function attributeValues(card,attribute){if(!card)return null
 if(attribute==='FIRST_OWNED')return[card.first===true?'1':'0']
 if(card.bare===true)return null
-switch(attribute){case 'CLUB':return[card.club]
-case 'LEAGUEID':return[card.league]
-case 'NATION':return[card.nation]
-case 'RARE':return[card.rarity]
+switch(attribute){case 'CLUB':return idOf(card.club)
+case 'LEAGUEID':return idOf(card.league)
+case 'NATION':return idOf(card.nation)
+case 'RARE':return idOf(card.rarity)
 case 'BASE_DEF_ID':return[card.base??card.defId]
 case 'SKILL_MOVES':return[card.skillMoves]
 case 'WEAK_FOOT':return[card.weakFoot]
-case 'POSSIBLE_POSITIONS':return Array.isArray(card.positions)?card.positions:[]
+case 'POSSIBLE_POSITIONS':return Array.isArray(card.positions)?card.positions.map(positionName):[]
 case 'LEVEL':{const level=levelOf(card.rating)
 return level===null?[]:LEVEL_NAMES[level]}
 default:return null}}
 const known=(value)=>value!==null&&value!==undefined&&value!==''&&!(typeof value==='number'&&!Number.isFinite(value))
-function tagCount(rule,cards){const type=rule?.type
+const scoreOfCard=(card)=>{const value=Number(card?.score)
+return Number.isFinite(value)&&value>0?value:0}
+function tagMatched(rule,cards){const type=rule?.type
 const attribute=rule?.attribute
 const wanted=new Set((rule?.values??[]).map((one)=>String(one).toLowerCase()))
 const per=cards.map((card)=>attributeValues(card,attribute))
 if(per.some((values)=>values===null))return null
-if(type==='COUNT'||type==='COUNT_ANY'){let count=0
-for(const values of per){const list=values.filter(known).map((one)=>String(one).toLowerCase())
-if(wanted.size===0?list.length>0:list.some((one)=>wanted.has(one)))count+=1}
-return count}
-if(type==='COUNT_DIFF'){const seen=new Set()
-for(const values of per)for(const one of values)if(known(one))seen.add(String(one))
-return seen.size}
-if(type==='MAX_COUNT_ALL_SAME'){const counts=new Map()
-for(const values of per){const first=values.find(known)
-if(first===undefined)continue
+if(type==='COUNT'||type==='COUNT_ANY'){const out=[]
+per.forEach((values,at)=>{const list=values.filter(known).map((one)=>String(one).toLowerCase())
+if(wanted.size===0?list.length>0:list.some((one)=>wanted.has(one)))out.push(at)})
+return out}
+const groups=new Map()
+per.forEach((values,at)=>{const first=values.find(known)
+if(first===undefined)return
 const key=String(first)
-counts.set(key,(counts.get(key)??0)+1)}
-let best=0
-for(const value of counts.values())best=Math.max(best,value)
+const list=groups.get(key)
+if(list===undefined)groups.set(key,[at])
+else list.push(at)})
+const sum=(list)=>list.reduce((total,at)=>total+scoreOfCard(cards[at]),0)
+if(type==='COUNT_DIFF'){const out=[]
+for(const list of groups.values())out.push(list.reduce((best,at)=>(scoreOfCard(cards[at])>scoreOfCard(cards[best])?at:best)))
+return out}
+if(type==='MAX_COUNT_ALL_SAME'){let best=[]
+for(const list of groups.values())if(list.length>best.length||(list.length===best.length&&sum(list)<sum(best)))best=list
 return best}
 return null}
-function tagBonus(tags,cards){let total=0
-for(const tag of tags??[]){const count=tagCount(tag.rule,cards)
-if(count===null)continue
-let bonus=0
-for(const step of tag.steps)if(count>=step.count)bonus=Math.max(bonus,step.bonus)
-total+=bonus}
+const VERIFIED_TAG_RULES=Object.freeze(new Set(['FIRST_OWNED/COUNT','NATION/MAX_COUNT_ALL_SAME','CLUB/MAX_COUNT_ALL_SAME',
+'LEAGUEID/MAX_COUNT_ALL_SAME','NATION/COUNT_DIFF','CLUB/COUNT_DIFF','LEVEL/COUNT','POSSIBLE_POSITIONS/COUNT_ANY']))
+const ruleKey=(tag)=>`${String(tag?.rule?.attribute??'').toUpperCase()}/${String(tag?.rule?.type??'').toUpperCase()}`
+function tagDetails(tags,cards,verified=VERIFIED_TAG_RULES){return(tags??[]).map((tag)=>{const matched=tagMatched(tag.rule,cards)
+const count=matched===null?null:matched.length
+let percent=0
+if(count!==null)for(const step of tag.steps??[])if(count>=step.count)percent=Math.max(percent,step.bonus)
+const trusted=verified.has(ruleKey(tag))
+const base=matched===null?0:matched.reduce((total,at)=>total+scoreOfCard(cards[at]),0)
+return{id:tag.id??null,name:tag.name??null,rule:ruleKey(tag),verified:trusted,count,percent,base,
+points:trusted&&percent>0?Math.floor(base*percent/100):0,
+ids:matched===null?[]:matched.map((at)=>cards[at]?.defId??null)}})}
+function tagPoints(tags,cards,verified=VERIFIED_TAG_RULES){let total=0
+for(const one of tagDetails(tags,cards,verified))total+=one.points
 return total}
 function skyline(slots,candidates){const sorted=candidates.slice().sort((a,b)=>b.score-a.score||a.cost-b.cost||a.id-b.id)
 const kept=[]
@@ -38196,14 +38236,14 @@ if(!bonusOf)return answer
 const topIds=lockIds.concat(pool.slice().sort((a,b)=>b.score-a.score||a.cost-b.cost).slice(0,free).map((card)=>card.id))
 const topBonus=bonusOf(topIds)
 let guess=answer.map((one)=>(one===null?topBonus:one.bonus))
-for(let round=0;round<3;round+=1){const lowered=thresholds.map((threshold,g)=>(guess[g]>0?Math.ceil(threshold*100/(100+guess[g])):threshold))
+for(let round=0;round<3;round+=1){const lowered=thresholds.map((threshold,g)=>(guess[g]>0?Math.max(0,threshold-guess[g]):threshold))
 if(lowered.every((value,g)=>value>=thresholds[g]))break
 const tried=solve(lowered)
 let moved=false
 for(let g=0;g<thresholds.length;g+=1){const one=tried[g]
 if(one===null||lowered[g]>=thresholds[g])continue
 const bonus=bonusOf(one.ids)
-if(one.score*(100+bonus)>=thresholds[g]*100&&(answer[g]===null||one.cost<answer[g].cost))answer[g]={...one,bonus}
+if(one.score+bonus>=thresholds[g]&&(answer[g]===null||one.cost<answer[g].cost))answer[g]={...one,bonus}
 if(bonus!==guess[g]){guess[g]=bonus
 moved=true}}
 if(!moved)break}
@@ -38214,7 +38254,7 @@ best=best.map((was,g)=>{const next=one[g]
 if(next===null)return was
 if(was===null)return next
 if(next.cost<was.cost)return next
-if(next.cost===was.cost&&next.score*(100+next.bonus)>was.score*(100+was.bonus))return next
+if(next.cost===was.cost&&next.score+next.bonus>was.score+was.bonus)return next
 return was})}
 return best}
 function firstOwnerTags(tags){const list=(tags??[]).filter((tag)=>String(tag?.rule?.attribute??'').toUpperCase()==='FIRST_OWNED')
@@ -38475,9 +38515,11 @@ const collectedIds=own.map((card)=>card.id)
 const n=collectedIds.length
 const source=n>=slots?'complete':known===pool.length&&pool.length>0?'checked':'club'
 const ownFirst=new Set(own.filter((card)=>card.first).map((card)=>card.id))
+const scoreById=new Map(own.concat(buy).map((card)=>[card.id,card.score]))
 const cardFor=(id)=>{const base=cardOf?.(id)??null
-return base===null?{bare:true,defId:id,first:ownFirst.has(id)}:{...base,defId:id,first:ownFirst.has(id)}}
-const bonusOf=parsed.tags.length===0?null:(ids)=>tagBonus(parsed.tags,ids.map(cardFor))
+const score=scoreById.get(id)??0
+return base===null?{bare:true,defId:id,first:ownFirst.has(id),score}:{...base,defId:id,first:ownFirst.has(id),score}}
+const bonusOf=parsed.tags.length===0?null:(ids)=>tagPoints(parsed.tags,ids.map(cardFor))
 const firstTag=firstOwnerTags(parsed.tags)
 const locks=bonusOf===null?[]:firstLocks(slots,own,firstTag.counts)
 const ownTop=own.slice().sort((a,b)=>b.score-a.score).slice(0,slots)
@@ -38485,20 +38527,22 @@ const rest=(held)=>{const skip=new Set(held)
 return own.filter((card)=>!skip.has(card.id)).sort((a,b)=>b.score-a.score).slice(0,slots-held.length)}
 const choices=[ownTop.map((card)=>card.id)]
 for(const lock of locks)choices.push(lock.ids.concat(rest(lock.ids).map((card)=>card.id)))
-const scoreById=new Map(own.map((card)=>[card.id,card.score]))
 let best=null
 for(const ids of choices){const score=ids.reduce((total,id)=>total+(scoreById.get(id)??0),0)
 const bonus=bonusOf?bonusOf(ids):0
-const total=score*(100+bonus)
+const total=score+bonus
 if(best===null||total>best.total)best={ids,score,bonus,total}}
 const points=best.score
 const thresholds=set.grades.map((grade)=>grade.threshold)
 let current=-1
-if(n>=slots){for(let i=0;i<set.grades.length;i+=1)if(best.total>=set.grades[i].threshold*100)current=i
+if(n>=slots){for(let i=0;i<set.grades.length;i+=1)if(best.total>=set.grades[i].threshold)current=i
 const mine=lineupsWithTags(slots,own,thresholds,bonusOf,locks)
 for(let i=current+1;i<mine.length;i+=1)if(mine[i]!==null)current=i}
 const firstIn=best.ids.filter((id)=>ownFirst.has(id))
-const firstOwner={cards:firstIn.length,bonus:firstIn.length>0?tagBonus(firstTag.tags,best.ids.map(cardFor)):0}
+const tags=tagDetails(parsed.tags,best.ids.map(cardFor))
+let firstPercent=0
+for(const one of tags)if(one.rule==='FIRST_OWNED/COUNT'&&one.verified)firstPercent=Math.max(firstPercent,one.percent)
+const firstOwner={cards:firstIn.length,bonus:firstIn.length>0?firstPercent:0}
 const priced=prices.ready()&&waiting===0
 const paths=priced?lineupsWithTags(slots,own.concat(buy),thresholds,bonusOf,locks):thresholds.map(()=>undefined)
 const costOf=new Map(buy.map((card)=>[card.id,card.cost]))
@@ -38528,7 +38572,8 @@ collected:Math.min(n,slots),collectedSource:source,collectedIds,
 grade:current>=0?set.grades[current].letter:null,
 grades:grades.map(({ids,...rest})=>rest),goal:decided.goal,tokenPrice:decided.tokenPrice,
 tokensNow:current>=0?tokensUp[current]:0,tokensMax:total,
-crest:set.crest,points,firstOwner,pool:pool.slice(),missing:Math.max(0,slots-n),known,unanswered,
+crest:set.crest,points,
+bonus:best.bonus,firstOwner,tags,pool:pool.slice(),missing:Math.max(0,slots-n),known,unanswered,
 path:aimed===null?null:aimed.ids.slice(),reason:null,market,
 maxGrade:maxGradeOf({grade:current>=0?set.grades[current].letter:null,grades,market}),
 paths:grades.map((grade)=>grade.ids)}}
@@ -38538,7 +38583,7 @@ return{id:set.id,name:set.name,categoryId:set.categoryId,cards:set.cards,
 collected:null,collectedSource:'club',collectedIds:[],grade:null,
 grades:set.grades.map((grade)=>({letter:grade.letter,threshold:grade.threshold,rewards:{...grade.rewards},
 reachable:null,reached:false,missing:null,cost:null,priceless:0,lossOnResell:null})),
-goal:null,tokenPrice:null,tokensNow:null,tokensMax:total,crest:set.crest,points:null,firstOwner:null,
+goal:null,tokenPrice:null,tokensNow:null,tokensMax:total,crest:set.crest,points:null,bonus:null,firstOwner:null,
 pool:[],missing:null,known:0,unanswered:0,path:null,reason:'any',market:true,maxGrade:false,paths:[]}}
 const signature=(parsed,collected,falseIds,lostIds,firstIds)=>{let sum=0
 let mix=0
@@ -38571,7 +38616,7 @@ const sets=every.map((set)=>setState(set,parsed,collected,falseIds,lostIds,first
 cache={key,parsed,sets,asks:asksOf(parsed,sets,collected),categories:parsed.categories.map((category)=>({id:category.id,name:category.name,kind:category.kind,
 leagueId:category.leagueId,sets:category.sets.length}))}
 return cache}
-const publicSet=(set)=>{const{paths,known,...rest}=set
+const publicSet=(set)=>{const{paths,known,tags,...rest}=set
 return rest}
 const piggyDefault=(parsed)=>{let best=null
 for(const one of parsed?.tokenStore??[])if(best===null||one.tokens<best)best=one.tokens
@@ -38723,6 +38768,12 @@ checking:checking===null?null:{...checking},stopped,sets:list,
 piggy:(n)=>piggyOf(list,n),
 categories,piggyDefault:piggyDefault(parsed),checks,memory:memory.state(),pools:poolsOf(parsed),
 asks:asks??null,setChecks:{...log.sets},day:{used:log.used,cap:GALLERY_DAY_CAP}}},
+tagsOf(setId){const one=compute().sets.find((set)=>set.id===setId)??null
+if(one===null||!Array.isArray(one.tags))return null
+const points=Number.isFinite(one.points)?one.points:0
+const bonus=Number.isFinite(one.bonus)?one.bonus:0
+return{id:one.id,name:one.name,points,bonus,total:points+bonus,
+tags:one.tags.filter((tag)=>tag.count!==null&&tag.count>0).map((tag)=>({...tag,ids:tag.ids.slice()}))}},
 mark(defId){const id=positive(defId)
 if(id===null)return{collected:null,score:null}
 const mark=markOf(id)
@@ -39318,6 +39369,7 @@ const PIGGY_KEY='futGalleryPiggy'
 const STEP_KEY='futGalleryStep'
 const PATH_ROW_KEY='futGalleryPathRow'
 const SET_CHECK_KEY='futGallerySetCheck'
+const TAGS_TRUTH_KEY='futGalleryTagsTruth'
 const SET_CHECK_DELAY_MS=600
 const GALLERY_STYLESHEET="eshario-asset:ui/gallery.css"
 const GALLERY_LINK_ID='fut-companion-gallery'
@@ -40002,6 +40054,7 @@ const said=checkWord(check)
 if(said)need.push(said,el(doc,'span',{text:' · '}))
 const first=set?.firstOwner
 if(Number.isSafeInteger(first?.cards)&&first.cards>0)need.push(el(doc,'span',{class:'fx-gallery-first',text:`${plural('gallery.set.first',first.cards,{n:first.cards,bonus:Number.isFinite(first.bonus)?first.bonus:0})} · `}))
+if(Number.isFinite(set?.points))need.push(el(doc,'span',{class:'fx-gallery-dim fx-gallery-hint',text:t('gallery.set.tagsTruth'),attrs:{title:t('gallery.set.tagsTruth.hint')},dataset:{[TAGS_TRUTH_KEY]:'1'}}),el(doc,'span',{text:' · '}))
 const missing=(set?.grades??[]).map((one)=>one?.missing).find((one)=>Number.isFinite(one))
 if(Number.isFinite(missing)&&missing>0)need.push(el(doc,'span',{text:`${t('gallery.set.need')} `}),el(doc,'b',{text:plural('gallery.set.needCards',missing,{n:missing})}))
 return el(doc,'div',{class:'fx-gallery-set-head'},[...(uri?[el(doc,'img',{class:'fx-gallery-set-crest',attrs:{src:uri,alt:''}})]:[]),
@@ -40448,7 +40501,13 @@ return{catalog:parsed?{version:parsed.version??null,capturedAt:parsed.capturedAt
 score81:want[81],score79:want[79],levels,face:{cards:faces?faces.size:0,first:firstFace?{defId:firstFace[0],face:firstFace[1]}:null},starters}}
 function publishProbe(){try{const bag=win?.__eshario
 if(!bag||typeof bag!=='object'||typeof bag.galleryPanel==='function')return
-bag.galleryPanel=()=>({...api.state(),why:api.why(),probes:probes()})}catch{
+bag.galleryPanel=()=>({...api.state(),why:api.why(),probes:probes()})
+bag.galleryTags=(name)=>{const engine=boundEngine
+if(typeof engine?.tagsOf!=='function')return null
+const want=String(name??'').trim().toLowerCase()
+const sets=safe(()=>engine.state().sets,[])
+const one=(Array.isArray(sets)?sets:[]).find((set)=>String(set?.id).toLowerCase()===want||String(set?.name??'').toLowerCase()===want)??null
+return one===null?null:engine.tagsOf(one.id)}}catch{
 }}
 function ours(node){for(let at=node,depth=0;at&&depth<40;at=at.parentNode,depth+=1){if(at===panel)return true}
 return false}
@@ -53707,12 +53766,22 @@ any=true}
 return any?out:null}
 const CARD_BASE_STATIC_ORIGIN='https://files.eshario.com'
 function cardBaseStaticUrl(game,file){return `${CARD_BASE_STATIC_ORIGIN}/cards/${game}/${file}`}
+function cardBaseWitnessUrl(game){return `https://api.eshario.com/v1/cards/${game}/fingerprint`}
 const STATIC_AFTER=new Set(['network','unreadable-body','empty-body','timeout','no-answer'])
-const STATIC_FILE_RE=/^[0-9a-f]{32}[.]json$/
+const ETAG_RE=/^"([0-9a-f]{32})-gz"$/
+const SHA256_RE=/^[0-9a-f]{64}$/
+async function sha256Text(text){const subtle=globalThis.crypto?.subtle
+if(!subtle)throw Object.assign(new Error('sha256: нет crypto.subtle'),{reason:'no-hash'})
+const bytes=new Uint8Array(await subtle.digest('SHA-256',new TextEncoder().encode(text)))
+let hex=''
+for(const b of bytes)hex+=b.toString(16).padStart(2,'0')
+return hex}
 function withStaticCardBase(deps={}){const ask=deps.ask
 const fetchText=typeof deps.fetch==='function'?deps.fetch:null
+const witnessText=typeof deps.witness==='function'?deps.witness:fetchText
+const hashOf=typeof deps.sha256==='function'?deps.sha256:sha256Text
 const onError=typeof deps.onError==='function'?deps.onError:()=>{}
-const get=async(url)=>{const answer=await fetchText(url)
+const get=async(url,through=fetchText)=>{const answer=await through(url)
 if(answer.status!==200)throw Object.assign(new Error(`card base static: HTTP ${answer.status}`),{reason:`http-${answer.status}`})
 return answer.body}
 return async(params)=>{let answer=null
@@ -53724,16 +53793,23 @@ const reason=plain&&typeof answer.reason==='string'?answer.reason:'no-answer'
 if(fetchText===null||!(STATIC_AFTER.has(reason)||/^http-5[0-9][0-9]$/.test(reason)&&reason!=='http-503'))return plain?{...answer,source:'api'}:answer
 const game=params?.game
 const state=plain?answer.state??null:null
-try{const latest=JSON.parse(await get(cardBaseStaticUrl(game,'latest.json')))
-const file=typeof latest?.file==='string'?latest.file:''
-const etag=typeof latest?.etag==='string'&&latest.etag!==''?latest.etag:null
-if(!STATIC_FILE_RE.test(file)||etag===null||latest.game!==game)throw Object.assign(new Error('card base static: latest.json не той формы'),{reason:'bad-latest'})
-if(params?.etag===etag)return{ok:true,status:304,fresh:true,source:'static',apiReason:reason,state}
-const url=cardBaseStaticUrl(game,file)
-const body=await get(url)
+const refused=(why,hash)=>({...(plain?answer:{ok:false,status:0,reason}),source:'api',staticReason:why,verified:false,hashReason:hash})
+let witness
+try{witness=JSON.parse(await get(cardBaseWitnessUrl(game),witnessText))}catch(err){onError(err)
+return refused('no-witness','no-witness')}
+const m=ETAG_RE.exec(typeof witness?.etag==='string'?witness.etag:'')
+const sha=typeof witness?.sha256==='string'&&SHA256_RE.test(witness.sha256)?witness.sha256:null
+if(m===null||sha===null){onError(new Error('card base static: свидетель не той формы'))
+return refused('no-witness','no-witness')}
+const etag=witness.etag
+if(params?.etag===etag)return{ok:true,status:304,fresh:true,source:'static',apiReason:reason,state,verified:null,hashReason:null}
+const url=cardBaseStaticUrl(game,`${m[1]}.json`)
+try{const body=await get(url)
 if(body==='')throw Object.assign(new Error('card base static: пустое тело'),{reason:'empty-body'})
-return{ok:true,status:200,fresh:true,etag,body,source:'static',staticUrl:url,apiReason:reason,state}}catch(err){onError(err)
-return{...(plain?answer:{ok:false,status:0,reason}),source:'api',staticReason:err?.reason??'network'}}}}
+if(await hashOf(body)!==sha)throw Object.assign(new Error('card base static: байты не равны свидетелю api'),{reason:'static-hash'})
+return{ok:true,status:200,fresh:true,etag,body,source:'static',staticUrl:url,apiReason:reason,state,verified:true,hashReason:null}}catch(err){onError(err)
+const why=err?.reason??'network'
+return refused(why,why==='static-hash'?'static-hash':null)}}}
 function createCardBaseFeed(deps={}){const ask=typeof deps.ask==='function'?deps.ask:null
 const seed=typeof deps.seed==='function'?deps.seed:null
 if(ask===null||seed===null)throw new Error('card-base: нужны ask и seed')
@@ -53747,7 +53823,7 @@ let seeded=null
 let loaded=false
 let asking=null
 const stats={asks:0,bodies:0,notModified:0,refused:0,seedMs:null,parseMs:null,askMs:null,
-askedAt:null,status:null,reason:null,why:null,worker:null,source:null,staticReason:null}
+askedAt:null,status:null,reason:null,why:null,worker:null,source:null,staticReason:null,verified:null,hashReason:null}
 const remember=(value)=>{seeded=value
 if(storage===null)return
 try{const result=storage.write?.(value)
@@ -53770,6 +53846,8 @@ return{ok:false,reason:'no-answer'}}
 stats.status=Number.isSafeInteger(answer.status)?answer.status:null
 stats.source=typeof answer.source==='string'?answer.source:null
 stats.staticReason=typeof answer.staticReason==='string'?answer.staticReason:null
+stats.verified=typeof answer.verified==='boolean'?answer.verified:null
+stats.hashReason=typeof answer.hashReason==='string'?answer.hashReason:null
 stats.worker=answer.state&&typeof answer.state==='object'?answer.state:null
 if(answer.ok!==true){stats.reason=typeof answer.reason==='string'?answer.reason:'refused'
 return{ok:false,reason:stats.reason}}
@@ -53828,7 +53906,7 @@ state(){return{loaded,
 seeded:seeded===null?null:{...seeded},
 asks:stats.asks,bodies:stats.bodies,notModified:stats.notModified,refused:stats.refused,
 askedAt:stats.askedAt,why:stats.why,status:stats.status,reason:stats.reason,
-source:stats.source,staticReason:stats.staticReason,
+source:stats.source,staticReason:stats.staticReason,verified:stats.verified,hashReason:stats.hashReason,
 ms:{ask:stats.askMs,parse:stats.parseMs,seed:stats.seedMs},
 worker:stats.worker===null?null:{...stats.worker}}}}}
 function pick(index,row,name){const at=index[name]
@@ -60138,6 +60216,7 @@ seedInSlices(ids.length,(from,to)=>catalog.seedPositions(lane,from,to))}).catch(
 const cardBase=createCardBaseFeed({
 ask:withStaticCardBase({ask:(params)=>bridge.request(CARDS_METHOD,params,{timeoutMs:CARDS_TIMEOUT_MS}),
 fetch:galleryDoorFetch((method,params)=>bridge.request(method,params,{timeoutMs:65000}),60000),
+witness:galleryDoorFetch((method,params)=>bridge.request(method,params,{timeoutMs:20000})),
 onError:(err)=>note(`card base static: ${err?.message??err}`)}),
 storage:{read:()=>bridge.request('cardbase.read'),write:(value)=>bridge.request('cardbase.write',value)},
 season:()=>seasonOf(),
