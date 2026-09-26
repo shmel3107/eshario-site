@@ -1,4 +1,4 @@
-// ESHArio page-bundle 2.3.1 19dce9236867dd11ecebb74fa0be273d79cd1ef9 2026-09-25T12:30:00Z
+// ESHArio page-bundle 2.3.4 c2d938c55bc1acbb82a43588cbddcdea294bb293 2026-09-26T10:02:46Z
 (function(){'use strict';
 // Адрес: на чужой странице EA склейка молчит (контракт 1.1).
 if(!(function(h){return /^https:\/\/www\.ea\.com\/.*\/ultimate-team\/web-app.*/.test(h)})(String(globalThis.location&&globalThis.location.href)))return;
@@ -22,7 +22,7 @@ const __eshario_assets=Object.freeze({
 "eshario-asset:ui/club-locked.css":".fx-lock {\n  position: fixed;\n  inset: 0;\n  z-index: 2147482998;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: var(--fx-overlay);\n}\n.fx-lock-box {\n  width: min(720px, 94vw);\n  max-height: 82vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  padding: 18px 16px 16px;\n  border-radius: 10px;\n  background: var(--fx-surface);\n  border: 1px solid var(--fx-line);\n  box-shadow: 0 18px 44px var(--fx-shadow-strong);\n  color: var(--fx-ink);\n  font-size: 13px;\n  line-height: 1.35;\n}\n.fx-lock-hint {\n  margin-bottom: 10px;\n  color: var(--fx-dim);\n  font-size: 12px;\n}\n.fx-lock-cat-box {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  color: var(--fx-dim);\n  font-size: 12px;\n  font-weight: 400;\n}\n\n.fx-lock-cat {\n  padding: 2px 6px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 3px;\n  background: var(--fx-surface-sunken);\n  color: var(--fx-ink);\n  font: inherit;\n  cursor: pointer;\n}\n\n.fx-lock-cat:focus {\n  border-color: var(--fx-accent);\n  color: var(--fx-ink-strong);\n  outline: none;\n}\n.fx-lock-head {\n  margin: 12px 0 4px;\n  color: var(--fx-accent);\n  font-weight: 600;\n  font-size: 12px;\n  letter-spacing: .04em;\n}\n.fx-lock-rows {\n  flex: 1 1 auto;\n  min-height: 0;\n  overflow-y: auto;\n  margin-bottom: 6px;\n}\n.fx-lock-box .fx-hk-help-title,\n.fx-lock-hint,\n.fx-lock-blocked,\n.fx-lock-failed,\n.fx-lock-final,\n.fx-lock-pager,\n.fx-lock-buttons,\n.fx-lock-box > .fx-lock-head,\n.fx-lock-box > .fx-lock-warn {\n  flex: 0 0 auto;\n}\n\n.fx-lock-row {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 7px 2px;\n  border-bottom: 1px solid var(--fx-line);\n}\n\n.fx-lock-row:hover {\n  background: var(--fx-accent-tint);\n}\n.fx-lock-rating {\n  min-width: 32px;\n  padding: 2px 6px;\n  border-radius: 3px;\n  background: var(--fx-surface-2);\n  color: var(--fx-ink);\n  font-weight: 700;\n  font-size: 11px;\n  text-align: center;\n}\n\n.fx-lock-name {\n  flex: 1;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.fx-lock-gone .fx-lock-name {\n  color: var(--fx-dim);\n}\n.fx-lock-row[data-fut-lock-source='mirror'] .fx-lock-name {\n  color: var(--fx-dim);\n}\n.fx-lock-warn {\n  margin: 2px 0 8px;\n  padding: 6px 8px;\n  border: 1px solid var(--fx-warn-dim);\n  border-radius: 4px;\n  background: var(--fx-warn-tint);\n  color: var(--fx-warn);\n  font-size: 12px;\n}\n.fx-lock-tag {\n  flex: 0 0 auto;\n  padding: 1px 6px;\n  border: 1px solid var(--fx-warn-dim);\n  border-radius: 3px;\n  background: var(--fx-warn-tint);\n  color: var(--fx-warn);\n  font-size: 10px;\n  text-transform: uppercase;\n  letter-spacing: 0.02em;\n}\n\n.fx-lock-empty {\n  margin: 10px 0 0;\n  color: var(--fx-dim);\n  font-size: 12px;\n}\n.fx-lock-blocked {\n  margin: 10px 0 0;\n  padding: 8px 10px;\n  border: 1px solid var(--fx-warn-dim);\n  border-radius: 4px;\n  background: var(--fx-warn-tint);\n  color: var(--fx-warn);\n  font-size: 12px;\n}\n.fx-lock-failed {\n  margin-top: 10px;\n  padding: 6px 8px;\n  border: 1px solid var(--fx-danger);\n  border-radius: 4px;\n  background: var(--fx-danger-tint);\n  color: var(--fx-danger);\n  font-size: 12px;\n}\n.fx-lock-final {\n  margin-top: 12px;\n  padding: 9px 11px;\n  border: 1px solid var(--fx-danger);\n  border-radius: 4px;\n  background: var(--fx-danger-tint);\n  color: var(--fx-danger);\n  font-size: 12px;\n  font-weight: 600;\n}\n.fx-lock-pager {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding-top: 10px;\n  border-top: 1px solid var(--fx-line);\n}\n\n.fx-lock-count {\n  color: var(--fx-dim);\n  font-size: 12px;\n}\n\n.fx-lock-buttons {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-top: 14px;\n}\n.fx-lock-off,\n.fx-lock-all,\n.fx-lock-cancel,\n.fx-lock-page,\n.fx-lock-close {\n  background: var(--fx-surface-sunken);\n}\n\n.fx-lock-off:hover,\n.fx-lock-all:hover,\n.fx-lock-cancel:hover,\n.fx-lock-page:hover,\n.fx-lock-close:hover {\n  border-color: var(--fx-accent);\n}\n.fx-lock-page {\n  font-weight: 700;\n}\n.fx-lock-page[disabled] {\n  opacity: .5;\n}\n\n.fx-lock-page[disabled]:hover {\n  border-color: var(--fx-line-strong);\n}\n\n.fx-lock-close {\n  margin-left: auto;\n  border-color: var(--fx-accent-dim);\n}\n.fx-lock-all[data-fut-lock-step='ask'] {\n  border-color: var(--fx-warn);\n  background: var(--fx-warn-tint);\n  color: var(--fx-warn);\n  font-weight: 600;\n}\n.fx-lock-all[data-fut-lock-step='final'] {\n  border-color: var(--fx-danger);\n  background: var(--fx-danger-tint);\n  color: var(--fx-danger);\n  font-weight: 700;\n}\n@media (max-width: 480px) {\n  .fx-lock-row {\n    flex-wrap: wrap;\n  }\n\n  .fx-lock-off {\n    margin-left: 44px;\n  }\n\n  .fx-lock-box .fx-hk-help-title {\n    flex-wrap: wrap;\n  }\n}\n.fx-lock-box[data-fut-lock-cards='1'] {\n  width: min(1392px, 94vw);\n  max-height: 92vh;\n}\n.fx-lock-grid {\n  margin-bottom: 0;\n  height: var(--fut-lock-grid-h);\n  flex-grow: 0;\n}\n.fx-lock-span {\n  grid-column: 1 / -1 !important;\n  min-width: 0;\n}\n.fx-lock-span > .fx-lock-head {\n  margin-top: 0;\n}\n.fx-lock-tile > .fx-lock-tile-off {\n  top: 6px;\n  right: 6px;\n  z-index: 4;\n}\n.fx-lock-tile .entityContainer > .name {\n  margin-right: 28px !important;\n}\n.fx-lock-tile > .fx-lock-tag {\n  position: absolute;\n  right: 6px;\n  bottom: 6px;\n  z-index: 4;\n}\n.fx-lock-buttons > .fx-lock-pager {\n  margin-left: auto;\n  padding-top: 0;\n  border-top: 0;\n}\n[data-fut-card-view][data-fut-card-page='1'].fx-lock-grid > li.fx-lock-tile .entityContainer > :first-child {\n  width: var(--fut-lock-face) !important;\n  height: var(--fut-lock-face-h) !important;\n}\n",
 "eshario-asset:ui/club-bar.css":".fx-club-bar {\n  gap: 4px 14px;\n  font-size: 13px;\n}\n.fx-club-bar[data-fut-club-pinned='1'] {\n  position: sticky;\n  top: 0;\n  z-index: 3;\n}\n.fx-club-stat {\n  display: inline-flex;\n  align-items: baseline;\n  gap: 6px;\n  white-space: nowrap;\n  color: var(--fx-dim);\n}\n.fx-club-stat-value {\n  color: var(--fx-ink);\n}\n.fx-club-stat[data-fut-club-stat='value'] .fx-club-stat-value {\n  color: var(--fx-gold);\n}\n.fx-club-stat[data-fut-club-stat='locked'] .fx-club-stat-value {\n  color: var(--fx-warn);\n}\n.fx-club-stat[data-fut-club-zero='1'] .fx-club-stat-value {\n  color: var(--fx-dim);\n}\n.fx-club-hint {\n  margin-left: 6px;\n  color: var(--fx-muted);\n  font-size: 11px;\n  white-space: nowrap;\n}\n.fx-club-empty {\n  color: var(--fx-dim);\n}\n.fx-club-tail {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  margin-left: auto;\n}\n.fx-club-locked {\n  border-color: var(--fx-accent-dim);\n  background: var(--fx-surface-sunken);\n}\n\n.fx-club-locked:hover {\n  border-color: var(--fx-accent);\n}\n\n.fx-club-locked:focus {\n  border-color: var(--fx-accent);\n  outline: none;\n}\n.fx-club-pin {\n  background: var(--fx-surface-sunken);\n}\n\n.fx-club-pin[data-fut-club-pin='1'] {\n  border-color: var(--fx-accent);\n}\n.fx-club-pin[data-fut-club-pin='0'] {\n  opacity: .45;\n}\n\n.fx-club-pin:hover {\n  border-color: var(--fx-accent);\n  opacity: 1;\n}\n@media (max-width: 720px) {\n  .fx-club-bar {\n    gap: 4px 10px;\n    font-size: 12px;\n  }\n\n  .fx-club-tail {\n    margin-left: 0;\n  }\n}\n[data-fut-club-wide='1'] {\n  max-width: none !important;\n  width: 100% !important;\n}\n[data-fut-club-screen='1'] {\n  width: 100% !important;\n  max-width: none !important;\n  box-sizing: border-box !important;\n  padding-left: clamp(12px, 2vw, 16px) !important;\n  padding-right: clamp(12px, 2vw, 16px) !important;\n}\n\n[data-fut-club-tiles='1'] {\n  display: grid !important;\n  width: 100% !important;\n  max-width: none !important;\n  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;\n  gap: 10px !important;\n  align-content: start !important;\n}\n[data-fut-club-tiles='1'] > * {\n  grid-column: auto !important;\n  grid-row: auto !important;\n  width: auto !important;\n  min-width: 0 !important;\n  max-width: none !important;\n  margin: 0 !important;\n  min-height: 0 !important;\n  height: auto !important;\n  aspect-ratio: 16 / 11 !important;\n  max-height: 34vh !important;\n  overflow: hidden !important;\n}\n@media (max-width: 1100px) {\n  [data-fut-club-tiles='1'] {\n    grid-template-columns: repeat(3, 1fr) !important;\n  }\n}\n\n@media (max-width: 720px) {\n  [data-fut-club-tiles='1'] {\n    grid-template-columns: repeat(2, 1fr) !important;\n  }\n}\n.fx-club-tile {\n  position: relative;\n  cursor: pointer;\n}\n.fx-club-tile:hover {\n  filter: brightness(1.15);\n}\n.fx-club-tile-lock {\n  position: absolute;\n  right: 16px;\n  bottom: 16px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  font-size: 7rem;\n  width: 1em;\n  height: 1em;\n  color: var(--fx-ink);\n  pointer-events: none;\n}\n.fx-club-tile-lock::before {\n  content: '';\n  box-sizing: border-box;\n  width: .375em;\n  height: .268em;\n  border: .054em solid currentColor;\n  border-bottom: 0;\n  border-radius: .16em .16em 0 0;\n  margin-bottom: -.036em;\n}\n.fx-club-tile-lock::after {\n  content: '';\n  width: .589em;\n  height: .429em;\n  border-radius: .09em;\n  background: currentColor;\n}\n@media (max-width: 767px) {\n  .fx-club-tile-lock {\n    font-size: 80px;\n  }\n}\n.fx-club-tile-gone {\n  display: block;\n  margin-top: 2px;\n  color: var(--fx-dim);\n  font-size: 11px;\n}\n",
 "eshario-asset:ui/sbc-storage.css":".sbc-storage-tile:has(> [data-fut-storage-badge]) {\n  position: relative;\n}\n.fx-storage-badge,\n.fx-club-tile-badge {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  z-index: 1;\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  height: 32px;\n  padding: 0 16px;\n  border-radius: 0 22px 0 16px;\n  background: var(--fx-surface);\n  box-shadow: inset 0 0 0 1px var(--fx-accent-dim);\n  font-size: 14px;\n  line-height: 32px;\n  pointer-events: none;\n}\n\n.fx-storage-badge-value,\n.fx-club-tile-badge-value {\n  color: var(--fx-accent);\n  font-weight: 600;\n  font-variant-numeric: tabular-nums;\n}\n.fx-storage-badge .fx-storage-mark,\n.fx-club-tile-badge .fx-club-badge-mark {\n  height: 15px;\n}\n[data-fut-storage-screen] .fut-companion-list-tools > span {\n  display: none;\n}\n\n.fx-storage-chip {\n  order: 1;\n  margin-left: auto;\n  flex: 0 0 auto;\n  white-space: nowrap;\n  color: var(--fx-accent);\n  font-variant-numeric: tabular-nums;\n}\n",
-"eshario-asset:ui/gallery.css":"[data-fut-gallery-open='1'] > .grid.layout-hub {\n  display: none !important;\n}\n.ut-tab-bar-item.fx-gallery-rail {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 5px;\n  background: none;\n  border: 0;\n  cursor: pointer;\n}\n\n.fx-gallery-rail .fx-gallery-ico--frame {\n  width: 27px;\n  height: 27px;\n}\n.ut-tab-bar-item.fx-gallery-rail--on {\n  color: var(--fx-accent);\n}\n\n.fx-gallery-rail--on .fx-gallery-rail-word::after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  bottom: -5px;\n  width: 30px;\n  height: 3px;\n  margin-left: -15px;\n  border-radius: 2px;\n  background: var(--fx-accent);\n}\n.fx-gallery-rail .fx-gallery-rail-mark {\n  position: absolute;\n  top: 2px;\n  left: 16px;\n  height: 9px;\n  pointer-events: none;\n}\n[data-fut-gallery-on='1'] > .ut-tab-bar-item.icon-club.selected {\n  filter: grayscale(1);\n  opacity: .66;\n}\n.ut-tab-bar-item.fx-gallery-rail--locked {\n  color: var(--fx-dim);\n}\n\n.fx-gallery-rail .fx-gallery-rail-lock {\n  position: absolute;\n  top: 2px;\n  right: 14px;\n  font-size: 11px;\n  line-height: 1;\n  pointer-events: none;\n}\n.fx-gallery-ico {\n  display: inline-block;\n  flex: 0 0 auto;\n  width: 13px;\n  height: 13px;\n  background-color: currentColor;\n  -webkit-mask: var(--gallery-ico) center / contain no-repeat;\n  mask: var(--gallery-ico) center / contain no-repeat;\n}\n\n.fx-gallery-ico--frame {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='2.5' y='4' width='23' height='20' rx='2.5' fill='none' stroke='black' stroke-width='2.2'/%3E%3Cpath d='M9.5 8.5h9v8.2L14 19.6l-4.5-2.9z' fill='black'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--badge {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1.6l5.4 2v4.1c0 3.2-2.2 5.6-5.4 6.7-3.2-1.1-5.4-3.5-5.4-6.7V3.6z' fill='none' stroke='black' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--kit {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5.6 2.2L2 4.2l1.5 3 1.5-.8V14h6V6.4l1.5.8L14 4.2l-3.6-2c-.4 1-1.3 1.6-2.4 1.6s-2-.6-2.4-1.6z' fill='none' stroke='black' stroke-width='1.4' stroke-linejoin='round'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--cart {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 2.5h2l1.6 7.5h7l1.4-5.2H4.2' fill='none' stroke='black' stroke-width='1.4' stroke-linejoin='round'/%3E%3Ccircle cx='6' cy='13' r='1.2' fill='black'/%3E%3Ccircle cx='11.5' cy='13' r='1.2' fill='black'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--coin {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6.3' fill='none' stroke='black' stroke-width='1.4'/%3E%3Cpath d='M8 4.2v7.6M9.9 5.7c-.3-.6-1-1-1.9-1-1.1 0-1.9.6-1.9 1.4 0 1.9 3.9 1 3.9 3 0 .8-.9 1.5-2 1.5-.9 0-1.7-.4-2-1.1' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E\");\n}\n.fx-gallery {\n  box-sizing: border-box;\n  height: var(--gallery-h, 70vh);\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding: 10px 12px 12px;\n  border: 1px solid var(--fx-accent-dim);\n  border-radius: 12px;\n  background: linear-gradient(var(--fx-accent-tint), var(--fx-accent-tint)), var(--fx-surface);\n  box-shadow: 0 18px 44px var(--fx-shadow);\n  color: var(--fx-ink);\n  font-size: 13px;\n  line-height: 1.3;\n  container-type: inline-size;\n  container-name: fx-gallery;\n}\n\n.fx-gallery .fx-gallery-gold { color: var(--fx-gold); }\n.fx-gallery .fx-gallery-acc { color: var(--fx-accent); }\n.fx-gallery .fx-gallery-dim { color: var(--fx-dim); }\n.fx-gallery .fx-gallery-muted { color: var(--fx-muted); }\n.fx-gallery .fx-gallery-warn { color: var(--fx-warn); }\n.fx-gallery .fx-gallery-air { flex: 1 1 auto; }\n.fx-gallery .fx-gallery-hint {\n  text-decoration: underline dotted;\n  text-underline-offset: 3px;\n  cursor: help;\n}\n.fx-gallery .fx-action {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  white-space: nowrap;\n}\n\n.fx-gallery .fx-action.on {\n  color: var(--fx-on-accent);\n  background: var(--fx-accent);\n  border-color: var(--fx-accent-dim);\n}\n\n.fx-gallery .fx-action[aria-disabled='true'] {\n  color: var(--fx-muted);\n  cursor: default;\n}\n\n.fx-gallery .fx-action[aria-disabled='true']:hover {\n  border-color: var(--fx-line-strong);\n  color: var(--fx-muted);\n}\n\n.fx-gallery .fx-gallery-n {\n  color: var(--fx-dim);\n}\n\n.fx-gallery .fx-action.on .fx-gallery-n {\n  color: var(--fx-on-accent);\n  opacity: .75;\n}\n.fx-gallery-head {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 6px;\n  row-gap: 6px;\n  flex: 0 0 auto;\n  min-height: 28px;\n}\n.fx-gallery-chips {\n  display: contents;\n}\n.fx-gallery-tools {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  margin-left: auto;\n  white-space: nowrap;\n}\n\n.fx-gallery-plan {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  margin-right: 14px;\n  font-size: 12px;\n  white-space: nowrap;\n  cursor: help;\n}\n\n.fx-gallery-plan-text {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n}\n.fx-gallery input.limit {\n  box-sizing: border-box;\n  width: 52px;\n  padding: 1px 5px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 4px;\n  background: var(--fx-surface-sunken);\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 11px;\n  text-align: center;\n}\n\n.fx-gallery input.limit::placeholder {\n  color: var(--fx-muted);\n}\n\n.fx-gallery-check {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 12px;\n  color: var(--fx-dim);\n  white-space: nowrap;\n}\n\n.fx-gallery-check-line {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n}\n\n.fx-gallery-check b {\n  color: var(--fx-ink);\n  font-weight: 600;\n}\n\n.fx-gallery-pbar,\n.fx-gallery-bar {\n  display: inline-block;\n  height: 4px;\n  border-radius: 2px;\n  background: var(--fx-line-strong);\n  overflow: hidden;\n}\n\n.fx-gallery-pbar { width: 80px; }\n.fx-gallery-bar { width: 54px; }\n\n.fx-gallery-pbar i,\n.fx-gallery-bar i {\n  display: block;\n  height: 100%;\n  background: var(--fx-accent);\n}\n.fx-gallery-body {\n  flex: 1 1 auto;\n  min-height: 0;\n  display: flex;\n  gap: 10px;\n}\n\n.fx-gallery-list {\n  flex: 1 1 0;\n  min-width: 740px;\n  overflow: auto;\n  border: 1px solid var(--fx-line);\n  border-radius: 8px;\n  background: var(--fx-surface);\n}\n\n.fx-gallery-empty {\n  padding: 14px 12px;\n  color: var(--fx-muted);\n  text-align: left;\n}\n\n.fx-gallery-table {\n  width: 100%;\n  border-collapse: collapse;\n}\n\n.fx-gallery-table th {\n  position: sticky;\n  top: 0;\n  z-index: 1;\n  padding: 6px 10px;\n  background: var(--fx-surface-2);\n  color: var(--fx-dim);\n  font-size: 11px;\n  font-weight: 600;\n  text-align: right;\n  white-space: nowrap;\n  cursor: pointer;\n  user-select: none;\n}\n\n.fx-gallery-table th.l { text-align: left; }\n.fx-gallery-table th.c { text-align: center; }\n.fx-gallery-table th.fx-gallery-money { color: var(--fx-gold); }\n.fx-gallery-table th.fx-gallery-sorted { color: var(--fx-accent); }\n.fx-gallery-table th.fx-gallery-hint { cursor: help; }\n\n.fx-gallery-arrow {\n  margin-left: 3px;\n  font-size: 9px;\n}\n\n.fx-gallery-table td {\n  height: 30px;\n  padding: 0 10px;\n  border-top: 1px solid var(--fx-line);\n  text-align: right;\n  font-variant-numeric: tabular-nums;\n  white-space: nowrap;\n}\n\n.fx-gallery-table td.l { text-align: left; }\n.fx-gallery-table td.c { text-align: center; }\n\n.fx-gallery-table td.fx-gallery-crest-cell {\n  width: 26px;\n  padding-right: 0;\n}\n\n.fx-gallery-crest {\n  display: block;\n  width: 24px;\n  height: 24px;\n  object-fit: contain;\n}\n\n.fx-gallery-row { cursor: pointer; }\n.fx-gallery-row:hover td { background: var(--fx-accent-tint); }\n.fx-gallery-row--sel td { background: var(--fx-accent-tint); }\n.fx-gallery-row--sel td:first-child { box-shadow: inset 3px 0 0 var(--fx-accent); }\n.fx-gallery-row.fx-gallery-cut td { border-bottom: 2px dashed var(--fx-accent-dim); }\n\n.fx-gallery-league {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  color: var(--fx-dim);\n}\n\n.fx-gallery-league-ico {\n  width: 18px;\n  height: 18px;\n  object-fit: contain;\n}\n\n.fx-gallery-got {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n}\n.fx-gallery .fx-gallery-club {\n  color: var(--fx-dim);\n  text-decoration: underline dotted;\n  text-underline-offset: 3px;\n  cursor: help;\n}\n\n.fx-gallery-got--club .fx-gallery-bar i { opacity: .45; }\n\n.fx-gallery-lt {\n  box-sizing: border-box;\n  display: inline-grid;\n  place-items: center;\n  flex: 0 0 auto;\n  width: 20px;\n  height: 20px;\n  border: 1.5px solid var(--fx-muted);\n  border-radius: 50%;\n  color: var(--fx-muted);\n  font-size: 11px;\n  font-weight: 800;\n}\n\n.fx-gallery-lt--ok {\n  border-color: var(--fx-ok);\n  background: var(--fx-ok);\n  color: var(--fx-on-accent);\n}\n\n.fx-gallery-lt--can {\n  border-color: var(--fx-accent);\n  color: var(--fx-accent);\n}\n\n.fx-gallery-goal {\n  display: inline-flex;\n  align-items: center;\n  gap: 7px;\n}\n\n.fx-gallery-rwd {\n  display: inline-flex;\n  align-items: center;\n  justify-content: flex-end;\n  gap: 3px;\n  min-width: 44px;\n}\n.fx-gallery-set {\n  box-sizing: border-box;\n  container-type: inline-size;\n  container-name: fx-gallery-set;\n  flex: 0 1 640px;\n  min-width: 420px;\n  min-height: 0;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding: 10px 12px;\n  border: 1px solid var(--fx-line);\n  border-radius: 8px;\n  background: var(--fx-surface);\n}\n\n.fx-gallery-set-head {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  flex: 0 0 auto;\n}\n\n.fx-gallery-set-crest {\n  width: 34px;\n  height: 34px;\n  object-fit: contain;\n}\n\n.fx-gallery-set-name {\n  font-size: 18px;\n  font-weight: 700;\n}\n\n.fx-gallery-need {\n  margin-left: 4px;\n  color: var(--fx-dim);\n  font-size: 13px;\n}\n\n.fx-gallery-need b { color: var(--fx-ink); }\n.fx-gallery-need b.fx-gallery-club { color: var(--fx-dim); }\n\n.fx-gallery-ladder {\n  display: grid;\n  grid-template-columns: repeat(5, minmax(0, 1fr));\n  gap: 6px;\n  flex: 0 0 auto;\n}\n\n.fx-gallery-step {\n  display: flex;\n  flex-direction: column;\n  gap: 3px;\n  min-width: 0;\n  padding: 6px 8px;\n  border: 1px solid var(--fx-line);\n  border-radius: 6px;\n  background: var(--fx-surface-2);\n}\n\n.fx-gallery-step--no { opacity: .72; }\n\n.fx-gallery-step-top {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n\n.fx-gallery-step-th {\n  color: var(--fx-dim);\n  font-size: 11px;\n  white-space: nowrap;\n}\n\n.fx-gallery-step-rw {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  white-space: nowrap;\n  overflow: hidden;\n}\n\n.fx-gallery-step-rw .fx-gallery-ico {\n  width: 14px;\n  height: 14px;\n}\n\n.fx-gallery-step-no {\n  font-size: 12px;\n  white-space: nowrap;\n}\n.fx-gallery-path {\n  flex: 0 0 auto;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  padding: 7px 10px;\n  border: 1px solid var(--fx-line);\n  border-left: 3px solid var(--fx-gold);\n  border-radius: 6px;\n  background: var(--fx-surface-2);\n  cursor: help;\n}\n\n.fx-gallery-path-row {\n  display: grid;\n  grid-template-columns: 22px 150px 1fr auto;\n  gap: 8px;\n  align-items: center;\n  font-size: 13px;\n  font-variant-numeric: tabular-nums;\n}\n\n.fx-gallery-path-loss {\n  font-size: 12px;\n  text-align: right;\n}\n\n.fx-gallery-tabs {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  flex: 0 0 auto;\n}\n\n.fx-gallery-cap { font-size: 11px; }\n.fx-gallery-cards {\n  flex: 1 1 auto;\n  min-height: 0;\n  overflow: auto;\n  display: grid;\n  grid-template-columns: repeat(auto-fill, 94px);\n  justify-content: space-between;\n  align-content: start;\n  gap: 10px 4px;\n  padding-top: 4px;\n}\n\n.fx-gallery-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 3px;\n  cursor: default;\n}\n\n.fx-gallery-face {\n  position: relative;\n  width: 94px;\n  height: 128px;\n  overflow: hidden;\n  pointer-events: none;\n}\n\n.fx-gallery-face > * {\n  position: absolute !important;\n  top: 0 !important;\n  left: 50% !important;\n  margin: 0 !important;\n  transform: translateX(-50%) scale(.64) !important;\n  transform-origin: top center !important;\n  pointer-events: none !important;\n}\n.fx-gallery-face:not(.fx-gallery-face--stats) .player-stats-data-component {\n  visibility: hidden !important;\n}\n\n.fx-gallery-face--none {\n  box-sizing: border-box;\n  border: 1px dashed var(--fx-line-strong);\n  border-radius: 6px;\n}\n.fx-gallery-card--row {\n  grid-column: 1 / -1;\n  order: -1;\n  flex-direction: row;\n  justify-content: flex-start;\n  gap: 8px;\n  height: 24px;\n  border-top: 1px solid var(--fx-line);\n  font-size: 12px;\n}\n.fx-gallery-card {\n  position: relative;\n  padding-top: 21px;\n}\n\n.fx-gallery-card--row {\n  padding-top: 0;\n}\n\n.fx-gallery-card--row .fut-price-badge {\n  position: static !important;\n  margin: 0 !important;\n}\n@container fx-gallery (max-width: 1560px) {\n  .fx-gallery-table .fx-gallery-th-league,\n  .fx-gallery-table .fx-gallery-league-cell {\n    display: none;\n  }\n  .fx-gallery-table th,\n  .fx-gallery-table td {\n    padding-left: 6px;\n    padding-right: 6px;\n  }\n\n  .fx-gallery-table .fx-gallery-bar {\n    width: 36px;\n  }\n}\n@container fx-gallery-set (max-width: 560px) {\n  .fx-gallery-step {\n    padding: 5px 6px;\n  }\n\n  .fx-gallery-step-top {\n    flex-wrap: wrap;\n    gap: 2px 5px;\n  }\n\n  .fx-gallery-step-th,\n  .fx-gallery-step-rw,\n  .fx-gallery-step-no {\n    white-space: normal;\n  }\n\n  .fx-gallery-step-rw {\n    flex-wrap: wrap;\n    gap: 2px 4px;\n  }\n}\n.fx-gallery-path-host { display: contents; }\n\n.fx-gallery-hidden { display: none; }\n.fx-gallery-path.fx-gallery-path--buy {\n  position: relative;\n  padding-top: 24px;\n}\n\n.fx-gallery .fx-action.fx-gallery-gear {\n  position: absolute;\n  top: 2px;\n  right: 6px;\n  width: 18px;\n  height: 18px;\n  padding: 0;\n  font-size: 13px;\n  line-height: 16px;\n  color: var(--fx-dim);\n  background: var(--fx-surface);\n  text-decoration: none;\n  cursor: pointer;\n}\n\n.fx-gallery-path-row.fx-gallery-buy-row {\n  grid-template-columns: 22px auto minmax(0, 1fr) auto;\n  cursor: default;\n}\n\n.fx-gallery-buy-say {\n  min-width: 0;\n  overflow: hidden;\n  font-size: 12px;\n  text-align: right;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  color: var(--fx-dim);\n}\n\n.fx-gallery-buy-say b {\n  color: var(--fx-ink);\n  font-weight: 700;\n}\n\n.fx-gallery-buy-say.fx-gallery-warn { color: var(--fx-warn); }\n\n.fx-gallery-buy-acts {\n  display: flex;\n  justify-content: flex-end;\n  gap: 4px;\n}\n.fx-gallery-buy-wait { opacity: .45; }\n\n.fx-gallery .fx-action.fx-gallery-buy-go {\n  border-color: var(--fx-accent-dim);\n  color: var(--fx-accent);\n}\n\n.fx-gallery .fx-action.fx-gallery-buy-stop {\n  border-color: var(--fx-danger);\n  color: var(--fx-danger);\n}\n.fx-hk-capture-box.fx-gallery-buy-box {\n  width: 560px;\n  font-size: 13px;\n}\n\n.fx-gallery-buy-box .fx-gallery-risk {\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  border: 1px solid var(--fx-warn);\n  border-left: 3px solid var(--fx-warn);\n  border-radius: 4px;\n  background: var(--fx-warn-tint);\n  line-height: 1.45;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-line {\n  display: flex;\n  justify-content: space-between;\n  gap: 10px;\n  padding: 4px 0;\n  border-bottom: 1px solid var(--fx-line);\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-line > span { color: var(--fx-dim); }\n\n.fx-gallery-buy-box .fx-gallery-gold { color: var(--fx-gold); }\n\n.fx-gallery-buy-box .fx-gallery-warn { color: var(--fx-warn); }\n\n.fx-gallery-buy-box .fx-gallery-buy-table {\n  width: 100%;\n  margin: 8px 0;\n  border-collapse: collapse;\n  font-size: 12px;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-table th,\n.fx-gallery-buy-box .fx-gallery-buy-table td {\n  padding: 3px 7px;\n  border: 1px solid var(--fx-line);\n  text-align: left;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-table th {\n  background: var(--fx-surface-2);\n  color: var(--fx-dim);\n  font-weight: 400;\n}\n\n.fx-gallery-buy-box .fx-gallery-num {\n  font-variant-numeric: tabular-nums;\n  white-space: nowrap;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-more td {\n  color: var(--fx-accent);\n  cursor: pointer;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-note,\n.fx-gallery-buy-box .fx-gallery-buy-why {\n  color: var(--fx-dim);\n  font-size: 12px;\n  line-height: 1.45;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-why { color: var(--fx-ink); }\n\n.fx-gallery-buy-box .fx-gallery-hidden,\n.fx-gallery-gear-box .fx-gallery-hidden,\n.fx-gallery-gear-box .fx-gallery-gear-row.fx-gallery-hidden { display: none; }\n.fx-hk-btn.fx-gallery-arm {\n  border-color: var(--fx-warn);\n  color: var(--fx-warn);\n}\n.fx-hk-capture-box.fx-gallery-gear-box {\n  width: 420px;\n  font-size: 13px;\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-row {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-top: 8px;\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-key { color: var(--fx-ink); }\n\n.fx-gallery-gear-box .fx-gallery-gear-word {\n  margin-top: 4px;\n  color: var(--fx-dim);\n  font-size: 12px;\n  line-height: 1.45;\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-part {\n  margin-top: 12px;\n  padding-top: 10px;\n  border-top: 1px solid var(--fx-line);\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-modes {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  margin-top: 6px;\n}\n\n.fx-gallery-gear-box .fx-action.on {\n  color: var(--fx-on-accent);\n  background: var(--fx-accent);\n  border-color: var(--fx-accent-dim);\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-say {\n  margin-top: 10px;\n  color: var(--fx-accent);\n  font-weight: 700;\n}\n\n.fx-gallery-gear-box input.fx-gallery-gear-num {\n  box-sizing: border-box;\n  width: 48px;\n  padding: 3px 6px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 4px;\n  background: var(--fx-surface-sunken);\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 12px;\n  text-align: center;\n}\n\n.fx-gallery-gear-box input.fx-gallery-gear-num.fx-bad { border-color: var(--fx-danger); }\n\n.fx-gallery-gear-box .unit {\n  color: var(--fx-muted);\n  font-size: 11px;\n}\n",
+"eshario-asset:ui/gallery.css":"[data-fut-gallery-open='1'] > .grid.layout-hub {\n  display: none !important;\n}\n[data-fut-gallery-open='1'] > .fx-club-bar {\n  display: none !important;\n}\n.ut-tab-bar-item.fx-gallery-rail {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 5px;\n  background: none;\n  border: 0;\n  cursor: pointer;\n}\n\n.fx-gallery-rail .fx-gallery-ico--frame {\n  width: 27px;\n  height: 27px;\n}\n.ut-tab-bar-item.fx-gallery-rail--on {\n  color: var(--fx-accent);\n}\n\n.fx-gallery-rail--on .fx-gallery-rail-word::after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  bottom: -5px;\n  width: 30px;\n  height: 3px;\n  margin-left: -15px;\n  border-radius: 2px;\n  background: var(--fx-accent);\n}\n.fx-gallery-rail .fx-gallery-rail-mark {\n  position: absolute;\n  top: 2px;\n  left: 16px;\n  height: 9px;\n  pointer-events: none;\n}\n[data-fut-gallery-on='1'] > .ut-tab-bar-item.icon-club.selected {\n  filter: grayscale(1);\n  opacity: .66;\n}\n.ut-tab-bar-item.fx-gallery-rail--locked {\n  color: var(--fx-dim);\n}\n\n.fx-gallery-rail .fx-gallery-rail-lock {\n  position: absolute;\n  top: 2px;\n  right: 14px;\n  font-size: 11px;\n  line-height: 1;\n  pointer-events: none;\n}\n.fx-gallery-ico {\n  display: inline-block;\n  flex: 0 0 auto;\n  width: 13px;\n  height: 13px;\n  background-color: currentColor;\n  -webkit-mask: var(--gallery-ico) center / contain no-repeat;\n  mask: var(--gallery-ico) center / contain no-repeat;\n}\n\n.fx-gallery-ico--frame {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='2.5' y='4' width='23' height='20' rx='2.5' fill='none' stroke='black' stroke-width='2.2'/%3E%3Cpath d='M9.5 8.5h9v8.2L14 19.6l-4.5-2.9z' fill='black'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--badge {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1.6l5.4 2v4.1c0 3.2-2.2 5.6-5.4 6.7-3.2-1.1-5.4-3.5-5.4-6.7V3.6z' fill='none' stroke='black' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--kit {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5.6 2.2L2 4.2l1.5 3 1.5-.8V14h6V6.4l1.5.8L14 4.2l-3.6-2c-.4 1-1.3 1.6-2.4 1.6s-2-.6-2.4-1.6z' fill='none' stroke='black' stroke-width='1.4' stroke-linejoin='round'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--cart {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 2.5h2l1.6 7.5h7l1.4-5.2H4.2' fill='none' stroke='black' stroke-width='1.4' stroke-linejoin='round'/%3E%3Ccircle cx='6' cy='13' r='1.2' fill='black'/%3E%3Ccircle cx='11.5' cy='13' r='1.2' fill='black'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--lens {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='6.8' cy='6.8' r='4.6' fill='none' stroke='black' stroke-width='1.6'/%3E%3Cpath d='M10.2 10.2l3.8 3.8' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E\");\n}\n\n.fx-gallery-ico--coin {\n  --gallery-ico: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6.3' fill='none' stroke='black' stroke-width='1.4'/%3E%3Cpath d='M8 4.2v7.6M9.9 5.7c-.3-.6-1-1-1.9-1-1.1 0-1.9.6-1.9 1.4 0 1.9 3.9 1 3.9 3 0 .8-.9 1.5-2 1.5-.9 0-1.7-.4-2-1.1' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E\");\n}\n.fx-gallery {\n  box-sizing: border-box;\n  height: var(--gallery-h, 70vh);\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding: 10px 12px 12px;\n  border: 1px solid var(--fx-accent-dim);\n  border-radius: 12px;\n  background: linear-gradient(var(--fx-accent-tint), var(--fx-accent-tint)), var(--fx-surface);\n  box-shadow: 0 18px 44px var(--fx-shadow);\n  color: var(--fx-ink);\n  font-size: 13px;\n  line-height: 1.3;\n  container-type: inline-size;\n  container-name: fx-gallery;\n}\n\n.fx-gallery .fx-gallery-gold { color: var(--fx-gold); }\n.fx-gallery .fx-gallery-acc { color: var(--fx-accent); }\n.fx-gallery .fx-gallery-dim { color: var(--fx-dim); }\n.fx-gallery .fx-gallery-muted { color: var(--fx-muted); }\n.fx-gallery .fx-gallery-warn { color: var(--fx-warn); }\n.fx-gallery .fx-gallery-air { flex: 1 1 auto; }\n.fx-gallery .fx-gallery-hint {\n  text-decoration: underline dotted;\n  text-underline-offset: 3px;\n  cursor: help;\n}\n.fx-gallery .fx-action {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  white-space: nowrap;\n}\n\n.fx-gallery .fx-action.on {\n  color: var(--fx-on-accent);\n  background: var(--fx-accent);\n  border-color: var(--fx-accent-dim);\n}\n\n.fx-gallery .fx-action[aria-disabled='true'] {\n  color: var(--fx-muted);\n  cursor: default;\n}\n\n.fx-gallery .fx-action[aria-disabled='true']:hover {\n  border-color: var(--fx-line-strong);\n  color: var(--fx-muted);\n}\n\n.fx-gallery .fx-gallery-n {\n  color: var(--fx-dim);\n}\n\n.fx-gallery .fx-action.on .fx-gallery-n {\n  color: var(--fx-on-accent);\n  opacity: .75;\n}\n.fx-gallery-head {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 6px;\n  row-gap: 6px;\n  flex: 0 0 auto;\n  min-height: 28px;\n}\n.fx-gallery-chips {\n  display: contents;\n}\n.fx-gallery-tools {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  margin-left: auto;\n  white-space: nowrap;\n}\n\n.fx-gallery-plan {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  margin-right: 14px;\n  font-size: 12px;\n  white-space: nowrap;\n  cursor: help;\n}\n\n.fx-gallery-plan-text {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n}\n.fx-gallery input.limit {\n  box-sizing: border-box;\n  width: 52px;\n  padding: 1px 5px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 4px;\n  background: var(--fx-surface-sunken);\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 11px;\n  text-align: center;\n}\n\n.fx-gallery input.limit::placeholder {\n  color: var(--fx-muted);\n}\n.fx-gallery-find {\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n}\n\n.fx-gallery-find .fx-gallery-ico--lens {\n  position: absolute;\n  left: 8px;\n  width: 11px;\n  height: 11px;\n  color: var(--fx-muted);\n  pointer-events: none;\n}\n\n.fx-gallery .fx-search.fx-gallery-search {\n  width: 150px;\n  min-width: 0;\n  padding-left: 24px;\n}\n.fx-gallery .fx-action.fx-gallery-piggy {\n  border-color: var(--fx-accent-dim);\n  color: var(--fx-accent);\n}\n\n.fx-gallery .fx-action.fx-gallery-piggy.on,\n.fx-gallery .fx-action.fx-gallery-piggy.on .fx-gallery-gold {\n  color: var(--fx-on-accent);\n}\n.fx-gallery-total {\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  min-height: 34px;\n  padding: 4px 10px;\n  border-bottom: 1px solid var(--fx-line);\n  border-left: 3px solid var(--fx-accent);\n  background: var(--fx-accent-tint);\n  color: var(--fx-dim);\n  font-size: 12px;\n  white-space: nowrap;\n}\n\n.fx-gallery-total b { color: var(--fx-ink); }\n.fx-gallery-total b.fx-gallery-gold { color: var(--fx-gold); }\n\n.fx-gallery-total-part {\n  padding: 0 10px;\n  border-left: 1px solid var(--fx-line-strong);\n}\n\n.fx-gallery-total > .fx-gallery-acc { margin-right: 10px; }\n.fx-gallery-total > .fx-gallery-acc + .fx-gallery-total-part { padding-left: 0; border-left: 0; }\n.fx-gallery-table td.fx-gallery-cut-cell {\n  position: relative;\n  overflow: visible;\n  z-index: 2;\n}\n\n.fx-gallery-cut-tag {\n  position: absolute;\n  right: 8px;\n  bottom: -9px;\n  padding: 0 6px;\n  background: var(--fx-surface);\n  color: var(--fx-accent);\n  font-size: 11px;\n  line-height: 16px;\n  white-space: nowrap;\n}\n.fx-gallery-order {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  font-size: 12px;\n  white-space: nowrap;\n}\n.fx-gallery-intro {\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  min-height: 34px;\n  padding: 4px 10px;\n  border-bottom: 1px solid var(--fx-line);\n  border-left: 3px solid var(--fx-accent);\n  background: var(--fx-accent-tint);\n  color: var(--fx-dim);\n  font-size: 12px;\n}\n\n.fx-gallery-intro-text b {\n  margin-right: 5px;\n  color: var(--fx-ink);\n}\n\n.fx-gallery-intro-i {\n  box-sizing: border-box;\n  display: inline-grid;\n  place-items: center;\n  flex: 0 0 auto;\n  width: 16px;\n  height: 16px;\n  border: 1.5px solid var(--fx-accent);\n  border-radius: 50%;\n  color: var(--fx-accent);\n  font-size: 10px;\n  font-style: normal;\n  font-weight: 700;\n}\n\n.fx-gallery-intro-short { display: none; }\n.fx-gallery-intro-n { white-space: nowrap; }\n\n@container fx-gallery-list (max-width: 899px) {\n  .fx-gallery-intro-long,\n  .fx-gallery-intro-n {\n    display: none;\n  }\n\n  .fx-gallery-intro-short { display: inline; }\n}\n\n.fx-gallery-check {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 12px;\n  color: var(--fx-dim);\n  white-space: nowrap;\n}\n\n.fx-gallery-check-line {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n}\n\n.fx-gallery-check b {\n  color: var(--fx-ink);\n  font-weight: 600;\n}\n\n.fx-gallery-pbar,\n.fx-gallery-bar {\n  display: inline-block;\n  height: 4px;\n  border-radius: 2px;\n  background: var(--fx-line-strong);\n  overflow: hidden;\n}\n\n.fx-gallery-pbar { width: 80px; }\n.fx-gallery-bar { width: 54px; }\n\n.fx-gallery-pbar i,\n.fx-gallery-bar i {\n  display: block;\n  height: 100%;\n  background: var(--fx-accent);\n}\n.fx-gallery-body {\n  flex: 1 1 auto;\n  min-height: 0;\n  display: flex;\n  gap: 10px;\n}\n\n.fx-gallery-list {\n  flex: 0 1 900px;\n  min-width: 740px;\n  overflow: auto;\n  border: 1px solid var(--fx-line);\n  border-radius: 8px;\n  background: var(--fx-surface);\n  container-type: inline-size;\n  container-name: fx-gallery-list;\n}\n\n.fx-gallery-empty {\n  padding: 14px 12px;\n  color: var(--fx-muted);\n  text-align: left;\n}\n.fx-gallery-table {\n  width: 100%;\n  border-collapse: collapse;\n  table-layout: fixed;\n}\n\n.fx-gallery-col-crest { width: 34px; }\n.fx-gallery-col-tokenPrice { width: 84px; }\n.fx-gallery-col-goalLetter { width: 56px; }\n.fx-gallery-col-missing { width: 70px; }\n.fx-gallery-col-goal { width: 72px; }\n.fx-gallery-col-reward { width: 76px; }\n.fx-gallery-col-got { width: 164px; }\n.fx-gallery-col-tokens { width: 132px; }\n\n.fx-gallery-table th {\n  position: sticky;\n  top: 0;\n  z-index: 1;\n  padding: 6px 10px;\n  background: var(--fx-surface-2);\n  color: var(--fx-dim);\n  font-size: 11px;\n  font-weight: 600;\n  text-align: right;\n  white-space: nowrap;\n  cursor: pointer;\n  user-select: none;\n}\n\n.fx-gallery-table th.l { text-align: left; }\n.fx-gallery-table th.c { text-align: center; }\n.fx-gallery-table th.fx-gallery-money { color: var(--fx-gold); }\n.fx-gallery-table th.fx-gallery-sorted { color: var(--fx-accent); }\n.fx-gallery-table th.fx-gallery-hint { cursor: help; }\n\n.fx-gallery-arrow {\n  margin-left: 3px;\n  font-size: 9px;\n}\n\n.fx-gallery-table td {\n  height: 30px;\n  padding: 0 10px;\n  border-top: 1px solid var(--fx-line);\n  text-align: right;\n  font-variant-numeric: tabular-nums;\n  white-space: nowrap;\n  overflow: hidden;\n}\n\n.fx-gallery-table td.l { text-align: left; }\n.fx-gallery-table td.c { text-align: center; }\n.fx-gallery-table td.fx-gallery-name { text-overflow: ellipsis; }\n\n.fx-gallery-table td.fx-gallery-crest-cell {\n  padding-right: 0;\n}\n\n.fx-gallery-crest {\n  display: block;\n  width: 24px;\n  height: 24px;\n  object-fit: contain;\n}\n.fx-gallery .fx-gallery-crest-none {\n  display: block;\n  width: 20px;\n  height: 20px;\n  margin-left: 2px;\n  color: var(--fx-muted);\n}\n\n.fx-gallery-row { cursor: pointer; }\n.fx-gallery-row:hover td { background: var(--fx-accent-tint); }\n.fx-gallery-row--sel td { background: var(--fx-accent-tint); }\n.fx-gallery-row--sel td:first-child { box-shadow: inset 3px 0 0 var(--fx-accent); }\n.fx-gallery-row.fx-gallery-cut td { border-bottom: 2px dashed var(--fx-accent-dim); }\n.fx-gallery-got {\n  display: inline-grid;\n  grid-template-columns: 24px 12px 24px 54px 28px;\n  align-items: center;\n  vertical-align: middle;\n}\n\n.fx-gallery-got > :first-child { justify-self: end; }\n.fx-gallery-got .fx-gallery-bar { justify-self: end; }\n\n.fx-gallery-slash {\n  justify-self: center;\n  text-align: center;\n  color: var(--fx-dim);\n}\n\n.fx-gallery-den { justify-self: start; }\n\n.fx-gallery-grade {\n  display: inline-grid;\n  place-items: center;\n  justify-self: center;\n  min-width: 20px;\n}\n.fx-gallery-tok {\n  display: inline-grid;\n  grid-template-columns: 30px 12px 34px;\n  align-items: center;\n  vertical-align: middle;\n}\n\n.fx-gallery-tok > :first-child { justify-self: end; }\n.fx-gallery .fx-gallery-club {\n  color: var(--fx-dim);\n  text-decoration: underline dotted;\n  text-underline-offset: 3px;\n  cursor: help;\n}\n\n.fx-gallery-got--club .fx-gallery-bar i { opacity: .45; }\n\n.fx-gallery-lt {\n  box-sizing: border-box;\n  display: inline-grid;\n  place-items: center;\n  flex: 0 0 auto;\n  width: 20px;\n  height: 20px;\n  border: 1.5px solid var(--fx-muted);\n  border-radius: 50%;\n  color: var(--fx-muted);\n  font-size: 11px;\n  font-weight: 800;\n}\n\n.fx-gallery-lt--ok {\n  border-color: var(--fx-ok);\n  background: var(--fx-ok);\n  color: var(--fx-on-accent);\n}\n\n.fx-gallery-lt--can {\n  border-color: var(--fx-accent);\n  color: var(--fx-accent);\n}\n.fx-gallery-rwd {\n  display: inline-grid;\n  grid-template-columns: 12px 26px;\n  align-items: center;\n  vertical-align: middle;\n}\n.fx-gallery-set {\n  box-sizing: border-box;\n  container-type: inline-size;\n  container-name: fx-gallery-set;\n  flex: 1 1 640px;\n  min-width: 420px;\n  min-height: 0;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding: 10px 12px;\n  border: 1px solid var(--fx-line);\n  border-radius: 8px;\n  background: var(--fx-surface);\n}\n\n.fx-gallery-set-head {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  flex: 0 0 auto;\n}\n\n.fx-gallery-set-crest {\n  width: 34px;\n  height: 34px;\n  object-fit: contain;\n}\n\n.fx-gallery-set-name {\n  font-size: 18px;\n  font-weight: 700;\n}\n\n.fx-gallery-need {\n  margin-left: 4px;\n  color: var(--fx-dim);\n  font-size: 13px;\n}\n\n.fx-gallery-need b { color: var(--fx-ink); }\n.fx-gallery-need b.fx-gallery-club { color: var(--fx-dim); }\n\n.fx-gallery-ladder {\n  display: grid;\n  grid-template-columns: repeat(5, minmax(0, 1fr));\n  gap: 6px;\n  flex: 0 0 auto;\n}\n\n.fx-gallery-step {\n  display: flex;\n  flex-direction: column;\n  gap: 3px;\n  min-width: 0;\n  padding: 6px 8px;\n  border: 1px solid var(--fx-line);\n  border-radius: 6px;\n  background: var(--fx-surface-2);\n}\n\n.fx-gallery-step--no { opacity: .72; }\n.fx-gallery-step.fx-gallery-step--pick { cursor: pointer; }\n.fx-gallery-step.fx-gallery-step--pick:hover { border-color: var(--fx-accent-dim); }\n\n.fx-gallery-step.fx-gallery-step--on {\n  border-color: var(--fx-accent);\n  box-shadow: inset 0 0 0 1px var(--fx-accent);\n}\n\n.fx-gallery-step-seen {\n  margin-left: auto;\n  color: var(--fx-accent);\n  font-size: 10px;\n  white-space: nowrap;\n}\n.fx-gallery-path-row[data-fut-gallery-path-row] { cursor: pointer; }\n\n.fx-gallery-path-row.fx-gallery-path-row--on {\n  border-radius: 4px;\n  background: var(--fx-accent-tint);\n  box-shadow: inset 3px 0 0 var(--fx-accent);\n}\n.fx-gallery-path-sum {\n  grid-column: 1 / -1;\n  line-height: 20px;\n  color: var(--fx-accent);\n  font-size: 12px;\n}\n\n.fx-gallery-card.fx-gallery-card--path {\n  border-radius: 6px;\n  outline: 2px solid var(--fx-accent);\n  outline-offset: -2px;\n}\n\n.fx-gallery-card.fx-gallery-card--path::after {\n  content: attr(data-fut-gallery-path-n);\n  position: absolute;\n  top: 2px;\n  left: 2px;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background: var(--fx-accent);\n  color: var(--fx-on-accent);\n  font-size: 11px;\n  font-weight: 700;\n  line-height: 18px;\n  text-align: center;\n}\n\n.fx-gallery-card.fx-gallery-card--rest { opacity: .38; }\n\n.fx-gallery-step-top {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n\n.fx-gallery-step-th {\n  color: var(--fx-dim);\n  font-size: 11px;\n  white-space: nowrap;\n}\n\n.fx-gallery-step-rw {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  white-space: nowrap;\n  overflow: hidden;\n}\n\n.fx-gallery-step-rw .fx-gallery-ico {\n  width: 14px;\n  height: 14px;\n}\n\n.fx-gallery-step-no {\n  font-size: 12px;\n  white-space: nowrap;\n}\n.fx-gallery-path {\n  flex: 0 0 auto;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  padding: 7px 10px;\n  border: 1px solid var(--fx-line);\n  border-left: 3px solid var(--fx-gold);\n  border-radius: 6px;\n  background: var(--fx-surface-2);\n  cursor: help;\n}\n\n.fx-gallery-path-row {\n  display: grid;\n  grid-template-columns: 22px 150px 1fr auto;\n  gap: 8px;\n  align-items: center;\n  font-size: 13px;\n  font-variant-numeric: tabular-nums;\n}\n\n.fx-gallery-path-loss {\n  font-size: 12px;\n  text-align: right;\n}\n\n.fx-gallery-tabs {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  flex: 0 0 auto;\n}\n\n.fx-gallery-cap { font-size: 11px; }\n.fx-gallery-cards {\n  flex: 1 1 auto;\n  min-height: 0;\n  overflow: auto;\n  display: grid;\n  grid-template-columns: repeat(auto-fill, 94px);\n  justify-content: space-between;\n  align-content: start;\n  gap: 10px 4px;\n  padding-top: 4px;\n}\n\n.fx-gallery-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 3px;\n  cursor: default;\n}\n\n.fx-gallery-face {\n  position: relative;\n  width: 94px;\n  height: 128px;\n  overflow: hidden;\n  pointer-events: none;\n}\n\n.fx-gallery-face > * {\n  position: absolute !important;\n  top: 0 !important;\n  left: 50% !important;\n  margin: 0 !important;\n  transform: translateX(-50%) scale(.64) !important;\n  transform-origin: top center !important;\n  pointer-events: none !important;\n}\n.fx-gallery-face:not(.fx-gallery-face--stats) .player-stats-data-component {\n  visibility: hidden !important;\n}\n\n.fx-gallery-face--none {\n  box-sizing: border-box;\n  border: 1px dashed var(--fx-line-strong);\n  border-radius: 6px;\n}\n.fx-gallery-card--row {\n  grid-column: 1 / -1;\n  order: -1;\n  flex-direction: row;\n  justify-content: flex-start;\n  gap: 8px;\n  height: 24px;\n  border-top: 1px solid var(--fx-line);\n  font-size: 12px;\n}\n.fx-gallery-card {\n  position: relative;\n  padding-top: 21px;\n}\n\n.fx-gallery-card--row {\n  padding-top: 0;\n}\n\n.fx-gallery-card--row .fut-price-badge {\n  position: static !important;\n  margin: 0 !important;\n}\n@container fx-gallery-list (max-width: 899px) {\n  .fx-gallery-table th,\n  .fx-gallery-table td {\n    padding-left: 6px;\n    padding-right: 6px;\n  }\n\n  .fx-gallery-table th {\n    white-space: normal;\n    line-height: 1.2;\n    vertical-align: bottom;\n  }\n\n  .fx-gallery-col-tokenPrice { width: 76px; }\n  .fx-gallery-col-goalLetter { width: 50px; }\n  .fx-gallery-col-missing { width: 60px; }\n  .fx-gallery-col-goal { width: 66px; }\n  .fx-gallery-col-reward { width: 66px; }\n  .fx-gallery-col-got { width: 100px; }\n  .fx-gallery-col-tokens { width: 104px; }\n\n  .fx-gallery-got {\n    grid-template-columns: 24px 12px 24px 28px;\n  }\n\n  .fx-gallery-got .fx-gallery-bar {\n    display: none;\n  }\n}\n@container fx-gallery-set (max-width: 560px) {\n  .fx-gallery-step {\n    padding: 5px 6px;\n  }\n\n  .fx-gallery-step-top {\n    flex-wrap: wrap;\n    gap: 2px 5px;\n  }\n\n  .fx-gallery-step-th,\n  .fx-gallery-step-rw,\n  .fx-gallery-step-no {\n    white-space: normal;\n  }\n\n  .fx-gallery-step-rw {\n    flex-wrap: wrap;\n    gap: 2px 4px;\n  }\n}\n.fx-gallery-path-host { display: contents; }\n.fx-gallery .fx-gallery-offmarket-note {\n  margin: 6px 0 8px;\n  padding: 6px 10px;\n  max-width: 440px;\n  font-size: 12px;\n  line-height: 1.35;\n  color: var(--fx-muted);\n}\n.fx-gallery .fx-gallery-offmarket { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n\n.fx-gallery-hidden { display: none; }\n.fx-gallery-path.fx-gallery-path--buy {\n  position: relative;\n  padding-top: 24px;\n}\n\n.fx-gallery .fx-action.fx-gallery-gear {\n  position: absolute;\n  top: 2px;\n  right: 6px;\n  width: 18px;\n  height: 18px;\n  padding: 0;\n  font-size: 13px;\n  line-height: 16px;\n  color: var(--fx-dim);\n  background: var(--fx-surface);\n  text-decoration: none;\n  cursor: pointer;\n}\n\n.fx-gallery-path-row.fx-gallery-buy-row {\n  grid-template-columns: 22px auto minmax(0, 1fr) auto;\n  cursor: default;\n}\n\n.fx-gallery-buy-say {\n  min-width: 0;\n  overflow: hidden;\n  font-size: 12px;\n  text-align: right;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  color: var(--fx-dim);\n}\n\n.fx-gallery-buy-say b {\n  color: var(--fx-ink);\n  font-weight: 700;\n}\n\n.fx-gallery-buy-say.fx-gallery-warn { color: var(--fx-warn); }\n\n.fx-gallery-buy-acts {\n  display: flex;\n  justify-content: flex-end;\n  gap: 4px;\n}\n.fx-gallery-buy-wait { opacity: .45; }\n\n.fx-gallery .fx-action.fx-gallery-buy-go {\n  border-color: var(--fx-accent-dim);\n  color: var(--fx-accent);\n}\n\n.fx-gallery .fx-action.fx-gallery-buy-stop {\n  border-color: var(--fx-danger);\n  color: var(--fx-danger);\n}\n.fx-hk-capture-box.fx-gallery-buy-box {\n  width: 560px;\n  font-size: 13px;\n}\n\n.fx-gallery-buy-box .fx-gallery-risk {\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  border: 1px solid var(--fx-warn);\n  border-left: 3px solid var(--fx-warn);\n  border-radius: 4px;\n  background: var(--fx-warn-tint);\n  line-height: 1.45;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-line {\n  display: flex;\n  justify-content: space-between;\n  gap: 10px;\n  padding: 4px 0;\n  border-bottom: 1px solid var(--fx-line);\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-line > span { color: var(--fx-dim); }\n\n.fx-gallery-buy-box .fx-gallery-gold { color: var(--fx-gold); }\n\n.fx-gallery-buy-box .fx-gallery-warn { color: var(--fx-warn); }\n\n.fx-gallery-buy-box .fx-gallery-buy-table {\n  width: 100%;\n  margin: 8px 0;\n  border-collapse: collapse;\n  font-size: 12px;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-table th,\n.fx-gallery-buy-box .fx-gallery-buy-table td {\n  padding: 3px 7px;\n  border: 1px solid var(--fx-line);\n  text-align: left;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-table th {\n  background: var(--fx-surface-2);\n  color: var(--fx-dim);\n  font-weight: 400;\n}\n\n.fx-gallery-buy-box .fx-gallery-num {\n  font-variant-numeric: tabular-nums;\n  white-space: nowrap;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-more td {\n  color: var(--fx-accent);\n  cursor: pointer;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-note,\n.fx-gallery-buy-box .fx-gallery-buy-why {\n  color: var(--fx-dim);\n  font-size: 12px;\n  line-height: 1.45;\n}\n\n.fx-gallery-buy-box .fx-gallery-buy-why { color: var(--fx-ink); }\n\n.fx-gallery-buy-box .fx-gallery-hidden,\n.fx-gallery-gear-box .fx-gallery-hidden,\n.fx-gallery-gear-box .fx-gallery-gear-row.fx-gallery-hidden { display: none; }\n.fx-hk-btn.fx-gallery-arm {\n  border-color: var(--fx-warn);\n  color: var(--fx-warn);\n}\n.fx-hk-capture-box.fx-gallery-gear-box {\n  width: 420px;\n  font-size: 13px;\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-row {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-top: 8px;\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-key { color: var(--fx-ink); }\n\n.fx-gallery-gear-box .fx-gallery-gear-word {\n  margin-top: 4px;\n  color: var(--fx-dim);\n  font-size: 12px;\n  line-height: 1.45;\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-part {\n  margin-top: 12px;\n  padding-top: 10px;\n  border-top: 1px solid var(--fx-line);\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-modes {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  margin-top: 6px;\n}\n\n.fx-gallery-gear-box .fx-action.on {\n  color: var(--fx-on-accent);\n  background: var(--fx-accent);\n  border-color: var(--fx-accent-dim);\n}\n\n.fx-gallery-gear-box .fx-gallery-gear-say {\n  margin-top: 10px;\n  color: var(--fx-accent);\n  font-weight: 700;\n}\n\n.fx-gallery-gear-box input.fx-gallery-gear-num {\n  box-sizing: border-box;\n  width: 48px;\n  padding: 3px 6px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 4px;\n  background: var(--fx-surface-sunken);\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 12px;\n  text-align: center;\n}\n\n.fx-gallery-gear-box input.fx-gallery-gear-num.fx-bad { border-color: var(--fx-danger); }\n\n.fx-gallery-gear-box .unit {\n  color: var(--fx-muted);\n  font-size: 11px;\n}\n",
 "eshario-asset:ui/transfers-hub.css":":root {\n  --hub-clock: url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g fill='none' stroke='black' stroke-width='2' stroke-linecap='round'><circle cx='12' cy='12' r='9'/><path d='M12 7v5l3.5 2'/></g></svg>\");\n}\n@media (min-width: 768px) {\n  [data-fut-snipe-tiles='1'] > .ut-tile-transfers .transfer-row:last-of-type .label,\n  [data-fut-snipe-tiles='1'] > .ut-tile-transfers .transfer-row:last-of-type .value {\n    font-size: 18px !important;\n  }\n}\n\n@media (min-width: 1440px) and (min-height: 940px) {\n  .layout-hub[data-fut-snipe-tiles='1'] {\n    zoom: 1.15;\n  }\n}\n[data-fut-snipe-tiles='1'] > .ut-tile-transfers .ut-tile-content-transfers {\n  flex-wrap: nowrap !important;\n  justify-content: flex-start !important;\n}\n[data-fut-snipe-tiles='1'] > .ut-tile-transfers .ut-tile-content-transfers > .transfer-row:last-child {\n  margin-top: auto !important;\n}\n.fx-hub-cap {\n  margin-left: 1px;\n  color: var(--fx-dim);\n  font-size: .58em;\n  font-weight: 500;\n}\n[data-fut-snipe-tiles='1'] [data-fut-hub-tone='ok'] .value {\n  color: var(--fx-ok) !important;\n}\n\n[data-fut-snipe-tiles='1'] [data-fut-hub-tone='warn'] .value {\n  color: var(--fx-warn) !important;\n}\n.fx-hub-unsold {\n  color: var(--fx-warn) !important;\n}\n.fx-hub-won {\n  color: var(--fx-ok) !important;\n}\n\n.fx-hub-outbid {\n  color: var(--fx-warn) !important;\n}\n[data-fut-snipe-tiles='1'] [data-fut-hub-stale] {\n  display: none !important;\n}\n[data-fut-snipe-tiles='1'] > .ut-tile-transfers .tileContent {\n  min-height: 0 !important;\n}\n.fx-tile-desk {\n  display: flex;\n  flex: 0 1 auto;\n  flex-direction: column;\n  gap: 6px;\n  min-width: 0;\n  min-height: 0;\n  overflow: hidden;\n  margin-top: 8px;\n}\n[data-fut-snipe-tiles='1'] .total-transfers-data > .fx-tile-desk {\n  margin-top: 4px;\n}\n\n[data-fut-snipe-tiles='1'] .total-transfers-data .fx-hub-soon-value {\n  font-size: 18px;\n  line-height: 22px;\n}\n.fx-tile-chips {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 4px 6px;\n  min-width: 0;\n}\n.fx-hub-soon {\n  display: flex;\n  flex-direction: column;\n  gap: 2px;\n  min-width: 0;\n}\n\n.fx-hub-soon-row {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  min-width: 0;\n}\n\n.fx-hub-soon-value {\n  overflow: hidden;\n  color: var(--fx-accent);\n  font-size: 22px;\n  font-weight: 800;\n  line-height: 26px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.fx-hub-soon-key {\n  overflow: hidden;\n  color: var(--fx-dim);\n  font-size: 11px;\n  line-height: 14px;\n  letter-spacing: .3px;\n  text-transform: uppercase;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.fx-hub-clock {\n  flex: none;\n  display: inline-block;\n  width: 18px;\n  height: 18px;\n  background: var(--fx-accent);\n  -webkit-mask: var(--hub-clock) center / contain no-repeat;\n  mask: var(--hub-clock) center / contain no-repeat;\n}\n.fx-tile-chip {\n  display: inline-block;\n  box-sizing: border-box;\n  max-width: 100%;\n  overflow: hidden;\n  padding: 0 5px;\n  border: 1px solid var(--fx-line);\n  border-radius: 3px;\n  color: var(--fx-dim);\n  font-size: 9px;\n  font-weight: 800;\n  line-height: 14px;\n  letter-spacing: .4px;\n  text-overflow: ellipsis;\n  text-transform: uppercase;\n  white-space: nowrap;\n}\n.fx-tile-chip.fx-ok { border-color: var(--fx-ok); color: var(--fx-ok); }\n.fx-tile-chip.fx-mine { border-color: var(--fx-accent-dim); color: var(--fx-accent); }\n.fx-tile-line {\n  display: flex;\n  align-items: baseline;\n  gap: 8px;\n  min-width: 0;\n}\n\n.fx-tile-line-key {\n  flex: 0 0 auto;\n  color: var(--fx-dim);\n  font-size: 9px;\n  line-height: 16px;\n  letter-spacing: .3px;\n  text-transform: uppercase;\n  white-space: nowrap;\n}\n.fx-tile-line-value {\n  flex: 1 1 auto;\n  min-width: 0;\n  overflow: hidden;\n  color: var(--fx-ink);\n  font-size: 12px;\n  font-weight: 700;\n  line-height: 16px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n",
 "eshario-asset:ui/store-catalog.css":"[data-fut-catalog-host='1'] > .ut-store-pack-details-view,\n[data-fut-catalog-host='1'] > .ut-store-xray-pack-details-view {\n  position: absolute !important;\n  top: -99999px !important;\n  left: -99999px !important;\n  width: 0 !important;\n  height: 0 !important;\n  padding: 0 !important;\n  overflow: hidden !important;\n  pointer-events: none !important;\n}\n[data-fut-catalog-flat='1'] > .ut-store-hub-view--disclaimer {\n  margin: 0 !important;\n  padding: 0 !important;\n}\n.fut-catalog {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(min(270px, 100%), 1fr));\n  gap: 12px;\n  padding: 0 12px 24px;\n  font-family: inherit;\n  font-size: 12px;\n  line-height: 1.25;\n  color: var(--fx-ink);\n  container: fut-catalog / inline-size;\n}\n.fut-catalog-head {\n  grid-column: 1 / -1;\n  padding-right: 38px;\n  order: -2;\n  position: relative;\n}\n.fut-catalog-head[data-fut-catalog-pinned='1'] {\n  position: sticky;\n  top: 0;\n  z-index: 9;\n}\n.fut-catalog-search {\n  flex: 0 1 200px;\n  width: 200px;\n  min-width: 110px;\n}\n\n.fut-catalog-chips {\n  display: flex;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 4px;\n  overflow: hidden;\n}\n.fut-catalog-sort {\n  flex: none;\n  padding: 4px 6px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 3px;\n  background: var(--fx-surface-2);\n  color: var(--fx-ink);\n  font: inherit;\n  cursor: pointer;\n}\n.fut-catalog-sort:focus {\n  border-color: var(--fx-accent);\n  outline: none;\n}\n.fut-catalog-check {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  color: var(--fx-dim);\n  cursor: pointer;\n  white-space: nowrap;\n}\n.fut-catalog-air {\n  flex: 1 1 0;\n  min-width: 0;\n}\n.fut-catalog-chip {\n  appearance: none;\n  border: 0;\n  border-right: 1px solid var(--fx-line-strong);\n  background: transparent;\n  color: var(--fx-dim);\n  font: inherit;\n  font-weight: 600;\n  padding: 3px 10px;\n  cursor: pointer;\n}\n.fut-catalog-chip:last-child {\n  border-right: 0;\n}\n.fut-catalog-chip[data-fut-catalog-chip-on='1'] {\n  background: var(--fx-accent);\n  color: var(--fx-on-accent);\n}\n.fut-catalog-sum {\n  color: var(--fx-dim);\n  white-space: nowrap;\n}\n.fut-catalog-pin {\n  position: absolute;\n  top: 4px;\n  right: 6px;\n  overflow: hidden;\n  background: var(--fx-surface-sunken);\n  font-size: 12px;\n}\n\n.fut-catalog-pin[data-fut-catalog-pin='1'] {\n  border-color: var(--fx-accent);\n}\n.fut-catalog-pin[data-fut-catalog-pin='0'] {\n  opacity: .45;\n}\n\n.fut-catalog-pin:hover {\n  border-color: var(--fx-accent);\n  opacity: 1;\n}\n.fut-catalog-note {\n  grid-column: 1 / -1;\n  order: -1;\n  padding: 8px 2px;\n  color: var(--fx-dim);\n}\n.fut-catalog-note:empty {\n  display: none;\n}\n.fut-catalog-card {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  padding: 8px;\n  background: var(--fx-surface);\n  border: 1px solid var(--fx-line);\n  border-radius: 10px;\n  contain: layout paint;\n}\n.fut-catalog-card[data-fut-catalog-off='1'] {\n  display: none;\n}\n.fut-catalog-card[data-fut-catalog-hidden='1'] {\n  opacity: .62;\n  border-style: dashed;\n}\n.fut-catalog-hide {\n  position: absolute;\n  top: 6px;\n  left: 6px;\n  z-index: 3;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 22px;\n  height: 22px;\n  padding: 0;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 50%;\n  background: var(--fx-surface);\n  color: var(--fx-dim);\n  cursor: pointer;\n}\n.fut-catalog-hide svg {\n  display: block;\n  width: 15px;\n  height: 15px;\n}\n.fut-catalog-hide[data-fut-catalog-hide-on='1'] {\n  color: var(--fx-accent);\n  border-color: var(--fx-accent-dim);\n}\n\n.fut-catalog-art {\n  --fut-catalog-art: 176px;\n  position: relative;\n  flex: none;\n  height: var(--fut-catalog-art);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: visible;\n  padding: 8px;\n  border-radius: 8px;\n  background: var(--fx-surface-2);\n}\n@container fut-catalog (max-width: 1499.98px) {\n  .fut-catalog-art {\n    --fut-catalog-art: 160px;\n  }\n}\n.fut-catalog-shot {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  max-width: 100%;\n}\n.fut-catalog-shot[data-fut-catalog-empty='1'] {\n  width: 100%;\n}\n.fut-catalog-img {\n  display: block;\n  min-width: 96px;\n  min-height: 132px;\n  max-width: 100%;\n  max-height: calc(var(--fut-catalog-art) - 16px);\n  object-fit: contain;\n}\n.fut-catalog-timer {\n  position: absolute;\n  top: 2px;\n  right: 2px;\n  padding: 0 7px;\n  border-radius: 999px;\n  background: var(--fx-surface-2);\n  border: 1px solid var(--fx-line-strong);\n  color: var(--fx-ink);\n  font-size: 11px;\n  line-height: 18px;\n  font-weight: 700;\n  white-space: nowrap;\n}\n.fut-catalog-timer:empty {\n  display: none;\n}\n.fut-catalog-timer[data-fut-catalog-hot='1'] {\n  background: var(--fx-warn);\n  border-color: var(--fx-warn);\n  color: var(--fx-warn-ink);\n}\n.fut-catalog-trade {\n  position: absolute;\n  left: 4px;\n  bottom: 4px;\n  width: 22px;\n  height: 22px;\n  border-radius: 50%;\n  background: var(--fx-surface-2);\n  border: 1px solid var(--fx-line-strong);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: var(--fx-ok);\n}\n.fut-catalog-trade svg {\n  width: 17px;\n  height: 17px;\n}\n.fut-catalog-trade[data-fut-catalog-tradable='0'] {\n  color: var(--fx-danger);\n}\n.fut-catalog-odds-btn {\n  appearance: none;\n  position: absolute;\n  right: 4px;\n  bottom: 4px;\n  max-width: calc(100% - 40px);\n  box-sizing: border-box;\n  height: 22px;\n  padding: 0 8px 0 4px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 11px;\n  background: var(--fx-surface-2);\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 11px;\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  cursor: pointer;\n}\n.fut-catalog-card[data-fut-catalog-odds-has='0'] .fut-catalog-odds-btn {\n  display: none;\n}\n.fut-catalog-odds-sign {\n  color: var(--fx-accent);\n  font-weight: 800;\n}\n.fut-catalog-odds-peek {\n  white-space: nowrap;\n  font-weight: 600;\n}\n.fut-catalog-odds-list,\n.fut-catalog-desc-list {\n  display: none;\n  position: absolute;\n  inset: 0;\n  z-index: 4;\n  flex-direction: column;\n  overflow: hidden;\n  padding: 6px 8px;\n  box-sizing: border-box;\n  border-radius: 8px;\n  border: 1px solid var(--fx-accent-dim);\n  background: var(--fx-surface);\n  box-shadow: 0 6px 18px var(--fx-shadow);\n}\n.fut-catalog-card[data-fut-catalog-odds-open='1'] .fut-catalog-odds-list,\n.fut-catalog-card[data-fut-catalog-desc-open='1'] .fut-catalog-desc-list {\n  display: flex;\n}\n.fut-catalog-odds-head {\n  flex: none;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding-bottom: 4px;\n  margin-bottom: 4px;\n  border-bottom: 1px solid var(--fx-line);\n}\n.fut-catalog-odds-title {\n  flex: 1 1 auto;\n  min-width: 0;\n  font-weight: 700;\n  color: var(--fx-ink);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.fut-catalog-odds-rows,\n.fut-catalog-desc-body {\n  flex: 1 1 auto;\n  min-height: 0;\n  overflow: auto;\n  padding-right: 8px;\n}\n.fut-catalog-odds-group {\n  margin-top: 6px;\n  padding-bottom: 2px;\n  border-bottom: 1px solid var(--fx-line);\n  font-weight: 700;\n  color: var(--fx-accent);\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.fut-catalog-odds-group:first-child {\n  margin-top: 0;\n}\n\n.fut-catalog-odds-row {\n  display: flex;\n  justify-content: space-between;\n  gap: 8px;\n  padding: 2px 0;\n}\n.fut-catalog-odds-name {\n  color: var(--fx-dim);\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.fut-catalog-odds-value {\n  color: var(--fx-ink);\n  font-weight: 700;\n  white-space: nowrap;\n}\n\n.fut-catalog-name {\n  margin-top: 2px;\n  font-size: 13px;\n  font-weight: 700;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.fut-catalog-facts {\n  font-size: 11px;\n  color: var(--fx-dim);\n}\n.fut-catalog-value {\n  display: none;\n  align-items: center;\n  gap: 6px;\n  min-height: 18px;\n  padding-top: 4px;\n  margin-top: 2px;\n  border-top: 1px dashed var(--fx-line-strong);\n}\n.fut-catalog-value[data-fut-catalog-value-has='1'] {\n  display: flex;\n}\n.fut-catalog-value-text {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  color: var(--fx-ink);\n}\n.fut-catalog-value[data-fut-catalog-value-state='unseen'] .fut-catalog-value-text {\n  color: var(--fx-warn);\n}\n.fut-catalog-chip {\n  margin-left: auto;\n  flex: none;\n  padding: 0 5px;\n  border-radius: 3px;\n  font-size: 11px;\n  line-height: 16px;\n  font-weight: 700;\n}\n.fut-catalog-chip:empty {\n  display: none;\n}\n.fut-catalog-value-logo .fx-mark {\n  height: 13px;\n}\n.fut-catalog-value[data-fut-catalog-value-state='seen'] .fut-catalog-value-text {\n  flex: 0 0 auto;\n  padding: 0 6px;\n  border: 1px solid currentColor;\n  border-radius: 4px;\n  font-size: 12px;\n  line-height: 18px;\n  font-weight: 700;\n}\n.fut-catalog-value[data-fut-catalog-value-tone='good'] .fut-catalog-value-text {\n  color: var(--fx-ok);\n  background: var(--fx-ok-tint);\n}\n.fut-catalog-value[data-fut-catalog-value-tone='risk'] .fut-catalog-value-text {\n  color: var(--fx-ink);\n}\n.fut-catalog-value[data-fut-catalog-value-tone='bad'] .fut-catalog-value-text {\n  color: var(--fx-danger);\n  background: var(--fx-danger-tint);\n}\n.fut-catalog-value-text[title],\n.fut-catalog-value-time[title] {\n  cursor: help;\n}\n.fut-catalog-value-time {\n  display: inline-flex;\n  align-items: center;\n  gap: 4px;\n  margin-left: auto;\n  flex: 0 1 auto;\n  min-width: 0;\n  overflow: hidden;\n  white-space: nowrap;\n  color: var(--fx-dim);\n}\n.fut-catalog-value-icon {\n  display: inline-flex;\n  font-size: 14px;\n  line-height: 16px;\n}\n.fut-catalog-value-icon:empty,\n.fut-catalog-value-clock:empty {\n  display: none;\n}\n.fut-catalog-value-icon svg {\n  width: 12px;\n  height: 12px;\n}\n.fut-catalog-reveal {\n  position: absolute;\n  inset: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  pointer-events: none;\n}\n.fut-catalog-reveal > .item {\n  flex: none;\n  transform: scale(0.8);\n}\n.fut-catalog-shot[data-fut-catalog-revealed='1'] .fut-catalog-img {\n  opacity: 0.7;\n}\n@container fut-catalog (max-width: 1499.98px) {\n  .fut-catalog-reveal > .item {\n    transform: scale(0.72);\n  }\n}\n.fut-catalog-row {\n  display: flex;\n  align-items: baseline;\n  gap: 8px;\n  min-width: 0;\n}\n.fut-catalog-row .fut-catalog-facts {\n  flex: 1 1 auto;\n  min-width: 0;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.fut-catalog-num {\n  color: var(--fx-accent);\n  font-weight: 700;\n}\n.fut-catalog-lim {\n  flex: none;\n  padding: 1px 7px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 9px;\n  color: var(--fx-dim);\n  font-size: 11px;\n  white-space: nowrap;\n}\n.fut-catalog-lim:empty {\n  display: none;\n}\n.fut-catalog-lim[data-fut-catalog-lim-tight='1'] {\n  border-color: var(--fx-warn);\n  color: var(--fx-warn);\n}\n.fut-catalog-limit {\n  font-size: 11px;\n  color: var(--fx-dim);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.fut-catalog-limit:empty {\n  display: none;\n}\n.fut-catalog-buy {\n  appearance: none;\n  margin-top: auto;\n  height: 36px;\n  border: 0;\n  border-radius: 6px;\n  background: var(--fx-accent);\n  color: var(--fx-on-accent);\n  font: inherit;\n  font-size: 13px;\n  font-weight: 800;\n  cursor: pointer;\n}\n.fut-catalog-buy[disabled] {\n  background: var(--fx-surface-2);\n  color: var(--fx-muted);\n  cursor: default;\n}\n.fut-catalog-alt {\n  appearance: none;\n  border: 0;\n  background: transparent;\n  color: var(--fx-dim);\n  font: inherit;\n  font-size: 11px;\n  text-align: center;\n  text-decoration: underline;\n  text-decoration-color: var(--fx-line-strong);\n  text-underline-offset: 3px;\n  cursor: pointer;\n  padding: 2px 0 0;\n  min-height: 15px;\n}\n.fut-catalog-alt[data-fut-catalog-alt-has='0'] {\n  visibility: hidden;\n}\n.fut-catalog-alt[disabled] {\n  color: var(--fx-muted);\n  cursor: default;\n}\n.fut-catalog-desc {\n  appearance: none;\n  padding-left: 8px;\n  border-left: 2px solid var(--fx-line-strong);\n  display: flex;\n  align-items: flex-start;\n  gap: 6px;\n  width: 100%;\n  min-width: 0;\n  margin-top: 2px;\n  padding: 0;\n  border: 0;\n  background: none;\n  color: var(--fx-dim);\n  font: inherit;\n  font-size: 12px;\n  line-height: 1.35;\n  text-align: left;\n  cursor: pointer;\n}\n.fut-catalog-card[data-fut-catalog-desc-has='0'] .fut-catalog-desc {\n  display: none;\n}\n.fut-catalog-desc-text {\n  flex: 1 1 auto;\n  min-width: 0;\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 3;\n  line-clamp: 3;\n  overflow: hidden;\n}\n.fut-catalog-desc-sign {\n  flex: none;\n  color: var(--fx-accent);\n  font-weight: 800;\n}\n.fut-catalog-desc:hover .fut-catalog-desc-text {\n  color: var(--fx-ink);\n}\n.fut-catalog-desc-para {\n  margin: 0 0 6px;\n  color: var(--fx-dim);\n  font-size: 11px;\n  line-height: 1.4;\n}\n.fut-catalog-desc-para:last-child {\n  margin-bottom: 0;\n}\n",
 "eshario-asset:ui/unassigned-strip.css":".fx-unassigned-strip {\n  flex-direction: column;\n  align-items: stretch;\n  flex-wrap: nowrap;\n  gap: 0;\n}\n.fx-unassigned-strip[data-fut-unassigned-pinned='1'] {\n  position: sticky;\n  top: 0;\n  z-index: 3;\n}\n.fx-strip-head {\n  position: relative;\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 6px 8px;\n  padding-right: 62px;\n}\n.fx-strip-corner {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: 0;\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n.fx-strip-go {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  box-sizing: border-box;\n  padding: 5px 14px;\n  border: 1px solid var(--fx-accent);\n  border-radius: 4px;\n  background: var(--fx-accent);\n  color: var(--fx-on-accent);\n  font: inherit;\n  line-height: 1.25;\n  text-align: left;\n  cursor: pointer;\n}\n\n.fx-strip-go .t {\n  font-size: 14px;\n  font-weight: 700;\n}\n.fx-strip-go .d {\n  font-size: 11px;\n  opacity: .78;\n}\n\n.fx-strip-go:hover {\n  filter: brightness(1.08);\n}\n.fx-strip-go-off {\n  background: var(--fx-surface-2);\n  color: var(--fx-dim);\n  cursor: default;\n}\n\n.fx-strip-go-off:hover {\n  filter: none;\n}\n.fx-strip-gear {\n  background: var(--fx-surface-sunken);\n}\n\n.fx-strip-gear[data-fut-unassigned-gear='1'] {\n  border-color: var(--fx-accent);\n  color: var(--fx-accent);\n}\n\n.fx-strip-gear:hover {\n  border-color: var(--fx-accent);\n}\n.fx-strip-money {\n  color: var(--fx-gold);\n  font-size: 15px;\n  font-weight: 700;\n  white-space: nowrap;\n}\n.fx-strip-air {\n  flex: 1 1 0;\n  min-width: 0;\n}\n.fx-strip-pin {\n  background: var(--fx-surface-sunken);\n}\n\n.fx-strip-pin[data-fut-unassigned-pin='1'] {\n  border-color: var(--fx-accent);\n}\n.fx-strip-pin[data-fut-unassigned-pin='0'] {\n  opacity: .45;\n}\n\n.fx-strip-pin:hover {\n  border-color: var(--fx-accent);\n  opacity: 1;\n}\n.fx-strip-more-box {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 8px;\n  margin-top: 9px;\n  padding-top: 9px;\n  border-top: 1px solid var(--fx-accent-dim);\n}\n.fx-strip-btn {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  border-color: var(--fx-accent-dim);\n  text-align: left;\n}\n\n.fx-strip-btn .t {\n  font-size: 12.5px;\n  font-weight: 600;\n}\n\n.fx-strip-btn .d {\n  font-size: 11px;\n  color: var(--fx-dim);\n}\n\n.fx-strip-btn:hover {\n  border-color: var(--fx-accent);\n}\n.fx-strip-btn-running {\n  flex: 0 0 auto;\n  border-color: var(--fx-accent);\n  background: var(--fx-accent);\n  color: var(--fx-on-accent);\n  font-weight: 600;\n}\n.fx-strip-note {\n  margin-top: 8px;\n  color: var(--fx-dim);\n}\n.fx-strip-qsell {\n  border: 1px solid var(--fx-line);\n  border-radius: 5px;\n  padding: 3px 8px;\n  color: var(--fx-dim);\n  font-size: 12px;\n  white-space: nowrap;\n}\n.fx-strip-counts {\n  color: var(--fx-dim);\n  font-size: 13px;\n  white-space: nowrap;\n}\n.fx-strip-more-box {\n  flex-direction: column;\n  align-items: stretch;\n  gap: 10px;\n  container-type: inline-size;\n}\n.fx-strip-set,\n.fx-strip-redeem,\n.fx-strip-warn {\n  border: 1px solid var(--fx-line);\n  border-radius: 8px;\n  padding: 8px 12px;\n}\n.fx-strip-calm {\n  padding: 0 2px;\n}\n.fx-strip-calm {\n  color: var(--fx-ok);\n  font-size: 13px;\n  font-weight: 600;\n}\n.fx-strip-calm[data-fut-unassigned-calm='knife'] {\n  color: var(--fx-warn);\n}\n.fx-strip-warn {\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 10px;\n  padding: 5px 10px;\n  border-color: var(--fx-warn);\n  color: var(--fx-dim);\n  font-size: 12.5px;\n}\n\n.fx-strip-warn-text {\n  flex: 1 1 260px;\n  min-width: 0;\n}\n\n.fx-strip-warn b {\n  color: var(--fx-warn);\n}\n.fx-strip-warn-ok {\n  flex: none;\n  padding: 3px 12px;\n  border-color: var(--fx-warn);\n  background: var(--fx-warn);\n  color: var(--fx-warn-ink);\n  font-weight: 700;\n}\n.fx-strip-sets {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 12px;\n}\n\n@container (max-width: 780px) {\n  .fx-strip-sets {\n    grid-template-columns: 1fr;\n  }\n}\n\n.fx-strip-set {\n  background: var(--fx-surface);\n}\n\n.fx-strip-set-head {\n  font-size: 13px;\n  font-weight: 700;\n  letter-spacing: .06em;\n  text-transform: uppercase;\n}\n.fx-strip-set-trad .fx-strip-set-head {\n  color: var(--fx-ok);\n}\n\n.fx-strip-set-untrad .fx-strip-set-head {\n  color: var(--fx-warn);\n}\n.fx-strip-rule {\n  display: grid;\n  grid-template-columns: minmax(0, 1fr) auto;\n  align-items: start;\n  column-gap: 12px;\n  row-gap: 6px;\n  padding: 8px 2px;\n  border-top: 1px solid var(--fx-line);\n}\n.fx-strip-rule > * {\n  grid-column: 1;\n  justify-self: start;\n}\n\n.fx-strip-rule > .fx-strip-pick,\n.fx-strip-rule > .fx-strip-fixed {\n  grid-column: 2;\n  grid-row: 1;\n  justify-self: end;\n}\n\n.fx-strip-rule > .fx-strip-kinds,\n.fx-strip-rule > .fx-strip-foot {\n  grid-column: 1 / -1;\n}\n.fx-strip-rest {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n\n.fx-strip-cond {\n  display: flex;\n  flex-direction: column;\n  gap: 2px;\n  font-size: 13.5px;\n}\n.fx-strip-subline {\n  display: flex;\n  align-items: baseline;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n\n.fx-strip-rule-name {\n  font-weight: 700;\n}\n\n.fx-strip-fields {\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 7px;\n  font-size: 13px;\n}\n\n.fx-strip-or {\n  color: var(--fx-dim);\n  font-size: 11px;\n  text-transform: uppercase;\n  letter-spacing: .05em;\n}\n.fx-strip-field,\n.fx-strip-check {\n  display: inline-flex;\n  align-items: center;\n  border: 1px solid var(--fx-line);\n  border-radius: 6px;\n  padding: 4px 9px;\n  background: var(--fx-surface-2);\n}\n\n.fx-strip-field {\n  gap: 6px;\n}\n\n.fx-strip-field-label {\n  color: var(--fx-dim);\n  font-size: 12px;\n}\n\n.fx-strip-num {\n  width: 68px;\n  border: none;\n  background: none;\n  color: var(--fx-accent);\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n  font-variant-numeric: tabular-nums;\n}\n\n.fx-strip-num:focus {\n  outline: 1px solid var(--fx-accent-dim);\n  outline-offset: 2px;\n}\n\n.fx-strip-num:disabled {\n  color: var(--fx-dim);\n}\n.fx-strip-check {\n  gap: 7px;\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 13px;\n  cursor: pointer;\n}\n\n.fx-strip-check:hover {\n  border-color: var(--fx-accent-dim);\n}\n\n.fx-strip-box {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 15px;\n  height: 15px;\n  flex: none;\n  border: 1px solid var(--fx-accent-dim);\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 800;\n}\n\n.fx-strip-check-on .fx-strip-box {\n  background: var(--fx-accent);\n  border-color: var(--fx-accent);\n  color: var(--fx-on-accent);\n}\n.fx-strip-fold {\n  border: none;\n  background: none;\n  padding: 0;\n  color: var(--fx-accent);\n  font: inherit;\n  font-size: 12px;\n  text-align: left;\n  cursor: pointer;\n}\n.fx-strip-rule-hint,\n.fx-strip-foot {\n  color: var(--fx-dim);\n  font-size: 12px;\n}\n\n.fx-strip-kinds {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  width: 100%;\n  border-left: 2px solid var(--fx-accent-dim);\n  padding-left: 10px;\n}\n\n.fx-strip-kinds-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 7px;\n}\n.fx-strip-fixed {\n  color: var(--fx-accent);\n  font-size: 14px;\n  font-weight: 700;\n}\n.fx-strip-pick {\n  border: 1px solid var(--fx-accent-dim);\n  border-radius: 6px;\n  padding: 5px 9px;\n  background: var(--fx-surface-2);\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n  cursor: pointer;\n}\n.fx-strip-pick-warn {\n  border-color: var(--fx-warn);\n  color: var(--fx-warn);\n}\n.fx-strip-note-left {\n  color: var(--fx-warn);\n}\n.fx-strip-redeem {\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 10px;\n}\n.fx-strip-reset {\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.fx-strip-reset-ask {\n  flex: 1 1 100%;\n}\n.fx-strip-reset-no {\n  flex: none;\n}\n.fx-strip-hint {\n  border-bottom: 1px dotted var(--fx-dim);\n  cursor: help;\n}\n.fx-strip-why {\n  color: var(--fx-dim);\n  font-weight: 400;\n}\n.fx-strip-pile {\n  white-space: nowrap;\n}\n",
@@ -4140,32 +4140,67 @@ const galleryEn=Object.freeze({
 'gallery.all':'All',
 'gallery.cat.leagues':'Leagues',
 'gallery.cat.rarities':'Rarities',
-'gallery.search':'Find a set',
-'gallery.close':'Close and bring back the club tiles',
+'gallery.search':'Find a club',
+'gallery.search.hint':'Finds a set by the club or league name',
 'gallery.empty':'The Gallery catalog has not arrived yet',
 'gallery.nothing':'Nothing found',
+'gallery.catalogMissing':'Set catalog did not arrive: network. Retrying in half an hour',
 'gallery.plan.want':'I want',
 'gallery.plan.tokens':'tokens:',
-'gallery.plan.loss':'· you lose about',
-'gallery.plan.sets.one':'set ·',
-'gallery.plan.sets.few':'sets ·',
-'gallery.plan.sets.many':'sets ·',
-'gallery.plan.sets.other':'sets ·',
-'gallery.plan.cards.one':'card',
-'gallery.plan.cards.few':'cards',
-'gallery.plan.cards.many':'cards',
-'gallery.plan.cards.other':'cards',
+'gallery.piggy.show':'Show {sets} {setsWord}:',
+'gallery.piggy.show.hint':'Leaves only the piggy bank sets in the list and shows the total: how many cards to buy, what collecting costs and what it costs if you sell the cards back',
+'gallery.piggy.sets.one':'set',
+'gallery.piggy.sets.few':'sets',
+'gallery.piggy.sets.many':'sets',
+'gallery.piggy.sets.other':'sets',
+'gallery.piggy.cards.one':'{n} card',
+'gallery.piggy.cards.few':'{n} cards',
+'gallery.piggy.cards.many':'{n} cards',
+'gallery.piggy.cards.other':'{n} cards',
+'gallery.piggy.buy':'buy',
+'gallery.piggy.cost':'collecting costs',
+'gallery.piggy.loss':'if you sell the cards back, it costs',
+'gallery.piggy.loss.hint':'A card counts forever, even if you sell it. EA takes 5 % of the sale',
+'gallery.piggy.all':'Show all sets',
+'gallery.piggy.give.one':'gives',
+'gallery.piggy.give.few':'give',
+'gallery.piggy.give.many':'give',
+'gallery.piggy.give.other':'give',
+'gallery.piggy.cut':'↑ {sets} {setsWord} above the line {give} {tokens} for {coins}',
 'gallery.plan.short':'not enough sets',
 'gallery.plan.hint':'How many tokens you want (a Hall of FUT player costs from 300). The code takes the cheapest tokens from the top of the list until it has enough: how many coins you need, how much you lose on the 5 % tax if you sell the cards back, how many sets and cards',
+'gallery.order.label':'Order:',
+'gallery.order.value':'Best value',
+'gallery.order.value.hint':'Token price, lowest first',
+'gallery.order.cheap':'Cheaper',
+'gallery.order.cheap.hint':'Coins up to the goal, lowest first',
+'gallery.order.few':'Fewer to buy',
+'gallery.order.few.hint':'Cards up to the goal, fewest first',
+'gallery.order.tokens':'More tokens',
+'gallery.order.tokens.hint':'Tokens the goal gives, most first',
+'gallery.intro.lead.value':'On top: sets where a token is cheapest.',
+'gallery.intro.lead.cheap':'On top: sets that are cheapest to finish to the goal.',
+'gallery.intro.lead.few':'On top: sets with the fewest cards to the goal.',
+'gallery.intro.lead.tokens':'On top: sets whose goal gives the most tokens.',
+'gallery.intro.grey':'Grey Counted numbers come from your club: cards you sold earlier are not seen yet.',
+'gallery.intro.grey.short':'Grey numbers come from your club.',
+'gallery.intro.requests':'up to {n} requests to EA',
+'gallery.intro.hide':'Hide the hint',
 'gallery.col.set':'Set',
-'gallery.col.league':'League',
-'gallery.col.got':'Collected',
-'gallery.col.grade':'Grade',
+'gallery.col.got':'Counted',
+'gallery.col.got.hint':'How many cards of the set already count in the Gallery and which grade you already have. A grey number is counted from your club, before the check',
 'gallery.col.goal':'Goal',
-'gallery.col.goal.hint':'The grade where one token is cheapest: how many cards to buy and for how much. If the tokens cannot be reached with market cards, the nearest grade',
+'gallery.col.goal.hint':'The grade where one token comes out cheapest. If the tokens cannot be reached with market cards, the nearest grade',
+'gallery.col.buy':'Cards to buy',
+'gallery.col.buy.hint':'How many cards to buy up to this grade',
+'gallery.col.cost':'Coins',
+'gallery.col.cost.hint':'How many coins these cards cost at fresh prices',
+'gallery.col.reward':'You get',
+'gallery.col.reward.hint':'How many tokens this grade gives',
 'gallery.col.tokenPrice':'Token price',
 'gallery.col.tokenPrice.hint':'How many coins one Gallery token costs if you buy the cards up to the grade in the Goal column. Lower is better',
-'gallery.col.tokens':'Tokens',
+'gallery.col.tokens':'Tokens now / max',
+'gallery.col.tokens.hint':'Tokens you already got from this set / how many grade S gives',
 'gallery.cards.for.one':'{n} card for',
 'gallery.cards.for.few':'{n} cards for',
 'gallery.cards.for.many':'{n} cards for',
@@ -4184,7 +4219,6 @@ const galleryEn=Object.freeze({
 'gallery.reward.tokens.few':'{n} tokens',
 'gallery.reward.tokens.many':'{n} tokens',
 'gallery.reward.tokens.other':'{n} tokens',
-'gallery.check.club':'collected by club',
 'gallery.check.all':'Check all',
 'gallery.check.league':'Check league',
 'gallery.check.all.hint':'Asks EA about the cards of all sets that are not in your club and not in memory: up to {n} requests one by one, 2.5 s pause, about a minute. Any EA refusal stops it. What is counted we remember forever, later we only ask about what is still missing',
@@ -4220,6 +4254,22 @@ const galleryEn=Object.freeze({
 'gallery.set.needCards.few':'{n} cards',
 'gallery.set.needCards.many':'{n} cards',
 'gallery.set.needCards.other':'{n} cards',
+'gallery.set.checked':'checked {time}',
+'gallery.set.checked.hint':'EA answered about the cards of this set. A set checks itself when you open it, at most once an hour',
+'gallery.set.byClub':'by club',
+'gallery.set.byClub.hint':'Counted by your club. A set up to 150 cards checks itself when you open it: one request to EA, at most once an hour',
+'gallery.set.maxed':'best grade reached',
+'gallery.set.maxed.hint':'This set already has the best grade it can reach. We do not ask EA about it, here or in Check all',
+'gallery.set.check.one':'Check set · {n} request',
+'gallery.set.check.few':'Check set · {n} requests',
+'gallery.set.check.many':'Check set · {n} requests',
+'gallery.set.check.other':'Check set · {n} requests',
+'gallery.set.check.hint':'This set has more than 150 cards and does not check itself. Asks EA about its cards that are not in your club and not in memory: up to {n} requests one by one, 2.5 s pause',
+'gallery.check.dayCap':'many checks today, risky',
+'gallery.check.dayCap.hint':'The Gallery made {n} requests to EA today, more than our advice of {cap}. Checks still work, but going further is risky and on you: EA may ask for a captcha or limit the market',
+'gallery.market.no':'not on the market',
+'gallery.market.note':'The cards of this set are not sold on the market: SBCs and objectives give them',
+'gallery.market.card':'Not sold on the market',
 'gallery.ladder.fromPoints':'from {n} points',
 'gallery.ladder.from':'from {n}',
 'gallery.ladder.no':'unreachable',
@@ -4229,6 +4279,11 @@ const galleryEn=Object.freeze({
 'gallery.path.priceless.many':'no price for {n} cards',
 'gallery.path.priceless.other':'no price for {n} cards',
 'gallery.path.hint':'A card counts forever, even if you sell it. Bought, sold back: EA takes 5 % of the sale. Base points and tags, first owner included',
+'gallery.path.seen':'path cards ▼',
+'gallery.path.pick':'Show the cards the path to this grade buys',
+'gallery.path.to':'Path to {letter}:',
+'gallery.path.legend':'framed: the path cards, faded: other missing cards',
+'gallery.tab.order.cheap':'cheapest first',
 'gallery.slot.buy':'Buy up to a grade',
 'gallery.slot.buy.hint':'Buys the missing cards up to the chosen grade. Comes in stage two',
 'gallery.slot.stage2':'stage 2',
@@ -4354,32 +4409,67 @@ const galleryRu=Object.freeze({
 'gallery.all':'Все',
 'gallery.cat.leagues':'Лиги',
 'gallery.cat.rarities':'Редкости',
-'gallery.search':'Поиск набора',
-'gallery.close':'Закрыть и вернуть плитки клуба',
+'gallery.search':'Найти клуб',
+'gallery.search.hint':'Ищет набор по имени клуба или лиги',
 'gallery.empty':'Каталог Галереи ещё не пришёл',
 'gallery.nothing':'Ничего не нашлось',
+'gallery.catalogMissing':'Каталог наборов не доехал: сеть. Повторим через полчаса',
 'gallery.plan.want':'Хочу',
 'gallery.plan.tokens':'токенов:',
-'gallery.plan.loss':'· потеряешь около',
-'gallery.plan.sets.one':'набор ·',
-'gallery.plan.sets.few':'набора ·',
-'gallery.plan.sets.many':'наборов ·',
-'gallery.plan.sets.other':'набора ·',
-'gallery.plan.cards.one':'карта',
-'gallery.plan.cards.few':'карты',
-'gallery.plan.cards.many':'карт',
-'gallery.plan.cards.other':'карты',
+'gallery.piggy.show':'Показать {sets} {setsWord}:',
+'gallery.piggy.show.hint':'Оставит в списке только наборы копилки и покажет итог: сколько карт купить, сколько стоит собрать и во что обойдётся, если продать карты обратно',
+'gallery.piggy.sets.one':'набор',
+'gallery.piggy.sets.few':'набора',
+'gallery.piggy.sets.many':'наборов',
+'gallery.piggy.sets.other':'набора',
+'gallery.piggy.cards.one':'{n} карту',
+'gallery.piggy.cards.few':'{n} карты',
+'gallery.piggy.cards.many':'{n} карт',
+'gallery.piggy.cards.other':'{n} карты',
+'gallery.piggy.buy':'купить',
+'gallery.piggy.cost':'собрать стоит',
+'gallery.piggy.loss':'если продать карты обратно, обойдётся в',
+'gallery.piggy.loss.hint':'Карта засчитывается навсегда, даже если её продать. EA берёт 5 % с продажи',
+'gallery.piggy.all':'Показать все наборы',
+'gallery.piggy.give.one':'даст',
+'gallery.piggy.give.few':'дадут',
+'gallery.piggy.give.many':'дадут',
+'gallery.piggy.give.other':'дадут',
+'gallery.piggy.cut':'↑ {sets} {setsWord} выше черты {give} {tokens} за {coins}',
 'gallery.plan.short':'мало наборов',
 'gallery.plan.hint':'Сколько токенов хочешь (игрок Hall of FUT стоит от 300). Код берёт самые дешёвые токены сверху списка, пока не наберёт: сколько монет нужно, сколько потеряешь на налоге 5 %, если продашь карты обратно, сколько наборов и карт',
+'gallery.order.label':'Порядок:',
+'gallery.order.value':'Выгоднее',
+'gallery.order.value.hint':'Цена токена, меньше сверху',
+'gallery.order.cheap':'Дешевле',
+'gallery.order.cheap.hint':'Сумма монет до цели, меньше сверху',
+'gallery.order.few':'Меньше докупить',
+'gallery.order.few.hint':'Карт до цели, меньше сверху',
+'gallery.order.tokens':'Больше токенов',
+'gallery.order.tokens.hint':'Сколько токенов даст цель, больше сверху',
+'gallery.intro.lead.value':'Сверху наборы, где токен дешевле всего.',
+'gallery.intro.lead.cheap':'Сверху наборы, которые дешевле всего собрать до цели.',
+'gallery.intro.lead.few':'Сверху наборы, где до цели меньше всего карт.',
+'gallery.intro.lead.tokens':'Сверху наборы, чья цель даёт больше всего токенов.',
+'gallery.intro.grey':'Серые числа «Засчитано» посчитаны по твоему клубу: проданных раньше карт мы пока не видим.',
+'gallery.intro.grey.short':'Серые числа посчитаны по клубу.',
+'gallery.intro.requests':'до {n} запросов к EA',
+'gallery.intro.hide':'Скрыть подсказку',
 'gallery.col.set':'Набор',
-'gallery.col.league':'Лига',
-'gallery.col.got':'Собрано',
-'gallery.col.grade':'Оценка',
+'gallery.col.got':'Засчитано',
+'gallery.col.got.hint':'Сколько карт набора уже засчитано в Галерею и какая оценка уже есть. Серое число: посчитано по клубу, до проверки',
 'gallery.col.goal':'Цель',
-'gallery.col.goal.hint':'Оценка, до которой токен дешевле всего: сколько карт докупить и за сколько. Если токенов с рынка не достать, ближайшая оценка',
+'gallery.col.goal.hint':'Оценка, до которой токен выходит дешевле всего. Если токенов с рынка не достать, ближайшая оценка',
+'gallery.col.buy':'Купить карт',
+'gallery.col.buy.hint':'Сколько карт купить до этой оценки',
+'gallery.col.cost':'За монет',
+'gallery.col.cost.hint':'Сколько монет стоят эти карты по свежим ценам',
+'gallery.col.reward':'Получишь',
+'gallery.col.reward.hint':'Сколько токенов даст эта оценка',
 'gallery.col.tokenPrice':'Цена токена',
 'gallery.col.tokenPrice.hint':'Сколько монет стоит один токен Галереи, если докупить карты до оценки из столбца «Цель». Меньше значит выгоднее',
-'gallery.col.tokens':'Токены',
+'gallery.col.tokens':'Токенов есть / всего',
+'gallery.col.tokens.hint':'Токенов уже получено из этого набора / сколько даст оценка S',
 'gallery.cards.for.one':'{n} карту за',
 'gallery.cards.for.few':'{n} карты за',
 'gallery.cards.for.many':'{n} карт за',
@@ -4398,7 +4488,6 @@ const galleryRu=Object.freeze({
 'gallery.reward.tokens.few':'{n} токена',
 'gallery.reward.tokens.many':'{n} токенов',
 'gallery.reward.tokens.other':'{n} токена',
-'gallery.check.club':'собрано по клубу',
 'gallery.check.all':'Проверить всё',
 'gallery.check.league':'Проверить лигу',
 'gallery.check.all.hint':'Спросит у EA карты всех наборов, которых нет в клубе и нет в памяти: до {n} запросов по одному, пауза 2,5 с, около минуты. Любой отказ EA останавливает. Засчитанное помним навсегда, потом спрашиваем только несобранное',
@@ -4434,6 +4523,22 @@ const galleryRu=Object.freeze({
 'gallery.set.needCards.few':'{n} карт',
 'gallery.set.needCards.many':'{n} карт',
 'gallery.set.needCards.other':'{n} карты',
+'gallery.set.checked':'проверено {time}',
+'gallery.set.checked.hint':'EA ответила про карты этого набора. Набор проверяется сам, когда его открываешь, не чаще раза в час',
+'gallery.set.byClub':'по клубу',
+'gallery.set.byClub.hint':'Посчитано по клубу. Набор до 150 карт проверяется сам, когда его открываешь: один запрос к EA, не чаще раза в час',
+'gallery.set.maxed':'собран на максимум',
+'gallery.set.maxed.hint':'У набора уже лучшая оценка, до которой он может дойти. EA про него не спрашиваем, ни здесь, ни в «Проверить всё»',
+'gallery.set.check.one':'Проверить набор · {n} запрос',
+'gallery.set.check.few':'Проверить набор · {n} запроса',
+'gallery.set.check.many':'Проверить набор · {n} запросов',
+'gallery.set.check.other':'Проверить набор · {n} запроса',
+'gallery.set.check.hint':'В наборе больше 150 карт, сам он не проверяется. Спросит у EA его карты, которых нет в клубе и нет в памяти: до {n} запросов по одному, пауза 2,5 с',
+'gallery.check.dayCap':'много проверок за сутки, риск',
+'gallery.check.dayCap.hint':'Галерея сделала за сутки {n} запросов к EA, больше нашего совета в {cap}. Проверки работают, но дальше идти опасно, риск на Вас: EA может попросить капчу или ограничить рынок',
+'gallery.market.no':'не с рынка',
+'gallery.market.note':'Карты этого набора не продаются на рынке: их дают SBC и задания',
+'gallery.market.card':'Не продаётся на рынке',
 'gallery.ladder.fromPoints':'от {n} очков',
 'gallery.ladder.from':'от {n}',
 'gallery.ladder.no':'недостижимо',
@@ -4443,6 +4548,11 @@ const galleryRu=Object.freeze({
 'gallery.path.priceless.many':'цены нет у {n} карт',
 'gallery.path.priceless.other':'цены нет у {n} карты',
 'gallery.path.hint':'Карта засчитывается навсегда, даже если её продать. Купил, продал обратно: EA берёт 5 % с продажи. Базовые очки и теги, первый владелец тоже',
+'gallery.path.seen':'карты пути ▼',
+'gallery.path.pick':'Показать карты, которые купит путь до этой оценки',
+'gallery.path.to':'Путь до {letter}:',
+'gallery.path.legend':'в рамке карты пути, бледнее остальные, кого не хватает',
+'gallery.tab.order.cheap':'сначала дешевле',
 'gallery.slot.buy':'Докупить до оценки',
 'gallery.slot.buy.hint':'Докупит недостающие до выбранной оценки. Появится вторым этапом',
 'gallery.slot.stage2':'этап 2',
@@ -11808,7 +11918,7 @@ function moveReceiptMatches(data,items){return itemIdsReceiptMatches(data,items)
 
 };
 // src/features/day-budget.js
-__ESB_g[98]=function*(){__ESB_d(__ESB_x[98],{BUDGET_STOPS:()=>BUDGET_STOPS,COUNTER_UNAVAILABLE:()=>COUNTER_UNAVAILABLE,DAY_BUDGET_REFUSAL:()=>DAY_BUDGET_REFUSAL,DAY_REQUEST_CAP:()=>DAY_REQUEST_CAP,EA_LIMIT:()=>EA_LIMIT,THROTTLED:()=>THROTTLED,askBudgetRound:()=>askBudgetRound,askDayBudget:()=>askDayBudget,budgetStopName:()=>budgetStopName,createBudgetOwner:()=>createBudgetOwner,createDayBudget:()=>createDayBudget,createHuntBudget:()=>createHuntBudget,dayBudgetError:()=>dayBudgetError,eaStatusOf:()=>eaStatusOf,isDayBudgetError:()=>isDayBudgetError,meterCalls:()=>meterCalls,offMarket:()=>offMarket,readBudgetRound:()=>readBudgetRound,restMarketAfterThrottle:()=>restMarketAfterThrottle,stopOnEaLimit:()=>stopOnEaLimit,stopsRequest:()=>stopsRequest,withDayBudget:()=>withDayBudget});yield;const{createRateWindow,dayKeyOf,adviceLevel,SEARCH_HOUR_CAP,HOUR_MS,untilText}=__ESB_x[78];const{classifyStatus}=__ESB_x[77];
+__ESB_g[98]=function*(){__ESB_d(__ESB_x[98],{BUDGET_STOPS:()=>BUDGET_STOPS,COUNTER_UNAVAILABLE:()=>COUNTER_UNAVAILABLE,DAY_BUDGET_REFUSAL:()=>DAY_BUDGET_REFUSAL,DAY_REQUEST_CAP:()=>DAY_REQUEST_CAP,EA_LIMIT:()=>EA_LIMIT,THROTTLED:()=>THROTTLED,askBudgetRound:()=>askBudgetRound,askDayBudget:()=>askDayBudget,budgetStopName:()=>budgetStopName,createBudgetOwner:()=>createBudgetOwner,createDayBudget:()=>createDayBudget,createHuntBudget:()=>createHuntBudget,dayBudgetError:()=>dayBudgetError,dayKeyOf:()=>__ESB_x[78].dayKeyOf,eaStatusOf:()=>eaStatusOf,isDayBudgetError:()=>isDayBudgetError,meterCalls:()=>meterCalls,offMarket:()=>offMarket,readBudgetRound:()=>readBudgetRound,restMarketAfterThrottle:()=>restMarketAfterThrottle,stopOnEaLimit:()=>stopOnEaLimit,stopsRequest:()=>stopsRequest,withDayBudget:()=>withDayBudget});yield;const{createRateWindow,dayKeyOf,adviceLevel,SEARCH_HOUR_CAP,HOUR_MS,untilText}=__ESB_x[78];const{classifyStatus}=__ESB_x[77];
 ;
 ;
 ;
@@ -37559,7 +37669,10 @@ const GALLERY_GAME='fc27'
 const GALLERY_ORIGIN='https://api.eshario.com'
 function galleryCatalogUrl(game=GALLERY_GAME){return `${GALLERY_ORIGIN}/v1/gallery/${game}`}
 function galleryFingerprintUrl(game=GALLERY_GAME){return `${galleryCatalogUrl(game)}/fingerprint`}
-const CATALOG_EVERY_MS=6*60*60*1000
+const CATALOG_FILE_ORIGINS=Object.freeze(['https://files.eshario.com','https://api.eshario.com'])
+const FINGERPRINT_RE=/^[0-9a-f]{32}$/
+function galleryStaticUrl(fingerprint,game=GALLERY_GAME){return `${CATALOG_FILE_ORIGINS[0]}/gallery/${game}/${fingerprint}.json`}
+const CATALOG_EVERY_MS=60*60*1000
 const CATALOG_RETRY_MS=30*60*1000
 const CATALOG_KEY='gallery.catalog'
 const CATALOG_SCHEMA=1
@@ -37660,8 +37773,8 @@ return answer.value??null}
 return{get:(key)=>ask('store.get',{key}),
 set:async(key,value)=>{await ask('store.set',{key,value})
 return true}}}
-function galleryDoorFetch(request){if(typeof request!=='function')return null
-return async(url)=>{const answer=await request('door',{name:'net.fetch',args:{url,timeoutMs:15000}})
+function galleryDoorFetch(request,timeoutMs=15000){if(typeof request!=='function')return null
+return async(url)=>{const answer=await request('door',{name:'net.fetch',args:{url,timeoutMs}})
 if(!isPlain(answer)||answer.ok!==true){const reason=isPlain(answer)&&typeof answer.reason==='string'?answer.reason:'no-door'
 throw Object.assign(new Error(`gallery fetch: ${reason}`),{reason})}
 const value=isPlain(answer.value)?answer.value:{}
@@ -37676,7 +37789,7 @@ let checkedAt=null
 let nextAt=0
 let loading=null
 let refreshing=null
-const stats={loads:0,fingerprints:0,files:0,kept:0,failures:0,lastReason:null}
+const stats={loads:0,fingerprints:0,files:0,kept:0,failures:0,lastReason:null,source:null,lastUrl:null}
 const save=async()=>{if(store===null||current===null)return
 try{await store.set(CATALOG_KEY,{v:1,at:checkedAt,catalog:current.raw})}catch(err){stats.lastReason='store-failed'
 onError(err)}}
@@ -37696,21 +37809,36 @@ return loading}
 const ask=async(url)=>{const answer=await fetchText(url)
 if(answer.status!==200)throw Object.assign(new Error(`gallery catalog: HTTP ${answer.status}`),{reason:answer.status===503?'building':`http-${answer.status}`})
 return JSON.parse(answer.body)}
+const fetchFile=async(fp)=>{const tries=[]
+if(fp!==null&&FINGERPRINT_RE.test(fp))tries.push({source:'static',url:galleryStaticUrl(fp,game)})
+tries.push({source:'api',url:galleryCatalogUrl(game)})
+let last=null
+for(const one of tries){stats.lastUrl=one.url
+try{const raw=await ask(one.url)
+const parsed=readGalleryCatalog(raw)
+if(parsed===null)throw Object.assign(new Error('gallery catalog: форма не та'),{reason:'bad-catalog'})
+if(one.source==='static'&&parsed.fingerprint!==fp)throw Object.assign(new Error('gallery catalog: чужой отпечаток на статике'),{reason:'static-mismatch'})
+current={raw,parsed}
+stats.source=one.source
+return}catch(err){last=err
+onError(err)}}
+throw last}
 const refresh=(opts={})=>{if(refreshing!==null)return refreshing
 if(fetchText===null)return Promise.resolve(current?.parsed??null)
 const at=now()
 if(opts.force!==true&&at<nextAt)return Promise.resolve(current?.parsed??null)
 refreshing=(async()=>{await load()
-try{if(current!==null){stats.fingerprints+=1
+try{
+stats.fingerprints+=1
 const mark=await ask(galleryFingerprintUrl(game))
-if(isPlain(mark)&&text(mark.fingerprint)!==null&&mark.fingerprint===current.parsed.fingerprint){stats.kept+=1
+const fp=isPlain(mark)?text(mark.fingerprint):null
+if(current!==null&&fp!==null&&fp===current.parsed.fingerprint){stats.kept+=1
 checkedAt=at
 nextAt=at+CATALOG_EVERY_MS
 await save()
-return current.parsed}}
+return current.parsed}
 stats.files+=1
-const raw=await ask(galleryCatalogUrl(game))
-if(!adopt(raw))throw Object.assign(new Error('gallery catalog: форма не та'),{reason:'bad-catalog'})
+await fetchFile(fp)
 checkedAt=at
 nextAt=at+CATALOG_EVERY_MS
 stats.lastReason=null
@@ -37729,15 +37857,17 @@ checkedAt,nextAt,store:store!==null,net:fetchText!==null,...stats})}}
 
 };
 // src/features/gallery-engine.js
-__ESB_g[191]=function*(){__ESB_d(__ESB_x[191],{CHECK_BATCH:()=>CHECK_BATCH,RESELL_TAX:()=>RESELL_TAX,UNANSWERED_PREFIX:()=>UNANSWERED_PREFIX,checkRequestsCap:()=>checkRequestsCap,createGalleryCounter:()=>createGalleryCounter,createGalleryEngine:()=>createGalleryEngine,createGalleryMemory:()=>createGalleryMemory,createGalleryPriceBook:()=>createGalleryPriceBook,personaKeyOf:()=>personaKeyOf,readRawMark:()=>readRawMark});yield;const{askDayBudget,restMarketAfterThrottle}=__ESB_x[98];const{isLoanItem}=__ESB_x[119];const{readGalleryCatalog}=__ESB_x[190];const{SAFE_PAUSE_FLOOR_MS,DEFAULT_SEARCH_BAND_MS}=__ESB_x[123];
+__ESB_g[191]=function*(){__ESB_d(__ESB_x[191],{CHECK_BATCH:()=>CHECK_BATCH,RESELL_TAX:()=>RESELL_TAX,SET_CHECK_MAX:()=>SET_CHECK_MAX,UNANSWERED_PREFIX:()=>UNANSWERED_PREFIX,checkRequestsCap:()=>checkRequestsCap,createGalleryCounter:()=>createGalleryCounter,createGalleryEngine:()=>createGalleryEngine,createGalleryMemory:()=>createGalleryMemory,createGalleryPriceBook:()=>createGalleryPriceBook,personaKeyOf:()=>personaKeyOf,readRawMark:()=>readRawMark});yield;const{askDayBudget,restMarketAfterThrottle,dayKeyOf}=__ESB_x[98];const{isLoanItem}=__ESB_x[119];const{readGalleryCatalog}=__ESB_x[190];const{SAFE_PAUSE_FLOOR_MS,DEFAULT_SEARCH_BAND_MS}=__ESB_x[123];
 ;
 ;
 ;
 ;
-const CHECK_BATCH=250
+const CHECK_BATCH=150
 const CHECK_PAUSE_MS=Math.max(2_500,SAFE_PAUSE_FLOOR_MS,DEFAULT_SEARCH_BAND_MS?.maxMs??0)
 const CHECK_JITTER_MS=300
 const CHECK_COOLDOWN_MS=60*60*1000
+const SET_CHECK_MAX=CHECK_BATCH
+const GALLERY_DAY_CAP=100
 const RESELL_TAX=0.05
 const PRICELESS=1e10
 const MEMORY_PREFIX='gallery.collected.'
@@ -37797,12 +37927,14 @@ let loading=null
 let writing=false
 let dirty=false
 let blocked=false
+let log=null
 const stats={loads:0,writes:0,failures:0,added:0}
 const flush=()=>{if(store===null||key===null||status!=='ready'||writing||!dirty||blocked)return
 writing=true
 dirty=false
 const target=key
 const value={v:1,ids:[...ids].sort((a,b)=>a-b).slice(0,MEMORY_CAP)}
+if(log!==null)value.checks=log
 Promise.resolve().then(()=>store.set(target,value)).then(()=>{stats.writes+=1},(err)=>{stats.failures+=1
 dirty=true
 blocked=true
@@ -37815,6 +37947,7 @@ status='loading'
 try{const kept=await store.get(target)
 if(target!==key)return
 for(const id of cleanIds(isPlain(kept)?kept.ids:null))ids.add(id)
+if(isPlain(kept)&&isPlain(kept.checks))log=mergeCheckLog(kept.checks,log)
 status='ready'}catch(err){if(target!==key)return
 status='failed'
 stats.failures+=1
@@ -37827,6 +37960,7 @@ next=typeof raw==='string'&&raw!==''?prefix+raw:null}catch{next=null}
 if(next===key)return
 key=next
 ids=new Set()
+log=null
 loading=null
 dirty=false
 blocked=false
@@ -37862,8 +37996,29 @@ if(gone>0){dirty=true
 blocked=false
 flush()}
 return gone},
+checks(){sync()
+return log===null?null:readCheckLog(log)},
+putChecks(next){sync()
+log=readCheckLog(next)
+dirty=true
+blocked=false
+flush()},
 state(){sync()
 return{status,size:ids.size,key:key===null?null:key.slice(prefix.length),store:store!==null,...stats}}}}
+function readCheckLog(raw){const day=typeof raw?.day==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(raw.day)?raw.day:null
+const used=Number.isSafeInteger(raw?.used)&&raw.used>0?raw.used:0
+const sets={}
+if(isPlain(raw?.sets))for(const[id,at]of Object.entries(raw.sets)){if(id.length>80||!Number.isSafeInteger(at)||at<=0)continue
+sets[id]=at}
+return{day,used,sets}}
+function mergeCheckLog(disk,session){const a=readCheckLog(disk)
+if(session===null||session===undefined)return a
+const b=readCheckLog(session)
+const day=a.day===b.day?a.day:((a.day??'')>(b.day??'')?a.day:b.day)
+const used=a.day===b.day?a.used+b.used:(day===a.day?a.used:b.used)
+const sets={...a.sets}
+for(const[id,at]of Object.entries(b.sets))sets[id]=Math.max(sets[id]??0,at)
+return{day,used,sets}}
 function createGalleryCounter(budget){if(!budget||typeof budget.take!=='function')return null
 return{take:()=>askDayBudget(budget,1,{market:true}),rest:()=>restMarketAfterThrottle(budget)}}
 function levelOf(rating){const value=Number(rating)
@@ -38113,6 +38268,27 @@ const short=tokens<need
 if(short)return{coins:null,loss:null,sets:null,cards:null,short:true,ids:[],tokens}
 return{coins,loss:Math.round(coins*RESELL_TAX),sets:ids.length,cards,short:false,ids,tokens}}
 function isAnySet(set){return set?.rule?.anyCommon===true}
+const NOT_MARKET_RULE=/squad foundations/i
+function marketOf(set,tradable){let no=0
+let unknown=0
+let yes=0
+for(const defId of set?.pool??[]){let said=null
+try{said=tradable(defId)}catch{said=null}
+if(said===false)no+=1
+else if(said===true)yes+=1
+else unknown+=1}
+const named=NOT_MARKET_RULE.test(String(set?.rule?.description??''))
+const market=named?false:yes>0?true:!(no>0&&unknown===0)
+return{market,no,unknown,yes}}
+function maxGradeOf(set){if(!set||set.reason==='any'||typeof set.grade!=='string'||set.grade==='')return false
+const grades=Array.isArray(set.grades)?set.grades:[]
+const at=grades.findIndex((grade)=>grade?.letter===set.grade)
+if(at<0)return false
+if(set.market===false)return at===grades.length-1
+let unknown=false
+for(let i=at+1;i<grades.length;i+=1){if(grades[i]?.reachable===true)return false
+if(grades[i]?.reachable!==false)unknown=true}
+return unknown?null:true}
 function poolsOf(parsed){const count=(value)=>(Number.isSafeInteger(value)&&value>=0?value:null)
 const box=(raw)=>({cards:count(raw?.cards),requests:count(raw?.requests)})
 const given=parsed?.pools
@@ -38271,6 +38447,7 @@ return Number.isFinite(value)?value:null}
 const setState=(set,parsed,collected,falseIds,lostIds,firstIds=new Set())=>{if(isAnySet(set))return anySetState(set)
 const pool=set.pool
 const slots=set.cards
+const market=marketOf(set,(id)=>prices.tradable(id)).market
 const own=[]
 const buy=[]
 let known=0
@@ -38284,7 +38461,7 @@ if(lostIds.has(defId)){known+=1
 unanswered+=1
 continue}
 if(falseIds.has(defId))known+=1
-if(score===null)continue
+if(score===null||!market)continue
 if(!prices.ready())continue
 const raw=prices.price(defId)
 if(raw===undefined){waiting+=1
@@ -38344,7 +38521,7 @@ const tokensUp=[]
 let total=0
 for(const grade of set.grades){total+=grade.rewards.tokens
 tokensUp.push(total)}
-const decided=priced?goalOf(grades,current):{goal:null,tokenPrice:null}
+const decided=priced&&market?goalOf(grades,current):{goal:null,tokenPrice:null}
 const aimed=decided.goal===null?null:grades.find((grade)=>grade.letter===decided.goal.letter)??null
 return{id:set.id,name:set.name,categoryId:set.categoryId,cards:slots,
 collected:Math.min(n,slots),collectedSource:source,collectedIds,
@@ -38352,7 +38529,8 @@ grade:current>=0?set.grades[current].letter:null,
 grades:grades.map(({ids,...rest})=>rest),goal:decided.goal,tokenPrice:decided.tokenPrice,
 tokensNow:current>=0?tokensUp[current]:0,tokensMax:total,
 crest:set.crest,points,firstOwner,pool:pool.slice(),missing:Math.max(0,slots-n),known,unanswered,
-path:aimed===null?null:aimed.ids.slice(),reason:null,
+path:aimed===null?null:aimed.ids.slice(),reason:null,market,
+maxGrade:maxGradeOf({grade:current>=0?set.grades[current].letter:null,grades,market}),
 paths:grades.map((grade)=>grade.ids)}}
 const anySetState=(set)=>{let total=0
 for(const grade of set.grades)total+=grade.rewards.tokens
@@ -38361,7 +38539,7 @@ collected:null,collectedSource:'club',collectedIds:[],grade:null,
 grades:set.grades.map((grade)=>({letter:grade.letter,threshold:grade.threshold,rewards:{...grade.rewards},
 reachable:null,reached:false,missing:null,cost:null,priceless:0,lossOnResell:null})),
 goal:null,tokenPrice:null,tokensNow:null,tokensMax:total,crest:set.crest,points:null,firstOwner:null,
-pool:[],missing:null,known:0,unanswered:0,path:null,reason:'any',paths:[]}}
+pool:[],missing:null,known:0,unanswered:0,path:null,reason:'any',market:true,maxGrade:false,paths:[]}}
 const signature=(parsed,collected,falseIds,lostIds,firstIds)=>{let sum=0
 let mix=0
 for(const id of collected){sum=(sum+id)%2147483647
@@ -38390,7 +38568,7 @@ const firstIds=clubFirstIds(clubRows())
 const key=signature(parsed,collected,falseIds,lostIds,firstIds)
 if(cache!==null&&cache.key===key)return cache
 const sets=every.map((set)=>setState(set,parsed,collected,falseIds,lostIds,firstIds))
-cache={key,parsed,sets,categories:parsed.categories.map((category)=>({id:category.id,name:category.name,kind:category.kind,
+cache={key,parsed,sets,asks:asksOf(parsed,sets,collected),categories:parsed.categories.map((category)=>({id:category.id,name:category.name,kind:category.kind,
 leagueId:category.leagueId,sets:category.sets.length}))}
 return cache}
 const publicSet=(set)=>{const{paths,known,...rest}=set
@@ -38400,17 +38578,41 @@ for(const one of parsed?.tokenStore??[])if(best===null||one.tokens<best)best=one
 return best??PIGGY_DEFAULT}
 const scopeIds=(scope)=>{const{parsed,sets}=compute()
 if(!parsed)return null
-const collected=collectedSet()
-const out=[]
+return idsOfScope(sets,scope,collectedSet())}
+const idsOfScope=(sets,scope,collected,keepMax=false)=>{const out=[]
 const seen=new Set()
 for(const set of sets){if(scope!=='all'&&set.categoryId!==scope)continue
+if(set.maxGrade===true&&!keepMax)continue
 for(const defId of set.pool){if(seen.has(defId)||collected.has(defId))continue
 seen.add(defId)
 out.push(defId)}}
 return out}
+const asksOf=(parsed,sets,collected)=>{const byLeague={}
+const box=(cards)=>({cards,requests:Math.ceil(cards/CHECK_BATCH)})
+for(const category of parsed.categories)byLeague[category.id]=box(idsOfScope(sets,category.id,collected).length)
+return{byLeague,total:box(idsOfScope(sets,'all',collected).length)}}
+let sessionLog=null
+const logNow=()=>{let raw=null
+try{raw=typeof memory.checks==='function'?memory.checks():sessionLog}catch{raw=sessionLog}
+const log=readCheckLog(raw)
+const today=dayKeyOf(now())
+if(log.day!==today){log.day=today
+log.used=0}
+return log}
+const logWrite=(log)=>{// ВРЕМЯ НАБОРА СТАРШЕ СУТОК НЕ НУЖНО НИКОМУ: покой набора час.
+const edge=now()-24*60*60*1000
+for(const[id,at]of Object.entries(log.sets))if(at<edge)delete log.sets[id]
+try{if(typeof memory.putChecks==='function')memory.putChecks(log)
+else sessionLog=log}catch(err){sessionLog=log
+onError(err)}}
+const dayUsed=()=>logNow().used
+const setCheckedAt=(id)=>logNow().sets[id]??null
+const setStats={count:0,last:null}
 const scopesOf=(scope,parsed)=>(scope==='all'?['all',...parsed.categories.map((category)=>category.id)]:[scope])
 const wordOf=(reason)=>(STOP_WORDS.includes(reason)?reason:'refused')
-const run=async(scope,ids)=>{const batches=[]
+const run=async(scope,ids,opts={})=>{const batches=[]
+const setId=typeof opts.set==='string'?opts.set:null
+const lostBefore=setId===null?null:lost.ids()
 for(let i=0;i<ids.length;i+=CHECK_BATCH)batches.push(ids.slice(i,i+CHECK_BATCH))
 const total=batches.length
 const perStep=CHECK_PAUSE_MS+CHECK_JITTER_MS/2
@@ -38433,6 +38635,9 @@ if(typeof refusal==='string'){stopped=refusal
 stats.refusals.push({at:now(),word:refusal,batch:index})
 break}
 stats.requests+=1
+const log=logNow()
+log.used+=1
+logWrite(log)
 let answer
 try{answer=await door.ask(batches[index])}catch(err){answer={ok:false,reason:'network',error:String(err?.message??err)}}
 if(!answer||answer.ok!==true){const word=wordOf(answer?.reason)
@@ -38455,8 +38660,9 @@ checked.set(defId,mark)
 if(mark.collected===true)trues.push(defId)}
 if(trues.length>0)memory.add(trues)
 for(const defId of asked)unanswered.add(defId)
-if(index===batches.length-1&&!retried&&unanswered.size>0){retried=true
-const again=[...unanswered]
+const fresh=lostBefore===null?[...unanswered]:[...unanswered].filter((defId)=>!lostBefore.has(defId))
+if(index===batches.length-1&&!retried&&fresh.length>0){retried=true
+const again=fresh
 for(let i=0;i<again.length;i+=CHECK_BATCH)batches.push(again.slice(i,i+CHECK_BATCH))}
 checking={done:index+1,total:batches.length,eta:(batches.length-index-1)*perStep,scope}
 emit('check',{...checking})
@@ -38467,26 +38673,56 @@ const finished=!stopAsked&&stopped===null
 lost.remove(answered)
 if(finished&&unanswered.size>0)lost.add(unanswered)
 checking=null
-if(finished){checkedAt=now()
-const{parsed}=compute()
-for(const one of scopesOf(scope,parsed))cooldown.set(one,checkedAt+CHECK_COOLDOWN_MS)}
+if(finished){const at=now()
+const{parsed,sets}=compute()
+const log=logNow()
+if(setId!==null)log.sets[setId]=at
+else{checkedAt=at
+for(const one of scopesOf(scope,parsed))cooldown.set(one,at+CHECK_COOLDOWN_MS)
+for(const set of sets)if((scope==='all'||set.categoryId===scope)&&set.maxGrade!==true&&set.reason!=='any')log.sets[set.id]=at}
+logWrite(log)}
 emit('check',null)
 emit('state',api.state())
 return{ok:finished,reason:finished?null:(stopped??'stopped'),requests:stats.requests}}
+const checkSet=(scope)=>{const id=typeof scope.set==='string'?scope.set:String(scope.set??'')
+const auto=scope.auto===true
+const say=(reason,extra={})=>{if(reason!=='pending')setStats.last={id,requests:0,at:now(),reason:reason??'ok',auto}
+return Promise.resolve({ok:false,reason,...extra})}
+if(door===null||typeof door.ask!=='function')return say('no-door')
+const plan=api.setCheckPlan(id,{auto})
+if(plan.reason!==null)return say(plan.reason,plan.until!==undefined?{until:plan.until}:{})
+stopped=null
+stopAsked=false
+stats.checks+=1
+setStats.count+=1
+const before=stats.requests
+running=run(`set:${id}`,plan.ids,{set:id}).then((res)=>{const reason=res.ok?'ok':res.reason
+setStats.last={id,requests:stats.requests-before,at:now(),reason,auto}
+return{...res,requests:stats.requests-before}},(err)=>{onError(err)
+checking=null
+stopped='refused'
+emit('check',null)
+setStats.last={id,requests:stats.requests-before,at:now(),reason:'refused',auto}
+return{ok:false,reason:'refused'}}).finally(()=>{running=null})
+return running}
 const api={
 state(){watchMemory()
 if(!feeding&&catalog.feed?.due?.()===true){feeding=true
 catalog.feed.refresh().then(()=>{feeding=false
 emit('state',api.state())},(err)=>{feeding=false
 onError(err)})}
-const{parsed,sets,categories}=compute()
+const{parsed,sets,categories,asks}=compute()
 const list=sets.map(publicSet)
 const checks={}
 for(const[scope,until]of cooldown)checks[scope]={until,ready:now()>=until}
-return{catalog:{version:parsed?.version??null,sets:list.length},checkedAt,
+const log=logNow()
+const feedNow=parsed===null?catalog.feed?.state?.()??null:null
+const missing=feedNow!==null&&feedNow.failures>0?(typeof feedNow.lastReason==='string'?feedNow.lastReason:'network'):null
+return{catalog:{version:parsed?.version??null,sets:list.length,missing},checkedAt,
 checking:checking===null?null:{...checking},stopped,sets:list,
 piggy:(n)=>piggyOf(list,n),
-categories,piggyDefault:piggyDefault(parsed),checks,memory:memory.state(),pools:poolsOf(parsed)}},
+categories,piggyDefault:piggyDefault(parsed),checks,memory:memory.state(),pools:poolsOf(parsed),
+asks:asks??null,setChecks:{...log.sets},day:{used:log.used,cap:GALLERY_DAY_CAP}}},
 mark(defId){const id=positive(defId)
 if(id===null)return{collected:null,score:null}
 const mark=markOf(id)
@@ -38519,7 +38755,8 @@ if(added>0)emit('state',api.state())
 return added},
 tokens(){try{const value=door?.tokens?.()
 return Number.isFinite(value)?value:null}catch{return null}},
-check(scope='all'){if(running!==null)return Promise.resolve({ok:false,reason:'busy'})
+check(scope='all'){if(isPlain(scope))return checkSet(scope)
+if(running!==null)return Promise.resolve({ok:false,reason:'busy'})
 if(door===null||typeof door.ask!=='function')return Promise.resolve({ok:false,reason:'no-door'})
 const until=cooldown.get(scope)
 if(until!==undefined&&now()<until)return Promise.resolve({ok:false,reason:'cooldown',until})
@@ -38534,6 +38771,22 @@ stopped='refused'
 emit('check',null)
 return{ok:false,reason:'refused'}}).finally(()=>{running=null})
 return running},
+setCheckPlan(setId,opts={}){const{parsed,sets}=compute()
+if(!parsed)return{reason:'no-catalog'}
+const set=sets.find((one)=>one.id===setId)
+if(!set)return{reason:'no-set'}
+if(set.reason==='any')return{reason:'empty'}
+if(set.maxGrade===true)return{reason:'max-grade'}
+if(set.maxGrade===null&&opts.auto===true)return{reason:'pending'}
+if(opts.auto===true&&set.pool.length>SET_CHECK_MAX)return{reason:'big',requests:checkRequestsCap({cards:set.pool.length})}
+const at=setCheckedAt(set.id)
+if(at!==null&&now()<at+CHECK_COOLDOWN_MS)return{reason:'cooldown',until:at+CHECK_COOLDOWN_MS}
+if(running!==null)return{reason:'busy'}
+const collected=collectedSet()
+const ids=[]
+for(const defId of new Set(set.pool))if(!collected.has(defId))ids.push(defId)
+if(ids.length===0)return{reason:'nothing'}
+return{reason:null,ids,requests:checkRequestsCap({cards:ids.length})}},
 stop(){if(running===null)return false
 stopAsked=true
 stopped='user'
@@ -38547,7 +38800,7 @@ const set=sets.find((one)=>one.id===setId)
 if(!set)return[]
 const collected=new Set(set.collectedIds)
 const faces=parsed.face instanceof Map?parsed.face:null
-return set.pool.map((defId)=>{const price=prices.ready()?Number(prices.price(defId)):NaN
+return set.pool.map((defId)=>{const price=prices.ready()&&set.market!==false?Number(prices.price(defId)):NaN
 const card={defId,score:scoreOf(defId,parsed.scoreTable),price:Number.isFinite(price)&&price>0?price:null,
 collected:collected.has(defId)?true:markOf(defId)?.collected===false?false:null}
 const face=faces?.get(defId)
@@ -38560,7 +38813,29 @@ pauseFloor:CHECK_PAUSE_MS,refusals:stats.refusals.slice(-10),stopped,checking,ch
 memory:memory.state(),
 unansweredKept:{...lost.state(),ids:[...lost.ids()].sort((a,b)=>a-b).slice(0,500)},
 pools:poolsOf(catalog.current()),
+setChecks:{count:setStats.count,last:setStats.last===null?null:{...setStats.last},day:{used:dayUsed(),cap:GALLERY_DAY_CAP}},
+market:marketProbe(),
+maxed:maxedProbe(),
+asks:compute().asks??null,
 catalog:catalog.feed?.state?.()??{version:catalog.current()?.version??null}}}}
+function maxedProbe(){const{parsed,sets}=compute()
+if(!parsed)return null
+const list=sets.filter((set)=>set.maxGrade===true)
+const collected=collectedSet()
+const before=idsOfScope(sets,'all',collected,true).length
+const after=idsOfScope(sets,'all',collected).length
+return{sets:list.length,names:list.slice(0,40).map((set)=>set.name),cardsSaved:before-after,
+requestsBefore:checkRequestsCap({cards:before}),requestsAfter:checkRequestsCap({cards:after})}}
+function marketProbe(){const parsed=catalog.current()
+const out=[]
+for(const category of parsed?.categories??[])for(const set of category.sets){if(isAnySet(set))continue
+const said=marketOf(set,(id)=>prices.tradable(id))
+if(said.market&&!NOT_MARKET_RULE.test(String(set?.rule?.description??'')))continue
+let priced=0
+for(const id of set.pool){const raw=prices.ready()?prices.price(id):undefined
+if(Number.isFinite(raw)&&raw>0)priced+=1}
+out.push({id:set.id,name:set.name,pool:set.pool.length,market:said.market,tradable:{no:said.no,unknown:said.unknown,yes:said.yes},priced,rule:set?.rule?.description??null})}
+return out}
 try{door?.onTokens?.((value)=>emit('tokens',value))}catch(err){onError(err)}
 try{door?.attach?.(api)}catch(err){onError(err)}
 try{prices.onChange?.(()=>emit('state',api.state()))}catch(err){onError(err)}
@@ -39009,7 +39284,7 @@ return api}
 
 };
 // src/features/gallery-panel.js
-__ESB_g[194]=function*(){__ESB_d(__ESB_x[194],{createGalleryPanel:()=>createGalleryPanel});yield;const{el,clear,ensureTheme,ensureStylesheet,ensureSidebarStyles,logoLink,logoMark}=__ESB_x[68];const{galleryPill}=__ESB_x[81];const{ensureControls}=__ESB_x[69];const{clubRailButton,openClubHub}=__ESB_x[186];const{createGalleryItem,mountGalleryCard,galleryCardName,galleryRarityKnown,galleryCrestUri,galleryLeagueUri,galleryFace,watchGalleryShells}=__ESB_x[189];const{POSITION_ORDER}=__ESB_x[60];const{shortCoins}=__ESB_x[86];const{pressNode}=__ESB_x[134];const{STOP_REASON_KEYS}=__ESB_x[103];const{checkRequestsCap}=__ESB_x[191];const{modalBox,modalButtons}=__ESB_x[70];const{SHOWN_ROWS}=__ESB_x[193];const{settingsValue,setSettingsValue,SETTING_VALUES}=__ESB_x[5];
+__ESB_g[194]=function*(){__ESB_d(__ESB_x[194],{createGalleryPanel:()=>createGalleryPanel});yield;const{el,clear,ensureTheme,ensureStylesheet,ensureSidebarStyles,logoLink,logoMark}=__ESB_x[68];const{galleryPill}=__ESB_x[81];const{ensureControls}=__ESB_x[69];const{clubRailButton,openClubHub}=__ESB_x[186];const{createGalleryItem,mountGalleryCard,galleryCardName,galleryRarityKnown,galleryCrestUri,galleryLeagueUri,galleryFace,watchGalleryShells}=__ESB_x[189];const{POSITION_ORDER}=__ESB_x[60];const{shortCoins}=__ESB_x[86];const{pressNode}=__ESB_x[134];const{STOP_REASON_KEYS}=__ESB_x[103];const{checkRequestsCap,SET_CHECK_MAX}=__ESB_x[191];const{modalBox,modalButtons}=__ESB_x[70];const{SHOWN_ROWS}=__ESB_x[193];const{settingsValue,setSettingsValue,SETTING_VALUES}=__ESB_x[5];
 ;
 ;
 ;
@@ -39024,7 +39299,7 @@ __ESB_g[194]=function*(){__ESB_d(__ESB_x[194],{createGalleryPanel:()=>createGall
 ;
 ;
 const GALLERY_FEATURE='gallery'
-const GALLERY_BUILD='GALLERYPANEL-1'
+const GALLERY_BUILD='GALLERY-SET-CHECK-1e'
 const GALLERY_OPEN_KEY='futGalleryOpen'
 const GALLERY_OPEN_MARK='data-fut-gallery-open'
 const GALLERY_RAIL_KEY='futGalleryRail'
@@ -39037,6 +39312,13 @@ const CHIP_KEY='futGalleryChip'
 const TAB_KEY='futGalleryTab'
 const CARD_KEY='futGalleryCard'
 const CHECK_KEY='futGalleryCheck'
+const ORDER_KEY='futGalleryOrder'
+const INTRO_KEY='futGalleryIntro'
+const PIGGY_KEY='futGalleryPiggy'
+const STEP_KEY='futGalleryStep'
+const PATH_ROW_KEY='futGalleryPathRow'
+const SET_CHECK_KEY='futGallerySetCheck'
+const SET_CHECK_DELAY_MS=600
 const GALLERY_STYLESHEET="eshario-asset:ui/gallery.css"
 const GALLERY_LINK_ID='fut-companion-gallery'
 const HUB_ROOT='.ut-club-hub-view'
@@ -39047,38 +39329,52 @@ const RAIL_ORDER_MS=1000
 const PIGGY_DEFAULT=300
 const CHECK_REST_MS=60*60*1000
 const BOTTOM_AIR=0.04
+const SETTLE_MS=Object.freeze([400,1500])
 const MIN_HEIGHT=320
 const SORT_DEFAULT=Object.freeze({key:'tokenPrice',dir:1})
-const FIRST_DIR=Object.freeze({name:1,league:1,got:-1,grade:-1,goal:1,tokenPrice:1,tokens:-1})
+const FIRST_DIR=Object.freeze({name:1,tokenPrice:1,goalLetter:-1,missing:1,goal:1,reward:-1,got:-1,tokens:-1})
 const GRADE_RANK=Object.freeze({S:5,A:4,B:3,C:2,D:1})
 const COLUMNS=Object.freeze([
 ['name','gallery.col.set',null,'l'],
-['league','gallery.col.league',null,'l'],
-['got','gallery.col.got',null,''],
-['grade','gallery.col.grade',null,'c'],
-['goal','gallery.col.goal','gallery.col.goal.hint','l'],
 ['tokenPrice','gallery.col.tokenPrice','gallery.col.tokenPrice.hint','money'],
-['tokens','gallery.col.tokens',null,'']])
+['goalLetter','gallery.col.goal','gallery.col.goal.hint','c'],
+['missing','gallery.col.buy','gallery.col.buy.hint',''],
+['goal','gallery.col.cost','gallery.col.cost.hint','money'],
+['reward','gallery.col.reward','gallery.col.reward.hint','l'],
+['got','gallery.col.got','gallery.col.got.hint',''],
+['tokens','gallery.col.tokens','gallery.col.tokens.hint','']])
+const ORDER_BUTTONS=Object.freeze([
+Object.freeze({id:'value',key:'tokenPrice',dir:1,label:'gallery.order.value',hint:'gallery.order.value.hint',lead:'gallery.intro.lead.value'}),
+Object.freeze({id:'cheap',key:'goal',dir:1,label:'gallery.order.cheap',hint:'gallery.order.cheap.hint',lead:'gallery.intro.lead.cheap'}),
+Object.freeze({id:'few',key:'missing',dir:1,label:'gallery.order.few',hint:'gallery.order.few.hint',lead:'gallery.intro.lead.few'}),
+Object.freeze({id:'tokens',key:'reward',dir:-1,label:'gallery.order.tokens',hint:'gallery.order.tokens.hint',lead:'gallery.intro.lead.tokens'})])
+function orderButtonOf(sort){return ORDER_BUTTONS.find((one)=>one.key===sort?.key&&one.dir===sort?.dir)??null}
+function everChecked(state){if(Number.isFinite(state?.checkedAt))return true
+const checks=state?.checks
+return Boolean(checks&&typeof checks==='object'&&Object.keys(checks).length>0)}
+const INTRO_HIDDEN_KEY='eshario.galleryIntroHidden'
 const DIAMOND='◆'
 const CHECK_MARK='✓'
 const CROSS='×'
 const UNKNOWN='?'
-function sortValue(set,key,categoryName=(id)=>String(id??'')){switch(key){
+function sortValue(set,key){switch(key){
 case'name':return String(set?.name??'')
-case'league':return categoryName(set?.categoryId)
 case'got':return Number.isFinite(set?.collected)&&set?.cards>0?set.collected/set.cards:null
-case'grade':if(!known(set))return null
-return GRADE_RANK[set?.grade]??0
+case'goalLetter':return GRADE_RANK[set?.goal?.letter]??null
+case'missing':return Number.isFinite(set?.goal?.missing)?set.goal.missing:null
 case'goal':return Number.isFinite(set?.goal?.cost)?set.goal.cost:null
+case'reward':return Number.isFinite(set?.goal?.tokens)?set.goal.tokens:null
 case'tokenPrice':if(typeof set?.tokenPrice==='number'&&Number.isFinite(set.tokenPrice))return set.tokenPrice
 return set?.tokenPrice==='x'?Infinity:null
 case'tokens':return Number.isFinite(set?.tokensMax)?set.tokensMax:null
 default:return null}}
-function sortSets(sets,sort,categoryName){const key=sort?.key??SORT_DEFAULT.key
+function sortSets(sets,sort){const key=sort?.key??SORT_DEFAULT.key
 const dir=sort?.dir===-1?-1:1
 const byName=(a,b)=>String(a?.name??'').localeCompare(String(b?.name??''))
-return[...(sets??[])].sort((a,b)=>{const x=sortValue(a,key,categoryName)
-const y=sortValue(b,key,categoryName)
+return[...(sets??[])].sort((a,b)=>{const off=(a?.market===false?1:0)-(b?.market===false?1:0)
+if(off!==0)return off
+const x=sortValue(a,key)
+const y=sortValue(b,key)
 if(x===null&&y===null)return byName(a,b)
 if(x===null)return 1
 if(y===null)return-1
@@ -39111,6 +39407,20 @@ if(resting||all)return{phase:'after',checkedAt:Number.isFinite(state.checkedAt)?
 if(Number.isFinite(state.checkedAt)&&all){const until=state.checkedAt+CHECK_REST_MS
 return{phase:'after',checkedAt:state.checkedAt,until,resting:!state.checks&&at<until}}
 return{phase:'before'}}
+function dayCapped(state){const day=state?.day
+return Number.isSafeInteger(day?.used)&&Number.isSafeInteger(day?.cap)&&day.used>=day.cap}
+function setCheckOf(set,state,at){const pool=Array.isArray(set?.pool)?set.pool:[]
+const stamp=state?.setChecks?.[set?.id]
+const checkedAt=Number.isFinite(stamp)?stamp:null
+const until=checkedAt===null?null:checkedAt+CHECK_REST_MS
+const resting=until!==null&&at<until
+const capped=dayCapped(state)
+const maxed=set?.maxGrade===true
+const any=set?.reason==='any'||pool.length===0
+const word=maxed?'maxed':checkedAt!==null?'checked':any?null:known(set)?null:'club'
+const left=Math.max(0,new Set(pool).size-(Array.isArray(set?.collectedIds)?set.collectedIds.length:0))
+const big=!maxed&&!any&&pool.length>SET_CHECK_MAX
+return{word,checkedAt,until,resting,capped,big,requests:big?checkRequestsCap({cards:left}):null}}
 const STOP_WORDS=Object.freeze({captcha:['gallery.stop.captcha','automation.stop.captcha'],'429':['gallery.stop.429','automation.stop.throttled'],
 '401':['gallery.stop.401',null],fatal:['gallery.stop.fatal','automation.stop.fatal'],network:['gallery.stop.network',null],
 'requests-off':['gallery.stop.off',null],user:['gallery.stop.user',null]})
@@ -39153,7 +39463,10 @@ const watchShells=typeof deps.watchShells==='function'?deps.watchShells:(listene
 const buyerOf=typeof deps.buyer==='function'?deps.buyer:()=>deps.buyer??null
 const readValue=typeof deps.value==='function'?deps.value:settingsValue
 const writeValue=typeof deps.setValue==='function'?deps.setValue:setSettingsValue
-const view={open:false,chip:'all',query:'',sort:{...SORT_DEFAULT},selected:null,picked:false,tab:'missing',want:null}
+const introStore=deps.introStore&&typeof deps.introStore==='object'?deps.introStore:{
+get:()=>{try{return win?.localStorage?.getItem?.(INTRO_HIDDEN_KEY)==='1'}catch{return false}},
+set:()=>{try{win?.localStorage?.setItem?.(INTRO_HIDDEN_KEY,'1')}catch{}}}
+const view={open:false,chip:'all',query:'',sort:{...SORT_DEFAULT},selected:null,picked:false,tab:'missing',want:null,introHidden:null,piggyOnly:false,path:{set:null,letter:null}}
 const counts={passes:0,renders:0,opens:0,closes:0,locked:0,railPress:0,nativeClose:0,hubMiss:0,cardsMounted:0,cardsFailed:0,cardRows:0,engineErrors:0}
 let rail=null
 let railPainted=null
@@ -39170,6 +39483,13 @@ let queued=false
 let observer=null
 let listening=false
 let restTimer=null
+let autoTimer=null
+let autoFor=null
+let autoDone=null
+let autoSeen=null
+let autoFollowUsed=false
+let columnTimer=null
+let settleTimers=[]
 let pressing=false
 let lastHeight=null
 let cardsSignature=null
@@ -39280,13 +39600,24 @@ root.insertBefore(panel,grid)}
 bindEngine()
 if(dirty)render()
 if(lastHeight===null){fit()
-try{win?.requestAnimationFrame?.(()=>fit())}catch{}}}
-function closePanel(){if(panel!==null){disposeFaces()
+try{win?.requestAnimationFrame?.(()=>fit())}catch{}
+settle()}}
+function settle(){clearSettle()
+if(typeof win?.setTimeout!=='function')return
+for(const ms of SETTLE_MS){try{settleTimers.push(win.setTimeout(()=>fit(),ms))}catch{}}}
+function clearSettle(){for(const id of settleTimers){try{win?.clearTimeout?.(id)}catch{}}
+settleTimers=[]}
+function closePanel(){clearAuto()
+autoDone=null
+autoSeen=null
+autoFollowUsed=false
+if(panel!==null){disposeFaces()
 try{panel.remove()}catch{}
 panel=null
 parts=null
 cardsSignature=null
 lastHeight=null}
+clearSettle()
 unbindEngine()
 unmarkHub()}
 function unmarkHub(){if(hub!==null){try{delete hub.dataset[GALLERY_OPEN_KEY]}catch{}}
@@ -39296,9 +39627,11 @@ function clearAll(){view.open=false
 closePanel()
 dropRail()}
 function build(){const chips=el(doc,'span',{class:'fx-gallery-chips'})
-const search=el(doc,'input',{class:'fx-search fx-gallery-search',attrs:{type:'search',placeholder:t('gallery.search'),'aria-label':t('gallery.search')},
+const search=el(doc,'input',{class:'fx-search fx-gallery-search',attrs:{type:'search',placeholder:t('gallery.search'),'aria-label':t('gallery.search'),title:t('gallery.search.hint')},
 on:{input:(event)=>{view.query=String(event?.target?.value??'')
+autoFollowUsed=false
 render()}}})
+const find=el(doc,'span',{class:'fx-gallery-find'},[el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--lens'}),search])
 const want=el(doc,'input',{class:'limit inline fx-gallery-want',attrs:{type:'text',inputmode:'numeric',maxlength:'5','aria-label':t('gallery.plan.want')},
 on:{input:(event)=>{const typed=String(event?.target?.value??'').replace(/\D+/g,'')
 view.want=typed===''?null:Number(typed)
@@ -39308,18 +39641,14 @@ const plan=el(doc,'span',{class:'fx-gallery-plan',attrs:{title:t('gallery.plan.h
 el(doc,'span',{text:t('gallery.plan.want')}),el(doc,'span',{class:'fx-gallery-acc',text:DIAMOND}),want,
 el(doc,'span',{text:t('gallery.plan.tokens')}),planText])
 const check=el(doc,'span',{class:'fx-gallery-check',dataset:{[CHECK_KEY]:'1'}})
-const close=el(doc,'button',{class:'fx-action fx-action-square fx-gallery-close',text:'✕',attrs:{type:'button',title:t('gallery.close'),'aria-label':t('gallery.close')},
-on:{click:(event)=>{event?.preventDefault?.()
-event?.stopPropagation?.()
-view.open=false
-counts.closes+=1
-pass()}}})
-const tools=el(doc,'span',{class:'fx-gallery-tools'},[plan,check,close])
-const head=el(doc,'div',{class:'fx-gallery-head'},[logoLink(doc),chips,search,tools])
+const head=el(doc,'div',{class:'fx-gallery-head'},[logoLink(doc),chips,el(doc,'span',{class:'fx-gallery-air'}),find])
+const order=el(doc,'span',{class:'fx-gallery-order'})
+const tools=el(doc,'span',{class:'fx-gallery-tools'},[plan,check])
+const head2=el(doc,'div',{class:'fx-gallery-head fx-gallery-head2'},[order,tools])
 const list=el(doc,'div',{class:'fx-gallery-list'})
 const column=el(doc,'div',{class:'fx-gallery-set'})
-panel=el(doc,'section',{class:'fx-gallery',dataset:{[GALLERY_PANEL_KEY]:'1',[GALLERY_BUILD_KEY]:GALLERY_BUILD}},[head,el(doc,'div',{class:'fx-gallery-body'},[list,column])])
-parts={chips,search,want,planText,check,list,column,cards:null}}
+panel=el(doc,'section',{class:'fx-gallery',dataset:{[GALLERY_PANEL_KEY]:'1',[GALLERY_BUILD_KEY]:GALLERY_BUILD}},[head,head2,el(doc,'div',{class:'fx-gallery-body'},[list,column])])
+parts={chips,search,want,planText,check,order,list,column,cards:null}}
 function bindEngine(){const engine=safe(engineOf)
 if(engine===boundEngine)return
 unbindEngine()
@@ -39353,20 +39682,92 @@ const state=stateNow()
 const sets=Array.isArray(state?.sets)?state.sets:[]
 const cats=categoriesOf(state,sets)
 if(view.chip!=='all'&&!cats.some((one)=>one.id===view.chip))view.chip='all'
-const nameOfCategory=(id)=>cats.find((one)=>one.id===id)?.name??String(id??'')
 const scoped=view.chip==='all'?sets:sets.filter((one)=>one.categoryId===view.chip)
 const query=view.query.trim().toLowerCase()
-const shown=sortSets(query===''?scoped:scoped.filter((one)=>String(one?.name??'').toLowerCase().includes(query)),view.sort,nameOfCategory)
-const follow=!view.picked&&!(state?.checking&&typeof state.checking==='object')
-if(follow||!shown.some((one)=>one.id===view.selected))view.selected=shown[0]?.id??null
+const sorted=sortSets(query===''?scoped:scoped.filter((one)=>String(one?.name??'').toLowerCase().includes(query)),view.sort)
 const want=wantOf(state)
 const piggyFn=typeof state?.piggy==='function'?state.piggy:(typeof boundEngine?.piggy==='function'?boundEngine.piggy.bind(boundEngine):null)
 const piggy=piggyFn?safe(()=>piggyFn(want)):null
+const members=piggyMembers(piggy,sets)
+if(view.piggyOnly&&(!piggy||piggy.short===true||members.size===0))view.piggyOnly=false
+const shown=view.piggyOnly?sorted.filter((one)=>members.has(one?.id)):sorted
+const follow=!view.picked&&!(state?.checking&&typeof state.checking==='object')
+if(follow||!shown.some((one)=>one.id===view.selected))view.selected=shown[0]?.id??null
+const intro=introShown(state,scoped)
 paintChips(cats,sets.length)
+paintOrder()
 paintPlan(state,want,piggy)
-paintCheck(state,scoped)
-paintList(state,shown,cats,piggyMembers(piggy,sets))
-paintColumn(sets.find((one)=>one.id===view.selected)??null,cats)}
+paintCheck(state,scoped,intro)
+paintList(state,shown,cats,members,intro?introStrip(state,scoped):null,view.piggyOnly?piggyTotal(piggy,want):null,view.piggyOnly?null:cutTag(piggy,want))
+const open=sets.find((one)=>one.id===view.selected)??null
+paintColumn(open,cats,state)
+autoCheck(open,follow)}
+function autoCheck(set,follow){if(!set||!boundEngine||typeof boundEngine.check!=='function')return
+if(autoSeen!==set.id){autoSeen=set.id
+autoDone=null}
+if(autoDone===set.id)return
+if(follow&&autoFollowUsed)return
+if(autoTimer!==null&&autoFor===set.id)return
+clearAuto()
+if(typeof win?.setTimeout!=='function')return
+autoFor=set.id
+try{autoTimer=win.setTimeout(()=>{autoTimer=null
+fireAuto(set.id,follow)},SET_CHECK_DELAY_MS)}catch{autoTimer=null}}
+function fireAuto(id,follow){if(panel===null||!view.open||view.selected!==id||statusNow()!=='active')return
+const engine=boundEngine
+if(!engine||typeof engine.check!=='function')return
+autoDone=id
+if(follow)autoFollowUsed=true
+counts.setChecks=(counts.setChecks??0)+1
+const said=safe(()=>engine.check({set:id,auto:true}))
+Promise.resolve(said).then((res)=>{if(res?.reason!=='pending')return
+if(autoDone===id)autoDone=null
+if(follow)autoFollowUsed=false},onError)}
+function clearAuto(){if(autoTimer!==null){try{win?.clearTimeout?.(autoTimer)}catch{}}
+autoTimer=null
+autoFor=null
+if(columnTimer!==null){try{win?.clearTimeout?.(columnTimer)}catch{}}
+columnTimer=null}
+function introShown(state,scoped){if(!state||!boundEngine)return false
+if(view.introHidden===null)view.introHidden=safe(()=>introStore.get(),false)===true
+if(view.introHidden||everChecked(state))return false
+const scope=view.chip==='all'?'all':view.chip
+return checkPhase(state,scoped,now(),scope).phase==='before'}
+function paintOrder(){const box=parts.order
+const on=orderButtonOf(view.sort)?.id??''
+const signature=`${on}|${t('gallery.order.label')}`
+if(box.dataset.painted===signature)return
+box.dataset.painted=signature
+clear(box)
+box.appendChild(el(doc,'span',{class:'fx-gallery-dim',text:t('gallery.order.label')}))
+for(const one of ORDER_BUTTONS){box.appendChild(el(doc,'button',{class:one.id===on?'fx-action on':'fx-action',text:t(one.label),
+attrs:{type:'button',title:t(one.hint)},dataset:{[ORDER_KEY]:one.id},
+on:{click:(event)=>{event?.preventDefault?.()
+view.picked=true
+view.sort={key:one.key,dir:one.dir}
+render()}}}))}}
+function introStrip(state,scoped){const scope=view.chip==='all'?'all':view.chip
+const requests=requestsOf(state,scope)
+const lead=orderButtonOf(view.sort)?.lead??null
+const hint=scope==='all'
+?(requests!==null?t('gallery.check.all.hint',{n:requests}):t('gallery.check.all.hint.plain'))
+:(requests!==null?t('gallery.check.league.hint',{n:requests}):t('gallery.check.league.hint.plain'))
+const engine=boundEngine
+return el(doc,'div',{class:'fx-gallery-intro',dataset:{[INTRO_KEY]:'1'}},[el(doc,'i',{class:'fx-gallery-intro-i',text:'i'}),
+el(doc,'span',{class:'fx-gallery-intro-text'},[...(lead?[el(doc,'b',{text:t(lead)})]:[]),
+el(doc,'span',{class:'fx-gallery-intro-long',text:t('gallery.intro.grey')}),el(doc,'span',{class:'fx-gallery-intro-short',text:t('gallery.intro.grey.short')})]),
+el(doc,'span',{class:'fx-gallery-air'}),
+...(requests!==null?[el(doc,'span',{class:'fx-gallery-dim fx-gallery-intro-n',text:t('gallery.intro.requests',{n:requests})})]:[]),
+el(doc,'button',{class:'fx-action fx-gallery-check-button fx-gallery-buy-go',text:scope==='all'?t('gallery.check.all'):t('gallery.check.league'),
+attrs:{type:'button',title:hint},dataset:{[INTRO_KEY]:'check'},on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+safe(()=>engine?.check?.(scope))}}}),
+el(doc,'button',{class:'fx-action fx-action-square fx-gallery-intro-x',text:CROSS,attrs:{type:'button',title:t('gallery.intro.hide'),'aria-label':t('gallery.intro.hide')},dataset:{[INTRO_KEY]:'hide'},
+on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+view.introHidden=true
+safe(()=>introStore.set())
+render()}}})])}
 function schedule(){if(queued||disposed)return
 queued=true
 Promise.resolve().then(()=>{queued=false
@@ -39390,6 +39791,7 @@ clear(box)
 const chip=(id,name,count)=>el(doc,'button',{class:view.chip===id?'fx-action on':'fx-action',attrs:{type:'button'},dataset:{[CHIP_KEY]:String(id)},
 on:{click:(event)=>{event?.preventDefault?.()
 view.chip=id
+autoFollowUsed=false
 render()}}},[el(doc,'span',{text:name}),el(doc,'span',{class:'fx-gallery-n',text:String(count)})])
 box.appendChild(chip('all',t('gallery.all'),total))
 for(const one of cats)box.appendChild(chip(one.id,one.name,one.count))}
@@ -39400,22 +39802,44 @@ const box=parts.planText
 clear(box)
 if(!piggy){box.appendChild(el(doc,'b',{class:'fx-gallery-muted',text:UNKNOWN}))
 return}
-const bold=(text,cls)=>el(doc,'b',{class:cls,text})
-const dim=(text)=>el(doc,'span',{class:'fx-gallery-dim',text})
-if(piggy.short===true){box.appendChild(bold(t('gallery.plan.short'),'fx-gallery-muted'))
+if(piggy.short===true){box.appendChild(el(doc,'b',{class:'fx-gallery-muted',text:t('gallery.plan.short')}))
 return}
-box.appendChild(bold(shortCoins(piggy.coins)??UNKNOWN,'fx-gallery-gold'))
-box.appendChild(dim(t('gallery.plan.loss')))
-box.appendChild(bold(shortCoins(piggy.loss)??'0','fx-gallery-gold'))
-box.appendChild(dim('·'))
-box.appendChild(bold(String(piggy.sets??UNKNOWN),''))
-box.appendChild(dim(plural('gallery.plan.sets',piggy.sets)))
-box.appendChild(bold(String(piggy.cards??UNKNOWN),''))
-box.appendChild(dim(plural('gallery.plan.cards',piggy.cards)))}
-function paintCheck(state,scoped){const box=parts.check
+const sets=Number.isSafeInteger(piggy.sets)?piggy.sets:null
+const cards=Number.isSafeInteger(piggy.cards)?piggy.cards:null
+box.appendChild(el(doc,'button',{class:view.piggyOnly?'fx-action on fx-gallery-piggy':'fx-action fx-gallery-piggy',attrs:{type:'button',title:t('gallery.piggy.show.hint')},dataset:{[PIGGY_KEY]:'show'},
+on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+view.piggyOnly=!view.piggyOnly
+render()}}},[el(doc,'span',{text:t('gallery.piggy.show',{sets:sets??UNKNOWN,setsWord:plural('gallery.piggy.sets',sets??0)})}),
+el(doc,'span',{text:plural('gallery.cards.for',cards??0,{n:cards??UNKNOWN})}),el(doc,'b',{class:'fx-gallery-gold',text:shortCoins(piggy.coins)??UNKNOWN})]))}
+function piggyTotal(piggy,want){const sets=Number.isSafeInteger(piggy?.sets)?piggy.sets:0
+const cards=Number.isSafeInteger(piggy?.cards)?piggy.cards:0
+const part=(kids,attrs={})=>el(doc,'span',{class:'fx-gallery-total-part',attrs},kids)
+const bold=(text,cls='')=>el(doc,'b',{class:cls,text})
+const words=(text)=>el(doc,'span',{text})
+return el(doc,'div',{class:'fx-gallery-total',dataset:{[PIGGY_KEY]:'total'}},[
+el(doc,'span',{class:'fx-gallery-acc',text:`${DIAMOND}${plural('gallery.reward.tokens',want,{n:want})}:`}),
+part([bold(String(sets)),words(` ${plural('gallery.piggy.sets',sets)}`)]),
+part([words(`${t('gallery.piggy.buy')} `),bold(plural('gallery.piggy.cards',cards,{n:cards}))]),
+part([words(`${t('gallery.piggy.cost')} `),bold(shortCoins(piggy?.coins)??UNKNOWN,'fx-gallery-gold')]),
+part([words(`${t('gallery.piggy.loss')} `),bold(shortCoins(piggy?.loss)??'0','fx-gallery-gold')],{title:t('gallery.piggy.loss.hint')}),
+el(doc,'span',{class:'fx-gallery-air'}),
+el(doc,'button',{class:'fx-action',text:t('gallery.piggy.all'),attrs:{type:'button'},dataset:{[PIGGY_KEY]:'all'},
+on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+view.piggyOnly=false
+render()}}})])}
+function cutTag(piggy,want){const sets=Number.isSafeInteger(piggy?.sets)?piggy.sets:0
+return el(doc,'span',{class:'fx-gallery-cut-tag',text:t('gallery.piggy.cut',{sets,setsWord:plural('gallery.piggy.sets',sets),give:plural('gallery.piggy.give',sets),
+tokens:plural('gallery.reward.tokens',want,{n:want}),coins:shortCoins(piggy?.coins)??UNKNOWN})})}
+function paintCheck(state,scoped,intro=false){const box=parts.check
 const scope=view.chip==='all'?'all':view.chip
+if(intro){if(box.dataset.painted!=='intro'){box.dataset.painted='intro'
+clear(box)}
+return}
 const phase=checkPhase(state,scoped,now(),scope)
-const signature=JSON.stringify({phase,scope,has:Boolean(boundEngine),requests:requestsOf(state,scope)})
+const capped=dayCapped(state)
+const signature=JSON.stringify({phase,scope,has:Boolean(boundEngine),requests:requestsOf(state,scope),capped})
 if(box.dataset.painted===signature)return
 box.dataset.painted=signature
 clear(box)
@@ -39440,8 +39864,10 @@ box.appendChild(el(doc,'span',{class:'fx-gallery-check-line'},[el(doc,'b',{text:
 ...(phase.eta!==null?[el(doc,'span',{text:t('gallery.check.eta',{s:Math.max(1,Math.round(phase.eta/1000))})})]:[])]))
 box.appendChild(ask(t('gallery.check.stop'),t('gallery.check.stop.hint'),()=>engine?.stop?.()))
 return}
+if(capped)box.appendChild(el(doc,'span',{class:'fx-gallery-check-line fx-gallery-warn',text:t('gallery.check.dayCap'),dataset:{[SET_CHECK_KEY]:'capped'},
+attrs:{title:t('gallery.check.dayCap.hint',{n:state.day.used,cap:state.day.cap})}}))
 if(phase.phase==='stopped'){const[line,full]=STOP_WORDS[phase.reason]??STOP_OTHER
-const said=full?t(full):(STOP_REASON_KEYS[phase.reason]?t(STOP_REASON_KEYS[phase.reason]):null)
+const said=full?t(full,{n:state?.day?.used??''}):(STOP_REASON_KEYS[phase.reason]?t(STOP_REASON_KEYS[phase.reason]):null)
 box.appendChild(el(doc,'span',{class:phase.reason==='user'?'fx-gallery-check-line':'fx-gallery-check-line fx-gallery-warn',text:t(line),attrs:said?{title:said}:{}}))
 box.appendChild(ask(again,hint,checkNow,Boolean(engine)))
 return}
@@ -39452,76 +39878,92 @@ box.dataset.painted=''
 dirty=true
 schedule()},Math.max(1000,phase.until-now()+500))}catch{restTimer=null}}
 return}
-box.appendChild(el(doc,'span',{class:'fx-gallery-check-line fx-gallery-dim',text:t('gallery.check.club'),attrs:{title:t('gallery.club.hint')}}))
 box.appendChild(ask(scope==='all'?t('gallery.check.all'):t('gallery.check.league'),hint,checkNow,Boolean(engine)&&phase.phase!=='none'))}
-function requestsOf(state,scope){const pools=state?.pools??state?.catalog?.pools??null
+function requestsOf(state,scope){// ЧИСЛО ПОСЛЕ ВЫЧЕТА (GALLERY-SET-CHECK-1 §2 п.2): засчитанное и наборы на
+const asks=state?.asks??null
+const own=scope==='all'?asks?.total:asks?.byLeague?.[scope]
+if(own)return checkRequestsCap(own)
+const pools=state?.pools??state?.catalog?.pools??null
 const box=scope==='all'?pools?.total:pools?.byLeague?.[scope]
 return checkRequestsCap(box)}
-function paintList(state,shown,cats,members){const box=parts.list
+function paintList(state,shown,cats,members,strip=null,total=null,tag=null){const box=parts.list
 clear(box)
 if(!state){box.appendChild(el(doc,'div',{class:'fx-gallery-empty',text:t('gallery.empty')}))
 return}
-const withLeague=view.chip==='all'
-const columns=COLUMNS.filter(([key])=>key!=='league'||withLeague)
-const head=el(doc,'tr',{},columns.map(([key,label,hint,align])=>{const sorted=view.sort.key===key
+if(strip)box.appendChild(strip)
+if(total)box.appendChild(total)
+const cols=el(doc,'colgroup',{},[el(doc,'col',{class:'fx-gallery-col-crest'}),...COLUMNS.map(([key])=>el(doc,'col',{class:`fx-gallery-col-${key}`}))])
+const head=el(doc,'tr',{},COLUMNS.map(([key,label,hint,align])=>{const sorted=view.sort.key===key
 const classes=[`fx-gallery-th-${key}`,align==='money'?'fx-gallery-money':align,sorted?'fx-gallery-sorted':'',hint?'fx-gallery-hint':''].filter(Boolean).join(' ')
 return el(doc,'th',{class:classes,attrs:{...(hint?{title:t(hint)}:{}),colspan:key==='name'?'2':'1'},dataset:{[SORT_KEY]:key},
 on:{click:(event)=>{event?.preventDefault?.()
 sortBy(key)}}},[el(doc,'span',{text:t(label)}),...(sorted?[el(doc,'span',{class:'fx-gallery-arrow',text:view.sort.dir>0?'▲':'▼'})]:[])])}))
-const cut=cutRowId(shown,members,view.sort)
+const cut=total?null:cutRowId(shown,members,view.sort)
 const body=el(doc,'tbody')
-for(const set of shown)body.appendChild(row(set,cats,withLeague,set.id===cut))
-if(shown.length===0)body.appendChild(el(doc,'tr',{},[el(doc,'td',{class:'fx-gallery-empty',attrs:{colspan:String(columns.length+1)},text:t('gallery.nothing')})]))
-box.appendChild(el(doc,'table',{class:'fx-gallery-table'},[el(doc,'thead',{},[head]),body]))}
+for(const set of shown)body.appendChild(row(set,cats,set.id===cut,set.id===cut?tag:null))
+const emptyWord=state.catalog?.version==null&&state.catalog?.missing?t('gallery.catalogMissing'):t('gallery.nothing')
+if(shown.length===0)body.appendChild(el(doc,'tr',{},[el(doc,'td',{class:'fx-gallery-empty',attrs:{colspan:String(COLUMNS.length+1)},text:emptyWord})]))
+box.appendChild(el(doc,'table',{class:'fx-gallery-table'},[cols,el(doc,'thead',{},[head]),body]))}
 function sortBy(key){view.picked=true
 if(view.sort.key===key)view.sort={key,dir:-view.sort.dir}
 else view.sort={key,dir:FIRST_DIR[key]??1}
 render()}
-function row(set,cats,withLeague,cut){const classes=['fx-gallery-row']
+function row(set,cats,cut,tag=null){const classes=['fx-gallery-row']
 if(set.id===view.selected)classes.push('fx-gallery-row--sel')
 if(cut)classes.push('fx-gallery-cut')
-const cells=[crestCell(set?.crest?.clubId,'fx-gallery-crest'),el(doc,'td',{class:'l fx-gallery-name',text:String(set?.name??'')})]
-if(withLeague)cells.push(leagueCell(cats.find((one)=>one.id===set.categoryId)??null))
-cells.push(gotCell(set),gradeCell(set),goalCell(set),tokenPriceCell(set),tokensCell(set))
+const category=cats.find((one)=>one.id===set?.categoryId)?.name??null
+const name=String(set?.name??'')
+const money=set?.market===false?[el(doc,'td',{class:'l fx-gallery-muted fx-gallery-offmarket',text:t('gallery.market.no'),attrs:{colspan:'5',title:t('gallery.market.note')}})]
+:[tokenPriceCell(set),...goalCells(set)]
+const cells=[crestCell(set?.crest?.clubId,'fx-gallery-crest'),el(doc,'td',{class:'l fx-gallery-name',text:name,attrs:{title:category?`${name} · ${category}`:name}}),
+...money,gotCell(set),tokensCell(set)]
+if(tag){const last=cells.at(-1)
+last.className=`${last.className??''} fx-gallery-cut-cell`.trim()
+last.appendChild(tag)}
 return el(doc,'tr',{class:classes.join(' '),dataset:{[ROW_KEY]:String(set.id)},
 on:{click:(event)=>{event?.preventDefault?.()
+const was=view.picked
 view.picked=true
-if(view.selected===set.id)return
+if(view.selected===set.id){if(!was)render()
+return}
 view.selected=set.id
 render()}}},cells)}
 function crestCell(clubId,cls){const uri=Number.isSafeInteger(clubId)?safe(()=>crestOf(clubId)):null
-return el(doc,'td',{class:`${cls}-cell`},uri?[el(doc,'img',{class:cls,attrs:{src:uri,alt:''}})]:[])}
-function leagueCell(cat){const uri=cat?.leagueId?safe(()=>leagueOf(cat.leagueId)):null
-return el(doc,'td',{class:'l fx-gallery-league-cell'},[el(doc,'span',{class:'fx-gallery-league'},[...(uri?[el(doc,'img',{class:'fx-gallery-league-ico',attrs:{src:uri,alt:''}})]:[]),el(doc,'span',{text:cat?.name??''})])])}
+return el(doc,'td',{class:`${cls}-cell`},uri?[el(doc,'img',{class:cls,attrs:{src:uri,alt:''}})]:[el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--frame fx-gallery-crest-none'})])}
 const muted=()=>el(doc,'span',{class:'fx-gallery-muted',text:UNKNOWN})
 function gotCell(set){const cards=Number.isSafeInteger(set?.cards)?set.cards:null
-if(!Number.isFinite(set?.collected)){return el(doc,'td',{},[el(doc,'span',{class:'fx-gallery-got'},[muted(),el(doc,'span',{class:'fx-gallery-muted',text:` / ${cards??UNKNOWN}`}),el(doc,'span',{class:'fx-gallery-bar'})])])}
+const slash=()=>el(doc,'span',{class:'fx-gallery-slash',text:'/'})
+const denom=(cls)=>el(doc,'span',{class:`fx-gallery-den ${cls}`,text:String(cards??UNKNOWN)})
+if(!Number.isFinite(set?.collected)){return el(doc,'td',{},[el(doc,'span',{class:'fx-gallery-got'},[muted(),slash(),denom('fx-gallery-muted'),el(doc,'span',{class:'fx-gallery-bar'}),gradeSlot(set)])])}
 const club=!known(set)
 const pct=cards>0?Math.min(100,Math.round(100*set.collected/cards)):0
 return el(doc,'td',{},[el(doc,'span',{class:club?'fx-gallery-got fx-gallery-got--club':'fx-gallery-got'},[
 el(doc,'span',{class:club?'fx-gallery-club':'fx-gallery-count',text:String(set.collected),attrs:club?{title:t('gallery.club.hint')}:{}}),
-el(doc,'span',{class:'fx-gallery-dim',text:` / ${cards??UNKNOWN}`}),
-el(doc,'span',{class:'fx-gallery-bar'},[el(doc,'i',{attrs:{style:`width:${pct}%`}})])])])}
-function gradeCell(set){if(!known(set))return el(doc,'td',{class:'c'},[muted()])
-if(typeof set?.grade==='string'&&set.grade!=='')return el(doc,'td',{class:'c'},[letter(set.grade,'ok')])
-return el(doc,'td',{class:'c'},[el(doc,'span',{class:'fx-gallery-dim fx-gallery-hint',text:t('gallery.grade.none'),attrs:{title:t('gallery.grade.none.hint')}})])}
+slash(),denom('fx-gallery-dim'),
+el(doc,'span',{class:'fx-gallery-bar'},[el(doc,'i',{attrs:{style:`width:${pct}%`}})]),gradeSlot(set)])])}
+function gradeSlot(set){const kids=[]
+if(known(set)){if(typeof set?.grade==='string'&&set.grade!=='')kids.push(letter(set.grade,'ok'))
+else kids.push(el(doc,'span',{class:'fx-gallery-dim fx-gallery-hint',text:t('gallery.grade.none'),attrs:{title:t('gallery.grade.none.hint')}}))}
+return el(doc,'span',{class:'fx-gallery-grade'},kids)}
 function letter(text,kind){return el(doc,'span',{class:`fx-gallery-lt${kind?` fx-gallery-lt--${kind}`:''}`,text})}
-function reward(goal){if(Number.isFinite(goal?.tokens)&&goal.tokens>0)return el(doc,'span',{class:'fx-gallery-rwd fx-gallery-acc',text:`${DIAMOND}${goal.tokens}`})
+function reward(goal){if(Number.isFinite(goal?.tokens)&&goal.tokens>0)return el(doc,'span',{class:'fx-gallery-rwd fx-gallery-acc'},[el(doc,'span',{text:DIAMOND}),el(doc,'span',{text:String(goal.tokens)})])
 if(goal?.badge)return el(doc,'span',{class:'fx-gallery-rwd fx-gallery-dim',attrs:{title:t('gallery.reward.badge')}},[el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--badge'})])
 if(goal?.kit)return el(doc,'span',{class:'fx-gallery-rwd fx-gallery-dim',attrs:{title:t('gallery.reward.kit')}},[el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--kit'})])
 return el(doc,'span',{class:'fx-gallery-rwd'})}
-function goalCell(set){const goal=set?.goal
-if(!goal)return el(doc,'td',{class:'l'},[muted()])
-return el(doc,'td',{class:'l'},[el(doc,'span',{class:'fx-gallery-goal'},[letter(String(goal.letter??''),'can'),
-el(doc,'span',{},[el(doc,'span',{text:`${plural('gallery.cards.for',goal.missing,{n:goal.missing??UNKNOWN})} `}),el(doc,'b',{class:'fx-gallery-gold',text:shortCoins(goal.cost)??UNKNOWN})]),reward(goal)])])}
+function goalCells(set){const goal=set?.goal
+if(!goal)return[el(doc,'td',{class:'c'},[muted()]),el(doc,'td',{},[muted()]),el(doc,'td',{},[muted()]),el(doc,'td',{class:'l'})]
+return[el(doc,'td',{class:'c'},[letter(String(goal.letter??''),'can')]),
+el(doc,'td',{class:'fx-gallery-buy-n',text:String(goal.missing??UNKNOWN)}),
+el(doc,'td',{class:'fx-gallery-gold'},[el(doc,'b',{text:shortCoins(goal.cost)??UNKNOWN})]),
+el(doc,'td',{class:'l'},[reward(goal)])]}
 function tokenPriceCell(set){const price=set?.tokenPrice
 if(typeof price==='number'&&Number.isFinite(price)){const tip=set?.goal?plural('gallery.tokenPrice.cell',set.goal.tokens,{cost:shortCoins(set.goal.cost)??UNKNOWN,n:set.goal.tokens??UNKNOWN}):null
-return el(doc,'td',{class:'fx-gallery-gold',attrs:tip?{title:tip}:{}},[el(doc,'b',{text:shortCoins(price)??UNKNOWN})])}
-if(price==='x')return el(doc,'td',{},[el(doc,'span',{class:'fx-gallery-muted',text:CROSS,attrs:{title:t('gallery.tokenPrice.x')}})])
-return el(doc,'td',{},[muted()])}
-function tokensCell(set){if(!Number.isFinite(set?.tokensNow))return el(doc,'td',{},[muted(),el(doc,'span',{class:'fx-gallery-dim',text:` / ${set?.tokensMax??UNKNOWN}`})])
-return el(doc,'td',{},[el(doc,'span',{class:'fx-gallery-acc',text:String(set.tokensNow)}),el(doc,'span',{class:'fx-gallery-dim',text:` / ${set?.tokensMax??UNKNOWN}`})])}
-function paintColumn(set,cats){const box=parts.column
+return el(doc,'td',{class:'fx-gallery-gold fx-gallery-price',attrs:tip?{title:tip}:{}},[el(doc,'b',{text:shortCoins(price)??UNKNOWN})])}
+if(price==='x')return el(doc,'td',{class:'fx-gallery-price'},[el(doc,'span',{class:'fx-gallery-muted',text:CROSS,attrs:{title:t('gallery.tokenPrice.x')}})])
+return el(doc,'td',{class:'fx-gallery-price'},[muted()])}
+function tokensCell(set){const now=Number.isFinite(set?.tokensNow)?el(doc,'span',{class:'fx-gallery-acc',text:String(set.tokensNow)}):muted()
+return el(doc,'td',{},[el(doc,'span',{class:'fx-gallery-tok'},[now,el(doc,'span',{class:'fx-gallery-slash',text:'/'}),el(doc,'span',{class:'fx-gallery-den fx-gallery-dim',text:String(set?.tokensMax??UNKNOWN)})])])}
+function paintColumn(set,cats,state=null){const box=parts.column
 if(!set){disposeFaces()
 cardsSignature=null
 clear(box)
@@ -39529,7 +39971,10 @@ parts.cards=null
 parts.pathHost=null
 box.dataset.painted=''
 return}
-const signature=JSON.stringify({id:set.id,src:set.collectedSource,c:set.collected,p:set.points,fo:set.firstOwner??null,g:set.grades,tab:view.tab,cards:cardsOf(set).length,lang:t('gallery.tab.all')})
+const pick=pathLetterOf(set)
+const check=setCheckOf(set,state,now())
+const busy=Boolean(state?.checking&&typeof state.checking==='object')
+const signature=JSON.stringify({id:set.id,src:set.collectedSource,c:set.collected,p:set.points,fo:set.firstOwner??null,g:set.grades,tab:view.tab,pick,cards:cardsOf(set).length,lang:t('gallery.tab.all'),check,busy})
 if(box.dataset.painted===signature&&parts.cards!==null){paintPath(set)
 paintCards(set)
 return}
@@ -39537,28 +39982,49 @@ box.dataset.painted=signature
 disposeFaces()
 cardsSignature=null
 clear(box)
-box.appendChild(columnHead(set))
+box.appendChild(columnHead(set,check,busy))
 box.appendChild(ladder(set))
 parts.pathHost=el(doc,'div',{class:'fx-gallery-path-host'})
 parts.pathSignature=null
 box.appendChild(parts.pathHost)
 paintPath(set)
 const list=cardsOf(set)
-box.appendChild(tabs(list))
+box.appendChild(tabs(list,set))
 parts.cards=el(doc,'div',{class:'fx-gallery-cards'})
 box.appendChild(parts.cards)
 paintCards(set)}
-function columnHead(set){const uri=Number.isSafeInteger(set?.crest?.clubId)?safe(()=>crestOf(set.crest.clubId)):null
+function columnHead(set,check=null,busy=false){const uri=Number.isSafeInteger(set?.crest?.clubId)?safe(()=>crestOf(set.crest.clubId)):null
 const need=[]
 if(Number.isFinite(set?.collected)){const club=!known(set)
 need.push(el(doc,'b',{class:club?'fx-gallery-club':'',text:String(set.collected),attrs:club?{title:t('gallery.club.hint')}:{}}),el(doc,'span',{text:` / ${set.cards} · `}))}
 if(Number.isFinite(set?.points))need.push(el(doc,'b',{text:formatNumber(set.points)}),el(doc,'span',{text:` ${plural('gallery.set.points',set.points)} · `}))
+const said=checkWord(check)
+if(said)need.push(said,el(doc,'span',{text:' · '}))
 const first=set?.firstOwner
 if(Number.isSafeInteger(first?.cards)&&first.cards>0)need.push(el(doc,'span',{class:'fx-gallery-first',text:`${plural('gallery.set.first',first.cards,{n:first.cards,bonus:Number.isFinite(first.bonus)?first.bonus:0})} · `}))
 const missing=(set?.grades??[]).map((one)=>one?.missing).find((one)=>Number.isFinite(one))
 if(Number.isFinite(missing)&&missing>0)need.push(el(doc,'span',{text:`${t('gallery.set.need')} `}),el(doc,'b',{text:plural('gallery.set.needCards',missing,{n:missing})}))
 return el(doc,'div',{class:'fx-gallery-set-head'},[...(uri?[el(doc,'img',{class:'fx-gallery-set-crest',attrs:{src:uri,alt:''}})]:[]),
-el(doc,'span',{class:'fx-gallery-set-name',text:String(set?.name??'')}),el(doc,'span',{class:'fx-gallery-need'},need)])}
+el(doc,'span',{class:'fx-gallery-set-name',text:String(set?.name??'')}),el(doc,'span',{class:'fx-gallery-need'},need),
+...(check?.big?[bigCheck(set,check,busy)]:[])])}
+function checkWord(check){switch(check?.word){
+case'maxed':return el(doc,'span',{class:'fx-gallery-dim fx-gallery-hint',text:t('gallery.set.maxed'),attrs:{title:t('gallery.set.maxed.hint')},dataset:{[SET_CHECK_KEY]:'maxed'}})
+case'checked':return el(doc,'span',{class:'fx-gallery-dim',text:t('gallery.set.checked',{time:clockOf(check.checkedAt)}),attrs:{title:t('gallery.set.checked.hint')},dataset:{[SET_CHECK_KEY]:'checked'}})
+case'club':return el(doc,'span',{class:'fx-gallery-club',text:t('gallery.set.byClub'),attrs:{title:t('gallery.set.byClub.hint')},dataset:{[SET_CHECK_KEY]:'club'}})
+default:return null}}
+function bigCheck(set,check,busy){const enabled=Boolean(boundEngine)&&!busy&&!check.resting
+const title=check.resting?t('gallery.check.again.rest',{time:clockOf(check.until)}):t('gallery.set.check.hint',{n:check.requests??UNKNOWN})
+if(check.resting&&columnTimer===null&&typeof win?.setTimeout==='function'){try{columnTimer=win.setTimeout(()=>{columnTimer=null
+if(parts?.column)parts.column.dataset.painted=''
+dirty=true
+schedule()},Math.max(1000,check.until-now()+500))}catch{columnTimer=null}}
+const engine=boundEngine
+return el(doc,'button',{class:'fx-action fx-gallery-check-button fx-gallery-set-check',text:plural('gallery.set.check',check.requests??0,{n:check.requests??UNKNOWN}),
+attrs:{type:'button',title,...(enabled?{}:{'aria-disabled':'true'})},dataset:{[SET_CHECK_KEY]:'big'},
+on:{click:(event)=>{event?.preventDefault?.()
+event?.stopPropagation?.()
+if(!enabled)return
+safe(()=>engine?.check?.({set:set.id}))}}})}
 function rewardWords(rewards){const out=[]
 if(Number.isFinite(rewards?.tokens)&&rewards.tokens>0)out.push(el(doc,'span',{text:plural('gallery.reward.tokens',rewards.tokens,{n:rewards.tokens})}))
 if(rewards?.badge)out.push(el(doc,'i',{class:'fx-gallery-ico fx-gallery-ico--badge'}),el(doc,'span',{text:t('gallery.reward.badge')}))
@@ -39571,8 +40037,34 @@ const threshold=Number.isFinite(grade?.threshold)?formatNumber(grade.threshold):
 const kids=[el(doc,'div',{class:'fx-gallery-step-top'},[letter(String(grade?.letter??''),kind),el(doc,'span',{class:'fx-gallery-step-th',text:index===0?t('gallery.ladder.fromPoints',{n:threshold}):t('gallery.ladder.from',{n:threshold})})]),
 el(doc,'div',{class:'fx-gallery-step-rw'},rewardWords(grade?.rewards))]
 if(grade?.reachable===false&&!reached)kids.push(el(doc,'span',{class:'fx-gallery-step-no fx-gallery-muted',text:t('gallery.ladder.no')}))
+const mark=String(grade?.letter??'')
+if(pickable(set,grade)){const on=pathLetterOf(set)===mark
+if(on)kids[0].appendChild(el(doc,'span',{class:'fx-gallery-step-seen',text:t('gallery.path.seen')}))
+return el(doc,'div',{class:on?'fx-gallery-step fx-gallery-step--pick fx-gallery-step--on':'fx-gallery-step fx-gallery-step--pick',attrs:{title:t('gallery.path.pick')},dataset:{[STEP_KEY]:mark},
+on:{click:(event)=>{event?.preventDefault?.()
+pickPath(set,mark)}}},kids)}
 return el(doc,'div',{class:grade?.reachable===false&&!reached?'fx-gallery-step fx-gallery-step--no':'fx-gallery-step'},kids)})
 return el(doc,'div',{class:'fx-gallery-ladder'},steps)}
+function pickable(set,grade){return set?.market!==false&&grade?.reachable===true&&grade?.reached!==true&&Boolean(safe(buyerOf))}
+function pathLetterOf(set){if(!set)return null
+if(view.path.set!==set.id){const goal=String(set?.goal?.letter??'')
+const grade=(set?.grades??[]).find((one)=>String(one?.letter??'')===goal)
+view.path={set:set.id,letter:grade&&pickable(set,grade)?goal:null}}
+const grade=(set?.grades??[]).find((one)=>String(one?.letter??'')===view.path.letter)
+return grade&&pickable(set,grade)?view.path.letter:null}
+function pickPath(set,mark){if(view.path.set===set?.id&&view.path.letter===mark)return
+view.path={set:set?.id??null,letter:mark}
+view.tab='missing'
+render()}
+function pathCards(set,mark){const buyer=safe(buyerOf)
+const draw=buyer?.plan
+if(!buyer||!mark||typeof draw!=='function')return null
+const plan=safe(()=>draw.call(buyer,set.id,mark,'buy'))
+const priced=(Array.isArray(plan?.rows)?plan.rows:[]).filter((one)=>Number.isSafeInteger(one?.defId)).sort((a,b)=>a.price-b.price||a.defId-b.defId)
+const priceless=(Array.isArray(plan?.priceless)?plan.priceless:[]).filter((one)=>Number.isSafeInteger(one?.defId))
+const ids=[...priced.map((one)=>one.defId),...priceless.map((one)=>one.defId)]
+if(ids.length===0)return null
+return{ids,sum:Number.isFinite(plan?.from)?plan.from:null,priceless:priceless.length}}
 function pathBlock(set){const buyer=safe(buyerOf)
 const live=buyer?safe(()=>buyer.live?.()):null
 const rows=[]
@@ -39581,7 +40073,12 @@ const result=buyer?safe(()=>buyer.resultOf?.(set.id,mark)):null
 const open=grade?.reachable===true&&grade?.reached!==true
 const going=live!==null&&live?.setId===set?.id&&live?.letter===mark
 if(!open&&!going&&!(result&&grade?.reached===true))continue
-rows.push(buyer?buyRow(set,grade,buyer,live,result,open):plainRow(grade))}
+const line=buyer?buyRow(set,grade,buyer,live,result,open):plainRow(grade)
+if(open&&pickable(set,grade)){line.dataset[PATH_ROW_KEY]=mark
+if(pathLetterOf(set)===mark)line.className=`${line.className} fx-gallery-path-row--on`
+line.addEventListener?.('click',(event)=>{event?.preventDefault?.()
+pickPath(set,mark)})}
+rows.push(line)}
 if(rows.length===0)return null
 if(!buyer)return el(doc,'div',{class:'fx-gallery-path',attrs:{title:t('gallery.path.hint')}},rows)
 return el(doc,'div',{class:'fx-gallery-path fx-gallery-path--buy',attrs:{title:t('gallery.path.hint')}},[gearButton(),...rows])}
@@ -39668,10 +40165,12 @@ openGear()}}})}
 function paintPath(set){const host=parts?.pathHost
 if(!host)return
 const buyer=safe(buyerOf)
-const signature=JSON.stringify({id:set?.id,g:set?.grades,b:buyer?safe(()=>buyer.signature?.()):null,s:statusNow(),r:sellRule(),lang:t('gallery.buy.buy')})
+const signature=JSON.stringify({id:set?.id,g:set?.grades,m:set?.market,b:buyer?safe(()=>buyer.signature?.()):null,s:statusNow(),r:sellRule(),pick:pathLetterOf(set),lang:t('gallery.buy.buy')})
 if(parts.pathSignature===signature)return
 parts.pathSignature=signature
 clear(host)
+if(set?.market===false){host.appendChild(el(doc,'div',{class:'fx-gallery-offmarket-note fx-gallery-muted',text:t('gallery.market.note')}))
+return}
 const block=pathBlock(set)
 if(block)host.appendChild(block)}
 async function startFlow(setId,mark,mode,opts={}){const buyer=safe(buyerOf)
@@ -39790,14 +40289,19 @@ el(doc,'div',{class:'fx-gallery-gear-modes'},modes),dirRow,valueRow,now]),
 modalButtons(doc,[{text:t('gallery.buy.close'),mark:'futGalleryGearDone',on:closeGear}])])
 ;(doc.body??doc.documentElement)?.appendChild?.(gearWindow)
 paint()}
-function tabs(list){const count=(tab)=>list.filter((card)=>inTab(card,tab)).length
-const tab=(id,label)=>el(doc,'button',{class:view.tab===id?'fx-action on':'fx-action',attrs:{type:'button'},dataset:{[TAB_KEY]:id},
+function tabs(list,set){const count=(tab)=>list.filter((card)=>inTab(card,tab)).length
+const path=pathOn(set)
+const lit=path?'missing':view.tab
+const tab=(id,label)=>el(doc,'button',{class:lit===id?'fx-action on':'fx-action',attrs:{type:'button'},dataset:{[TAB_KEY]:id},
 on:{click:(event)=>{event?.preventDefault?.()
-if(view.tab===id)return
+if(view.tab===id&&!pathOn(set))return
 view.tab=id
+if(set)view.path={set:set.id,letter:null}
 render()}}},[el(doc,'span',{text:t(label)}),el(doc,'span',{class:'fx-gallery-n',text:String(count(id))})])
 return el(doc,'div',{class:'fx-gallery-tabs'},[tab('all','gallery.tab.all'),tab('missing','gallery.tab.missing'),tab('collected','gallery.tab.collected'),
-el(doc,'span',{class:'fx-gallery-air'}),el(doc,'span',{class:'fx-gallery-dim fx-gallery-cap',text:t('gallery.tab.order')})])}
+el(doc,'span',{class:'fx-gallery-air'}),el(doc,'span',{class:'fx-gallery-dim fx-gallery-cap',text:t(path?'gallery.tab.order.cheap':'gallery.tab.order')})])}
+function pathOn(set){const mark=pathLetterOf(set)
+return mark!==null&&pathCards(set,mark)!==null}
 function inTab(card,tab){if(tab==='missing')return card?.collected!==true
 if(tab==='collected')return card?.collected===true
 return true}
@@ -39806,19 +40310,44 @@ if(!set||typeof engine?.cards!=='function')return[]
 const list=safe(()=>engine.cards(set.id),[])
 if(!Array.isArray(list))return[]
 return list.map((card)=>{const said=typeof engine.mark==='function'?safe(()=>engine.mark(card?.defId)):null
-return{defId:card?.defId,price:Number.isFinite(card?.price)?card.price:null,
+return{defId:card?.defId,price:Number.isFinite(card?.price)&&set.market!==false?card.price:null,offMarket:set.market===false,
 score:Number.isFinite(said?.score)?said.score:(Number.isFinite(card?.score)?card.score:null),
 collected:typeof said?.collected==='boolean'?said.collected:card?.collected===true,
 face:galleryFace(card?.face)}}).filter((card)=>Number.isSafeInteger(card.defId))}
 function paintCards(set){const grid=parts.cards
 if(!grid)return
+const mark=pathLetterOf(set)
+const path=mark?pathCards(set,mark):null
+if(path){paintPathCards(set,grid,mark,path)
+return}
 const shown=cardsOf(set).filter((card)=>inTab(card,view.tab)).sort((a,b)=>(b.score??-1)-(a.score??-1)||a.defId-b.defId)
-const signature=`${set.id}|${view.tab}|${shown.map((card)=>`${card.defId}:${card.price}:${card.score}:${card.collected}:${card.face?1:0}`).join(',')}`
+const signature=`${set.id}|${set.market}|${view.tab}|${shown.map((card)=>`${card.defId}:${card.price}:${card.score}:${card.collected}:${card.face?1:0}`).join(',')}`
 if(cardsSignature===signature)return
 cardsSignature=signature
 disposeFaces()
 clear(grid)
 for(const card of shown)grid.appendChild(cardCell(card))
+watchFaces(grid)}
+function paintPathCards(set,grid,mark,path){const missing=cardsOf(set).filter((card)=>card.collected!==true)
+const byId=new Map(missing.map((card)=>[card.defId,card]))
+const inPath=path.ids.map((id)=>byId.get(id)).filter(Boolean)
+const rest=missing.filter((card)=>!path.ids.includes(card.defId)).sort((a,b)=>(a.price??Infinity)-(b.price??Infinity)||a.defId-b.defId)
+const signature=`${set.id}|path:${mark}|${path.ids.join(',')}|${path.sum}|${missing.map((card)=>`${card.defId}:${card.price}:${card.score}:${card.face?1:0}`).join(',')}`
+if(cardsSignature===signature)return
+cardsSignature=signature
+disposeFaces()
+clear(grid)
+const count=path.ids.length
+grid.appendChild(el(doc,'div',{class:'fx-gallery-path-sum',dataset:{[PATH_ROW_KEY]:`sum:${mark}`}},[el(doc,'span',{text:`${t('gallery.path.to',{letter:mark})} `}),
+el(doc,'span',{text:`${plural('gallery.cards.for',count,{n:count})} `}),el(doc,'b',{class:'fx-gallery-gold',text:path.priceless>0?UNKNOWN:(shortCoins(path.sum)??UNKNOWN)}),
+el(doc,'span',{class:'fx-gallery-dim',text:` · ${t('gallery.path.legend')}`})]))
+inPath.forEach((card,index)=>{const cell=cardCell(card)
+cell.className=`${cell.className} fx-gallery-card--path`
+cell.dataset.futGalleryPathN=String(index+1)
+grid.appendChild(cell)})
+for(const card of rest){const cell=cardCell(card)
+cell.className=`${cell.className} fx-gallery-card--rest`
+grid.appendChild(cell)}
 watchFaces(grid)}
 function cardCell(card){const base=safe(()=>cardOf(card.defId))
 const name=safe(()=>nameOf(card.defId))
@@ -39835,6 +40364,7 @@ const face=el(doc,'div',{class:card.face?'fx-gallery-face fx-gallery-face--stats
 face.__galleryCard={card,base}
 return el(doc,'div',{class:'fx-gallery-card',attrs:{title},dataset:{[CARD_KEY]:String(card.defId)},on:{click:stop,mousedown:stop,mouseup:stop}},[pill(card),face])}
 function pill(card){const half=card.collected===true?{kind:'check'}:(Number.isFinite(card.score)?{kind:'score',score:card.score}:null)
+if(card.offMarket===true)return galleryPill(doc,{t,priceText:CROSS,priceTitle:t('gallery.market.card'),half})
 return galleryPill(doc,{t,priceText:shortCoins(card.price)??UNKNOWN,priceTitle:t('gallery.pill.price'),half})}
 function onStub(hit){let key=null
 for(const[one,done]of faces){if(hit?.root&&done?.node===hit.root){key=one
@@ -39877,12 +40407,16 @@ seer=null}
 for(const done of faces.values()){try{done.dispose?.()}catch{}}
 faces.clear()}
 function fit(){if(panel===null||hub===null)return
-let top=null
-let frameTop=null
-try{top=panel.getBoundingClientRect?.()?.top??null}catch{top=null}
-try{frameTop=hub.getBoundingClientRect?.()?.top??null}catch{frameTop=null}
+let box=null
+let frame=null
+try{box=panel.getBoundingClientRect?.()??null}catch{box=null}
+try{frame=hub.getBoundingClientRect?.()??null}catch{frame=null}
+const top=box?.top??null
+const frameTop=frame?.top??null
 const height=win?.innerHeight
 if(!Number.isFinite(top)||!Number.isFinite(frameTop)||!Number.isFinite(height)||height<=0)return
+if(!(box?.width>0)||!(frame?.width>0))return
+if(!(frameTop>0))return
 const bottom=height-(height-frameTop)*BOTTOM_AIR
 const value=Math.max(MIN_HEIGHT,Math.round(bottom-top))
 if(value===lastHeight)return
@@ -39965,7 +40499,8 @@ if(panel!==null)render()},
 isOpen:()=>view.open&&panel!==null,
 why:()=>({status:statusNow(),clubFound:Boolean(safe(clubButton)),railMounted:rail!==null&&rail.isConnected!==false,
 observing:observer!==null,blocked:safe(blocked,false)===true,passes:counts.passes}),
-state:()=>({build:GALLERY_BUILD,open:view.open,mounted:panel!==null,chip:view.chip,query:view.query,sort:{...view.sort},selected:view.selected,tab:view.tab,want:view.want,
+state:()=>({build:GALLERY_BUILD,open:view.open,mounted:panel!==null,chip:view.chip,query:view.query,sort:{...view.sort},order:orderButtonOf(view.sort)?.id??null,
+intro:Boolean(panel?.querySelector?.('[data-fut-gallery-intro="1"]')),introHidden:view.introHidden===true,piggyOnly:view.piggyOnly,path:view.path.letter,selected:view.selected,tab:view.tab,want:view.want,
 faces:faces.size,nodes:panel?.querySelectorAll?.('*')?.length??0,height:lastHeight,counts:{...counts}})}
 return api}
 
@@ -53081,7 +53616,7 @@ return Number.isSafeInteger(n)&&n>0?n:null}
 
 };
 // src/features/card-base.js
-__ESB_g[251]=function*(){__ESB_d(__ESB_x[251],{baseDefinitions:()=>baseDefinitions,createCardBaseFeed:()=>createCardBaseFeed});yield;const{UNKNOWN,POS_NONE,POS_PRIMARY,POS_FULL}=__ESB_x[250];const{seasonFits}=__ESB_x[84];
+__ESB_g[251]=function*(){__ESB_d(__ESB_x[251],{baseDefinitions:()=>baseDefinitions,createCardBaseFeed:()=>createCardBaseFeed,withStaticCardBase:()=>withStaticCardBase});yield;const{UNKNOWN,POS_NONE,POS_PRIMARY,POS_FULL}=__ESB_x[250];const{seasonFits}=__ESB_x[84];
 ;
 ;
 const CARD_BASE_SCHEMA=1
@@ -53170,6 +53705,35 @@ if(clean.length===0)continue
 out[rarity]=clean.sort((a,b)=>a-b)
 any=true}
 return any?out:null}
+const CARD_BASE_STATIC_ORIGIN='https://files.eshario.com'
+function cardBaseStaticUrl(game,file){return `${CARD_BASE_STATIC_ORIGIN}/cards/${game}/${file}`}
+const STATIC_AFTER=new Set(['network','unreadable-body','empty-body','timeout','no-answer'])
+const STATIC_FILE_RE=/^[0-9a-f]{32}[.]json$/
+function withStaticCardBase(deps={}){const ask=deps.ask
+const fetchText=typeof deps.fetch==='function'?deps.fetch:null
+const onError=typeof deps.onError==='function'?deps.onError:()=>{}
+const get=async(url)=>{const answer=await fetchText(url)
+if(answer.status!==200)throw Object.assign(new Error(`card base static: HTTP ${answer.status}`),{reason:`http-${answer.status}`})
+return answer.body}
+return async(params)=>{let answer=null
+try{answer=await ask(params)}catch(err){onError(err)
+answer=null}
+const plain=answer!==null&&typeof answer==='object'
+if(plain&&answer.ok===true)return{...answer,source:'api'}
+const reason=plain&&typeof answer.reason==='string'?answer.reason:'no-answer'
+if(fetchText===null||!(STATIC_AFTER.has(reason)||/^http-5[0-9][0-9]$/.test(reason)&&reason!=='http-503'))return plain?{...answer,source:'api'}:answer
+const game=params?.game
+const state=plain?answer.state??null:null
+try{const latest=JSON.parse(await get(cardBaseStaticUrl(game,'latest.json')))
+const file=typeof latest?.file==='string'?latest.file:''
+const etag=typeof latest?.etag==='string'&&latest.etag!==''?latest.etag:null
+if(!STATIC_FILE_RE.test(file)||etag===null||latest.game!==game)throw Object.assign(new Error('card base static: latest.json не той формы'),{reason:'bad-latest'})
+if(params?.etag===etag)return{ok:true,status:304,fresh:true,source:'static',apiReason:reason,state}
+const url=cardBaseStaticUrl(game,file)
+const body=await get(url)
+if(body==='')throw Object.assign(new Error('card base static: пустое тело'),{reason:'empty-body'})
+return{ok:true,status:200,fresh:true,etag,body,source:'static',staticUrl:url,apiReason:reason,state}}catch(err){onError(err)
+return{...(plain?answer:{ok:false,status:0,reason}),source:'api',staticReason:err?.reason??'network'}}}}
 function createCardBaseFeed(deps={}){const ask=typeof deps.ask==='function'?deps.ask:null
 const seed=typeof deps.seed==='function'?deps.seed:null
 if(ask===null||seed===null)throw new Error('card-base: нужны ask и seed')
@@ -53183,7 +53747,7 @@ let seeded=null
 let loaded=false
 let asking=null
 const stats={asks:0,bodies:0,notModified:0,refused:0,seedMs:null,parseMs:null,askMs:null,
-askedAt:null,status:null,reason:null,why:null,worker:null}
+askedAt:null,status:null,reason:null,why:null,worker:null,source:null,staticReason:null}
 const remember=(value)=>{seeded=value
 if(storage===null)return
 try{const result=storage.write?.(value)
@@ -53204,6 +53768,8 @@ if(!answer||typeof answer!=='object'){stats.status=null
 stats.reason='no-answer'
 return{ok:false,reason:'no-answer'}}
 stats.status=Number.isSafeInteger(answer.status)?answer.status:null
+stats.source=typeof answer.source==='string'?answer.source:null
+stats.staticReason=typeof answer.staticReason==='string'?answer.staticReason:null
 stats.worker=answer.state&&typeof answer.state==='object'?answer.state:null
 if(answer.ok!==true){stats.reason=typeof answer.reason==='string'?answer.reason:'refused'
 return{ok:false,reason:stats.reason}}
@@ -53262,6 +53828,7 @@ state(){return{loaded,
 seeded:seeded===null?null:{...seeded},
 asks:stats.asks,bodies:stats.bodies,notModified:stats.notModified,refused:stats.refused,
 askedAt:stats.askedAt,why:stats.why,status:stats.status,reason:stats.reason,
+source:stats.source,staticReason:stats.staticReason,
 ms:{ask:stats.askMs,parse:stats.parseMs,seed:stats.seedMs},
 worker:stats.worker===null?null:{...stats.worker}}}}}
 function pick(index,row,name){const at=index[name]
@@ -58783,7 +59350,7 @@ return typeof version==='string'&&VERSION_RE.test(version)?version:null}
 
 };
 // src/page/page-entry.js
-__ESB_g[288]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{createBridgeProvider,READ_METHOD:SETTINGS_READ}=__ESB_x[7];const{createSettings,openDoorlessGates}=__ESB_x[5];const{createLicensing}=__ESB_x[8];const{createKeyProvider,createBridgeLicenseProvider}=__ESB_x[10];const{createAccountProvider,createMigrationProvider,ACCOUNT_OPEN}=__ESB_x[11];const{createI18n,chooseLocale,currentTimeZone}=__ESB_x[56];const{doors}=__ESB_x[57];const{createNavigation,appMain}=__ESB_x[58];const{createCriteria,createClubCriteria,createSbcStorageCriteria,createFiltersScreen,readUserCriteria}=__ESB_x[60];const{installMarketSearchQuick,tapSearchWire,widenMarketPage,marketSearchPageViews,marketPageSetting,WIDE_PAGE_LOTS}=__ESB_x[61];const{installItemEvents}=__ESB_x[63];const{createFilterStore,createBridgeFilterProvider}=__ESB_x[64];const{createBridgePackLockProvider,setPackLock,isPackLocked,isPackHidden,setPackHidden}=__ESB_x[65];const{createBridgeCardLockProvider,isCardLocked,setCardLock,sanitizeCardLocks,lockedIdsFor,cardLockRecreatedRows,noteCardsRecreated}=__ESB_x[66];const{createBridgeCardFrozenProvider,isCardFrozen,setCardFrozen,frozenIdsFor}=__ESB_x[67];const{createFrozenMarks}=__ESB_x[102];const{createDropdownSearch}=__ESB_x[135];const{previewPackAutomation,runPackAutomationStep,inspectPackAutomationOutcome,hydratePackAutomationOutcome,beginPackAutomationSession,recordPackAutomationSessionOutcome,previewPackAutomationOutcomeAction,runPackAutomationPickOutcome,runPackAutomationRecoveryOutcome,runPackAutomationDiscardOutcome,previewPackAutomationContinuation,runPackAutomationContinuation}=__ESB_x[138];const{setPlayerPickSelection,reviewPlayerPickSelection,runPickStep,pickPolicy}=__ESB_x[136];const{invalidateUnassignedRecovery,refreshUnassignedRecovery,setUnassignedDisposition,resetUnassignedDispositions,reviewUnassignedRecovery,runRecoveryStep,recoveryPolicy,previewUnassignedDiscard,runDiscardStep}=__ESB_x[137];const{applyFilter,saveCurrentFilter,renameFilter,removeFilter,exportFilters,importFilters}=__ESB_x[139];const{createAutomation,createBridgeLimitsProvider,createBridgeOptionsProvider}=__ESB_x[124];const{createSnipeKey}=__ESB_x[140];const{sanitizeOptionInput,parseOptions,AFTER_BUY_KEY,SEARCH_REFRESH_KEY,searchRefreshOf}=__ESB_x[120];const{createSellerControl,createBridgeSellerProvider}=__ESB_x[141];const{createJournal,createBridgeJournalProvider,BUYER,SELLER}=__ESB_x[142];const{journalText,JOURNAL_ROWS}=__ESB_x[143];const{createLedger,createBridgeLedgerProvider}=__ESB_x[144];const{ledgerText,ledgerCsv}=__ESB_x[145];const{createSounds}=__ESB_x[146];const{createSellSidebar}=__ESB_x[149];const{createCardLockMark}=__ESB_x[165];const{createLockBadges}=__ESB_x[166];const{createSquadBar}=__ESB_x[179];const{createSquadPick}=__ESB_x[180];const{createCardGrid,CARD_GRID_FEATURE,moneyScreenLive}=__ESB_x[183];const{createDealPanel}=__ESB_x[181];const{createClubBar}=__ESB_x[185];const{createGalleryPanel}=__ESB_x[194];const{createGalleryBuyer}=__ESB_x[193];const{galleryCardName}=__ESB_x[189];const{createGalleryEngine,createGalleryMemory,createGalleryCounter,createGalleryPriceBook,personaKeyOf,UNANSWERED_PREFIX}=__ESB_x[191];const{createGalleryCatalogFeed,galleryDoorStore,galleryDoorFetch}=__ESB_x[190];const{createGalleryDoor}=__ESB_x[196];const{setGalleryEngine,galleryEngine}=__ESB_x[82];const{createSbcStorage,moveStorageToClub}=__ESB_x[198];const{createTransfersHub}=__ESB_x[199];const{transferListScroll}=__ESB_x[99];const{itemForEvidenceRow}=__ESB_x[89];const{priceBadgeState,priceBadgeCoins,priceBadgePeek}=__ESB_x[86];const{createSbcWindow}=__ESB_x[175];const{createStoreGrid}=__ESB_x[206];const{createStoreCatalog}=__ESB_x[201];const{createPreviewMemory}=__ESB_x[207];const{createPackPeek}=__ESB_x[208];const{createPickPrices,PICK_BY_PRICE_FEATURE}=__ESB_x[209];const{createSbcTab}=__ESB_x[219];const{createSbcSet}=__ESB_x[220];const{rewardTextOf}=__ESB_x[176];const{createFutggSbc}=__ESB_x[221];const{createFrozenStore}=__ESB_x[174];const{createSbcStrip,withStrip}=__ESB_x[178];const{squadFieldSignature}=__ESB_x[116];const{createSbcWarm,BACKGROUND_TIME_MS}=__ESB_x[223];const{createSbcLadderWarm}=__ESB_x[222];const{createPackShow,sanitizeShowRating}=__ESB_x[210];const{goStoreHub,unassignedInCache}=__ESB_x[92];const{prepareChallenge,resolveClubPool,showPreparedOnPitch,searchBuyOnMarket,placeBoughtCard,planSlotsFor,twiceInPlan,mismatchInPlan,judgeSubmit,recreatedLockNotice,warmShieldStop,poolForSearch,searchableCards,SBC_FEATURE,solvePhases,columnTotal,pricesForClub,createPrepCache}=__ESB_x[164];const{createSubmitGuardHook}=__ESB_x[224];const{liveSubmitSnapshot,sbcIneligibleReason,cardResourceKey}=__ESB_x[117];const{readSbcStorageItems,ITEM_PILE}=__ESB_x[119];const{createClubMirror,readClubOnce,readVerdict,playersInStats,MIRROR_SHARDS,CLUB_SESSION_RESCUE_READS}=__ESB_x[118];const{createBootSplash}=__ESB_x[225];const{mergePool,laddersFrom,identityWantsFrom,createAgedMemo,valuationFrom,explainSolve,dumpSolve,clubWorth,liveClassesFrom,liveRatingsFrom,bucketsFrom,bucketsWanted,ladderLedger,ladderFromOf,IDENTITY_MEMO_KEEP,BLOB_SLICE_MS}=__ESB_x[160];const{createConceptItem,conceptSupport}=__ESB_x[148];const{createSlotSearchScreen,slotSearchSupport}=__ESB_x[226];const{arrangeByPositions}=__ESB_x[227];const{readTradeAccess}=__ESB_x[228];const{sayEaNotice}=__ESB_x[229];const{createPoolCache,createActiveSquadCache,PoolFeedError,poolHunger,poolPriceWatch,createPoolPriceEye}=__ESB_x[159];const{analyzeClubAction,valueNotice,cardLabel,CLUB_FEATURE,PRICE_FEATURE}=__ESB_x[162];const{defaultClubTableFilters,exportClubItemTableCsv}=__ESB_x[115];const{mountMarketResultSummary,showMarketDeals}=__ESB_x[182];const{createMarketBotBar}=__ESB_x[231];const{createSearchNames}=__ESB_x[232];const{readLiveMarketCriteria,playerEntryOf,marketResultsLive,SEARCH_SCREEN_ROOT,liveSearchButton,readMarketFilterCriteria,readLiveMarketDefaults,restoreLiveMarketCriteria,showSearchMinBid,restoreSearchMinBid,showSearchPair,restoreSearchPair,marketPriceControl}=__ESB_x[106];const{createMarketFilterMemory}=__ESB_x[217];const{mountItemCard}=__ESB_x[233];const{createPriceCache,createPriceLookup,createPriceFallback}=__ESB_x[83];const{createMarketPriceSource,marketCacheKey,criteriaForCard}=__ESB_x[234];const{createLivePrices,measureQueueFrom,lagReport}=__ESB_x[172];const{createMarketBudget,BUDGET_LIMIT}=__ESB_x[80];const{DEFAULT_SEARCH_BAND_MS,SAFE_PAUSE_FLOOR_MS,MIN_BID_FLOOR,MIN_BID_STEP,MIN_BID_TOP,BID_REFRESH_TOP,MIN_BUY_FLOOR,MIN_BUY_STEP,MIN_BUY_TOP,MIN_BUY_AIM_SHARE,PAIR_MIN_BID_TOP,pairRing}=__ESB_x[123];const{createDayBudget,withDayBudget,createHuntBudget,offMarket,meterCalls,isDayBudgetError,dayBudgetError,createBudgetOwner,stopOnEaLimit}=__ESB_x[98];const{createHeadBar,chipScale}=__ESB_x[216];const{createRivalsSource}=__ESB_x[213];const{headCountersLine}=__ESB_x[78];const{createAutoBuy,createBuyRate,createLotFinder,buyTargetOf,batchCeiling}=__ESB_x[171];const{createSession}=__ESB_x[107];const{createStopConditions}=__ESB_x[108];const{TAX_FEATURE}=__ESB_x[147];const{createUiState,createBridgeUiProvider,pickPreselectFromToggles,sanitizeHotkeyProfile}=__ESB_x[218];const{createCloudDesk}=__ESB_x[241];const{createSettingsTransfer,watchSettingsApplied}=__ESB_x[242];const{createProblemReport}=__ESB_x[243];const{SYNC_STORAGE_KEYS}=__ESB_x[235];const{setEaRequestPort,eaRequestState}=__ESB_x[90];const{createFutggSource,priceCacheKey,currentGame,isUntradableSource,MANIFEST_TTL_MS:FUTGG_MANIFEST_TTL_MS}=__ESB_x[85];const{seasonOf}=__ESB_x[84];const{createLadderService,createSolvePriceReader,LADDER_TTL_MS}=__ESB_x[158];const{createPriceTrap}=__ESB_x[244];const{createPriceQuarantine}=__ESB_x[245];const{createRarityGroups}=__ESB_x[246];const{createBridgeFetch,CARDS_METHOD,CARDS_TIMEOUT_MS}=__ESB_x[2];const{createSbc,createSquad}=__ESB_x[247];const{demandClasses}=__ESB_x[153];const{parseRequirements}=__ESB_x[150];const{createWorkAreaProbe}=__ESB_x[248];const{createAdapter,createPackAdapter,createClubMemory,createStorageMemory,searchTypeOf}=__ESB_x[95];const{createPersonaAdapter}=__ESB_x[212];const{createSessionEpoch,sessionSince,stopRunning,stopQueue}=__ESB_x[105];const{createWalletAdapter}=__ESB_x[195];const{squadRatingFloatEnabled}=__ESB_x[91];const{createTeamConfig}=__ESB_x[249];const{createStaticPlayers}=__ESB_x[173];const{createCardCatalog,createCardLane}=__ESB_x[250];const{createCardBaseFeed,baseDefinitions}=__ESB_x[251];const{createRarityGroupBook}=__ESB_x[252];const{createDemandMemory,unionClasses}=__ESB_x[157];const{installPurchaseLog,purchaseLogState,notePurchasedItem,notePaid}=__ESB_x[87];const{createHuntLoot}=__ESB_x[122];const{createClock}=__ESB_x[253];const{storageFailed}=__ESB_x[6];const{mountPanel,PANEL_BUILD}=__ESB_x[261];const{ourWindowOpen}=__ESB_x[70];const{FIRST_SECTION,DEEDS}=__ESB_x[256];const{HOTKEYS_FEATURE}=__ESB_x[170];const{publishTemplateMenu,pressNode,cardMatchProbe}=__ESB_x[134];const{wirePage}=__ESB_x[281];const{createBuyerDoor}=__ESB_x[282];const{createSettingsDoor}=__ESB_x[283];const{createLiveEvidenceRecorder,createPhaseLog,domEvidence,buildLiveEvidence}=__ESB_x[284];const{createBridgeLiveControlProvider,createLiveControlSession}=__ESB_x[285];const{createWaitNotice}=__ESB_x[286];const{askCodeVersion,CODE_LINE_BUILD}=__ESB_x[287];
+__ESB_g[288]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{createBridgeProvider,READ_METHOD:SETTINGS_READ}=__ESB_x[7];const{createSettings,openDoorlessGates}=__ESB_x[5];const{createLicensing}=__ESB_x[8];const{createKeyProvider,createBridgeLicenseProvider}=__ESB_x[10];const{createAccountProvider,createMigrationProvider,ACCOUNT_OPEN}=__ESB_x[11];const{createI18n,chooseLocale,currentTimeZone}=__ESB_x[56];const{doors}=__ESB_x[57];const{createNavigation,appMain}=__ESB_x[58];const{createCriteria,createClubCriteria,createSbcStorageCriteria,createFiltersScreen,readUserCriteria}=__ESB_x[60];const{installMarketSearchQuick,tapSearchWire,widenMarketPage,marketSearchPageViews,marketPageSetting,WIDE_PAGE_LOTS}=__ESB_x[61];const{installItemEvents}=__ESB_x[63];const{createFilterStore,createBridgeFilterProvider}=__ESB_x[64];const{createBridgePackLockProvider,setPackLock,isPackLocked,isPackHidden,setPackHidden}=__ESB_x[65];const{createBridgeCardLockProvider,isCardLocked,setCardLock,sanitizeCardLocks,lockedIdsFor,cardLockRecreatedRows,noteCardsRecreated}=__ESB_x[66];const{createBridgeCardFrozenProvider,isCardFrozen,setCardFrozen,frozenIdsFor}=__ESB_x[67];const{createFrozenMarks}=__ESB_x[102];const{createDropdownSearch}=__ESB_x[135];const{previewPackAutomation,runPackAutomationStep,inspectPackAutomationOutcome,hydratePackAutomationOutcome,beginPackAutomationSession,recordPackAutomationSessionOutcome,previewPackAutomationOutcomeAction,runPackAutomationPickOutcome,runPackAutomationRecoveryOutcome,runPackAutomationDiscardOutcome,previewPackAutomationContinuation,runPackAutomationContinuation}=__ESB_x[138];const{setPlayerPickSelection,reviewPlayerPickSelection,runPickStep,pickPolicy}=__ESB_x[136];const{invalidateUnassignedRecovery,refreshUnassignedRecovery,setUnassignedDisposition,resetUnassignedDispositions,reviewUnassignedRecovery,runRecoveryStep,recoveryPolicy,previewUnassignedDiscard,runDiscardStep}=__ESB_x[137];const{applyFilter,saveCurrentFilter,renameFilter,removeFilter,exportFilters,importFilters}=__ESB_x[139];const{createAutomation,createBridgeLimitsProvider,createBridgeOptionsProvider}=__ESB_x[124];const{createSnipeKey}=__ESB_x[140];const{sanitizeOptionInput,parseOptions,AFTER_BUY_KEY,SEARCH_REFRESH_KEY,searchRefreshOf}=__ESB_x[120];const{createSellerControl,createBridgeSellerProvider}=__ESB_x[141];const{createJournal,createBridgeJournalProvider,BUYER,SELLER}=__ESB_x[142];const{journalText,JOURNAL_ROWS}=__ESB_x[143];const{createLedger,createBridgeLedgerProvider}=__ESB_x[144];const{ledgerText,ledgerCsv}=__ESB_x[145];const{createSounds}=__ESB_x[146];const{createSellSidebar}=__ESB_x[149];const{createCardLockMark}=__ESB_x[165];const{createLockBadges}=__ESB_x[166];const{createSquadBar}=__ESB_x[179];const{createSquadPick}=__ESB_x[180];const{createCardGrid,CARD_GRID_FEATURE,moneyScreenLive}=__ESB_x[183];const{createDealPanel}=__ESB_x[181];const{createClubBar}=__ESB_x[185];const{createGalleryPanel}=__ESB_x[194];const{createGalleryBuyer}=__ESB_x[193];const{galleryCardName}=__ESB_x[189];const{createGalleryEngine,createGalleryMemory,createGalleryCounter,createGalleryPriceBook,personaKeyOf,UNANSWERED_PREFIX}=__ESB_x[191];const{createGalleryCatalogFeed,galleryDoorStore,galleryDoorFetch}=__ESB_x[190];const{createGalleryDoor}=__ESB_x[196];const{setGalleryEngine,galleryEngine}=__ESB_x[82];const{createSbcStorage,moveStorageToClub}=__ESB_x[198];const{createTransfersHub}=__ESB_x[199];const{transferListScroll}=__ESB_x[99];const{itemForEvidenceRow}=__ESB_x[89];const{priceBadgeState,priceBadgeCoins,priceBadgePeek}=__ESB_x[86];const{createSbcWindow}=__ESB_x[175];const{createStoreGrid}=__ESB_x[206];const{createStoreCatalog}=__ESB_x[201];const{createPreviewMemory}=__ESB_x[207];const{createPackPeek}=__ESB_x[208];const{createPickPrices,PICK_BY_PRICE_FEATURE}=__ESB_x[209];const{createSbcTab}=__ESB_x[219];const{createSbcSet}=__ESB_x[220];const{rewardTextOf}=__ESB_x[176];const{createFutggSbc}=__ESB_x[221];const{createFrozenStore}=__ESB_x[174];const{createSbcStrip,withStrip}=__ESB_x[178];const{squadFieldSignature}=__ESB_x[116];const{createSbcWarm,BACKGROUND_TIME_MS}=__ESB_x[223];const{createSbcLadderWarm}=__ESB_x[222];const{createPackShow,sanitizeShowRating}=__ESB_x[210];const{goStoreHub,unassignedInCache}=__ESB_x[92];const{prepareChallenge,resolveClubPool,showPreparedOnPitch,searchBuyOnMarket,placeBoughtCard,planSlotsFor,twiceInPlan,mismatchInPlan,judgeSubmit,recreatedLockNotice,warmShieldStop,poolForSearch,searchableCards,SBC_FEATURE,solvePhases,columnTotal,pricesForClub,createPrepCache}=__ESB_x[164];const{createSubmitGuardHook}=__ESB_x[224];const{liveSubmitSnapshot,sbcIneligibleReason,cardResourceKey}=__ESB_x[117];const{readSbcStorageItems,ITEM_PILE}=__ESB_x[119];const{createClubMirror,readClubOnce,readVerdict,playersInStats,MIRROR_SHARDS,CLUB_SESSION_RESCUE_READS}=__ESB_x[118];const{createBootSplash}=__ESB_x[225];const{mergePool,laddersFrom,identityWantsFrom,createAgedMemo,valuationFrom,explainSolve,dumpSolve,clubWorth,liveClassesFrom,liveRatingsFrom,bucketsFrom,bucketsWanted,ladderLedger,ladderFromOf,IDENTITY_MEMO_KEEP,BLOB_SLICE_MS}=__ESB_x[160];const{createConceptItem,conceptSupport}=__ESB_x[148];const{createSlotSearchScreen,slotSearchSupport}=__ESB_x[226];const{arrangeByPositions}=__ESB_x[227];const{readTradeAccess}=__ESB_x[228];const{sayEaNotice}=__ESB_x[229];const{createPoolCache,createActiveSquadCache,PoolFeedError,poolHunger,poolPriceWatch,createPoolPriceEye}=__ESB_x[159];const{analyzeClubAction,valueNotice,cardLabel,CLUB_FEATURE,PRICE_FEATURE}=__ESB_x[162];const{defaultClubTableFilters,exportClubItemTableCsv}=__ESB_x[115];const{mountMarketResultSummary,showMarketDeals}=__ESB_x[182];const{createMarketBotBar}=__ESB_x[231];const{createSearchNames}=__ESB_x[232];const{readLiveMarketCriteria,playerEntryOf,marketResultsLive,SEARCH_SCREEN_ROOT,liveSearchButton,readMarketFilterCriteria,readLiveMarketDefaults,restoreLiveMarketCriteria,showSearchMinBid,restoreSearchMinBid,showSearchPair,restoreSearchPair,marketPriceControl}=__ESB_x[106];const{createMarketFilterMemory}=__ESB_x[217];const{mountItemCard}=__ESB_x[233];const{createPriceCache,createPriceLookup,createPriceFallback}=__ESB_x[83];const{createMarketPriceSource,marketCacheKey,criteriaForCard}=__ESB_x[234];const{createLivePrices,measureQueueFrom,lagReport}=__ESB_x[172];const{createMarketBudget,BUDGET_LIMIT}=__ESB_x[80];const{DEFAULT_SEARCH_BAND_MS,SAFE_PAUSE_FLOOR_MS,MIN_BID_FLOOR,MIN_BID_STEP,MIN_BID_TOP,BID_REFRESH_TOP,MIN_BUY_FLOOR,MIN_BUY_STEP,MIN_BUY_TOP,MIN_BUY_AIM_SHARE,PAIR_MIN_BID_TOP,pairRing}=__ESB_x[123];const{createDayBudget,withDayBudget,createHuntBudget,offMarket,meterCalls,isDayBudgetError,dayBudgetError,createBudgetOwner,stopOnEaLimit}=__ESB_x[98];const{createHeadBar,chipScale}=__ESB_x[216];const{createRivalsSource}=__ESB_x[213];const{headCountersLine}=__ESB_x[78];const{createAutoBuy,createBuyRate,createLotFinder,buyTargetOf,batchCeiling}=__ESB_x[171];const{createSession}=__ESB_x[107];const{createStopConditions}=__ESB_x[108];const{TAX_FEATURE}=__ESB_x[147];const{createUiState,createBridgeUiProvider,pickPreselectFromToggles,sanitizeHotkeyProfile}=__ESB_x[218];const{createCloudDesk}=__ESB_x[241];const{createSettingsTransfer,watchSettingsApplied}=__ESB_x[242];const{createProblemReport}=__ESB_x[243];const{SYNC_STORAGE_KEYS}=__ESB_x[235];const{setEaRequestPort,eaRequestState}=__ESB_x[90];const{createFutggSource,priceCacheKey,currentGame,isUntradableSource,MANIFEST_TTL_MS:FUTGG_MANIFEST_TTL_MS}=__ESB_x[85];const{seasonOf}=__ESB_x[84];const{createLadderService,createSolvePriceReader,LADDER_TTL_MS}=__ESB_x[158];const{createPriceTrap}=__ESB_x[244];const{createPriceQuarantine}=__ESB_x[245];const{createRarityGroups}=__ESB_x[246];const{createBridgeFetch,CARDS_METHOD,CARDS_TIMEOUT_MS}=__ESB_x[2];const{createSbc,createSquad}=__ESB_x[247];const{demandClasses}=__ESB_x[153];const{parseRequirements}=__ESB_x[150];const{createWorkAreaProbe}=__ESB_x[248];const{createAdapter,createPackAdapter,createClubMemory,createStorageMemory,searchTypeOf}=__ESB_x[95];const{createPersonaAdapter}=__ESB_x[212];const{createSessionEpoch,sessionSince,stopRunning,stopQueue}=__ESB_x[105];const{createWalletAdapter}=__ESB_x[195];const{squadRatingFloatEnabled}=__ESB_x[91];const{createTeamConfig}=__ESB_x[249];const{createStaticPlayers}=__ESB_x[173];const{createCardCatalog,createCardLane}=__ESB_x[250];const{createCardBaseFeed,baseDefinitions,withStaticCardBase}=__ESB_x[251];const{createRarityGroupBook}=__ESB_x[252];const{createDemandMemory,unionClasses}=__ESB_x[157];const{installPurchaseLog,purchaseLogState,notePurchasedItem,notePaid}=__ESB_x[87];const{createHuntLoot}=__ESB_x[122];const{createClock}=__ESB_x[253];const{storageFailed}=__ESB_x[6];const{mountPanel,PANEL_BUILD}=__ESB_x[261];const{ourWindowOpen}=__ESB_x[70];const{FIRST_SECTION,DEEDS}=__ESB_x[256];const{HOTKEYS_FEATURE}=__ESB_x[170];const{publishTemplateMenu,pressNode,cardMatchProbe}=__ESB_x[134];const{wirePage}=__ESB_x[281];const{createBuyerDoor}=__ESB_x[282];const{createSettingsDoor}=__ESB_x[283];const{createLiveEvidenceRecorder,createPhaseLog,domEvidence,buildLiveEvidence}=__ESB_x[284];const{createBridgeLiveControlProvider,createLiveControlSession}=__ESB_x[285];const{createWaitNotice}=__ESB_x[286];const{askCodeVersion,CODE_LINE_BUILD}=__ESB_x[287];
 ;
 ;
 ;
@@ -59569,7 +60136,9 @@ if(ids.length===0)return
 catalog.setUniverse(ids)
 seedInSlices(ids.length,(from,to)=>catalog.seedPositions(lane,from,to))}).catch((err)=>note(`catalog seed: ${err?.message??err}`))
 const cardBase=createCardBaseFeed({
-ask:(params)=>bridge.request(CARDS_METHOD,params,{timeoutMs:CARDS_TIMEOUT_MS}),
+ask:withStaticCardBase({ask:(params)=>bridge.request(CARDS_METHOD,params,{timeoutMs:CARDS_TIMEOUT_MS}),
+fetch:galleryDoorFetch((method,params)=>bridge.request(method,params,{timeoutMs:65000}),60000),
+onError:(err)=>note(`card base static: ${err?.message??err}`)}),
 storage:{read:()=>bridge.request('cardbase.read'),write:(value)=>bridge.request('cardbase.write',value)},
 season:()=>seasonOf(),
 game:()=>currentGame(),
@@ -60463,7 +61032,7 @@ return{ok:true,reason:null}}catch(err){note(`day-x remount: ${err?.message??err}
 return{ok:false,reason:'remount-failed'}}}
 if(uiState.isDayXOff())applyDayX(true)
 const galleryStore=galleryDoorStore((method,params)=>bridge.request(method,params))
-const galleryCatalog=createGalleryCatalogFeed({fetch:galleryDoorFetch((method,params)=>bridge.request(method,params)),
+const galleryCatalog=createGalleryCatalogFeed({fetch:galleryDoorFetch((method,params)=>bridge.request(method,params,{timeoutMs:20000})),
 store:galleryStore,now:()=>priceClock.now()})
 void galleryCatalog.load().then(()=>galleryCatalog.refresh()).catch(()=>{/* слово отказа в приборе */})
 setGalleryEngine(createGalleryEngine({catalog:galleryCatalog,
