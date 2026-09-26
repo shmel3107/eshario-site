@@ -73,7 +73,7 @@
     var strong=document.createElement('b');strong.textContent=pct;box.appendChild(strong);
     box.appendChild(document.createTextNode(parts[1]||''));
   }
-  var promoState={code:'',plans:null};
+  var promoState={code:'',plans:null,friend:false};
   var moneyText=function(n){
     var en=String(document.documentElement.getAttribute('lang')||'').slice(0,2)==='en';
     return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,en?',':'\u00a0')+'\u00a0\u20bd';
@@ -101,9 +101,10 @@
     if(on)show(on);
     pick.setAttribute('data-live','1');
   });
-  function setPromo(code,plans){
+  function setPromo(code,plans,friend){
     promoState.code=code;
     promoState.plans=plans;
+    promoState.friend=Boolean(code&&plans&&friend);
     var body=document.body;
     if(code&&plans){
       body.setAttribute('data-promo-code',code);
@@ -143,7 +144,7 @@
       k.classList.toggle('is-promo',!!p);
       if(old){old.textContent=p?moneyText(p.list):'';old.hidden=!p}
       if(now)now.textContent=p?moneyText(p.amount):on.getAttribute('data-list');
-      if(tag){tag.textContent=p?k.getAttribute('data-tag')+' '+String(promoState.code).toUpperCase():'';tag.hidden=!p}
+      if(tag){tag.textContent=p?k.getAttribute(promoState.friend?'data-tag-friend':'data-tag')+' '+String(promoState.code).toUpperCase():'';tag.hidden=!p}
       var msg=on.getAttribute('data-msg');
       if(tg&&msg){tg.setAttribute('data-msg',msg);tg.href=tgText(tg,promoState.code||promoCode)}
     };
@@ -186,11 +187,11 @@
       if(res.status===200&&b.ok&&b.plans){
         var plans=b.plans;
         var every=Object.keys(plans).every(function(k){return plans[k]});
-        setPromo(b.promo||code,plans);
+        setPromo(b.promo||code,plans,b.friend===true);
         syncTg(b.promo||code);
         writeStore(b.promo||code);
         var left=typeof b.remaining==='number'?{n:b.remaining}:null;
-        hint(every?'done':'part',b.promo||code,left);
+        hint(b.friend===true?'friend':every?'done':'part',b.promo||code,left);
       }else if(res.status===409&&b.reason==='promo-exhausted'){
         setPromo('',null);
         writeStore('');
