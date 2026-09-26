@@ -1,4 +1,4 @@
-// ESHArio page-bundle 2.3.3 548dd2282cae89b5ee36ac7279857dd9a2336a0b 2026-09-25T15:56:32Z
+// ESHArio page-bundle 2.3.6 58d36acdb904df5727e5e955d07e5b2ddf1aeb13 2026-09-26T12:54:43Z
 (function(){'use strict';
 // Адрес: на чужой странице EA склейка молчит (контракт 1.1).
 if(!(function(h){return /^https:\/\/www\.ea\.com\/.*\/ultimate-team\/web-app.*/.test(h)})(String(globalThis.location&&globalThis.location.href)))return;
@@ -4144,6 +4144,7 @@ const galleryEn=Object.freeze({
 'gallery.search.hint':'Finds a set by the club or league name',
 'gallery.empty':'The Gallery catalog has not arrived yet',
 'gallery.nothing':'Nothing found',
+'gallery.catalogMissing':'Set catalog did not arrive: network. Retrying in half an hour',
 'gallery.plan.want':'I want',
 'gallery.plan.tokens':'tokens:',
 'gallery.piggy.show':'Show {sets} {setsWord}:',
@@ -4249,6 +4250,8 @@ const galleryEn=Object.freeze({
 'gallery.set.first.few':'first owner: {n} cards, +{bonus} %',
 'gallery.set.first.many':'first owner: {n} cards, +{bonus} %',
 'gallery.set.first.other':'first owner: {n} cards, +{bonus} %',
+'gallery.set.tagsTruth':'tag bonus: checking with the game',
+'gallery.set.tagsTruth.hint':'The game gives a bonus for the set tags. We count only the checked ones; the rest will be added after checking, so our grade may be lower than in the game',
 'gallery.set.needCards.one':'{n} card',
 'gallery.set.needCards.few':'{n} cards',
 'gallery.set.needCards.many':'{n} cards',
@@ -4412,6 +4415,7 @@ const galleryRu=Object.freeze({
 'gallery.search.hint':'Ищет набор по имени клуба или лиги',
 'gallery.empty':'Каталог Галереи ещё не пришёл',
 'gallery.nothing':'Ничего не нашлось',
+'gallery.catalogMissing':'Каталог наборов не доехал: сеть. Повторим через полчаса',
 'gallery.plan.want':'Хочу',
 'gallery.plan.tokens':'токенов:',
 'gallery.piggy.show':'Показать {sets} {setsWord}:',
@@ -4517,6 +4521,8 @@ const galleryRu=Object.freeze({
 'gallery.set.first.few':'первый владелец: {n} карты, +{bonus} %',
 'gallery.set.first.many':'первый владелец: {n} карт, +{bonus} %',
 'gallery.set.first.other':'первый владелец: {n} карты, +{bonus} %',
+'gallery.set.tagsTruth':'бонус тегов сверяем с игрой',
+'gallery.set.tagsTruth.hint':'Игра даёт бонус за теги набора. Мы считаем только проверенные; остальные добавим после сверки, поэтому оценка у нас может быть ниже, чем в игре',
 'gallery.set.needCards.one':'{n} карты',
 'gallery.set.needCards.few':'{n} карт',
 'gallery.set.needCards.many':'{n} карт',
@@ -37667,6 +37673,16 @@ const GALLERY_GAME='fc27'
 const GALLERY_ORIGIN='https://api.eshario.com'
 function galleryCatalogUrl(game=GALLERY_GAME){return `${GALLERY_ORIGIN}/v1/gallery/${game}`}
 function galleryFingerprintUrl(game=GALLERY_GAME){return `${galleryCatalogUrl(game)}/fingerprint`}
+const CATALOG_FILE_ORIGINS=Object.freeze(['https://files.eshario.com','https://api.eshario.com'])
+const FINGERPRINT_RE=/^[0-9a-f]{32}$/
+async function sha256Text(text){const subtle=globalThis.crypto?.subtle
+if(!subtle)throw Object.assign(new Error('sha256: нет crypto.subtle'),{reason:'no-hash'})
+const bytes=new Uint8Array(await subtle.digest('SHA-256',new TextEncoder().encode(text)))
+let hex=''
+for(const b of bytes)hex+=b.toString(16).padStart(2,'0')
+return hex}
+const SHA256_RE=/^[0-9a-f]{64}$/
+function galleryStaticUrl(fingerprint,game=GALLERY_GAME){return `${CATALOG_FILE_ORIGINS[0]}/gallery/${game}/${fingerprint}.json`}
 const CATALOG_EVERY_MS=60*60*1000
 const CATALOG_RETRY_MS=30*60*1000
 const CATALOG_KEY='gallery.catalog'
@@ -37768,8 +37784,8 @@ return answer.value??null}
 return{get:(key)=>ask('store.get',{key}),
 set:async(key,value)=>{await ask('store.set',{key,value})
 return true}}}
-function galleryDoorFetch(request){if(typeof request!=='function')return null
-return async(url)=>{const answer=await request('door',{name:'net.fetch',args:{url,timeoutMs:15000}})
+function galleryDoorFetch(request,timeoutMs=15000){if(typeof request!=='function')return null
+return async(url)=>{const answer=await request('door',{name:'net.fetch',args:{url,timeoutMs}})
 if(!isPlain(answer)||answer.ok!==true){const reason=isPlain(answer)&&typeof answer.reason==='string'?answer.reason:'no-door'
 throw Object.assign(new Error(`gallery fetch: ${reason}`),{reason})}
 const value=isPlain(answer.value)?answer.value:{}
@@ -37779,46 +37795,74 @@ const store=deps.store??null
 const now=typeof deps.now==='function'?deps.now:()=>Date.now()
 const onError=typeof deps.onError==='function'?deps.onError:()=>{}
 const game=text(deps.game)??GALLERY_GAME
+const hashOf=typeof deps.sha256==='function'?deps.sha256:sha256Text
 let current=null
 let checkedAt=null
 let nextAt=0
 let loading=null
 let refreshing=null
-const stats={loads:0,fingerprints:0,files:0,kept:0,failures:0,lastReason:null}
+const stats={loads:0,fingerprints:0,files:0,kept:0,failures:0,lastReason:null,source:null,lastUrl:null,
+verified:null,hashReason:null}
 const save=async()=>{if(store===null||current===null)return
-try{await store.set(CATALOG_KEY,{v:1,at:checkedAt,catalog:current.raw})}catch(err){stats.lastReason='store-failed'
+try{await store.set(CATALOG_KEY,{v:1,at:checkedAt,catalog:current.raw,sha:current.sha??null})}catch(err){stats.lastReason='store-failed'
 onError(err)}}
-const adopt=(raw)=>{const parsed=readGalleryCatalog(raw)
+const adopt=(raw,sha)=>{const parsed=readGalleryCatalog(raw)
 if(parsed===null)return false
-current={raw,parsed}
+current={raw,parsed,sha:typeof sha==='string'&&SHA256_RE.test(sha)?sha:null}
 return true}
 const load=()=>{if(loading!==null)return loading
 loading=(async()=>{stats.loads+=1
 if(store===null)return current?.parsed??null
 try{const kept=await store.get(CATALOG_KEY)
-if(isPlain(kept)&&kept.v===1&&adopt(kept.catalog)){checkedAt=Number.isFinite(kept.at)?kept.at:null
+if(isPlain(kept)&&kept.v===1&&adopt(kept.catalog,kept.sha)){checkedAt=Number.isFinite(kept.at)?kept.at:null
 nextAt=checkedAt===null?0:checkedAt+CATALOG_EVERY_MS}}catch(err){stats.lastReason=err?.reason??'store-failed'
 onError(err)}
 return current?.parsed??null})()
 return loading}
-const ask=async(url)=>{const answer=await fetchText(url)
+const askText=async(url)=>{const answer=await fetchText(url)
 if(answer.status!==200)throw Object.assign(new Error(`gallery catalog: HTTP ${answer.status}`),{reason:answer.status===503?'building':`http-${answer.status}`})
-return JSON.parse(answer.body)}
+return answer.body}
+const ask=async(url)=>JSON.parse(await askText(url))
+const fetchFile=async(fp,sha)=>{const tries=[]
+if(fp!==null&&FINGERPRINT_RE.test(fp))tries.push({source:'static',url:galleryStaticUrl(fp,game)})
+tries.push({source:'api',url:galleryCatalogUrl(game)})
+let last=null
+stats.hashReason=null
+for(const one of tries){stats.lastUrl=one.url
+try{if(one.source==='static'&&sha===null)throw Object.assign(new Error('gallery catalog: нет свидетеля для статики'),{reason:'no-witness'})
+const body=await askText(one.url)
+let verified=null
+if(sha!==null){if(await hashOf(body)!==sha)throw Object.assign(new Error(`gallery catalog: байты ${one.source} не равны свидетелю api`),{reason:one.source==='static'?'static-hash':'api-hash'})
+verified=true}
+const raw=JSON.parse(body)
+const parsed=readGalleryCatalog(raw)
+if(parsed===null)throw Object.assign(new Error('gallery catalog: форма не та'),{reason:'bad-catalog'})
+if(one.source==='static'&&parsed.fingerprint!==fp)throw Object.assign(new Error('gallery catalog: чужой отпечаток на статике'),{reason:'static-mismatch'})
+current={raw,parsed,sha:verified===true?sha:null}
+stats.source=one.source
+stats.verified=verified
+return}catch(err){last=err
+if(err?.reason==='static-hash'||err?.reason==='api-hash'||err?.reason==='no-witness')stats.hashReason=err.reason
+onError(err)}}
+throw last}
 const refresh=(opts={})=>{if(refreshing!==null)return refreshing
 if(fetchText===null)return Promise.resolve(current?.parsed??null)
 const at=now()
 if(opts.force!==true&&at<nextAt)return Promise.resolve(current?.parsed??null)
 refreshing=(async()=>{await load()
-try{if(current!==null){stats.fingerprints+=1
+try{
+stats.fingerprints+=1
 const mark=await ask(galleryFingerprintUrl(game))
-if(isPlain(mark)&&text(mark.fingerprint)!==null&&mark.fingerprint===current.parsed.fingerprint){stats.kept+=1
+const fp=isPlain(mark)?text(mark.fingerprint):null
+const sha=isPlain(mark)&&typeof mark.sha256==='string'&&SHA256_RE.test(mark.sha256)?mark.sha256:null
+if(current!==null&&fp!==null&&fp===current.parsed.fingerprint&&(sha===null||current.sha===sha)){stats.kept+=1
+if(sha!==null)stats.verified=true
 checkedAt=at
 nextAt=at+CATALOG_EVERY_MS
 await save()
-return current.parsed}}
+return current.parsed}
 stats.files+=1
-const raw=await ask(galleryCatalogUrl(game))
-if(!adopt(raw))throw Object.assign(new Error('gallery catalog: форма не та'),{reason:'bad-catalog'})
+await fetchFile(fp,sha)
 checkedAt=at
 nextAt=at+CATALOG_EVERY_MS
 stats.lastReason=null
@@ -38041,8 +38085,10 @@ let best=0
 for(const value of counts.values())best=Math.max(best,value)
 return best}
 return null}
-function tagBonus(tags,cards){let total=0
-for(const tag of tags??[]){const count=tagCount(tag.rule,cards)
+const VERIFIED_TAG_ATTRIBUTES=Object.freeze(new Set(['FIRST_OWNED']))
+function tagBonus(tags,cards,verified=VERIFIED_TAG_ATTRIBUTES){let total=0
+for(const tag of tags??[]){if(!verified.has(String(tag?.rule?.attribute??'').toUpperCase()))continue
+const count=tagCount(tag.rule,cards)
 if(count===null)continue
 let bonus=0
 for(const step of tag.steps)if(count>=step.count)bonus=Math.max(bonus,step.bonus)
@@ -38508,7 +38554,8 @@ collected:Math.min(n,slots),collectedSource:source,collectedIds,
 grade:current>=0?set.grades[current].letter:null,
 grades:grades.map(({ids,...rest})=>rest),goal:decided.goal,tokenPrice:decided.tokenPrice,
 tokensNow:current>=0?tokensUp[current]:0,tokensMax:total,
-crest:set.crest,points,firstOwner,pool:pool.slice(),missing:Math.max(0,slots-n),known,unanswered,
+crest:set.crest,points,
+bonus:best.bonus,firstOwner,pool:pool.slice(),missing:Math.max(0,slots-n),known,unanswered,
 path:aimed===null?null:aimed.ids.slice(),reason:null,market,
 maxGrade:maxGradeOf({grade:current>=0?set.grades[current].letter:null,grades,market}),
 paths:grades.map((grade)=>grade.ids)}}
@@ -38518,7 +38565,7 @@ return{id:set.id,name:set.name,categoryId:set.categoryId,cards:set.cards,
 collected:null,collectedSource:'club',collectedIds:[],grade:null,
 grades:set.grades.map((grade)=>({letter:grade.letter,threshold:grade.threshold,rewards:{...grade.rewards},
 reachable:null,reached:false,missing:null,cost:null,priceless:0,lossOnResell:null})),
-goal:null,tokenPrice:null,tokensNow:null,tokensMax:total,crest:set.crest,points:null,firstOwner:null,
+goal:null,tokenPrice:null,tokensNow:null,tokensMax:total,crest:set.crest,points:null,bonus:null,firstOwner:null,
 pool:[],missing:null,known:0,unanswered:0,path:null,reason:'any',market:true,maxGrade:false,paths:[]}}
 const signature=(parsed,collected,falseIds,lostIds,firstIds)=>{let sum=0
 let mix=0
@@ -38696,7 +38743,9 @@ const list=sets.map(publicSet)
 const checks={}
 for(const[scope,until]of cooldown)checks[scope]={until,ready:now()>=until}
 const log=logNow()
-return{catalog:{version:parsed?.version??null,sets:list.length},checkedAt,
+const feedNow=parsed===null?catalog.feed?.state?.()??null:null
+const missing=feedNow!==null&&feedNow.failures>0?(typeof feedNow.lastReason==='string'?feedNow.lastReason:'network'):null
+return{catalog:{version:parsed?.version??null,sets:list.length,missing},checkedAt,
 checking:checking===null?null:{...checking},stopped,sets:list,
 piggy:(n)=>piggyOf(list,n),
 categories,piggyDefault:piggyDefault(parsed),checks,memory:memory.state(),pools:poolsOf(parsed),
@@ -39296,6 +39345,7 @@ const PIGGY_KEY='futGalleryPiggy'
 const STEP_KEY='futGalleryStep'
 const PATH_ROW_KEY='futGalleryPathRow'
 const SET_CHECK_KEY='futGallerySetCheck'
+const TAGS_TRUTH_KEY='futGalleryTagsTruth'
 const SET_CHECK_DELAY_MS=600
 const GALLERY_STYLESHEET="eshario-asset:ui/gallery.css"
 const GALLERY_LINK_ID='fut-companion-gallery'
@@ -39879,7 +39929,8 @@ sortBy(key)}}},[el(doc,'span',{text:t(label)}),...(sorted?[el(doc,'span',{class:
 const cut=total?null:cutRowId(shown,members,view.sort)
 const body=el(doc,'tbody')
 for(const set of shown)body.appendChild(row(set,cats,set.id===cut,set.id===cut?tag:null))
-if(shown.length===0)body.appendChild(el(doc,'tr',{},[el(doc,'td',{class:'fx-gallery-empty',attrs:{colspan:String(COLUMNS.length+1)},text:t('gallery.nothing')})]))
+const emptyWord=state.catalog?.version==null&&state.catalog?.missing?t('gallery.catalogMissing'):t('gallery.nothing')
+if(shown.length===0)body.appendChild(el(doc,'tr',{},[el(doc,'td',{class:'fx-gallery-empty',attrs:{colspan:String(COLUMNS.length+1)},text:emptyWord})]))
 box.appendChild(el(doc,'table',{class:'fx-gallery-table'},[cols,el(doc,'thead',{},[head]),body]))}
 function sortBy(key){view.picked=true
 if(view.sort.key===key)view.sort={key,dir:-view.sort.dir}
@@ -39979,6 +40030,7 @@ const said=checkWord(check)
 if(said)need.push(said,el(doc,'span',{text:' · '}))
 const first=set?.firstOwner
 if(Number.isSafeInteger(first?.cards)&&first.cards>0)need.push(el(doc,'span',{class:'fx-gallery-first',text:`${plural('gallery.set.first',first.cards,{n:first.cards,bonus:Number.isFinite(first.bonus)?first.bonus:0})} · `}))
+if(Number.isFinite(set?.points))need.push(el(doc,'span',{class:'fx-gallery-dim fx-gallery-hint',text:t('gallery.set.tagsTruth'),attrs:{title:t('gallery.set.tagsTruth.hint')},dataset:{[TAGS_TRUTH_KEY]:'1'}}),el(doc,'span',{text:' · '}))
 const missing=(set?.grades??[]).map((one)=>one?.missing).find((one)=>Number.isFinite(one))
 if(Number.isFinite(missing)&&missing>0)need.push(el(doc,'span',{text:`${t('gallery.set.need')} `}),el(doc,'b',{text:plural('gallery.set.needCards',missing,{n:missing})}))
 return el(doc,'div',{class:'fx-gallery-set-head'},[...(uri?[el(doc,'img',{class:'fx-gallery-set-crest',attrs:{src:uri,alt:''}})]:[]),
@@ -53593,7 +53645,7 @@ return Number.isSafeInteger(n)&&n>0?n:null}
 
 };
 // src/features/card-base.js
-__ESB_g[251]=function*(){__ESB_d(__ESB_x[251],{baseDefinitions:()=>baseDefinitions,createCardBaseFeed:()=>createCardBaseFeed});yield;const{UNKNOWN,POS_NONE,POS_PRIMARY,POS_FULL}=__ESB_x[250];const{seasonFits}=__ESB_x[84];
+__ESB_g[251]=function*(){__ESB_d(__ESB_x[251],{baseDefinitions:()=>baseDefinitions,createCardBaseFeed:()=>createCardBaseFeed,withStaticCardBase:()=>withStaticCardBase});yield;const{UNKNOWN,POS_NONE,POS_PRIMARY,POS_FULL}=__ESB_x[250];const{seasonFits}=__ESB_x[84];
 ;
 ;
 const CARD_BASE_SCHEMA=1
@@ -53682,6 +53734,52 @@ if(clean.length===0)continue
 out[rarity]=clean.sort((a,b)=>a-b)
 any=true}
 return any?out:null}
+const CARD_BASE_STATIC_ORIGIN='https://files.eshario.com'
+function cardBaseStaticUrl(game,file){return `${CARD_BASE_STATIC_ORIGIN}/cards/${game}/${file}`}
+function cardBaseWitnessUrl(game){return `https://api.eshario.com/v1/cards/${game}/fingerprint`}
+const STATIC_AFTER=new Set(['network','unreadable-body','empty-body','timeout','no-answer'])
+const ETAG_RE=/^"([0-9a-f]{32})-gz"$/
+const SHA256_RE=/^[0-9a-f]{64}$/
+async function sha256Text(text){const subtle=globalThis.crypto?.subtle
+if(!subtle)throw Object.assign(new Error('sha256: нет crypto.subtle'),{reason:'no-hash'})
+const bytes=new Uint8Array(await subtle.digest('SHA-256',new TextEncoder().encode(text)))
+let hex=''
+for(const b of bytes)hex+=b.toString(16).padStart(2,'0')
+return hex}
+function withStaticCardBase(deps={}){const ask=deps.ask
+const fetchText=typeof deps.fetch==='function'?deps.fetch:null
+const witnessText=typeof deps.witness==='function'?deps.witness:fetchText
+const hashOf=typeof deps.sha256==='function'?deps.sha256:sha256Text
+const onError=typeof deps.onError==='function'?deps.onError:()=>{}
+const get=async(url,through=fetchText)=>{const answer=await through(url)
+if(answer.status!==200)throw Object.assign(new Error(`card base static: HTTP ${answer.status}`),{reason:`http-${answer.status}`})
+return answer.body}
+return async(params)=>{let answer=null
+try{answer=await ask(params)}catch(err){onError(err)
+answer=null}
+const plain=answer!==null&&typeof answer==='object'
+if(plain&&answer.ok===true)return{...answer,source:'api'}
+const reason=plain&&typeof answer.reason==='string'?answer.reason:'no-answer'
+if(fetchText===null||!(STATIC_AFTER.has(reason)||/^http-5[0-9][0-9]$/.test(reason)&&reason!=='http-503'))return plain?{...answer,source:'api'}:answer
+const game=params?.game
+const state=plain?answer.state??null:null
+const refused=(why,hash)=>({...(plain?answer:{ok:false,status:0,reason}),source:'api',staticReason:why,verified:false,hashReason:hash})
+let witness
+try{witness=JSON.parse(await get(cardBaseWitnessUrl(game),witnessText))}catch(err){onError(err)
+return refused('no-witness','no-witness')}
+const m=ETAG_RE.exec(typeof witness?.etag==='string'?witness.etag:'')
+const sha=typeof witness?.sha256==='string'&&SHA256_RE.test(witness.sha256)?witness.sha256:null
+if(m===null||sha===null){onError(new Error('card base static: свидетель не той формы'))
+return refused('no-witness','no-witness')}
+const etag=witness.etag
+if(params?.etag===etag)return{ok:true,status:304,fresh:true,source:'static',apiReason:reason,state,verified:null,hashReason:null}
+const url=cardBaseStaticUrl(game,`${m[1]}.json`)
+try{const body=await get(url)
+if(body==='')throw Object.assign(new Error('card base static: пустое тело'),{reason:'empty-body'})
+if(await hashOf(body)!==sha)throw Object.assign(new Error('card base static: байты не равны свидетелю api'),{reason:'static-hash'})
+return{ok:true,status:200,fresh:true,etag,body,source:'static',staticUrl:url,apiReason:reason,state,verified:true,hashReason:null}}catch(err){onError(err)
+const why=err?.reason??'network'
+return refused(why,why==='static-hash'?'static-hash':null)}}}
 function createCardBaseFeed(deps={}){const ask=typeof deps.ask==='function'?deps.ask:null
 const seed=typeof deps.seed==='function'?deps.seed:null
 if(ask===null||seed===null)throw new Error('card-base: нужны ask и seed')
@@ -53695,7 +53793,7 @@ let seeded=null
 let loaded=false
 let asking=null
 const stats={asks:0,bodies:0,notModified:0,refused:0,seedMs:null,parseMs:null,askMs:null,
-askedAt:null,status:null,reason:null,why:null,worker:null}
+askedAt:null,status:null,reason:null,why:null,worker:null,source:null,staticReason:null,verified:null,hashReason:null}
 const remember=(value)=>{seeded=value
 if(storage===null)return
 try{const result=storage.write?.(value)
@@ -53716,6 +53814,10 @@ if(!answer||typeof answer!=='object'){stats.status=null
 stats.reason='no-answer'
 return{ok:false,reason:'no-answer'}}
 stats.status=Number.isSafeInteger(answer.status)?answer.status:null
+stats.source=typeof answer.source==='string'?answer.source:null
+stats.staticReason=typeof answer.staticReason==='string'?answer.staticReason:null
+stats.verified=typeof answer.verified==='boolean'?answer.verified:null
+stats.hashReason=typeof answer.hashReason==='string'?answer.hashReason:null
 stats.worker=answer.state&&typeof answer.state==='object'?answer.state:null
 if(answer.ok!==true){stats.reason=typeof answer.reason==='string'?answer.reason:'refused'
 return{ok:false,reason:stats.reason}}
@@ -53774,6 +53876,7 @@ state(){return{loaded,
 seeded:seeded===null?null:{...seeded},
 asks:stats.asks,bodies:stats.bodies,notModified:stats.notModified,refused:stats.refused,
 askedAt:stats.askedAt,why:stats.why,status:stats.status,reason:stats.reason,
+source:stats.source,staticReason:stats.staticReason,verified:stats.verified,hashReason:stats.hashReason,
 ms:{ask:stats.askMs,parse:stats.parseMs,seed:stats.seedMs},
 worker:stats.worker===null?null:{...stats.worker}}}}}
 function pick(index,row,name){const at=index[name]
@@ -59295,7 +59398,7 @@ return typeof version==='string'&&VERSION_RE.test(version)?version:null}
 
 };
 // src/page/page-entry.js
-__ESB_g[288]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{createBridgeProvider,READ_METHOD:SETTINGS_READ}=__ESB_x[7];const{createSettings,openDoorlessGates}=__ESB_x[5];const{createLicensing}=__ESB_x[8];const{createKeyProvider,createBridgeLicenseProvider}=__ESB_x[10];const{createAccountProvider,createMigrationProvider,ACCOUNT_OPEN}=__ESB_x[11];const{createI18n,chooseLocale,currentTimeZone}=__ESB_x[56];const{doors}=__ESB_x[57];const{createNavigation,appMain}=__ESB_x[58];const{createCriteria,createClubCriteria,createSbcStorageCriteria,createFiltersScreen,readUserCriteria}=__ESB_x[60];const{installMarketSearchQuick,tapSearchWire,widenMarketPage,marketSearchPageViews,marketPageSetting,WIDE_PAGE_LOTS}=__ESB_x[61];const{installItemEvents}=__ESB_x[63];const{createFilterStore,createBridgeFilterProvider}=__ESB_x[64];const{createBridgePackLockProvider,setPackLock,isPackLocked,isPackHidden,setPackHidden}=__ESB_x[65];const{createBridgeCardLockProvider,isCardLocked,setCardLock,sanitizeCardLocks,lockedIdsFor,cardLockRecreatedRows,noteCardsRecreated}=__ESB_x[66];const{createBridgeCardFrozenProvider,isCardFrozen,setCardFrozen,frozenIdsFor}=__ESB_x[67];const{createFrozenMarks}=__ESB_x[102];const{createDropdownSearch}=__ESB_x[135];const{previewPackAutomation,runPackAutomationStep,inspectPackAutomationOutcome,hydratePackAutomationOutcome,beginPackAutomationSession,recordPackAutomationSessionOutcome,previewPackAutomationOutcomeAction,runPackAutomationPickOutcome,runPackAutomationRecoveryOutcome,runPackAutomationDiscardOutcome,previewPackAutomationContinuation,runPackAutomationContinuation}=__ESB_x[138];const{setPlayerPickSelection,reviewPlayerPickSelection,runPickStep,pickPolicy}=__ESB_x[136];const{invalidateUnassignedRecovery,refreshUnassignedRecovery,setUnassignedDisposition,resetUnassignedDispositions,reviewUnassignedRecovery,runRecoveryStep,recoveryPolicy,previewUnassignedDiscard,runDiscardStep}=__ESB_x[137];const{applyFilter,saveCurrentFilter,renameFilter,removeFilter,exportFilters,importFilters}=__ESB_x[139];const{createAutomation,createBridgeLimitsProvider,createBridgeOptionsProvider}=__ESB_x[124];const{createSnipeKey}=__ESB_x[140];const{sanitizeOptionInput,parseOptions,AFTER_BUY_KEY,SEARCH_REFRESH_KEY,searchRefreshOf}=__ESB_x[120];const{createSellerControl,createBridgeSellerProvider}=__ESB_x[141];const{createJournal,createBridgeJournalProvider,BUYER,SELLER}=__ESB_x[142];const{journalText,JOURNAL_ROWS}=__ESB_x[143];const{createLedger,createBridgeLedgerProvider}=__ESB_x[144];const{ledgerText,ledgerCsv}=__ESB_x[145];const{createSounds}=__ESB_x[146];const{createSellSidebar}=__ESB_x[149];const{createCardLockMark}=__ESB_x[165];const{createLockBadges}=__ESB_x[166];const{createSquadBar}=__ESB_x[179];const{createSquadPick}=__ESB_x[180];const{createCardGrid,CARD_GRID_FEATURE,moneyScreenLive}=__ESB_x[183];const{createDealPanel}=__ESB_x[181];const{createClubBar}=__ESB_x[185];const{createGalleryPanel}=__ESB_x[194];const{createGalleryBuyer}=__ESB_x[193];const{galleryCardName}=__ESB_x[189];const{createGalleryEngine,createGalleryMemory,createGalleryCounter,createGalleryPriceBook,personaKeyOf,UNANSWERED_PREFIX}=__ESB_x[191];const{createGalleryCatalogFeed,galleryDoorStore,galleryDoorFetch}=__ESB_x[190];const{createGalleryDoor}=__ESB_x[196];const{setGalleryEngine,galleryEngine}=__ESB_x[82];const{createSbcStorage,moveStorageToClub}=__ESB_x[198];const{createTransfersHub}=__ESB_x[199];const{transferListScroll}=__ESB_x[99];const{itemForEvidenceRow}=__ESB_x[89];const{priceBadgeState,priceBadgeCoins,priceBadgePeek}=__ESB_x[86];const{createSbcWindow}=__ESB_x[175];const{createStoreGrid}=__ESB_x[206];const{createStoreCatalog}=__ESB_x[201];const{createPreviewMemory}=__ESB_x[207];const{createPackPeek}=__ESB_x[208];const{createPickPrices,PICK_BY_PRICE_FEATURE}=__ESB_x[209];const{createSbcTab}=__ESB_x[219];const{createSbcSet}=__ESB_x[220];const{rewardTextOf}=__ESB_x[176];const{createFutggSbc}=__ESB_x[221];const{createFrozenStore}=__ESB_x[174];const{createSbcStrip,withStrip}=__ESB_x[178];const{squadFieldSignature}=__ESB_x[116];const{createSbcWarm,BACKGROUND_TIME_MS}=__ESB_x[223];const{createSbcLadderWarm}=__ESB_x[222];const{createPackShow,sanitizeShowRating}=__ESB_x[210];const{goStoreHub,unassignedInCache}=__ESB_x[92];const{prepareChallenge,resolveClubPool,showPreparedOnPitch,searchBuyOnMarket,placeBoughtCard,planSlotsFor,twiceInPlan,mismatchInPlan,judgeSubmit,recreatedLockNotice,warmShieldStop,poolForSearch,searchableCards,SBC_FEATURE,solvePhases,columnTotal,pricesForClub,createPrepCache}=__ESB_x[164];const{createSubmitGuardHook}=__ESB_x[224];const{liveSubmitSnapshot,sbcIneligibleReason,cardResourceKey}=__ESB_x[117];const{readSbcStorageItems,ITEM_PILE}=__ESB_x[119];const{createClubMirror,readClubOnce,readVerdict,playersInStats,MIRROR_SHARDS,CLUB_SESSION_RESCUE_READS}=__ESB_x[118];const{createBootSplash}=__ESB_x[225];const{mergePool,laddersFrom,identityWantsFrom,createAgedMemo,valuationFrom,explainSolve,dumpSolve,clubWorth,liveClassesFrom,liveRatingsFrom,bucketsFrom,bucketsWanted,ladderLedger,ladderFromOf,IDENTITY_MEMO_KEEP,BLOB_SLICE_MS}=__ESB_x[160];const{createConceptItem,conceptSupport}=__ESB_x[148];const{createSlotSearchScreen,slotSearchSupport}=__ESB_x[226];const{arrangeByPositions}=__ESB_x[227];const{readTradeAccess}=__ESB_x[228];const{sayEaNotice}=__ESB_x[229];const{createPoolCache,createActiveSquadCache,PoolFeedError,poolHunger,poolPriceWatch,createPoolPriceEye}=__ESB_x[159];const{analyzeClubAction,valueNotice,cardLabel,CLUB_FEATURE,PRICE_FEATURE}=__ESB_x[162];const{defaultClubTableFilters,exportClubItemTableCsv}=__ESB_x[115];const{mountMarketResultSummary,showMarketDeals}=__ESB_x[182];const{createMarketBotBar}=__ESB_x[231];const{createSearchNames}=__ESB_x[232];const{readLiveMarketCriteria,playerEntryOf,marketResultsLive,SEARCH_SCREEN_ROOT,liveSearchButton,readMarketFilterCriteria,readLiveMarketDefaults,restoreLiveMarketCriteria,showSearchMinBid,restoreSearchMinBid,showSearchPair,restoreSearchPair,marketPriceControl}=__ESB_x[106];const{createMarketFilterMemory}=__ESB_x[217];const{mountItemCard}=__ESB_x[233];const{createPriceCache,createPriceLookup,createPriceFallback}=__ESB_x[83];const{createMarketPriceSource,marketCacheKey,criteriaForCard}=__ESB_x[234];const{createLivePrices,measureQueueFrom,lagReport}=__ESB_x[172];const{createMarketBudget,BUDGET_LIMIT}=__ESB_x[80];const{DEFAULT_SEARCH_BAND_MS,SAFE_PAUSE_FLOOR_MS,MIN_BID_FLOOR,MIN_BID_STEP,MIN_BID_TOP,BID_REFRESH_TOP,MIN_BUY_FLOOR,MIN_BUY_STEP,MIN_BUY_TOP,MIN_BUY_AIM_SHARE,PAIR_MIN_BID_TOP,pairRing}=__ESB_x[123];const{createDayBudget,withDayBudget,createHuntBudget,offMarket,meterCalls,isDayBudgetError,dayBudgetError,createBudgetOwner,stopOnEaLimit}=__ESB_x[98];const{createHeadBar,chipScale}=__ESB_x[216];const{createRivalsSource}=__ESB_x[213];const{headCountersLine}=__ESB_x[78];const{createAutoBuy,createBuyRate,createLotFinder,buyTargetOf,batchCeiling}=__ESB_x[171];const{createSession}=__ESB_x[107];const{createStopConditions}=__ESB_x[108];const{TAX_FEATURE}=__ESB_x[147];const{createUiState,createBridgeUiProvider,pickPreselectFromToggles,sanitizeHotkeyProfile}=__ESB_x[218];const{createCloudDesk}=__ESB_x[241];const{createSettingsTransfer,watchSettingsApplied}=__ESB_x[242];const{createProblemReport}=__ESB_x[243];const{SYNC_STORAGE_KEYS}=__ESB_x[235];const{setEaRequestPort,eaRequestState}=__ESB_x[90];const{createFutggSource,priceCacheKey,currentGame,isUntradableSource,MANIFEST_TTL_MS:FUTGG_MANIFEST_TTL_MS}=__ESB_x[85];const{seasonOf}=__ESB_x[84];const{createLadderService,createSolvePriceReader,LADDER_TTL_MS}=__ESB_x[158];const{createPriceTrap}=__ESB_x[244];const{createPriceQuarantine}=__ESB_x[245];const{createRarityGroups}=__ESB_x[246];const{createBridgeFetch,CARDS_METHOD,CARDS_TIMEOUT_MS}=__ESB_x[2];const{createSbc,createSquad}=__ESB_x[247];const{demandClasses}=__ESB_x[153];const{parseRequirements}=__ESB_x[150];const{createWorkAreaProbe}=__ESB_x[248];const{createAdapter,createPackAdapter,createClubMemory,createStorageMemory,searchTypeOf}=__ESB_x[95];const{createPersonaAdapter}=__ESB_x[212];const{createSessionEpoch,sessionSince,stopRunning,stopQueue}=__ESB_x[105];const{createWalletAdapter}=__ESB_x[195];const{squadRatingFloatEnabled}=__ESB_x[91];const{createTeamConfig}=__ESB_x[249];const{createStaticPlayers}=__ESB_x[173];const{createCardCatalog,createCardLane}=__ESB_x[250];const{createCardBaseFeed,baseDefinitions}=__ESB_x[251];const{createRarityGroupBook}=__ESB_x[252];const{createDemandMemory,unionClasses}=__ESB_x[157];const{installPurchaseLog,purchaseLogState,notePurchasedItem,notePaid}=__ESB_x[87];const{createHuntLoot}=__ESB_x[122];const{createClock}=__ESB_x[253];const{storageFailed}=__ESB_x[6];const{mountPanel,PANEL_BUILD}=__ESB_x[261];const{ourWindowOpen}=__ESB_x[70];const{FIRST_SECTION,DEEDS}=__ESB_x[256];const{HOTKEYS_FEATURE}=__ESB_x[170];const{publishTemplateMenu,pressNode,cardMatchProbe}=__ESB_x[134];const{wirePage}=__ESB_x[281];const{createBuyerDoor}=__ESB_x[282];const{createSettingsDoor}=__ESB_x[283];const{createLiveEvidenceRecorder,createPhaseLog,domEvidence,buildLiveEvidence}=__ESB_x[284];const{createBridgeLiveControlProvider,createLiveControlSession}=__ESB_x[285];const{createWaitNotice}=__ESB_x[286];const{askCodeVersion,CODE_LINE_BUILD}=__ESB_x[287];
+__ESB_g[288]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{createBridgeProvider,READ_METHOD:SETTINGS_READ}=__ESB_x[7];const{createSettings,openDoorlessGates}=__ESB_x[5];const{createLicensing}=__ESB_x[8];const{createKeyProvider,createBridgeLicenseProvider}=__ESB_x[10];const{createAccountProvider,createMigrationProvider,ACCOUNT_OPEN}=__ESB_x[11];const{createI18n,chooseLocale,currentTimeZone}=__ESB_x[56];const{doors}=__ESB_x[57];const{createNavigation,appMain}=__ESB_x[58];const{createCriteria,createClubCriteria,createSbcStorageCriteria,createFiltersScreen,readUserCriteria}=__ESB_x[60];const{installMarketSearchQuick,tapSearchWire,widenMarketPage,marketSearchPageViews,marketPageSetting,WIDE_PAGE_LOTS}=__ESB_x[61];const{installItemEvents}=__ESB_x[63];const{createFilterStore,createBridgeFilterProvider}=__ESB_x[64];const{createBridgePackLockProvider,setPackLock,isPackLocked,isPackHidden,setPackHidden}=__ESB_x[65];const{createBridgeCardLockProvider,isCardLocked,setCardLock,sanitizeCardLocks,lockedIdsFor,cardLockRecreatedRows,noteCardsRecreated}=__ESB_x[66];const{createBridgeCardFrozenProvider,isCardFrozen,setCardFrozen,frozenIdsFor}=__ESB_x[67];const{createFrozenMarks}=__ESB_x[102];const{createDropdownSearch}=__ESB_x[135];const{previewPackAutomation,runPackAutomationStep,inspectPackAutomationOutcome,hydratePackAutomationOutcome,beginPackAutomationSession,recordPackAutomationSessionOutcome,previewPackAutomationOutcomeAction,runPackAutomationPickOutcome,runPackAutomationRecoveryOutcome,runPackAutomationDiscardOutcome,previewPackAutomationContinuation,runPackAutomationContinuation}=__ESB_x[138];const{setPlayerPickSelection,reviewPlayerPickSelection,runPickStep,pickPolicy}=__ESB_x[136];const{invalidateUnassignedRecovery,refreshUnassignedRecovery,setUnassignedDisposition,resetUnassignedDispositions,reviewUnassignedRecovery,runRecoveryStep,recoveryPolicy,previewUnassignedDiscard,runDiscardStep}=__ESB_x[137];const{applyFilter,saveCurrentFilter,renameFilter,removeFilter,exportFilters,importFilters}=__ESB_x[139];const{createAutomation,createBridgeLimitsProvider,createBridgeOptionsProvider}=__ESB_x[124];const{createSnipeKey}=__ESB_x[140];const{sanitizeOptionInput,parseOptions,AFTER_BUY_KEY,SEARCH_REFRESH_KEY,searchRefreshOf}=__ESB_x[120];const{createSellerControl,createBridgeSellerProvider}=__ESB_x[141];const{createJournal,createBridgeJournalProvider,BUYER,SELLER}=__ESB_x[142];const{journalText,JOURNAL_ROWS}=__ESB_x[143];const{createLedger,createBridgeLedgerProvider}=__ESB_x[144];const{ledgerText,ledgerCsv}=__ESB_x[145];const{createSounds}=__ESB_x[146];const{createSellSidebar}=__ESB_x[149];const{createCardLockMark}=__ESB_x[165];const{createLockBadges}=__ESB_x[166];const{createSquadBar}=__ESB_x[179];const{createSquadPick}=__ESB_x[180];const{createCardGrid,CARD_GRID_FEATURE,moneyScreenLive}=__ESB_x[183];const{createDealPanel}=__ESB_x[181];const{createClubBar}=__ESB_x[185];const{createGalleryPanel}=__ESB_x[194];const{createGalleryBuyer}=__ESB_x[193];const{galleryCardName}=__ESB_x[189];const{createGalleryEngine,createGalleryMemory,createGalleryCounter,createGalleryPriceBook,personaKeyOf,UNANSWERED_PREFIX}=__ESB_x[191];const{createGalleryCatalogFeed,galleryDoorStore,galleryDoorFetch}=__ESB_x[190];const{createGalleryDoor}=__ESB_x[196];const{setGalleryEngine,galleryEngine}=__ESB_x[82];const{createSbcStorage,moveStorageToClub}=__ESB_x[198];const{createTransfersHub}=__ESB_x[199];const{transferListScroll}=__ESB_x[99];const{itemForEvidenceRow}=__ESB_x[89];const{priceBadgeState,priceBadgeCoins,priceBadgePeek}=__ESB_x[86];const{createSbcWindow}=__ESB_x[175];const{createStoreGrid}=__ESB_x[206];const{createStoreCatalog}=__ESB_x[201];const{createPreviewMemory}=__ESB_x[207];const{createPackPeek}=__ESB_x[208];const{createPickPrices,PICK_BY_PRICE_FEATURE}=__ESB_x[209];const{createSbcTab}=__ESB_x[219];const{createSbcSet}=__ESB_x[220];const{rewardTextOf}=__ESB_x[176];const{createFutggSbc}=__ESB_x[221];const{createFrozenStore}=__ESB_x[174];const{createSbcStrip,withStrip}=__ESB_x[178];const{squadFieldSignature}=__ESB_x[116];const{createSbcWarm,BACKGROUND_TIME_MS}=__ESB_x[223];const{createSbcLadderWarm}=__ESB_x[222];const{createPackShow,sanitizeShowRating}=__ESB_x[210];const{goStoreHub,unassignedInCache}=__ESB_x[92];const{prepareChallenge,resolveClubPool,showPreparedOnPitch,searchBuyOnMarket,placeBoughtCard,planSlotsFor,twiceInPlan,mismatchInPlan,judgeSubmit,recreatedLockNotice,warmShieldStop,poolForSearch,searchableCards,SBC_FEATURE,solvePhases,columnTotal,pricesForClub,createPrepCache}=__ESB_x[164];const{createSubmitGuardHook}=__ESB_x[224];const{liveSubmitSnapshot,sbcIneligibleReason,cardResourceKey}=__ESB_x[117];const{readSbcStorageItems,ITEM_PILE}=__ESB_x[119];const{createClubMirror,readClubOnce,readVerdict,playersInStats,MIRROR_SHARDS,CLUB_SESSION_RESCUE_READS}=__ESB_x[118];const{createBootSplash}=__ESB_x[225];const{mergePool,laddersFrom,identityWantsFrom,createAgedMemo,valuationFrom,explainSolve,dumpSolve,clubWorth,liveClassesFrom,liveRatingsFrom,bucketsFrom,bucketsWanted,ladderLedger,ladderFromOf,IDENTITY_MEMO_KEEP,BLOB_SLICE_MS}=__ESB_x[160];const{createConceptItem,conceptSupport}=__ESB_x[148];const{createSlotSearchScreen,slotSearchSupport}=__ESB_x[226];const{arrangeByPositions}=__ESB_x[227];const{readTradeAccess}=__ESB_x[228];const{sayEaNotice}=__ESB_x[229];const{createPoolCache,createActiveSquadCache,PoolFeedError,poolHunger,poolPriceWatch,createPoolPriceEye}=__ESB_x[159];const{analyzeClubAction,valueNotice,cardLabel,CLUB_FEATURE,PRICE_FEATURE}=__ESB_x[162];const{defaultClubTableFilters,exportClubItemTableCsv}=__ESB_x[115];const{mountMarketResultSummary,showMarketDeals}=__ESB_x[182];const{createMarketBotBar}=__ESB_x[231];const{createSearchNames}=__ESB_x[232];const{readLiveMarketCriteria,playerEntryOf,marketResultsLive,SEARCH_SCREEN_ROOT,liveSearchButton,readMarketFilterCriteria,readLiveMarketDefaults,restoreLiveMarketCriteria,showSearchMinBid,restoreSearchMinBid,showSearchPair,restoreSearchPair,marketPriceControl}=__ESB_x[106];const{createMarketFilterMemory}=__ESB_x[217];const{mountItemCard}=__ESB_x[233];const{createPriceCache,createPriceLookup,createPriceFallback}=__ESB_x[83];const{createMarketPriceSource,marketCacheKey,criteriaForCard}=__ESB_x[234];const{createLivePrices,measureQueueFrom,lagReport}=__ESB_x[172];const{createMarketBudget,BUDGET_LIMIT}=__ESB_x[80];const{DEFAULT_SEARCH_BAND_MS,SAFE_PAUSE_FLOOR_MS,MIN_BID_FLOOR,MIN_BID_STEP,MIN_BID_TOP,BID_REFRESH_TOP,MIN_BUY_FLOOR,MIN_BUY_STEP,MIN_BUY_TOP,MIN_BUY_AIM_SHARE,PAIR_MIN_BID_TOP,pairRing}=__ESB_x[123];const{createDayBudget,withDayBudget,createHuntBudget,offMarket,meterCalls,isDayBudgetError,dayBudgetError,createBudgetOwner,stopOnEaLimit}=__ESB_x[98];const{createHeadBar,chipScale}=__ESB_x[216];const{createRivalsSource}=__ESB_x[213];const{headCountersLine}=__ESB_x[78];const{createAutoBuy,createBuyRate,createLotFinder,buyTargetOf,batchCeiling}=__ESB_x[171];const{createSession}=__ESB_x[107];const{createStopConditions}=__ESB_x[108];const{TAX_FEATURE}=__ESB_x[147];const{createUiState,createBridgeUiProvider,pickPreselectFromToggles,sanitizeHotkeyProfile}=__ESB_x[218];const{createCloudDesk}=__ESB_x[241];const{createSettingsTransfer,watchSettingsApplied}=__ESB_x[242];const{createProblemReport}=__ESB_x[243];const{SYNC_STORAGE_KEYS}=__ESB_x[235];const{setEaRequestPort,eaRequestState}=__ESB_x[90];const{createFutggSource,priceCacheKey,currentGame,isUntradableSource,MANIFEST_TTL_MS:FUTGG_MANIFEST_TTL_MS}=__ESB_x[85];const{seasonOf}=__ESB_x[84];const{createLadderService,createSolvePriceReader,LADDER_TTL_MS}=__ESB_x[158];const{createPriceTrap}=__ESB_x[244];const{createPriceQuarantine}=__ESB_x[245];const{createRarityGroups}=__ESB_x[246];const{createBridgeFetch,CARDS_METHOD,CARDS_TIMEOUT_MS}=__ESB_x[2];const{createSbc,createSquad}=__ESB_x[247];const{demandClasses}=__ESB_x[153];const{parseRequirements}=__ESB_x[150];const{createWorkAreaProbe}=__ESB_x[248];const{createAdapter,createPackAdapter,createClubMemory,createStorageMemory,searchTypeOf}=__ESB_x[95];const{createPersonaAdapter}=__ESB_x[212];const{createSessionEpoch,sessionSince,stopRunning,stopQueue}=__ESB_x[105];const{createWalletAdapter}=__ESB_x[195];const{squadRatingFloatEnabled}=__ESB_x[91];const{createTeamConfig}=__ESB_x[249];const{createStaticPlayers}=__ESB_x[173];const{createCardCatalog,createCardLane}=__ESB_x[250];const{createCardBaseFeed,baseDefinitions,withStaticCardBase}=__ESB_x[251];const{createRarityGroupBook}=__ESB_x[252];const{createDemandMemory,unionClasses}=__ESB_x[157];const{installPurchaseLog,purchaseLogState,notePurchasedItem,notePaid}=__ESB_x[87];const{createHuntLoot}=__ESB_x[122];const{createClock}=__ESB_x[253];const{storageFailed}=__ESB_x[6];const{mountPanel,PANEL_BUILD}=__ESB_x[261];const{ourWindowOpen}=__ESB_x[70];const{FIRST_SECTION,DEEDS}=__ESB_x[256];const{HOTKEYS_FEATURE}=__ESB_x[170];const{publishTemplateMenu,pressNode,cardMatchProbe}=__ESB_x[134];const{wirePage}=__ESB_x[281];const{createBuyerDoor}=__ESB_x[282];const{createSettingsDoor}=__ESB_x[283];const{createLiveEvidenceRecorder,createPhaseLog,domEvidence,buildLiveEvidence}=__ESB_x[284];const{createBridgeLiveControlProvider,createLiveControlSession}=__ESB_x[285];const{createWaitNotice}=__ESB_x[286];const{askCodeVersion,CODE_LINE_BUILD}=__ESB_x[287];
 ;
 ;
 ;
@@ -60081,7 +60184,10 @@ if(ids.length===0)return
 catalog.setUniverse(ids)
 seedInSlices(ids.length,(from,to)=>catalog.seedPositions(lane,from,to))}).catch((err)=>note(`catalog seed: ${err?.message??err}`))
 const cardBase=createCardBaseFeed({
-ask:(params)=>bridge.request(CARDS_METHOD,params,{timeoutMs:CARDS_TIMEOUT_MS}),
+ask:withStaticCardBase({ask:(params)=>bridge.request(CARDS_METHOD,params,{timeoutMs:CARDS_TIMEOUT_MS}),
+fetch:galleryDoorFetch((method,params)=>bridge.request(method,params,{timeoutMs:65000}),60000),
+witness:galleryDoorFetch((method,params)=>bridge.request(method,params,{timeoutMs:20000})),
+onError:(err)=>note(`card base static: ${err?.message??err}`)}),
 storage:{read:()=>bridge.request('cardbase.read'),write:(value)=>bridge.request('cardbase.write',value)},
 season:()=>seasonOf(),
 game:()=>currentGame(),
@@ -60975,7 +61081,7 @@ return{ok:true,reason:null}}catch(err){note(`day-x remount: ${err?.message??err}
 return{ok:false,reason:'remount-failed'}}}
 if(uiState.isDayXOff())applyDayX(true)
 const galleryStore=galleryDoorStore((method,params)=>bridge.request(method,params))
-const galleryCatalog=createGalleryCatalogFeed({fetch:galleryDoorFetch((method,params)=>bridge.request(method,params)),
+const galleryCatalog=createGalleryCatalogFeed({fetch:galleryDoorFetch((method,params)=>bridge.request(method,params,{timeoutMs:20000})),
 store:galleryStore,now:()=>priceClock.now()})
 void galleryCatalog.load().then(()=>galleryCatalog.refresh()).catch(()=>{/* слово отказа в приборе */})
 setGalleryEngine(createGalleryEngine({catalog:galleryCatalog,
