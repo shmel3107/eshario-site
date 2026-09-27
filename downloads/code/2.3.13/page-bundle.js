@@ -1,11 +1,11 @@
-// ESHArio page-bundle 2.3.10 f096b86f744490d73c63da18cbc7b37eec377580 2026-09-26T21:50:09Z
+// ESHArio page-bundle 2.3.13 0c6fbc558a0d462eb3deb80025727b0b422e8421 2026-09-27T00:12:35Z
 (function(){'use strict';
 // Адрес: на чужой странице EA склейка молчит (контракт 1.1).
 if(!(function(h){return /^https:\/\/www\.ea\.com\/.*\/ultimate-team\/web-app.*/.test(h)})(String(globalThis.location&&globalThis.location.href)))return;
 // Атрибуты своего <script> читаются первой синхронной строкой: узел снимается сразу.
 const __eshario_tag=(function(s){return s&&typeof s.getAttribute==='function'?Object.freeze({loader:s.getAttribute("data-eshario-loader"),base:s.getAttribute("data-eshario-base"),token:s.getAttribute("data-eshario-token")}):null})(globalThis.document&&globalThis.document.currentScript);
 const __eshario_assets=Object.freeze({
-"eshario-asset:ui/theme.css":":root,\n:host {\n  --fx-accent: #3DD8FF;        /* акцент: наши кнопки, метки, значения */\n  --fx-accent-dim: #1B90B3;    /* приглушённый акцент, рамки */\n  --fx-on-accent: #062733;     /* текст на акцентной заливке */\n  --fx-accent-tint: rgba(61, 216, 255, .09); /* фон наших блоков */\n  --fx-ok: #00E07F;            /* успех (совпадает с языком EA) */\n  --fx-warn: #FFB454;          /* предупреждение (страж, замок) */\n  --fx-warn-ink: #2A1C05;      /* текст на янтарной заливке */\n  --fx-danger: #FF5470;        /* ошибка */\n  --fx-gold: #E8C35A;          /* только про монеты */\n  --fx-surface: #131417;       /* фон наших окон/блоков */\n  --fx-surface-2: #1E2330;     /* фон вложенных элементов */\n  --fx-line: #24262C;          /* линии и рамки */\n  --fx-ink: #EEF1F7;           /* основной текст */\n  --fx-dim: #939DB4;           /* второстепенный текст */\n  --fx-surface-glass: rgba(19, 20, 23, .985); /* фон панели поверх вебапа */\n  --fx-surface-sunken: #0D0F13;               /* поля ввода и «колодцы» */\n  --fx-line-strong: #333743;                  /* рамка кнопки и поля */\n  --fx-ink-strong: #FFFFFF;                   /* фокус и максимальный контраст */\n  --fx-muted: #6D7589;                        /* выключенный текст */\n  --fx-overlay: rgba(0, 0, 0, .55);           /* затемнение под диалогом */\n  --fx-shadow: rgba(0, 0, 0, .34);            /* тень небольшого элемента */\n  --fx-shadow-strong: rgba(0, 0, 0, .48);     /* тень панели и диалога */\n  --fx-ok-tint: rgba(0, 224, 127, .10);       /* заливка сообщения об успехе */\n  --fx-warn-tint: rgba(255, 180, 84, .10);    /* заливка предупреждения */\n  --fx-warn-dim: #6B4E1E;                     /* рамка предупреждения */\n  --fx-danger-tint: rgba(255, 84, 112, .12);  /* заливка ошибки */\n  --fx-flag-white: #FFFFFF;    /* белое поле обоих флагов */\n  --fx-flag-uk-blue: #012169;  /* синее поле британского флага */\n  --fx-flag-uk-red: #C8102E;   /* красный крест британского флага */\n  --fx-flag-ru-blue: #0039A6;  /* средняя полоса российского флага */\n  --fx-flag-ru-red: #D52B1E;   /* нижняя полоса российского флага */\n}\n",
+"eshario-asset:ui/theme.css":":root,\n:host {\n  --fx-accent: #3DD8FF;        /* акцент: наши кнопки, метки, значения */\n  --fx-accent-dim: #1B90B3;    /* приглушённый акцент, рамки */\n  --fx-on-accent: #062733;     /* текст на акцентной заливке */\n  --fx-accent-tint: rgba(61, 216, 255, .09); /* фон наших блоков */\n  --fx-ok: #00E07F;            /* успех (совпадает с языком EA) */\n  --fx-warn: #FFB454;          /* предупреждение (страж, замок) */\n  --fx-warn-ink: #2A1C05;      /* текст на янтарной заливке */\n  --fx-danger: #FF5470;        /* ошибка */\n  --fx-gold: #E8C35A;          /* только про монеты */\n  --fx-surface: #131417;       /* фон наших окон/блоков */\n  --fx-surface-2: #1E2330;     /* фон вложенных элементов */\n  --fx-line: #24262C;          /* линии и рамки */\n  --fx-ink: #EEF1F7;           /* основной текст */\n  --fx-dim: #939DB4;           /* второстепенный текст */\n  --fx-surface-glass: rgba(19, 20, 23, .985); /* фон панели поверх вебапа */\n  --fx-surface-sunken: #0D0F13;               /* поля ввода и «колодцы» */\n  --fx-line-strong: #333743;                  /* рамка кнопки и поля */\n  --fx-ink-strong: #FFFFFF;                   /* фокус и максимальный контраст */\n  --fx-muted: #6D7589;                        /* выключенный текст */\n  --fx-overlay: rgba(0, 0, 0, .55);           /* затемнение под диалогом */\n  --fx-shadow: rgba(0, 0, 0, .34);            /* тень небольшого элемента */\n  --fx-shadow-strong: rgba(0, 0, 0, .48);     /* тень панели и диалога */\n  --fx-ok-tint: rgba(0, 224, 127, .10);       /* заливка сообщения об успехе */\n  --fx-warn-tint: rgba(255, 180, 84, .10);    /* заливка предупреждения */\n  --fx-warn-dim: #6B4E1E;                     /* рамка предупреждения */\n  --fx-danger-tint: rgba(255, 84, 112, .12);  /* заливка ошибки */\n  --fx-flag-white: #FFFFFF;    /* белое поле обоих флагов */\n  --fx-flag-uk-blue: #012169;  /* синее поле британского флага */\n  --fx-flag-uk-red: #C8102E;   /* красный крест британского флага */\n  --fx-flag-ru-blue: #0039A6;  /* средняя полоса российского флага */\n  --fx-flag-ru-red: #D52B1E;   /* нижняя полоса российского флага */\n  --fx-holo-cyan: rgba(61, 216, 255, .75);    /* холодный край блика */\n  --fx-holo-shine: rgba(255, 255, 255, .9);   /* середина блика */\n  --fx-holo-violet: rgba(178, 128, 255, .75); /* фиолетовый перелив */\n  --fx-holo-rose: rgba(255, 128, 204, .6);    /* тёплый край блика */\n}\n",
 "eshario-asset:ui/sidebar.css":".fut-sell-reference {\n  display: flex;\n  align-items: baseline;\n  justify-content: center;\n  gap: 8px;\n  margin: 8px 12px;\n  padding: 5px 12px;\n  font-family: inherit;\n  font-size: 13px;\n  line-height: 1.2;\n  background: var(--fx-surface-2);\n  border: 1px solid var(--fx-line);\n  border-radius: 8px;\n  pointer-events: none;\n}\n.fut-sell-value {\n  font-size: 17px;\n  font-weight: 700;\n  white-space: nowrap;\n  color: var(--fx-gold);\n}\n.fut-sell-caption {\n  min-width: 0;\n  overflow: hidden;\n  font-size: 11px;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  color: var(--fx-dim);\n}\n[data-fut-sell-concept='1'] {\n  display: none !important;\n}\n.fut-sell-rows {\n  margin: 0;\n}\n.fut-sell-row {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 8px;\n  padding-top: 6px;\n  padding-bottom: 6px;\n  white-space: nowrap;\n  border-left: 3px solid var(--fx-accent);\n}\n.fut-sell-row .btn-text {\n  min-width: 0;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.fut-sell-row .btn-subtext {\n  flex: none;\n  color: var(--fx-dim);\n}\n.fut-sell-row[data-fut-sell-row='locked'] .btn-subtext:empty {\n  display: none;\n}\n.fut-sell-row[data-fut-sell-found='1'] .btn-subtext {\n  font-weight: 700;\n  color: var(--fx-gold);\n}\n.fut-sell-row[data-fut-sell-busy='1'] {\n  opacity: 0.6;\n}\n.fut-sell-controls {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n  font-family: inherit;\n  font-size: 12px;\n  line-height: 1.3;\n}\n\n.fut-sell-nudges {\n  display: flex;\n  gap: 6px;\n}\n.fut-sell-nudge {\n  flex: 1;\n  box-sizing: border-box;\n  height: max(30px, calc(var(--fut-sell-row, 34px) * 0.72));\n  padding: 0 10px;\n  font-family: inherit;\n  font-size: 14px;\n  font-weight: 600;\n  line-height: 1.2;\n  color: var(--fx-accent);\n  background: none;\n  border: 1px solid var(--fx-accent-dim);\n  border-radius: var(--fut-sell-radius, 4px);\n  cursor: pointer;\n}\n.fut-sell-nudge:hover {\n  color: var(--fx-on-accent);\n  background: var(--fx-accent);\n}\n.fut-sell-money {\n  display: flex;\n  align-items: baseline;\n  justify-content: space-between;\n  gap: 8px;\n  font-family: inherit;\n  font-size: 11px;\n}\n.fut-sell-money-label {\n  color: var(--fx-dim);\n}\n.fut-sell-money-value {\n  font-weight: 700;\n  white-space: nowrap;\n  color: var(--fx-gold);\n}\n.fut-sell-money[data-fut-sell-positive='1'] .fut-sell-money-value {\n  color: var(--fx-ok);\n}\n.fut-sell-money[data-fut-sell-positive='0'] .fut-sell-money-value {\n  color: var(--fx-danger);\n}\n.fut-sell-durations {\n  display: flex;\n  flex: 1;\n  min-width: 0;\n  overflow: hidden;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 4px;\n}\n.fut-sell-duration {\n  flex: 1 1 0;\n  min-width: 0;\n  padding: 3px 1px;\n  font-family: inherit;\n  font-size: 10px;\n  line-height: 1.3;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  color: var(--fx-dim);\n  background: none;\n  border: 0;\n  border-left: 1px solid var(--fx-line-strong);\n  border-radius: 0;\n  cursor: pointer;\n}\n.fut-sell-duration:first-child {\n  border-left: 0;\n}\n.fut-sell-duration:hover {\n  color: var(--fx-ink);\n}\n.fut-sell-duration[data-fut-sell-on='1'] {\n  color: var(--fx-on-accent);\n  background: var(--fx-accent);\n}\n.fut-sell-jump {\n  flex: none;\n  align-self: stretch;\n  min-width: 20px;\n  padding: 0 3px;\n  font-family: inherit;\n  font-size: 13px;\n  font-weight: 700;\n  line-height: 1;\n  color: var(--fx-accent);\n  background: none;\n  border: 0;\n  border-radius: inherit;\n  cursor: pointer;\n}\n.fut-sell-jump:hover {\n  color: var(--fx-on-accent);\n  background: var(--fx-accent);\n}\n.fut-card-lock {\n  position: absolute;\n  top: 6px;\n  right: 6px;\n  z-index: 2;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  width: 22px;\n  height: 22px;\n  padding: 0;\n  border: 1px solid var(--fx-line);\n  border-radius: 50%;\n  background: var(--fx-surface);\n  color: var(--fx-dim);\n  cursor: pointer;\n}\n.fut-card-lock::before {\n  content: '';\n  width: 7px;\n  height: 5px;\n  border: 1.5px solid currentColor;\n  border-bottom: 0;\n  border-radius: 4px 4px 0 0;\n  margin-bottom: -1px;\n  transform: translate(3px, -1px);\n}\n.fut-card-lock::after {\n  content: '';\n  width: 11px;\n  height: 8px;\n  border-radius: 2px;\n  background: currentColor;\n}\n.fut-card-lock[data-fut-card-lock-on='1'] {\n  color: var(--fx-warn);\n  border-color: var(--fx-warn);\n}\n.fut-card-lock[data-fut-card-lock-on='1']::before {\n  transform: none;\n}\n.detail-carousel > .fut-card-lock {\n  position: absolute !important;\n  top: 6px !important;\n  right: 6px !important;\n  bottom: auto !important;\n  left: auto !important;\n  margin: 0 !important;\n  transform: none !important;\n}\n.detail-carousel > .fut-card-lock:has(> .fx-hk-badge) {\n  top: 24px !important;\n  right: 22px !important;\n}\n.fut-price-badge {\n  position: absolute !important;\n  top: 3px !important;\n  right: 0 !important;\n  bottom: auto !important;\n  left: 0 !important;\n  width: fit-content !important;\n  margin: 0 auto !important;\n  transform: none !important;\n  z-index: 2;\n  box-sizing: border-box;\n  display: block;\n  pointer-events: none;\n  padding: 0 4px;\n  border: 1px solid var(--fx-line);\n  border-radius: 4px;\n  background: var(--fx-surface);\n  color: var(--fx-gold);\n  font: 600 10px/15px system-ui, sans-serif;\n  letter-spacing: .2px;\n  text-align: center;\n  white-space: nowrap;\n}\n.fut-price-badge[data-fut-price-badge-live] {\n  border-color: var(--fx-accent) !important;\n  color: var(--fx-accent);\n}\n.fut-price-badge--quiet {\n  color: var(--fx-dim);\n  font-weight: 500;\n}\n.fut-price-badge[data-fut-price-badge-press] {\n  pointer-events: auto;\n  cursor: pointer;\n}\n.fut-price-badge[data-fut-price-badge-press]:hover {\n  border-color: var(--fx-accent-dim);\n  background: linear-gradient(var(--fx-accent-tint), var(--fx-accent-tint)), var(--fx-surface);\n}\n.fut-price-badge[data-fut-price-badge-busy='1'] {\n  pointer-events: none;\n  opacity: .55;\n}\n\n.fut-price-badge--big {\n  top: 6px !important;\n  padding: 1px 7px;\n  border-radius: 5px;\n  font-size: 14px;\n  line-height: 21px;\n}\n[data-fut-card-page='1'] .fut-price-badge,\n[data-fut-card-solo='1'] .fut-price-badge {\n  padding: 0 calc(4px * var(--fut-card-face-k, 1));\n  border-radius: calc(4px * var(--fut-card-face-k, 1));\n  font-size: calc(10px * var(--fut-card-face-k, 1));\n  line-height: calc(15px * var(--fut-card-face-k, 1));\n}\n.fut-price-badge.fut-gallery-pill {\n  display: flex;\n  align-items: stretch;\n  padding: 0;\n}\n.fut-price-badge--big.fut-gallery-pill {\n  padding: 1px 0;\n}\n.fut-gallery-pill__price {\n  padding: 0 .4em;\n}\n.fut-gallery-pill__gallery {\n  padding: 0 .4em;\n  border-left: 1px solid var(--fx-line);\n  color: var(--fx-accent);\n  pointer-events: auto;\n  cursor: default;\n}\n.fut-gallery-pill__gallery--ok {\n  color: var(--fx-ok);\n}\n\n",
 "eshario-asset:ui/sbc-strip.css":".fx-sbc-strip {\n  display: none;\n}\n\n@media (min-width: 1281px) {\n  [data-fut-sbc-bar~='rating'] .ut-squad-summary-info--right > .rating,\n  [data-fut-sbc-bar~='rating'] .ut-squad-summary-info--end > .rating,\n  [data-fut-sbc-bar~='chemistry'] .ut-squad-summary-info--right > .chemistry,\n  [data-fut-sbc-bar~='chemistry'] .ut-squad-summary-info--end > .chemistry {\n    display: none;\n  }\n  [data-fut-sbc-bar] .fx-sbc-strip {\n    box-sizing: border-box;\n    display: flex;\n    flex: 1 1 auto;\n    max-width: 700px;\n    align-items: center;\n    gap: 13px;\n    flex-wrap: nowrap;\n    min-width: 0;\n    overflow: hidden;\n    white-space: nowrap;\n    color: var(--fx-ink);\n  }\n  [data-fut-sbc-bar] .fx-sbc-mark,\n  [data-fut-squad-bar] .fx-sbc-mark {\n    padding-right: 12px;\n    border-right: 1px solid var(--fx-line-strong);\n  }\n\n  [data-fut-sbc-bar] .fx-sbc-strip-mark {\n    display: inline-flex;\n    flex: 0 0 auto;\n    align-items: center;\n  }\n  [data-fut-sbc-bar] .fx-sbc-chip,\n  [data-fut-squad-bar] .fx-sbc-chip {\n    display: flex;\n    flex: 0 0 auto;\n    flex-direction: column;\n    justify-content: center;\n    min-width: 0;\n    overflow: hidden;\n  }\n\n  [data-fut-sbc-bar] .fx-sbc-chip-label,\n  [data-fut-squad-bar] .fx-sbc-chip-label {\n    min-height: 14px;\n    overflow: hidden;\n    color: var(--fx-dim);\n    font-size: 10px;\n    line-height: 14px;\n    text-overflow: ellipsis;\n    text-transform: lowercase;\n  }\n\n  [data-fut-sbc-bar] .fx-sbc-chip-value,\n  [data-fut-squad-bar] .fx-sbc-chip-value {\n    overflow: hidden;\n    color: var(--fx-ink);\n    font-size: 14px;\n    font-weight: 600;\n    line-height: 18px;\n    text-overflow: ellipsis;\n  }\n  [data-fut-sbc-bar] .fx-sbc-chip-line,\n  [data-fut-squad-bar] .fx-sbc-chip-line {\n    display: flex;\n    align-items: baseline;\n    gap: 4px;\n    min-width: 0;\n  }\n  [data-fut-sbc-bar] .fx-sbc-tick,\n  [data-fut-squad-bar] .fx-sbc-tick {\n    display: inline-flex;\n    flex: 0 0 auto;\n    align-self: center;\n    align-items: center;\n    justify-content: center;\n    width: 15px;\n    height: 15px;\n    border-radius: 50%;\n    background: var(--fx-ok);\n    color: var(--fx-on-accent);\n    font-size: 10px;\n    line-height: 15px;\n  }\n\n  [data-fut-sbc-bar] .fx-sbc-tick[data-fut-sbc-mark='no'],\n  [data-fut-squad-bar] .fx-sbc-tick[data-fut-sbc-mark='no'] {\n    background: var(--fx-danger);\n  }\n  [data-fut-sbc-bar] .fx-sbc-chip[data-fut-sbc-chip='cost'] .fx-sbc-chip-value,\n  [data-fut-squad-bar] .fx-sbc-chip[data-fut-sbc-chip='cost'] .fx-sbc-chip-value {\n    color: var(--fx-ink);\n  }\n\n  [data-fut-sbc-bar] .fx-sbc-chip-paren,\n  [data-fut-squad-bar] .fx-sbc-chip-paren {\n    color: var(--fx-gold);\n  }\n  [data-fut-sbc-bar] .fx-sbc-chip[data-fut-sbc-chip-muted='1'] .fx-sbc-chip-value,\n  [data-fut-squad-bar] .fx-sbc-chip[data-fut-sbc-chip-muted='1'] .fx-sbc-chip-value {\n    color: var(--fx-muted);\n    font-weight: 400;\n  }\n  [data-fut-sbc-bar] .fx-sbc-chip[data-fut-sbc-chip='reward'] {\n    max-width: 220px;\n    min-width: 72px;\n    flex: 0 1 auto;\n  }\n  [data-fut-sbc-bar] .fx-sbc-chip-icon {\n    width: auto;\n    height: 18px;\n    flex: 0 0 auto;\n    align-self: center;\n    border-radius: 2px;\n    object-fit: contain;\n  }\n  [data-fut-sbc-bar] .fx-sbc-chip[data-fut-sbc-chip='reward'] .fx-sbc-chip-value {\n    overflow: hidden;\n    font-weight: 500;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n  }\n  [data-fut-sbc-bar] .fx-sbc-chip[data-fut-sbc-chip-sale='yes'] .fx-sbc-chip-value {\n    color: var(--fx-ok);\n  }\n\n  [data-fut-sbc-bar] .fx-sbc-chip[data-fut-sbc-chip-sale='no'] .fx-sbc-chip-value {\n    color: var(--fx-danger);\n  }\n\n  [data-fut-sbc-bar] .fx-sbc-chip[data-fut-sbc-chip-sale='coins'] .fx-sbc-chip-value {\n    color: var(--fx-gold);\n  }\n\n}\n[data-fut-sbc-cut='1'] {\n  display: none;\n}\n",
 "eshario-asset:ui/squad.css":".fx-squad-bar {\n  display: none;\n}\n\n@media (min-width: 1281px) {\n  [data-fut-squad-bar~='formation'] > .ut-squad-summary-info > h1.ut-squad-summary-label,\n  [data-fut-squad-bar~='rating'] > .ut-squad-summary-info > .rating-inline,\n  [data-fut-squad-bar~='chemistry'] .chemistry-summary > .ut-squad-summary-label {\n    display: none;\n  }\n  [data-fut-squad-bar] > .ut-squad-summary-info:has(> .fx-squad-bar) {\n    align-self: stretch;\n    align-content: center;\n  }\n  [data-fut-squad-bar~='chemistry'] .chemistry {\n    align-items: center;\n  }\n\n  [data-fut-squad-bar] .fx-squad-bar {\n    box-sizing: border-box;\n    display: flex;\n    flex: 1 1 auto;\n    align-self: stretch;\n    align-items: center;\n    gap: 13px;\n    flex-wrap: nowrap;\n    min-width: 0;\n    overflow: hidden;\n    white-space: nowrap;\n    color: var(--fx-ink);\n  }\n  [data-fut-squad-bar] .fx-squad-bar-mark {\n    display: inline-flex;\n    flex: 0 0 auto;\n    align-items: center;\n  }\n}\n.fx-squad-lock {\n  position: relative;\n}\n\n.fx-squad-lock::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  width: 3px;\n  background: var(--fx-accent);\n}\n.fx-squad-lock .fx-squad-lock-mark {\n  flex: 0 0 auto;\n  margin-right: 8px;\n  pointer-events: none;\n}\n.fx-squad-lock .btn-subtext {\n  color: var(--fx-accent);\n  font-size: 14px;\n  font-weight: 600;\n}\nhtml [data-fut-squad-pick~='filter'] .ut-pinned-item > ul > li.listFUTItem {\n  height: 56px !important;\n  min-height: 0 !important;\n  margin-bottom: 0 !important;\n  overflow: hidden !important;\n}\n\nhtml [data-fut-squad-pick~='filter'] .ut-pinned-item > ul > li.listFUTItem .entityContainer > :first-child {\n  width: 34px !important;\n  height: 47px !important;\n}\nhtml [data-fut-squad-pick~='filter'] .ut-pinned-item > ul > li.listFUTItem .player-stats-data-component {\n  display: none !important;\n}\n.fx-pick-tools {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  padding: 6px 16px 8px;\n}\n\n.fx-pick-line {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n.fx-pick-tools .fx-search {\n  flex: 1 1 auto;\n  min-width: 0;\n  width: auto;\n}\n\n.fx-pick-sorts {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n}\n.fx-pick-sort {\n  flex: 1 1 0;\n  min-width: 0;\n  padding: 3px 4px;\n  border: 1px solid var(--fx-line);\n  border-radius: 6px;\n  background: transparent;\n  color: var(--fx-dim);\n  font-size: 11px;\n  line-height: 14px;\n  font-weight: 600;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  cursor: pointer;\n}\n\n.fx-pick-sort:hover {\n  color: var(--fx-ink);\n}\n\n.fx-pick-sort[aria-pressed='true'] {\n  border-color: var(--fx-accent);\n  color: var(--fx-accent);\n}\n.fx-pick-count {\n  font-size: 11px;\n  line-height: 14px;\n  color: var(--fx-dim);\n}\n\n.fx-pick-count:empty {\n  display: none;\n}\n\n.fx-pick-count[data-fut-pick-tone='ok'] {\n  color: var(--fx-accent);\n}\nhtml [data-fut-squad-pick] .paginated-item-list > ul[data-fut-card-page='1'] {\n  grid-template-columns: repeat(var(--fut-pick-cols, 4), minmax(0, 1fr)) !important;\n}\nhtml [data-fut-squad-pick] .paginated-item-list > ul[data-fut-card-page='1'] > li.listFUTItem .entityContainer > :is(.name, .player-stats-data-component, .list-data-playstyle) {\n  display: none !important;\n}\nhtml [data-fut-squad-pick~='tile'] .paginated-item-list > ul > li.listFUTItem .entityContainer > :first-child {\n  width: var(--fut-pick-face) !important;\n  height: var(--fut-pick-face-h) !important;\n}\nhtml [data-fut-squad-pick~='chem'] .paginated-item-list > ul > li.listFUTItem .ut-list-chemistry-tag-view {\n  display: none !important;\n}\n.fx-pick-chem {\n  position: absolute;\n  left: 0;\n  right: auto;\n  bottom: 0;\n  min-width: 24px;\n  height: 16px;\n  padding: 0 5px;\n  box-sizing: border-box;\n  border-radius: 8px 0 8px 0;\n  background: var(--fx-surface-glass);\n  text-align: center;\n  font-size: 13px;\n  font-weight: 700;\n  pointer-events: none;\n  color: var(--fx-dim);\n  z-index: 6;\n}\n\n.fx-pick-chem[data-fut-pick-tone='ok'] {\n  color: var(--fx-ok);\n}\n\n.fx-pick-chem[data-fut-pick-tone='danger'] {\n  color: var(--fx-danger);\n}\nhtml [data-fut-squad-pick~='chem'] .paginated-item-list > ul > li.listFUTItem.fx-pick-best {\n  outline: 1px solid var(--fx-ok);\n  outline-offset: -1px;\n  border-radius: 8px;\n}\nhtml [data-fut-squad-pick~='head'] [data-fut-card-bar],\nhtml [data-fut-squad-pick~='head'] .fx-card-bar {\n  display: none !important;\n}\nhtml[data-fut-squad-frame='1'] .ut-content:has(> .ut-squad-overview) {\n  max-height: 92% !important;\n}\n",
@@ -37,14 +37,15 @@ const __eshario_assets=Object.freeze({
 "eshario-asset:ui/boot-splash.css":"#fut-companion-boot {\n  position: fixed;\n  left: 50%;\n  bottom: 28px;\n  transform: translateX(-50%);\n  z-index: 2;\n\n  display: flex;\n  align-items: center;\n  gap: 10px;\n\n  padding: 8px 14px;\n  border: 1px solid var(--fx-line);\n  border-radius: 999px;\n  background: var(--fx-surface);\n  box-shadow: 0 2px 10px var(--fx-shadow);\n\n  font: 500 12px/1.2 system-ui, sans-serif;\n  color: var(--fx-dim);\n  white-space: nowrap;\n  pointer-events: none;\n  user-select: none;\n}\n#fut-companion-boot .fx-boot-line {\n  color: var(--fx-ink);\n}\n",
 "eshario-asset:ui/market-rating.css":".fx-mrat-tab {\n  --mrat-mark: 2.16em;\n  --mrat-mark-gap: .42em;\n  color: var(--fx-accent);\n  cursor: pointer;\n}\n.fx-mrat-tab:hover {\n  color: var(--fx-ink);\n}\n.fx-mrat-tab .fx-mark {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  transform: translateY(-50%);\n  height: 1em;\n  width: var(--mrat-mark);\n  pointer-events: none;\n}\n.fx-mrat-door-text {\n  position: relative;\n  display: inline-block;\n  padding-left: calc(var(--mrat-mark) + var(--mrat-mark-gap));\n  white-space: nowrap;\n}\n.fx-hk-capture-box.fx-mrat-box {\n  width: min(760px, 94vw);\n  max-width: min(760px, 94vw);\n}\n.fx-mrat-now {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  flex: 0 0 auto;\n  border: 0;\n  background: transparent;\n  color: var(--fx-dim);\n  font: inherit;\n  font-size: 12.5px;\n  font-weight: 400;\n  cursor: pointer;\n  padding: 0;\n}\n\n.fx-mrat-now-knob {\n  display: inline-block;\n  width: 34px;\n  height: 18px;\n  border-radius: 999px;\n  border: 1px solid var(--fx-line-strong);\n  background: var(--fx-surface-2);\n  position: relative;\n  flex: none;\n}\n\n.fx-mrat-now-knob::after {\n  content: '';\n  position: absolute;\n  top: 2px;\n  left: 2px;\n  width: 12px;\n  height: 12px;\n  border-radius: 50%;\n  background: var(--fx-dim);\n}\n.fx-mrat-now-on { color: var(--fx-accent); }\n\n.fx-mrat-now-on .fx-mrat-now-knob {\n  border-color: var(--fx-accent-dim);\n  background: var(--fx-accent-tint);\n}\n\n.fx-mrat-now-on .fx-mrat-now-knob::after {\n  left: auto;\n  right: 2px;\n  background: var(--fx-accent);\n}\n.fx-mrat-basics {\n  margin: 0 0 4px;\n  color: var(--fx-ink);\n  font-size: 12.5px;\n  line-height: 1.45;\n}\n\n.fx-mrat-when {\n  margin: 0;\n  color: var(--fx-dim);\n  font-size: 12.5px;\n  line-height: 1.45;\n  font-variant-numeric: tabular-nums;\n}\n.fx-mrat-warn {\n  margin: 8px 0 0;\n  color: var(--fx-warn);\n  font-size: 12.5px;\n  line-height: 1.45;\n}\n.fx-mrat-list {\n  margin: 12px 0 0;\n  max-height: min(60vh, 520px);\n  overflow-y: auto;\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n\n.fx-mrat-row {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 6px 8px;\n  border: 1px solid var(--fx-line);\n  border-radius: 6px;\n  background: var(--fx-surface);\n}\n.fx-mrat-rating {\n  flex: 0 0 auto;\n  min-width: 34px;\n  color: var(--fx-accent);\n  font-size: 17px;\n  font-weight: 700;\n  text-align: center;\n  font-variant-numeric: tabular-nums;\n}\n.fx-mrat-from {\n  flex: 0 0 auto;\n  min-width: 92px;\n  color: var(--fx-gold);\n  font-size: 13px;\n  font-weight: 700;\n  font-variant-numeric: tabular-nums;\n}\n\n.fx-mrat-cards {\n  flex: 1 1 auto;\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  min-width: 0;\n}\n.fx-mrat-card {\n  display: inline-flex;\n  align-items: baseline;\n  gap: 6px;\n  max-width: 100%;\n  padding: 3px 8px;\n  border: 1px solid var(--fx-line);\n  border-radius: 999px;\n  background: var(--fx-surface-2);\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 12.5px;\n  cursor: pointer;\n}\n\n.fx-mrat-card:hover {\n  border-color: var(--fx-accent);\n}\n\n.fx-mrat-card-name {\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n\n.fx-mrat-card-coins {\n  flex: 0 0 auto;\n  color: var(--fx-accent);\n  font-weight: 700;\n  font-variant-numeric: tabular-nums;\n}\n.fx-mrat-empty {\n  margin: 12px 0 0;\n  color: var(--fx-dim);\n  font-size: 13px;\n  line-height: 1.5;\n}\n.fx-mrat-notice {\n  margin: 10px 0 0;\n  padding: 8px 10px;\n  border: 1px solid var(--fx-warn);\n  border-radius: 6px;\n  color: var(--fx-warn);\n  font-size: 12.5px;\n  line-height: 1.45;\n}\n",
 "eshario-asset:ui/market-bot.css":"[data-fut-market-box='1'] .ut-content-container {\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n}\n\n[data-fut-market-box='1'] .ut-content-container > .ut-content {\n  max-width: 1900px !important;\n}\n@media (min-height: 640px) {\n  [data-fut-market-box='1'] .ut-content-container > .ut-content {\n    max-height: 100% !important;\n  }\n}\n@media (min-width: 1281px) {\n  [data-fut-market-box='1'] .ut-content-container > .ut-content > .ut-pinned-list {\n    overflow-y: visible !important;\n    flex: 0 0 auto !important;\n  }\n}\n[data-fut-market-box='1'] .ut-content-container > .ut-content > .ut-pinned-list,\n[data-fut-market-box='1'] .ut-content-container > .ut-content > .button-container {\n  max-width: 1200px;\n  width: 100%;\n  box-sizing: border-box;\n}\n[data-fut-market-box='1'] .ut-content-container > .ut-content > .button-container {\n  display: flex !important;\n  gap: 16px;\n  align-items: stretch;\n}\n\n[data-fut-market-box='1'] .ut-content-container > .ut-content > .button-container > button {\n  flex: 1 1 0 !important;\n  min-width: 0;\n}\n[data-fut-market-box='1'] .ovr-range-title,\n[data-fut-market-box='1'] .ovr-range-description {\n  display: none !important;\n}\n.fx-mbot {\n  display: grid;\n  gap: 6px;\n  margin: 8px 0 0;\n  padding: 8px 12px;\n  box-sizing: border-box;\n  border: 1px solid var(--fx-accent-dim);\n  border-radius: 8px;\n  background: var(--fx-surface);\n  color: var(--fx-ink);\n  font-size: 13px;\n  line-height: 1.35;\n}\n\n.fx-mbot-head {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n\n.fx-mbot-title {\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: .08em;\n  text-transform: uppercase;\n  color: var(--fx-accent);\n}\n.fx-mbot-chip {\n  padding: 3px 8px;\n  border: 1px solid var(--fx-warn-dim);\n  border-radius: 5px;\n  background: var(--fx-warn-tint);\n  color: var(--fx-warn);\n  font-size: 11px;\n  white-space: nowrap;\n  font-family: inherit;\n  line-height: 1.35;\n  cursor: pointer;\n}\n.fx-mbot-chip[data-fut-market-bot-chip=\"live\"] {\n  border-color: var(--fx-danger);\n  background: var(--fx-danger-tint);\n  color: var(--fx-danger);\n  font-weight: 700;\n}\n.fx-hk-capture-box.fx-mbot-gate-box {\n  width: min(520px, 92vw);\n  max-width: min(520px, 92vw);\n}\n.fx-mbot-gate-warn {\n  margin: 0;\n  color: var(--fx-danger);\n  font-size: 14px;\n  font-weight: 700;\n  line-height: 1.45;\n}\n.fx-mbot-gate-aim {\n  margin: 10px 0 0;\n  color: var(--fx-accent);\n  font-size: 13.5px;\n  font-weight: 700;\n  line-height: 1.45;\n  font-variant-numeric: tabular-nums;\n}\n.fx-mbot-gate-skip {\n  margin: 12px 0 0;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  color: var(--fx-dim);\n  font-size: 12.5px;\n  line-height: 1.35;\n  cursor: pointer;\n}\n\n.fx-mbot-gate-skip input {\n  width: 13px;\n  height: 13px;\n  margin: 0;\n  accent-color: var(--fx-accent);\n  cursor: pointer;\n}\n.fx-mbot-gate-caps {\n  margin: 10px 0 0;\n  padding: 8px 10px;\n  border: 1px solid var(--fx-warn-dim);\n  border-radius: 6px;\n  background: var(--fx-warn-tint);\n  color: var(--fx-warn);\n  font-size: 13px;\n  line-height: 1.45;\n  font-variant-numeric: tabular-nums;\n}\n\n.fx-mbot-gate-note {\n  margin: 10px 0 0;\n  color: var(--fx-dim);\n  font-size: 12.5px;\n  line-height: 1.45;\n}\n\n.fx-mbot-gate-text {\n  margin: 12px 0 0;\n  color: var(--fx-ink);\n  font-size: 13.5px;\n  line-height: 1.55;\n}\n\n.fx-mbot-gate-state {\n  margin-top: 10px;\n  color: var(--fx-dim);\n  font-size: 13px;\n}\n.fx-mbot-bid {\n  display: flex;\n  align-items: baseline;\n  gap: 6px;\n  min-width: 0;\n  flex: 0 1 auto;\n  font-size: 11px;\n  color: var(--fx-dim);\n  white-space: nowrap;\n}\n.fx-mbot-bid[hidden],\n.fx-mbot-bid-label[hidden] {\n  display: none !important;\n}\n\n.fx-mbot-bid-label {\n  min-width: 0;\n  flex: 0 1 auto;\n  overflow: hidden;\n  white-space: nowrap;\n}\n\n.fx-mbot-bid-value {\n  flex: 0 0 auto;\n  color: var(--fx-ink);\n  font-variant-numeric: tabular-nums;\n  white-space: nowrap;\n}\n\n.fx-mbot-budget {\n  margin-left: auto;\n  display: grid;\n  gap: 3px;\n  min-width: 220px;\n  color: var(--fx-dim);\n  font-size: 11px;\n}\n\n.fx-mbot-gauge {\n  height: 4px;\n  border-radius: 2px;\n  background: var(--fx-surface-sunken);\n  overflow: hidden;\n}\n\n.fx-mbot-gauge span {\n  display: block;\n  height: 100%;\n  background: var(--fx-accent);\n}\n.fx-mbot-budget[data-advice='over'] {\n  color: var(--fx-warn);\n}\n\n.fx-mbot-budget[data-advice='over'] .fx-mbot-gauge span {\n  background: var(--fx-warn);\n}\n\n.fx-mbot-budget[data-advice='far'] {\n  color: var(--fx-danger);\n}\n\n.fx-mbot-budget[data-advice='far'] .fx-mbot-gauge span {\n  background: var(--fx-danger);\n}\n.fx-mbot-fields {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));\n  gap: 8px;\n}\n\n.fx-mbot-field {\n  display: grid;\n  gap: 3px;\n  font-size: 11px;\n  color: var(--fx-dim);\n}\n\n.fx-mbot-field input,\n.fx-mbot-field select {\n  box-sizing: border-box;\n  width: 100%;\n  padding: 4px 8px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 5px;\n  background: var(--fx-surface-sunken);\n  color: var(--fx-ink);\n  font-size: 13px;\n}\n\n.fx-mbot-field input::placeholder {\n  color: var(--fx-muted);\n}\n.fx-mbot-foot {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: baseline;\n  gap: 4px 14px;\n}\n\n.fx-mbot-state {\n  color: var(--fx-accent);\n}\n\n.fx-mbot-notice {\n  color: var(--fx-warn);\n}\n.fx-mbot-cap {\n  position: absolute;\n  bottom: calc(100% + 4px);\n  display: flex;\n  flex-wrap: wrap;\n  align-items: baseline;\n  justify-content: center;\n  gap: 2px 8px;\n  width: max-content;\n  max-width: 560px;\n  padding: 4px 10px;\n  box-sizing: border-box;\n  border-radius: 6px;\n  background: var(--fx-surface);\n  font-size: 13px;\n  font-weight: 400;\n  line-height: 1.35;\n  text-transform: none;\n  letter-spacing: normal;\n  color: var(--fx-warn);\n  pointer-events: none;\n}\n\nhtml[dir='ltr'] .fx-mbot-cap { left: 0; }\nhtml[dir='rtl'] .fx-mbot-cap { right: 0; }\n\n.fx-mbot-cap[hidden] { display: none; }\n[data-fut-market-box='1'] .ut-content-container > .ut-content > .button-container {\n  overflow: visible !important;\n}\n.fx-mbot-cap-do {\n  color: var(--fx-accent);\n  text-decoration: underline;\n  cursor: pointer;\n  pointer-events: auto;\n}\n.fx-mbot-btn {\n  border-color: var(--fx-accent-dim) !important;\n  color: var(--fx-accent) !important;\n}\n\n.fx-mbot-btn[data-fut-market-bot-run='1'] {\n  border-color: var(--fx-warn-dim) !important;\n  color: var(--fx-warn) !important;\n}\n.fx-mbot-btn {\n  position: relative;\n}\n\n.fx-mbot-btn .fx-mark {\n  position: absolute;\n  inset-inline-start: 16px;\n  top: 50%;\n  transform: translateY(-50%);\n  height: 16px;\n  width: auto;\n  pointer-events: none;\n}\n[data-fut-market-col='1'] .ut-content-container {\n  flex-direction: row !important;\n  align-items: stretch;\n  gap: 16px;\n  box-sizing: border-box;\n}\n[data-fut-market-col='1'] > .ea-filter-bar-view {\n  padding-right: calc(16px + clamp(300px, 33%, 550px));\n  box-sizing: border-box;\n}\n[data-fut-market-col='1'] .ut-content-container > .ut-content {\n  max-width: 1200px !important;\n  flex: 1 1 0;\n  min-width: 0;\n}\n[data-fut-market-col='1'] .ut-content-container > .fx-mcol {\n  flex: 0 1 clamp(300px, 33%, 550px);\n  min-width: 0;\n}\n\n.fx-mcol {\n  height: 100%;\n  max-height: 100%;\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  color: var(--fx-ink);\n  font-size: 13px;\n  line-height: 1.35;\n  min-height: 0;\n  overflow: hidden;\n}\n.fx-mcol > .fx-mbot {\n  flex: 0 0 auto;\n  margin: 0;\n}\n\n.fx-mcol-slot {\n  display: flex;\n  flex-direction: column;\n  flex: 0 0 auto;\n  min-height: 0;\n}\n.fx-mcol-slot-journal {\n  flex: 1 1 124px;\n  min-height: 0;\n}\n\n.fx-mcol-block {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n  padding: 8px 10px;\n  box-sizing: border-box;\n  border: 1px solid var(--fx-accent-dim);\n  border-radius: 8px;\n  background: var(--fx-surface);\n}\n.fx-mcol-journal {\n  flex: 1 1 auto;\n  min-height: 0;\n  overflow: hidden;\n}\n.fx-mcol-head {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: .08em;\n  text-transform: uppercase;\n  color: var(--fx-dim);\n}\n.fx-mcol-empty {\n  color: var(--fx-dim);\n  font-size: 12px;\n}\n\n.fx-mcol-notice {\n  padding: 6px 10px;\n  border: 1px solid var(--fx-warn-dim);\n  border-radius: 6px;\n  background: var(--fx-warn-tint);\n  color: var(--fx-warn);\n  font-size: 12px;\n}\n\n.fx-mcol-ok { color: var(--fx-ok); }\n.fx-mcol-bad { color: var(--fx-danger); }\n.fx-mcol-warn { color: var(--fx-warn); }\n.fx-mcol-sets {\n  position: relative;\n  display: flex;\n  flex-wrap: wrap;\n  align-content: flex-start;\n  align-items: center;\n  gap: 4px;\n  font-size: 11px;\n  color: var(--fx-dim);\n}\n\n.fx-mcol-sets-rows { min-height: calc(2 * (1.35em + 8px) + 4px); }\n.fx-mcol-set[hidden],\n.fx-mcol-head-tail[hidden] { display: none; }\n.fx-mcol-sets-rows .fx-mcol-set-add {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n}\n.fx-mcol-set {\n  display: inline-flex;\n  align-items: baseline;\n  gap: 4px;\n  padding: 3px 7px;\n  border: 1px solid var(--fx-accent-dim);\n  border-radius: 9px;\n  background: var(--fx-accent-tint);\n  color: var(--fx-accent);\n  font-size: 11px;\n  font-weight: 600;\n  cursor: pointer;\n}\n.fx-mcol-set-cap { color: var(--fx-gold); font-size: 10px; font-weight: 400; }\n.fx-mcol-head-tail { margin-left: auto; color: var(--fx-dim); font-size: 10px; font-weight: 400; }\n.fx-mcol-name {\n  width: 100%;\n  box-sizing: border-box;\n  padding: 8px 10px;\n  border-radius: 6px;\n  background: var(--fx-surface-2);\n  border: 1px solid var(--fx-accent-dim);\n  color: var(--fx-ink);\n  font: inherit;\n}\n\n.fx-mcol-set-add {\n  border-color: var(--fx-line-strong);\n  background: transparent;\n  color: var(--fx-dim);\n  font-weight: 400;\n}\n.fx-mcol-loot {\n  display: flex;\n  align-items: baseline;\n  gap: 2px 6px;\n  font-size: 12px;\n}\n\n.fx-mcol-loot-card {\n  color: var(--fx-ink);\n}\n.fx-mcol-loot-fate {\n  color: var(--fx-dim);\n  font-size: 11px;\n}\n.fx-mcol-catch-line {\n  flex-wrap: nowrap;\n  height: 1.35em;\n  overflow: hidden;\n  white-space: nowrap;\n}\n\n.fx-mcol-catch-line > .fx-mcol-loot-card { flex: 0 0 auto; }\n\n.fx-mcol-catch-line > .fx-mcol-loot-fate {\n  flex: 0 1 auto;\n  min-width: 0;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.fx-mcol-log-list {\n  flex: 1 1 auto;\n  min-height: 0;\n  overflow-y: auto;\n  display: flex;\n  flex-direction: column;\n  gap: 2px;\n}\n.fx-mcol-log-list > * { flex: 0 0 auto; }\n\n.fx-mcol-log {\n  display: flex;\n  gap: 3px;\n  font-size: 11px;\n  color: var(--fx-dim);\n}\n.fx-mcol-log-at {\n  flex: 0 0 auto;\n  width: 7.4ch;\n  font-weight: 400;\n  color: var(--fx-muted);\n  font-variant-numeric: tabular-nums;\n}\n.fx-mcol-log-words {\n  flex: 1 1 auto;\n  min-width: 0;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.fx-mcol-log-memo > .fx-mcol-log-words,\n.fx-mcol-log-wide > .fx-mcol-log-words {\n  white-space: normal;\n  overflow: visible;\n  text-overflow: clip;\n}\n.fx-mcol-pick {\n  margin-left: auto;\n  max-width: 60%;\n  padding: 1px 4px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 3px;\n  background: var(--fx-surface-2);\n  color: var(--fx-ink);\n  font: inherit;\n  font-size: 10px;\n  font-weight: 400;\n  text-transform: none;\n  letter-spacing: 0;\n  cursor: pointer;\n}\n\n.fx-mcol-pick:focus {\n  border-color: var(--fx-accent);\n  outline: none;\n}\n.fx-mcol-log-split {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  margin: 4px 0 2px;\n  color: var(--fx-muted);\n  font-size: 9px;\n  letter-spacing: .08em;\n  text-transform: uppercase;\n  white-space: nowrap;\n}\n\n.fx-mcol-log-split::after {\n  content: '';\n  flex: 1 1 auto;\n  height: 1px;\n  background: var(--fx-line);\n}\n.fx-mcol-log-past {\n  opacity: .62;\n}\n.fx-mcol-head-pick {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  margin-left: auto;\n  min-width: 0;\n}\n\n.fx-mcol-head-pick .fx-mcol-head-tail { margin-left: 0; }\n.fx-mcol-head-pick .fx-mcol-pick { margin-left: 0; }\n.fx-mcol-log.fx-mcol-ok { color: var(--fx-ok); }\n.fx-mcol-log.fx-mcol-warn { color: var(--fx-warn); }\n.fx-mcol-log.fx-mcol-bad { color: var(--fx-danger); }\n.fx-mcol-log.fx-mcol-warn,\n.fx-mcol-log.fx-mcol-bad { font-weight: 600; }\n.fx-mcol-money {\n  font-weight: 600;\n  font-variant-numeric: tabular-nums;\n}\n.fx-mcol-money-warn { color: var(--fx-warn); }\n",
+"eshario-asset:ui/dim-owned.css":"li.listFUTItem[data-fut-dim-owned='1'] > .rowContent {\n  filter: brightness(0.62);\n}\n[data-fut-dim-owned='1'] .detail-carousel .item {\n  filter: brightness(0.62);\n}\n",
+"eshario-asset:ui/holo-glow.css":":root {\n  --fut-holo-strength: .55;\n  --fut-holo-speed: 2.8s;\n}\n\nli.listFUTItem[data-fut-holo='1'] > .rowContent .item::after,\n[data-fut-holo='1'] .detail-carousel .item::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n  z-index: 6;\n  background-image: linear-gradient(115deg,\n    transparent 30%,\n    var(--fx-holo-cyan) 40%,\n    var(--fx-holo-shine) 47%,\n    var(--fx-holo-violet) 54%,\n    var(--fx-holo-rose) 60%,\n    transparent 70%);\n  background-size: 300% 100%;\n  background-repeat: no-repeat;\n  -webkit-mask-image: radial-gradient(ellipse 62% 58% at 50% 46%, var(--fx-ink) 55%, transparent 100%);\n  mask-image: radial-gradient(ellipse 62% 58% at 50% 46%, var(--fx-ink) 55%, transparent 100%);\n  mix-blend-mode: screen;\n  opacity: var(--fut-holo-strength);\n  animation: fut-holo-sweep var(--fut-holo-speed) linear infinite;\n}\n\n@keyframes fut-holo-sweep {\n  from { background-position: 100% 0; }\n  to { background-position: 0% 0; }\n}\n@media (prefers-reduced-motion: reduce) {\n  li.listFUTItem[data-fut-holo='1'] > .rowContent .item::after,\n  [data-fut-holo='1'] .detail-carousel .item::after {\n    animation: none;\n    background-position: 50% 0;\n  }\n}\n",
 "eshario-asset:ui/settings-window.css":".fx-hk-capture-box.fx-set-box {\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  width: min(1200px, calc(100vw - 56px));\n  max-width: calc(100vw - 56px);\n  height: calc(100vh - 56px);\n  padding: 12px 14px 14px;\n  font-size: 13px;\n}\n.fx-set-cols, .fx-set-rail, .fx-set-main { box-sizing: border-box; }\n.fx-set-search {\n  flex: 0 1 420px;\n  min-width: 120px;\n}\n.fx-set-locale {\n  flex: 0 0 auto;\n  display: flex;\n  gap: 4px;\n}\n\n.fx-set-locale .fx-action {\n  padding: 3px 8px;\n  min-width: 34px;\n}\n.fx-update-line {\n  flex: 0 0 auto;\n  color: var(--fx-accent);\n  font-weight: 600;\n  text-decoration: none;\n  white-space: nowrap;\n}\n\n.fx-update-line a,\n.fx-update-line .fx-update-act {\n  color: inherit;\n  text-decoration: none;\n}\n\n.fx-update-line .fx-update-act {\n  padding: 0;\n  border: 0;\n  background: none;\n  font: inherit;\n  cursor: pointer;\n}\n\n.fx-update-line a:hover,\n.fx-update-line .fx-update-act:hover {\n  text-decoration: underline;\n}\n\n.fx-update-line[hidden] {\n  display: none;\n}\n.fx-set-cols {\n  flex: 1 1 auto;\n  display: flex;\n  min-height: 0;\n  gap: 12px;\n  border-top: 1px solid var(--fx-line);\n  padding-top: 10px;\n}\n\n.fx-set-rail {\n  flex: 0 0 208px;\n  display: flex;\n  flex-direction: column;\n  gap: 1px;\n  min-width: 0;\n  padding-right: 10px;\n  border-right: 1px solid var(--fx-line);\n  overflow: hidden;\n}\n.fx-set-rail-row {\n  display: flex;\n  align-items: center;\n  gap: 9px;\n  min-width: 0;\n  padding: 6px 10px;\n  text-align: left;\n  font: inherit;\n  font-size: 13px;\n  color: var(--fx-ink);\n  background: none;\n  border: 0;\n  border-left: 3px solid transparent;\n  border-radius: 6px;\n  cursor: pointer;\n}\n\n.fx-set-rail-row:hover { background: var(--fx-surface-2); }\n\n.fx-set-rail-row.on {\n  color: var(--fx-accent);\n  font-weight: 600;\n  background: var(--fx-accent-tint);\n  border-left-color: var(--fx-accent);\n  border-radius: 0 6px 6px 0;\n}\n.fx-set-rail-row.locked { color: var(--fx-dim); cursor: default; }\n.fx-set-rail-row.locked:hover { background: none; }\n.fx-set-rail-row.parked { color: var(--fx-muted); }\n.fx-set-rail-tag { flex: none; margin-left: auto; font-size: 11px; color: var(--fx-muted); }\n\n.fx-set-rail-glyph { flex: none; width: 18px; text-align: center; line-height: 1; }\n.fx-set-rail-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.fx-set-rail-lock { flex: none; margin-left: auto; font-size: 11px; line-height: 1; }\n.fx-set-rail-group {\n  margin: 10px 0 2px;\n  padding: 0 10px;\n  font-size: 10px;\n  letter-spacing: .09em;\n  text-transform: uppercase;\n  color: var(--fx-dim);\n}\n.fx-set-main {\n  flex: 1 1 auto;\n  min-width: 0;\n  overflow: auto;\n  overscroll-behavior: contain;\n  padding-right: 4px;\n}\n@media (max-width: 1000px) {\n  .fx-set-main .organ-set { flex-basis: 150px; }\n}\n\n@media (max-width: 720px) {\n  .fx-hk-capture-box.fx-set-box { width: calc(100vw - 16px); max-width: calc(100vw - 16px); height: calc(100vh - 16px); }\n  .fx-set-rail { flex-basis: 150px; }\n}\n",
 "eshario-asset:ui/panel.css":":host{all:initial}\n.shell{font:13px/1.4 system-ui,sans-serif;color:var(--fx-ink)}\n.dock-layer{position:fixed;inset:0;z-index:2147483647;width:auto;height:auto;margin:0;border:0;padding:0;background:none;overflow:visible;pointer-events:none}\n.dock{position:fixed;top:12px;right:12px;display:flex;flex-direction:column;align-items:flex-end;gap:8px;pointer-events:none}\n.dock-row{display:flex;align-items:center;gap:8px}\n.dock-toggle{pointer-events:auto;min-width:148px;padding:8px 15px;font:650 13px/1.2 system-ui,sans-serif;color:var(--fx-ink);background:var(--fx-surface);border:1px solid var(--fx-line);border-radius:999px;box-shadow:0 5px 18px var(--fx-shadow);cursor:pointer}\n.dock-toggle:hover{background:var(--fx-surface-2);border-color:var(--fx-line-strong)}\n.dock.running .dock-row{pointer-events:auto;padding:6px 8px 6px 14px;background:var(--fx-surface);border:1px solid var(--fx-accent-dim);border-radius:999px;box-shadow:0 5px 18px var(--fx-shadow)}\n.dock.running .dock-toggle{min-width:0;padding:0;background:none;border-color:transparent;box-shadow:none}\n.dock.running .dock-toggle:hover{background:none;border-color:transparent;color:var(--fx-accent)}\n.dock-run{font:600 12px/1.2 system-ui,sans-serif;color:var(--fx-ink);white-space:nowrap}\n.dock-stop{font-weight:800;color:var(--fx-danger);background:var(--fx-danger-tint);border-color:var(--fx-danger)}\n.dock-stop:hover{filter:brightness(1.15)}\n.dock-notice{pointer-events:none;max-width:280px;margin:0 0 0 auto;padding:8px 11px;font-size:11px;color:var(--fx-ok);background:var(--fx-ok-tint);border:1px solid var(--fx-line);border-radius:8px;box-shadow:0 5px 18px var(--fx-shadow);animation:fx-notice-fade 6s forwards}\n@keyframes fx-notice-fade{0%,80%{opacity:1}100%{opacity:0;visibility:hidden}}\n@media(prefers-reduced-motion:reduce){.dock-notice{animation-duration:0s;animation-delay:6s}}\n.day-x{flex:none;padding:11px 12px;background:var(--fx-surface);border:1px solid var(--fx-line);border-radius:10px}\n.day-x-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}\n.day-x-title{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fx-dim);font-weight:650}\n.day-x-hint{margin-top:4px;font-size:11px;color:var(--fx-dim)}\n.day-x-status{margin-top:8px;padding:7px 9px;color:var(--fx-warn);background:var(--fx-warn-tint);border:1px solid var(--fx-warn-dim);border-radius:6px;font-size:11px}\n.section-screen{display:flex;flex-direction:column;gap:10px;min-width:0}\n.section-head{margin:0;flex-wrap:wrap}\n.section-glyph{flex:none;font-size:14px;line-height:1}\n.section-title{flex:1 1 auto;min-width:0;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}\n.section-state{display:inline-flex;align-items:baseline;gap:6px;min-width:0;padding:1px 9px;font-size:11px;color:var(--fx-dim);border:1px solid var(--fx-line-strong);border-radius:999px;order:1}\n.section-state.on{color:var(--fx-ok);border-color:var(--fx-ok)}\n.state-count{color:var(--fx-muted)}\n.section-run{flex:0 0 auto;order:2}\n.section-run.on{border-color:var(--fx-warn);color:var(--fx-warn)}\n.section-reset{flex:0 0 auto;order:3;margin-left:auto;font-size:11px;color:var(--fx-dim)}\n.section-hint{font-size:11px;color:var(--fx-dim)}\n.section-parked{font-size:12px;color:var(--fx-dim)}\n.section-locked{padding:7px 9px;font-size:11px;color:var(--fx-warn);background:var(--fx-warn-tint);border:1px solid var(--fx-warn-dim);border-radius:6px}\n.block{min-width:0;padding:0}\n.block+.block{margin-top:2px;padding-top:12px;border-top:1px solid var(--fx-line)}\n.block h3{margin:0 0 6px;font-size:14px;font-weight:700;color:var(--fx-ink)}\n.organ-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}\n.organ-grid .organ+.organ{border-top:0}\n@media(max-width:820px){.organ-grid{grid-template-columns:1fr}}\n.organ{padding:5px 0}\n.organ+.organ{border-top:1px solid var(--fx-line)}\n.organ.hit{margin-left:-10px;padding-left:7px;border-left:3px solid var(--fx-accent)}\n.organ.muted{opacity:.45}\n.organ-name.with-field{display:flex;align-items:center;gap:8px}\ninput.limit.inline{width:52px;text-align:center}\n.organ.below .limit{border-color:var(--fx-danger);color:var(--fx-danger)}\n.organ-name{flex:1 1 auto;min-width:0;cursor:pointer}\n.organ{display:flex;flex-wrap:wrap;align-items:center;gap:8px}\n.organ .row{flex:1 1 auto;min-width:0}\n.organ-tail{display:flex;align-items:center;flex:none;gap:5px}\n.organ-lock{flex:1 1 100%;margin-top:2px;font-size:10px;color:var(--fx-warn)}\n.organ .floor,.organ .floor-warning{flex:1 1 100%}\n.organ .floor:empty{display:none}\n.organ-value{color:var(--fx-dim)}\n.organ-sub{flex:1 1 100%;display:flex;flex-wrap:wrap;align-items:center;gap:6px;\npadding-top:4px;color:var(--fx-dim)}\n.organ-sub .organ-value{font-size:11px}\n.organ-link{color:var(--fx-accent)}\n.row{display:flex;align-items:center;gap:10px;padding:3px 0}\n.row.deed,.row.transfer{flex-wrap:wrap}\n.row.heading .organ-name{font-weight:650;cursor:default}\n.row.readonly .organ-name{cursor:default}\n.row label{flex:1;cursor:pointer}\n.row.limit .organ-name,.row.limit .name{flex:1 1 auto}\n.organ-set{flex:0 0 200px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;min-width:0}\n.row.choice .organ-set{flex:0 1 auto;flex-wrap:nowrap;justify-content:flex-end}\n.organ-set .fx-action.fx-vol{box-sizing:border-box;width:22px;height:20px;padding:0;font-size:11px;line-height:18px;text-align:center}\n.row.stat{justify-content:space-between;color:var(--fx-dim)}\n.row.license-line{justify-content:space-between}\n.chips{display:flex;gap:4px;padding:1px 0}\n.chip{padding:0 5px;font-size:10px;border:1px solid var(--fx-line-strong);border-radius:3px}\n.chip.own{color:var(--fx-accent);border-color:var(--fx-accent-dim)}\n.chip.risk{color:var(--fx-danger);border-color:var(--fx-danger)}\n.chip.part{color:var(--fx-dim)}\n.floor-warning{margin:4px 0;padding:6px 8px;font-size:12px;font-weight:700;color:var(--fx-danger);background:var(--fx-danger-tint);border:1px solid var(--fx-danger);border-radius:4px}\n.floor-refusal{display:flex;align-items:center;gap:10px}\n.floor-refusal-text{flex:1 1 auto;min-width:0}\n.floor-refusal-ok{flex:0 0 auto}\n.floor-pending{margin:-2px 0 4px;padding:0 8px;font-size:11px;color:var(--fx-warn)}\n.floor-ours{color:var(--fx-muted)}\ninput.limit{width:74px;font:inherit;font-size:11px;color:inherit;background:var(--fx-surface-sunken);border:1px solid var(--fx-line-strong);border-radius:4px;padding:1px 5px}\ninput.limit::placeholder{color:var(--fx-muted)}\n.unit{font-size:10px;color:var(--fx-muted)}\n.fx-action.on{color:var(--fx-on-accent);background:var(--fx-accent);border-color:var(--fx-accent-dim)}\n.search-screen{display:flex;flex-direction:column;gap:6px}\n.search-count{font-size:11px;color:var(--fx-dim)}\n.hit{display:flex;align-items:baseline;justify-content:space-between;gap:8px;width:100%;padding:6px 8px;text-align:left;font:inherit;color:var(--fx-ink);background:var(--fx-surface);border:1px solid var(--fx-line);border-left:3px solid var(--fx-accent);border-radius:4px;cursor:pointer}\n.hit:hover{background:var(--fx-surface-2)}\n.hit-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}\n.hit-section{flex:none;font-size:10px;color:var(--fx-dim)}\n.hit.hit-elsewhere{cursor:default;border-left-color:var(--fx-line-strong)}\n.hit.hit-elsewhere:hover{background:var(--fx-surface)}\n.hint{font-size:11px;color:var(--fx-warn)}\n.hint.small{font-size:10px;color:var(--fx-muted);margin-bottom:2px}\n.empty{color:var(--fx-muted);padding:2px 6px}\n.dock-notice[data-notice-tone=warn]{color:var(--fx-warn);background:var(--fx-warn-tint)}\n.dock-notice[data-notice-tone=bad]{color:var(--fx-danger);background:var(--fx-danger-tint)}\n.status{padding:2px 6px 4px;color:var(--fx-dim)}\n.dry-note{margin:0 0 6px;padding:5px 7px;font-size:11px;font-weight:600;color:var(--fx-warn);background:var(--fx-warn-tint);border:1px solid var(--fx-warn-dim);border-radius:4px}\n.warning{margin:4px 0;padding:5px 7px;border-radius:4px;background:var(--fx-danger-tint);color:var(--fx-danger);font-size:11px;font-weight:600}\n.success{margin:4px 0;padding:5px 7px;border-radius:4px;background:var(--fx-ok-tint);color:var(--fx-ok);font-size:11px;font-weight:600}\nh4.sub{margin:8px 0 2px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fx-dim);font-weight:600}\nh4.sub.zone{margin:10px 0 2px;padding-left:6px;border-left:3px solid var(--fx-accent-dim);color:var(--fx-ink)}\n.organ+h4.sub.zone{margin-top:12px}\n.row.filter .name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}\n.club-table-wrap{max-width:100%;overflow:auto;margin-top:6px;border:1px solid var(--fx-line);border-radius:5px}\n.club-table{width:max-content;min-width:100%;border-collapse:collapse;font-size:10px}\n.club-table th,.club-table td{padding:3px 6px;border-bottom:1px solid var(--fx-line);border-right:1px solid var(--fx-line);text-align:right;white-space:nowrap}\n.club-table th:first-child,.club-table td:first-child{text-align:left;position:sticky;left:0;background:var(--fx-surface)}\n.club-table th{position:sticky;top:0;background:var(--fx-surface-2);color:var(--fx-dim);z-index:1}\n.club-table th:first-child{z-index:2}\n.club-table tbody tr:first-child{font-weight:650;color:var(--fx-gold)}\n.club-table-filter input.limit{width:110px}\n.club-table-pages{justify-content:space-between}\n.club-table-pages .hint{flex:1;text-align:center}\n.overlay{position:fixed;inset:0;z-index:2147483001;display:flex;align-items:center;justify-content:center;background:var(--fx-overlay)}\n.box{width:320px;max-width:90vw;padding:12px;font:13px/1.4 system-ui,sans-serif;color:var(--fx-ink);background:var(--fx-surface);border:1px solid var(--fx-line);border-radius:8px;box-shadow:0 10px 40px var(--fx-shadow-strong)}\n.box .message{margin-bottom:10px;color:var(--fx-dim)}\n.box input,.box textarea{width:100%;box-sizing:border-box;font:inherit;color:inherit;background:var(--fx-surface-sunken);border:1px solid var(--fx-line-strong);border-radius:4px;padding:4px 6px}\n.box textarea{height:120px;resize:vertical}\n@media(max-width:520px){.dock{top:8px;right:8px}}\n",
-"eshario-asset:ui/dim-owned.css":"li.listFUTItem[data-fut-dim-owned='1'] > .rowContent {\n  filter: brightness(0.62);\n}\n[data-fut-dim-owned='1'] .detail-carousel .item {\n  filter: brightness(0.62);\n}\n",
 "eshario-asset:ui/home-hub.css":".fx-hub-claim {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 6px;\n  width: 100%;\n  margin-top: 8px;\n  border-color: var(--fx-accent-dim);\n  background: var(--fx-accent);\n  color: var(--fx-on-accent);\n}\n\n.fx-hub-claim:hover:not(:disabled) {\n  border-color: var(--fx-accent);\n  color: var(--fx-on-accent);\n}\n.fx-hub-claim:disabled {\n  background: var(--fx-surface-2);\n  border-color: var(--fx-line-strong);\n  color: var(--fx-muted);\n}\n.fx-hub-claim .fx-mark {\n  flex: 0 0 auto;\n}\n\n.fx-hub-claim-text {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.ut-tab-bar-item .fx-rail-packs {\n  position: absolute;\n  top: 19px;\n  right: 4px;\n  transform: translateY(-50%);\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  line-height: 1.1;\n  font-size: 13px;\n  font-weight: 700;\n  pointer-events: none;\n}\n.fx-rail-packs-yes {\n  color: var(--fx-ok);\n}\n\n.fx-rail-packs-no {\n  color: var(--fx-danger);\n}\n.ut-tab-bar-item:has(.fx-rail-packs) .ut-tab-bar-item-notif {\n  display: none;\n}\n.fx-rail-packs-yes:empty,\n.fx-rail-packs-no:empty {\n  display: none;\n}\n",
 "eshario-asset:ui/home-grid.css":".grid[data-fut-home-grid] {\n  max-width: none !important;\n  display: grid !important;\n  grid-template-columns: repeat(var(--fut-home-columns, 4), minmax(0, 1fr)) !important;\n  align-content: start;\n  gap: 8px !important;\n  padding: calc(16px + var(--fut-home-air, 0px)) 16px 16px !important;\n  zoom: var(--fut-home-zoom, 1);\n  --fut-home-row1: minmax(min-content, min(19vw, 480px, var(--fut-home-row1-max, 100vh)));\n  grid-template-rows: var(--fut-home-row1);\n  grid-auto-rows: minmax(360px, auto);\n}\n.grid[data-fut-home-grid][data-fut-home-strips=\"1\"] {\n  grid-template-rows: auto var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"2\"] {\n  grid-template-rows: repeat(2, auto) var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"3\"] {\n  grid-template-rows: repeat(3, auto) var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"4\"] {\n  grid-template-rows: repeat(4, auto) var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"5\"] {\n  grid-template-rows: repeat(5, auto) var(--fut-home-row1);\n}\n\n.grid[data-fut-home-grid][data-fut-home-strips=\"6\"] {\n  grid-template-rows: repeat(6, auto) var(--fut-home-row1);\n}\n.grid[data-fut-home-grid] > .ut-unassigned-tile-view,\n.grid[data-fut-home-grid] > .ut-player-picks-tile-view,\n.grid[data-fut-home-grid] > .fc-points-tile,\n.grid[data-fut-home-grid] > .ut-rewards-banner-tile-view {\n  grid-column: 1 / -1;\n  order: -1;\n}\n.grid[data-fut-home-grid] > .ut-hub-messages-tile-view {\n  grid-column: span 2;\n  overflow: hidden;\n  contain: size;\n}\n\n.grid[data-fut-home-grid] > .ut-hub-messages-tile-view .FETImage {\n  max-height: 160px;\n}\n.grid[data-fut-home-grid] > * {\n  max-width: none !important;\n  margin: 0 !important;\n}\n.grid[data-fut-home-grid] > .ut-tile-hub-gamemodeshub {\n  height: auto;\n}\n",
 "eshario-asset:ui/head-top.css":"[data-fut-topless] .fc-header-view { display: none; }\n[data-fut-topless] .ut-root-view { height: 100%; }\n:host([data-fut-topless]) .dock-toggle { display: none; }\n:host([data-fut-topless]) .dock { top: 76px; }\n[data-fut-navcenter].landscape .ut-tab-bar-view.game-navigation .ut-tab-bar::before { content: \"\"; display: block; height: 0; margin-top: auto; }\n[data-fut-navcenter].landscape .ut-tab-bar-view.game-navigation .ut-tab-bar-item.icon-settings { margin-top: auto; }\n",
 "eshario-asset:ui/list-cursor.css":"[data-fut-list-mark] {\n  outline: 2px dashed var(--fx-accent);\n  outline-offset: -2px;\n}\n[data-fut-list-stale] {\n  opacity: 0.55;\n}\n"});
-const __ESB_x=[],__ESB_g=[],__ESB_r=[];for(let i=0;i<289;i++)__ESB_x.push(Object.create(null));
+const __ESB_x=[],__ESB_g=[],__ESB_r=[];for(let i=0;i<291;i++)__ESB_x.push(Object.create(null));
 const __ESB_d=(o,m)=>{for(const k of Object.keys(m))Object.defineProperty(o,k,{enumerable:true,get:m[k]})};
 const __ESB_t=(j,k,v)=>{try{return __ESB_x[j][k]}catch(e){return v}};
 // src/bridge/protocol.js
@@ -176,6 +177,7 @@ dimOwned:{tier:PREMIUM,phase:26},
 packShow:{tier:PREMIUM,phase:27},
 gallery:{tier:PREMIUM,phase:28},
 hubUnlock:{tier:FREE,phase:29},
+holoGlow:{tier:PREMIUM,phase:30},
 promoClose:{tier:FREE,phase:23}})
 const EXPECTED_FREE=Object.freeze(['autologin','dropdownSearch','headBar','homeLayout','hotkeyNav','hubUnlock','navCenter','promoClose'])
 function featuresByTier(tier){return Object.entries(FEATURES)
@@ -220,6 +222,9 @@ featureToggle('navCenter',{id:'navCenter',level:'main'}),
 featureToggle('headBar',{id:'headBar',level:'main',hintKey:'settings.organ.features.headBar.hint'}),
 featureToggle('cardGrid',{id:'cardGrid'}),
 featureToggle('dimOwned',{id:'dimOwned',hintKey:'settings.organ.club.dimOwned.hint'}),
+{id:'holoGlowMode',kind:'choice',labelKey:'settings.organ.club.holoGlow.label',hintKey:'settings.organ.club.holoGlow.hint',
+defaultFrom:'HOLO_GLOW_DEFAULT',store:'toggles.holoGlowMode',feature:'holoGlow'},
+featureToggle('holoGlow',{id:'holoGlow',shipped:false}),
 featureToggle('autologin',{id:'autologin',hintKey:'settings.organ.features.autologin.hint'}),
 featureToggle('promoClose',{id:'promoClose',hintKey:'settings.organ.features.promoClose.hint'}),
 {id:'improvements',kind:'toggle',default:true,
@@ -402,7 +407,7 @@ const COVERS_ALL_FEATURES=togglesInRegistry().length===Object.keys(FEATURES).len
 
 };
 // src/settings/index.js
-__ESB_g[5]=function*(){__ESB_d(__ESB_x[5],{GALLERY_MARKS_DEFAULT:()=>GALLERY_MARKS_DEFAULT,SETTING_CHOICES:()=>SETTING_CHOICES,SETTING_VALUES:()=>SETTING_VALUES,createSettings:()=>createSettings,defaultToggles:()=>defaultToggles,openDoorlessGates:()=>openDoorlessGates,sanitize:()=>sanitize,setSettingsValue:()=>setSettingsValue,settingsChoice:()=>settingsChoice,settingsValue:()=>settingsValue});yield;const{FEATURES}=__ESB_x[3];
+__ESB_g[5]=function*(){__ESB_d(__ESB_x[5],{GALLERY_MARKS_DEFAULT:()=>GALLERY_MARKS_DEFAULT,HOLO_GLOW_DEFAULT:()=>HOLO_GLOW_DEFAULT,SETTING_CHOICES:()=>SETTING_CHOICES,SETTING_VALUES:()=>SETTING_VALUES,createSettings:()=>createSettings,defaultToggles:()=>defaultToggles,openDoorlessGates:()=>openDoorlessGates,sanitize:()=>sanitize,setSettingsValue:()=>setSettingsValue,settingsChoice:()=>settingsChoice,settingsValue:()=>settingsValue});yield;const{FEATURES}=__ESB_x[3];
 ;
 ;
 const OFF_BY_DEFAULT=Object.freeze(['promoClose'])
@@ -414,8 +419,10 @@ opened.push({feature,ok:done?.ok===true,reason:done?.reason??null})}
 return opened}
 const labelKeyFor=(feature)=>`settings.feature.${feature}`
 const SETTING_CHOICES=Object.freeze({
-galleryMarks:Object.freeze({feature:'gallery',values:Object.freeze(['off','all','new']),default:'new'})})
+galleryMarks:Object.freeze({feature:'gallery',values:Object.freeze(['off','all','new']),default:'new'}),
+holoGlowMode:Object.freeze({feature:'holoGlow',values:Object.freeze(['off','transfers','all']),default:'all'})})
 const GALLERY_MARKS_DEFAULT=SETTING_CHOICES.galleryMarks.default
+const HOLO_GLOW_DEFAULT=SETTING_CHOICES.holoGlowMode.default
 const SETTING_VALUES=Object.freeze({
 galleryTradeOverpay:Object.freeze({feature:'gallery',min:0,max:50,default:6}),
 galleryTradeSellMode:Object.freeze({feature:'gallery',values:Object.freeze(['market','step','percent']),default:'step'}),
@@ -3805,6 +3812,12 @@ const settingsRegistryEn=Object.freeze({
 'settings.organ.club.analyze.hint':'Count duplicates, sellable cards and what the club is worth.',
 'settings.feature.dimOwned':'Dim duplicates',
 'settings.organ.club.dimOwned.hint':'A card that already sits in your club is shown darker on the market, in packs, in targets, on the transfer list and in SBC storage.',
+'settings.organ.club.holoGlow.label':'Highlight holograms',
+'settings.organ.club.holoGlow.hint':'Holographic cards shimmer brighter so you can spot them among regular ones',
+'settings.organ.club.holoGlow.off':'Off',
+'settings.organ.club.holoGlow.transfers':'Transfers',
+'settings.organ.club.holoGlow.all':'Everywhere',
+'settings.feature.holoGlow':'Holograms',
 'settings.organ.features.headBar.hint':'Our line at the top of every EA screen: coins, limits, division. The EA line of its own is hidden and its height goes back to the screen.',
 'settings.organ.features.hubRewards.hint':'Adds a button to the home screen that collects EVERY objective reward in one press. That is a whole series of requests to EA at once.',
 'settings.organ.premium.key.hint':'Stored on this computer only and checked right here, without asking any server.',
@@ -3961,6 +3974,12 @@ const settingsRegistryRu=Object.freeze({
 'settings.organ.club.analyze.hint':'Посчитать дубли, продаваемые карты и стоимость клуба.',
 'settings.feature.dimOwned':'Затемнять дубликаты',
 'settings.organ.club.dimOwned.hint':'Карта, которая уже лежит у Вас в клубе, показывается темнее на рынке, в паках, в целях, на листе и в хранилище SBC.',
+'settings.organ.club.holoGlow.label':'Подсвечивать голограммы',
+'settings.organ.club.holoGlow.hint':'Голографические карты переливаются ярче, чтобы их было видно среди обычных',
+'settings.organ.club.holoGlow.off':'Выкл',
+'settings.organ.club.holoGlow.transfers':'Трансферы',
+'settings.organ.club.holoGlow.all':'Везде',
+'settings.feature.holoGlow':'Голограммы',
 'settings.organ.features.headBar.hint':'Наша полоса наверху каждого экрана EA: монеты, лимиты, дивизион. Родная полоса EA при этом прячется, и её высота возвращается экрану.',
 'settings.organ.features.hubRewards.hint':'Добавляет на главную кнопку, которая забирает ВСЕ награды заданий одним нажатием. Это сразу серия обращений к EA.',
 'settings.organ.premium.key.hint':'Хранится только на этом компьютере и проверяется прямо здесь, без обращения к серверу.',
@@ -37936,6 +37955,15 @@ for(const row of rows??[]){const card=clubCard(row)
 if(card===null||!card.first||isLoanItem(card))continue
 out.add(card.definitionId)}
 return out}
+function arrivalFirstIds(items){const out=new Set()
+let list=[]
+try{list=[...(items??[])]}catch{return out}
+for(const item of list){try{const kind=item?.type??item?.itemType
+if(typeof kind==='string'&&kind!==''&&kind!=='player')continue
+const card=clubCard(item)
+if(card===null||!card.first||isLoanItem(card))continue
+out.add(card.definitionId)}catch{/* чужое тело: молчим */}}
+return out}
 function cleanIds(raw,cap=MEMORY_CAP){const out=new Set()
 for(const one of Array.isArray(raw)?raw:[]){const id=positive(one)
 if(id!==null)out.add(id)
@@ -38060,13 +38088,17 @@ switch(attribute){case 'CLUB':return idOf(card.club)
 case 'LEAGUEID':return idOf(card.league)
 case 'NATION':return idOf(card.nation)
 case 'RARE':return idOf(card.rarity)
-case 'BASE_DEF_ID':return[card.base??card.defId]
-case 'SKILL_MOVES':return[card.skillMoves]
-case 'WEAK_FOOT':return[card.weakFoot]
+case 'BASE_DEF_ID':return Number.isSafeInteger(card.base)&&card.base>0?[card.base]:null
+case 'SKILL_MOVES':return starsOf(card.skillMoves,1)
+case 'WEAK_FOOT':return starsOf(card.weakFoot,0)
+case 'HYPER_COSMETIC_TYPE':{const code=card.holographic
+if(code===0)return[]
+return code===1||code===2?[String(code-1)]:null}
 case 'POSSIBLE_POSITIONS':return Array.isArray(card.positions)?card.positions.map(positionName):[]
 case 'LEVEL':{const level=levelOf(card.rating)
 return level===null?[]:LEVEL_NAMES[level]}
 default:return null}}
+const starsOf=(value,shift)=>(Number.isSafeInteger(value)&&value>=1&&value<=5?[value-shift]:null)
 const known=(value)=>value!==null&&value!==undefined&&value!==''&&!(typeof value==='number'&&!Number.isFinite(value))
 const scoreOfCard=(card)=>{const value=Number(card?.score)
 return Number.isFinite(value)&&value>0?value:0}
@@ -38075,6 +38107,11 @@ const attribute=rule?.attribute
 const wanted=new Set((rule?.values??[]).map((one)=>String(one).toLowerCase()))
 const per=cards.map((card)=>attributeValues(card,attribute))
 if(per.some((values)=>values===null))return null
+if(type==='MIN_COUNT'){const floor=Math.min(...(rule?.values??[]).map(Number).filter(Number.isFinite))
+if(!Number.isFinite(floor))return null
+const out=[]
+per.forEach((values,at)=>{if(values.some((one)=>Number(one)>=floor))out.push(at)})
+return out}
 if(type==='COUNT'||type==='COUNT_ANY'){const out=[]
 per.forEach((values,at)=>{const list=values.filter(known).map((one)=>String(one).toLowerCase())
 if(wanted.size===0?list.length>0:list.some((one)=>wanted.has(one)))out.push(at)})
@@ -38095,13 +38132,16 @@ for(const list of groups.values())if(list.length>best.length||(list.length===bes
 return best}
 return null}
 const VERIFIED_TAG_RULES=Object.freeze(new Set(['FIRST_OWNED/COUNT','NATION/MAX_COUNT_ALL_SAME','CLUB/MAX_COUNT_ALL_SAME',
-'LEAGUEID/MAX_COUNT_ALL_SAME','NATION/COUNT_DIFF','CLUB/COUNT_DIFF','LEVEL/COUNT','POSSIBLE_POSITIONS/COUNT_ANY']))
+'LEAGUEID/MAX_COUNT_ALL_SAME','NATION/COUNT_DIFF','CLUB/COUNT_DIFF','LEVEL/COUNT','POSSIBLE_POSITIONS/COUNT_ANY',
+'LEAGUEID/COUNT_DIFF','RARE/COUNT:3','RARE/COUNT:72','BASE_DEF_ID/MAX_COUNT_ALL_SAME','SKILL_MOVES/MIN_COUNT','WEAK_FOOT/MIN_COUNT']))
 const ruleKey=(tag)=>`${String(tag?.rule?.attribute??'').toUpperCase()}/${String(tag?.rule?.type??'').toUpperCase()}`
+const valueKey=(tag)=>`${ruleKey(tag)}:${(tag?.rule?.values??[]).map(String).sort().join(',')}`
+const trustedRule=(verified,tag)=>verified.has(ruleKey(tag))||verified.has(valueKey(tag))
 function tagDetails(tags,cards,verified=VERIFIED_TAG_RULES){const list=(tags??[]).map((tag)=>{const matched=tagMatched(tag.rule,cards)
 const count=matched===null?null:matched.length
 let percent=0
 if(count!==null)for(const step of tag.steps??[])if(count>=step.count)percent=Math.max(percent,step.bonus)
-const trusted=verified.has(ruleKey(tag))
+const trusted=trustedRule(verified,tag)
 const base=matched===null?0:matched.reduce((total,at)=>total+scoreOfCard(cards[at]),0)
 return{id:tag.id??null,name:tag.name??null,rule:ruleKey(tag),verified:trusted,count,percent,base,
 points:trusted&&percent>0?Math.floor(base*percent/100):0,dropped:false,
@@ -38492,7 +38532,33 @@ memoryWatched.set(one,reading)
 Promise.resolve(reading).then(()=>emit('state',api.state()),onError)}
 const watchMemory=()=>{watchOne(memory)
 watchOne(firstMemory)}
-const firstSet=()=>{const club=clubFirstIds(clubRows())
+const catchStats={caught:0,seen:0,word:null,last:[],roads:{event:{calls:0,seen:0,added:0},screen:{calls:0,seen:0,added:0}}}
+let held=new Set()
+const firstStatus=()=>{try{return firstMemory.state?.()?.status??null}catch{return null}}
+const releaseHeld=()=>{if(held.size===0||firstStatus()==='no-persona')return 0
+const list=[...held]
+held=new Set()
+try{return firstMemory.add(list)}catch(err){onError(err)
+return 0}}
+const firstCaught=(items,road)=>{const ids=arrivalFirstIds(items)
+const one=catchStats.roads[road]??catchStats.roads.event
+one.calls+=1
+one.seen+=ids.size
+catchStats.seen+=ids.size
+let added=releaseHeld()
+if(ids.size>0){if(firstStatus()==='no-persona'){for(const id of ids)if(held.size<MEMORY_CAP)held.add(id)}
+else{let fresh=[]
+try{fresh=[...ids].filter((id)=>!firstMemory.has(id))
+added+=firstMemory.add(fresh)}catch(err){onError(err)}
+catchStats.last=[...catchStats.last,...fresh].slice(-10)}}
+const status=firstStatus()
+catchStats.word=status==='failed'||status==='no-store'?status:null
+one.added+=added
+catchStats.caught+=added
+if(added>0)emit('state',api.state())
+return added}
+const firstSet=()=>{releaseHeld()
+const club=clubFirstIds(clubRows())
 try{firstMemory.add([...club])}catch(err){onError(err)}
 const out=new Set(club)
 try{for(const id of firstMemory.ids())out.add(id)}catch(err){onError(err)}
@@ -38810,6 +38876,7 @@ checking:checking===null?null:{...checking},stopped,sets:list,
 piggy:(n)=>piggyOf(list,n),
 categories,piggyDefault:piggyDefault(parsed),checks,memory:memory.state(),pools:poolsOf(parsed),
 asks:asks??null,setChecks:{...log.sets},day:{used:log.used,cap:GALLERY_DAY_CAP}}},
+caught(items,road='event'){return firstCaught(items,road)},
 tagsOf(setId){const one=compute().sets.find((set)=>set.id===setId)??null
 if(one===null||!Array.isArray(one.tags))return null
 const points=Number.isFinite(one.points)?one.points:0
@@ -38818,6 +38885,7 @@ let remembered=null
 try{remembered=[...firstMemory.ids()].length}catch{remembered=null}
 return{id:one.id,name:one.name,points,bonus,total:points+bonus,
 firstRemembered:remembered,
+unknown:one.tags.filter((tag)=>tag.count===null).map((tag)=>tag.name),
 tags:one.tags.filter((tag)=>tag.count!==null&&tag.count>0).map((tag)=>({...tag,ids:tag.ids.slice()}))}},
 mark(defId){const id=positive(defId)
 if(id===null)return{collected:null,score:null}
@@ -38913,7 +38981,9 @@ setChecks:{count:setStats.count,last:setStats.last===null?null:{...setStats.last
 market:marketProbe(),
 maxed:maxedProbe(),
 asks:compute().asks??null,
-catalog:catalog.feed?.state?.()??{version:catalog.current()?.version??null}}}}
+catalog:catalog.feed?.state?.()??{version:catalog.current()?.version??null},
+firstCatch:{caught:catchStats.caught,seen:catchStats.seen,held:held.size,word:catchStats.word,last:catchStats.last.slice(),
+event:{...catchStats.roads.event},screen:{...catchStats.roads.screen},memory:(()=>{try{return firstMemory.state()}catch{return null}})()}}}}
 function maxedProbe(){const{parsed,sets}=compute()
 if(!parsed)return null
 const list=sets.filter((set)=>set.maxGrade===true)
@@ -44420,6 +44490,10 @@ for(const item of list){let own=null
 try{own=item?.id}catch{own=null}
 if(own===id)return unassignedName(item)}
 return null},
+bodies(){const out=[]
+for(const item of list){try{out.push({definitionId:item?.definitionId,owners:item?.owners,loans:item?.loans,
+limitedUseType:item?.limitedUseType,type:item?.type})}catch{/* нечитаемая сущность: молчим */}}
+return out},
 catalog:unassignedCatalog(win),
 capacity:{transfer:pileFacts(win,'TRANSFER'),storage:pileFacts(win,'STORAGE')},
 storage:storagePileEnabled(win),
@@ -53863,6 +53937,7 @@ const groups=typeof deps.groups==='function'?deps.groups:null
 const seasonNow=typeof deps.season==='function'?deps.season:()=>null
 const gameNow=typeof deps.game==='function'?deps.game:()=>null
 const now=typeof deps.now==='function'?deps.now:()=>0
+const need=typeof deps.need==='function'?deps.need:()=>false
 const onError=typeof deps.onError==='function'?deps.onError:()=>{}
 let seeded=null
 let loaded=false
@@ -53878,7 +53953,11 @@ if(!Number.isSafeInteger(game))return{ok:false,reason:'no-season'}
 stats.asks+=1
 stats.why=typeof why==='string'?why:null
 stats.askedAt=now()
-const etag=seeded!==null&&seeded.game===game?seeded.etag:null
+let etag=seeded!==null&&seeded.game===game?seeded.etag:null
+if(etag!==null){let body=false
+try{body=need()===true}catch(err){onError(err)}
+if(body){etag=null
+stats.why=`${stats.why??'?'}+body`}}
 const soon=seeded!==null&&seeded.game===game&&seeded.complete===false
 let answer=null
 const startedAsk=now()
@@ -53968,8 +54047,406 @@ function count(value){return Number.isSafeInteger(value)&&value>=0?value:UNKNOWN
 function positive(value){return Number.isSafeInteger(value)&&value>0?value:null}
 
 };
+// src/features/gallery-columns.js
+__ESB_g[252]=function*(){__ESB_d(__ESB_x[252],{createGalleryColumns:()=>createGalleryColumns,galleryCardOf:()=>galleryCardOf});yield;
+const COLUMNS_SCHEMA=1
+const COLUMNS_KEY='gallery.columns'
+const NONE_STARS=0
+const NONE_HOLO=3
+const stars=(value)=>(Number.isSafeInteger(value)&&value>=1&&value<=5?value:null)
+const holoOf=(value)=>(Number.isSafeInteger(value)&&value>=0&&value<=2?value:null)
+const positive=(value)=>(Number.isSafeInteger(value)&&value>0?value:null)
+function pack(sm,wf,holo){return(sm??NONE_STARS)+6*(wf??NONE_STARS)+36*(holo??NONE_HOLO)}
+function unpack(code){const sm=code%6
+const wf=Math.floor(code/6)%6
+const holo=Math.floor(code/36)
+return{skillMoves:sm===NONE_STARS?null:sm,weakFoot:wf===NONE_STARS?null:wf,holographic:holo===NONE_HOLO?null:holo}}
+function columnsOfRow(index,row){if(!Array.isArray(row)||!index)return null
+const at=(name)=>(index[name]===undefined?undefined:row[index[name]])
+const id=positive(at('eaId'))
+if(id===null)return null
+return{id,base:positive(at('basePlayerEaId')),skillMoves:stars(at('skillMoves')),weakFoot:stars(at('weakFoot')),holographic:holoOf(at('holographic'))}}
+function columnsBuilder(game){const rows=[]
+return{add(base,from=0,to=Number.MAX_SAFE_INTEGER){if(!base||!Array.isArray(base.rows))return 0
+const end=Math.min(to,base.rows.length)
+let added=0
+for(let at=Math.max(0,from);at<end;at+=1){const one=columnsOfRow(base.index,base.rows[at])
+if(one===null)continue
+rows.push(one)
+added+=1}
+return added},
+done(){const list=rows.slice().sort((a,b)=>a.id-b.id)
+const ids=[]
+const packed=[]
+const bases=[]
+let last=0
+for(const one of list){if(one.id===last)continue
+ids.push(one.id-last)
+last=one.id
+packed.push(pack(one.skillMoves,one.weakFoot,one.holographic))
+if(one.base!==one.id)bases.push(one.id,one.base??0)}
+return{v:COLUMNS_SCHEMA,game,count:ids.length,ids,packed,bases}}}}
+function readColumns(raw){if(!raw||typeof raw!=='object'||Array.isArray(raw))return null
+if(raw.v!==COLUMNS_SCHEMA||!Number.isSafeInteger(raw.game))return null
+const{ids,packed,bases}=raw
+if(!Array.isArray(ids)||!Array.isArray(packed)||!Array.isArray(bases)||ids.length!==packed.length||bases.length%2!==0)return null
+const map=new Map()
+let id=0
+for(let at=0;at<ids.length;at+=1){const step=ids[at]
+const code=packed[at]
+if(!Number.isSafeInteger(step)||step<=0||!Number.isSafeInteger(code)||code<0||code>143)return null
+id+=step
+map.set(id,code)}
+const other=new Map()
+for(let at=0;at<bases.length;at+=2){const one=bases[at]
+const base=bases[at+1]
+if(!map.has(one)||!Number.isSafeInteger(base)||base<0)return null
+other.set(one,base)}
+return{game:raw.game,count:map.size,get(defId){const code=map.get(defId)
+if(code===undefined)return null
+const base=other.has(defId)?positive(other.get(defId)):defId
+return{base,...unpack(code)}}}}
+function createGalleryColumns(deps={}){const store=deps.store??null
+const gameNow=typeof deps.game==='function'?deps.game:()=>null
+const onError=typeof deps.onError==='function'?deps.onError:()=>{}
+let table=null
+let asked=false
+const stats={source:null,loaded:false,saved:null,reason:null}
+const fits=()=>table!==null&&table.game===gameNow()
+return{
+async load(){stats.loaded=true
+if(store===null){stats.reason='no-store'
+return false}
+try{const next=readColumns(await store.get(COLUMNS_KEY))
+if(next===null){stats.reason='empty'
+return false}
+table=next
+stats.source='disk'
+stats.reason=null
+return true}catch(err){onError(err)
+stats.reason=typeof err?.reason==='string'?err.reason:'store-failed'
+return false}},
+need(){if(fits()||asked)return false
+asked=true
+return true},
+builder(game){const build=columnsBuilder(game)
+return{add:(base,from,to)=>build.add(base,from,to),
+commit(){const raw=build.done()
+const next=readColumns(raw)
+if(next===null)return 0
+table=next
+stats.source='base'
+if(store!==null){try{const result=store.set(COLUMNS_KEY,raw)
+if(result&&typeof result.then==='function')result.then(()=>{stats.saved=true},(err)=>{stats.saved=false
+stats.reason=typeof err?.reason==='string'?err.reason:'store-failed'
+onError(err)})}catch(err){stats.saved=false
+onError(err)}}
+return next.count}}},
+get(defId){return fits()?table.get(defId):null},
+state(){return{loaded:stats.loaded,source:stats.source,game:table?.game??null,cards:table?.count??0,
+fits:fits(),saved:stats.saved,reason:stats.reason,asked}}}}
+function galleryCardOf(card,columns){if(card===null||card===undefined)return null
+return{rating:card.rating,rarity:card.rareflag,club:card.teamId,league:card.leagueId,nation:card.nationId,positions:card.positions,
+base:columns?.base??null,skillMoves:columns?.skillMoves??null,weakFoot:columns?.weakFoot??null,holographic:columns?.holographic??null}}
+
+};
+// src/features/dim-owned.js
+__ESB_g[253]=function*(){__ESB_d(__ESB_x[253],{DIM_OWNED_SURFACES:()=>DIM_OWNED_SURFACES,createDimOwned:()=>createDimOwned,pileOf:()=>pileOf});yield;const{ensureStylesheet}=__ESB_x[68];const{identityOf,ITEM_PILE}=__ESB_x[119];const{inDetailColumn}=__ESB_x[76];const{SCREEN_SELECTOR:STORAGE_SCREEN}=__ESB_x[197];const{PRICE_BADGE_SURFACES}=__ESB_x[86];const{PACK_PEEK_SURFACE}=__ESB_x[208];
+;
+;
+;
+;
+;
+;
+const DIM_OWNED_FEATURE='dimOwned'
+const DIM_OWNED_SURFACES=Object.freeze([...PRICE_BADGE_SURFACES,PACK_PEEK_SURFACE])
+const DIM_OWNED_MARK='futDimOwned'
+const DIM_OWNED_SELECTOR='[data-fut-dim-owned]'
+const DIM_OWNED_STRENGTH=0.62
+const ROW_CLASS='listFUTItem'
+const STYLESHEET="eshario-asset:ui/dim-owned.css"
+const LINK_ID='fut-companion-dim-owned'
+function pileOf(item){if(!item||typeof item!=='object')return null
+let value=null
+try{value=item.pile}catch{value=null}
+if(!Number.isFinite(value)){try{value=item.utasPile}catch{value=null}}
+return Number.isFinite(value)?value:null}
+function ownedIdsFrom(items,clubPile=ITEM_PILE.CLUB){const ids=new Set()
+if(!Array.isArray(items))return ids
+for(const item of items){if(pileOf(item)!==clubPile)continue
+const id=identityOf(item)
+if(id!==null)ids.add(id)}
+return ids}
+let owned=new Set()
+let ownedGeneration=null
+let ownedBuilds=0
+function noteClubPool(peek,clubPile=ITEM_PILE.CLUB){const players=Array.isArray(peek?.players)?peek.players:null
+if(players===null){owned=new Set()
+ownedGeneration=null
+return owned}
+const generation=Number.isFinite(peek?.generation)?peek.generation:null
+if(generation!==null&&generation===ownedGeneration)return owned
+owned=ownedIdsFrom(players,clubPile)
+ownedGeneration=generation
+ownedBuilds+=1
+return owned}
+function dimOwnedPeek(){return{ids:owned.size,generation:ownedGeneration,builds:ownedBuilds}}
+function forgetClubPool(){owned=new Set()
+ownedGeneration=null
+ownedBuilds=0}
+function dropRow(row){if(row?.dataset?.[DIM_OWNED_MARK]===undefined)return false
+try{delete row.dataset[DIM_OWNED_MARK]}catch{return false}
+return true}
+function dropAllDimMarks(doc){let removed=0
+for(const row of doc?.querySelectorAll?.(DIM_OWNED_SELECTOR)??[])if(dropRow(row))removed+=1
+return removed}
+const singleRoots=new Set()
+const singleItems=new WeakMap()
+function noteDimOwnedCard(root,item){if(!root||typeof root!=='object')return false
+if(!item||typeof item!=='object'){singleItems.delete(root)
+singleRoots.delete(root)
+dropRow(root)
+return false}
+singleItems.set(root,item)
+singleRoots.add(root)
+return true}
+function forgetDimOwnedCards(){singleRoots.clear()}
+function detailScreenAllowed(root,surfaces){const split=splitViewOf(root)
+if(split===null)return false
+for(const surface of surfaces){for(const screen of split.querySelectorAll?.(`.${surface.rootClass}`)??[]){
+if(surface.rootClass==='ut-club-search-results-view'&&!isStorageScreen(screen))continue
+return true}}
+return false}
+function splitViewOf(node){for(let at=node?.parentNode??null;at;at=at.parentNode??null){
+if(String(at.className??'').split(/\s+/).includes('ut-split-view'))return at}
+return null}
+function dimOwnedRows(options={}){const{doc,itemOf}=options
+const done={dimmed:0,cleared:0,rows:0}
+if(!doc||typeof itemOf!=='function'||!Array.isArray(options.surfaces))return done
+if(!safeActive(options.isActive))return{...done,cleared:dropAllDimMarks(doc)}
+const ids=options.owned instanceof Set?options.owned:owned
+let dimmed=0
+let cleared=0
+let rows=0
+const seen=new Set()
+for(const surface of options.surfaces){for(const root of doc.querySelectorAll?.(`.${surface.rootClass}`)??[]){
+const forbidden=(surface.rootClass==='ut-club-search-results-view'&&!isStorageScreen(root))
+||(surface.detail==='pinned'&&inDetailColumn(root))
+for(const row of root.querySelectorAll?.(`.${ROW_CLASS}`)??[]){if(seen.has(row))continue
+seen.add(row)
+rows+=1
+if(forbidden){if(dropRow(row))cleared+=1
+continue}
+const item=itemOf(row)
+const id=item&&typeof item==='object'?identityOf(item):null
+if(id===null||!ids.has(id)){if(dropRow(row))cleared+=1
+continue}
+if(row.dataset?.[DIM_OWNED_MARK]==='1'){dimmed+=1
+continue}
+ensureStylesheet(doc,STYLESHEET,LINK_ID)
+try{row.dataset[DIM_OWNED_MARK]='1'
+dimmed+=1}catch{/* чужой узел без dataset: метка просто не встанет */}}}}
+for(const root of[...singleRoots]){
+if(root?.isConnected===false){singleRoots.delete(root)
+singleItems.delete(root)
+continue}
+const item=singleItems.get(root)??null
+const id=item&&typeof item==='object'?identityOf(item):null
+if(id===null||!ids.has(id)||!detailScreenAllowed(root,options.surfaces)){if(dropRow(root))cleared+=1
+continue}
+if(root.dataset?.[DIM_OWNED_MARK]==='1'){dimmed+=1
+continue}
+ensureStylesheet(doc,STYLESHEET,LINK_ID)
+try{root.dataset[DIM_OWNED_MARK]='1'
+dimmed+=1}catch{/* чужой узел без dataset: метка просто не встанет */}}
+return{dimmed,cleared,rows}}
+function isStorageScreen(root){try{return root?.matches?.(STORAGE_SCREEN)===true}catch{return false}}
+function safeActive(isActive){if(typeof isActive!=='function')return false
+try{return isActive(DIM_OWNED_FEATURE)===true}catch{return false}}
+function createDimOwned(deps={}){const doc=deps.doc??null
+const isActive=typeof deps.isActive==='function'?deps.isActive:()=>false
+const itemOf=typeof deps.itemOf==='function'?deps.itemOf:()=>null
+const surfaces=Array.isArray(deps.surfaces)?deps.surfaces:DIM_OWNED_SURFACES
+const pool=deps.pool??null
+const clubPile=Number.isFinite(deps.clubPile)?deps.clubPile:ITEM_PILE.CLUB
+const onError=typeof deps.onError==='function'?deps.onError:()=>{}
+let last={dimmed:0,cleared:0,rows:0}
+return{DIM_OWNED_FEATURE,
+note(root,item){try{return noteDimOwnedCard(root,item)}catch(err){onError(err)
+return false}},
+refresh(){try{
+if(pool!==null&&typeof pool.peek==='function')noteClubPool(pool.peek(),clubPile)
+last=dimOwnedRows({doc,isActive,itemOf,surfaces})
+return last}catch(err){onError(err)
+return last}},
+state:()=>({active:safeActive(isActive),...last,...dimOwnedPeek()}),
+dispose(){try{dropAllDimMarks(doc)}catch(err){onError(err)}}}}
+
+};
+// src/features/holo-glow.js
+__ESB_g[254]=function*(){__ESB_d(__ESB_x[254],{createHoloGlow:()=>createHoloGlow,setHoloLookup:()=>setHoloLookup});yield;const{ensureStylesheet}=__ESB_x[68];const{SETTING_CHOICES,HOLO_GLOW_DEFAULT,settingsChoice}=__ESB_x[5];const{DIM_OWNED_SURFACES,pileOf}=__ESB_x[253];const{ITEM_PILE}=__ESB_x[119];const{inDetailColumn}=__ESB_x[76];
+;
+;
+;
+;
+;
+const HOLO_GLOW_FEATURE='holoGlow'
+const HOLO_GLOW_KEY='holoGlowMode'
+const HOLO_GLOW_MODES=SETTING_CHOICES.holoGlowMode.values
+;
+const HOLO_CODES=Object.freeze([1,2])
+const HOLO_TRANSFER_IDS=Object.freeze(['market','transfer','targets'])
+const HOLO_GLOW_MARK='futHolo'
+const HOLO_GLOW_SELECTOR='[data-fut-holo]'
+const PACK_DUPLICATE_ROW='ut-store-reveal-modal-list-view--duplicate'
+const HOLO_GLOW_BUILD='HOLOGLOW-1'
+const ROW_CLASS='listFUTItem'
+const CLUB_ROOT='ut-club-search-results-view'
+const STYLESHEET="eshario-asset:ui/holo-glow.css"
+const LINK_ID='fut-companion-holo-glow'
+const TUNE_ID='fut-companion-holo-tune'
+function sanitizeHoloGlowMode(value){return HOLO_GLOW_MODES.includes(/** @type {any} */(value))?/** @type {string} */(value):HOLO_GLOW_DEFAULT}
+function holoSurfacesFor(mode,surfaces=DIM_OWNED_SURFACES){const kind=sanitizeHoloGlowMode(mode)
+if(kind==='off')return[]
+if(kind==='transfers')return surfaces.filter((one)=>HOLO_TRANSFER_IDS.includes(one.id))
+return surfaces.slice()}
+function isHoloCode(code){return HOLO_CODES.includes(/** @type {any} */(code))}
+let lookupRef=null
+function setHoloLookup(fn){lookupRef=typeof fn==='function'?fn:null
+return lookupRef!==null}
+function holoCodeOf(item,lookup=lookupRef){if(!item||typeof item!=='object'||typeof lookup!=='function')return null
+let id=null
+try{id=Number(item.definitionId??item.defId)}catch{return null}
+if(!Number.isInteger(id)||id<=0)return null
+let code=null
+try{code=lookup(id)}catch{return null}
+return Number.isInteger(code)?/** @type {number} */(code):null}
+const singleRoots=new Set()
+const singleItems=new WeakMap()
+function noteHoloCard(root,item){if(!root||typeof root!=='object')return false
+if(!item||typeof item!=='object'){singleItems.delete(root)
+singleRoots.delete(root)
+dropMark(root)
+return false}
+singleItems.set(root,item)
+singleRoots.add(root)
+return true}
+function forgetHoloCards(){singleRoots.clear()}
+function holoDetailAllowed(root,surfaces){const split=splitViewOf(root)
+if(split===null)return false
+for(const surface of surfaces){try{if(split.querySelector?.(`.${surface.rootClass}`))return true}catch{/* чужой узел */}}
+return false}
+function splitViewOf(node){for(let at=node?.parentNode??null;at;at=at.parentNode??null){
+if(String(at.className??'').split(/\s+/).includes('ut-split-view'))return at}
+return null}
+function dropMark(node){if(node?.dataset?.[HOLO_GLOW_MARK]===undefined)return false
+try{delete node.dataset[HOLO_GLOW_MARK]}catch{return false}
+return true}
+function dropAllHoloMarks(doc){let removed=0
+for(const node of doc?.querySelectorAll?.(HOLO_GLOW_SELECTOR)??[])if(dropMark(node))removed+=1
+return removed}
+function putMark(doc,node){if(node.dataset?.[HOLO_GLOW_MARK]==='1')return true
+ensureStylesheet(doc,STYLESHEET,LINK_ID)
+try{node.dataset[HOLO_GLOW_MARK]='1'
+return true}catch{return false}}
+const hasClass=(node,name)=>{try{return node?.classList?.contains?.(name)===true||String(node?.className??'').split(/\s+/).includes(name)}catch{return false}}
+function holoGlowRows(options={}){const{doc,itemOf}=options
+const done={glowing:0,cleared:0,rows:0,holo:[]}
+if(!doc||typeof itemOf!=='function')return done
+const mode=sanitizeHoloGlowMode(options.mode)
+if(!safeActive(options.isActive)||mode==='off')return{...done,cleared:dropAllHoloMarks(doc)}
+const codeOf=typeof options.codeOf==='function'?options.codeOf:(item)=>holoCodeOf(item)
+const all=Array.isArray(options.surfaces)?options.surfaces:DIM_OWNED_SURFACES
+const here=holoSurfacesFor(mode,all)
+const allowed=new Set(here.map((one)=>one.rootClass))
+let glowing=0
+let cleared=0
+let rows=0
+const holo=[]
+const seen=new Set()
+for(const surface of all){const on=allowed.has(surface.rootClass)
+for(const root of doc.querySelectorAll?.(`.${surface.rootClass}`)??[]){
+const forbidden=!on||(surface.detail==='pinned'&&inDetailColumn(root))
+for(const row of root.querySelectorAll?.(`.${ROW_CLASS}`)??[]){if(seen.has(row))continue
+seen.add(row)
+rows+=1
+if(forbidden||hasClass(row,PACK_DUPLICATE_ROW)){if(dropMark(row))cleared+=1
+continue}
+const item=itemOf(row)
+const code=item&&typeof item==='object'?codeOf(item):null
+if(!isHoloCode(code)){if(dropMark(row))cleared+=1
+continue}
+if(putMark(doc,row)){glowing+=1
+noteId(holo,item,code)}}}}
+for(const root of[...singleRoots]){if(root?.isConnected===false){singleRoots.delete(root)
+singleItems.delete(root)
+continue}
+const item=singleItems.get(root)??null
+const code=item&&typeof item==='object'?codeOf(item):null
+if(!isHoloCode(code)||!holoDetailAllowed(root,here)){if(dropMark(root))cleared+=1
+continue}
+if(putMark(doc,root)){glowing+=1
+noteId(holo,item,code)}}
+return{glowing,cleared,rows,holo}}
+function noteId(list,item,code){const id=Number(item?.definitionId??item?.defId)
+if(Number.isInteger(id)&&id>0&&!list.some((one)=>one.id===id))list.push({id,code,name:nameOf(item)})}
+function nameOf(item){try{const data=typeof item?.getStaticData==='function'?item.getStaticData():null
+const name=data?.name
+return typeof name==='string'?name.trim():''}catch{return ''}}
+function safeActive(isActive){if(typeof isActive!=='function')return false
+try{return isActive(HOLO_GLOW_FEATURE)===true}catch{return false}}
+const HOLO_TUNE_LIMITS=Object.freeze({strength:Object.freeze([0.1,1]),speed:Object.freeze([0.6,8])})
+function applyHoloTune(doc,tune){const clamp=(value,[lo,hi])=>{const n=Number(value)
+return Number.isFinite(n)?Math.min(hi,Math.max(lo,n)):null}
+const strength=tune&&tune.strength!==undefined?clamp(tune.strength,HOLO_TUNE_LIMITS.strength):null
+const speed=tune&&tune.speed!==undefined?clamp(tune.speed,HOLO_TUNE_LIMITS.speed):null
+const rules=[]
+if(strength!==null)rules.push(`--fut-holo-strength:${strength}`)
+if(speed!==null)rules.push(`--fut-holo-speed:${speed}s`)
+let node=doc?.getElementById?.(TUNE_ID)??null
+if(rules.length===0){node?.remove?.()
+return{strength:null,speed:null}}
+if(node===null){node=doc.createElement('style')
+node.id=TUNE_ID
+;(doc.head??doc.documentElement)?.appendChild?.(node)}
+node.textContent=`:root{${rules.join(';')}}`
+return{strength,speed}}
+function createHoloGlow(deps={}){const doc=deps.doc??null
+const isActive=typeof deps.isActive==='function'?deps.isActive:()=>false
+const itemOf=typeof deps.itemOf==='function'?deps.itemOf:()=>null
+const modeOf=()=>{try{return sanitizeHoloGlowMode(typeof deps.mode==='function'?deps.mode():settingsChoice(HOLO_GLOW_KEY))}catch{return HOLO_GLOW_DEFAULT}}
+const codeOf=typeof deps.codeOf==='function'?deps.codeOf:(item)=>holoCodeOf(item)
+const surfaces=Array.isArray(deps.surfaces)?deps.surfaces:DIM_OWNED_SURFACES
+const onError=typeof deps.onError==='function'?deps.onError:()=>{}
+const pool=deps.pool??null
+let last={glowing:0,cleared:0,rows:0,holo:[]}
+let tuned={strength:null,speed:null}
+const refresh=()=>{try{last=holoGlowRows({doc,isActive,mode:modeOf(),itemOf,codeOf,surfaces})
+return last}catch(err){onError(err)
+return last}}
+function clubHolo(){let players=null
+try{players=pool?.peek?.()?.players??null}catch{players=null}
+if(!Array.isArray(players))return null
+const list=[]
+for(const item of players){if(pileOf(item)!==ITEM_PILE.CLUB)continue
+const code=codeOf(item)
+if(isHoloCode(code))noteId(list,item,code)}
+return{count:list.length,first:list.slice(0,5)}}
+return{HOLO_GLOW_FEATURE,
+note(root,item){try{return noteHoloCard(root,item)}catch(err){onError(err)
+return false}},
+refresh,
+clubHolo,
+probe(tune){if(tune&&typeof tune==='object'){try{tuned=applyHoloTune(doc,tune)}catch(err){onError(err)}
+refresh()}
+return{build:HOLO_GLOW_BUILD,mode:modeOf(),active:safeActive(isActive),lookup:lookupRef!==null,
+glowing:last.glowing,rows:last.rows,first:last.holo.slice(0,5),club:clubHolo(),tune:tuned}},
+dispose(){try{dropAllHoloMarks(doc)
+applyHoloTune(doc,{})}catch(err){onError(err)}}}}
+
+};
 // src/features/rarity-group-book.js
-__ESB_g[252]=function*(){__ESB_d(__ESB_x[252],{createRarityGroupBook:()=>createRarityGroupBook});yield;const{seasonOf,seasonFits}=__ESB_x[84];
+__ESB_g[255]=function*(){__ESB_d(__ESB_x[255],{createRarityGroupBook:()=>createRarityGroupBook});yield;const{seasonOf,seasonFits}=__ESB_x[84];
 ;
 const GROUP_BOOK_SCHEMA=1
 function groupsOfItem(item){let raw=null
@@ -54095,12 +54572,12 @@ return{schema:GROUP_BOOK_SCHEMA,season:seasonNow(),rarities:book.size,pairs,drop
 
 };
 // src/core/clock.js
-__ESB_g[253]=function*(){__ESB_d(__ESB_x[253],{createClock:()=>createClock});yield;
+__ESB_g[256]=function*(){__ESB_d(__ESB_x[256],{createClock:()=>createClock});yield;
 function createClock(){return{now:()=>Date.now(),sleep:(ms)=>new Promise((resolve)=>{setTimeout(resolve,Math.max(0,Number(ms)||0))})}}
 
 };
 // src/ui/dialog.js
-__ESB_g[254]=function*(){__ESB_d(__ESB_x[254],{createDialogs:()=>createDialogs});yield;const{el,clear}=__ESB_x[68];const{modalBox,modalButtons,noteWindowRaised}=__ESB_x[70];
+__ESB_g[257]=function*(){__ESB_d(__ESB_x[257],{createDialogs:()=>createDialogs});yield;const{el,clear}=__ESB_x[68];const{modalBox,modalButtons,noteWindowRaised}=__ESB_x[70];
 ;
 ;
 function createDialogs(deps){const{doc,root,t}=deps
@@ -54181,7 +54658,7 @@ return{isOpen,close:()=>close(current?.cancelValue),ask:askDialog,show:showDialo
 
 };
 // src/settings/registry-values.js
-__ESB_g[255]=function*(){__ESB_d(__ESB_x[255],{REGISTRY_SOURCES:()=>REGISTRY_SOURCES});yield;const{SAFE_LIMIT_DEFAULTS,LIMIT_FIELDS}=__ESB_x[114];const{OPTION_FIELDS,AFTER_BUY_DEFAULT,SEARCH_REFRESH_DEFAULT,CONFIRM_EACH_RUN_DEFAULT,RATING_SEARCH_NOW_DEFAULT,defaultOptionInput}=__ESB_x[120];const{DEFAULT_SEARCH_DELAY_MS,BUY_PAUSE_MS,SAFE_PAUSE_FLOOR_MS,BUY_PAUSE_FLOOR_MS,WORK_MS,BREAK_MS,MAX_PER_SEARCH_DEFAULT,MATCH_GUARD_DEFAULT}=__ESB_x[123];const{SELLER_FIELDS,sanitizeSellerOptions}=__ESB_x[141];const{PACK_SHOW_DEFAULTS,SHOW_RATING_DEFAULT,PACK_SHOW_MODE_DEFAULT}=__ESB_x[210];const{SOLVER_DEFAULTS}=__ESB_x[211];const{THRESHOLD_DEFAULT:SNIPE_KEY_THRESHOLD_DEFAULT}=__ESB_x[140];const{RELIST_MODE_DEFAULT,RELIST_PERCENT_DEFAULT}=__ESB_x[99];const{VOLUME_DEFAULT}=__ESB_x[146];const{PICK_PRESELECT_DEFAULT}=__ESB_x[209];const{defaultToggles,GALLERY_MARKS_DEFAULT}=__ESB_x[5];
+__ESB_g[258]=function*(){__ESB_d(__ESB_x[258],{REGISTRY_SOURCES:()=>REGISTRY_SOURCES});yield;const{SAFE_LIMIT_DEFAULTS,LIMIT_FIELDS}=__ESB_x[114];const{OPTION_FIELDS,AFTER_BUY_DEFAULT,SEARCH_REFRESH_DEFAULT,CONFIRM_EACH_RUN_DEFAULT,RATING_SEARCH_NOW_DEFAULT,defaultOptionInput}=__ESB_x[120];const{DEFAULT_SEARCH_DELAY_MS,BUY_PAUSE_MS,SAFE_PAUSE_FLOOR_MS,BUY_PAUSE_FLOOR_MS,WORK_MS,BREAK_MS,MAX_PER_SEARCH_DEFAULT,MATCH_GUARD_DEFAULT}=__ESB_x[123];const{SELLER_FIELDS,sanitizeSellerOptions}=__ESB_x[141];const{PACK_SHOW_DEFAULTS,SHOW_RATING_DEFAULT,PACK_SHOW_MODE_DEFAULT}=__ESB_x[210];const{SOLVER_DEFAULTS}=__ESB_x[211];const{THRESHOLD_DEFAULT:SNIPE_KEY_THRESHOLD_DEFAULT}=__ESB_x[140];const{RELIST_MODE_DEFAULT,RELIST_PERCENT_DEFAULT}=__ESB_x[99];const{VOLUME_DEFAULT}=__ESB_x[146];const{PICK_PRESELECT_DEFAULT}=__ESB_x[209];const{defaultToggles,GALLERY_MARKS_DEFAULT,HOLO_GLOW_DEFAULT}=__ESB_x[5];
 ;
 ;
 ;
@@ -54193,7 +54670,7 @@ __ESB_g[255]=function*(){__ESB_d(__ESB_x[255],{REGISTRY_SOURCES:()=>REGISTRY_SOU
 ;
 ;
 ;
-const REGISTRY_CONSTANTS=Object.freeze({SAFE_LIMIT_DEFAULTS,PACK_SHOW_DEFAULTS,SHOW_RATING_DEFAULT,SOLVER_DEFAULTS,FEATURE_DEFAULTS:defaultToggles(),DEFAULT_SEARCH_DELAY_MS,BUY_PAUSE_MS,SAFE_PAUSE_FLOOR_MS,BUY_PAUSE_FLOOR_MS,WORK_MS,BREAK_MS,MAX_PER_SEARCH_DEFAULT,MATCH_GUARD_DEFAULT,AFTER_BUY_DEFAULT,SEARCH_REFRESH_DEFAULT,CONFIRM_EACH_RUN_DEFAULT,RATING_SEARCH_NOW_DEFAULT,SNIPE_KEY_THRESHOLD_DEFAULT,RELIST_MODE_DEFAULT,RELIST_PERCENT_DEFAULT,VOLUME_DEFAULT,PICK_PRESELECT_DEFAULT,PACK_SHOW_MODE_DEFAULT,GALLERY_MARKS_DEFAULT})
+const REGISTRY_CONSTANTS=Object.freeze({SAFE_LIMIT_DEFAULTS,PACK_SHOW_DEFAULTS,SHOW_RATING_DEFAULT,SOLVER_DEFAULTS,FEATURE_DEFAULTS:defaultToggles(),DEFAULT_SEARCH_DELAY_MS,BUY_PAUSE_MS,SAFE_PAUSE_FLOOR_MS,BUY_PAUSE_FLOOR_MS,WORK_MS,BREAK_MS,MAX_PER_SEARCH_DEFAULT,MATCH_GUARD_DEFAULT,AFTER_BUY_DEFAULT,SEARCH_REFRESH_DEFAULT,CONFIRM_EACH_RUN_DEFAULT,RATING_SEARCH_NOW_DEFAULT,SNIPE_KEY_THRESHOLD_DEFAULT,RELIST_MODE_DEFAULT,RELIST_PERCENT_DEFAULT,VOLUME_DEFAULT,PICK_PRESELECT_DEFAULT,PACK_SHOW_MODE_DEFAULT,GALLERY_MARKS_DEFAULT,HOLO_GLOW_DEFAULT})
 const SCALES=new Map()
 for(const field of LIMIT_FIELDS)SCALES.set(`limits.${field.key}`,field.scale)
 for(const field of OPTION_FIELDS)SCALES.set(`options.${field.key}`,field.scale)
@@ -54204,7 +54681,7 @@ const REGISTRY_SOURCES=Object.freeze({constants:REGISTRY_CONSTANTS,scaleOf})
 
 };
 // src/ui/panel-model.js
-__ESB_g[256]=function*(){__ESB_d(__ESB_x[256],{DEEDS:()=>DEEDS,FIRST_SECTION:()=>FIRST_SECTION,ORDERED_SECTIONS:()=>ORDERED_SECTIONS,dockModel:()=>dockModel,isBelowFloor:()=>isBelowFloor,leverOf:()=>leverOf,openSectionOf:()=>openSectionOf,outOfBounds:()=>outOfBounds,resetPlan:()=>resetPlan,searchModel:()=>searchModel,sectionModel:()=>sectionModel,settingsModel:()=>settingsModel,signedIn:()=>signedIn});yield;const{SECTIONS,defaultOf,floorOf,inWindow}=__ESB_x[4];const{REGISTRY_SOURCES}=__ESB_x[255];const{AFTER_BUY,AFTER_BUY_KEY,AFTER_BUY_SHOWN,afterBuyShownOf,SEARCH_REFRESH,SEARCH_REFRESH_KEY,searchRefreshOf,OPTION_FIELDS}=__ESB_x[120];const{LIMIT_FIELDS,boundsOf}=__ESB_x[114];const{sanitizePackShowPolicy,PACK_SHOW_MODES,packShowModeOf,packShowPatchOf}=__ESB_x[210];const{stopReasonKey}=__ESB_x[124];const{relistHasDirection,relistPriceOf,RELIST_PERCENT,RELIST_PERCENT_DEFAULT,sanitizeRelistPricing}=__ESB_x[99];const{PICK_PRESELECTS,PICK_PRESELECT_DEFAULT,sanitizePickPreselect}=__ESB_x[209];const{SETTING_CHOICES,settingsChoice}=__ESB_x[5];
+__ESB_g[259]=function*(){__ESB_d(__ESB_x[259],{DEEDS:()=>DEEDS,FIRST_SECTION:()=>FIRST_SECTION,ORDERED_SECTIONS:()=>ORDERED_SECTIONS,dockModel:()=>dockModel,isBelowFloor:()=>isBelowFloor,leverOf:()=>leverOf,openSectionOf:()=>openSectionOf,outOfBounds:()=>outOfBounds,resetPlan:()=>resetPlan,searchModel:()=>searchModel,sectionModel:()=>sectionModel,settingsModel:()=>settingsModel,signedIn:()=>signedIn});yield;const{SECTIONS,defaultOf,floorOf,inWindow}=__ESB_x[4];const{REGISTRY_SOURCES}=__ESB_x[258];const{AFTER_BUY,AFTER_BUY_KEY,AFTER_BUY_SHOWN,afterBuyShownOf,SEARCH_REFRESH,SEARCH_REFRESH_KEY,searchRefreshOf,OPTION_FIELDS}=__ESB_x[120];const{LIMIT_FIELDS,boundsOf}=__ESB_x[114];const{sanitizePackShowPolicy,PACK_SHOW_MODES,packShowModeOf,packShowPatchOf}=__ESB_x[210];const{stopReasonKey}=__ESB_x[124];const{relistHasDirection,relistPriceOf,RELIST_PERCENT,RELIST_PERCENT_DEFAULT,sanitizeRelistPricing}=__ESB_x[99];const{PICK_PRESELECTS,PICK_PRESELECT_DEFAULT,sanitizePickPreselect}=__ESB_x[209];const{SETTING_CHOICES,settingsChoice}=__ESB_x[5];
 ;
 ;
 ;
@@ -54402,6 +54879,7 @@ if(organ.id==='pickMode')return PICK_PRESELECTS.map((id)=>({id,label:t(PICK_PRES
 if(sectionId==='packs'&&organ.id==='showMode')return PACK_SHOW_MODES.map((id)=>({id,label:t(PACK_SHOW_MODE_WORDS[id])}))
 if(sectionId==='ledger'&&organ.id==='scope')return[{id:'session',label:t('ledger.session')},{id:'all',label:t('ledger.allTime')}]
 if(organ.id==='galleryMarks')return SETTING_CHOICES.galleryMarks.values.map((id)=>({id,label:t(GALLERY_MARKS_WORDS[id])}))
+if(organ.id==='holoGlowMode')return SETTING_CHOICES.holoGlowMode.values.map((id)=>({id,label:t(HOLO_GLOW_WORDS[id])}))
 if(organ.id==='relistMode'||organ.id==='listingMode')return[{id:'market',label:t('transfers.gear.mode.market')},
 {id:'step',label:t('transfers.gear.mode.step')},{id:'percent',label:t('transfers.gear.mode.percent')}]
 if(organ.id==='relistDirection'||organ.id==='listingDirection')return[{id:'down',label:t('transfers.gear.dir.down')},
@@ -54410,6 +54888,7 @@ return[]}
 const PICK_PRESELECT_WORDS=Object.freeze({rating:'settings.organ.packs.pickMode.rating',price:'settings.organ.packs.pickMode.price',manual:'settings.organ.packs.pickMode.manual'})
 const PACK_SHOW_MODE_WORDS=Object.freeze({always:'settings.organ.packs.showMode.always',valuable:'settings.organ.packs.showMode.valuable',never:'settings.organ.packs.showMode.never'})
 const GALLERY_MARKS_WORDS=Object.freeze({off:'settings.organ.view.galleryMarks.off',all:'settings.organ.view.galleryMarks.all',new:'settings.organ.view.galleryMarks.new'})
+const HOLO_GLOW_WORDS=Object.freeze({off:'settings.organ.club.holoGlow.off',transfers:'settings.organ.club.holoGlow.transfers',all:'settings.organ.club.holoGlow.all'})
 function organView(state,section,organ){const t=state.t
 const readout=readoutOf(state,section.id,organ)??priceSampleOf(state,section,organ)
 const value=readout!==null?readout
@@ -54649,7 +55128,7 @@ label:t('panel.tabs')}}}
 
 };
 // src/ui/panel-home.js
-__ESB_g[257]=function*(){__ESB_d(__ESB_x[257],{renderLever:()=>renderLever});yield;const{el}=__ESB_x[68];const{logoLink}=__ESB_x[69];
+__ESB_g[260]=function*(){__ESB_d(__ESB_x[260],{renderLever:()=>renderLever});yield;const{el}=__ESB_x[68];const{logoLink}=__ESB_x[69];
 ;
 ;
 function renderLever(doc,lever,onOrgan){if(!lever)return null
@@ -54665,7 +55144,7 @@ return el(doc,'section',{class:'day-x',dataset:{dayXRow:'1'}},[el(doc,'div',{cla
 
 };
 // src/ui/panel-section.js
-__ESB_g[258]=function*(){__ESB_d(__ESB_x[258],{glyphOf:()=>glyphOf,renderSection:()=>renderSection});yield;const{el,clear}=__ESB_x[68];const{isBelowFloor,outOfBounds}=__ESB_x[256];
+__ESB_g[261]=function*(){__ESB_d(__ESB_x[261],{glyphOf:()=>glyphOf,renderSection:()=>renderSection});yield;const{el,clear}=__ESB_x[68];const{isBelowFloor,outOfBounds}=__ESB_x[259];
 ;
 ;
 const GLYPHS=Object.freeze({view:'🖼️',prices:'🏷️',snipe:'🛒',seller:'💸',solver:'🧩',packs:'🎁',keys:'⌨️',ledger:'💰',premium:'🔑',diagnostics:'🩺'})
@@ -54833,7 +55312,7 @@ return{row:el(doc,'div',{class:'row deed'},[node]),extra:[]}}
 
 };
 // src/ui/settings-window.js
-__ESB_g[259]=function*(){__ESB_d(__ESB_x[259],{SETTINGS_LINK_ID:()=>SETTINGS_LINK_ID,SETTINGS_STYLESHEET:()=>SETTINGS_STYLESHEET,renderSettingsWindow:()=>renderSettingsWindow});yield;const{el}=__ESB_x[68];const{renderSection,glyphOf}=__ESB_x[258];const{modalBox}=__ESB_x[70];const{updateLine}=__ESB_x[214];
+__ESB_g[262]=function*(){__ESB_d(__ESB_x[262],{SETTINGS_LINK_ID:()=>SETTINGS_LINK_ID,SETTINGS_STYLESHEET:()=>SETTINGS_STYLESHEET,renderSettingsWindow:()=>renderSettingsWindow});yield;const{el}=__ESB_x[68];const{renderSection,glyphOf}=__ESB_x[261];const{modalBox}=__ESB_x[70];const{updateLine}=__ESB_x[214];
 ;
 ;
 ;
@@ -54919,13 +55398,13 @@ return el(doc,'div',{class:'search-screen',dataset:{panelSearchScreen:'1'}},kids
 
 };
 // src/licensing/buy-url.js
-__ESB_g[260]=function*(){__ESB_d(__ESB_x[260],{buyUrlOf:()=>buyUrlOf});yield;
+__ESB_g[263]=function*(){__ESB_d(__ESB_x[263],{buyUrlOf:()=>buyUrlOf});yield;
 const BUY_URL = Object.freeze({ ru: 'https://eshario.com/ru/buy/', en: 'https://eshario.com/buy/' });
 const buyUrlOf = (locale) => (typeof locale === 'string' && Object.hasOwn(BUY_URL, locale) ? BUY_URL[locale] : BUY_URL.en);
 
 };
 // src/ui/panel.js
-__ESB_g[261]=function*(){__ESB_d(__ESB_x[261],{PANEL_BUILD:()=>PANEL_BUILD,PANEL_ID:()=>PANEL_ID,mountPanel:()=>mountPanel});yield;const{el,replaceChildren,ensureTheme,THEME_STYLESHEET,SITE_URL}=__ESB_x[68];const{CONTROLS_STYLESHEET}=__ESB_x[69];const{WINDOW_STYLESHEET,WINDOW_BUTTON_CLASS,onWindowRaised}=__ESB_x[70];const{createDialogs}=__ESB_x[254];const{dockModel,sectionModel,searchModel,settingsModel,resetPlan,leverOf,openSectionOf,ORDERED_SECTIONS,FIRST_SECTION,signedIn}=__ESB_x[256];const{renderLever}=__ESB_x[257];const{renderSettingsWindow,SETTINGS_STYLESHEET,SETTINGS_LINK_ID}=__ESB_x[259];const{stopReasonKey}=__ESB_x[124];const{ALLOW_UNASSIGNED_OVERFLOW,bidsEnabled}=__ESB_x[120];const{SNIPE_FEATURE}=__ESB_x[125];const{taxRows,listingRows,netLine,TAX_RATE_PERCENT}=__ESB_x[147];const{journalRows}=__ESB_x[143];const{totalRows,dealRows}=__ESB_x[145];const{rejectLabelKey}=__ESB_x[10];const{buyUrlOf}=__ESB_x[260];const{allowedUnassignedDispositions}=__ESB_x[137];const{CLUB_TABLE_FILTERS,viewClubItemTable}=__ESB_x[115];const{HOTKEY_ACTIONS,detectConflicts}=__ESB_x[127];const{sanitizePackShowPolicy}=__ESB_x[210];
+__ESB_g[264]=function*(){__ESB_d(__ESB_x[264],{PANEL_BUILD:()=>PANEL_BUILD,PANEL_ID:()=>PANEL_ID,mountPanel:()=>mountPanel});yield;const{el,replaceChildren,ensureTheme,THEME_STYLESHEET,SITE_URL}=__ESB_x[68];const{CONTROLS_STYLESHEET}=__ESB_x[69];const{WINDOW_STYLESHEET,WINDOW_BUTTON_CLASS,onWindowRaised}=__ESB_x[70];const{createDialogs}=__ESB_x[257];const{dockModel,sectionModel,searchModel,settingsModel,resetPlan,leverOf,openSectionOf,ORDERED_SECTIONS,FIRST_SECTION,signedIn}=__ESB_x[259];const{renderLever}=__ESB_x[260];const{renderSettingsWindow,SETTINGS_STYLESHEET,SETTINGS_LINK_ID}=__ESB_x[262];const{stopReasonKey}=__ESB_x[124];const{ALLOW_UNASSIGNED_OVERFLOW,bidsEnabled}=__ESB_x[120];const{SNIPE_FEATURE}=__ESB_x[125];const{taxRows,listingRows,netLine,TAX_RATE_PERCENT}=__ESB_x[147];const{journalRows}=__ESB_x[143];const{totalRows,dealRows}=__ESB_x[145];const{rejectLabelKey}=__ESB_x[10];const{buyUrlOf}=__ESB_x[263];const{allowedUnassignedDispositions}=__ESB_x[137];const{CLUB_TABLE_FILTERS,viewClubItemTable}=__ESB_x[115];const{HOTKEY_ACTIONS,detectConflicts}=__ESB_x[127];const{sanitizePackShowPolicy}=__ESB_x[210];
 ;
 ;
 ;
@@ -55560,7 +56039,7 @@ return api.update()}
 
 };
 // src/features/autologin-actions.js
-__ESB_g[262]=function*(){__ESB_d(__ESB_x[262],{createLandingWatch:()=>createLandingWatch,startAutologin:()=>startAutologin});yield;const{runAutologin,createLandingTally,pressLanding,EMPTY_LANDING}=__ESB_x[104];
+__ESB_g[265]=function*(){__ESB_d(__ESB_x[265],{createLandingWatch:()=>createLandingWatch,startAutologin:()=>startAutologin});yield;const{runAutologin,createLandingTally,pressLanding,EMPTY_LANDING}=__ESB_x[104];
 ;
 const AUTOLOGIN_FEATURE='autologin'
 const IDLE_LANDING=EMPTY_LANDING
@@ -55593,7 +56072,7 @@ loginRunning:typeof personas.loginRunning==='function'?()=>personas.loginRunning
 
 };
 // src/adapter/landing.js
-__ESB_g[263]=function*(){__ESB_d(__ESB_x[263],{createLandingDoor:()=>createLandingDoor});yield;const{pressNode}=__ESB_x[134];const{appMain}=__ESB_x[58];
+__ESB_g[266]=function*(){__ESB_d(__ESB_x[266],{createLandingDoor:()=>createLandingDoor});yield;const{pressNode}=__ESB_x[134];const{appMain}=__ESB_x[58];
 ;
 ;
 const LANDING_BUTTON='.ut-login .ut-login-content button.btn-standard.primary'
@@ -55649,141 +56128,8 @@ try{const value=JSON.parse(raw)
 return value&&typeof value==='object'?value:null}catch{return null}}}}
 
 };
-// src/features/dim-owned.js
-__ESB_g[264]=function*(){__ESB_d(__ESB_x[264],{createDimOwned:()=>createDimOwned});yield;const{ensureStylesheet}=__ESB_x[68];const{identityOf,ITEM_PILE}=__ESB_x[119];const{inDetailColumn}=__ESB_x[76];const{SCREEN_SELECTOR:STORAGE_SCREEN}=__ESB_x[197];const{PRICE_BADGE_SURFACES}=__ESB_x[86];const{PACK_PEEK_SURFACE}=__ESB_x[208];
-;
-;
-;
-;
-;
-;
-const DIM_OWNED_FEATURE='dimOwned'
-const DIM_OWNED_SURFACES=Object.freeze([...PRICE_BADGE_SURFACES,PACK_PEEK_SURFACE])
-const DIM_OWNED_MARK='futDimOwned'
-const DIM_OWNED_SELECTOR='[data-fut-dim-owned]'
-const DIM_OWNED_STRENGTH=0.62
-const ROW_CLASS='listFUTItem'
-const STYLESHEET="eshario-asset:ui/dim-owned.css"
-const LINK_ID='fut-companion-dim-owned'
-function pileOf(item){if(!item||typeof item!=='object')return null
-let value=null
-try{value=item.pile}catch{value=null}
-if(!Number.isFinite(value)){try{value=item.utasPile}catch{value=null}}
-return Number.isFinite(value)?value:null}
-function ownedIdsFrom(items,clubPile=ITEM_PILE.CLUB){const ids=new Set()
-if(!Array.isArray(items))return ids
-for(const item of items){if(pileOf(item)!==clubPile)continue
-const id=identityOf(item)
-if(id!==null)ids.add(id)}
-return ids}
-let owned=new Set()
-let ownedGeneration=null
-let ownedBuilds=0
-function noteClubPool(peek,clubPile=ITEM_PILE.CLUB){const players=Array.isArray(peek?.players)?peek.players:null
-if(players===null){owned=new Set()
-ownedGeneration=null
-return owned}
-const generation=Number.isFinite(peek?.generation)?peek.generation:null
-if(generation!==null&&generation===ownedGeneration)return owned
-owned=ownedIdsFrom(players,clubPile)
-ownedGeneration=generation
-ownedBuilds+=1
-return owned}
-function dimOwnedPeek(){return{ids:owned.size,generation:ownedGeneration,builds:ownedBuilds}}
-function forgetClubPool(){owned=new Set()
-ownedGeneration=null
-ownedBuilds=0}
-function dropRow(row){if(row?.dataset?.[DIM_OWNED_MARK]===undefined)return false
-try{delete row.dataset[DIM_OWNED_MARK]}catch{return false}
-return true}
-function dropAllDimMarks(doc){let removed=0
-for(const row of doc?.querySelectorAll?.(DIM_OWNED_SELECTOR)??[])if(dropRow(row))removed+=1
-return removed}
-const singleRoots=new Set()
-const singleItems=new WeakMap()
-function noteDimOwnedCard(root,item){if(!root||typeof root!=='object')return false
-if(!item||typeof item!=='object'){singleItems.delete(root)
-singleRoots.delete(root)
-dropRow(root)
-return false}
-singleItems.set(root,item)
-singleRoots.add(root)
-return true}
-function forgetDimOwnedCards(){singleRoots.clear()}
-function detailScreenAllowed(root,surfaces){const split=splitViewOf(root)
-if(split===null)return false
-for(const surface of surfaces){for(const screen of split.querySelectorAll?.(`.${surface.rootClass}`)??[]){
-if(surface.rootClass==='ut-club-search-results-view'&&!isStorageScreen(screen))continue
-return true}}
-return false}
-function splitViewOf(node){for(let at=node?.parentNode??null;at;at=at.parentNode??null){
-if(String(at.className??'').split(/\s+/).includes('ut-split-view'))return at}
-return null}
-function dimOwnedRows(options={}){const{doc,itemOf}=options
-const done={dimmed:0,cleared:0,rows:0}
-if(!doc||typeof itemOf!=='function'||!Array.isArray(options.surfaces))return done
-if(!safeActive(options.isActive))return{...done,cleared:dropAllDimMarks(doc)}
-const ids=options.owned instanceof Set?options.owned:owned
-let dimmed=0
-let cleared=0
-let rows=0
-const seen=new Set()
-for(const surface of options.surfaces){for(const root of doc.querySelectorAll?.(`.${surface.rootClass}`)??[]){
-const forbidden=(surface.rootClass==='ut-club-search-results-view'&&!isStorageScreen(root))
-||(surface.detail==='pinned'&&inDetailColumn(root))
-for(const row of root.querySelectorAll?.(`.${ROW_CLASS}`)??[]){if(seen.has(row))continue
-seen.add(row)
-rows+=1
-if(forbidden){if(dropRow(row))cleared+=1
-continue}
-const item=itemOf(row)
-const id=item&&typeof item==='object'?identityOf(item):null
-if(id===null||!ids.has(id)){if(dropRow(row))cleared+=1
-continue}
-if(row.dataset?.[DIM_OWNED_MARK]==='1'){dimmed+=1
-continue}
-ensureStylesheet(doc,STYLESHEET,LINK_ID)
-try{row.dataset[DIM_OWNED_MARK]='1'
-dimmed+=1}catch{/* чужой узел без dataset: метка просто не встанет */}}}}
-for(const root of[...singleRoots]){
-if(root?.isConnected===false){singleRoots.delete(root)
-singleItems.delete(root)
-continue}
-const item=singleItems.get(root)??null
-const id=item&&typeof item==='object'?identityOf(item):null
-if(id===null||!ids.has(id)||!detailScreenAllowed(root,options.surfaces)){if(dropRow(root))cleared+=1
-continue}
-if(root.dataset?.[DIM_OWNED_MARK]==='1'){dimmed+=1
-continue}
-ensureStylesheet(doc,STYLESHEET,LINK_ID)
-try{root.dataset[DIM_OWNED_MARK]='1'
-dimmed+=1}catch{/* чужой узел без dataset: метка просто не встанет */}}
-return{dimmed,cleared,rows}}
-function isStorageScreen(root){try{return root?.matches?.(STORAGE_SCREEN)===true}catch{return false}}
-function safeActive(isActive){if(typeof isActive!=='function')return false
-try{return isActive(DIM_OWNED_FEATURE)===true}catch{return false}}
-function createDimOwned(deps={}){const doc=deps.doc??null
-const isActive=typeof deps.isActive==='function'?deps.isActive:()=>false
-const itemOf=typeof deps.itemOf==='function'?deps.itemOf:()=>null
-const surfaces=Array.isArray(deps.surfaces)?deps.surfaces:DIM_OWNED_SURFACES
-const pool=deps.pool??null
-const clubPile=Number.isFinite(deps.clubPile)?deps.clubPile:ITEM_PILE.CLUB
-const onError=typeof deps.onError==='function'?deps.onError:()=>{}
-let last={dimmed:0,cleared:0,rows:0}
-return{DIM_OWNED_FEATURE,
-note(root,item){try{return noteDimOwnedCard(root,item)}catch(err){onError(err)
-return false}},
-refresh(){try{
-if(pool!==null&&typeof pool.peek==='function')noteClubPool(pool.peek(),clubPile)
-last=dimOwnedRows({doc,isActive,itemOf,surfaces})
-return last}catch(err){onError(err)
-return last}},
-state:()=>({active:safeActive(isActive),...last,...dimOwnedPeek()}),
-dispose(){try{dropAllDimMarks(doc)}catch(err){onError(err)}}}}
-
-};
 // src/features/gallery-rhythm.js
-__ESB_g[265]=function*(){__ESB_d(__ESB_x[265],{METHOD_BATCH:()=>METHOD_BATCH,METHOD_DIRECT:()=>METHOD_DIRECT,rhythmOf:()=>rhythmOf,shuffled:()=>shuffled});yield;const{bandPauseMs}=__ESB_x[79];
+__ESB_g[267]=function*(){__ESB_d(__ESB_x[267],{METHOD_BATCH:()=>METHOD_BATCH,METHOD_DIRECT:()=>METHOD_DIRECT,rhythmOf:()=>rhythmOf,shuffled:()=>shuffled});yield;const{bandPauseMs}=__ESB_x[79];
 ;
 const ROUND_MIN=2
 const ROUND_MAX=5
@@ -55810,7 +56156,7 @@ return out}
 
 };
 // src/features/gallery-sell.js
-__ESB_g[266]=function*(){__ESB_d(__ESB_x[266],{createGallerySeller:()=>createGallerySeller});yield;const{listPauseMs}=__ESB_x[79];const{relistPriceOf,EA_REFUSALS_TO_STOP,EA_REFUSALS_TOTAL_STOP,RELIST_MARKET,RELIST_STEP,RELIST_PERCENT,RELIST_UP,RELIST_DOWN}=__ESB_x[99];const{withinListingBand,readPriceLimits,DEFAULT_DURATION}=__ESB_x[73];const{startingBidFor}=__ESB_x[110];const{receiptItemIds}=__ESB_x[97];const{netAfterTax}=__ESB_x[71];const{meterCalls,isDayBudgetError,stopOnEaLimit,eaStatusOf}=__ESB_x[98];const{frozenReasonOf}=__ESB_x[67];const{GALLERY_FEATURE}=__ESB_x[82];const{rhythmOf,shuffled,METHOD_BATCH,METHOD_DIRECT}=__ESB_x[265];const{settingsValue}=__ESB_x[5];const{createAdapter,pileValueOf}=__ESB_x[95];const{isDoorRefusal}=__ESB_x[94];const{EaRequestsOffError}=__ESB_x[90];const{classifyStatus}=__ESB_x[77];const{itemIdOf}=__ESB_x[205];
+__ESB_g[268]=function*(){__ESB_d(__ESB_x[268],{createGallerySeller:()=>createGallerySeller});yield;const{listPauseMs}=__ESB_x[79];const{relistPriceOf,EA_REFUSALS_TO_STOP,EA_REFUSALS_TOTAL_STOP,RELIST_MARKET,RELIST_STEP,RELIST_PERCENT,RELIST_UP,RELIST_DOWN}=__ESB_x[99];const{withinListingBand,readPriceLimits,DEFAULT_DURATION}=__ESB_x[73];const{startingBidFor}=__ESB_x[110];const{receiptItemIds}=__ESB_x[97];const{netAfterTax}=__ESB_x[71];const{meterCalls,isDayBudgetError,stopOnEaLimit,eaStatusOf}=__ESB_x[98];const{frozenReasonOf}=__ESB_x[67];const{GALLERY_FEATURE}=__ESB_x[82];const{rhythmOf,shuffled,METHOD_BATCH,METHOD_DIRECT}=__ESB_x[267];const{settingsValue}=__ESB_x[5];const{createAdapter,pileValueOf}=__ESB_x[95];const{isDoorRefusal}=__ESB_x[94];const{EaRequestsOffError}=__ESB_x[90];const{classifyStatus}=__ESB_x[77];const{itemIdOf}=__ESB_x[205];
 ;
 ;
 ;
@@ -56116,7 +56462,7 @@ return true}catch{return false}}
 
 };
 // src/adapter/unassigned-bulk.js
-__ESB_g[267]=function*(){__ESB_d(__ESB_x[267],{BUSY_FRAMES:()=>BUSY_FRAMES,createUnassignedBulk:()=>createUnassignedBulk});yield;const{stopOnEaLimit,stopsRequest,EA_LIMIT,askDayBudget}=__ESB_x[98];const{reviewAction,createDoorConsent,doorConsentKey,ALLOWED,UNKNOWN}=__ESB_x[94];const{itemIdOf}=__ESB_x[205];
+__ESB_g[269]=function*(){__ESB_d(__ESB_x[269],{BUSY_FRAMES:()=>BUSY_FRAMES,createUnassignedBulk:()=>createUnassignedBulk});yield;const{stopOnEaLimit,stopsRequest,EA_LIMIT,askDayBudget}=__ESB_x[98];const{reviewAction,createDoorConsent,doorConsentKey,ALLOWED,UNKNOWN}=__ESB_x[94];const{itemIdOf}=__ESB_x[205];
 ;
 ;
 ;
@@ -56470,7 +56816,7 @@ consent.forget()}}}
 
 };
 // src/adapter/game-rewards.js
-__ESB_g[268]=function*(){__ESB_d(__ESB_x[268],{installGameRewardsCapture:()=>installGameRewardsCapture,installPackRewardCapture:()=>installPackRewardCapture});yield;const{refusesSuperclass}=__ESB_x[116];const{packCardName}=__ESB_x[92];const{screenPrototype}=__ESB_x[74];
+__ESB_g[270]=function*(){__ESB_d(__ESB_x[270],{installGameRewardsCapture:()=>installGameRewardsCapture,installPackRewardCapture:()=>installPackRewardCapture});yield;const{refusesSuperclass}=__ESB_x[116];const{packCardName}=__ESB_x[92];const{screenPrototype}=__ESB_x[74];
 ;
 ;
 ;
@@ -56615,7 +56961,7 @@ return handleOf(record,record.packs,onArrived)}
 
 };
 // src/features/reward-flow.js
-__ESB_g[269]=function*(){__ESB_d(__ESB_x[269],{createRewardFlow:()=>createRewardFlow});yield;const{SBC_FEATURE}=__ESB_x[164];
+__ESB_g[271]=function*(){__ESB_d(__ESB_x[271],{createRewardFlow:()=>createRewardFlow});yield;const{SBC_FEATURE}=__ESB_x[164];
 ;
 const REWARD_FLOW_FEATURE=SBC_FEATURE
 const REWARD_PRESS_FRAMES=2
@@ -56685,7 +57031,7 @@ dispose(){last=null}}}
 
 };
 // src/adapter/live-message.js
-__ESB_g[270]=function*(){__ESB_d(__ESB_x[270],{installLiveMessageCapture:()=>installLiveMessageCapture});yield;const{findDoor}=__ESB_x[57];const{refusesSuperclass}=__ESB_x[116];const{pressNode}=__ESB_x[134];
+__ESB_g[272]=function*(){__ESB_d(__ESB_x[272],{installLiveMessageCapture:()=>installLiveMessageCapture});yield;const{findDoor}=__ESB_x[57];const{refusesSuperclass}=__ESB_x[116];const{pressNode}=__ESB_x[134];
 ;
 ;
 ;
@@ -56792,7 +57138,7 @@ installations.delete(record.ctrlProto)}}}
 
 };
 // src/features/promo-close.js
-__ESB_g[271]=function*(){__ESB_d(__ESB_x[271],{createPromoClose:()=>createPromoClose});yield;
+__ESB_g[273]=function*(){__ESB_d(__ESB_x[273],{createPromoClose:()=>createPromoClose});yield;
 const PROMO_CLOSE_FEATURE='promoClose'
 const PROMO_PRESS_FRAMES=2
 const PROMO_STALE_MS=1500
@@ -56879,7 +57225,7 @@ return Number.isFinite(n)&&n>0?n:0}
 
 };
 // src/features/claim-rewards.js
-__ESB_g[272]=function*(){__ESB_d(__ESB_x[272],{createClaimRewards:()=>createClaimRewards});yield;const{bandPauseMs}=__ESB_x[79];const{mustStop,classifyStatus}=__ESB_x[77];const{askDayBudget,COUNTER_UNAVAILABLE}=__ESB_x[98];const{STOP_REASON_KEYS}=__ESB_x[103];
+__ESB_g[274]=function*(){__ESB_d(__ESB_x[274],{createClaimRewards:()=>createClaimRewards});yield;const{bandPauseMs}=__ESB_x[79];const{mustStop,classifyStatus}=__ESB_x[77];const{askDayBudget,COUNTER_UNAVAILABLE}=__ESB_x[98];const{STOP_REASON_KEYS}=__ESB_x[103];
 ;
 ;
 ;
@@ -57082,7 +57428,7 @@ failure=null}}}
 
 };
 // src/features/hub-button.js
-__ESB_g[273]=function*(){__ESB_d(__ESB_x[273],{createHubButton:()=>createHubButton});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoMark}=__ESB_x[69];
+__ESB_g[275]=function*(){__ESB_d(__ESB_x[275],{createHubButton:()=>createHubButton});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{ensureControls,logoMark}=__ESB_x[69];
 ;
 ;
 const HUB_BUTTON_MARK='futHubClaim'
@@ -57164,7 +57510,7 @@ root=null}}}
 
 };
 // src/adapter/home-grid.js
-__ESB_g[274]=function*(){__ESB_d(__ESB_x[274],{homeGridOf:()=>homeGridOf,homeStripsIn:()=>homeStripsIn});yield;
+__ESB_g[276]=function*(){__ESB_d(__ESB_x[276],{homeGridOf:()=>homeGridOf,homeStripsIn:()=>homeStripsIn});yield;
 const HOME_GRID_SELECTOR='.grid.layout-hub'
 function homeGridOf(node){try{if(node===null||node===undefined)return null
 if(typeof node.closest==='function'){const found=node.closest(HOME_GRID_SELECTOR)
@@ -57184,7 +57530,7 @@ return count}catch{return 0}}
 
 };
 // src/features/home-grid.js
-__ESB_g[275]=function*(){__ESB_d(__ESB_x[275],{createHomeGrid:()=>createHomeGrid});yield;const{homeGridOf,homeStripsIn}=__ESB_x[274];const{ensureStylesheet}=__ESB_x[68];
+__ESB_g[277]=function*(){__ESB_d(__ESB_x[277],{createHomeGrid:()=>createHomeGrid});yield;const{homeGridOf,homeStripsIn}=__ESB_x[276];const{ensureStylesheet}=__ESB_x[68];
 ;
 ;
 const COLUMNS=4
@@ -57439,7 +57785,7 @@ fitPending=false}}}
 
 };
 // src/features/hub-unlock.js
-__ESB_g[276]=function*(){__ESB_d(__ESB_x[276],{HUB_UNLOCK_FEATURE:()=>HUB_UNLOCK_FEATURE,createHubUnlock:()=>createHubUnlock});yield;
+__ESB_g[278]=function*(){__ESB_d(__ESB_x[278],{HUB_UNLOCK_FEATURE:()=>HUB_UNLOCK_FEATURE,createHubUnlock:()=>createHubUnlock});yield;
 const HUB_UNLOCK_FEATURE='hubUnlock'
 const HUB_UNLOCK_ATTEMPTS=1
 const HUB_UNLOCK_RETRY_MS=5000
@@ -57543,7 +57889,7 @@ timer=null}}}}
 
 };
 // src/features/head-top.js
-__ESB_g[277]=function*(){__ESB_d(__ESB_x[277],{createHeadTop:()=>createHeadTop});yield;const{el,ensureStylesheet,ensureTheme}=__ESB_x[68];const{PANEL_DOOR_SELECTOR}=__ESB_x[216];
+__ESB_g[279]=function*(){__ESB_d(__ESB_x[279],{createHeadTop:()=>createHeadTop});yield;const{el,ensureStylesheet,ensureTheme}=__ESB_x[68];const{PANEL_DOOR_SELECTOR}=__ESB_x[216];
 ;
 ;
 const TOPLESS_MARK='data-fut-topless'
@@ -57698,7 +58044,7 @@ navReason='disposed'}}}
 
 };
 // src/features/rail-packs.js
-__ESB_g[278]=function*(){__ESB_d(__ESB_x[278],{createRailPacks:()=>createRailPacks});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{installPackRewardCapture}=__ESB_x[268];const{STORE_GRID_FEATURE}=__ESB_x[206];const{askDayBudget}=__ESB_x[98];const{bandPauseMs,spreadBand,RETRY_SPREAD_SHARE}=__ESB_x[79];
+__ESB_g[280]=function*(){__ESB_d(__ESB_x[280],{createRailPacks:()=>createRailPacks});yield;const{el,ensureTheme,ensureStylesheet}=__ESB_x[68];const{installPackRewardCapture}=__ESB_x[270];const{STORE_GRID_FEATURE}=__ESB_x[206];const{askDayBudget}=__ESB_x[98];const{bandPauseMs,spreadBand,RETRY_SPREAD_SHARE}=__ESB_x[79];
 ;
 ;
 ;
@@ -58006,7 +58352,7 @@ settleTimer=null}}}}
 
 };
 // src/features/list-cursor.js
-__ESB_g[279]=function*(){__ESB_d(__ESB_x[279],{createListCursor:()=>createListCursor});yield;const{ensureStylesheet,ensureTheme}=__ESB_x[68];const{pressNode}=__ESB_x[134];const{LIST_ROWS,CURSOR_ATTR,CURSOR_KEY,ENTER_KEY,MARK_KEY,STALE_ATTR,STALE_KEY,MODE_PRESS,MODE_SAY,axisOf,rowKindOf,rowsOf,rectsOf,listNow,indexIn,markedRow,enterMarkOf,marksRow,drawsMark,enterTargets,primaryButton,followButton,stepIndex,startIndex,groupsOf,zoneOf}=__ESB_x[168];
+__ESB_g[281]=function*(){__ESB_d(__ESB_x[281],{createListCursor:()=>createListCursor});yield;const{ensureStylesheet,ensureTheme}=__ESB_x[68];const{pressNode}=__ESB_x[134];const{LIST_ROWS,CURSOR_ATTR,CURSOR_KEY,ENTER_KEY,MARK_KEY,STALE_ATTR,STALE_KEY,MODE_PRESS,MODE_SAY,axisOf,rowKindOf,rowsOf,rectsOf,listNow,indexIn,markedRow,enterMarkOf,marksRow,drawsMark,enterTargets,primaryButton,followButton,stepIndex,startIndex,groupsOf,zoneOf}=__ESB_x[168];
 ;
 ;
 ;
@@ -58104,7 +58450,7 @@ return{step,enter,state,clear}}
 
 };
 // src/features/notfound-watch.js
-__ESB_g[280]=function*(){__ESB_d(__ESB_x[280],{ensureNotFoundWatch:()=>ensureNotFoundWatch});yield;const{installShellWatch,shellFacts,shellLabel,screenTitle,eaBuild,askShell,shellSlot}=__ESB_x[188];const{eaRequestState}=__ESB_x[90];const{VIEW_SELECTOR}=__ESB_x[76];const{CARD_GRID_FEATURE}=__ESB_x[183];
+__ESB_g[282]=function*(){__ESB_d(__ESB_x[282],{ensureNotFoundWatch:()=>ensureNotFoundWatch});yield;const{installShellWatch,shellFacts,shellLabel,screenTitle,eaBuild,askShell,shellSlot}=__ESB_x[188];const{eaRequestState}=__ESB_x[90];const{VIEW_SELECTOR}=__ESB_x[76];const{CARD_GRID_FEATURE}=__ESB_x[183];
 ;
 ;
 ;
@@ -58361,7 +58707,8 @@ return room===undefined?null:report(room)}
 
 };
 // src/page/wiring.js
-__ESB_g[281]=function*(){__ESB_d(__ESB_x[281],{wirePage:()=>wirePage});yield;const{installHotkeys,confirmPlan}=__ESB_x[170];const{notePanelCard}=__ESB_x[134];const{ownConfirmButton,visibleDialogs,pressNode,pressTarget,layerVisible}=__ESB_x[134];const{HOTKEY_ACTIONS}=__ESB_x[127];const{publishLiveCriteria}=__ESB_x[139];const{readMarketFilterCriteria,restoreLiveMarketCriteria}=__ESB_x[106];const{startAutologin,createLandingWatch}=__ESB_x[262];const{createLandingDoor}=__ESB_x[263];const{findMinBin,countListings,minBinLabel,minBinTarget}=__ESB_x[80];const{listAtMinNotice}=__ESB_x[149];const{enhanceTransferList,syncRelistPricing}=__ESB_x[99];const{forgetPurchases}=__ESB_x[87];const{installItemEvidenceCapture,itemForEvidenceRow}=__ESB_x[89];const{enhancePriceBadges,relabelPriceBadges,dropAllPriceBadges,notePriceBadgeCard,priceBadgePeek}=__ESB_x[86];const{createDimOwned}=__ESB_x[264];const{createGalleryMarks}=__ESB_x[82];const{createGallerySeller}=__ESB_x[266];const{setGallerySeller}=__ESB_x[192];const{installSbcSetCapture}=__ESB_x[176];const{installSbcHubCapture}=__ESB_x[177];const{installStorageScreenCapture}=__ESB_x[197];const{installGalleryCapture,publishGalleryProbe}=__ESB_x[196];const{installSelectedPlayerCapture,selectedPlayerRecord}=__ESB_x[130];const{searchTypeOf}=__ESB_x[95];const{installQuickListCapture}=__ESB_x[100];const{installItemDetailsCapture}=__ESB_x[101];const{installSquadSlotCapture}=__ESB_x[129];const{installSquadScreenCapture,installSquadActionsCapture,installClubPickCapture}=__ESB_x[128];const{installSbcScreenCapture}=__ESB_x[116];const{installStorePacksCapture,installStoreCatalogCapture,installStoreTabCapture,openMyPacks,installPackOpenCapture,installPackAnimationCapture,goStorePacks,backPlan,BACK_CALLS}=__ESB_x[92];const{installPlayerPicksCapture,installPlayerPickControls}=__ESB_x[75];const{installItemEvents}=__ESB_x[63];const{applyItemEvent}=__ESB_x[159];const{installUnassignedScreenCapture,createUnassignedPerform,createUnassignedNativeStep}=__ESB_x[205];const{createUnassignedBulk,BUSY_FRAMES}=__ESB_x[267];const{createDoorConsent,doorConsentKey,isDoorRefusal,reviewAction,ALLOWED,UNKNOWN}=__ESB_x[94];const{extractItems}=__ESB_x[113];const{createUnassignedStrip}=__ESB_x[204];const{installGameRewardsCapture}=__ESB_x[268];const{createRewardFlow}=__ESB_x[269];const{installLiveMessageCapture}=__ESB_x[270];const{createPromoClose}=__ESB_x[271];const{installHomeHubCapture,readHubRewards,findLevel,claimHubReward,grantHubItems,readRewardKinds,readRewardLoot,noteRewardLoot,loadObjectiveCategories,findGroup,claimGroupReward,fcHubLocked,unlockFcHub,redrawFcHubTile,readFcasAuthFailures,restoreFcasAuthFailures,fcasReloginFailed}=__ESB_x[93];const{storeRailButton,unopenedPackCount,requestPackSplit,installObjectiveRewardWatch}=__ESB_x[186];const{createClaimRewards}=__ESB_x[272];const{createHubButton}=__ESB_x[273];const{createHomeGrid}=__ESB_x[275];const{createHubUnlock,HUB_UNLOCK_FEATURE}=__ESB_x[276];const{createHeadTop}=__ESB_x[277];const{PANEL_ID}=__ESB_x[261];const{createRailPacks}=__ESB_x[278];const{offMarket,meterCalls,isDayBudgetError,askDayBudget}=__ESB_x[98];const{createListCursor}=__ESB_x[279];const{AXIS_X,AXIS_Y}=__ESB_x[168];const{ensureNotFoundWatch}=__ESB_x[280];
+__ESB_g[283]=function*(){__ESB_d(__ESB_x[283],{wirePage:()=>wirePage});yield;const{installHotkeys,confirmPlan}=__ESB_x[170];const{notePanelCard}=__ESB_x[134];const{ownConfirmButton,visibleDialogs,pressNode,pressTarget,layerVisible}=__ESB_x[134];const{HOTKEY_ACTIONS}=__ESB_x[127];const{publishLiveCriteria}=__ESB_x[139];const{readMarketFilterCriteria,restoreLiveMarketCriteria}=__ESB_x[106];const{startAutologin,createLandingWatch}=__ESB_x[265];const{createLandingDoor}=__ESB_x[266];const{findMinBin,countListings,minBinLabel,minBinTarget}=__ESB_x[80];const{listAtMinNotice}=__ESB_x[149];const{enhanceTransferList,syncRelistPricing}=__ESB_x[99];const{forgetPurchases}=__ESB_x[87];const{installItemEvidenceCapture,itemForEvidenceRow}=__ESB_x[89];const{enhancePriceBadges,relabelPriceBadges,dropAllPriceBadges,notePriceBadgeCard,priceBadgePeek}=__ESB_x[86];const{createDimOwned}=__ESB_x[253];const{createHoloGlow}=__ESB_x[254];const{createGalleryMarks,galleryEngine}=__ESB_x[82];const{createGallerySeller}=__ESB_x[268];const{setGallerySeller}=__ESB_x[192];const{installSbcSetCapture}=__ESB_x[176];const{installSbcHubCapture}=__ESB_x[177];const{installStorageScreenCapture}=__ESB_x[197];const{installGalleryCapture,publishGalleryProbe}=__ESB_x[196];const{installSelectedPlayerCapture,selectedPlayerRecord}=__ESB_x[130];const{searchTypeOf}=__ESB_x[95];const{installQuickListCapture}=__ESB_x[100];const{installItemDetailsCapture}=__ESB_x[101];const{installSquadSlotCapture}=__ESB_x[129];const{installSquadScreenCapture,installSquadActionsCapture,installClubPickCapture}=__ESB_x[128];const{installSbcScreenCapture}=__ESB_x[116];const{installStorePacksCapture,installStoreCatalogCapture,installStoreTabCapture,openMyPacks,installPackOpenCapture,installPackAnimationCapture,goStorePacks,backPlan,BACK_CALLS}=__ESB_x[92];const{installPlayerPicksCapture,installPlayerPickControls}=__ESB_x[75];const{installItemEvents}=__ESB_x[63];const{applyItemEvent}=__ESB_x[159];const{installUnassignedScreenCapture,createUnassignedPerform,createUnassignedNativeStep}=__ESB_x[205];const{createUnassignedBulk,BUSY_FRAMES}=__ESB_x[269];const{createDoorConsent,doorConsentKey,isDoorRefusal,reviewAction,ALLOWED,UNKNOWN}=__ESB_x[94];const{extractItems}=__ESB_x[113];const{createUnassignedStrip}=__ESB_x[204];const{installGameRewardsCapture}=__ESB_x[270];const{createRewardFlow}=__ESB_x[271];const{installLiveMessageCapture}=__ESB_x[272];const{createPromoClose}=__ESB_x[273];const{installHomeHubCapture,readHubRewards,findLevel,claimHubReward,grantHubItems,readRewardKinds,readRewardLoot,noteRewardLoot,loadObjectiveCategories,findGroup,claimGroupReward,fcHubLocked,unlockFcHub,redrawFcHubTile,readFcasAuthFailures,restoreFcasAuthFailures,fcasReloginFailed}=__ESB_x[93];const{storeRailButton,unopenedPackCount,requestPackSplit,installObjectiveRewardWatch}=__ESB_x[186];const{createClaimRewards}=__ESB_x[274];const{createHubButton}=__ESB_x[275];const{createHomeGrid}=__ESB_x[277];const{createHubUnlock,HUB_UNLOCK_FEATURE}=__ESB_x[278];const{createHeadTop}=__ESB_x[279];const{PANEL_ID}=__ESB_x[264];const{createRailPacks}=__ESB_x[280];const{offMarket,meterCalls,isDayBudgetError,askDayBudget}=__ESB_x[98];const{createListCursor}=__ESB_x[281];const{AXIS_X,AXIS_Y}=__ESB_x[168];const{ensureNotFoundWatch}=__ESB_x[282];
+;
 ;
 ;
 ;
@@ -58781,6 +59128,7 @@ unassignedStrip.relabel()
 refresh()
 return{sell,locks,sbc,market}}
 const dimOwned=createDimOwned({doc,isActive,itemOf:itemForEvidenceRow,pool:itemPool,onError})
+const holoGlow=createHoloGlow({doc,isActive,itemOf:itemForEvidenceRow,pool:itemPool,onError})
 const galleryMarks=createGalleryMarks({isActive})
 const refresh=()=>{ensureNativeCaptures();marketSearchQuick?.refresh?.();sellSidebar?.refresh?.();cardLockMark?.refresh?.();sbcWindow?.refresh?.();storeGrid?.refresh?.();storeCatalog?.refresh?.()
 pickPrices?.refresh?.()
@@ -58791,6 +59139,7 @@ sbcSet?.refresh?.()
 const badges=enhancePriceBadges({doc,t,isActive,itemOf:itemForEvidenceRow,priceOf:badgePriceOf,measure:measureFromBadge,gallery:galleryMarks})
 badges.pending?.catch?.(onError)
 dimOwned.refresh()
+holoGlow.refresh()
 lockBadges?.refresh?.()
 squadBar?.refresh?.()
 squadPick?.refresh?.()
@@ -58858,6 +59207,7 @@ try{cardLockMark?.apply?.(capture)}catch(err){onError(err)}
 try{frozenMarks?.apply?.(capture)}catch(err){onError(err)}
 try{notePriceBadgeCard(capture?.root,capture?.item)}catch(err){onError(err)}
 try{dimOwned.note(capture?.root,capture?.item)}catch(err){onError(err)}
+try{holoGlow.note(capture?.root,capture?.item)}catch(err){onError(err)}
 try{dealPanel?.apply?.(capture)}catch(err){onError(err)}
 try{notePanelCard(capture)}catch(err){onError(err)}})
 if(!squadSlotCapture.ok)squadSlotCapture=installSquadSlotCapture(win,(root,item)=>{learn(item)
@@ -58912,6 +59262,7 @@ if(!pickControlsCapture.ok&&pickPrices!==null){pickControlsCapture=installPlayer
 if(!pickScreenCapture.ok&&pickPrices!==null){pickScreenCapture=installPlayerPicksCapture(win,(capture)=>{try{pickPrices.apply(capture)}catch(err){onError(err)}})}
 if(!unassignedCapture.ok){unassignedCapture=installUnassignedScreenCapture(win,(capture)=>{unassignedScreen=capture
 unassignedSeen+=1
+try{galleryEngine()?.caught?.(capture.bodies?.()??[],'screen')}catch(err){onError(err)}
 try{unassignedBulk.settled()}catch(err){onError(err)}
 try{unassignedStrip.apply(capture)}catch(err){onError(err)}
 if(capture.cards.length>0||capture.unreadable>0)unassignedHadCards=true
@@ -58933,7 +59284,8 @@ learnAll(event?.items,'event')
 try{sbcWindow?.invalidate?.(event?.ids,event?.name)}catch(err){onError(err)}
 if(event?.name==='ITEM_UNDO_DISCARD'&&noteRecreatedLocks!==null){try{noteRecreatedLocks(event?.ids)}catch(err){onError(err)}}
 if(event?.name==='ITEM_DISCARD'||event?.name==='ITEM_CLEARSOLD'){try{forgetPurchases(event?.ids)}catch(err){onError(err)}}
-try{sbcStorage?.left?.(event)}catch(err){onError(err)}})
+try{sbcStorage?.left?.(event)}catch(err){onError(err)}
+if(Array.isArray(event?.items)&&event.items.length>0){try{galleryEngine()?.caught?.(event.items,'event')}catch(err){onError(err)}}})
 try{itemPool.subscribed?.(itemEvents.ok,itemEvents.missing)}catch(err){onError(err)}
 try{clubMirror?.subscribed?.(itemEvents.ok,itemEvents.missing)}catch(err){onError(err)}}
 return{evidence:evidenceCapture.ok,quickList:quickListCapture.ok,details:detailsCapture.ok,squadSlot:squadSlotCapture.ok,squadScreen:squadScreenCapture.ok,squadActions:squadActionsCapture.ok,clubPick:clubPickCapture.ok,sbcScreen:sbcScreenCapture.ok,sbcHub:sbcHubCapture.ok,storageScreen:storageCapture.ok,storePacks:storePacksCapture.ok,storeCatalog:storeCatalogCapture.ok,storeTab:storeTabCapture.ok,packOpen:packOpenCapture.ok,packBulkOpen:packBulkOpenCapture.ok,packAnimation:packAnimationCapture.ok,pickScreen:pickScreenCapture.ok,pickControls:pickControlsCapture.ok,unassignedScreen:unassignedCapture.ok,gameRewards:rewardsCapture.ok,liveMessage:promoCapture.ok,submitGuard:submitHook?.state?.()?.ok===true,workArea:workArea?.state?.()?.installed===true,itemEvents:itemEvents.ok,gallery:galleryCapture.ok}}
@@ -58981,6 +59333,7 @@ button:hubButton.state(),capture:homeHubCapture.state(),
 unlock:hubUnlock.state()}),
 homeGrid:()=>homeGrid.state(),
 hubUnlock:()=>hubUnlock.state(),
+holoGlow:(tune)=>holoGlow.probe(tune),
 headTop:()=>headTop.state(),
 railPacks:()=>({...railPacks.state(),openWatch:railOpenCapture.reason}),dispose(){hotkeys.dispose()
 evidenceCapture.dispose()
@@ -59052,12 +59405,13 @@ submitHook?.dispose?.()
 marketSearchQuick?.dispose?.()
 snipeKey?.dispose?.()
 dimOwned.dispose()
+holoGlow.dispose()
 dropAllPriceBadges(doc)
 observer?.disconnect?.()}}}
 
 };
 // src/page/buyer-door.js
-__ESB_g[282]=function*(){__ESB_d(__ESB_x[282],{createBuyerDoor:()=>createBuyerDoor});yield;
+__ESB_g[284]=function*(){__ESB_d(__ESB_x[284],{createBuyerDoor:()=>createBuyerDoor});yield;
 const BUYER_OFF_SCREEN='panel.start.onScreen'
 const BUYER_NO_ENGINE='snipe.noEngine'
 function createBuyerDoor({bar=()=>null,engine=null,onError=()=>{}}={}){
@@ -59086,7 +59440,7 @@ ready:()=>ready(barNow())}}
 
 };
 // src/page/settings-door.js
-__ESB_g[283]=function*(){__ESB_d(__ESB_x[283],{createSettingsDoor:()=>createSettingsDoor});yield;
+__ESB_g[285]=function*(){__ESB_d(__ESB_x[285],{createSettingsDoor:()=>createSettingsDoor});yield;
 function createSettingsDoor({update=()=>{}}={}){
 let open=null
 let last=null
@@ -59105,7 +59459,7 @@ return true}}}
 
 };
 // src/page/live-evidence.js
-__ESB_g[284]=function*(){__ESB_d(__ESB_x[284],{buildLiveEvidence:()=>buildLiveEvidence,createLiveEvidenceRecorder:()=>createLiveEvidenceRecorder,createPhaseLog:()=>createPhaseLog,domEvidence:()=>domEvidence,sanitizeLiveEvidenceSnapshot:()=>sanitizeLiveEvidenceSnapshot});yield;const{FEATURES}=__ESB_x[3];
+__ESB_g[286]=function*(){__ESB_d(__ESB_x[286],{buildLiveEvidence:()=>buildLiveEvidence,createLiveEvidenceRecorder:()=>createLiveEvidenceRecorder,createPhaseLog:()=>createPhaseLog,domEvidence:()=>domEvidence,sanitizeLiveEvidenceSnapshot:()=>sanitizeLiveEvidenceSnapshot});yield;const{FEATURES}=__ESB_x[3];
 ;
 const LIVE_EVIDENCE_SCHEMA=1
 const LIVE_EVIDENCE_LIMIT=50
@@ -59362,7 +59716,7 @@ function positiveInteger(value,fallback){return Number.isInteger(value)&&value>0
 
 };
 // src/page/live-control.js
-__ESB_g[285]=function*(){__ESB_d(__ESB_x[285],{createBridgeLiveControlProvider:()=>createBridgeLiveControlProvider,createLiveControlSession:()=>createLiveControlSession});yield;const{createCachedProvider}=__ESB_x[6];const{sanitizeLiveEvidenceSnapshot}=__ESB_x[284];
+__ESB_g[287]=function*(){__ESB_d(__ESB_x[287],{createBridgeLiveControlProvider:()=>createBridgeLiveControlProvider,createLiveControlSession:()=>createLiveControlSession});yield;const{createCachedProvider}=__ESB_x[6];const{sanitizeLiveEvidenceSnapshot}=__ESB_x[286];
 ;
 ;
 const LIVE_CONTROL_SCHEMA=2
@@ -59420,7 +59774,7 @@ function finite(value){return typeof value==='number'&&Number.isFinite(value)?va
 
 };
 // src/page/wait-notice.js
-__ESB_g[286]=function*(){__ESB_d(__ESB_x[286],{createWaitNotice:()=>createWaitNotice});yield;
+__ESB_g[288]=function*(){__ESB_d(__ESB_x[288],{createWaitNotice:()=>createWaitNotice});yield;
 function createWaitNotice({name,now,record,out=globalThis.console,
 prefix='[ESHArio]',
 pending='ещё не поднялась, попробуем позже',
@@ -59458,7 +59812,7 @@ state(){return{said,closed,tries,startedAt}}}}
 
 };
 // src/features/code-version.js
-__ESB_g[287]=function*(){__ESB_d(__ESB_x[287],{CODE_LINE_BUILD:()=>CODE_LINE_BUILD,askCodeVersion:()=>askCodeVersion});yield;
+__ESB_g[289]=function*(){__ESB_d(__ESB_x[289],{CODE_LINE_BUILD:()=>CODE_LINE_BUILD,askCodeVersion:()=>askCodeVersion});yield;
 const CODE_LINE_BUILD='FCHUB1'
 const CODE_STATUS_DOOR='code.status'
 const VERSION_RE=/^\d{1,5}(?:\.\d{1,5}){1,3}$/
@@ -59473,7 +59827,9 @@ return typeof version==='string'&&VERSION_RE.test(version)?version:null}
 
 };
 // src/page/page-entry.js
-__ESB_g[288]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{createBridgeProvider,READ_METHOD:SETTINGS_READ}=__ESB_x[7];const{createSettings,openDoorlessGates}=__ESB_x[5];const{createLicensing}=__ESB_x[8];const{createKeyProvider,createBridgeLicenseProvider}=__ESB_x[10];const{createAccountProvider,createMigrationProvider,ACCOUNT_OPEN}=__ESB_x[11];const{createI18n,chooseLocale,currentTimeZone}=__ESB_x[56];const{doors}=__ESB_x[57];const{createNavigation,appMain}=__ESB_x[58];const{createCriteria,createClubCriteria,createSbcStorageCriteria,createFiltersScreen,readUserCriteria}=__ESB_x[60];const{installMarketSearchQuick,tapSearchWire,widenMarketPage,marketSearchPageViews,marketPageSetting,WIDE_PAGE_LOTS}=__ESB_x[61];const{installItemEvents}=__ESB_x[63];const{createFilterStore,createBridgeFilterProvider}=__ESB_x[64];const{createBridgePackLockProvider,setPackLock,isPackLocked,isPackHidden,setPackHidden}=__ESB_x[65];const{createBridgeCardLockProvider,isCardLocked,setCardLock,sanitizeCardLocks,lockedIdsFor,cardLockRecreatedRows,noteCardsRecreated}=__ESB_x[66];const{createBridgeCardFrozenProvider,isCardFrozen,setCardFrozen,frozenIdsFor}=__ESB_x[67];const{createFrozenMarks}=__ESB_x[102];const{createDropdownSearch}=__ESB_x[135];const{previewPackAutomation,runPackAutomationStep,inspectPackAutomationOutcome,hydratePackAutomationOutcome,beginPackAutomationSession,recordPackAutomationSessionOutcome,previewPackAutomationOutcomeAction,runPackAutomationPickOutcome,runPackAutomationRecoveryOutcome,runPackAutomationDiscardOutcome,previewPackAutomationContinuation,runPackAutomationContinuation}=__ESB_x[138];const{setPlayerPickSelection,reviewPlayerPickSelection,runPickStep,pickPolicy}=__ESB_x[136];const{invalidateUnassignedRecovery,refreshUnassignedRecovery,setUnassignedDisposition,resetUnassignedDispositions,reviewUnassignedRecovery,runRecoveryStep,recoveryPolicy,previewUnassignedDiscard,runDiscardStep}=__ESB_x[137];const{applyFilter,saveCurrentFilter,renameFilter,removeFilter,exportFilters,importFilters}=__ESB_x[139];const{createAutomation,createBridgeLimitsProvider,createBridgeOptionsProvider}=__ESB_x[124];const{createSnipeKey}=__ESB_x[140];const{sanitizeOptionInput,parseOptions,AFTER_BUY_KEY,SEARCH_REFRESH_KEY,searchRefreshOf}=__ESB_x[120];const{createSellerControl,createBridgeSellerProvider}=__ESB_x[141];const{createJournal,createBridgeJournalProvider,BUYER,SELLER}=__ESB_x[142];const{journalText,JOURNAL_ROWS}=__ESB_x[143];const{createLedger,createBridgeLedgerProvider}=__ESB_x[144];const{ledgerText,ledgerCsv}=__ESB_x[145];const{createSounds}=__ESB_x[146];const{createSellSidebar}=__ESB_x[149];const{createCardLockMark}=__ESB_x[165];const{createLockBadges}=__ESB_x[166];const{createSquadBar}=__ESB_x[179];const{createSquadPick}=__ESB_x[180];const{createCardGrid,CARD_GRID_FEATURE,moneyScreenLive}=__ESB_x[183];const{createDealPanel}=__ESB_x[181];const{createClubBar}=__ESB_x[185];const{createGalleryPanel}=__ESB_x[194];const{createGalleryBuyer}=__ESB_x[193];const{galleryCardName}=__ESB_x[189];const{createGalleryEngine,createGalleryMemory,createGalleryCounter,createGalleryPriceBook,personaKeyOf,UNANSWERED_PREFIX,FIRST_OWNER_PREFIX}=__ESB_x[191];const{createGalleryCatalogFeed,galleryDoorStore,galleryDoorFetch}=__ESB_x[190];const{createGalleryDoor}=__ESB_x[196];const{setGalleryEngine,galleryEngine}=__ESB_x[82];const{createSbcStorage,moveStorageToClub}=__ESB_x[198];const{createTransfersHub}=__ESB_x[199];const{transferListScroll}=__ESB_x[99];const{itemForEvidenceRow}=__ESB_x[89];const{priceBadgeState,priceBadgeCoins,priceBadgePeek}=__ESB_x[86];const{createSbcWindow}=__ESB_x[175];const{createStoreGrid}=__ESB_x[206];const{createStoreCatalog}=__ESB_x[201];const{createPreviewMemory}=__ESB_x[207];const{createPackPeek}=__ESB_x[208];const{createPickPrices,PICK_BY_PRICE_FEATURE}=__ESB_x[209];const{createSbcTab}=__ESB_x[219];const{createSbcSet}=__ESB_x[220];const{rewardTextOf}=__ESB_x[176];const{createFutggSbc}=__ESB_x[221];const{createFrozenStore}=__ESB_x[174];const{createSbcStrip,withStrip}=__ESB_x[178];const{squadFieldSignature}=__ESB_x[116];const{createSbcWarm,BACKGROUND_TIME_MS}=__ESB_x[223];const{createSbcLadderWarm}=__ESB_x[222];const{createPackShow,sanitizeShowRating}=__ESB_x[210];const{goStoreHub,unassignedInCache}=__ESB_x[92];const{prepareChallenge,resolveClubPool,showPreparedOnPitch,searchBuyOnMarket,placeBoughtCard,planSlotsFor,twiceInPlan,mismatchInPlan,judgeSubmit,recreatedLockNotice,warmShieldStop,poolForSearch,searchableCards,SBC_FEATURE,solvePhases,columnTotal,pricesForClub,createPrepCache}=__ESB_x[164];const{createSubmitGuardHook}=__ESB_x[224];const{liveSubmitSnapshot,sbcIneligibleReason,cardResourceKey}=__ESB_x[117];const{readSbcStorageItems,ITEM_PILE}=__ESB_x[119];const{createClubMirror,readClubOnce,readVerdict,playersInStats,MIRROR_SHARDS,CLUB_SESSION_RESCUE_READS}=__ESB_x[118];const{createBootSplash}=__ESB_x[225];const{mergePool,laddersFrom,identityWantsFrom,createAgedMemo,valuationFrom,explainSolve,dumpSolve,clubWorth,liveClassesFrom,liveRatingsFrom,bucketsFrom,bucketsWanted,ladderLedger,ladderFromOf,IDENTITY_MEMO_KEEP,BLOB_SLICE_MS}=__ESB_x[160];const{createConceptItem,conceptSupport}=__ESB_x[148];const{createSlotSearchScreen,slotSearchSupport}=__ESB_x[226];const{arrangeByPositions}=__ESB_x[227];const{readTradeAccess}=__ESB_x[228];const{sayEaNotice}=__ESB_x[229];const{createPoolCache,createActiveSquadCache,PoolFeedError,poolHunger,poolPriceWatch,createPoolPriceEye}=__ESB_x[159];const{analyzeClubAction,valueNotice,cardLabel,CLUB_FEATURE,PRICE_FEATURE}=__ESB_x[162];const{defaultClubTableFilters,exportClubItemTableCsv}=__ESB_x[115];const{mountMarketResultSummary,showMarketDeals}=__ESB_x[182];const{createMarketBotBar}=__ESB_x[231];const{createSearchNames}=__ESB_x[232];const{readLiveMarketCriteria,playerEntryOf,marketResultsLive,SEARCH_SCREEN_ROOT,liveSearchButton,readMarketFilterCriteria,readLiveMarketDefaults,restoreLiveMarketCriteria,showSearchMinBid,restoreSearchMinBid,showSearchPair,restoreSearchPair,marketPriceControl}=__ESB_x[106];const{createMarketFilterMemory}=__ESB_x[217];const{mountItemCard}=__ESB_x[233];const{createPriceCache,createPriceLookup,createPriceFallback}=__ESB_x[83];const{createMarketPriceSource,marketCacheKey,criteriaForCard}=__ESB_x[234];const{createLivePrices,measureQueueFrom,lagReport}=__ESB_x[172];const{createMarketBudget,BUDGET_LIMIT}=__ESB_x[80];const{DEFAULT_SEARCH_BAND_MS,SAFE_PAUSE_FLOOR_MS,MIN_BID_FLOOR,MIN_BID_STEP,MIN_BID_TOP,BID_REFRESH_TOP,MIN_BUY_FLOOR,MIN_BUY_STEP,MIN_BUY_TOP,MIN_BUY_AIM_SHARE,PAIR_MIN_BID_TOP,pairRing}=__ESB_x[123];const{createDayBudget,withDayBudget,createHuntBudget,offMarket,meterCalls,isDayBudgetError,dayBudgetError,createBudgetOwner,stopOnEaLimit}=__ESB_x[98];const{createHeadBar,chipScale}=__ESB_x[216];const{createRivalsSource}=__ESB_x[213];const{headCountersLine}=__ESB_x[78];const{createAutoBuy,createBuyRate,createLotFinder,buyTargetOf,batchCeiling}=__ESB_x[171];const{createSession}=__ESB_x[107];const{createStopConditions}=__ESB_x[108];const{TAX_FEATURE}=__ESB_x[147];const{createUiState,createBridgeUiProvider,pickPreselectFromToggles,sanitizeHotkeyProfile}=__ESB_x[218];const{createCloudDesk}=__ESB_x[241];const{createSettingsTransfer,watchSettingsApplied}=__ESB_x[242];const{createProblemReport}=__ESB_x[243];const{SYNC_STORAGE_KEYS}=__ESB_x[235];const{setEaRequestPort,eaRequestState}=__ESB_x[90];const{createFutggSource,priceCacheKey,currentGame,isUntradableSource,MANIFEST_TTL_MS:FUTGG_MANIFEST_TTL_MS}=__ESB_x[85];const{seasonOf}=__ESB_x[84];const{createLadderService,createSolvePriceReader,LADDER_TTL_MS}=__ESB_x[158];const{createPriceTrap}=__ESB_x[244];const{createPriceQuarantine}=__ESB_x[245];const{createRarityGroups}=__ESB_x[246];const{createBridgeFetch,CARDS_METHOD,CARDS_TIMEOUT_MS}=__ESB_x[2];const{createSbc,createSquad}=__ESB_x[247];const{demandClasses}=__ESB_x[153];const{parseRequirements}=__ESB_x[150];const{createWorkAreaProbe}=__ESB_x[248];const{createAdapter,createPackAdapter,createClubMemory,createStorageMemory,searchTypeOf}=__ESB_x[95];const{createPersonaAdapter}=__ESB_x[212];const{createSessionEpoch,sessionSince,stopRunning,stopQueue}=__ESB_x[105];const{createWalletAdapter}=__ESB_x[195];const{squadRatingFloatEnabled}=__ESB_x[91];const{createTeamConfig}=__ESB_x[249];const{createStaticPlayers}=__ESB_x[173];const{createCardCatalog,createCardLane}=__ESB_x[250];const{createCardBaseFeed,baseDefinitions,withStaticCardBase}=__ESB_x[251];const{createRarityGroupBook}=__ESB_x[252];const{createDemandMemory,unionClasses}=__ESB_x[157];const{installPurchaseLog,purchaseLogState,notePurchasedItem,notePaid}=__ESB_x[87];const{createHuntLoot}=__ESB_x[122];const{createClock}=__ESB_x[253];const{storageFailed}=__ESB_x[6];const{mountPanel,PANEL_BUILD}=__ESB_x[261];const{ourWindowOpen}=__ESB_x[70];const{FIRST_SECTION,DEEDS}=__ESB_x[256];const{HOTKEYS_FEATURE}=__ESB_x[170];const{publishTemplateMenu,pressNode,cardMatchProbe}=__ESB_x[134];const{wirePage}=__ESB_x[281];const{createBuyerDoor}=__ESB_x[282];const{createSettingsDoor}=__ESB_x[283];const{createLiveEvidenceRecorder,createPhaseLog,domEvidence,buildLiveEvidence}=__ESB_x[284];const{createBridgeLiveControlProvider,createLiveControlSession}=__ESB_x[285];const{createWaitNotice}=__ESB_x[286];const{askCodeVersion,CODE_LINE_BUILD}=__ESB_x[287];
+__ESB_g[290]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{createBridgeProvider,READ_METHOD:SETTINGS_READ}=__ESB_x[7];const{createSettings,openDoorlessGates}=__ESB_x[5];const{createLicensing}=__ESB_x[8];const{createKeyProvider,createBridgeLicenseProvider}=__ESB_x[10];const{createAccountProvider,createMigrationProvider,ACCOUNT_OPEN}=__ESB_x[11];const{createI18n,chooseLocale,currentTimeZone}=__ESB_x[56];const{doors}=__ESB_x[57];const{createNavigation,appMain}=__ESB_x[58];const{createCriteria,createClubCriteria,createSbcStorageCriteria,createFiltersScreen,readUserCriteria}=__ESB_x[60];const{installMarketSearchQuick,tapSearchWire,widenMarketPage,marketSearchPageViews,marketPageSetting,WIDE_PAGE_LOTS}=__ESB_x[61];const{installItemEvents}=__ESB_x[63];const{createFilterStore,createBridgeFilterProvider}=__ESB_x[64];const{createBridgePackLockProvider,setPackLock,isPackLocked,isPackHidden,setPackHidden}=__ESB_x[65];const{createBridgeCardLockProvider,isCardLocked,setCardLock,sanitizeCardLocks,lockedIdsFor,cardLockRecreatedRows,noteCardsRecreated}=__ESB_x[66];const{createBridgeCardFrozenProvider,isCardFrozen,setCardFrozen,frozenIdsFor}=__ESB_x[67];const{createFrozenMarks}=__ESB_x[102];const{createDropdownSearch}=__ESB_x[135];const{previewPackAutomation,runPackAutomationStep,inspectPackAutomationOutcome,hydratePackAutomationOutcome,beginPackAutomationSession,recordPackAutomationSessionOutcome,previewPackAutomationOutcomeAction,runPackAutomationPickOutcome,runPackAutomationRecoveryOutcome,runPackAutomationDiscardOutcome,previewPackAutomationContinuation,runPackAutomationContinuation}=__ESB_x[138];const{setPlayerPickSelection,reviewPlayerPickSelection,runPickStep,pickPolicy}=__ESB_x[136];const{invalidateUnassignedRecovery,refreshUnassignedRecovery,setUnassignedDisposition,resetUnassignedDispositions,reviewUnassignedRecovery,runRecoveryStep,recoveryPolicy,previewUnassignedDiscard,runDiscardStep}=__ESB_x[137];const{applyFilter,saveCurrentFilter,renameFilter,removeFilter,exportFilters,importFilters}=__ESB_x[139];const{createAutomation,createBridgeLimitsProvider,createBridgeOptionsProvider}=__ESB_x[124];const{createSnipeKey}=__ESB_x[140];const{sanitizeOptionInput,parseOptions,AFTER_BUY_KEY,SEARCH_REFRESH_KEY,searchRefreshOf}=__ESB_x[120];const{createSellerControl,createBridgeSellerProvider}=__ESB_x[141];const{createJournal,createBridgeJournalProvider,BUYER,SELLER}=__ESB_x[142];const{journalText,JOURNAL_ROWS}=__ESB_x[143];const{createLedger,createBridgeLedgerProvider}=__ESB_x[144];const{ledgerText,ledgerCsv}=__ESB_x[145];const{createSounds}=__ESB_x[146];const{createSellSidebar}=__ESB_x[149];const{createCardLockMark}=__ESB_x[165];const{createLockBadges}=__ESB_x[166];const{createSquadBar}=__ESB_x[179];const{createSquadPick}=__ESB_x[180];const{createCardGrid,CARD_GRID_FEATURE,moneyScreenLive}=__ESB_x[183];const{createDealPanel}=__ESB_x[181];const{createClubBar}=__ESB_x[185];const{createGalleryPanel}=__ESB_x[194];const{createGalleryBuyer}=__ESB_x[193];const{galleryCardName}=__ESB_x[189];const{createGalleryEngine,createGalleryMemory,createGalleryCounter,createGalleryPriceBook,personaKeyOf,UNANSWERED_PREFIX,FIRST_OWNER_PREFIX}=__ESB_x[191];const{createGalleryCatalogFeed,galleryDoorStore,galleryDoorFetch}=__ESB_x[190];const{createGalleryDoor}=__ESB_x[196];const{setGalleryEngine,galleryEngine}=__ESB_x[82];const{createSbcStorage,moveStorageToClub}=__ESB_x[198];const{createTransfersHub}=__ESB_x[199];const{transferListScroll}=__ESB_x[99];const{itemForEvidenceRow}=__ESB_x[89];const{priceBadgeState,priceBadgeCoins,priceBadgePeek}=__ESB_x[86];const{createSbcWindow}=__ESB_x[175];const{createStoreGrid}=__ESB_x[206];const{createStoreCatalog}=__ESB_x[201];const{createPreviewMemory}=__ESB_x[207];const{createPackPeek}=__ESB_x[208];const{createPickPrices,PICK_BY_PRICE_FEATURE}=__ESB_x[209];const{createSbcTab}=__ESB_x[219];const{createSbcSet}=__ESB_x[220];const{rewardTextOf}=__ESB_x[176];const{createFutggSbc}=__ESB_x[221];const{createFrozenStore}=__ESB_x[174];const{createSbcStrip,withStrip}=__ESB_x[178];const{squadFieldSignature}=__ESB_x[116];const{createSbcWarm,BACKGROUND_TIME_MS}=__ESB_x[223];const{createSbcLadderWarm}=__ESB_x[222];const{createPackShow,sanitizeShowRating}=__ESB_x[210];const{goStoreHub,unassignedInCache}=__ESB_x[92];const{prepareChallenge,resolveClubPool,showPreparedOnPitch,searchBuyOnMarket,placeBoughtCard,planSlotsFor,twiceInPlan,mismatchInPlan,judgeSubmit,recreatedLockNotice,warmShieldStop,poolForSearch,searchableCards,SBC_FEATURE,solvePhases,columnTotal,pricesForClub,createPrepCache}=__ESB_x[164];const{createSubmitGuardHook}=__ESB_x[224];const{liveSubmitSnapshot,sbcIneligibleReason,cardResourceKey}=__ESB_x[117];const{readSbcStorageItems,ITEM_PILE}=__ESB_x[119];const{createClubMirror,readClubOnce,readVerdict,playersInStats,MIRROR_SHARDS,CLUB_SESSION_RESCUE_READS}=__ESB_x[118];const{createBootSplash}=__ESB_x[225];const{mergePool,laddersFrom,identityWantsFrom,createAgedMemo,valuationFrom,explainSolve,dumpSolve,clubWorth,liveClassesFrom,liveRatingsFrom,bucketsFrom,bucketsWanted,ladderLedger,ladderFromOf,IDENTITY_MEMO_KEEP,BLOB_SLICE_MS}=__ESB_x[160];const{createConceptItem,conceptSupport}=__ESB_x[148];const{createSlotSearchScreen,slotSearchSupport}=__ESB_x[226];const{arrangeByPositions}=__ESB_x[227];const{readTradeAccess}=__ESB_x[228];const{sayEaNotice}=__ESB_x[229];const{createPoolCache,createActiveSquadCache,PoolFeedError,poolHunger,poolPriceWatch,createPoolPriceEye}=__ESB_x[159];const{analyzeClubAction,valueNotice,cardLabel,CLUB_FEATURE,PRICE_FEATURE}=__ESB_x[162];const{defaultClubTableFilters,exportClubItemTableCsv}=__ESB_x[115];const{mountMarketResultSummary,showMarketDeals}=__ESB_x[182];const{createMarketBotBar}=__ESB_x[231];const{createSearchNames}=__ESB_x[232];const{readLiveMarketCriteria,playerEntryOf,marketResultsLive,SEARCH_SCREEN_ROOT,liveSearchButton,readMarketFilterCriteria,readLiveMarketDefaults,restoreLiveMarketCriteria,showSearchMinBid,restoreSearchMinBid,showSearchPair,restoreSearchPair,marketPriceControl}=__ESB_x[106];const{createMarketFilterMemory}=__ESB_x[217];const{mountItemCard}=__ESB_x[233];const{createPriceCache,createPriceLookup,createPriceFallback}=__ESB_x[83];const{createMarketPriceSource,marketCacheKey,criteriaForCard}=__ESB_x[234];const{createLivePrices,measureQueueFrom,lagReport}=__ESB_x[172];const{createMarketBudget,BUDGET_LIMIT}=__ESB_x[80];const{DEFAULT_SEARCH_BAND_MS,SAFE_PAUSE_FLOOR_MS,MIN_BID_FLOOR,MIN_BID_STEP,MIN_BID_TOP,BID_REFRESH_TOP,MIN_BUY_FLOOR,MIN_BUY_STEP,MIN_BUY_TOP,MIN_BUY_AIM_SHARE,PAIR_MIN_BID_TOP,pairRing}=__ESB_x[123];const{createDayBudget,withDayBudget,createHuntBudget,offMarket,meterCalls,isDayBudgetError,dayBudgetError,createBudgetOwner,stopOnEaLimit}=__ESB_x[98];const{createHeadBar,chipScale}=__ESB_x[216];const{createRivalsSource}=__ESB_x[213];const{headCountersLine}=__ESB_x[78];const{createAutoBuy,createBuyRate,createLotFinder,buyTargetOf,batchCeiling}=__ESB_x[171];const{createSession}=__ESB_x[107];const{createStopConditions}=__ESB_x[108];const{TAX_FEATURE}=__ESB_x[147];const{createUiState,createBridgeUiProvider,pickPreselectFromToggles,sanitizeHotkeyProfile}=__ESB_x[218];const{createCloudDesk}=__ESB_x[241];const{createSettingsTransfer,watchSettingsApplied}=__ESB_x[242];const{createProblemReport}=__ESB_x[243];const{SYNC_STORAGE_KEYS}=__ESB_x[235];const{setEaRequestPort,eaRequestState}=__ESB_x[90];const{createFutggSource,priceCacheKey,currentGame,isUntradableSource,MANIFEST_TTL_MS:FUTGG_MANIFEST_TTL_MS}=__ESB_x[85];const{seasonOf}=__ESB_x[84];const{createLadderService,createSolvePriceReader,LADDER_TTL_MS}=__ESB_x[158];const{createPriceTrap}=__ESB_x[244];const{createPriceQuarantine}=__ESB_x[245];const{createRarityGroups}=__ESB_x[246];const{createBridgeFetch,CARDS_METHOD,CARDS_TIMEOUT_MS}=__ESB_x[2];const{createSbc,createSquad}=__ESB_x[247];const{demandClasses}=__ESB_x[153];const{parseRequirements}=__ESB_x[150];const{createWorkAreaProbe}=__ESB_x[248];const{createAdapter,createPackAdapter,createClubMemory,createStorageMemory,searchTypeOf}=__ESB_x[95];const{createPersonaAdapter}=__ESB_x[212];const{createSessionEpoch,sessionSince,stopRunning,stopQueue}=__ESB_x[105];const{createWalletAdapter}=__ESB_x[195];const{squadRatingFloatEnabled}=__ESB_x[91];const{createTeamConfig}=__ESB_x[249];const{createStaticPlayers}=__ESB_x[173];const{createCardCatalog,createCardLane}=__ESB_x[250];const{createCardBaseFeed,baseDefinitions,withStaticCardBase}=__ESB_x[251];const{createGalleryColumns,galleryCardOf}=__ESB_x[252];const{setHoloLookup}=__ESB_x[254];const{createRarityGroupBook}=__ESB_x[255];const{createDemandMemory,unionClasses}=__ESB_x[157];const{installPurchaseLog,purchaseLogState,notePurchasedItem,notePaid}=__ESB_x[87];const{createHuntLoot}=__ESB_x[122];const{createClock}=__ESB_x[256];const{storageFailed}=__ESB_x[6];const{mountPanel,PANEL_BUILD}=__ESB_x[264];const{ourWindowOpen}=__ESB_x[70];const{FIRST_SECTION,DEEDS}=__ESB_x[259];const{HOTKEYS_FEATURE}=__ESB_x[170];const{publishTemplateMenu,pressNode,cardMatchProbe}=__ESB_x[134];const{wirePage}=__ESB_x[283];const{createBuyerDoor}=__ESB_x[284];const{createSettingsDoor}=__ESB_x[285];const{createLiveEvidenceRecorder,createPhaseLog,domEvidence,buildLiveEvidence}=__ESB_x[286];const{createBridgeLiveControlProvider,createLiveControlSession}=__ESB_x[287];const{createWaitNotice}=__ESB_x[288];const{askCodeVersion,CODE_LINE_BUILD}=__ESB_x[289];
+;
+;
 ;
 ;
 ;
@@ -60258,6 +60614,9 @@ return cardLane.read()}).then((lane)=>{const ids=Array.isArray(lane?.ids)?lane.i
 if(ids.length===0)return
 catalog.setUniverse(ids)
 seedInSlices(ids.length,(from,to)=>catalog.seedPositions(lane,from,to))}).catch((err)=>note(`catalog seed: ${err?.message??err}`))
+const galleryColumns=createGalleryColumns({store:galleryDoorStore((method,params)=>bridge.request(method,params)),
+game:()=>currentGame()})
+setHoloLookup((id)=>galleryColumns.get(id)?.holographic??null)
 const cardBase=createCardBaseFeed({
 ask:withStaticCardBase({ask:(params)=>bridge.request(CARDS_METHOD,params,{timeoutMs:CARDS_TIMEOUT_MS}),
 fetch:galleryDoorFetch((method,params)=>bridge.request(method,params,{timeoutMs:65000}),60000),
@@ -60267,14 +60626,18 @@ storage:{read:()=>bridge.request('cardbase.read'),write:(value)=>bridge.request(
 season:()=>seasonOf(),
 game:()=>currentGame(),
 now:()=>clock.now(),
+need:()=>galleryColumns.need(),
 seed:(base)=>new Promise((resolve)=>{let cards=0
-seedInSlices(base.count,(from,to)=>{cards+=catalog.seedAttributes(baseDefinitions(base,from,to))},()=>resolve({cards}))}),
+const columns=galleryColumns.builder(base.game)
+seedInSlices(base.count,(from,to)=>{cards+=catalog.seedAttributes(baseDefinitions(base,from,to))
+columns.add(base,from,to)},()=>{columns.commit()
+resolve({cards})})}),
 groups:(dictionary)=>{groupBook.seedGroups(dictionary,'base')},
 onError:(err)=>note(`card base: ${err?.message??err}`)})
 const CARD_BASE_TICK_MS=1_800_000
 const cardBaseTick=(why)=>{void cardBase.refresh(why).catch((err)=>note(`card base: ${err?.message??err}`))
 setTimeout(()=>cardBaseTick('tick'),CARD_BASE_TICK_MS)}
-void catalogReady.then(()=>cardBase.load()).then(()=>{cardBaseTick('start')}).catch((err)=>note(`card base: ${err?.message??err}`))
+void catalogReady.then(()=>cardBase.load()).then(()=>galleryColumns.load()).then(()=>{cardBaseTick('start')}).catch((err)=>note(`card base: ${err?.message??err}`))
 const priceEvidenceOfItem=async(item)=>{if(!settings.isActive(PRICE_FEATURE))return null
 const key=priceCacheKey(item?.definitionId??item?.defId,{platform:personas.pricePlatform()})
 if(key===null)return null
@@ -61169,8 +61532,7 @@ memory:createGalleryMemory({store:galleryStore,persona:()=>personaKeyOf(personas
 unanswered:createGalleryMemory({store:galleryStore,persona:()=>personaKeyOf(personas.selectedPersona()),prefix:UNANSWERED_PREFIX}),
 firstOwners:createGalleryMemory({store:galleryStore,persona:()=>personaKeyOf(personas.selectedPersona()),prefix:FIRST_OWNER_PREFIX}),
 door:createGalleryDoor(window),counter:createGalleryCounter(marketBudget),
-cards:(id)=>{const card=catalog.get(id)
-return card===null?null:{rating:card.rating,rarity:card.rareflag,club:card.teamId,league:card.leagueId,nation:card.nationId,positions:card.positions}},
+cards:(id)=>galleryCardOf(catalog.get(id),galleryColumns.get(id)),
 now:()=>priceClock.now(),onError:(err)=>note(`gallery: ${err?.message??err}`)}))
 const galleryBuyer=createGalleryBuyer({engine:()=>galleryEngine(),statusOf:settings.statusOf,
 market:marketOrNull,clock:createClock(),coins:wallet.coins,buyRate,budget:huntBudget,marketBudget,
@@ -61368,6 +61730,7 @@ state.rewardFlow=()=>wiring?.rewardFlow?.()??null;
 state.storage=()=>wiring?.storage?.()??null;
 state.hubRewards=()=>wiring?.hubRewards?.()??null;
 state.hubUnlock=()=>wiring?.hubUnlock?.()??null;
+state.holoGlow=(tune)=>wiring?.holoGlow?.(tune)??null;
 state.galleryBuy=()=>galleryBuyer.probe();
 state.railPacks=()=>wiring?.railPacks?.()??null;
 state.headTop=()=>wiring?.headTop?.()??null;
@@ -61394,6 +61757,7 @@ state.catalog=()=>{const own=catalog.state();
 const base=cardBase.state();
 const bytes=base?.worker?.storageBytes ?? null;
 return{...own,base,storageBytes:bytes,
+galleryColumns:galleryColumns.state(),
 line:'карт '+own.size
 +' · рейтинг '+own.rated
 +' · нация '+own.knownNation
@@ -61540,7 +61904,7 @@ note(err?.message??err)});
 
 };
 // Запуск: шаг первый всем модулям (геттеры, подъём функций), потом тела по порядку браузера.
-const __ESB_o=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288],__ESB_a=new Set([]),__ESB_c=[80,86,120,123];
+const __ESB_o=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290],__ESB_a=new Set([]),__ESB_c=[80,86,120,123];
 const __ESB_it=[];for(const i of __ESB_o){const g=__ESB_g[i].call(void 0);__ESB_it[i]=g;g.next()}
 const __ESB_ring=()=>{for(const j of __ESB_c)__ESB_r[j]()};
 const __ESB_run=(k)=>{for(;k<__ESB_o.length;k++){__ESB_ring();const i=__ESB_o[k],r=__ESB_it[i].next();if(__ESB_a.has(i))return r.then(()=>__ESB_run(k+1))}__ESB_ring()};
