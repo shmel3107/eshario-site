@@ -178,7 +178,7 @@
     var c=wayButtons.filter(function(x){return x.getAttribute('data-way')==='crypto'})[0];
     return !!(c&&!c.hidden&&ways&&!ways.hidden);
   };
-  var order=function(v,mine,retryOf,base){
+  var order=function(v,mine,retryOf,base,why){
     var w=retryOf?'sbp':way;
     var sent=null;
     say('making');
@@ -201,7 +201,7 @@
         consentHash:hash
       };
       if(!retryOf)sent=ask;
-      if(retryOf){ask.retryOf=retryOf;ask.reason='im-unavailable'}
+      if(retryOf){ask.retryOf=retryOf;ask.reason=why||'im-unavailable'}
       if(w==='crypto')ask.method='crypto';
       return window.fetch(api+'/v1/orders',{
         method:'POST',
@@ -247,7 +247,7 @@
       if(mine!==round)return;
       if(!t){order(v,mine,b.orderId);return}
       var offer=function(name){
-        declined=ask?{id:b.orderId,ask:ask}:null;
+        declined=ask?{id:b.orderId,ask:ask,why:name==='trackerFail'?'im-declined':'im-unavailable'}:null;
         if(moveBtn)moveBtn.hidden=!declined;
         if(toCrypto)toCrypto.hidden=!cryptoOpen();
         say(name);
@@ -300,7 +300,7 @@
     round+=1;
     var mine=round;
     hold();
-    order(d.ask.email,mine,d.id,d.ask);
+    order(d.ask.email,mine,d.id,d.ask,d.why);
   });
   if(toCrypto)toCrypto.addEventListener('click',function(){
     if(go.disabled)return;
