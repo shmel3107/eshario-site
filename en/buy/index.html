@@ -171,6 +171,7 @@
   };
   var round=0;
   var keep=function(id){try{window.sessionStorage.setItem('eshario_order',id)}catch(err){}};
+  var refused=function(id,v){try{window.fetch(api+'/v1/orders/'+encodeURIComponent(id)+'/refused',{method:'POST',credentials:'omit',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({email:v})}).then(null,function(){})}catch(err){}};
   var moveBtn=document.getElementById('buy-move');
   var toCrypto=document.getElementById('buy-to-crypto');
   var declined=null;
@@ -265,6 +266,7 @@
           post(b.form.fields);
         },function(){
           window.clearTimeout(slow);
+          refused(b.orderId,v);
           if(mine!==round)return;
           offer('trackerFail');
         });
