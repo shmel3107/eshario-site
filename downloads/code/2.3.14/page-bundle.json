@@ -1,8 +1,0 @@
-{
-  "version": "2.3.14",
-  "commit": "89461ac4f7103bcb373b0338643bf34e52a8c73d",
-  "builtAt": "2026-09-27T08:59:17Z",
-  "bytes": 3583623,
-  "sha256": "af26dff8c63ec15ca4b12b10f63abdda8ab207037468f3c4f87fe1fe6fbcda65",
-  "minLoader": "2.2.0"
-}
