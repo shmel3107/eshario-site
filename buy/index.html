@@ -37,9 +37,9 @@
 <p class="hint" id="promo-hint" aria-live="polite" data-idle="Цена с кодом появится после «Применить»." data-wait="Проверяем промокод…" data-done="Промокод {code} применён." data-part="Промокод {code} применён к части сроков." data-bad="Такого промокода нет." data-fail="Не получилось проверить код. Нажмите «Применить» ещё раз." data-gone="Промокод закончился. Цена показана без него." data-friend="Код друга {code} применён: скидка на первую покупку." data-left-show="10" data-left-one="Осталось всего {n} использование!" data-left-few="Осталось всего {n} использования!" data-left-many="Осталось всего {n} использований!">Цена с кодом появится после «Применить».</p>
 <div class="consent-wrap"><label class="consent"><input type="checkbox" id="consent-1"><span>Принимаю публичную оферту, пользовательское соглашение и политику возвратов.</span></label><label class="consent"><input type="checkbox" id="consent-2"><span>Прошу выдать ключ сразу после оплаты и понимаю, что с момента выдачи право на отказ в 14 дней прекращается.</span></label><p class="k-mailnote">Купившим иногда пишем о скидках. Отказаться можно ссылкой в письме.</p></div>
 <div class="k-total"><span>К оплате</span><p class="k-sum"><s class="k-old" hidden></s><b class="k-now">1 149 ₽</b><small class="k-tag" hidden></small></p></div>
-<div class="k-ways" id="buy-ways" role="group" aria-label="Способ оплаты" hidden><button class="term k-way" type="button" data-way="sbp" aria-pressed="true"><b>СБП</b></button><button class="term k-way" type="button" data-way="crypto" aria-pressed="false"><b>Криптовалюта</b><small>USDT и другие монеты</small></button></div>
+<div class="k-ways" id="buy-ways" role="group" aria-label="Способ оплаты" hidden><button class="term k-way" type="button" data-way="sbp" aria-pressed="true"><b>СБП</b></button><button class="term k-way" type="button" data-way="card" aria-pressed="false"><b>Карта Мир</b><small>карты российских банков</small></button><button class="term k-way" type="button" data-way="crypto" aria-pressed="false"><b>Криптовалюта</b><small>USDT и другие монеты</small></button></div>
 <button class="btn btn-main pay k-pay" id="buy-go" type="submit" form="buy-form" data-wait="Проверяем…" data-making="Готовим счёт…">Оплатить</button>
-<div class="buy-say" aria-live="polite"><p class="pw-msg" id="buy-emailBad" hidden>Впишите почту целиком: на неё придёт доступ.</p><p class="pw-msg" id="buy-consent" hidden>Отметьте обе галочки выше: без них оплата не начнётся.</p><p class="pw-msg say-calm" id="buy-checking" hidden><span class="say-step" data-step="0">Проверяем данные для оплаты…</span><span class="say-step" data-step="1" hidden>Платёжный партнёр сверяет данные…</span><span class="say-step" data-step="2" hidden>Обычно это занимает до 30 секунд.</span> <small class="say-note">Иногда партнёр просит пройти короткую проверку: её окно появится само.</small></p><p class="pw-msg" id="buy-checkingSlow" hidden>Проверка идёт дольше обычного. Если окно проверки не появилось, оплатите СБП через другую кассу.</p><p class="pw-msg say-calm" id="buy-making" hidden>Готовим счёт…</p><p class="pw-msg say-calm" id="buy-going" hidden>Переходим на страницу оплаты…</p><p class="pw-msg" id="buy-trackerFail" hidden>Эта касса не пропустила оплату. Попробуйте СБП через другую кассу.</p><p class="pw-msg" id="buy-moveFail" hidden>Оплата не прошла. Оплатите криптовалютой или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-promoUnknown" hidden>Промокод не подошёл, цена показана без него. Нажмите «Оплатить» ещё раз или исправьте код.</p><p class="pw-msg" id="buy-promoGone" hidden>Промокод закончился, цена показана без него. Нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-friendSelf" hidden>Свой код друга нельзя: он для тех, кого вы позвали. Цена показана без кода, нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-friendNotFirst" hidden>Код друга только для первой покупки. Цена показана без кода, нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-busy" hidden>Слишком много попыток подряд. Подождите несколько минут и попробуйте снова.</p><p class="pw-msg" id="buy-closed" hidden>Оплата сейчас недоступна. Попробуйте позже или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-offline" hidden>Нет связи с сервером. Проверьте интернет и нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-failed" hidden>Не получилось создать заказ. Попробуйте ещё раз или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-payFailed" hidden>Оплата не прошла. Попробуйте снова или напишите в поддержку: support@eshario.com.</p><div class="say-acts" id="buy-acts" hidden><button class="btn btn-ghost say-move" id="buy-move" type="button" hidden>Оплатить через другую кассу</button><button class="say-alt" id="buy-to-crypto" type="button" hidden>Или оплатите криптовалютой</button></div></div><noscript><p class="pw-msg">Для оплаты нужен включённый JavaScript.</p></noscript>
+<div class="buy-say" aria-live="polite"><p class="pw-msg" id="buy-emailBad" hidden>Впишите почту целиком: на неё придёт доступ.</p><p class="pw-msg" id="buy-consent" hidden>Отметьте обе галочки выше: без них оплата не начнётся.</p><p class="pw-msg say-calm" id="buy-checking" hidden><span class="say-step" data-step="0">Проверяем данные для оплаты…</span><span class="say-step" data-step="1" hidden>Платёжный партнёр сверяет данные…</span><span class="say-step" data-step="2" hidden>Обычно это занимает до 30 секунд.</span> <small class="say-note">Иногда партнёр просит пройти короткую проверку: её окно появится само.</small></p><p class="pw-msg" id="buy-checkingSlow" hidden>Проверка идёт дольше обычного. Если окно проверки не появилось, оплатите СБП через другую кассу.</p><p class="pw-msg say-calm" id="buy-making" hidden>Готовим счёт…</p><p class="pw-msg say-calm" id="buy-going" hidden>Переходим на страницу оплаты…</p><p class="pw-msg" id="buy-trackerFail" hidden>Эта касса не пропустила оплату. Попробуйте СБП через другую кассу.</p><p class="pw-msg" id="buy-moveFail" hidden>Оплата не прошла. Оплатите картой, криптовалютой или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-promoUnknown" hidden>Промокод не подошёл, цена показана без него. Нажмите «Оплатить» ещё раз или исправьте код.</p><p class="pw-msg" id="buy-promoGone" hidden>Промокод закончился, цена показана без него. Нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-friendSelf" hidden>Свой код друга нельзя: он для тех, кого вы позвали. Цена показана без кода, нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-friendNotFirst" hidden>Код друга только для первой покупки. Цена показана без кода, нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-busy" hidden>Слишком много попыток подряд. Подождите несколько минут и попробуйте снова.</p><p class="pw-msg" id="buy-closed" hidden>Оплата сейчас недоступна. Попробуйте позже или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-offline" hidden>Нет связи с сервером. Проверьте интернет и нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-failed" hidden>Не получилось создать заказ. Попробуйте ещё раз или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-payFailed" hidden>Оплата не прошла. Попробуйте снова или напишите в поддержку: support@eshario.com.</p><div class="say-acts" id="buy-acts" hidden><button class="btn btn-ghost say-move" id="buy-move" type="button" hidden>Оплатить через другую кассу</button><button class="say-alt" id="buy-to-card" type="button" hidden>Или оплатите картой</button><button class="say-alt" id="buy-to-crypto" type="button" hidden>Или оплатите криптовалютой</button></div></div><noscript><p class="pw-msg">Для оплаты нужен включённый JavaScript.</p></noscript>
 <p class="k-fine">Оплата на странице платёжного партнёра, карту мы не видим. <span id="buy-bank">В выписке банка платёж может называться «GAME SERVICES PAY» или «Arcadia Labs».</span> Нажимая «Оплатить», вы принимаете <a href="../offer/">оферту</a> и <a href="../privacy/">политику конфиденциальности</a>.</p>
 </aside>
 <div class="k-feat">
@@ -132,11 +132,12 @@
     window.fetch(api+'/v1/pay/methods',{credentials:'omit'}).then(function(r){return r.ok?r.json():null}).then(function(b){
       var list=b&&b.ok&&Array.isArray(b.methods)?b.methods:[];
       var shown=wayButtons.filter(function(x){var on=list.indexOf(x.getAttribute('data-way'))>=0;x.hidden=!on;return on});
+      ways.setAttribute('data-n',String(shown.length));
       if(shown.length>1&&list.indexOf('sbp')>=0)ways.hidden=false;
     },function(){});
   }
   var free=function(){go.disabled=false;go.textContent=label;go.classList.remove('is-wait')};
-  var hold=function(){go.disabled=true;go.textContent=go.getAttribute(way==='crypto'?'data-making':'data-wait');go.classList.add('is-wait')};
+  var hold=function(){go.disabled=true;go.textContent=go.getAttribute(way==='sbp'?'data-wait':'data-making');go.classList.add('is-wait')};
   var hex=function(buf){return [].map.call(new Uint8Array(buf),function(b){return ('0'+b.toString(16)).slice(-2)}).join('')};
   var consentHash=function(){
     var text=JSON.stringify({
@@ -174,9 +175,10 @@
   var refused=function(id,v){try{window.fetch(api+'/v1/orders/'+encodeURIComponent(id)+'/refused',{method:'POST',credentials:'omit',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({email:v})}).then(null,function(){})}catch(err){}};
   var moveBtn=document.getElementById('buy-move');
   var toCrypto=document.getElementById('buy-to-crypto');
+  var toCard=document.getElementById('buy-to-card');
   var declined=null;
-  var cryptoOpen=function(){
-    var c=wayButtons.filter(function(x){return x.getAttribute('data-way')==='crypto'})[0];
+  var wayOpen=function(name){
+    var c=wayButtons.filter(function(x){return x.getAttribute('data-way')===name})[0];
     return !!(c&&!c.hidden&&ways&&!ways.hidden);
   };
   var order=function(v,mine,retryOf,base,why){
@@ -203,7 +205,7 @@
       };
       if(!retryOf)sent=ask;
       if(retryOf){ask.retryOf=retryOf;ask.reason=why||'im-unavailable'}
-      if(w==='crypto')ask.method='crypto';
+      if(w!=='sbp')ask.method=w;
       return window.fetch(api+'/v1/orders',{
         method:'POST',
         credentials:'omit',
@@ -215,7 +217,7 @@
     }).then(function(res){
       if(mine!==round)return;
       var b=res.body||{};
-      if(res.status===201&&b.orderId&&b.form&&b.form.action===action&&!retryOf&&w!=='crypto'){
+      if(res.status===201&&b.orderId&&b.form&&b.form.action===action&&!retryOf&&w==='sbp'){
         imPay(v,mine,b,sent);
         return;
       }
@@ -250,7 +252,8 @@
       var offer=function(name){
         declined=ask?{id:b.orderId,ask:ask,why:name==='trackerFail'?'im-declined':'im-unavailable'}:null;
         if(moveBtn)moveBtn.hidden=!declined;
-        if(toCrypto)toCrypto.hidden=!cryptoOpen();
+        if(toCrypto)toCrypto.hidden=!wayOpen('crypto');
+        if(toCard)toCard.hidden=!wayOpen('card');
         say(name);
         free();
       };
@@ -304,13 +307,17 @@
     hold();
     order(d.ask.email,mine,d.id,d.ask,d.why);
   });
-  if(toCrypto)toCrypto.addEventListener('click',function(){
-    if(go.disabled)return;
-    declined=null;
-    pickWay('crypto');
-    say('');
-    go.focus();
-  });
+  var alt=function(node,name){
+    if(node)node.addEventListener('click',function(){
+      if(go.disabled)return;
+      declined=null;
+      pickWay(name);
+      say('');
+      go.focus();
+    });
+  };
+  alt(toCrypto,'crypto');
+  alt(toCard,'card');
   window.addEventListener('pageshow',function(event){if(event.persisted){round+=1;say('');free()}});
   var back='';
   try{back=new URLSearchParams(window.location.search).get('failed')||''}catch(err){back=''}
