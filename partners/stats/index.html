@@ -30,7 +30,7 @@
 <p class="pw-msg" id="ps-bad" hidden>Ключ не подошёл. Попросите новую ссылку в поддержке.</p>
 <p class="pw-msg" id="ps-offline" hidden>Нет связи с сервером. Обновите страницу чуть позже.</p>
 <div id="ps-numbers" hidden>
-<dl class="ps-grid"><div class="ps-cell"><dt>Ваш код</dt><dd id="ps-code">·</dd></div><div class="ps-cell"><dt>Привели клиентов</dt><dd id="ps-clients">·</dd></div><div class="ps-cell"><dt>Оплат по коду</dt><dd id="ps-orders">·</dd></div><div class="ps-cell"><dt>Мест на ×1,5 осталось</dt><dd id="ps-bonusLeft">·</dd></div><div class="ps-cell"><dt>Заработано</dt><dd id="ps-earned">·</dd></div><div class="ps-cell"><dt>Выплачено</dt><dd id="ps-paid">·</dd></div><div class="ps-cell"><dt>К выплате сейчас</dt><dd id="ps-payable">·</dd></div><div class="ps-cell"><dt>Ещё в холде</dt><dd id="ps-holding">·</dd></div><div class="ps-cell"><dt>Возвратов</dt><dd id="ps-refunded">·</dd></div><div class="ps-cell"><dt>Последняя выплата</dt><dd id="ps-last">·</dd></div></dl>
+<dl class="ps-grid"><div class="ps-cell"><dt>Ваш код</dt><dd id="ps-code">·</dd></div><div class="ps-cell"><dt>Привели клиентов</dt><dd id="ps-clients">·</dd></div><div class="ps-cell"><dt>Оплат всего</dt><dd id="ps-orders">·</dd></div><div class="ps-cell"><dt>Мест на ×1,5 осталось</dt><dd id="ps-bonusLeft">·</dd></div><div class="ps-cell"><dt>Закреплено клиентов</dt><dd id="ps-bound">·</dd></div><div class="ps-cell"><dt>Продлений без кода</dt><dd id="ps-renewals">·</dd></div><div class="ps-cell"><dt>Заработано</dt><dd id="ps-earned">·</dd></div><div class="ps-cell"><dt>Выплачено</dt><dd id="ps-paid">·</dd></div><div class="ps-cell"><dt>К выплате сейчас</dt><dd id="ps-payable">·</dd></div><div class="ps-cell"><dt>Ещё в холде</dt><dd id="ps-holding">·</dd></div><div class="ps-cell"><dt>Возвратов</dt><dd id="ps-refunded">·</dd></div><div class="ps-cell"><dt>Последняя выплата</dt><dd id="ps-last">·</dd></div></dl>
 <p class="note" id="ps-can" hidden>Можно запросить выплату: напишите в поддержку.</p>
 <p class="note" id="ps-hold" hidden></p>
 <p class="cta"><a class="btn btn-main" href="mailto:support@eshario.com">Запросить выплату</a><a class="btn btn-ghost" href="https://t.me/eshaboost" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3 3 10.5l7 2.5 2.5 7L21 3z"/><path d="M10 13l11-10"/></svg><span>@eshaboost</span></a></p>
@@ -72,6 +72,8 @@
     put('clients',b.clients);
     put('orders',b.orders);
     put('bonusLeft',b.bonusLeft);
+    put('bound',b.bound||0);
+    put('renewals',b.renewals||0);
     put('earned',rub(b.earned));
     put('paid',rub(b.paid));
     put('payable',rub(b.payable));
