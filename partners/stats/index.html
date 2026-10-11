@@ -24,12 +24,13 @@
 <section class="hero hero-sm"><div class="wrap"><h1>Ваша статистика</h1><p class="lede">Числа по вашему коду. Обновляются сразу после каждой оплаты.</p></div></section>
 
 <section class="sec first"><div class="wrap">
-<div class="pw-box ps-box" id="ps" data-api="https://api.eshario.com" data-lang="ru" data-wait="Выплата от {min}. Свежие оплаты ждут холд {days} дней." aria-live="polite">
+<div class="pw-box ps-box" id="ps" data-api="https://api.eshario.com" data-lang="ru" data-wait="Выплата от {min}. Свежие оплаты ждут холд {days} дней." data-ended="Сотрудничество закончено {date}. Начисления до этого дня выплачиваем как прежде." aria-live="polite">
 <p class="pw-msg say-calm" id="ps-loading" hidden>Загружаем числа…</p>
 <p class="pw-msg" id="ps-noKey" hidden>В ссылке нет ключа. Откройте ссылку, которую мы прислали, целиком.</p>
 <p class="pw-msg" id="ps-bad" hidden>Ключ не подошёл. Попросите новую ссылку в поддержке.</p>
 <p class="pw-msg" id="ps-offline" hidden>Нет связи с сервером. Обновите страницу чуть позже.</p>
 <div id="ps-numbers" hidden>
+<p class="note" id="ps-ended" hidden></p>
 <dl class="ps-grid"><div class="ps-cell"><dt>Ваш код</dt><dd id="ps-code">·</dd></div><div class="ps-cell"><dt>Привели клиентов</dt><dd id="ps-clients">·</dd></div><div class="ps-cell"><dt>Оплат всего</dt><dd id="ps-orders">·</dd></div><div class="ps-cell"><dt>Мест на ×1,5 осталось</dt><dd id="ps-bonusLeft">·</dd></div><div class="ps-cell"><dt>Закреплено клиентов</dt><dd id="ps-bound">·</dd></div><div class="ps-cell"><dt>Продлений без кода</dt><dd id="ps-renewals">·</dd></div><div class="ps-cell"><dt>Заработано</dt><dd id="ps-earned">·</dd></div><div class="ps-cell"><dt>Выплачено</dt><dd id="ps-paid">·</dd></div><div class="ps-cell"><dt>К выплате сейчас</dt><dd id="ps-payable">·</dd></div><div class="ps-cell"><dt>Ещё в холде</dt><dd id="ps-holding">·</dd></div><div class="ps-cell"><dt>Возвратов</dt><dd id="ps-refunded">·</dd></div><div class="ps-cell"><dt>Последняя выплата</dt><dd id="ps-last">·</dd></div></dl>
 <p class="note" id="ps-can" hidden>Можно запросить выплату: напишите в поддержку.</p>
 <p class="note" id="ps-hold" hidden></p>
@@ -81,6 +82,9 @@
     put('refunded',b.refunded);
     var none=document.getElementById('ps-none');
     put('last',b.lastPayout?rub(b.lastPayout.amount)+', '+new Date(b.lastPayout.at).toLocaleDateString(lang):(none?none.textContent:''));
+    var ended=document.getElementById('ps-ended');
+    ended.textContent=b.endedAt?String(box.getAttribute('data-ended')||'').replace('{date}',new Date(b.endedAt).toLocaleDateString(lang)):'';
+    ended.hidden=!b.endedAt;
     document.getElementById('ps-can').hidden=!b.canPay;
     var hold=document.getElementById('ps-hold');
     hold.textContent=String(box.getAttribute('data-wait')||'').replace('{min}',rub(b.minimumRub)).replace('{days}',String(b.holdDays));

@@ -192,6 +192,10 @@
         writeStore(b.promo||code);
         var left=typeof b.remaining==='number'?{n:b.remaining}:null;
         hint(b.friend===true?'friend':every?'done':'part',b.promo||code,left);
+      }else if(res.status===409&&b.reason==='partner-ended'){
+        setPromo('',null);
+        writeStore('');
+        hint('ended');
       }else if(res.status===409&&b.reason==='promo-exhausted'){
         setPromo('',null);
         writeStore('');

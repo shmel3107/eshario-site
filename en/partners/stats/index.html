@@ -24,12 +24,13 @@
 <section class="hero hero-sm"><div class="wrap"><h1>Your statistics</h1><p class="lede">Numbers for your code. They update right after every payment.</p></div></section>
 
 <section class="sec first"><div class="wrap">
-<div class="pw-box ps-box" id="ps" data-api="https://api.eshario.com" data-lang="en" data-wait="Payouts from {min}. Fresh payments wait a {days}-day hold." aria-live="polite">
+<div class="pw-box ps-box" id="ps" data-api="https://api.eshario.com" data-lang="en" data-wait="Payouts from {min}. Fresh payments wait a {days}-day hold." data-ended="Our partnership ended on {date}. Accruals up to that day are paid out as before." aria-live="polite">
 <p class="pw-msg say-calm" id="ps-loading" hidden>Loading the numbers…</p>
 <p class="pw-msg" id="ps-noKey" hidden>The link has no key. Open the link we sent you in full.</p>
 <p class="pw-msg" id="ps-bad" hidden>The key did not fit. Ask support for a new link.</p>
 <p class="pw-msg" id="ps-offline" hidden>No connection to the server. Refresh the page a bit later.</p>
 <div id="ps-numbers" hidden>
+<p class="note" id="ps-ended" hidden></p>
 <dl class="ps-grid"><div class="ps-cell"><dt>Your code</dt><dd id="ps-code">·</dd></div><div class="ps-cell"><dt>Clients brought</dt><dd id="ps-clients">·</dd></div><div class="ps-cell"><dt>Payments in total</dt><dd id="ps-orders">·</dd></div><div class="ps-cell"><dt>×1.5 places left</dt><dd id="ps-bonusLeft">·</dd></div><div class="ps-cell"><dt>Clients tied to you</dt><dd id="ps-bound">·</dd></div><div class="ps-cell"><dt>Renewals without the code</dt><dd id="ps-renewals">·</dd></div><div class="ps-cell"><dt>Earned</dt><dd id="ps-earned">·</dd></div><div class="ps-cell"><dt>Paid out</dt><dd id="ps-paid">·</dd></div><div class="ps-cell"><dt>Due now</dt><dd id="ps-payable">·</dd></div><div class="ps-cell"><dt>Still on hold</dt><dd id="ps-holding">·</dd></div><div class="ps-cell"><dt>Refunds</dt><dd id="ps-refunded">·</dd></div><div class="ps-cell"><dt>Last payout</dt><dd id="ps-last">·</dd></div></dl>
 <p class="note" id="ps-can" hidden>You can request a payout: write to support.</p>
 <p class="note" id="ps-hold" hidden></p>
@@ -81,6 +82,9 @@
     put('refunded',b.refunded);
     var none=document.getElementById('ps-none');
     put('last',b.lastPayout?rub(b.lastPayout.amount)+', '+new Date(b.lastPayout.at).toLocaleDateString(lang):(none?none.textContent:''));
+    var ended=document.getElementById('ps-ended');
+    ended.textContent=b.endedAt?String(box.getAttribute('data-ended')||'').replace('{date}',new Date(b.endedAt).toLocaleDateString(lang)):'';
+    ended.hidden=!b.endedAt;
     document.getElementById('ps-can').hidden=!b.canPay;
     var hold=document.getElementById('ps-hold');
     hold.textContent=String(box.getAttribute('data-wait')||'').replace('{min}',rub(b.minimumRub)).replace('{days}',String(b.holdDays));
