@@ -7,6 +7,19 @@
     window.addEventListener('scroll',mark,{passive:true});
   })();
 
+  (function(){
+    var KEY='eshario_src';
+    try{
+      if(window.sessionStorage.getItem(KEY)!==null)return;
+      var host='';
+      try{host=document.referrer?new URL(document.referrer).hostname.toLowerCase():''}catch(e){host=''}
+      if(host===window.location.hostname.toLowerCase())host='';
+      var q=new URLSearchParams(window.location.search);
+      var tag=function(n){return (q.get(n)||'').replace(/[^A-Za-z0-9._-]/g,'').slice(0,40)};
+      window.sessionStorage.setItem(KEY,[host,tag('utm_source'),tag('utm_medium'),tag('utm_campaign')].join('|'));
+    }catch(e){}
+  })();
+
   document.querySelectorAll('[role="tablist"]').forEach(function(list){
     var tabs=[].slice.call(list.querySelectorAll('[role="tab"]'));
     tabs.forEach(function(tab){
