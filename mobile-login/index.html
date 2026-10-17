@@ -1,0 +1,85 @@
+<!doctype html>
+<!--
+  Страница входа ESHArio для iPhone (кирпич MOBILE-IOS-1, бриф MOBILE-FINAL-1
+  этап 5). Своего скрипта у страницы нет: форму обслуживает юзерскрипт
+  ESHArio (режим login в mobile/host/host.js), пароль уходит его фону и дальше
+  только в api. У полей нет name: если юзерскрипт не встал, обычная отправка
+  формы не унесёт ни почты, ни пароля.
+  Вид окна аккаунта ПК (src/account/options.css, кнопка канона из
+  src/ui/controls.css), цвета токенами темы с теми же значениями, что в
+  src/ui/theme.css (сцена-близнец сверяет), знак ESHArio картинкой (DESIGN,
+  правило 8). Под палец: поля 16 px (Safari не приближает), кнопки 44 px.
+  Слова из окна аккаунта ПК (src/_locales, ключи account*), новых нет.
+  На стенде раздаётся с компьютера брата; боевую страницу кладёт вкладка
+  владельца (SITE-MOBILE-LOGIN-1).
+-->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Аккаунт ESHArio</title>
+<style>
+  :root {
+    --fx-accent: #3DD8FF;
+    --fx-accent-dim: #1B90B3;
+    --fx-on-accent: #062733;
+    --fx-ok: #00E07F;
+    --fx-warn: #FFB454;
+    --fx-danger: #FF5470;
+    --fx-surface: #131417;
+    --fx-surface-2: #1E2330;
+    --fx-surface-sunken: #0D0F13;
+    --fx-line: #24262C;
+    --fx-line-strong: #333743;
+    --fx-ink: #EEF1F7;
+    --fx-dim: #939DB4;
+    color-scheme: dark;
+    font: 16px/1.45 system-ui, -apple-system, sans-serif;
+    background: var(--fx-surface);
+    color: var(--fx-ink);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--fx-surface); }
+  main { max-width: 420px; margin: 0 auto; padding: 20px 16px 32px; }
+  h1 { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; font-size: 20px; }
+  h1 img { height: 26px; }
+  form, section, p[data-word] { margin: 12px 0; padding: 14px; border: 1px solid var(--fx-line); border-radius: 8px; background: var(--fx-surface-2); }
+  label { display: block; margin: 0 0 12px; }
+  label span { display: block; margin: 0 0 6px; color: var(--fx-dim); font-size: 15px; }
+  input { width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid var(--fx-line-strong); border-radius: 6px;
+    background: var(--fx-surface-sunken); color: var(--fx-ink); font: inherit; font-size: 16px; }
+  input:focus { outline: 2px solid var(--fx-accent); outline-offset: 1px; }
+  button { width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid var(--fx-line-strong); border-radius: 6px;
+    background: var(--fx-surface-2); color: var(--fx-ink); font: inherit; font-weight: 600; cursor: pointer; }
+  #login-submit { border-color: var(--fx-accent); background: var(--fx-accent); color: var(--fx-on-accent); }
+  #logout { border-color: var(--fx-danger); background: none; color: var(--fx-danger); }
+  section { padding: 0; border: 0; background: none; }
+  p[data-word] { padding: 12px 14px; }
+  p[data-word="wait"] { color: var(--fx-dim); }
+  p[data-word="premium"] { border-color: var(--fx-ok); color: var(--fx-ok); }
+  p[data-word="network"] { border-color: var(--fx-warn); color: var(--fx-warn); }
+  p[data-word="error"] { border-color: var(--fx-danger); color: var(--fx-danger); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <h1><img src="data:image/png;base64,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" alt="">Аккаунт ESHArio</h1>
+  <form id="login" autocomplete="on" hidden>
+    <label><span>Почта</span><input id="email" type="email" autocomplete="username" required></label>
+    <label><span>Пароль</span><input id="password" type="password" autocomplete="current-password" minlength="12" required></label>
+    <button id="login-submit" type="submit">Войти</button>
+  </form>
+  <p data-word="wait">…</p>
+  <p data-word="signed-out" hidden>Бесплатно. Вы не вошли.</p>
+  <p data-word="free" hidden>Бесплатно. Аккаунт $ACCOUNT$</p>
+  <p data-word="premium" hidden>Премиум до $DATE$. Аккаунт $ACCOUNT$</p>
+  <p data-word="network" hidden>Нет сети. Премиум остаётся таким, каким сохранён.</p>
+  <p data-word="error" hidden>Не получилось. Премиум остаётся закрытым.</p>
+  <section id="signed" hidden>
+    <button id="logout" type="button" data-ask="Выйти из аккаунта ESHArio?">Выйти</button>
+  </section>
+</main>
+</body>
+</html>

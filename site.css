@@ -618,15 +618,20 @@ td.pay{color:var(--ac);font-weight:700}
 .iupd{margin:0 0 var(--in2);padding-left:22px;color:var(--dim);font-size:16px}
 .iupd li+li{margin-top:6px}
 .ihelp a{color:var(--tx)}
+.mshots{display:flex;gap:12px;align-items:flex-start;justify-self:start;width:100%;max-width:536px}
+.mshots .ishot{flex:1 1 0;max-width:262px;min-width:0;margin-left:0}
+.itext a{overflow-wrap:anywhere}
+.mshots .ishot img{width:100%}
 @media (max-width:900px){
   .istep{grid-template-columns:minmax(0,1fr);gap:var(--in2)}
   .ishot,.scheme{margin-left:52px}
   .istep-block .ishot{margin-left:0}
+  .mshots{margin-left:52px}
 }
 @media (max-width:560px){
   .itext{padding-left:44px}
   .inum{width:30px;height:30px;font-size:15px}
-  .ishot,.scheme{margin-left:0}
+  .ishot,.scheme,.mshots{margin-left:0}
   .itext h3{font-size:18px}
   .istep-block .itext h2{font-size:26px}
 }
