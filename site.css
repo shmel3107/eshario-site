@@ -552,6 +552,16 @@ td.pay{color:var(--ac);font-weight:700}
 
 .hero-install{padding-bottom:0}
 .hero-install h1{margin-bottom:14px}
+.itabs{display:inline-flex;gap:4px;padding:4px;margin:6px 0 var(--in);border:1px solid var(--line);border-radius:12px;background:var(--bg);max-width:100%}
+.itabs a{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border:1px solid transparent;border-radius:9px;color:var(--dim);font-size:15.5px;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .15s ease,color .15s ease,border-color .15s ease}
+.itabs a:hover{color:var(--tx)}
+.itabs a[aria-current="page"]{background:var(--s1);border-color:var(--line);color:var(--tx)}
+.itabs svg{width:18px;height:18px;flex:none}
+.itabs a[aria-current="page"] svg{color:var(--ac)}
+.ipanel[hidden]{display:none}
+.ipanel>section:last-of-type{padding-bottom:var(--gap)}
+main>section.hero-install:last-of-type{padding-bottom:0}
+@media (max-width:560px){.itabs{display:flex}.itabs a{flex:1 1 0;justify-content:center;padding:0 8px;gap:6px;font-size:14.5px}}
 .iroads{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:900px}
 .iroad{display:grid;grid-template-rows:auto auto 1fr;padding:22px 24px;background:var(--s2);border:1px solid var(--line);border-radius:14px}
 .iroad h2{font-size:20px;line-height:1.3;margin:0 0 14px;letter-spacing:-.01em}
@@ -565,7 +575,9 @@ td.pay{color:var(--ac);font-weight:700}
 .btn-soon:hover{background:transparent}
 .isteps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .istep{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:var(--in) 48px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line)}
-.istep-solo{grid-template-columns:minmax(0,1fr)}
+.istep-solo{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}
+.istep-solo>.itext{grid-column:1}
+.isteps~.inote{max-width:calc((100% - 48px) * 5 / 11)}
 .istep-block{border:0;padding:0}
 .itext{position:relative;padding-left:52px}
 .istep-block .itext{padding-left:0}
@@ -627,6 +639,7 @@ td.pay{color:var(--ac);font-weight:700}
   .ishot,.scheme{margin-left:52px}
   .istep-block .ishot{margin-left:0}
   .mshots{margin-left:52px}
+  .isteps~.inote{max-width:72ch}
 }
 @media (max-width:560px){
   .itext{padding-left:44px}

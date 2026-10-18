@@ -3,8 +3,8 @@
 // @namespace    https://eshario.com/ios
 // @updateURL    https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
 // @downloadURL  https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
-// @version      2.0.0.121
-// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-121, loader)
+// @version      2.0.1.122
+// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-122, loader)
 // @match        https://www.ea.com/*
 // @match        https://eshario.com/mobile-login*
 // @inject-into  content
@@ -25,9 +25,9 @@
 // @connect      eshario.com
 // @connect      eshario.app
 // ==/UserScript==
-// ESHArio MFIN-121, loader: page code comes from the server, signature checked by src/loader/code.js
+// ESHArio MFIN-122, loader: page code comes from the server, signature checked by src/loader/code.js
 (function(){'use strict';
-var HOST_CONFIG={"manifest":{"version":"2.0.0"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-121","words":{"accountTitle":"Аккаунт ESHArio"}};
+var HOST_CONFIG={"manifest":{"version":"2.0.1"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-122","words":{"accountTitle":"Аккаунт ESHArio"}};
 // --- mobile/host/host.js ---
 // ХОСТ ESHArio НА iPHONE (кирпич MOBILE-IOS-1, дорога И2).
 //
@@ -125,6 +125,22 @@ var OWNER_KEY='host:owner';
 var OWNER_BEAT_MS=5000;
 var OWNER_STALE_MS=20000;
 var OWNER_SETTLE_MS=400;
+// ПИНГ ВМЕСТО ПУЛЬСА ЗАПИСЬЮ (Firefox и Violentmonkey, замер 17.10 на A03).
+// Violentmonkey держит все значения скрипта одним объектом и на каждую запись
+// сохраняет его целиком (7,2 МБ с кодом тонкой сборки). Пульс записью раз в
+// 5 с давал 12 таких сохранений в минуту; главный процесс Firefox не убирал их
+// без сборки мусора, рос на 5 МБ/с, и система выгружала браузер через
+// 10..20 минут. Поэтому под Firefox хозяин пишет свою запись один раз, при
+// захвате, а живость доказывает ответом: вкладка, увидевшая чужую запись,
+// пишет пинг, хозяин на своём пульсе (только чтение) видит пинг и пишет
+// ответ. Нет ответа за `OWNER_PING_WAIT_MS`: хозяин мёртв, место берётся
+// прежним захватом. Ответ годится `OWNER_PONG_FRESH_MS`, потом пинг заново.
+// В простое одной вкладки записей нет вовсе. Safari (iPhone) живёт прежним
+// пульсом: усыплённая вкладка iOS ответить не может.
+var OWNER_PING_KEY='host:ping';
+var OWNER_PONG_KEY='host:pong';
+var OWNER_PING_WAIT_MS=12000;
+var OWNER_PONG_FRESH_MS=60000;
 var OWNER_ELSEWHERE='owner-elsewhere';
 var BUDGET_CLOSED={ok:false,granted:0,reason:'counter-unavailable',state:null};
 
@@ -149,6 +165,10 @@ var bundle=plain(config.bundle)?config.bundle:{};
 // Тонкая сборка: кода в склейке нет, его ставит загрузчик ядра (`loader/code.js`
 // байт в байт) с сервера по подписи; ключи `code.*` живут в хранилище менеджера.
 var thin=!(typeof bundle.text==='string'&&bundle.text!=='');
+// Менеджер под Firefox (Violentmonkey): окно песочницы в обёртке Xray. Он
+// хранит все значения скрипта одним объектом и сохраняет его целиком на каждую
+// запись (замер 17.10 на A03), поэтому под ним хост пишет в хранилище мало.
+var xrayManager=(function(){try{var raw=win.wrappedJSObject;return raw!==null&&typeof raw==='object'}catch(err){return false}})();
 var later=typeof env.setTimeout==='function'?env.setTimeout:win.setTimeout.bind(win);
 // До какого мига мягкий узел не спрашивается и сколько раз он молчал (знак на корне: прибор и поддержка).
 // Знак `data-eshario-soft`: счёт молчаний и отказов без сети, за ним последние
@@ -184,7 +204,38 @@ try{doc.documentElement.setAttribute('data-eshario-slow',slow.join(' '))}catch(e
 // 04.10: `code.state` ждал 26 с). Ключ `code.*` читается с диска один раз за
 // жизнь страницы; запись этой вкладки обновляет память сразу.
 var codeMemo={};
-function readOne(area,key){if(key.indexOf(CODE_NS)===0&&!thin)return Promise.resolve(area==='local'?virtualCode(key):undefined);
+// КОД ТОЛЬКО В ПАМЯТИ СТРАНИЦЫ ПОД FIREFOX (буква Fable «а», 17.10). Код
+// тонкой сборки весит 5,7 МБ, и в хранилище Violentmonkey каждая запись любого
+// ключа сохраняла бы его заново. Под Firefox `code.current` живёт в `codeMemo`
+// этой страницы и в менеджер не пишется: загрузчик берёт код с сервера на
+// каждом заходе, повторные заходы идут из кэша браузера (ETag, max-age).
+// Сервер недоступен: заход без кода, следующий пробует снова. Ключ, который
+// оставили прежние сборки, снимается одной записью при старте страницы.
+var CODE_PAGE_ONLY='code.current';
+var codePageOnly=xrayManager&&thin;
+function pageOnly(area,key){return codePageOnly&&area==='local'&&key===CODE_PAGE_ONLY}
+// МОСТ ЖДЁТ КОД ЭТОГО ЗАХОДА. Мост ядра (`content.js`) читает код один раз, при
+// старте, а код, легший позже, отдаёт следующему заходу строкой «код загружен,
+// обновите страницу». Код только в памяти страницы до следующего захода не
+// доживает, поэтому под Firefox склейка запускает мост, когда первая проверка
+// загрузчика этого захода кончилась: код лёг, загрузчик записал отказ или
+// нужен новый загрузчик, или вышел срок `CODE_WAIT_MS` (тогда мост покажет
+// свою строку ожидания, как без кода).
+var CODE_WAIT_MS=45000;
+var codeWaiter=null;
+function whenCode(fn){var done=false;
+function go(){if(done)return;
+done=true;
+codeWaiter=null;
+try{fn()}catch(err){}}
+if(!codePageOnly||mode!=='webapp'){go();return}
+codeWaiter=go;
+later(go,CODE_WAIT_MS)}
+function codeTold(key,value){if(codeWaiter===null)return;
+var settled=key===CODE_PAGE_ONLY?value!==undefined:key==='code.needsLoader'?!!value:key==='code.state'&&plain(value)&&typeof value.lastError==='string'&&value.lastError!=='';
+if(settled)codeWaiter()}
+function readOne(area,key){if(pageOnly(area,key))return(codeMemo[key]||Promise.resolve(undefined)).then(clone);
+if(key.indexOf(CODE_NS)===0&&!thin)return Promise.resolve(area==='local'?virtualCode(key):undefined);
 if(key.indexOf(CODE_NS)===0&&area==='local'){if(!Object.prototype.hasOwnProperty.call(codeMemo,key))codeMemo[key]=readDisk(area,key);
 return codeMemo[key].then(clone)}
 return readDisk(area,key)}
@@ -216,14 +267,21 @@ var keys=Object.keys(payload).filter(function(key){return thin||key.indexOf(CODE
 var texts;
 try{texts=keys.map(function(key){return JSON.stringify(payload[key])})}catch(err){return Promise.reject(err)}
 keys.forEach(function(key,i){if(area==='local'&&key.indexOf(CODE_NS)===0)codeMemo[key]=Promise.resolve(texts[i]===undefined?undefined:JSON.parse(texts[i]))});
-return Promise.all(keys.map(function(key,i){return texts[i]===undefined?dropKey(area+':'+key):GM.setValue(area+':'+key,texts[i])})).then(function(){tell(area,keys,payload)})}
+return Promise.all(keys.map(function(key,i){if(pageOnly(area,key))return null;
+return texts[i]===undefined?dropKey(area+':'+key):GM.setValue(area+':'+key,texts[i])})).then(function(){tell(area,keys,payload);
+if(area==='local')keys.forEach(function(key){codeTold(key,payload[key])})})}
 function remove(asked){var keys=keysOf(asked).keys.filter(function(key){return thin||key.indexOf(CODE_NS)!==0});
 keys.forEach(function(key){if(area==='local'&&key.indexOf(CODE_NS)===0)codeMemo[key]=Promise.resolve(undefined)});
-return Promise.all(keys.map(function(key){return dropKey(area+':'+key)})).then(function(){tell(area,keys,null)})}
+return Promise.all(keys.map(function(key){return pageOnly(area,key)?null:dropKey(area+':'+key)})).then(function(){tell(area,keys,null)})}
 function getKeys(){if(typeof GM.listValues!=='function')return Promise.resolve([]);
 var head=area+':';
-return Promise.resolve(GM.listValues()).then(function(list){return(Array.isArray(list)?list:[]).filter(function(key){return typeof key==='string'&&key.indexOf(head)===0}).map(function(key){return key.slice(head.length)}).filter(function(key){return thin||key.indexOf(CODE_NS)!==0})},function(){return[]})}
+return Promise.resolve(GM.listValues()).then(function(list){return(Array.isArray(list)?list:[]).filter(function(key){return typeof key==='string'&&key.indexOf(head)===0}).map(function(key){return key.slice(head.length)}).filter(function(key){return(thin||key.indexOf(CODE_NS)!==0)&&!pageOnly(area,key)})},function(){return[]}).then(function(keys){if(!pageOnly(area,CODE_PAGE_ONLY)||!codeMemo[CODE_PAGE_ONLY])return keys;
+return codeMemo[CODE_PAGE_ONLY].then(function(value){return value===undefined?keys:keys.concat([CODE_PAGE_ONLY])},function(){return keys})})}
 return{get:get,set:set,remove:remove,getKeys:getKeys}}
+
+/** Под Firefox: код прежних сборок в хранилище менеджера снимается (одна запись, дальше объект значений мал). */
+function dropStoredCode(){if(!xrayManager||typeof GM.listValues!=='function')return;
+try{Promise.resolve(GM.listValues()).then(function(list){if(Array.isArray(list)&&list.indexOf('local:'+CODE_PAGE_ONLY)>=0)return dropKey('local:'+CODE_PAGE_ONLY)}).then(null,function(){})}catch(err){}}
 
 // Снятие ключа: менеджер без `deleteValue` получает прежнюю метку «пусто».
 function dropKey(full){return typeof GM.deleteValue==='function'?GM.deleteValue(full):GM.setValue(full,GONE)}
@@ -235,6 +293,7 @@ keys.forEach(function(key){changes[key]=payload===null?{oldValue:null}:{newValue
 later(function(){changed.local.slice().forEach(function(fn){try{fn(changes,area)}catch(err){}})},0)}
 
 var storage={local:storageArea('local'),sync:storageArea('sync'),onChanged:onChanged};
+dropStoredCode();
 
 // --- сеть одной точкой --------------------------------------------------------
 
@@ -510,19 +569,59 @@ function ownerAfter(again){var mine=!!again&&again.id===ownerId;
 if(mine)ownerWas=true;
 else if(again&&ownerWas)ownerTainted=true;
 return mine}
-var liveOther=function(rec){return!!rec&&rec.id!==ownerId&&Date.now()-rec.at<OWNER_STALE_MS};
+var pingMode=xrayManager;
+var pingOut=null,pingAnswered=0,ownerDead={},ownerPong={};
+var liveOther=function(rec){if(!rec||rec.id===ownerId)return false;
+if(!pingMode)return Date.now()-rec.at<OWNER_STALE_MS;
+return rec.at>0&&ownerDead[rec.id]!==true};
+function readJson(key){return Promise.resolve(GM.getValue(key,GONE)).then(function(raw){if(typeof raw!=='string'||raw===GONE)return null;
+try{var value=JSON.parse(raw);return plain(value)?value:null}catch(err){return null}})}
+/**
+ * Хозяин под Firefox: пинг к нему ждёт ответа; ответ пишется раз на пинг.
+ * ПОСЛЕ ОТВЕТА ЗАПИСЬ ХОЗЯИНА ПЕРЕЧИТЫВАЕТСЯ (D165-1, SOL-165): ответ мог
+ * запоздать, и вторая вкладка, не дождавшись его за `OWNER_PING_WAIT_MS`,
+ * уже взяла место. Хозяин остаётся хозяином только при своей записи, как
+ * ветка Safari; чужая запись закрывает бывшего хозяина до перезагрузки.
+ * Отказ чтения или записи менеджера: не хозяин (С3).
+ */
+function pongAnswer(){return readJson(OWNER_PING_KEY).then(function(p){if(!p||p.to!==ownerId||typeof p.from!=='string'||!Number.isFinite(p.at)||p.at<=pingAnswered)return null;
+pingAnswered=p.at;
+return GM.setValue(OWNER_PONG_KEY,JSON.stringify({to:p.from,from:ownerId,at:Date.now()}))}).then(ownerRecord).then(ownerAfter,function(){return false})}
+/**
+ * Не хозяин под Firefox видит чужую запись: жив ли её хозяин. Свежий ответ
+ * значит жив; пинг ещё ждёт значит пока жив (счётчик закрыт, вопрос после
+ * ожидания решит); ожидание вышло без ответа значит мёртв.
+ */
+function pingAlive(rec){var now=Date.now();
+if(ownerPong[rec.id]&&now-ownerPong[rec.id]<OWNER_PONG_FRESH_MS)return Promise.resolve(true);
+if(!pingOut||pingOut.to!==rec.id){pingOut={to:rec.id,at:now};
+later(function(){ownerEnsure()},OWNER_PING_WAIT_MS+50);
+return Promise.resolve(GM.setValue(OWNER_PING_KEY,JSON.stringify({to:rec.id,from:ownerId,at:now}))).then(function(){return true})}
+var sent=pingOut;
+return readJson(OWNER_PONG_KEY).then(function(q){if(q&&q.to===ownerId&&q.from===rec.id&&Number.isFinite(q.at)&&q.at>=sent.at){ownerPong[rec.id]=Date.now();
+pingOut=null;
+return true}
+if(Date.now()-sent.at<OWNER_PING_WAIT_MS)return true;
+ownerDead[rec.id]=true;
+pingOut=null;
+return false})}
 function ownerMark(mine){ownerMine=mine;
 try{doc.documentElement.setAttribute('data-eshario-owner',mine?'mine':'elsewhere')}catch(err){}
 return mine}
 function ownerCheck(){return ownerRecord().then(function(rec){if(rec&&rec.id===ownerId){ownerWas=true;
+if(pingMode)return pongAnswer();
 if(Date.now()-rec.at<=OWNER_BEAT_MS/2)return true;
 return ownerWrite().then(ownerRecord).then(ownerAfter)}
 if(rec&&ownerWas)ownerTainted=true;
-if(ownerTainted||liveOther(rec))return false;
-return ownerRecord().then(function(fresh){if(liveOther(fresh))return false;
-return ownerWrite().then(function(){return new Promise(function(done){later(done,OWNER_SETTLE_MS)})}).then(ownerRecord).then(ownerAfter)})}).then(function(mine){if(mine){ownerSeenAt=Date.now();
+if(ownerTainted)return false;
+if(pingMode&&liveOther(rec))return pingAlive(rec).then(function(alive){return alive?false:ownerTake()});
+if(liveOther(rec))return false;
+return ownerTake()}).then(function(mine){if(mine){ownerSeenAt=Date.now();
 ownerPulse()}
 return ownerMark(mine)},function(){return ownerMark(false)})}
+/** Захват места: чужая запись перечитана прямо перед своей записью, своя перечитана после. */
+function ownerTake(){return ownerRecord().then(function(fresh){if(liveOther(fresh))return false;
+return ownerWrite().then(function(){return new Promise(function(done){later(done,OWNER_SETTLE_MS)})}).then(ownerRecord).then(ownerAfter)})}
 /**
  * Проверки идут цепочкой: два вопроса одной вкладки не захватывают место дважды.
  * БЫСТРЫЙ ПУТЬ БЕЗ ХРАНИЛИЩА: своя запись прочитана моложе одного пульса (5 с).
@@ -699,7 +798,7 @@ if(L!==null&&typeof L==='object')L.onBridgeHost=webappBridge;
 if(mode!=='webapp')return;
 startListeners.slice().forEach(function(fn){try{fn()}catch(err){}})}
 
-return{mode:mode,bg:bg,tab:tab,window:bridgeWindow,fetch:hostFetch,global:global,loader:loader,bindLogin:bindLogin,markWebapp:markWebapp,adoptLoader:adoptLoader,thin:thin,
+return{mode:mode,bg:bg,tab:tab,window:bridgeWindow,whenCode:whenCode,fetch:hostFetch,global:global,loader:loader,bindLogin:bindLogin,markWebapp:markWebapp,adoptLoader:adoptLoader,thin:thin,
 // Для сцен: что открыто и куда пускает сеть.
 NET_HOSTS:NET_HOSTS.slice(),WORKER_OPEN:WORKER_OPEN.slice(),DOORS_OPEN:DOORS_OPEN.slice(),route:route,askBackground:askBackground}}
 
@@ -4387,7 +4486,7 @@ return true})})()
 })(host.bg,host.fetch,undefined,host.global);
 host.adoptLoader();
 // --- src/content/content.js (byte for byte) ---
-if(host.mode==="webapp")(function(chrome,window){
+if(host.mode==="webapp")host.whenCode(function(){(function(chrome,window){
 // Content script — isolated world. Классический скрипт, не модуль:
 // content_scripts в MV3 не умеют ESM, поэтому импортов здесь нет и быть не может.
 // Значения протокола продублированы из src/bridge/protocol.js и сверяются тестом,
@@ -5356,6 +5455,6 @@ startPage().then(function(){},function(){});
 })()
 
 
-})(host.tab,host.window);
+})(host.tab,host.window);});
 host.bindLogin();
 })();
