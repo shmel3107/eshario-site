@@ -3,8 +3,8 @@
 // @namespace    https://eshario.com/ios
 // @updateURL    https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
 // @downloadURL  https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
-// @version      2.0.1.122
-// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-122, loader)
+// @version      2.0.2.123
+// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-123, loader)
 // @match        https://www.ea.com/*
 // @match        https://eshario.com/mobile-login*
 // @inject-into  content
@@ -25,9 +25,9 @@
 // @connect      eshario.com
 // @connect      eshario.app
 // ==/UserScript==
-// ESHArio MFIN-122, loader: page code comes from the server, signature checked by src/loader/code.js
+// ESHArio MFIN-123, loader: page code comes from the server, signature checked by src/loader/code.js
 (function(){'use strict';
-var HOST_CONFIG={"manifest":{"version":"2.0.1"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-122","words":{"accountTitle":"Аккаунт ESHArio"}};
+var HOST_CONFIG={"manifest":{"version":"2.0.2"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-123","words":{"accountTitle":"Аккаунт ESHArio"}};
 // --- mobile/host/host.js ---
 // ХОСТ ESHArio НА iPHONE (кирпич MOBILE-IOS-1, дорога И2).
 //
@@ -214,6 +214,20 @@ var codeMemo={};
 var CODE_PAGE_ONLY='code.current';
 var codePageOnly=xrayManager&&thin;
 function pageOnly(area,key){return codePageOnly&&area==='local'&&key===CODE_PAGE_ONLY}
+// КЭШ ТОЖЕ ТОЛЬКО В ПАМЯТИ СТРАНИЦЫ ПОД FIREFOX (буква владельца «А», 18.10,
+// условия Fable 02:09). Каждая запись любого ключа (счёт дня пишется на каждый
+// поиск снайпа) сохраняет у Violentmonkey весь объект значений, и 3/4 его
+// занимали данные без денег, которые страница берёт заново сама: колонки и
+// каталог Галереи, прошлый файл цен, каталог карт осколками. Метка засева
+// каталога живёт вместе с осколками: метка без каталога значила бы «база уже
+// усвоена» про пустой каталог, а без метки воркер отдаёт тело базы сразу.
+// Записи денег и места (счёт дня, счётчики, хозяин, замки, настройки, вход)
+// остаются в хранилище менеджера. Safari не задет: там ключи прежние.
+var PAGE_CACHE_KEYS=['door.gallery.columns','door.gallery.catalog','door.prices.lastFile','cards.seed'];
+var PAGE_CACHE_PREFIX='catalog.v1.';
+var cachePageOnly=xrayManager;
+var pageMemo={};
+function cacheOnly(area,key){return cachePageOnly&&area==='local'&&typeof key==='string'&&(PAGE_CACHE_KEYS.indexOf(key)>=0||key.indexOf(PAGE_CACHE_PREFIX)===0)}
 // МОСТ ЖДЁТ КОД ЭТОГО ЗАХОДА. Мост ядра (`content.js`) читает код один раз, при
 // старте, а код, легший позже, отдаёт следующему заходу строкой «код загружен,
 // обновите страницу». Код только в памяти страницы до следующего захода не
@@ -235,6 +249,7 @@ function codeTold(key,value){if(codeWaiter===null)return;
 var settled=key===CODE_PAGE_ONLY?value!==undefined:key==='code.needsLoader'?!!value:key==='code.state'&&plain(value)&&typeof value.lastError==='string'&&value.lastError!=='';
 if(settled)codeWaiter()}
 function readOne(area,key){if(pageOnly(area,key))return(codeMemo[key]||Promise.resolve(undefined)).then(clone);
+if(cacheOnly(area,key))return Promise.resolve(Object.prototype.hasOwnProperty.call(pageMemo,key)?clone(pageMemo[key]):undefined);
 if(key.indexOf(CODE_NS)===0&&!thin)return Promise.resolve(area==='local'?virtualCode(key):undefined);
 if(key.indexOf(CODE_NS)===0&&area==='local'){if(!Object.prototype.hasOwnProperty.call(codeMemo,key))codeMemo[key]=readDisk(area,key);
 return codeMemo[key].then(clone)}
@@ -266,22 +281,26 @@ function set(payload){if(!plain(payload))return Promise.reject(new Error('bad-pa
 var keys=Object.keys(payload).filter(function(key){return thin||key.indexOf(CODE_NS)!==0});
 var texts;
 try{texts=keys.map(function(key){return JSON.stringify(payload[key])})}catch(err){return Promise.reject(err)}
-keys.forEach(function(key,i){if(area==='local'&&key.indexOf(CODE_NS)===0)codeMemo[key]=Promise.resolve(texts[i]===undefined?undefined:JSON.parse(texts[i]))});
-return Promise.all(keys.map(function(key,i){if(pageOnly(area,key))return null;
+keys.forEach(function(key,i){if(area==='local'&&key.indexOf(CODE_NS)===0)codeMemo[key]=Promise.resolve(texts[i]===undefined?undefined:JSON.parse(texts[i]));
+if(cacheOnly(area,key)){if(texts[i]===undefined)delete pageMemo[key];else pageMemo[key]=JSON.parse(texts[i])}});
+return Promise.all(keys.map(function(key,i){if(pageOnly(area,key)||cacheOnly(area,key))return null;
 return texts[i]===undefined?dropKey(area+':'+key):GM.setValue(area+':'+key,texts[i])})).then(function(){tell(area,keys,payload);
 if(area==='local')keys.forEach(function(key){codeTold(key,payload[key])})})}
 function remove(asked){var keys=keysOf(asked).keys.filter(function(key){return thin||key.indexOf(CODE_NS)!==0});
-keys.forEach(function(key){if(area==='local'&&key.indexOf(CODE_NS)===0)codeMemo[key]=Promise.resolve(undefined)});
-return Promise.all(keys.map(function(key){return pageOnly(area,key)?null:dropKey(area+':'+key)})).then(function(){tell(area,keys,null)})}
+keys.forEach(function(key){if(area==='local'&&key.indexOf(CODE_NS)===0)codeMemo[key]=Promise.resolve(undefined);
+if(cacheOnly(area,key))delete pageMemo[key]});
+return Promise.all(keys.map(function(key){return pageOnly(area,key)||cacheOnly(area,key)?null:dropKey(area+':'+key)})).then(function(){tell(area,keys,null)})}
 function getKeys(){if(typeof GM.listValues!=='function')return Promise.resolve([]);
 var head=area+':';
-return Promise.resolve(GM.listValues()).then(function(list){return(Array.isArray(list)?list:[]).filter(function(key){return typeof key==='string'&&key.indexOf(head)===0}).map(function(key){return key.slice(head.length)}).filter(function(key){return(thin||key.indexOf(CODE_NS)!==0)&&!pageOnly(area,key)})},function(){return[]}).then(function(keys){if(!pageOnly(area,CODE_PAGE_ONLY)||!codeMemo[CODE_PAGE_ONLY])return keys;
+return Promise.resolve(GM.listValues()).then(function(list){return(Array.isArray(list)?list:[]).filter(function(key){return typeof key==='string'&&key.indexOf(head)===0}).map(function(key){return key.slice(head.length)}).filter(function(key){return(thin||key.indexOf(CODE_NS)!==0)&&!pageOnly(area,key)&&!cacheOnly(area,key)})},function(){return[]}).then(function(keys){if(area==='local'&&cachePageOnly)keys=keys.concat(Object.keys(pageMemo));
+if(!pageOnly(area,CODE_PAGE_ONLY)||!codeMemo[CODE_PAGE_ONLY])return keys;
 return codeMemo[CODE_PAGE_ONLY].then(function(value){return value===undefined?keys:keys.concat([CODE_PAGE_ONLY])},function(){return keys})})}
 return{get:get,set:set,remove:remove,getKeys:getKeys}}
 
-/** Под Firefox: код прежних сборок в хранилище менеджера снимается (одна запись, дальше объект значений мал). */
+/** Под Firefox: код и кэш прежних сборок в хранилище менеджера снимаются при старте (дальше объект значений мал). */
 function dropStoredCode(){if(!xrayManager||typeof GM.listValues!=='function')return;
-try{Promise.resolve(GM.listValues()).then(function(list){if(Array.isArray(list)&&list.indexOf('local:'+CODE_PAGE_ONLY)>=0)return dropKey('local:'+CODE_PAGE_ONLY)}).then(null,function(){})}catch(err){}}
+try{Promise.resolve(GM.listValues()).then(function(list){if(!Array.isArray(list))return;
+return Promise.all(list.filter(function(full){return typeof full==='string'&&full.indexOf('local:')===0&&(full==='local:'+CODE_PAGE_ONLY||cacheOnly('local',full.slice(6)))}).map(dropKey))}).then(null,function(){})}catch(err){}}
 
 // Снятие ключа: менеджер без `deleteValue` получает прежнюю метку «пусто».
 function dropKey(full){return typeof GM.deleteValue==='function'?GM.deleteValue(full):GM.setValue(full,GONE)}
