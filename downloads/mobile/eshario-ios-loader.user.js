@@ -3,8 +3,8 @@
 // @namespace    https://eshario.com/ios
 // @updateURL    https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
 // @downloadURL  https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
-// @version      2.0.2.123
-// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-123, loader)
+// @version      2.0.3.124
+// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-124, loader)
 // @match        https://www.ea.com/*
 // @match        https://eshario.com/mobile-login*
 // @inject-into  content
@@ -25,9 +25,9 @@
 // @connect      eshario.com
 // @connect      eshario.app
 // ==/UserScript==
-// ESHArio MFIN-123, loader: page code comes from the server, signature checked by src/loader/code.js
+// ESHArio MFIN-124, loader: page code comes from the server, signature checked by src/loader/code.js
 (function(){'use strict';
-var HOST_CONFIG={"manifest":{"version":"2.0.2"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-123","words":{"accountTitle":"Аккаунт ESHArio"}};
+var HOST_CONFIG={"manifest":{"version":"2.0.3"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-124","words":{"accountTitle":"Аккаунт ESHArio"}};
 // --- mobile/host/host.js ---
 // ХОСТ ESHArio НА iPHONE (кирпич MOBILE-IOS-1, дорога И2).
 //
@@ -213,7 +213,16 @@ var codeMemo={};
 // оставили прежние сборки, снимается одной записью при старте страницы.
 var CODE_PAGE_ONLY='code.current';
 var codePageOnly=xrayManager&&thin;
-function pageOnly(area,key){return codePageOnly&&area==='local'&&key===CODE_PAGE_ONLY}
+// ПРЕЖНИЙ КОД ТОЛЬКО В ПАМЯТИ СТРАНИЦЫ НА ОБОИХ ТЕЛЕФОНАХ (находка людей 3,
+// решение 18.10 «слоем», Fable 20.10: «2.0.4 начни с него»). Загрузчик ядра
+// при обновлении сдвигает прежний код в `code.previous`: в Userscripts это
+// вторые 5,8 МБ рядом с `code.current`, и на iPhone брата (iOS 16.7) чтения
+// хранилища шли по 5 с. Откат на прежний код остаётся в пределах захода; после
+// перезагрузки прежнего кода нет, загрузчик идёт к серверу, как на первом
+// заходе. Копия, оставленная прежними сборками, снимается при старте.
+var CODE_PREVIOUS='code.previous';
+var CODE_MEMO_ONLY=[CODE_PAGE_ONLY,CODE_PREVIOUS];
+function pageOnly(area,key){return area==='local'&&thin&&(key===CODE_PREVIOUS||codePageOnly&&key===CODE_PAGE_ONLY)}
 // КЭШ ТОЖЕ ТОЛЬКО В ПАМЯТИ СТРАНИЦЫ ПОД FIREFOX (буква владельца «А», 18.10,
 // условия Fable 02:09). Каждая запись любого ключа (счёт дня пишется на каждый
 // поиск снайпа) сохраняет у Violentmonkey весь объект значений, и 3/4 его
@@ -293,14 +302,14 @@ return Promise.all(keys.map(function(key){return pageOnly(area,key)||cacheOnly(a
 function getKeys(){if(typeof GM.listValues!=='function')return Promise.resolve([]);
 var head=area+':';
 return Promise.resolve(GM.listValues()).then(function(list){return(Array.isArray(list)?list:[]).filter(function(key){return typeof key==='string'&&key.indexOf(head)===0}).map(function(key){return key.slice(head.length)}).filter(function(key){return(thin||key.indexOf(CODE_NS)!==0)&&!pageOnly(area,key)&&!cacheOnly(area,key)})},function(){return[]}).then(function(keys){if(area==='local'&&cachePageOnly)keys=keys.concat(Object.keys(pageMemo));
-if(!pageOnly(area,CODE_PAGE_ONLY)||!codeMemo[CODE_PAGE_ONLY])return keys;
-return codeMemo[CODE_PAGE_ONLY].then(function(value){return value===undefined?keys:keys.concat([CODE_PAGE_ONLY])},function(){return keys})})}
+var held=CODE_MEMO_ONLY.filter(function(key){return pageOnly(area,key)&&!!codeMemo[key]});
+return Promise.all(held.map(function(key){return codeMemo[key].then(function(value){return value===undefined?null:key},function(){return null})})).then(function(more){return keys.concat(more.filter(Boolean))})})}
 return{get:get,set:set,remove:remove,getKeys:getKeys}}
 
-/** Под Firefox: код и кэш прежних сборок в хранилище менеджера снимаются при старте (дальше объект значений мал). */
-function dropStoredCode(){if(!xrayManager||typeof GM.listValues!=='function')return;
+/** При старте снимаются ключи, что живут только в памяти страницы: прежний код при любой сборке (полная его не читает), под Firefox код и кэш. */
+function dropStoredCode(){if(typeof GM.listValues!=='function')return;
 try{Promise.resolve(GM.listValues()).then(function(list){if(!Array.isArray(list))return;
-return Promise.all(list.filter(function(full){return typeof full==='string'&&full.indexOf('local:')===0&&(full==='local:'+CODE_PAGE_ONLY||cacheOnly('local',full.slice(6)))}).map(dropKey))}).then(null,function(){})}catch(err){}}
+return Promise.all(list.filter(function(full){return typeof full==='string'&&(full==='local:'+CODE_PREVIOUS||xrayManager&&full==='local:'+CODE_PAGE_ONLY||full.indexOf('local:')===0&&cacheOnly('local',full.slice(6)))}).map(dropKey))}).then(null,function(){})}catch(err){}}
 
 // Снятие ключа: менеджер без `deleteValue` получает прежнюю метку «пусто».
 function dropKey(full){return typeof GM.deleteValue==='function'?GM.deleteValue(full):GM.setValue(full,GONE)}
@@ -376,7 +385,16 @@ if(settled)return;
 settled=true;
 reject(err)}
 var headers=headersOf(init.headers);
-if(init.cache==='no-cache'||init.cache==='no-store'||init.cache==='reload')headers['cache-control']='no-cache';
+// СВЕРКА С СЕРВЕРОМ ПОД FIREFOX ИДЁТ ПРАВИЛАМИ КЭША БРАУЗЕРА (замер A03 18.10).
+// Заголовок запроса `Cache-Control: no-cache` у Violentmonkey ведёт мимо кэша
+// целиком: файл кода (1,5 МБ сжатым) приезжал телом на каждом заходе, хотя
+// сервер отвечает 304 по ETag. Под Firefox код живёт только в памяти страницы
+// (буква «а») и спрашивается каждый заход, поэтому `no-cache` загрузчика здесь
+// без заголовка: браузер берёт файл из кэша в срок `max-age` сервера и потом
+// сверяется (304). Адрес файла несёт номер версии, sha256 и подпись загрузчик
+// проверяет всегда. `no-store` и `reload` мимо кэша, как прежде; Safari прежний.
+var bypass=init.cache==='no-store'||init.cache==='reload'||(init.cache==='no-cache'&&!xrayManager);
+if(bypass)headers['cache-control']='no-cache';
 var details={method:String(init.method||'GET').toUpperCase(),url:url,headers:headers,anonymous:true,timeout:FETCH_CAP_MS,
 onload:function(raw){if(settled){if(soft!=='')softNote(soft,Date.now()-asked,'late');
 return}
