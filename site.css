@@ -571,6 +571,9 @@ main>section.hero-install:last-of-type{padding-bottom:0}
 @media (max-width:700px){.iroads{grid-template-columns:minmax(0,1fr)}}
 .ihint{margin:var(--in2) 0 0;color:var(--dim);font-size:15px;max-width:62ch}
 .ivideo{margin:var(--in2) 0 0;font-size:15px}
+figure.ivideo{max-width:900px;padding:10px;background:var(--s2);border:1px solid var(--line);border-radius:14px}
+.ivideo video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:8px;background:#000}
+.ivideo figcaption{margin:10px 0 0;color:var(--dim);font-size:15px}
 .btn-soon{border-color:rgba(255,255,255,.16);background:transparent;color:var(--dim);cursor:default}
 .btn-soon:hover{background:transparent}
 .isteps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
