@@ -75,6 +75,15 @@
 </div></footer>
 <script src="../../site.js"></script>
 <script>(function(){
+  [].forEach.call(document.querySelectorAll('.ivideo-box'),function(box){
+    var v=box.querySelector('video'),go=box.querySelector('.ivideo-go');
+    if(!v||!go)return;
+    go.hidden=false;
+    go.addEventListener('click',function(){var p=v.play();if(p&&p.catch)p.catch(function(){})});
+    v.addEventListener('play',function(){go.hidden=true});
+  });
+})();
+(function(){
   if(!navigator.clipboard||!window.isSecureContext)return;
   [].forEach.call(document.querySelectorAll('[data-copy]'),function(b){
     var label=b.textContent;
