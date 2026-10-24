@@ -28,7 +28,7 @@
 <h2 class="k-h">1. Срок</h2>
 <div class="terms" data-termpick role="group" aria-label="Срок ключа"><button class="term" type="button" data-term="m1" data-amount="1149" data-list="1 149 ₽" data-label="1 месяц" data-days="30 дней с выдачи" data-months="1" data-sub="30 дней с выдачи" aria-pressed="true"><b>1 месяц</b><span class="t-save" hidden></span><s class="t-old" hidden></s><span class="t-price">1 149 ₽</span><small>30 дней с выдачи</small></button><button class="term" type="button" data-term="m3" data-amount="3149" data-list="3 149 ₽" data-label="3 месяца" data-days="90 дней с выдачи" data-months="3" data-sub="1 050 ₽ в месяц" aria-pressed="false"><b>3 месяца</b><span class="t-save" hidden></span><s class="t-old" hidden></s><span class="t-price">3 149 ₽</span><small>1 050 ₽ в месяц</small><small class="t-cheap">на 9 % дешевле помесячной</small></button><button class="term" type="button" data-term="m12" data-amount="10999" data-list="10 999 ₽" data-label="12 месяцев" data-days="365 дней с выдачи" data-months="12" data-sub="917 ₽ в месяц" aria-pressed="false"><b>12 месяцев</b><span class="t-save" hidden></span><s class="t-old" hidden></s><span class="t-price">10 999 ₽</span><small>917 ₽ в месяц</small><small class="t-cheap">на 20 % дешевле помесячной</small></button></div>
 <p class="k-once">Разовый платёж. Автопродления нет.</p>
-<div class="k-scan" data-scanner data-api="https://api.eshario.com" data-seats-wait="места уточняются" data-full="мест нет, оставьте почту" data-card="Сканер · {platform} · {term}" data-default-ps="65" data-default-pc="35" data-seats-one="свободно {n} место из {limit}" data-seats-few="свободно {n} места из {limit}" data-seats-many="свободно {n} мест из {limit}">
+<div class="k-scan" data-scanner data-api="https://api.eshario.com" data-seats-wait="места уточняются" data-full="мест нет, оставьте почту" data-own="ваше место ждёт вас" data-card="Сканер · {platform} · {term}" data-default-ps="65" data-default-pc="35" data-seats-one="свободно {n} место из {limit}" data-seats-few="свободно {n} места из {limit}" data-seats-many="свободно {n} мест из {limit}">
 <h2 class="k-h">2. Сканер <small>по желанию</small></h2>
 <div class="terms scan-terms" data-scanpick role="group" aria-label="2. Сканер"><button class="term" type="button" data-scan="" data-price="0" data-label="Без сканера" aria-pressed="true"><b>Без сканера</b><span class="t-price">0 ₽</span><small>только премиум</small></button><button class="term" type="button" data-scan="scanner-m1" data-price="749" data-label="1 месяц" aria-pressed="false" disabled><b>Сканер на 1 месяц</b><span class="t-price">749 ₽</span><small>30 дней с выдачи</small></button><button class="term" type="button" data-scan="scanner-m3" data-price="1990" data-label="3 месяца" aria-pressed="false" disabled><b>Сканер на 3 месяца</b><span class="t-price">1 990 ₽</span><small>663 ₽ в месяц</small><small class="t-cheap">на 11 % дешевле помесячной</small></button></div>
 <div class="scan-plats" data-platpick role="group" aria-label="Платформа сканера" hidden><button class="term k-plat" type="button" data-platform="ps" aria-pressed="true"><b>PlayStation и Xbox</b><small data-seats>места уточняются</small></button><button class="term k-plat" type="button" data-platform="pc" aria-pressed="false"><b>ПК</b><small data-seats>места уточняются</small></button></div>
@@ -363,13 +363,14 @@
   var qSay=document.getElementById('scan-q-say');
   var qMail=document.getElementById('scan-email');
   var st={sales:null,seats:null,platform:'ps'};
-  try{var want=new URLSearchParams(window.location.search).get('platform');if(want==='ps'||want==='pc')st.platform=want}catch(err){}
+  try{var q=new URLSearchParams(window.location.search),want=q.get('platform');if(want==='ps'||want==='pc'){st.platform=want;if(q.get('seat')==='own')st.own=want}}catch(err){}
   var nameOf=function(p){var b=plats.filter(function(x){return x.getAttribute('data-platform')===p})[0];return b?b.querySelector('b').textContent:p};
   var form=function(n){try{return new Intl.PluralRules('ru').select(n)}catch(err){return 'many'}};
   var seatsOf=function(p){return st.seats&&st.seats[p]?st.seats[p]:null};
-  var full=function(p){var s=seatsOf(p);return !!s&&s.free<=0};
+  var full=function(p){var s=seatsOf(p);return st.own!==p&&!!s&&s.free<=0};
   var seatText=function(p){
     var s=seatsOf(p);
+    if(st.own===p)return box.getAttribute('data-own');
     if(!s)return box.getAttribute('data-seats-wait');
     if(s.free<=0)return box.getAttribute('data-full');
     var tpl=box.getAttribute('data-seats-'+form(s.free))||box.getAttribute('data-seats-many');
