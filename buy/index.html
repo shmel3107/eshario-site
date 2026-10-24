@@ -363,7 +363,7 @@
   var qSay=document.getElementById('scan-q-say');
   var qMail=document.getElementById('scan-email');
   var st={sales:null,seats:null,platform:'ps'};
-  try{var q=new URLSearchParams(window.location.search),want=q.get('platform');if(want==='ps'||want==='pc'){st.platform=want;if(q.get('seat')==='own')st.own=want}}catch(err){}
+  try{var u=new URLSearchParams(window.location.search),want=u.get('platform');if(want==='ps'||want==='pc'){st.platform=want;if(u.get('seat')==='own')st.own=want}}catch(err){}
   var nameOf=function(p){var b=plats.filter(function(x){return x.getAttribute('data-platform')===p})[0];return b?b.querySelector('b').textContent:p};
   var form=function(n){try{return new Intl.PluralRules('ru').select(n)}catch(err){return 'many'}};
   var seatsOf=function(p){return st.seats&&st.seats[p]?st.seats[p]:null};
