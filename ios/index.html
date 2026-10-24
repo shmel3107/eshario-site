@@ -80,6 +80,7 @@
   [].forEach.call(document.querySelectorAll('.ivideo-box'),function(box){
     var v=box.querySelector('video'),go=box.querySelector('.ivideo-go');
     if(!v||!go)return;
+    v.volume=0.3;
     go.hidden=false;
     go.addEventListener('click',function(){var p=v.play();if(p&&p.catch)p.catch(function(){})});
     v.addEventListener('play',function(){go.hidden=true});
