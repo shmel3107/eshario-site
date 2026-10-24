@@ -12,6 +12,19 @@
   Слова из окна аккаунта ПК (src/_locales, ключи account*), новых нет.
   На стенде раздаётся с компьютера брата; боевую страницу кладёт вкладка
   владельца (SITE-MOBILE-LOGIN-1).
+  LPW1 начало
+  ДОПИСКА LOGIN-PASSWORD-WORD-1 (24.10, F269): строки «своего скрипта нет» и
+  «новых слов нет» выше больше не правда. Короткая попытка пишет под паролем
+  наше предложение вместо немой проверки браузера (кадр человека: около 9
+  точек, «Войти» не нажимается). Серой подписи «не короче 12 знаков» под полем
+  нет по слову владельца на листе 24.10: «нафиг этот мусор нужен когда у нас
+  красным все равно светится». Свой скрипт внизу страницы делает только это: глушит пузырь
+  браузера у пароля, считает знаки и не пускает короткий пароль к
+  юзерскрипту. Число одно: `minlength` поля, его сверяет сцена с
+  `PASSWORD_MIN` сервера (`tests/site-mobile-login-password.test.mjs`).
+  Всё добавленное стоит между строками «LPW1 начало» и «LPW1 конец»: без них
+  страница байт в байт файл брата `mobile/host/login.html` 9a40d42.
+  LPW1 конец
 -->
 <html lang="ru">
 <head>
@@ -61,6 +74,9 @@
   p[data-word="network"] { border-color: var(--fx-warn); color: var(--fx-warn); }
   p[data-word="error"] { border-color: var(--fx-danger); color: var(--fx-danger); }
   [hidden] { display: none !important; }
+  /* LPW1 начало */
+  .pw-short { margin: -6px 0 12px; color: var(--fx-danger); font-size: 15px; }
+  /* LPW1 конец */
 </style>
 </head>
 <body>
@@ -69,6 +85,9 @@
   <form id="login" autocomplete="on" hidden>
     <label><span>Почта</span><input id="email" type="email" autocomplete="username" required></label>
     <label><span>Пароль</span><input id="password" type="password" autocomplete="current-password" minlength="12" required></label>
+    <!-- LPW1 начало -->
+    <p class="pw-short" id="password-short" role="alert" hidden></p>
+    <!-- LPW1 конец -->
     <button id="login-submit" type="submit">Войти</button>
   </form>
   <p data-word="wait">…</p>
@@ -81,5 +100,27 @@
     <button id="logout" type="button" data-ask="Выйти из аккаунта ESHArio?">Выйти</button>
   </section>
 </main>
+<!-- LPW1 начало -->
+<script>
+// Короткий пароль не уходит юзерскрипту и не молчит: пузырь браузера погашен,
+// под полем наше предложение со счётом знаков. Слушатель отправки стоит на
+// документе в фазе захвата, поэтому он первый при любом порядке, в каком встал
+// юзерскрипт; длинный пароль идёт дальше как прежде.
+(function(){var form=document.getElementById('login'),password=document.getElementById('password'),word=document.getElementById('password-short');
+if(!form||!password||!word)return;
+var need=password.minLength>0?password.minLength:12;
+var tail=' Это пароль из письма ESHArio, не пароль EA.';
+function signs(n){var a=n%10,b=n%100;return a===1&&b!==11?'знак':a>=2&&a<=4&&(b<12||b>14)?'знака':'знаков'}
+function short(){return password.value.length<need}
+function say(){var n=password.value.length;
+word.textContent=(n===0?'Введите пароль ESHArio, в нём не меньше '+need+' '+signs(need)+'.':'В пароле '+n+' '+signs(n)+', а нужно не меньше '+need+'.')+tail;
+word.hidden=false;
+try{password.focus()}catch(err){}}
+password.addEventListener('invalid',function(event){event.preventDefault();say()});
+document.addEventListener('submit',function(event){if(event.target!==form||!short())return;
+event.preventDefault();event.stopImmediatePropagation();say()},true);
+password.addEventListener('input',function(){word.hidden=true})})();
+</script>
+<!-- LPW1 конец -->
 </body>
 </html>
