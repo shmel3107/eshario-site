@@ -106,6 +106,7 @@
   var show=function(id){
     tabs.forEach(function(a){if(a.getAttribute('data-tab')===id){a.setAttribute('aria-current','page');document.title=a.getAttribute('data-title')}else a.removeAttribute('aria-current')});
     [].forEach.call(document.querySelectorAll('.ipanel'),function(p){p.hidden=p.getAttribute('data-panel')!==id});
+    [].forEach.call(document.querySelectorAll('.ipanel[hidden] video'),function(v){v.pause()});
   };
   document.addEventListener('click',function(e){
     if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
