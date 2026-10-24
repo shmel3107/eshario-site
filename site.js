@@ -163,8 +163,13 @@
       if(label)label.textContent=on.getAttribute('data-label');
       if(days)days.textContent=on.getAttribute('data-days');
       k.classList.toggle('is-promo',!!p);
-      if(old){old.textContent=p?moneyText(p.list):'';old.hidden=!p}
-      if(now)now.textContent=p?moneyText(p.amount):on.getAttribute('data-list');
+      var sp=Number(document.body.getAttribute('data-scan-price'))||0;
+      var own=p?p.amount:Number(on.getAttribute('data-amount'));
+      if(old){old.textContent=p?moneyText(p.list+sp):'';old.hidden=!p}
+      if(now)now.textContent=sp>0&&own>=0?moneyText(own+sp):p?moneyText(p.amount):on.getAttribute('data-list');
+      var scanLine=k.querySelector('.k-scanline'),scanText=k.querySelector('[data-k-scan]'),scanPromo=k.querySelector('.k-scan-promo');
+      if(scanLine){scanLine.hidden=!(sp>0);if(scanText)scanText.textContent=document.body.getAttribute('data-scan-label')||''}
+      if(scanPromo)scanPromo.hidden=!(sp>0&&p);
       if(tag){tag.textContent=p?k.getAttribute(promoState.friend?'data-tag-friend':'data-tag')+' '+String(promoState.code).toUpperCase():'';tag.hidden=!p}
       var msg=on.getAttribute('data-msg');
       if(tg&&msg){tg.setAttribute('data-msg',msg);tg.href=tgText(tg,promoState.code||promoCode)}
@@ -173,6 +178,7 @@
       terms.forEach(function(other){other.setAttribute('aria-pressed',other===one?'true':'false')});
       kassaRender();
     })});
+    document.addEventListener('eshario-scan',function(){kassaRender()});
     kassaRender();
   })();
   var buyForm=document.getElementById('promo');

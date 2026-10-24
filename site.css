@@ -457,6 +457,23 @@ td.pay{color:var(--ac);font-weight:700}
 .term small{color:var(--dim);font-size:13px}
 .term .t-save{position:absolute;top:14px;right:14px;padding:2px 8px;border-radius:999px;background:var(--ac);color:var(--on-ac);font-size:12px;font-weight:700;line-height:18px}
 .k-once{margin:10px 0 0;color:var(--dim);font-size:14px}
+.term.t-has{grid-column:1/-1;flex-direction:row;align-items:baseline;gap:12px;padding:12px 16px}
+.term.t-has .t-price{margin:0 0 0 auto;font-size:20px}
+.term[hidden]{display:none}
+.term:disabled{cursor:default;opacity:.45}
+.term .t-cheap{color:var(--dim);font-size:13px}
+.k-scan{margin-top:28px}
+.sec .k-scan .k-h small{margin-left:6px;font-size:13px;font-weight:400;letter-spacing:0;text-transform:none}
+.scan-plats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+.scan-plats[hidden],.scan-queue[hidden],.k-scanline[hidden],.k-scan-promo[hidden]{display:none}
+.scan-plats .k-plat{padding:12px 16px}
+.scan-queue{margin-top:14px;max-width:560px}
+.scan-queue p{margin:0 0 4px;font-size:14px}
+.scan-queue label{display:block;margin:10px 0 6px;color:var(--dim);font-size:13px}
+.scan-queue input{display:block;width:100%;height:46px;padding:0 14px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:var(--s1);color:var(--tx);font:inherit;font-size:15px}
+.scan-queue input:focus{outline:2px solid rgba(61,216,255,.4);outline-offset:1px}
+.scan-queue .hint{margin:6px 0 0;font-size:13px}
+.k-card .k-scanline{margin-top:8px}
 .k-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:24px}
 .k-list li{position:relative;padding:7px 0 7px 18px;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.5}
 .k-list li::before{content:"";position:absolute;left:0;top:16px;width:6px;height:6px;border-radius:50%;background:var(--ac)}

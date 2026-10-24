@@ -26,20 +26,30 @@
 <section class="sec first"><div class="wrap kassa" data-kassa data-tag="с промокодом" data-tag-friend="с кодом друга" data-per="{price} в месяц">
 <div class="k-terms">
 <h2 class="k-h">1. Срок</h2>
-<div class="terms" data-termpick role="group" aria-label="Срок ключа"><button class="term" type="button" data-term="m1" data-list="1 149 ₽" data-label="1 месяц" data-days="30 дней с выдачи" data-months="1" data-sub="30 дней с выдачи" aria-pressed="true"><b>1 месяц</b><span class="t-save" hidden></span><s class="t-old" hidden></s><span class="t-price">1 149 ₽</span><small>30 дней с выдачи</small></button><button class="term" type="button" data-term="m3" data-list="3 149 ₽" data-label="3 месяца" data-days="90 дней с выдачи" data-months="3" data-sub="1 050 ₽ в месяц" aria-pressed="false"><b>3 месяца</b><span class="t-save" hidden></span><s class="t-old" hidden></s><span class="t-price">3 149 ₽</span><small>1 050 ₽ в месяц</small><small class="t-cheap">на 9 % дешевле помесячной</small></button><button class="term" type="button" data-term="m12" data-list="10 999 ₽" data-label="12 месяцев" data-days="365 дней с выдачи" data-months="12" data-sub="917 ₽ в месяц" aria-pressed="false"><b>12 месяцев</b><span class="t-save" hidden></span><s class="t-old" hidden></s><span class="t-price">10 999 ₽</span><small>917 ₽ в месяц</small><small class="t-cheap">на 20 % дешевле помесячной</small></button></div>
+<div class="terms" data-termpick role="group" aria-label="Срок ключа"><button class="term" type="button" data-term="m1" data-amount="1149" data-list="1 149 ₽" data-label="1 месяц" data-days="30 дней с выдачи" data-months="1" data-sub="30 дней с выдачи" aria-pressed="true"><b>1 месяц</b><span class="t-save" hidden></span><s class="t-old" hidden></s><span class="t-price">1 149 ₽</span><small>30 дней с выдачи</small></button><button class="term" type="button" data-term="m3" data-amount="3149" data-list="3 149 ₽" data-label="3 месяца" data-days="90 дней с выдачи" data-months="3" data-sub="1 050 ₽ в месяц" aria-pressed="false"><b>3 месяца</b><span class="t-save" hidden></span><s class="t-old" hidden></s><span class="t-price">3 149 ₽</span><small>1 050 ₽ в месяц</small><small class="t-cheap">на 9 % дешевле помесячной</small></button><button class="term" type="button" data-term="m12" data-amount="10999" data-list="10 999 ₽" data-label="12 месяцев" data-days="365 дней с выдачи" data-months="12" data-sub="917 ₽ в месяц" aria-pressed="false"><b>12 месяцев</b><span class="t-save" hidden></span><s class="t-old" hidden></s><span class="t-price">10 999 ₽</span><small>917 ₽ в месяц</small><small class="t-cheap">на 20 % дешевле помесячной</small></button><button class="term t-has" type="button" data-term="scanner" data-amount="0" data-list="0 ₽" data-label="уже есть" data-days="только сканер" data-months="0" data-sub="только сканер" aria-pressed="false" hidden><b>Премиум уже есть</b><span class="t-price">0 ₽</span><small>только сканер</small></button></div>
 <p class="k-once">Разовый платёж. Автопродления нет.</p>
+<div class="k-scan" data-scanner data-api="https://api.eshario.com" data-seats-wait="места уточняются" data-full="мест нет, оставьте почту" data-card="Сканер · {platform} · {term}" data-default-ps="65" data-default-pc="35" data-seats-one="свободно {n} место из {limit}" data-seats-few="свободно {n} места из {limit}" data-seats-many="свободно {n} мест из {limit}">
+<h2 class="k-h">2. Сканер <small>по желанию</small></h2>
+<div class="terms scan-terms" data-scanpick role="group" aria-label="2. Сканер"><button class="term" type="button" data-scan="" data-price="0" data-label="Без сканера" aria-pressed="true"><b>Без сканера</b><span class="t-price">0 ₽</span><small>только премиум</small></button><button class="term" type="button" data-scan="scanner-m1" data-price="749" data-label="1 месяц" aria-pressed="false" disabled><b>Сканер на 1 месяц</b><span class="t-price">749 ₽</span><small>30 дней с выдачи</small></button><button class="term" type="button" data-scan="scanner-m3" data-price="1990" data-label="3 месяца" aria-pressed="false" disabled><b>Сканер на 3 месяца</b><span class="t-price">1 990 ₽</span><small>663 ₽ в месяц</small><small class="t-cheap">на 11 % дешевле помесячной</small></button></div>
+<div class="scan-plats" data-platpick role="group" aria-label="Платформа сканера" hidden><button class="term k-plat" type="button" data-platform="ps" aria-pressed="true"><b>PlayStation и Xbox</b><small data-seats>места уточняются</small></button><button class="term k-plat" type="button" data-platform="pc" aria-pressed="false"><b>ПК</b><small data-seats>места уточняются</small></button></div>
+<p class="k-once scan-about">Сканер присылает уведомления, когда карту выставили на рынок дешевле её обычной цены. Уведомления приходят в расширение, в ваш Telegram и в форум сканера. Мест на каждой платформе немного, чтобы карт из уведомлений хватало всем. Сканер не обещает покупок и монет.</p>
+<p class="k-once scan-soon" hidden>Продажа сканера на сайте откроется скоро. Очередь уже работает.</p>
+<form class="scan-queue" id="scan-queue" novalidate autocomplete="on" hidden><p class="scan-q-head" data-full="Мест на {platform} нет. Оставьте почту: когда место освободится, напишем первым и подержим его сутки." data-soon="Оставьте почту: когда продажа на {platform} откроется, напишем первым и подержим место сутки.">Мест на {platform} нет. Оставьте почту: когда место освободится, напишем первым и подержим его сутки.</p><label for="scan-email">Почта для очереди</label><div class="k-row"><input id="scan-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="100" spellcheck="false"><button class="btn btn-ghost" type="submit">Встать в очередь</button></div><p class="hint" id="scan-q-say" aria-live="polite" data-done="Готово. Вы в очереди на {platform}, номер {n}. Напишем на {mask}." data-held="Место на {platform} уже ждёт вас. Письмо ушло на {mask}." data-free="Место на {platform} освободилось, его можно купить сейчас." data-bad="Проверьте почту: в ней ошибка." data-busy="Слишком много попыток подряд. Подождите несколько минут." data-fail="Не получилось встать в очередь. Попробуйте ещё раз."></p></form>
+</div>
 </div>
 <aside class="k-card" aria-labelledby="k-card-h">
-<h2 id="k-card-h">2. Оформление</h2>
+<h2 id="k-card-h">3. Оформление</h2>
 <p class="k-pick"><b>Премиум · <span data-k-label>1 месяц</span></b><span data-k-days>30 дней с выдачи</span></p>
-<form class="checkout" id="buy-form" novalidate data-api="https://api.eshario.com" data-action="https://merchant.intellectmoney.ru/v2/" data-pay-origin="https://pay.platega.io" data-lang="ru" data-offer="14 октября 2026" data-privacy="14 октября 2026"><label for="buy-email">Почта</label><input id="buy-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="100" spellcheck="false" placeholder="you@example.com"><p class="hint">Сюда придёт доступ и ссылка задать пароль.</p></form>
+<p class="k-pick k-scanline" hidden><b data-k-scan></b></p>
+<form class="checkout" id="buy-form" novalidate data-api="https://api.eshario.com" data-action="https://merchant.intellectmoney.ru/v2/" data-pay-origin="https://pay.platega.io" data-lang="ru" data-offer="24 октября 2026" data-privacy="24 октября 2026"><label for="buy-email">Почта</label><input id="buy-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="100" spellcheck="false" placeholder="you@example.com"><p class="hint">Сюда придёт доступ и ссылка задать пароль.</p></form>
 <form class="promo" id="promo" autocomplete="off" data-api="https://api.eshario.com"><label for="code">Промокод или код друга</label><div class="k-row"><input id="code" name="code" type="text" placeholder="Если есть" maxlength="32" spellcheck="false"><button class="btn btn-ghost" type="submit">Применить</button></div></form>
 <p class="hint" id="promo-hint" aria-live="polite" data-idle="Цена с кодом появится после «Применить»." data-wait="Проверяем промокод…" data-done="Промокод {code} применён." data-part="Промокод {code} применён к части сроков." data-bad="Такого промокода нет." data-fail="Не получилось проверить код. Нажмите «Применить» ещё раз." data-gone="Промокод закончился. Цена показана без него." data-ended="Код больше не действует. Цена показана без него." data-friend="Код друга {code} применён: скидка на первую покупку." data-left-show="10" data-left-one="Осталось всего {n} использование!" data-left-few="Осталось всего {n} использования!" data-left-many="Осталось всего {n} использований!">Цена с кодом появится после «Применить».</p>
+<p class="hint k-scan-promo" hidden>Промокод действует на премиум, сканер по своей цене.</p>
 <div class="consent-wrap"><label class="consent"><input type="checkbox" id="consent-1"><span>Принимаю публичную оферту, пользовательское соглашение и политику возвратов.</span></label><label class="consent"><input type="checkbox" id="consent-2"><span>Прошу выдать ключ сразу после оплаты и понимаю, что с момента выдачи право на отказ в 14 дней прекращается.</span></label><p class="k-mailnote">Купившим иногда пишем о скидках. Отказаться можно ссылкой в письме.</p></div>
 <div class="k-total"><span>К оплате</span><p class="k-sum"><s class="k-old" hidden></s><b class="k-now">1 149 ₽</b><small class="k-tag" hidden></small></p></div>
 <div class="k-ways" id="buy-ways" role="group" aria-label="Способ оплаты" hidden><button class="term k-way" type="button" data-way="sbp" aria-pressed="true"><b>СБП</b></button><button class="term k-way" type="button" data-way="card" aria-pressed="false"><b>Карта Мир</b><small>карты российских банков</small></button><button class="term k-way" type="button" data-way="crypto" aria-pressed="false"><b>Криптовалюта</b><small>USDT и другие монеты</small></button></div>
 <button class="btn btn-main pay k-pay" id="buy-go" type="submit" form="buy-form" data-wait="Проверяем…" data-making="Готовим счёт…">Оплатить</button>
-<div class="buy-say" aria-live="polite"><p class="pw-msg" id="buy-emailBad" hidden>Впишите почту целиком: на неё придёт доступ.</p><p class="pw-msg" id="buy-consent" hidden>Отметьте обе галочки выше: без них оплата не начнётся.</p><p class="pw-msg say-calm" id="buy-checking" hidden><span class="say-step" data-step="0">Проверяем данные для оплаты…</span><span class="say-step" data-step="1" hidden>Платёжный партнёр сверяет данные…</span><span class="say-step" data-step="2" hidden>Обычно это занимает до 30 секунд.</span> <small class="say-note">Иногда партнёр просит пройти короткую проверку: её окно появится само.</small></p><p class="pw-msg" id="buy-checkingSlow" hidden>Проверка идёт дольше обычного. Если окно проверки не появилось, оплатите СБП через другую кассу.</p><p class="pw-msg say-calm" id="buy-making" hidden>Готовим счёт…</p><p class="pw-msg say-calm" id="buy-going" hidden>Переходим на страницу оплаты…</p><p class="pw-msg" id="buy-trackerFail" hidden>Эта касса не пропустила оплату. Попробуйте СБП через другую кассу.</p><p class="pw-msg" id="buy-moveFail" hidden>Оплата не прошла. Оплатите картой, криптовалютой или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-promoUnknown" hidden>Промокод не подошёл, цена показана без него. Нажмите «Оплатить» ещё раз или исправьте код.</p><p class="pw-msg" id="buy-promoGone" hidden>Промокод закончился, цена показана без него. Нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-friendSelf" hidden>Свой код друга нельзя: он для тех, кого вы позвали. Цена показана без кода, нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-partnerSelf" hidden>Это ваш собственный код партнёра, на свою покупку он не действует. Цена показана без кода, нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-friendNotFirst" hidden>Код друга только для первой покупки. Цена показана без кода, нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-partnerNotFirst" hidden>Этот промокод только для первой покупки. Цена показана без него, нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-partnerEnded" hidden>Код больше не действует. Цена показана без него, нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-busy" hidden>Слишком много попыток подряд. Подождите несколько минут и попробуйте снова.</p><p class="pw-msg" id="buy-closed" hidden>Оплата сейчас недоступна. Попробуйте позже или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-offline" hidden>Нет связи с сервером. Проверьте интернет и нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-failed" hidden>Не получилось создать заказ. Попробуйте ещё раз или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-payFailed" hidden>Оплата не прошла. Попробуйте снова или напишите в поддержку: support@eshario.com.</p><div class="say-acts" id="buy-acts" hidden><button class="btn btn-ghost say-move" id="buy-move" type="button" hidden>Оплатить через другую кассу</button><button class="say-alt" id="buy-to-card" type="button" hidden>Или оплатите картой</button><button class="say-alt" id="buy-to-crypto" type="button" hidden>Или оплатите криптовалютой</button></div></div><noscript><p class="pw-msg">Для оплаты нужен включённый JavaScript.</p></noscript>
+<div class="buy-say" aria-live="polite"><p class="pw-msg" id="buy-emailBad" hidden>Впишите почту целиком: на неё придёт доступ.</p><p class="pw-msg" id="buy-consent" hidden>Отметьте обе галочки выше: без них оплата не начнётся.</p><p class="pw-msg say-calm" id="buy-checking" hidden><span class="say-step" data-step="0">Проверяем данные для оплаты…</span><span class="say-step" data-step="1" hidden>Платёжный партнёр сверяет данные…</span><span class="say-step" data-step="2" hidden>Обычно это занимает до 30 секунд.</span> <small class="say-note">Иногда партнёр просит пройти короткую проверку: её окно появится само.</small></p><p class="pw-msg" id="buy-checkingSlow" hidden>Проверка идёт дольше обычного. Если окно проверки не появилось, оплатите СБП через другую кассу.</p><p class="pw-msg say-calm" id="buy-making" hidden>Готовим счёт…</p><p class="pw-msg say-calm" id="buy-going" hidden>Переходим на страницу оплаты…</p><p class="pw-msg" id="buy-trackerFail" hidden>Эта касса не пропустила оплату. Попробуйте СБП через другую кассу.</p><p class="pw-msg" id="buy-moveFail" hidden>Оплата не прошла. Оплатите картой, криптовалютой или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-promoUnknown" hidden>Промокод не подошёл, цена показана без него. Нажмите «Оплатить» ещё раз или исправьте код.</p><p class="pw-msg" id="buy-promoGone" hidden>Промокод закончился, цена показана без него. Нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-friendSelf" hidden>Свой код друга нельзя: он для тех, кого вы позвали. Цена показана без кода, нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-partnerSelf" hidden>Это ваш собственный код партнёра, на свою покупку он не действует. Цена показана без кода, нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-friendNotFirst" hidden>Код друга только для первой покупки. Цена показана без кода, нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-partnerNotFirst" hidden>Этот промокод только для первой покупки. Цена показана без него, нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-partnerEnded" hidden>Код больше не действует. Цена показана без него, нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-busy" hidden>Слишком много попыток подряд. Подождите несколько минут и попробуйте снова.</p><p class="pw-msg" id="buy-closed" hidden>Оплата сейчас недоступна. Попробуйте позже или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-offline" hidden>Нет связи с сервером. Проверьте интернет и нажмите «Оплатить» ещё раз.</p><p class="pw-msg" id="buy-failed" hidden>Не получилось создать заказ. Попробуйте ещё раз или напишите в поддержку: support@eshario.com.</p><p class="pw-msg" id="buy-scannerFull" hidden>На этой платформе места сканера только что закончились. Оставьте почту ниже или купите без сканера.</p><p class="pw-msg" id="buy-scannerOff" hidden>Продажа сканера на сайте пока закрыта. Купите премиум без сканера или зайдите позже.</p><p class="pw-msg" id="buy-scannerNeedsPlan" hidden>Сканер продаётся к премиуму, а на этой почте премиума сейчас нет. Выберите срок премиума или проверьте почту.</p><p class="pw-msg" id="buy-scannerPick" hidden>Выберите срок сканера: с «Премиум уже есть» без сканера оплачивать нечего.</p><p class="pw-msg" id="buy-payFailed" hidden>Оплата не прошла. Попробуйте снова или напишите в поддержку: support@eshario.com.</p><div class="say-acts" id="buy-acts" hidden><button class="btn btn-ghost say-move" id="buy-move" type="button" hidden>Оплатить через другую кассу</button><button class="say-alt" id="buy-to-card" type="button" hidden>Или оплатите картой</button><button class="say-alt" id="buy-to-crypto" type="button" hidden>Или оплатите криптовалютой</button></div></div><noscript><p class="pw-msg">Для оплаты нужен включённый JavaScript.</p></noscript>
 <p class="k-fine">Оплата на странице платёжного партнёра, карту мы не видим. <span id="buy-bank">В выписке банка платёж может называться «GamerPay» или «GAME SERVICES PAY».</span> Нажимая «Оплатить», вы принимаете <a href="../offer/">оферту</a> и <a href="../privacy/">политику конфиденциальности</a>.</p>
 </aside>
 <div class="k-feat">
@@ -70,7 +80,7 @@
   var action=form.getAttribute('data-action');
   var payOrigin=form.getAttribute('data-pay-origin');
   var payLink=function(u){try{var x=new URL(String(u));return x.protocol==='https:'&&x.origin===payOrigin?x.href:''}catch(err){return ''}};
-  var names=['emailBad','consent','checking','checkingSlow','making','going','trackerFail','moveFail','promoUnknown','promoGone','friendSelf','friendNotFirst','partnerNotFirst','partnerEnded','partnerSelf','busy','closed','offline','failed','payFailed'];
+  var names=['emailBad','consent','checking','checkingSlow','making','going','trackerFail','moveFail','promoUnknown','promoGone','friendSelf','friendNotFirst','partnerNotFirst','partnerEnded','partnerSelf','busy','closed','offline','failed','payFailed','scannerFull','scannerOff','scannerNeedsPlan','scannerPick'];
   var steps=[].slice.call(document.querySelectorAll('#buy-checking [data-step]'));
   var stepTimer=0;
   var showStep=function(at){steps.forEach(function(s,i){s.hidden=(i!==at)})};
@@ -118,6 +128,7 @@
     var plans=(document.body.getAttribute('data-promo-plans')||'').split(',');
     return code&&plans.indexOf(term())>=0?code:'';
   };
+  var scan=function(){var b=document.body;return {p:b.getAttribute('data-scan-plan')||'',f:b.getAttribute('data-scan-platform')||''}};
   var way='sbp';
   var ways=document.getElementById('buy-ways');
   var bank=document.getElementById('buy-bank');
@@ -203,6 +214,8 @@
         privacyVersion:form.getAttribute('data-privacy'),
         consentHash:hash
       };
+      var sc=base?{p:base.scanner||'',f:base.scannerPlatform||''}:scan();
+      if(sc.p){ask.scanner=sc.p;ask.scannerPlatform=sc.f}
       if(!retryOf)sent=ask;
       if(retryOf){ask.retryOf=retryOf;ask.reason=why||'im-unavailable'}
       if(w!=='sbp')ask.method=w;
@@ -238,6 +251,8 @@
       else if(res.status===409&&b.reason==='partner-self'){dropPromo();say('partnerSelf')}
       else if(res.status===409&&b.reason==='partner-not-first'){dropPromo();say('partnerNotFirst')}
       else if(res.status===409&&b.reason==='partner-ended'){dropPromo();say('partnerEnded')}
+      else if(res.status===409&&(b.reason==='scanner-full'||b.reason==='scanner-off')){say(b.reason==='scanner-full'?'scannerFull':'scannerOff');document.dispatchEvent(new Event('eshario-scan-again'))}
+      else if(res.status===409&&b.reason==='scanner-needs-plan')say('scannerNeedsPlan');
       else if(res.status===429)say('busy');
       else if(res.status===503||res.status===502)say('closed');
       else if(res.status===400&&b.reason==='bad-email')say('emailBad');
@@ -297,6 +312,7 @@
       if(box)box.classList.add('nudge');
       return;
     }
+    if(term()==='scanner'&&!scan().p){say('scannerPick');return}
     round+=1;
     var mine=round;
     declined=null;
@@ -333,6 +349,123 @@
     say(moved?'moveFail':'payFailed');
     try{window.history.replaceState(null,'',window.location.pathname)}catch(err){}
   }
+})();</script>
+<script>(function(){
+  var box=document.querySelector('[data-scanner]');
+  if(!box)return;
+  var api=box.getAttribute('data-api');
+  var body=document.body;
+  var terms=[].slice.call(box.querySelectorAll('[data-scan]'));
+  var plats=[].slice.call(box.querySelectorAll('[data-platform]'));
+  var platBox=box.querySelector('[data-platpick]');
+  var soon=box.querySelector('.scan-soon');
+  var q=document.getElementById('scan-queue');
+  var qHead=q?q.querySelector('.scan-q-head'):null;
+  var qSay=document.getElementById('scan-q-say');
+  var qMail=document.getElementById('scan-email');
+  var has=document.querySelector('[data-term="scanner"]');
+  var st={sales:null,seats:null,platform:'ps'};
+  try{var want=new URLSearchParams(window.location.search).get('platform');if(want==='ps'||want==='pc')st.platform=want}catch(err){}
+  var nameOf=function(p){var b=plats.filter(function(x){return x.getAttribute('data-platform')===p})[0];return b?b.querySelector('b').textContent:p};
+  var form=function(n){try{return new Intl.PluralRules('ru').select(n)}catch(err){return 'many'}};
+  var seatsOf=function(p){return st.seats&&st.seats[p]?st.seats[p]:null};
+  var full=function(p){var s=seatsOf(p);return !!s&&s.free<=0};
+  var seatText=function(p){
+    var s=seatsOf(p);
+    if(!s)return box.getAttribute('data-seats-wait');
+    if(s.free<=0)return box.getAttribute('data-full');
+    var tpl=box.getAttribute('data-seats-'+form(s.free))||box.getAttribute('data-seats-many');
+    return tpl.replace('{n}',String(s.free)).replace('{limit}',String(s.limit));
+  };
+  var picked=function(){return terms.filter(function(t){return t.getAttribute('aria-pressed')==='true'})[0]||terms[0]};
+  var publish=function(){
+    var on=picked();
+    var plan=st.sales==='on'&&on?on.getAttribute('data-scan'):'';
+    if(plan){
+      body.setAttribute('data-scan-plan',plan);
+      body.setAttribute('data-scan-platform',st.platform);
+      body.setAttribute('data-scan-price',on.getAttribute('data-price'));
+      body.setAttribute('data-scan-label',box.getAttribute('data-card').replace('{platform}',nameOf(st.platform)).replace('{term}',on.getAttribute('data-label')));
+    }else{
+      ['data-scan-plan','data-scan-platform','data-scan-price','data-scan-label'].forEach(function(a){body.removeAttribute(a)});
+    }
+    document.dispatchEvent(new Event('eshario-scan'));
+  };
+  var render=function(){
+    var open=st.sales==='on';
+    terms.forEach(function(t){
+      var paid=t.getAttribute('data-scan')!=='';
+      t.disabled=paid&&!open;
+      if(!open)t.setAttribute('aria-pressed',paid?'false':'true');
+    });
+    if(soon)soon.hidden=st.sales!=='off';
+    if(has){
+      has.hidden=!open;
+      if(!open&&has.getAttribute('aria-pressed')==='true'){
+        var first=document.querySelector('[data-termpick] [data-term]');
+        if(first)first.click();
+      }
+    }
+    var choosing=open&&picked().getAttribute('data-scan')!=='';
+    var waiting=st.sales==='off';
+    if(platBox)platBox.hidden=!(choosing||waiting);
+    plats.forEach(function(b){
+      var p=b.getAttribute('data-platform');
+      b.setAttribute('aria-pressed',p===st.platform?'true':'false');
+      var small=b.querySelector('[data-seats]');
+      if(small)small.textContent=seatText(p);
+    });
+    var showQueue=waiting||(choosing&&full(st.platform));
+    if(q){
+      q.hidden=!showQueue;
+      if(qHead)qHead.textContent=qHead.getAttribute(waiting&&!full(st.platform)?'data-soon':'data-full').replace('{platform}',nameOf(st.platform));
+    }
+    publish();
+  };
+  var ask=function(){
+    window.fetch(api+'/v1/scanner/seats',{credentials:'omit',cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(b){
+      if(!b||!b.ok)return;
+      st.sales=b.sales==='on'?'on':'off';
+      st.seats={ps:b.ps,pc:b.pc};
+      render();
+    },function(){});
+  };
+  terms.forEach(function(t){t.addEventListener('click',function(){
+    if(t.disabled)return;
+    terms.forEach(function(o){o.setAttribute('aria-pressed',o===t?'true':'false')});
+    render();
+  })});
+  plats.forEach(function(b){b.addEventListener('click',function(){
+    st.platform=b.getAttribute('data-platform');
+    if(qSay)qSay.textContent='';
+    render();
+  })});
+  if(has)has.addEventListener('click',function(){
+    if(st.sales==='on'&&picked().getAttribute('data-scan')===''&&terms[1]){terms[1].click()}
+  });
+  var say=function(key,v){
+    if(!qSay)return;
+    var text=String(qSay.getAttribute('data-'+key)||'');
+    qSay.textContent=text.replace('{platform}',nameOf(st.platform)).replace('{n}',String(v&&v.n!=null?v.n:'')).replace('{mask}',String(v&&v.mask?v.mask:''));
+  };
+  if(q)q.addEventListener('submit',function(event){
+    event.preventDefault();
+    var v=String(qMail&&qMail.value||'').trim().toLowerCase();
+    if(v.length>100||v.indexOf('@')<1||v.indexOf('.',v.indexOf('@'))<0){say('bad');return}
+    window.fetch(api+'/v1/scanner/wait',{method:'POST',credentials:'omit',headers:{'content-type':'application/json'},body:JSON.stringify({email:v,platform:st.platform,lang:'ru'})}).then(function(r){
+      return r.json().then(function(b){return {status:r.status,body:b}},function(){return {status:r.status,body:{}}});
+    }).then(function(res){
+      var b=res.body||{};
+      if(res.status===200&&b.ok){say(b.position===0?'held':'done',{n:b.position,mask:b.hint});return}
+      if(res.status===409&&b.reason==='seats-free'){say('free');ask();return}
+      if(res.status===429){say('busy');return}
+      if(res.status===400&&b.reason==='bad-email'){say('bad');return}
+      say('fail');
+    },function(){say('fail')});
+  });
+  document.addEventListener('eshario-scan-again',ask);
+  render();
+  ask();
 })();</script>
 
 </body>
