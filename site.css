@@ -457,8 +457,6 @@ td.pay{color:var(--ac);font-weight:700}
 .term small{color:var(--dim);font-size:13px}
 .term .t-save{position:absolute;top:14px;right:14px;padding:2px 8px;border-radius:999px;background:var(--ac);color:var(--on-ac);font-size:12px;font-weight:700;line-height:18px}
 .k-once{margin:10px 0 0;color:var(--dim);font-size:14px}
-.term.t-has{grid-column:1/-1;flex-direction:row;align-items:baseline;gap:12px;padding:12px 16px}
-.term.t-has .t-price{margin:0 0 0 auto;font-size:20px}
 .term[hidden]{display:none}
 .term:disabled{cursor:default;opacity:.45}
 .term .t-cheap{color:var(--dim);font-size:13px}
