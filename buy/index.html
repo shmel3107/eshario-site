@@ -34,15 +34,15 @@
 <div class="scan-plats" data-platpick role="group" aria-label="Платформа сканера" hidden><button class="term k-plat" type="button" data-platform="ps" aria-pressed="true"><b>PlayStation и Xbox</b><small data-seats>места уточняются</small></button><button class="term k-plat" type="button" data-platform="pc" aria-pressed="false"><b>ПК</b><small data-seats>места уточняются</small></button></div>
 <p class="k-once scan-about">Сканер присылает уведомления, когда карту выставили на рынок дешевле её обычной цены. Уведомления приходят в расширение, в ваш Telegram и в форум сканера. Мест на каждой платформе немного, чтобы карт из уведомлений хватало всем. Сканер не обещает покупок и монет.</p>
 <p class="k-once scan-has">Премиум уже есть и нужен только сканер? Его можно купить отдельно в Telegram.</p>
-<p class="k-once scan-soon" hidden>Продажа сканера на сайте откроется скоро. Очередь уже работает.</p>
-<form class="scan-queue" id="scan-queue" novalidate autocomplete="on" hidden><p class="scan-q-head" data-full="Мест на {platform} нет. Оставьте почту: когда место освободится, напишем первым и подержим его сутки." data-soon="Оставьте почту: когда продажа на {platform} откроется, напишем первым и подержим место сутки.">Мест на {platform} нет. Оставьте почту: когда место освободится, напишем первым и подержим его сутки.</p><label for="scan-email">Почта для очереди</label><div class="k-row"><input id="scan-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="100" spellcheck="false"><button class="btn btn-ghost" type="submit">Встать в очередь</button></div><p class="hint" id="scan-q-say" aria-live="polite" data-done="Готово. Вы в очереди на {platform}, номер {n}. Напишем на {mask}." data-held="Место на {platform} уже ждёт вас. Письмо ушло на {mask}." data-free="Место на {platform} освободилось, его можно купить сейчас." data-bad="Проверьте почту: в ней ошибка." data-busy="Слишком много попыток подряд. Подождите несколько минут." data-fail="Не получилось встать в очередь. Попробуйте ещё раз."></p></form>
+<p class="k-once scan-soon" hidden>Продажа сканера на сайте откроется скоро. Лист ожидания уже работает.</p>
+<form class="scan-queue" id="scan-queue" novalidate autocomplete="on" hidden><p class="scan-q-head" data-full="Мест на {platform} нет. Оставьте почту: когда место освободится, напишем всем в листе ожидания. Место займёт тот, кто первым оплатит." data-soon="Оставьте почту: когда продажа на {platform} откроется, напишем всем в листе ожидания.">Мест на {platform} нет. Оставьте почту: когда место освободится, напишем всем в листе ожидания. Место займёт тот, кто первым оплатит.</p><label for="scan-email">Почта для листа ожидания</label><div class="k-row"><input id="scan-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="100" spellcheck="false"><button class="btn btn-ghost" type="submit">В лист ожидания</button></div><p class="hint" id="scan-q-say" aria-live="polite" data-done="Готово. Почта в листе ожидания на {platform}. Когда место освободится, напишем на {mask}." data-again="Эта почта уже в листе ожидания на {platform}. Напишем на {mask}." data-free="Место на {platform} освободилось, его можно купить сейчас." data-bad="Проверьте почту: в ней ошибка." data-busy="Слишком много попыток подряд. Подождите несколько минут." data-fail="Не получилось добавить почту. Попробуйте ещё раз."></p></form>
 </div>
 </div>
 <aside class="k-card" aria-labelledby="k-card-h">
 <h2 id="k-card-h">3. Оформление</h2>
 <p class="k-pick"><b>Премиум · <span data-k-label>1 месяц</span></b><span data-k-days>30 дней с выдачи</span></p>
 <p class="k-pick k-scanline" hidden><b data-k-scan></b></p>
-<form class="checkout" id="buy-form" novalidate data-api="https://api.eshario.com" data-action="https://merchant.intellectmoney.ru/v2/" data-pay-origin="https://pay.platega.io" data-lang="ru" data-offer="25 октября 2026" data-privacy="24 октября 2026"><label for="buy-email">Почта</label><input id="buy-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="100" spellcheck="false" placeholder="you@example.com"><p class="hint">Сюда придёт доступ и ссылка задать пароль.</p></form>
+<form class="checkout" id="buy-form" novalidate data-api="https://api.eshario.com" data-action="https://merchant.intellectmoney.ru/v2/" data-pay-origin="https://pay.platega.io" data-lang="ru" data-offer="25 октября 2026" data-privacy="25 октября 2026"><label for="buy-email">Почта</label><input id="buy-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="100" spellcheck="false" placeholder="you@example.com"><p class="hint">Сюда придёт доступ и ссылка задать пароль.</p></form>
 <form class="promo" id="promo" autocomplete="off" data-api="https://api.eshario.com"><label for="code">Промокод или код друга</label><div class="k-row"><input id="code" name="code" type="text" placeholder="Если есть" maxlength="32" spellcheck="false"><button class="btn btn-ghost" type="submit">Применить</button></div></form>
 <p class="hint" id="promo-hint" aria-live="polite" data-idle="Цена с кодом появится после «Применить»." data-wait="Проверяем промокод…" data-done="Промокод {code} применён." data-part="Промокод {code} применён к части сроков." data-bad="Такого промокода нет." data-fail="Не получилось проверить код. Нажмите «Применить» ещё раз." data-gone="Промокод закончился. Цена показана без него." data-ended="Код больше не действует. Цена показана без него." data-friend="Код друга {code} применён: скидка на первую покупку." data-left-show="10" data-left-one="Осталось всего {n} использование!" data-left-few="Осталось всего {n} использования!" data-left-many="Осталось всего {n} использований!">Цена с кодом появится после «Применить».</p>
 <p class="hint k-scan-promo" hidden>Промокод действует на премиум, сканер по своей цене.</p>
@@ -435,7 +435,7 @@
   var say=function(key,v){
     if(!qSay)return;
     var text=String(qSay.getAttribute('data-'+key)||'');
-    qSay.textContent=text.replace('{platform}',nameOf(st.platform)).replace('{n}',String(v&&v.n!=null?v.n:'')).replace('{mask}',String(v&&v.mask?v.mask:''));
+    qSay.textContent=text.replace('{platform}',nameOf(st.platform)).replace('{mask}',String(v&&v.mask?v.mask:''));
   };
   if(q)q.addEventListener('submit',function(event){
     event.preventDefault();
@@ -445,7 +445,7 @@
       return r.json().then(function(b){return {status:r.status,body:b}},function(){return {status:r.status,body:{}}});
     }).then(function(res){
       var b=res.body||{};
-      if(res.status===200&&b.ok){say(b.position===0?'held':'done',{n:b.position,mask:b.hint});return}
+      if(res.status===200&&b.ok){say(b.again?'again':'done',{mask:b.hint});return}
       if(res.status===409&&b.reason==='seats-free'){say('free');ask();return}
       if(res.status===429){say('busy');return}
       if(res.status===400&&b.reason==='bad-email'){say('bad');return}
