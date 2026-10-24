@@ -28,18 +28,29 @@
 <h2 class="k-h">1. Term</h2>
 <div class="terms" data-termpick role="group" aria-label="Key term"><button class="term" type="button" data-term="m1" data-amount="1149" data-list="1,149 ₽" data-label="1 month" data-days="30 days from issue" data-months="1" data-sub="30 days from issue" aria-pressed="true"><b>1 month</b><span class="t-save" hidden></span><s class="t-old" hidden></s><span class="t-price">1,149 ₽</span><small>30 days from issue</small></button><button class="term" type="button" data-term="m3" data-amount="3149" data-list="3,149 ₽" data-label="3 months" data-days="90 days from issue" data-months="3" data-sub="1,050 ₽ per month" aria-pressed="false"><b>3 months</b><span class="t-save" hidden></span><s class="t-old" hidden></s><span class="t-price">3,149 ₽</span><small>1,050 ₽ per month</small><small class="t-cheap">9 % cheaper than monthly</small></button><button class="term" type="button" data-term="m12" data-amount="10999" data-list="10,999 ₽" data-label="12 months" data-days="365 days from issue" data-months="12" data-sub="917 ₽ per month" aria-pressed="false"><b>12 months</b><span class="t-save" hidden></span><s class="t-old" hidden></s><span class="t-price">10,999 ₽</span><small>917 ₽ per month</small><small class="t-cheap">20 % cheaper than monthly</small></button></div>
 <p class="k-once">One-off payment. No auto-renewal.</p>
+<div class="k-scan" data-scanner data-api="https://api.eshario.com" data-seats-wait="checking places" data-full="no places, leave your email" data-own="your place is waiting for you" data-card="Scanner · {platform} · {term}" data-default-ps="65" data-default-pc="35" data-seats-one="{n} place free of {limit}" data-seats-other="{n} places free of {limit}">
+<h2 class="k-h">2. Scanner <small>optional</small></h2>
+<div class="terms scan-terms" data-scanpick role="group" aria-label="2. Scanner"><button class="term" type="button" data-scan="" data-price="0" data-label="No scanner" aria-pressed="true"><b>No scanner</b><span class="t-price">0 ₽</span><small>premium only</small></button><button class="term" type="button" data-scan="scanner-m1" data-price="749" data-label="1 month" aria-pressed="false" disabled><b>Scanner for 1 month</b><span class="t-price">749 ₽</span><small>30 days from issue</small></button><button class="term" type="button" data-scan="scanner-m3" data-price="1990" data-label="3 months" aria-pressed="false" disabled><b>Scanner for 3 months</b><span class="t-price">1,990 ₽</span><small>663 ₽ per month</small><small class="t-cheap">11 % cheaper than monthly</small></button></div>
+<div class="scan-plats" data-platpick role="group" aria-label="Scanner platform" hidden><button class="term k-plat" type="button" data-platform="ps" aria-pressed="true"><b>PlayStation and Xbox</b><small data-seats>checking places</small></button><button class="term k-plat" type="button" data-platform="pc" aria-pressed="false"><b>PC</b><small data-seats>checking places</small></button></div>
+<p class="k-once scan-about">The scanner sends notifications when a card is listed on the market below its usual price. Notifications arrive in the extension, in your Telegram and in the scanner forum. Each platform has few places, so that there are enough cards from notifications for everyone. The scanner does not promise purchases or coins.</p>
+<p class="k-once scan-has">Already have premium and only need the scanner? You can buy it separately in Telegram.</p>
+<p class="k-once scan-soon" hidden>Scanner sales on the site open soon. The waiting list already works.</p>
+<form class="scan-queue" id="scan-queue" novalidate autocomplete="on" hidden><p class="scan-q-head" data-full="No places on {platform}. Leave your email: when a place frees up, we write to everyone on the waiting list. The place goes to whoever pays first." data-soon="Leave your email: when sales on {platform} open, we write to everyone on the waiting list.">No places on {platform}. Leave your email: when a place frees up, we write to everyone on the waiting list. The place goes to whoever pays first.</p><label for="scan-email">Email for the waiting list</label><div class="k-row"><input id="scan-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="100" spellcheck="false"><button class="btn btn-ghost" type="submit">Join the waiting list</button></div><p class="hint" id="scan-q-say" aria-live="polite" data-done="Done. Your email is on the waiting list for {platform}. When a place frees up, we write to {mask}." data-again="This email is already on the waiting list for {platform}. We will write to {mask}." data-free="A place on {platform} has freed up; you can buy it now." data-bad="Check your email: there is a typo." data-busy="Too many attempts in a row. Wait a few minutes." data-fail="Could not add the email. Try again."></p></form>
+</div>
 </div>
 <aside class="k-card" aria-labelledby="k-card-h">
-<h2 id="k-card-h">2. Checkout</h2>
+<h2 id="k-card-h">3. Checkout</h2>
 <p class="k-pick"><b>Premium · <span data-k-label>1 month</span></b><span data-k-days>30 days from issue</span></p>
+<p class="k-pick k-scanline" hidden><b data-k-scan></b></p>
 <form class="checkout" id="buy-form" novalidate data-api="https://api.eshario.com" data-action="https://merchant.intellectmoney.ru/v2/" data-pay-origin="https://pay.platega.io" data-lang="en" data-offer="25 October 2026" data-privacy="25 October 2026"><label for="buy-email">Email</label><input id="buy-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="100" spellcheck="false" placeholder="you@example.com"><p class="hint">Access and a link to set your password arrive here.</p></form>
 <form class="promo" id="promo" autocomplete="off" data-api="https://api.eshario.com"><label for="code">Promo code or friend code</label><div class="k-row"><input id="code" name="code" type="text" placeholder="If you have one" maxlength="32" spellcheck="false"><button class="btn btn-ghost" type="submit">Apply</button></div></form>
 <p class="hint" id="promo-hint" aria-live="polite" data-idle="The price with the code appears after “Apply”." data-wait="Checking the promo code…" data-done="Promo code {code} applied." data-part="Promo code {code} applied to some terms." data-bad="There is no such promo code." data-fail="Could not check the code. Press “Apply” again." data-gone="This promo code has run out. The price is shown without it." data-ended="This code no longer works. The price is shown without it." data-friend="Friend code {code} applied: a discount on a first purchase." data-left-show="10" data-left-one="Only {n} use left!" data-left-other="Only {n} uses left!">The price with the code appears after “Apply”.</p>
+<p class="hint k-scan-promo" hidden>The promo code applies to premium; the scanner keeps its price.</p>
 <div class="consent-wrap"><label class="consent"><input type="checkbox" id="consent-1"><span>I accept the public offer, the terms of use and the refund policy.</span></label><label class="consent"><input type="checkbox" id="consent-2"><span>I ask for the key to be delivered right after payment and understand that from the moment of delivery the 14-day right of withdrawal ends.</span></label><p class="k-mailnote">We occasionally email buyers about discounts. Unsubscribe with one click.</p></div>
 <div class="k-total"><span>Total</span><p class="k-sum"><s class="k-old" hidden></s><b class="k-now">1,149 ₽</b><small class="k-tag" hidden></small></p></div>
 <div class="k-ways" id="buy-ways" role="group" aria-label="Payment method" hidden><button class="term k-way" type="button" data-way="sbp" aria-pressed="true"><b>SBP</b></button><button class="term k-way" type="button" data-way="card" aria-pressed="false"><b>Mir card</b><small>Russian bank cards</small></button><button class="term k-way" type="button" data-way="crypto" aria-pressed="false"><b>Cryptocurrency</b><small>USDT and other coins</small></button></div>
 <button class="btn btn-main pay k-pay" id="buy-go" type="submit" form="buy-form" data-wait="Checking…" data-making="Preparing the invoice…">Pay</button>
-<div class="buy-say" aria-live="polite"><p class="pw-msg" id="buy-emailBad" hidden>Enter your full email: access arrives there.</p><p class="pw-msg" id="buy-consent" hidden>Tick both boxes above: payment does not start without them.</p><p class="pw-msg say-calm" id="buy-checking" hidden><span class="say-step" data-step="0">Checking your payment details…</span><span class="say-step" data-step="1" hidden>The payment partner is verifying the details…</span><span class="say-step" data-step="2" hidden>This usually takes up to 30 seconds.</span> <small class="say-note">Sometimes the partner asks for a short check: its window appears by itself.</small></p><p class="pw-msg" id="buy-checkingSlow" hidden>The check is taking longer than usual. If no check window appeared, pay with SBP through another provider.</p><p class="pw-msg say-calm" id="buy-making" hidden>Preparing the invoice…</p><p class="pw-msg say-calm" id="buy-going" hidden>Opening the payment page…</p><p class="pw-msg" id="buy-trackerFail" hidden>This payment provider did not let the payment through. Try SBP through another provider.</p><p class="pw-msg" id="buy-moveFail" hidden>The payment did not go through. Pay by card, with cryptocurrency or write to support: support@eshario.com.</p><p class="pw-msg" id="buy-promoUnknown" hidden>The promo code did not fit, the price is shown without it. Press “Pay” again or correct the code.</p><p class="pw-msg" id="buy-promoGone" hidden>This promo code has run out, the price is shown without it. Press “Pay” again.</p><p class="pw-msg" id="buy-friendSelf" hidden>You cannot use your own friend code: it is for the people you invite. The price is shown without it, press “Pay” again.</p><p class="pw-msg" id="buy-partnerSelf" hidden>This is your own partner code, and it does not work on your own purchase. The price is shown without it, press “Pay” again.</p><p class="pw-msg" id="buy-friendNotFirst" hidden>A friend code works only for a first purchase. The price is shown without it, press “Pay” again.</p><p class="pw-msg" id="buy-partnerNotFirst" hidden>This promo code works only for a first purchase. The price is shown without it, press “Pay” again.</p><p class="pw-msg" id="buy-partnerEnded" hidden>This code no longer works. The price is shown without it, press “Pay” again.</p><p class="pw-msg" id="buy-busy" hidden>Too many attempts in a row. Wait a few minutes and try again.</p><p class="pw-msg" id="buy-closed" hidden>Payment is not available right now. Try later or write to support: support@eshario.com.</p><p class="pw-msg" id="buy-offline" hidden>No connection to the server. Check your internet and press “Pay” again.</p><p class="pw-msg" id="buy-failed" hidden>The order could not be created. Try again or write to support: support@eshario.com.</p><p class="pw-msg" id="buy-payFailed" hidden>The payment did not go through. Try again or write to support: support@eshario.com.</p><div class="say-acts" id="buy-acts" hidden><button class="btn btn-ghost say-move" id="buy-move" type="button" hidden>Pay through another provider</button><button class="say-alt" id="buy-to-card" type="button" hidden>Or pay by card</button><button class="say-alt" id="buy-to-crypto" type="button" hidden>Or pay with cryptocurrency</button></div></div><noscript><p class="pw-msg">Payment needs JavaScript switched on.</p></noscript>
+<div class="buy-say" aria-live="polite"><p class="pw-msg" id="buy-emailBad" hidden>Enter your full email: access arrives there.</p><p class="pw-msg" id="buy-consent" hidden>Tick both boxes above: payment does not start without them.</p><p class="pw-msg say-calm" id="buy-checking" hidden><span class="say-step" data-step="0">Checking your payment details…</span><span class="say-step" data-step="1" hidden>The payment partner is verifying the details…</span><span class="say-step" data-step="2" hidden>This usually takes up to 30 seconds.</span> <small class="say-note">Sometimes the partner asks for a short check: its window appears by itself.</small></p><p class="pw-msg" id="buy-checkingSlow" hidden>The check is taking longer than usual. If no check window appeared, pay with SBP through another provider.</p><p class="pw-msg say-calm" id="buy-making" hidden>Preparing the invoice…</p><p class="pw-msg say-calm" id="buy-going" hidden>Opening the payment page…</p><p class="pw-msg" id="buy-trackerFail" hidden>This payment provider did not let the payment through. Try SBP through another provider.</p><p class="pw-msg" id="buy-moveFail" hidden>The payment did not go through. Pay by card, with cryptocurrency or write to support: support@eshario.com.</p><p class="pw-msg" id="buy-promoUnknown" hidden>The promo code did not fit, the price is shown without it. Press “Pay” again or correct the code.</p><p class="pw-msg" id="buy-promoGone" hidden>This promo code has run out, the price is shown without it. Press “Pay” again.</p><p class="pw-msg" id="buy-friendSelf" hidden>You cannot use your own friend code: it is for the people you invite. The price is shown without it, press “Pay” again.</p><p class="pw-msg" id="buy-partnerSelf" hidden>This is your own partner code, and it does not work on your own purchase. The price is shown without it, press “Pay” again.</p><p class="pw-msg" id="buy-friendNotFirst" hidden>A friend code works only for a first purchase. The price is shown without it, press “Pay” again.</p><p class="pw-msg" id="buy-partnerNotFirst" hidden>This promo code works only for a first purchase. The price is shown without it, press “Pay” again.</p><p class="pw-msg" id="buy-partnerEnded" hidden>This code no longer works. The price is shown without it, press “Pay” again.</p><p class="pw-msg" id="buy-busy" hidden>Too many attempts in a row. Wait a few minutes and try again.</p><p class="pw-msg" id="buy-closed" hidden>Payment is not available right now. Try later or write to support: support@eshario.com.</p><p class="pw-msg" id="buy-offline" hidden>No connection to the server. Check your internet and press “Pay” again.</p><p class="pw-msg" id="buy-failed" hidden>The order could not be created. Try again or write to support: support@eshario.com.</p><p class="pw-msg" id="buy-scannerFull" hidden>Scanner places on this platform have just run out. Leave your email below or buy without the scanner.</p><p class="pw-msg" id="buy-scannerOff" hidden>Scanner sales on the site are closed for now. Buy premium without the scanner or come back later.</p><p class="pw-msg" id="buy-payFailed" hidden>The payment did not go through. Try again or write to support: support@eshario.com.</p><div class="say-acts" id="buy-acts" hidden><button class="btn btn-ghost say-move" id="buy-move" type="button" hidden>Pay through another provider</button><button class="say-alt" id="buy-to-card" type="button" hidden>Or pay by card</button><button class="say-alt" id="buy-to-crypto" type="button" hidden>Or pay with cryptocurrency</button></div></div><noscript><p class="pw-msg">Payment needs JavaScript switched on.</p></noscript>
 <p class="k-fine">Payment is made on the payment partner’s page; we never see your card. <span id="buy-bank">On your bank statement the payment may appear as “GamerPay” or “GAME SERVICES PAY”.</span> By pressing “Pay” you accept the <a href="../../en/offer/">offer</a> and the <a href="../../en/privacy/">privacy policy</a>.</p>
 </aside>
 <div class="k-feat">
@@ -337,6 +348,114 @@
     say(moved?'moveFail':'payFailed');
     try{window.history.replaceState(null,'',window.location.pathname)}catch(err){}
   }
+})();</script>
+<script>(function(){
+  var box=document.querySelector('[data-scanner]');
+  if(!box)return;
+  var api=box.getAttribute('data-api');
+  var body=document.body;
+  var terms=[].slice.call(box.querySelectorAll('[data-scan]'));
+  var plats=[].slice.call(box.querySelectorAll('[data-platform]'));
+  var platBox=box.querySelector('[data-platpick]');
+  var soon=box.querySelector('.scan-soon');
+  var q=document.getElementById('scan-queue');
+  var qHead=q?q.querySelector('.scan-q-head'):null;
+  var qSay=document.getElementById('scan-q-say');
+  var qMail=document.getElementById('scan-email');
+  var st={sales:null,seats:null,platform:'ps'};
+  try{var u=new URLSearchParams(window.location.search),want=u.get('platform');if(want==='ps'||want==='pc'){st.platform=want;if(u.get('seat')==='own')st.own=want}}catch(err){}
+  var nameOf=function(p){var b=plats.filter(function(x){return x.getAttribute('data-platform')===p})[0];return b?b.querySelector('b').textContent:p};
+  var lang=document.documentElement&&document.documentElement.lang==='en'?'en':'ru';
+  var form=function(n){try{return new Intl.PluralRules(lang).select(n)}catch(err){return 'many'}};
+  var seatsOf=function(p){return st.seats&&st.seats[p]?st.seats[p]:null};
+  var full=function(p){var s=seatsOf(p);return st.own!==p&&!!s&&s.free<=0};
+  var seatText=function(p){
+    var s=seatsOf(p);
+    if(st.own===p)return box.getAttribute('data-own');
+    if(!s)return box.getAttribute('data-seats-wait');
+    if(s.free<=0)return box.getAttribute('data-full');
+    var tpl=box.getAttribute('data-seats-'+form(s.free))||box.getAttribute('data-seats-many')||box.getAttribute('data-seats-other');
+    return tpl.replace('{n}',String(s.free)).replace('{limit}',String(s.limit));
+  };
+  var picked=function(){return terms.filter(function(t){return t.getAttribute('aria-pressed')==='true'})[0]||terms[0]};
+  var publish=function(){
+    var on=picked();
+    var plan=st.sales==='on'&&on&&!full(st.platform)?on.getAttribute('data-scan'):'';
+    if(plan){
+      body.setAttribute('data-scan-plan',plan);
+      body.setAttribute('data-scan-platform',st.platform);
+      body.setAttribute('data-scan-price',on.getAttribute('data-price'));
+      body.setAttribute('data-scan-label',box.getAttribute('data-card').replace('{platform}',nameOf(st.platform)).replace('{term}',on.getAttribute('data-label')));
+    }else{
+      ['data-scan-plan','data-scan-platform','data-scan-price','data-scan-label'].forEach(function(a){body.removeAttribute(a)});
+    }
+    document.dispatchEvent(new Event('eshario-scan'));
+  };
+  var render=function(){
+    var open=st.sales==='on';
+    terms.forEach(function(t){
+      var paid=t.getAttribute('data-scan')!=='';
+      t.disabled=paid&&!open;
+      if(!open)t.setAttribute('aria-pressed',paid?'false':'true');
+    });
+    if(soon)soon.hidden=st.sales!=='off';
+    var choosing=open&&picked().getAttribute('data-scan')!=='';
+    var waiting=st.sales==='off';
+    if(platBox)platBox.hidden=!(choosing||waiting);
+    plats.forEach(function(b){
+      var p=b.getAttribute('data-platform');
+      b.setAttribute('aria-pressed',p===st.platform?'true':'false');
+      var small=b.querySelector('[data-seats]');
+      if(small)small.textContent=seatText(p);
+    });
+    var showQueue=waiting||(choosing&&full(st.platform));
+    if(q){
+      q.hidden=!showQueue;
+      if(qHead)qHead.textContent=qHead.getAttribute(waiting&&!full(st.platform)?'data-soon':'data-full').replace('{platform}',nameOf(st.platform));
+    }
+    publish();
+  };
+  var ask=function(){
+    window.fetch(api+'/v1/scanner/seats',{credentials:'omit',cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(b){
+      if(!b||!b.ok)return;
+      st.sales=b.sales==='on'?'on':'off';
+      st.seats={ps:b.ps,pc:b.pc};
+      render();
+    },function(){});
+  };
+  terms.forEach(function(t){t.addEventListener('click',function(){
+    if(t.disabled)return;
+    terms.forEach(function(o){o.setAttribute('aria-pressed',o===t?'true':'false')});
+    render();
+  })});
+  plats.forEach(function(b){b.addEventListener('click',function(){
+    st.platform=b.getAttribute('data-platform');
+    if(qSay)qSay.textContent='';
+    render();
+  })});
+  var say=function(key,v){
+    if(!qSay)return;
+    var text=String(qSay.getAttribute('data-'+key)||'');
+    qSay.textContent=text.replace('{platform}',nameOf(st.platform)).replace('{mask}',String(v&&v.mask?v.mask:''));
+  };
+  if(q)q.addEventListener('submit',function(event){
+    event.preventDefault();
+    var v=String(qMail&&qMail.value||'').trim().toLowerCase();
+    if(v.length>100||v.indexOf('@')<1||v.indexOf('.',v.indexOf('@'))<0){say('bad');return}
+    window.fetch(api+'/v1/scanner/wait',{method:'POST',credentials:'omit',headers:{'content-type':'application/json'},body:JSON.stringify({email:v,platform:st.platform,lang:lang})}).then(function(r){
+      return r.json().then(function(b){return {status:r.status,body:b}},function(){return {status:r.status,body:{}}});
+    }).then(function(res){
+      var b=res.body||{};
+      if(res.status===200&&b.ok){say(b.again?'again':'done',{mask:b.hint});return}
+      if(res.status===409&&b.reason==='seats-free'){say('free');ask();return}
+      if(res.status===429){say('busy');return}
+      if(res.status===400&&b.reason==='bad-email'){say('bad');return}
+      say('fail');
+    },function(){say('fail')});
+  });
+  document.addEventListener('eshario-scan-again',ask);
+  render();
+  ask();
 })();</script>
 
 </body>

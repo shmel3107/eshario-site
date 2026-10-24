@@ -365,7 +365,8 @@
   var st={sales:null,seats:null,platform:'ps'};
   try{var u=new URLSearchParams(window.location.search),want=u.get('platform');if(want==='ps'||want==='pc'){st.platform=want;if(u.get('seat')==='own')st.own=want}}catch(err){}
   var nameOf=function(p){var b=plats.filter(function(x){return x.getAttribute('data-platform')===p})[0];return b?b.querySelector('b').textContent:p};
-  var form=function(n){try{return new Intl.PluralRules('ru').select(n)}catch(err){return 'many'}};
+  var lang=document.documentElement&&document.documentElement.lang==='en'?'en':'ru';
+  var form=function(n){try{return new Intl.PluralRules(lang).select(n)}catch(err){return 'many'}};
   var seatsOf=function(p){return st.seats&&st.seats[p]?st.seats[p]:null};
   var full=function(p){var s=seatsOf(p);return st.own!==p&&!!s&&s.free<=0};
   var seatText=function(p){
@@ -373,7 +374,7 @@
     if(st.own===p)return box.getAttribute('data-own');
     if(!s)return box.getAttribute('data-seats-wait');
     if(s.free<=0)return box.getAttribute('data-full');
-    var tpl=box.getAttribute('data-seats-'+form(s.free))||box.getAttribute('data-seats-many');
+    var tpl=box.getAttribute('data-seats-'+form(s.free))||box.getAttribute('data-seats-many')||box.getAttribute('data-seats-other');
     return tpl.replace('{n}',String(s.free)).replace('{limit}',String(s.limit));
   };
   var picked=function(){return terms.filter(function(t){return t.getAttribute('aria-pressed')==='true'})[0]||terms[0]};
@@ -441,7 +442,7 @@
     event.preventDefault();
     var v=String(qMail&&qMail.value||'').trim().toLowerCase();
     if(v.length>100||v.indexOf('@')<1||v.indexOf('.',v.indexOf('@'))<0){say('bad');return}
-    window.fetch(api+'/v1/scanner/wait',{method:'POST',credentials:'omit',headers:{'content-type':'application/json'},body:JSON.stringify({email:v,platform:st.platform,lang:'ru'})}).then(function(r){
+    window.fetch(api+'/v1/scanner/wait',{method:'POST',credentials:'omit',headers:{'content-type':'application/json'},body:JSON.stringify({email:v,platform:st.platform,lang:lang})}).then(function(r){
       return r.json().then(function(b){return {status:r.status,body:b}},function(){return {status:r.status,body:{}}});
     }).then(function(res){
       var b=res.body||{};
