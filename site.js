@@ -92,6 +92,10 @@
     var en=String(document.documentElement.getAttribute('lang')||'').slice(0,2)==='en';
     return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,en?',':'\u00a0')+'\u00a0\u20bd';
   };
+  var codeCut=function(list,amount){
+    var n=Math.round(100*(1-Number(amount)/Number(list)));
+    return Number(list)>0&&n>0?n:0;
+  };
   var picks=[].slice.call(document.querySelectorAll('[data-termpick]'));
   picks.forEach(function(pick){
     var box=pick.closest('.price-panel');
@@ -150,6 +154,9 @@
         if(is)is.textContent=p?moneyText(p.amount):one.getAttribute('data-list');
         var sub=one.querySelector('small'),months=Number(one.getAttribute('data-months'))||0;
         if(sub)sub.textContent=p&&months>1&&perTpl?perTpl.replace('{price}',moneyText(Math.round(p.amount/months))):one.getAttribute('data-sub');
+        var cut=one.querySelector('.t-save'),save=one.querySelector('.t-cheap'),pct=p?codeCut(p.list,p.amount):0;
+        if(cut){cut.textContent=pct?'\u2212'+pct+'\u00a0%':'';cut.hidden=!pct}
+        if(save)save.hidden=!!p;
       });
       if(!on)return;
       var p=priceOf(on.getAttribute('data-term'));
