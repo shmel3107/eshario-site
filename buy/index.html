@@ -378,7 +378,7 @@
   var picked=function(){return terms.filter(function(t){return t.getAttribute('aria-pressed')==='true'})[0]||terms[0]};
   var publish=function(){
     var on=picked();
-    var plan=st.sales==='on'&&on?on.getAttribute('data-scan'):'';
+    var plan=st.sales==='on'&&on&&!full(st.platform)?on.getAttribute('data-scan'):'';
     if(plan){
       body.setAttribute('data-scan-plan',plan);
       body.setAttribute('data-scan-platform',st.platform);
