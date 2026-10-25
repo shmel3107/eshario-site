@@ -363,7 +363,7 @@
   var qSay=document.getElementById('scan-q-say');
   var qMail=document.getElementById('scan-email');
   var st={sales:null,seats:null,platform:'ps'};
-  try{var u=new URLSearchParams(window.location.search),want=u.get('platform');if(want==='ps'||want==='pc'){st.platform=want;if(u.get('seat')==='own')st.own=want}var scanWant=u.get('scanner');if(scanWant==='m1'||scanWant==='m3')st.want='scanner-'+scanWant}catch(err){}
+  try{var u=new URLSearchParams(window.location.search),want=u.get('platform');if(want==='ps'||want==='pc'){st.platform=want;if(u.get('seat')==='own')st.own=want}var scanWant=u.get('scanner');if(scanWant==='m1'||scanWant==='m3')st.want='scanner-'+scanWant;else if(st.own&&scanWant===null)st.want='scanner-m1'}catch(err){}
   var nameOf=function(p){var b=plats.filter(function(x){return x.getAttribute('data-platform')===p})[0];return b?b.querySelector('b').textContent:p};
   var lang=document.documentElement&&document.documentElement.lang==='en'?'en':'ru';
   var form=function(n){try{return new Intl.PluralRules(lang).select(n)}catch(err){return 'many'}};
