@@ -33,7 +33,7 @@
 <div class="terms scan-terms" data-scanpick role="group" aria-label="2. Сканер"><button class="term" type="button" data-scan="" data-price="0" data-label="Без сканера" aria-pressed="true"><b>Без сканера</b><span class="t-price">0 ₽</span><small>только премиум</small></button><button class="term" type="button" data-scan="scanner-m1" data-price="749" data-label="1 месяц" aria-pressed="false" disabled><b>Сканер на 1 месяц</b><span class="t-price">749 ₽</span><small>30 дней с выдачи</small></button><button class="term" type="button" data-scan="scanner-m3" data-price="1990" data-label="3 месяца" aria-pressed="false" disabled><b>Сканер на 3 месяца</b><span class="t-price">1 990 ₽</span><small>663 ₽ в месяц</small><small class="t-cheap">на 11 % дешевле помесячной</small></button></div>
 <div class="scan-plats" data-platpick role="group" aria-label="Платформа сканера" hidden><button class="term k-plat" type="button" data-platform="ps" aria-pressed="true"><b>PlayStation и Xbox</b><small data-seats>места уточняются</small></button><button class="term k-plat" type="button" data-platform="pc" aria-pressed="false"><b>ПК</b><small data-seats>места уточняются</small></button></div>
 <p class="k-once scan-about">Сканер присылает уведомления, когда карту выставили на рынок дешевле её обычной цены. Уведомления приходят в расширение, в ваш Telegram и в форум сканера. Мест на каждой платформе немного, чтобы карт из уведомлений хватало всем. Сканер не обещает покупок и монет.</p>
-<p class="k-once scan-has">Премиум уже есть и нужен только сканер? Его можно купить отдельно в Telegram.</p>
+<p class="k-once scan-has">Премиум уже есть и нужен только сканер? Его можно купить отдельно <a href="https://t.me/esha_scanner_bot?start=site" target="_blank" rel="noopener">в Telegram</a>.</p>
 <p class="k-once scan-soon" hidden>Продажа сканера на сайте откроется скоро. Лист ожидания уже работает.</p>
 <form class="scan-queue" id="scan-queue" novalidate autocomplete="on" hidden><p class="scan-q-head" data-full="Мест на {platform} нет. Оставьте почту: когда место освободится, напишем всем в листе ожидания. Место займёт тот, кто первым оплатит." data-soon="Оставьте почту: когда продажа на {platform} откроется, напишем всем в листе ожидания.">Мест на {platform} нет. Оставьте почту: когда место освободится, напишем всем в листе ожидания. Место займёт тот, кто первым оплатит.</p><label for="scan-email">Почта для листа ожидания</label><div class="k-row"><input id="scan-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="100" spellcheck="false"><button class="btn btn-ghost" type="submit">В лист ожидания</button></div><p class="hint" id="scan-q-say" aria-live="polite" data-done="Готово. Почта в листе ожидания на {platform}. Когда место освободится, напишем на {mask}." data-again="Эта почта уже в листе ожидания на {platform}. Напишем на {mask}." data-free="Место на {platform} освободилось, его можно купить сейчас." data-bad="Проверьте почту: в ней ошибка." data-busy="Слишком много попыток подряд. Подождите несколько минут." data-fail="Не получилось добавить почту. Попробуйте ещё раз."></p></form>
 </div>
@@ -363,7 +363,7 @@
   var qSay=document.getElementById('scan-q-say');
   var qMail=document.getElementById('scan-email');
   var st={sales:null,seats:null,platform:'ps'};
-  try{var u=new URLSearchParams(window.location.search),want=u.get('platform');if(want==='ps'||want==='pc'){st.platform=want;if(u.get('seat')==='own')st.own=want}}catch(err){}
+  try{var u=new URLSearchParams(window.location.search),want=u.get('platform');if(want==='ps'||want==='pc'){st.platform=want;if(u.get('seat')==='own')st.own=want}var scanWant=u.get('scanner');if(scanWant==='m1'||scanWant==='m3')st.want='scanner-'+scanWant}catch(err){}
   var nameOf=function(p){var b=plats.filter(function(x){return x.getAttribute('data-platform')===p})[0];return b?b.querySelector('b').textContent:p};
   var lang=document.documentElement&&document.documentElement.lang==='en'?'en':'ru';
   var form=function(n){try{return new Intl.PluralRules(lang).select(n)}catch(err){return 'many'}};
@@ -415,19 +415,29 @@
     }
     publish();
   };
+  var press=function(t){
+    if(t.disabled)return;
+    terms.forEach(function(o){o.setAttribute('aria-pressed',o===t?'true':'false')});
+    render();
+  };
+  var pressWanted=function(){
+    var w=st.want;st.want='';
+    if(!w||st.sales!=='on')return;
+    var s=seatsOf(st.platform);
+    if(st.own!==st.platform&&!(s&&s.free>0))return;
+    var t=terms.filter(function(x){return x.getAttribute('data-scan')===w})[0];
+    if(t)press(t);
+  };
   var ask=function(){
     window.fetch(api+'/v1/scanner/seats',{credentials:'omit',cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(b){
       if(!b||!b.ok)return;
       st.sales=b.sales==='on'?'on':'off';
       st.seats={ps:b.ps,pc:b.pc};
       render();
+      pressWanted();
     },function(){});
   };
-  terms.forEach(function(t){t.addEventListener('click',function(){
-    if(t.disabled)return;
-    terms.forEach(function(o){o.setAttribute('aria-pressed',o===t?'true':'false')});
-    render();
-  })});
+  terms.forEach(function(t){t.addEventListener('click',function(){press(t)})});
   plats.forEach(function(b){b.addEventListener('click',function(){
     st.platform=b.getAttribute('data-platform');
     if(qSay)qSay.textContent='';
