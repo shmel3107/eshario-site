@@ -1,9 +1,9 @@
 {
-  "version": "2.8.0",
-  "sha256": "3d5bb747302074bfcf99398900be8fc9b299a402b606f57df2d5808a8fa8206f",
-  "bytes": 6182876,
-  "sig": "cZvkUjVAg6e1I70XT1GAP0sqgiUoZDVommWNNgphoMmfCssFKAC/1cK2/8Od0BvLBvMR2S0zyhJXxDgUlRjtkw==",
+  "version": "2.8.1",
+  "sha256": "2e62abc558be71fc5381c423254424c7996a8490eb09c0cde50fc28b34c5238c",
+  "bytes": 6475836,
+  "sig": "vYke1ZI5mMk7WfNntMPGpIhRZlN4QbImiPGx/uR8rTCtV9+kbVPZYyZTRYjJBG+GPmcse0A6wzFA9v/1+Ktz1w==",
   "minLoader": "2.2.0",
-  "url": "https://eshario.com/downloads/code/2.8.0/page-bundle.js",
+  "url": "https://eshario.com/downloads/code/2.8.1/page-bundle.js",
   "config": {}
 }
