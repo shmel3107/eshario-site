@@ -31,7 +31,8 @@
 <div class="k-scan" data-scanner data-api="https://api.eshario.com" data-seats-wait="checking places" data-full="no places, leave your email" data-own="your place is waiting for you" data-card="Scanner · {platform} · {term}" data-default-ps="65" data-default-pc="35" data-seats-one="{n} place free of {limit}" data-seats-other="{n} places free of {limit}">
 <h2 class="k-h">2. Scanner <small>optional</small></h2>
 <div class="terms scan-terms" data-scanpick role="group" aria-label="2. Scanner"><button class="term" type="button" data-scan="" data-price="0" data-label="No scanner" aria-pressed="true"><b>No scanner</b><span class="t-price">0 ₽</span><small>premium only</small></button><button class="term" type="button" data-scan="scanner-m1" data-price="749" data-label="1 month" aria-pressed="false" disabled><b>Scanner for 1 month</b><span class="t-price">749 ₽</span><small>30 days from issue</small></button><button class="term" type="button" data-scan="scanner-m3" data-price="1990" data-label="3 months" aria-pressed="false" disabled><b>Scanner for 3 months</b><span class="t-price">1,990 ₽</span><small>663 ₽ per month</small><small class="t-cheap">11 % cheaper than monthly</small></button></div>
-<div class="scan-plats" data-platpick role="group" aria-label="Scanner platform" hidden><button class="term k-plat" type="button" data-platform="ps" aria-pressed="true"><b>PlayStation and Xbox</b><small data-seats>checking places</small></button><button class="term k-plat" type="button" data-platform="pc" aria-pressed="false"><b>PC</b><small data-seats>checking places</small></button></div>
+<div class="scan-plats" data-platpick role="group" aria-label="Scanner platform" hidden><button class="term k-plat" type="button" data-platform="ps" aria-pressed="false"><b>PlayStation and Xbox</b><small data-seats>checking places</small></button><button class="term k-plat" type="button" data-platform="pc" aria-pressed="false"><b>PC</b><small data-seats>checking places</small></button></div>
+<p class="hint scan-need" aria-live="polite" hidden>Choose the scanner platform first.</p>
 <p class="k-once scan-about">The scanner sends notifications when a card is listed on the market below its usual price. Notifications arrive in the extension, in your Telegram and in the scanner forum. Each platform has few places, so that there are enough cards from notifications for everyone. The scanner does not promise purchases or coins.</p>
 <p class="k-once scan-has">Already have premium and only need the scanner? You can buy it separately <a href="https://t.me/esha_scanner_bot?start=site" target="_blank" rel="noopener">in Telegram</a>.</p>
 <p class="k-once scan-soon" hidden>Scanner sales on the site open soon. The waiting list already works.</p>
@@ -184,6 +185,7 @@
   };
   var round=0;
   var keep=function(id){try{window.sessionStorage.setItem('eshario_order',id)}catch(err){}};
+  var keepScan=function(sc){try{window.localStorage.setItem('eshario_scan',JSON.stringify({platform:sc.f,scanner:sc.p,at:Date.now()}))}catch(err){}};
   var refused=function(id,v){try{window.fetch(api+'/v1/orders/'+encodeURIComponent(id)+'/refused',{method:'POST',credentials:'omit',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({email:v})}).then(null,function(){})}catch(err){}};
   var moveBtn=document.getElementById('buy-move');
   var toCrypto=document.getElementById('buy-to-crypto');
@@ -196,6 +198,7 @@
   var order=function(v,mine,retryOf,base,why){
     var w=retryOf?'sbp':way;
     var sent=null;
+    var took=null;
     say('making');
     (base?Promise.resolve(base.consentHash):consentHash()).then(function(hash){
       var ask=base?{
@@ -216,7 +219,7 @@
         consentHash:hash
       };
       var sc=base?{p:base.scanner||'',f:base.scannerPlatform||''}:scan();
-      if(sc.p){ask.scanner=sc.p;ask.scannerPlatform=sc.f}
+      if(sc.p){ask.scanner=sc.p;ask.scannerPlatform=sc.f;took=sc}
       if(!retryOf)sent=ask;
       if(retryOf){ask.retryOf=retryOf;ask.reason=why||'im-unavailable'}
       if(w!=='sbp')ask.method=w;
@@ -234,6 +237,7 @@
     }).then(function(res){
       if(mine!==round)return;
       var b=res.body||{};
+      if(res.status===201&&b.orderId&&took)keepScan(took);
       if(res.status===201&&b.orderId&&b.form&&b.form.action===action&&!retryOf&&w==='sbp'){
         imPay(v,mine,b,sent);
         return;
@@ -362,8 +366,27 @@
   var qHead=q?q.querySelector('.scan-q-head'):null;
   var qSay=document.getElementById('scan-q-say');
   var qMail=document.getElementById('scan-email');
-  var st={sales:null,seats:null,platform:'ps'};
-  try{var u=new URLSearchParams(window.location.search),want=u.get('platform');if(want==='ps'||want==='pc'){st.platform=want;if(u.get('seat')==='own')st.own=want}var scanWant=u.get('scanner');if(scanWant==='m1'||scanWant==='m3')st.want='scanner-'+scanWant;else if(st.own&&scanWant===null)st.want='scanner-m1'}catch(err){}
+  var need=box.querySelector('.scan-need');
+  var st={sales:null,seats:null,platform:''};
+  var SCAN_KEY='eshario_scan';
+  var SCAN_TTL=30*24*60*60*1000;
+  var recall=function(){
+    var raw='';
+    try{raw=window.localStorage.getItem(SCAN_KEY)||''}catch(err){return null}
+    if(!raw)return null;
+    var s=null;
+    try{s=JSON.parse(raw)}catch(err){s=null}
+    if(!s||typeof s.at!=='number'||Math.abs(Date.now()-s.at)>SCAN_TTL){try{window.localStorage.removeItem(SCAN_KEY)}catch(err){}return null}
+    return {platform:s.platform==='ps'||s.platform==='pc'?s.platform:'',scanner:s.scanner==='scanner-m1'||s.scanner==='scanner-m3'?s.scanner:''};
+  };
+  var remember=function(part){
+    var s=recall()||{platform:'',scanner:''};
+    if('platform' in part)s.platform=part.platform||'';
+    if('scanner' in part)s.scanner=part.scanner||'';
+    try{window.localStorage.setItem(SCAN_KEY,JSON.stringify({platform:s.platform,scanner:s.scanner,at:Date.now()}))}catch(err){}
+  };
+  var kept=recall();
+  try{var u=new URLSearchParams(window.location.search),want=u.get('platform');if(want==='ps'||want==='pc'){st.platform=want;if(u.get('seat')==='own')st.own=want}else if(kept&&kept.platform)st.platform=kept.platform;var scanWant=u.get('scanner');if(scanWant==='m1'||scanWant==='m3')st.want='scanner-'+scanWant;else if(st.own&&scanWant===null)st.want='scanner-m1';else if(kept&&kept.scanner)st.want=kept.scanner;var said={};if(want==='ps'||want==='pc')said.platform=want;if(scanWant==='m1'||scanWant==='m3'||(st.own&&scanWant===null))said.scanner=st.want;if('platform' in said||'scanner' in said)remember(said)}catch(err){}
   var nameOf=function(p){var b=plats.filter(function(x){return x.getAttribute('data-platform')===p})[0];return b?b.querySelector('b').textContent:p};
   var lang=document.documentElement&&document.documentElement.lang==='en'?'en':'ru';
   var form=function(n){try{return new Intl.PluralRules(lang).select(n)}catch(err){return 'many'}};
@@ -380,7 +403,7 @@
   var picked=function(){return terms.filter(function(t){return t.getAttribute('aria-pressed')==='true'})[0]||terms[0]};
   var publish=function(){
     var on=picked();
-    var plan=st.sales==='on'&&on&&!full(st.platform)?on.getAttribute('data-scan'):'';
+    var plan=st.sales==='on'&&on&&st.platform&&!full(st.platform)?on.getAttribute('data-scan'):'';
     if(plan){
       body.setAttribute('data-scan-plan',plan);
       body.setAttribute('data-scan-platform',st.platform);
@@ -402,13 +425,16 @@
     var choosing=open&&picked().getAttribute('data-scan')!=='';
     var waiting=st.sales==='off';
     if(platBox)platBox.hidden=!(choosing||waiting);
+    var lost=(choosing||waiting)&&!st.platform;
+    if(platBox){if(lost)platBox.setAttribute('data-need','');else platBox.removeAttribute('data-need')}
+    if(need)need.hidden=!lost;
     plats.forEach(function(b){
       var p=b.getAttribute('data-platform');
       b.setAttribute('aria-pressed',p===st.platform?'true':'false');
       var small=b.querySelector('[data-seats]');
       if(small)small.textContent=seatText(p);
     });
-    var showQueue=waiting||(choosing&&full(st.platform));
+    var showQueue=!!st.platform&&(waiting||(choosing&&full(st.platform)));
     if(q){
       q.hidden=!showQueue;
       if(qHead)qHead.textContent=qHead.getAttribute(waiting&&!full(st.platform)?'data-soon':'data-full').replace('{platform}',nameOf(st.platform));
@@ -424,7 +450,7 @@
     var w=st.want;st.want='';
     if(!w||st.sales!=='on')return;
     var s=seatsOf(st.platform);
-    if(st.own!==st.platform&&!(s&&s.free>0))return;
+    if(st.platform&&st.own!==st.platform&&!(s&&s.free>0))return;
     var t=terms.filter(function(x){return x.getAttribute('data-scan')===w})[0];
     if(t)press(t);
   };
@@ -437,9 +463,14 @@
       pressWanted();
     },function(){});
   };
-  terms.forEach(function(t){t.addEventListener('click',function(){press(t)})});
+  terms.forEach(function(t){t.addEventListener('click',function(){
+    if(t.disabled)return;
+    press(t);
+    remember({scanner:t.getAttribute('data-scan')});
+  })});
   plats.forEach(function(b){b.addEventListener('click',function(){
     st.platform=b.getAttribute('data-platform');
+    remember({platform:st.platform});
     if(qSay)qSay.textContent='';
     render();
   })});
@@ -450,6 +481,7 @@
   };
   if(q)q.addEventListener('submit',function(event){
     event.preventDefault();
+    if(!st.platform)return;
     var v=String(qMail&&qMail.value||'').trim().toLowerCase();
     if(v.length>100||v.indexOf('@')<1||v.indexOf('.',v.indexOf('@'))<0){say('bad');return}
     window.fetch(api+'/v1/scanner/wait',{method:'POST',credentials:'omit',headers:{'content-type':'application/json'},body:JSON.stringify({email:v,platform:st.platform,lang:lang})}).then(function(r){
