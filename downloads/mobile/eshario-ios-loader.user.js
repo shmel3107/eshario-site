@@ -3,8 +3,8 @@
 // @namespace    https://eshario.com/ios
 // @updateURL    https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
 // @downloadURL  https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
-// @version      2.0.3.124
-// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-124, loader)
+// @version      2.1.0.125
+// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-125, loader)
 // @match        https://www.ea.com/*
 // @match        https://eshario.com/mobile-login*
 // @inject-into  content
@@ -25,9 +25,9 @@
 // @connect      eshario.com
 // @connect      eshario.app
 // ==/UserScript==
-// ESHArio MFIN-124, loader: page code comes from the server, signature checked by src/loader/code.js
+// ESHArio MFIN-125, loader: page code comes from the server, signature checked by src/loader/code.js
 (function(){'use strict';
-var HOST_CONFIG={"manifest":{"version":"2.0.3"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-124","words":{"accountTitle":"Аккаунт ESHArio"}};
+var HOST_CONFIG={"manifest":{"version":"2.1.0"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-125","words":{"accountTitle":"Аккаунт ESHArio"}};
 // --- mobile/host/host.js ---
 // ХОСТ ESHArio НА iPHONE (кирпич MOBILE-IOS-1, дорога И2).
 //
@@ -72,10 +72,12 @@ var RUNTIME_ID='eshario-ios';
 var BASE='eshario-ios:/';
 var ACCOUNT_PAGE='account/popup.html';
 var CLOSED='mobile-closed';
-// Что мост может спросить у фона. Остальное (код с сервера, отчёты, перенос
-// настроек, обновление архива) на телефоне закрыто: отказ, и мост отвечает
-// странице своим прежним словом отказа.
-var WORKER_OPEN=['price.fetch','cards.base','account.status','account.open'];
+// Что мост может спросить у фона. Остальное (код с сервера, отчёты, обновление
+// архива) на телефоне закрыто: отказ, и мост отвечает странице своим прежним
+// словом отказа. Перенос настроек открыт вебапу (просьба владельца 26.10, облако
+// между ПК и телефоном): сессию и снимок держит код воркера здесь, в мире хоста,
+// сеть только `api.eshario.com`, странице уходит `{ok, revision, reason}`.
+var WORKER_OPEN=['price.fetch','cards.base','account.status','account.open','settings.transfer'];
 var BUDGET=['budget.reserve','budget.spend','budget.release','budget.rest','budget.state'];
 var DOORS_OPEN=['net.fetch','store.get','store.set','store.remove','store.keys','code.status'];
 // Ключи кода в памяти виртуальные: код страницы едет в самом юзерскрипте, и
@@ -98,6 +100,13 @@ var SOFT_SILENT_MS=3500;
 var SOFT_REST_MS=20000;
 // Сколько последних запросов к мягким узлам помнит знак на корне.
 var SOFT_LOG=8;
+// ФОН МЕНЕДЖЕРА НЕ ЗАСЫПАЕТ ПОД ДОЛГИМ ЗАПРОСОМ (проход iPhone 27.10, сигналы). Ждущая
+// линия сигналов держит запрос до 25 с. На iPhone фон Userscripts засыпал раньше, и ответ
+// терялся без `onload` и `onerror`: 35 из 38 ожиданий до срока 40 с, на A03 0 из 210.
+// Пока запрос в пути, хост раз в 8 с читает пустой ключ памяти менеджера: вызов будит фон
+// (отладочная сборка MFIN-215: 1 из 15). Ответ пришёл, чтений больше нет.
+var AWAKE_MS=8000;
+var AWAKE_KEY='local:host.awake';
 // Подписанный файл кода едет байтами: подпись считается по байтам, а не по
 // тексту, перекодированному менеджером (этап 5, загрузчик кода ядра).
 var CODE_FILE_RE=/\/page-bundle\.js$/;
@@ -413,6 +422,10 @@ onabort:function(){fail(failure('AbortError','aborted'))}};
 if(init.body!==undefined&&init.body!==null)details.data=init.body;
 try{if(CODE_FILE_RE.test(new URL(url).pathname))details.responseType='arraybuffer'}catch(err){}
 try{req=GM.xmlHttpRequest(details)}catch(err){fail(new TypeError('host: network'));return}
+function awake(){if(settled||Date.now()-asked>FETCH_CAP_MS)return;
+try{Promise.resolve(GM.getValue(AWAKE_KEY,GONE)).then(null,function(){})}catch(err){}
+later(awake,AWAKE_MS)}
+later(awake,AWAKE_MS);
 if(soft!=='')watch=later(function(){watch=null;
 if(settled)return;
 softRest[soft]=Date.now()+SOFT_REST_MS;
@@ -752,6 +765,19 @@ askBackground({method:'account.login',params:said},senderOf()).then(render,funct
 function logout(){show('wait',null);
 askBackground({method:'account.logout'},senderOf()).then(function(){return askBackground({method:'account.status'},senderOf())}).then(render,function(){show('error',null)})}
 if(out)out.addEventListener('click',logout);
+// «ЗАБЫЛИ ПАРОЛЬ», КАК В ОКНЕ АККАУНТА ПК (`src/account/account-ui.js`): кнопка
+// меняет вход на форму почты и обратно, почта уходит фону тем же методом, что
+// на ПК, и дальше только в `api`. Письмо api несёт ссылку, пароль меняется по
+// ней в браузере (проход брата 28.10), поэтому шага кода здесь нет. Узлов может
+// не быть (страница без блока): тогда кусок молчит.
+var toggle=doc.getElementById('recovery-toggle'),start=doc.getElementById('recovery-start'),
+mail=doc.getElementById('recovery-email');
+if(toggle){var title=toggle.textContent;
+toggle.addEventListener('click',function(){setRecovery(!recoveryOpen,title);
+if(recoveryOpen&&mail&&!mail.value)mail.value=String(email.value||'').trim()})}
+if(start&&mail)start.addEventListener('submit',function(event){event.preventDefault();
+recoverySay(null);
+askBackground({method:'account.recovery.start',params:{email:String(mail.value||'').trim()}},senderOf()).then(function(value){recoverySay(plain(value)&&value.ok===true?'accepted':'error')},function(){recoverySay('error')})});
 // ВОПРОС О ВЫХОДЕ С ПОРОГА, КАК НА ПК (`src/account/account-ui.js`, кирпич
 // LOGOUT-BUTTON-1). Красная «Выйти» в вебапе открывает эту страницу с
 // `?ask=logout`; без вопроса человек видел «Премиум» и вторую «Выйти» и
@@ -784,16 +810,32 @@ var payload=JSON.parse(atob(part+'===='.slice((part.length%4)||4)));
 return Number.isSafeInteger(payload.exp)?new Date(payload.exp).toLocaleDateString():''}catch(err){return ''}}
 
 function show(word,fill){var signed=word==='premium'||word==='free';
-var form=doc.getElementById('login'),box=doc.getElementById('signed');
+var form=doc.getElementById('login'),box=doc.getElementById('signed'),rec=doc.getElementById('recovery');
 // Пока фон не ответил, формы нет: иначе она мелькает перед «Премиум до…»
-// (живой лист 04.10, выход с вебапа).
-if(form)form.hidden=signed||word==='wait';
+// (живой лист 04.10, выход с вебапа). Восстановление там же, где вход: кто
+// вошёл, тому его не видно, как на ПК.
+if(form)form.hidden=signed||word==='wait'||recoveryOpen;
 if(box)box.hidden=!signed;
+if(rec)rec.hidden=signed||word==='wait';
+recoverySay(null);
 Array.prototype.forEach.call(doc.querySelectorAll('[data-word]'),function(node){var on=node.getAttribute('data-word')===word;
 node.hidden=!on;
 if(on&&fill){var text=node.getAttribute('data-text')||node.textContent;
 node.setAttribute('data-text',text);
 node.textContent=text.replace(/\$([A-Z]+)\$/g,function(all,name){return fill[name]!==undefined?String(fill[name]):all})}})}
+
+/** Форма восстановления вместо входа и обратно; подпись кнопки вторая, как на ПК. */
+var recoveryOpen=false;
+function setRecovery(open,title){recoveryOpen=open;
+var forms=doc.getElementById('recovery-forms'),form=doc.getElementById('login'),toggle=doc.getElementById('recovery-toggle');
+if(forms)forms.hidden=!open;
+if(form)form.hidden=open;
+if(toggle){toggle.setAttribute('aria-expanded',String(open));
+toggle.textContent=open?(toggle.getAttribute('data-back')||title):title}
+recoverySay(null)}
+
+/** Одна строка ответа восстановления (слова лежат в странице), `null` гасит все. */
+function recoverySay(word){Array.prototype.forEach.call(doc.querySelectorAll('[data-recovery]'),function(node){node.hidden=node.getAttribute('data-recovery')!==word})}
 
 // --- страница EA (режим webapp) -------------------------------------------------
 
@@ -4834,8 +4876,8 @@ try{Promise.resolve(chrome.runtime.sendMessage({method:'code.boot',params:{ok:fa
 // Кода страницы нет, и человек видит вебап без ESHArio, не понимая почему.
 // Мост ставит сверху страницы одну тонкую строку СВОИМИ средствами (кода
 // страницы нет, а с ним нет и органа `update-notice.js`): «загружает код»,
-// «сервер не отвечает, повторю позже», «код загружен, обновите
-// страницу (F5)» и «нужен новый архив» (код с сервера просит папку новее
+// «сервер не отвечает, повторю позже», «код загружен, обнови
+// страницу (F5)» (на телефоне без «(F5)») и «нужен новый архив» (код с сервера просит папку новее
 // нашей: признак `code.needsLoader`, его пишет фон). Строку двигает память
 // загрузчика (`code.current`, `code.state`, `code.needsLoader` в
 // `chrome.storage.onChanged`); страницу мост сам не перезагружает. Строка
@@ -4854,8 +4896,8 @@ try{Promise.resolve(chrome.runtime.sendMessage({method:'code.boot',params:{ok:fa
 // их с `ui/theme.css` (`RAW_COLOR_EXCEPTIONS`), и смена гаммы красит гейт здесь.
 var LINE_ID='eshario-loader-line';
 var LINE_TEXTS={
-ru:{wait:'ESHArio загружает код с сервера…',silent:'ESHArio: сервер не отвечает, повторю позже',ready:'ESHArio: код загружен, обновите страницу (F5)',needs:'ESHArio: нужен новый архив, скачайте на eshario.com'},
-en:{wait:'ESHArio is loading its code from the server…',silent:'ESHArio: server not responding, retrying later',ready:'ESHArio: code loaded, refresh the page (F5)',needs:'ESHArio: a new install is needed, download it at eshario.com'}};
+ru:{wait:'ESHArio загружает код с сервера…',silent:'ESHArio: сервер не отвечает, повторю позже',ready:'ESHArio: код загружен, обнови страницу (F5)',readyPhone:'ESHArio: код загружен, обнови страницу',needs:'ESHArio: нужен новый архив, скачайте на eshario.com'},
+en:{wait:'ESHArio is loading its code from the server…',silent:'ESHArio: server not responding, retrying later',ready:'ESHArio: code loaded, refresh the page (F5)',readyPhone:'ESHArio: code loaded, refresh the page',needs:'ESHArio: a new install is needed, download it at eshario.com'}};
 var LINE_TEXT=LINE_TEXTS[lineLang()];
 function lineLang(){try{var said=typeof navigator!=='undefined'&&navigator&&typeof navigator.language==='string'?navigator.language:'';
 return /^ru/i.test(said)?'ru':'en'}catch(err){return 'en'}}
@@ -4886,6 +4928,14 @@ for(var i=0;i<4;i+=1){var p=x[i]||0,q=y[i]||0;
 if(p!==q)return p>q}
 return false}
 
+// НА ТЕЛЕФОНЕ БЕЗ «(F5)» (TAILS-2-7-1-2 п.4, находка 2 линии брата): клавиши F5 там нет.
+// Признак тот же, что у слов телефона (`mobile-fit.js`): атрибут на корне документа,
+// `data-eshario-mobile` или знак хоста `data-eshario-host`. Признака ещё нет: запасное
+// распознавание по строке агента (TAILS-2-7-2-1 п.2, D169-2).
+function linePhone(){try{var root=document.documentElement;
+if(!!root&&typeof root.hasAttribute==='function'&&(root.hasAttribute('data-eshario-mobile')||root.hasAttribute('data-eshario-host')))return true;
+return typeof navigator!=='undefined'&&!!navigator&&/iPhone|iPad|iPod|Android/.test(String(navigator.userAgent||''))}catch(err){return false}}
+
 function lineStyle(kind){return 'position:fixed;top:0;left:0;right:0;z-index:2147483647;pointer-events:none;box-sizing:border-box;margin:0;padding:3px 12px;'
 +'font:12px/16px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;'
 +'background:'+LINE_SURFACE+';color:'+LINE_INK+';border-bottom:2px solid '+(kind==='silent'||kind==='needs'?LINE_WARN:LINE_ACCENT)}
@@ -4896,7 +4946,7 @@ line.id=LINE_ID;
 line.setAttribute('role','status');
 (document.documentElement||document.body).appendChild(line)}
 line.dataset.esharioLine=kind;
-line.textContent=LINE_TEXT[kind];
+line.textContent=kind==='ready'&&linePhone()?LINE_TEXT.readyPhone:LINE_TEXT[kind];
 // Стиль через CSSOM, а не атрибутом: правило `style-src` без `'unsafe-inline'`
 // гасит атрибут `style`, а свойства `style` не трогает.
 var css=lineStyle(kind);

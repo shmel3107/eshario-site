@@ -73,6 +73,21 @@
 </div></footer>
 <script src="../../site.js"></script>
 <script>(function(){
+  try{
+    var q=new URLSearchParams(window.location.search);
+    var tag=function(v){return (v||'').replace(/[^A-Za-z0-9._-]/g,'').slice(0,40)};
+    var host='';
+    try{host=document.referrer?new URL(document.referrer).hostname.toLowerCase():''}catch(e){host=''}
+    if(host===window.location.hostname.toLowerCase())host='';
+    var src=tag(q.get('utm_source'))||tag(q.get('promo')).toLowerCase()||tag(host)||'direct';
+    var lang=document.documentElement.getAttribute('lang')==='en'?'en':'ru';
+    var url="https://api.eshario.com"+'/v1/hit';
+    var body=JSON.stringify({page:'buy',src:src,lang:lang});
+    if(navigator.sendBeacon&&navigator.sendBeacon(url,body))return;
+    window.fetch(url,{method:'POST',body:body,credentials:'omit',keepalive:true,mode:'no-cors'}).then(null,function(){});
+  }catch(e){}
+})();</script>
+<script>(function(){
   var form=document.getElementById('buy-form');
   var go=document.getElementById('buy-go');
   var email=document.getElementById('buy-email');
