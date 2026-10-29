@@ -33,7 +33,7 @@
 <div class="terms scan-terms" data-scanpick role="group" aria-label="2. Сканер"><button class="term" type="button" data-scan="" data-price="0" data-label="Без сканера" aria-pressed="true"><b>Без сканера</b><span class="t-price">0 ₽</span><small>только премиум</small></button><button class="term" type="button" data-scan="scanner-m1" data-price="749" data-label="1 месяц" aria-pressed="false" disabled><b>Сканер на 1 месяц</b><span class="t-price">749 ₽</span><small>30 дней с выдачи</small></button><button class="term" type="button" data-scan="scanner-m3" data-price="1990" data-label="3 месяца" aria-pressed="false" disabled><b>Сканер на 3 месяца</b><span class="t-price">1 990 ₽</span><small>663 ₽ в месяц</small><small class="t-cheap">на 11 % дешевле помесячной</small></button></div>
 <div class="scan-plats" data-platpick role="group" aria-label="Платформа сканера" hidden><button class="term k-plat" type="button" data-platform="ps" aria-pressed="false"><b>PlayStation и Xbox</b><small data-seats>места уточняются</small></button><button class="term k-plat" type="button" data-platform="pc" aria-pressed="false"><b>ПК</b><small data-seats>места уточняются</small></button></div>
 <p class="hint scan-need" aria-live="polite" hidden>Сначала выберите платформу сканера.</p>
-<p class="hint scan-tribute" aria-live="polite" data-tpl="Сканер через Телеграм у Вас до {tribute}. Дни с сайта пойдут после него, до {until}." data-days-scanner-m1="30" data-days-scanner-m3="90" hidden></p>
+<p class="hint scan-tribute" hidden>Если у вас уже есть сканер через Telegram, дни с сайта пойдут после него. Точные даты придут в письме после оплаты.</p>
 <p class="k-once scan-about">Сканер присылает уведомления, когда карту выставили на рынок дешевле её обычной цены. Уведомления приходят в расширение, в ваш Telegram и в форум сканера. Мест на каждой платформе немного, чтобы карт из уведомлений хватало всем. Сканер не обещает покупок и монет.</p>
 <p class="k-once scan-has">Премиум уже есть и нужен только сканер? Его можно купить отдельно <a href="https://t.me/esha_scanner_bot?start=site" target="_blank" rel="noopener">в Telegram</a>.</p>
 <p class="k-once scan-soon" hidden>Продажа сканера на сайте откроется скоро. Лист ожидания уже работает.</p>
@@ -384,9 +384,7 @@
   var qMail=document.getElementById('scan-email');
   var need=box.querySelector('.scan-need');
   var trib=box.querySelector('.scan-tribute');
-  var mail=document.getElementById('buy-email');
   var st={sales:null,seats:null,platform:''};
-  var tribs={};
   var SCAN_KEY='eshario_scan';
   var SCAN_TTL=30*24*60*60*1000;
   var recall=function(){
@@ -447,13 +445,13 @@
     var lost=(choosing||waiting)&&!st.platform;
     if(platBox){if(lost)platBox.setAttribute('data-need','');else platBox.removeAttribute('data-need')}
     if(need)need.hidden=!lost;
+    if(trib)trib.hidden=!choosing;
     plats.forEach(function(b){
       var p=b.getAttribute('data-platform');
       b.setAttribute('aria-pressed',p===st.platform?'true':'false');
       var small=b.querySelector('[data-seats]');
       if(small)small.textContent=seatText(p);
     });
-    tribLine();
     var showQueue=!!st.platform&&(waiting||(choosing&&full(st.platform)));
     if(q){
       q.hidden=!showQueue;
@@ -461,28 +459,6 @@
     }
     publish();
   };
-  var mailOf=function(){var v=String(mail&&mail.value||'').trim().toLowerCase();return v.length<=100&&v.indexOf('@')>0&&v.indexOf('.',v.indexOf('@'))>0?v:''};
-  var dayOf=function(ms){var d=new Date(ms);if(lang==='en'){try{return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'UTC'})}catch(err){}}var two=function(n){return (n<10?'0':'')+n};return two(d.getUTCDate())+'.'+two(d.getUTCMonth()+1)};
-  var tribLine=function(){
-    if(!trib)return;
-    var plan=body.getAttribute('data-scan-plan')||'';
-    var v=mailOf(),key=v+'|'+st.platform,got=tribs[key];
-    var days=Number(trib.getAttribute('data-days-'+plan)||0);
-    if(!plan||!v||!got||!got.tributeUntil||!got.from||!days){trib.hidden=true;trib.textContent='';return}
-    trib.textContent=String(trib.getAttribute('data-tpl')||'').replace('{tribute}',dayOf(got.tributeUntil)).replace('{until}',dayOf(got.from+days*24*60*60*1000));
-    trib.hidden=false;
-  };
-  var askTrib=function(){
-    var v=mailOf(),p=st.platform,key=v+'|'+p;
-    if(!trib||!v||!p||!body.getAttribute('data-scan-plan')||key in tribs){tribLine();return}
-    tribs[key]=null;
-    window.fetch(api+'/v1/scanner/tribute',{method:'POST',credentials:'omit',cache:'no-store',headers:{'content-type':'application/json'},body:JSON.stringify({email:v,platform:p})}).then(function(r){return r.ok?r.json():null}).then(function(b){
-      if(b&&b.ok)tribs[key]={tributeUntil:b.tributeUntil,from:b.from};else delete tribs[key];
-      tribLine();
-    },function(){delete tribs[key]});
-  };
-  if(mail){mail.addEventListener('change',askTrib);mail.addEventListener('blur',askTrib)}
-  document.addEventListener('eshario-scan',askTrib);
   var press=function(t){
     if(t.disabled)return;
     terms.forEach(function(o){o.setAttribute('aria-pressed',o===t?'true':'false')});
