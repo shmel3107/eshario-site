@@ -3,8 +3,8 @@
 // @namespace    https://eshario.com/ios
 // @updateURL    https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
 // @downloadURL  https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
-// @version      2.1.0.125
-// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-125, loader)
+// @version      2.1.1.126
+// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-126, loader)
 // @match        https://www.ea.com/*
 // @match        https://eshario.com/mobile-login*
 // @inject-into  content
@@ -25,9 +25,9 @@
 // @connect      eshario.com
 // @connect      eshario.app
 // ==/UserScript==
-// ESHArio MFIN-125, loader: page code comes from the server, signature checked by src/loader/code.js
+// ESHArio MFIN-126, loader: page code comes from the server, signature checked by src/loader/code.js
 (function(){'use strict';
-var HOST_CONFIG={"manifest":{"version":"2.1.0"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-125","words":{"accountTitle":"Аккаунт ESHArio"}};
+var HOST_CONFIG={"manifest":{"version":"2.1.1"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-126","words":{"accountTitle":"Аккаунт ESHArio"}};
 // --- mobile/host/host.js ---
 // ХОСТ ESHArio НА iPHONE (кирпич MOBILE-IOS-1, дорога И2).
 //
