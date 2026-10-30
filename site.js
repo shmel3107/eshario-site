@@ -1,4 +1,40 @@
 (function(){
+  var apiRoad=function(first){
+  var A="https://api.eshario.com",B="https://api.eshario.app",KEY='eshario_api';
+  var two=first===A;
+  var good='';
+  var kept=function(){try{return window.sessionStorage.getItem(KEY)===B}catch(e){return false}};
+  var mark=function(name){
+    if(good===name)return;
+    good=name;
+    try{if(name===B)window.sessionStorage.setItem(KEY,B);else if(kept())window.sessionStorage.removeItem(KEY)}catch(e){}
+  };
+  var cap=function(){
+    try{if(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)return AbortSignal.timeout(4000)}catch(e){}
+    try{if(typeof AbortController!=='undefined'){var c=new AbortController();window.setTimeout(function(){c.abort()},4000);return c.signal}}catch(e){}
+    return null;
+  };
+  var ask=function(path,opts){
+    if(!two)return window.fetch(first+path,opts);
+    var list=good===B||(!good&&kept())?[B,A]:[A,B];
+    var go=function(i){
+      var o={},k;
+      for(k in opts)if(Object.prototype.hasOwnProperty.call(opts,k))o[k]=opts[k];
+      if(i===0&&list[0]===A){var s=cap();if(s)o.signal=s}
+      return window.fetch(list[i]+path,o).then(function(r){mark(list[i]);return r},function(err){if(i+1<list.length)return go(i+1);throw err});
+    };
+    return go(0);
+  };
+  var base=function(){return two?good||(kept()?B:''):first};
+  var once=function(path,opts){
+    if(!two)return window.fetch(first+path,opts);
+    var send=function(name){return window.fetch(name+path,opts).then(function(r){mark(name);return r})};
+    var known=base();
+    if(known)return send(known);
+    return ask('/v1/health',{credentials:'omit',cache:'no-store'}).then(function(){return good||A},function(){return A}).then(send);
+  };
+  return {ask:ask,once:once,base:base};
+};
   (function(){
     var bar=document.querySelector('header.top');
     if(!bar)return;
@@ -184,6 +220,7 @@
   var buyForm=document.getElementById('promo');
   var buyHint=document.getElementById('promo-hint');
   var asking=0;
+  var promoRoad=null;
   function leftText(left){
     var show=Number(buyHint.getAttribute('data-left-show'))||0;
     if(!left||!(left.n<=show))return '';
@@ -206,7 +243,8 @@
     var api=buyForm&&buyForm.getAttribute('data-api');
     if(!api||!window.fetch){setPromo('',null);hint('fail');return}
     hint('wait');
-    window.fetch(api+'/v1/price?promo='+encodeURIComponent(code),{credentials:'omit'}).then(function(r){
+    promoRoad=promoRoad||apiRoad(api);
+    promoRoad.ask('/v1/price?promo='+encodeURIComponent(code),{credentials:'omit'}).then(function(r){
       return r.json().then(function(b){return {status:r.status,body:b}},function(){return {status:r.status,body:{}}});
     }).then(function(res){
       if(mine!==asking)return;

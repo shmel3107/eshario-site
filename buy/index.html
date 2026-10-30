@@ -82,10 +82,47 @@
     if(host===window.location.hostname.toLowerCase())host='';
     var src=tag(q.get('utm_source'))||tag(q.get('promo')).toLowerCase()||tag(host)||'direct';
     var lang=document.documentElement.getAttribute('lang')==='en'?'en':'ru';
-    var url="https://api.eshario.com"+'/v1/hit';
+    var apiRoad=function(first){
+  var A="https://api.eshario.com",B="https://api.eshario.app",KEY='eshario_api';
+  var two=first===A;
+  var good='';
+  var kept=function(){try{return window.sessionStorage.getItem(KEY)===B}catch(e){return false}};
+  var mark=function(name){
+    if(good===name)return;
+    good=name;
+    try{if(name===B)window.sessionStorage.setItem(KEY,B);else if(kept())window.sessionStorage.removeItem(KEY)}catch(e){}
+  };
+  var cap=function(){
+    try{if(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)return AbortSignal.timeout(4000)}catch(e){}
+    try{if(typeof AbortController!=='undefined'){var c=new AbortController();window.setTimeout(function(){c.abort()},4000);return c.signal}}catch(e){}
+    return null;
+  };
+  var ask=function(path,opts){
+    if(!two)return window.fetch(first+path,opts);
+    var list=good===B||(!good&&kept())?[B,A]:[A,B];
+    var go=function(i){
+      var o={},k;
+      for(k in opts)if(Object.prototype.hasOwnProperty.call(opts,k))o[k]=opts[k];
+      if(i===0&&list[0]===A){var s=cap();if(s)o.signal=s}
+      return window.fetch(list[i]+path,o).then(function(r){mark(list[i]);return r},function(err){if(i+1<list.length)return go(i+1);throw err});
+    };
+    return go(0);
+  };
+  var base=function(){return two?good||(kept()?B:''):first};
+  var once=function(path,opts){
+    if(!two)return window.fetch(first+path,opts);
+    var send=function(name){return window.fetch(name+path,opts).then(function(r){mark(name);return r})};
+    var known=base();
+    if(known)return send(known);
+    return ask('/v1/health',{credentials:'omit',cache:'no-store'}).then(function(){return good||A},function(){return A}).then(send);
+  };
+  return {ask:ask,once:once,base:base};
+};
+    var road=apiRoad("https://api.eshario.com");
     var body=JSON.stringify({page:'buy',src:src,lang:lang});
-    if(navigator.sendBeacon&&navigator.sendBeacon(url,body))return;
-    window.fetch(url,{method:'POST',body:body,credentials:'omit',keepalive:true,mode:'no-cors'}).then(null,function(){});
+    var known=road.base();
+    if(known&&navigator.sendBeacon&&navigator.sendBeacon(known+'/v1/hit',body))return;
+    road.ask('/v1/hit',{method:'POST',body:body,credentials:'omit',keepalive:true,mode:'no-cors'}).then(null,function(){});
   }catch(e){}
 })();</script>
 <script>(function(){
@@ -95,6 +132,43 @@
   if(!form||!go||!email)return;
   var label=go.textContent;
   var api=form.getAttribute('data-api');
+  var apiRoad=function(first){
+  var A="https://api.eshario.com",B="https://api.eshario.app",KEY='eshario_api';
+  var two=first===A;
+  var good='';
+  var kept=function(){try{return window.sessionStorage.getItem(KEY)===B}catch(e){return false}};
+  var mark=function(name){
+    if(good===name)return;
+    good=name;
+    try{if(name===B)window.sessionStorage.setItem(KEY,B);else if(kept())window.sessionStorage.removeItem(KEY)}catch(e){}
+  };
+  var cap=function(){
+    try{if(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)return AbortSignal.timeout(4000)}catch(e){}
+    try{if(typeof AbortController!=='undefined'){var c=new AbortController();window.setTimeout(function(){c.abort()},4000);return c.signal}}catch(e){}
+    return null;
+  };
+  var ask=function(path,opts){
+    if(!two)return window.fetch(first+path,opts);
+    var list=good===B||(!good&&kept())?[B,A]:[A,B];
+    var go=function(i){
+      var o={},k;
+      for(k in opts)if(Object.prototype.hasOwnProperty.call(opts,k))o[k]=opts[k];
+      if(i===0&&list[0]===A){var s=cap();if(s)o.signal=s}
+      return window.fetch(list[i]+path,o).then(function(r){mark(list[i]);return r},function(err){if(i+1<list.length)return go(i+1);throw err});
+    };
+    return go(0);
+  };
+  var base=function(){return two?good||(kept()?B:''):first};
+  var once=function(path,opts){
+    if(!two)return window.fetch(first+path,opts);
+    var send=function(name){return window.fetch(name+path,opts).then(function(r){mark(name);return r})};
+    var known=base();
+    if(known)return send(known);
+    return ask('/v1/health',{credentials:'omit',cache:'no-store'}).then(function(){return good||A},function(){return A}).then(send);
+  };
+  return {ask:ask,once:once,base:base};
+};
+  var road=apiRoad(api);
   var action=form.getAttribute('data-action');
   var payOrigin=form.getAttribute('data-pay-origin');
   var payLink=function(u){try{var x=new URL(String(u));return x.protocol==='https:'&&x.origin===payOrigin?x.href:''}catch(err){return ''}};
@@ -158,7 +232,7 @@
   };
   wayButtons.forEach(function(b){b.addEventListener('click',function(){if(!go.disabled)pickWay(b.getAttribute('data-way'))})});
   if(ways&&wayButtons.length){
-    window.fetch(api+'/v1/pay/methods',{credentials:'omit'}).then(function(r){return r.ok?r.json():null}).then(function(b){
+    road.ask('/v1/pay/methods',{credentials:'omit'}).then(function(r){return r.ok?r.json():null}).then(function(b){
       var list=b&&b.ok&&Array.isArray(b.methods)?b.methods:[];
       var shown=wayButtons.filter(function(x){var on=list.indexOf(x.getAttribute('data-way'))>=0;x.hidden=!on;return on});
       ways.setAttribute('data-n',String(shown.length));
@@ -202,7 +276,7 @@
   var round=0;
   var keep=function(id){try{window.sessionStorage.setItem('eshario_order',id)}catch(err){}};
   var keepScan=function(sc){try{window.localStorage.setItem('eshario_scan',JSON.stringify({platform:sc.f,scanner:sc.p,at:Date.now()}))}catch(err){}};
-  var refused=function(id,v){try{window.fetch(api+'/v1/orders/'+encodeURIComponent(id)+'/refused',{method:'POST',credentials:'omit',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({email:v})}).then(null,function(){})}catch(err){}};
+  var refused=function(id,v){try{road.once('/v1/orders/'+encodeURIComponent(id)+'/refused',{method:'POST',credentials:'omit',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({email:v})}).then(null,function(){})}catch(err){}};
   var moveBtn=document.getElementById('buy-move');
   var toCrypto=document.getElementById('buy-to-crypto');
   var toCard=document.getElementById('buy-to-card');
@@ -242,7 +316,7 @@
       var src='';
       try{src=window.sessionStorage.getItem('eshario_src')||''}catch(err){src=''}
       if(src&&src!=='|||')ask.source=src;
-      return window.fetch(api+'/v1/orders',{
+      return road.once('/v1/orders',{
         method:'POST',
         credentials:'omit',
         headers:{'content-type':'application/json'},
@@ -373,6 +447,43 @@
   var box=document.querySelector('[data-scanner]');
   if(!box)return;
   var api=box.getAttribute('data-api');
+  var apiRoad=function(first){
+  var A="https://api.eshario.com",B="https://api.eshario.app",KEY='eshario_api';
+  var two=first===A;
+  var good='';
+  var kept=function(){try{return window.sessionStorage.getItem(KEY)===B}catch(e){return false}};
+  var mark=function(name){
+    if(good===name)return;
+    good=name;
+    try{if(name===B)window.sessionStorage.setItem(KEY,B);else if(kept())window.sessionStorage.removeItem(KEY)}catch(e){}
+  };
+  var cap=function(){
+    try{if(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)return AbortSignal.timeout(4000)}catch(e){}
+    try{if(typeof AbortController!=='undefined'){var c=new AbortController();window.setTimeout(function(){c.abort()},4000);return c.signal}}catch(e){}
+    return null;
+  };
+  var ask=function(path,opts){
+    if(!two)return window.fetch(first+path,opts);
+    var list=good===B||(!good&&kept())?[B,A]:[A,B];
+    var go=function(i){
+      var o={},k;
+      for(k in opts)if(Object.prototype.hasOwnProperty.call(opts,k))o[k]=opts[k];
+      if(i===0&&list[0]===A){var s=cap();if(s)o.signal=s}
+      return window.fetch(list[i]+path,o).then(function(r){mark(list[i]);return r},function(err){if(i+1<list.length)return go(i+1);throw err});
+    };
+    return go(0);
+  };
+  var base=function(){return two?good||(kept()?B:''):first};
+  var once=function(path,opts){
+    if(!two)return window.fetch(first+path,opts);
+    var send=function(name){return window.fetch(name+path,opts).then(function(r){mark(name);return r})};
+    var known=base();
+    if(known)return send(known);
+    return ask('/v1/health',{credentials:'omit',cache:'no-store'}).then(function(){return good||A},function(){return A}).then(send);
+  };
+  return {ask:ask,once:once,base:base};
+};
+  var road=apiRoad(api);
   var body=document.body;
   var terms=[].slice.call(box.querySelectorAll('[data-scan]'));
   var plats=[].slice.call(box.querySelectorAll('[data-platform]'));
@@ -473,7 +584,7 @@
     if(t)press(t);
   };
   var ask=function(){
-    window.fetch(api+'/v1/scanner/seats',{credentials:'omit',cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(b){
+    road.ask('/v1/scanner/seats',{credentials:'omit',cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(b){
       if(!b||!b.ok)return;
       st.sales=b.sales==='on'?'on':'off';
       st.seats={ps:b.ps,pc:b.pc};
@@ -502,7 +613,7 @@
     if(!st.platform)return;
     var v=String(qMail&&qMail.value||'').trim().toLowerCase();
     if(v.length>100||v.indexOf('@')<1||v.indexOf('.',v.indexOf('@'))<0){say('bad');return}
-    window.fetch(api+'/v1/scanner/wait',{method:'POST',credentials:'omit',headers:{'content-type':'application/json'},body:JSON.stringify({email:v,platform:st.platform,lang:lang})}).then(function(r){
+    road.once('/v1/scanner/wait',{method:'POST',credentials:'omit',headers:{'content-type':'application/json'},body:JSON.stringify({email:v,platform:st.platform,lang:lang})}).then(function(r){
       return r.json().then(function(b){return {status:r.status,body:b}},function(){return {status:r.status,body:{}}});
     }).then(function(res){
       var b=res.body||{};

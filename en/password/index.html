@@ -66,6 +66,43 @@
 <script>(function(){
   var form=document.getElementById('pw-form');
   if(!form)return;
+  var apiRoad=function(first){
+  var A="https://api.eshario.com",B="https://api.eshario.app",KEY='eshario_api';
+  var two=first===A;
+  var good='';
+  var kept=function(){try{return window.sessionStorage.getItem(KEY)===B}catch(e){return false}};
+  var mark=function(name){
+    if(good===name)return;
+    good=name;
+    try{if(name===B)window.sessionStorage.setItem(KEY,B);else if(kept())window.sessionStorage.removeItem(KEY)}catch(e){}
+  };
+  var cap=function(){
+    try{if(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)return AbortSignal.timeout(4000)}catch(e){}
+    try{if(typeof AbortController!=='undefined'){var c=new AbortController();window.setTimeout(function(){c.abort()},4000);return c.signal}}catch(e){}
+    return null;
+  };
+  var ask=function(path,opts){
+    if(!two)return window.fetch(first+path,opts);
+    var list=good===B||(!good&&kept())?[B,A]:[A,B];
+    var go=function(i){
+      var o={},k;
+      for(k in opts)if(Object.prototype.hasOwnProperty.call(opts,k))o[k]=opts[k];
+      if(i===0&&list[0]===A){var s=cap();if(s)o.signal=s}
+      return window.fetch(list[i]+path,o).then(function(r){mark(list[i]);return r},function(err){if(i+1<list.length)return go(i+1);throw err});
+    };
+    return go(0);
+  };
+  var base=function(){return two?good||(kept()?B:''):first};
+  var once=function(path,opts){
+    if(!two)return window.fetch(first+path,opts);
+    var send=function(name){return window.fetch(name+path,opts).then(function(r){mark(name);return r})};
+    var known=base();
+    if(known)return send(known);
+    return ask('/v1/health',{credentials:'omit',cache:'no-store'}).then(function(){return good||A},function(){return A}).then(send);
+  };
+  return {ask:ask,once:once,base:base};
+};
+  var road=apiRoad("https://api.eshario.com");
   var go=document.getElementById('pw-go');
   var pw1=document.getElementById('pw1');
   var pw2=document.getElementById('pw2');
@@ -131,7 +168,7 @@
     say('');
     go.disabled=true;
     go.textContent=go.getAttribute('data-sending');
-    window.fetch("https://api.eshario.com"+'/v1/recovery/complete',{
+    road.once('/v1/recovery/complete',{
       method:'POST',
       credentials:'omit',
       headers:{'content-type':'application/json'},
