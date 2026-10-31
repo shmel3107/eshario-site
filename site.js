@@ -179,20 +179,34 @@
     var tg=k.querySelector('.tgbuy');
     var perTpl=k.getAttribute('data-per')||'';
     var priceOf=function(term){var p=promoState.plans&&promoState.plans[term];return p&&p.amount?p:null};
+    var usdText=function(c){c=Math.round(Number(c)||0);return Math.floor(c/100)+'.'+('0'+(c%100)).slice(-2)+' $'};
+    var usdOf=function(one,p){var u=Number(one.getAttribute('data-usd'))||0;return p&&p.amount!==p.list?Math.max(1,Math.round(u*p.amount/p.list)):u};
+    var taxLine=k.querySelector('.k-tax');
+    var swap=function(one,world){
+      var price=one.querySelector('.t-price'),sub=one.querySelector('small'),cheap=one.querySelector('.t-cheap');
+      if(price&&one.hasAttribute('data-usd-price'))price.textContent=one.getAttribute(world?'data-usd-price':'data-rub-price');
+      if(sub&&one.hasAttribute('data-usd-sub'))sub.textContent=one.getAttribute(world?'data-usd-sub':'data-sub');
+      if(cheap&&one.hasAttribute('data-usd-cheap'))cheap.textContent=one.getAttribute(world?'data-usd-cheap':'data-rub-cheap');
+    };
     kassaRender=function(){
       var on=null;
+      var world=document.body.getAttribute('data-way')==='world';
+      [].slice.call(document.querySelectorAll('[data-scanpick] [data-scan]')).forEach(function(one){swap(one,world)});
+      if(taxLine)taxLine.hidden=!world;
       terms.forEach(function(one){
         if(one.getAttribute('aria-pressed')==='true')on=one;
         var p=priceOf(one.getAttribute('data-term'));
         var was=one.querySelector('.t-old'),is=one.querySelector('.t-price');
         one.classList.toggle('is-promo',!!p);
-        if(was){was.textContent=p?moneyText(p.list):'';was.hidden=!p}
-        if(is)is.textContent=p?moneyText(p.amount):one.getAttribute('data-list');
+        if(was){was.textContent=p?(world?one.getAttribute('data-usd-list'):moneyText(p.list)):'';was.hidden=!p}
+        if(is)is.textContent=world?usdText(usdOf(one,p)):p?moneyText(p.amount):one.getAttribute('data-list');
         var sub=one.querySelector('small'),months=Number(one.getAttribute('data-months'))||0;
-        if(sub)sub.textContent=p&&months>1&&perTpl?perTpl.replace('{price}',moneyText(Math.round(p.amount/months))):one.getAttribute('data-sub');
+        if(sub&&world)sub.textContent=p&&months>1&&perTpl?perTpl.replace('{price}',usdText(Math.round(usdOf(one,p)/months))):one.getAttribute('data-usd-sub');
+        else if(sub)sub.textContent=p&&months>1&&perTpl?perTpl.replace('{price}',moneyText(Math.round(p.amount/months))):one.getAttribute('data-sub');
         var cut=one.querySelector('.t-save'),save=one.querySelector('.t-cheap'),pct=p?codeCut(p.list,p.amount):0;
         if(cut){cut.textContent=pct?'\u2212'+pct+'\u00a0%':'';cut.hidden=!pct}
         if(save)save.hidden=!!p;
+        if(save&&one.hasAttribute('data-usd-cheap'))save.textContent=one.getAttribute(world?'data-usd-cheap':'data-rub-cheap');
       });
       if(!on)return;
       var p=priceOf(on.getAttribute('data-term'));
@@ -201,8 +215,14 @@
       k.classList.toggle('is-promo',!!p);
       var sp=Number(document.body.getAttribute('data-scan-price'))||0;
       var own=p?p.amount:Number(on.getAttribute('data-amount'));
-      if(old){old.textContent=p?moneyText(p.list+sp):'';old.hidden=!p}
-      if(now)now.textContent=sp>0&&own>=0?moneyText(own+sp):p?moneyText(p.amount):on.getAttribute('data-list');
+      if(world){
+        var su=sp>0?Number(document.body.getAttribute('data-scan-usd'))||0:0;
+        if(old){old.textContent=p?usdText((Number(on.getAttribute('data-usd'))||0)+su):'';old.hidden=!p}
+        if(now)now.textContent=usdText(usdOf(on,p)+su);
+      }else{
+        if(old){old.textContent=p?moneyText(p.list+sp):'';old.hidden=!p}
+        if(now)now.textContent=sp>0&&own>=0?moneyText(own+sp):p?moneyText(p.amount):on.getAttribute('data-list');
+      }
       var scanLine=k.querySelector('.k-scanline'),scanText=k.querySelector('[data-k-scan]'),scanPromo=k.querySelector('.k-scan-promo');
       if(scanLine){scanLine.hidden=!(sp>0);if(scanText)scanText.textContent=document.body.getAttribute('data-scan-label')||''}
       if(scanPromo)scanPromo.hidden=!(sp>0&&p);
