@@ -1,4 +1,4 @@
-// ESHArio page-bundle 2.8.90 b70cd58fe8ad493693cf286cc1a0762b8d2259c8 2026-11-02T08:47:18Z
+// ESHArio page-bundle 2.8.91 e3f341cc4d908a2ebd3195dca002037e3b13510f 2026-11-02T20:42:26Z
 (function(){'use strict';
 // Адрес: на чужой странице EA склейка молчит (контракт 1.1) и убирает за мостом штамп и ловушку прибора.
 if(!(function(h){return /^https:\/\/www\.ea\.com\/.*\/ultimate-team\/web-app.*/.test(h)})(String(globalThis.location&&globalThis.location.href))){(function(w,n){try{w.document.documentElement.removeAttribute("data-eshario-inject")}catch(e){}var k="__eshario",t=function(){try{var d=Object.getOwnPropertyDescriptor(w,k);if(d&&d.configurable===true&&d.enumerable===false&&typeof d.set==="function"){delete w[k];return}if(--n>0)w.setTimeout(t,50)}catch(e){}};try{w.setTimeout(t,50)}catch(e){}})(globalThis,20);return}
@@ -11,7 +11,7 @@ const __ESB_x=[],__ESB_g=[],__ESB_r=[];for(let i=0;i<400;i++)__ESB_x.push(Object
 const __ESB_d=(o,m)=>{for(const k of Object.keys(m))Object.defineProperty(o,k,{enumerable:true,get:m[k]})};
 const __ESB_t=(j,k,v)=>{try{return __ESB_x[j][k]}catch(e){return v}};
 let __ESB_on=false,__ESB_ids=null;
-const __eshario_paid=Object.freeze({version:"2.8.90",file:"page-paid-854d165c957c5b3c.bin",sha256:"854d165c957c5b3c8c75c9bb2b218d7de07c229c4ec7cbfb86e711dcbd3a9dbc",bytes:1806838,docked:()=>__ESB_on,get:(rel)=>__ESB_on&&__ESB_ids&&rel in __ESB_ids?__ESB_x[__ESB_ids[rel]]:null,attach(piece){if(__ESB_on)return false;const p=piece({x:__ESB_x,g:__ESB_g,r:__ESB_r,d:__ESB_d,t:__ESB_t});__ESB_ids=p.ids;const it={};for(const i of p.order){const g=__ESB_g[i].call(void 0);it[i]=g;g.next()}__ESB_on=true;const c=[...__ESB_c,...p.ring],a=new Set(p.async),ring=()=>{for(const j of c)__ESB_r[j]()},run=(k)=>{for(;k<p.order.length;k++){ring();const i=p.order[k],r=it[i].next();if(a.has(i))return r.then(()=>run(k+1))}ring();return true};return run(0)}});
+const __eshario_paid=Object.freeze({version:"2.8.91",file:"page-paid-032304350afcc83f.bin",sha256:"032304350afcc83f80308c82f7cb5d384ee222027d93ce3e9a5f96325f70a92c",bytes:1755432,docked:()=>__ESB_on,get:(rel)=>__ESB_on&&__ESB_ids&&rel in __ESB_ids?__ESB_x[__ESB_ids[rel]]:null,attach(piece){if(__ESB_on)return false;const p=piece({x:__ESB_x,g:__ESB_g,r:__ESB_r,d:__ESB_d,t:__ESB_t});__ESB_ids=p.ids;const it={};for(const i of p.order){const g=__ESB_g[i].call(void 0);it[i]=g;g.next()}__ESB_on=true;const c=[...__ESB_c,...p.ring],a=new Set(p.async),ring=()=>{for(const j of c)__ESB_r[j]()},run=(k)=>{for(;k<p.order.length;k++){ring();const i=p.order[k],r=it[i].next();if(a.has(i))return r.then(()=>run(k+1))}ring();return true};return run(0)}});
 // src/bridge/protocol.js
 __ESB_g[0]=function*(){__ESB_d(__ESB_x[0],{CHANNEL:()=>CHANNEL,FROM_CONTENT:()=>FROM_CONTENT,FROM_PAGE:()=>FROM_PAGE,KIND_EVENT:()=>KIND_EVENT,isResponse:()=>isResponse,makeRequest:()=>makeRequest,signingText:()=>signingText});yield;
 const CHANNEL='fut-companion'
@@ -679,12 +679,13 @@ const shellRu=Object.freeze({
 
 };
 // src/page/paid-dock.js
-__ESB_g[14]=function*(){__ESB_d(__ESB_x[14],{createPaidDock:()=>createPaidDock});yield;const{apiUrl,noteApiAnswer}=__ESB_x[9];
+__ESB_g[14]=function*(){__ESB_d(__ESB_x[14],{PAID_BRIDGE_EXTRA_MS:()=>PAID_BRIDGE_EXTRA_MS,createPaidDock:()=>createPaidDock});yield;const{apiUrl,noteApiAnswer}=__ESB_x[9];
 ;
 const PAID_DOCK_BUILD='ACR1-2'
 const PAID_CACHE_KEY='paid.piece'
 const PAID_API_MS=8_000
 const PAID_STATIC_MS=20_000
+const PAID_BRIDGE_EXTRA_MS=2_000
 const PAID_STATICS=Object.freeze(['https://eshario.com','https://eshario.app'])
 const PAID_MAGIC='ESP1'
 const PAID_NONCE_BYTES=12
@@ -697,6 +698,7 @@ function bytesOf(base64){const raw=atob(base64)
 const out=new Uint8Array(raw.length)
 for(let i=0;i<raw.length;i+=1)out[i]=raw.charCodeAt(i)
 return out}
+const bytesOrNull=(base64)=>{try{return bytesOf(base64)}catch{return null}}
 const hexOf=(buffer)=>[...new Uint8Array(buffer)].map((byte)=>byte.toString(16).padStart(2,'0')).join('')
 async function openPiece(subtle,bytes,key){const head=[...PAID_MAGIC].every((ch,i)=>bytes[i]===ch.charCodeAt(0))
 if(!head)throw new Error('magic')
@@ -736,20 +738,23 @@ return isPlain(answer)&&answer.ok===true?{ok:true,value:answer.value??null}:{ok:
 const fromCache=async()=>{const read=await door('store.get',{key:PAID_CACHE_KEY}).catch(()=>({ok:false}))
 if(read.ok!==true||read.value===null)return null
 const kept=read.value
-if(isPlain(kept)&&kept.version===paid.version&&kept.sha256===paid.sha256&&typeof kept.base64==='string'){const bytes=bytesOf(kept.base64)
-const seen=hexOf(await subtle.digest('SHA-256',bytes))
+if(isPlain(kept)&&kept.version===paid.version&&kept.sha256===paid.sha256&&typeof kept.base64==='string'){const bytes=bytesOrNull(kept.base64)
+if(bytes===null)reject('cache-base64')
+else{const seen=hexOf(await subtle.digest('SHA-256',bytes))
 if(seen===paid.sha256)return{bytes,base64:kept.base64,from:'cache'}
-reject('cache-sha',seen.slice(0,8))}
+reject('cache-sha',seen.slice(0,8))}}
 await door('store.remove',{key:PAID_CACHE_KEY}).catch(()=>null)
 return null}
 const sources=()=>[{url:apiUrl(`/v1/code/${paid.version}/${paid.file}`),from:'api',timeoutMs:PAID_API_MS},
 ...PAID_STATICS.map((origin)=>({url:`${origin}/downloads/code/${paid.version}/${paid.file}`,from:'static',timeoutMs:PAID_STATIC_MS}))]
-const fromNet=async({url,from,timeoutMs})=>{const answer=await deps.request('door',{name:'net.fetch',args:{url,as:'base64',timeoutMs}}).catch(()=>null)
+const fromNet=async({url,from,timeoutMs})=>{const answer=await deps.request('door',{name:'net.fetch',args:{url,as:'base64',timeoutMs}},{timeoutMs:timeoutMs+PAID_BRIDGE_EXTRA_MS}).catch(()=>null)
 if(from==='api')noteApiAnswer(url,answer)
 const value=isPlain(answer)&&answer.ok===true&&isPlain(answer.value)?answer.value:null
 if(value===null||value.status!==200||typeof value.bodyBase64!=='string'){reject(`fetch-${from}`,String(value?.status??answer?.reason??'no-answer'))
 return null}
-const bytes=bytesOf(value.bodyBase64)
+const bytes=bytesOrNull(value.bodyBase64)
+if(bytes===null){reject(`base64-${from}`)
+return null}
 const seen=hexOf(await subtle.digest('SHA-256',bytes))
 if(seen!==paid.sha256){reject(`sha-${from}`,seen.slice(0,8))
 return null}
@@ -759,14 +764,18 @@ if(kept!==null)return kept
 for(const one of sources()){const got=await fromNet(one)
 if(got!==null)return got}
 return null}
+const keyNow=()=>{try{return deps.paidKey(paid.version)}catch{return null}}
 return{
 async attach(){if(paid===null||phase==='docked')return phase==='docked'
 const started=now()
-const key=deps.paidKey(paid.version)
+const key=keyNow()
 keyed=typeof key==='string'&&key!==''
 if(!keyed){phase='no-key'
 return false}
-const got=await fetchPiece()
+let got
+try{got=await fetchPiece()}catch(err){reject('fetch',err?.message??String(err))
+phase='failed'
+return false}
 if(got===null){phase='failed'
 return false}
 const fetched=now()
@@ -776,6 +785,10 @@ phase='refused'
 return false}
 const opened=now()
 if(got.from!=='cache')await door('store.set',{key:PAID_CACHE_KEY,value:{version:paid.version,sha256:paid.sha256,base64:got.base64}}).catch(()=>null)
+if(keyNow()!==key){reject('right-gone')
+keyed=false
+phase='no-key'
+return false}
 try{const piece=run(text)
 if(typeof piece!=='function')throw new Error('no-piece')
 await paid.attach(piece)}catch(err){reject('run',err?.message??String(err))
@@ -795,7 +808,7 @@ key:keyed,source,ms,rejects:[...rejects]})}}
 
 };
 // src/page/shell.js
-__ESB_g[15]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{createAccountProvider}=__ESB_x[7];const{PREMIUM}=__ESB_x[3];const{openAccountDoor,watchAccountDoor}=__ESB_x[8];const{apiUrl,noteApiAnswer}=__ESB_x[9];const{createDaySign}=__ESB_x[10];const{readTradeAccess}=__ESB_x[11];const{chooseLocale,currentTimeZone}=__ESB_x[12];const{shellEn,shellRu}=__ESB_x[13];const{createPaidDock}=__ESB_x[14];
+__ESB_g[15]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{createAccountProvider}=__ESB_x[7];const{PREMIUM}=__ESB_x[3];const{openAccountDoor,watchAccountDoor}=__ESB_x[8];const{apiUrl,noteApiAnswer}=__ESB_x[9];const{createDaySign}=__ESB_x[10];const{readTradeAccess}=__ESB_x[11];const{chooseLocale,currentTimeZone}=__ESB_x[12];const{shellEn,shellRu}=__ESB_x[13];const{createPaidDock,PAID_BRIDGE_EXTRA_MS}=__ESB_x[14];
 ;
 ;
 ;
@@ -852,7 +865,10 @@ kind=null}}}
 function carryInstrument(win,state){try{Object.defineProperty(win,'__eshario',{configurable:true,enumerable:true,get:()=>state,
 set(next){for(const name of Object.getOwnPropertyNames(state)){if(typeof state[name]==='function'&&next&&!(name in next))next[name]=state[name]}
 Object.defineProperty(win,'__eshario',{value:next,writable:true,configurable:true,enumerable:true})}})}catch{/* прибор не держит стыковку */}}
+const noteOf=(state)=>(message)=>{state.errors?.push(String(message))
+console.warn('[ESHArio]',message)}
 function createShell(deps){const{win,account,dock,state}=deps
+const note=noteOf(state)
 const setTimer=deps.setTimer??((fn,ms)=>win.setTimeout(fn,ms))
 const setEvery=deps.setEvery??((fn,ms)=>win.setInterval(fn,ms))
 const now=deps.now??(()=>Date.now())
@@ -875,6 +891,8 @@ carryInstrument(win,state)
 if(await dock.attach()){done=true
 cell.hide()
 return}
+cell.show(!forced&&account.getPlan()!==PREMIUM?'subscribe':'failed')
+armRetry()}catch(err){note(`shell decide: ${err?.message??err}`)
 cell.show('failed')
 armRetry()}finally{busy=false}}
 const ask=async()=>{if(done)return
@@ -893,10 +911,12 @@ probe(){forced=true
 void decide()
 return{plan:PREMIUM,docked:dock.docked(),engine:dock.get('automation/sniper.js'),cell:cell.kind()}},
 cell}}
+const daySignSend=(bridge)=>async(ask)=>{const url=apiUrl(ask.path)
+const answer=noteApiAnswer(url,await bridge.request('door',{name:'net.fetch',args:{url,method:ask.method,headers:ask.headers,body:ask.body,timeoutMs:ask.timeoutMs}},{timeoutMs:ask.timeoutMs+PAID_BRIDGE_EXTRA_MS}))
+return answer?.ok===true?{status:Number(answer.value?.status)||0,body:typeof answer.value?.body==='string'?answer.value.body:''}:null}
 function startShell(win){const state={bridge:'unknown',version:null,panel:'shell',errors:[],shell:SHELL_BUILD}
 win.__eshario=state
-const note=(message)=>{state.errors.push(String(message))
-console.warn('[ESHArio]',message)}
+const note=noteOf(state)
 const bridge=createBridgeClient(win,{prefix:SHELL_BRIDGE_PREFIX})
 const clock={now:()=>Date.now()}
 const account=createAccountProvider({bridge,clock})
@@ -905,9 +925,7 @@ const locale=chooseLocale(null,win.navigator?.languages,currentTimeZone())
 const words=locale==='ru'?shellRu:shellEn
 let summaryOn=true
 const sign=createDaySign({win,clock,allowed:()=>summaryOn,signedIn:()=>typeof account.proof()==='string',trade:()=>readTradeAccess(win),app:()=>dock.status().version,
-send:async(ask)=>{const url=apiUrl(ask.path)
-const answer=noteApiAnswer(url,await bridge.request('door',{name:'net.fetch',args:{url,method:ask.method,headers:ask.headers,body:ask.body,timeoutMs:ask.timeoutMs}}))
-return answer?.ok===true?{status:Number(answer.value?.status)||0,body:typeof answer.value?.body==='string'?answer.value.body:''}:null},
+send:daySignSend(bridge),
 onError:(err)=>note(`day sign: ${err?.message??err}`)})
 const shell=createShell({win,bridge,account,dock,sign,state,say:(key)=>words[key]??key})
 state.codeStatus=()=>dock.status()
