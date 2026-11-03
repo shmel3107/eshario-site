@@ -1,0 +1,13 @@
+{
+  "version": "2.8.95",
+  "commit": "f2a841d33491046c36a722a37fdaacb62e97039c",
+  "builtAt": "2026-11-03T15:05:15Z",
+  "bytes": 61706,
+  "sha256": "f3beb443c062094dcd586f3671316cd4772749b3c542bcb30a5a35f33ff3e68b",
+  "minLoader": "2.2.0",
+  "paid": {
+    "file": "page-paid-2ceaedbe67110b63.bin",
+    "sha256": "2ceaedbe67110b630e22e6693fbbd1a0d2037be9ce9ad34267a705bc0807546f",
+    "bytes": 1756560
+  }
+}
