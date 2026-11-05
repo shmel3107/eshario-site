@@ -3,8 +3,8 @@
 // @namespace    https://eshario.com/ios
 // @updateURL    https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
 // @downloadURL  https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
-// @version      2.1.1.126
-// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-126, loader)
+// @version      2.2.0.280
+// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-280, loader)
 // @match        https://www.ea.com/*
 // @match        https://eshario.com/mobile-login*
 // @inject-into  content
@@ -25,9 +25,9 @@
 // @connect      eshario.com
 // @connect      eshario.app
 // ==/UserScript==
-// ESHArio MFIN-126, loader: page code comes from the server, signature checked by src/loader/code.js
+// ESHArio MFIN-280, loader: page code comes from the server, signature checked by src/loader/code.js
 (function(){'use strict';
-var HOST_CONFIG={"manifest":{"version":"2.1.1"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-126","words":{"accountTitle":"Аккаунт ESHArio"}};
+var HOST_CONFIG={"manifest":{"version":"2.2.0"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-280","words":{"accountTitle":"Аккаунт ESHArio"}};
 // --- mobile/host/host.js ---
 // ХОСТ ESHArio НА iPHONE (кирпич MOBILE-IOS-1, дорога И2).
 //
@@ -109,7 +109,8 @@ var AWAKE_MS=8000;
 var AWAKE_KEY='local:host.awake';
 // Подписанный файл кода едет байтами: подпись считается по байтам, а не по
 // тексту, перекодированному менеджером (этап 5, загрузчик кода ядра).
-var CODE_FILE_RE=/\/page-bundle\.js$/;
+// С 2.9.0 так же едет платный кусок (`src/page/paid-dock.js`): текстом его sha256 не сойдётся.
+var CODE_FILE_RE=/\/(page-bundle\.js|page-paid-[0-9a-f]+\.bin)$/;
 // Тонкая сборка (этап 5): двери загрузчика кода ядра к воркеру.
 var THIN_OPEN=['code.boot','code.focus'];
 // После «Войти» в шапке хост смотрит, не появилась ли сессия, раз в 2,5 с до
@@ -152,6 +153,17 @@ var OWNER_PING_WAIT_MS=12000;
 var OWNER_PONG_FRESH_MS=60000;
 var OWNER_ELSEWHERE='owner-elsewhere';
 var BUDGET_CLOSED={ok:false,granted:0,reason:'counter-unavailable',state:null};
+// СРОК ХРАНИЛИЩУ НА ПУТИ СЧЁТЧИКОВ (iPhone 31.10, стенд MFIN-254): Userscripts
+// однажды не вернул ответ на чтение или запись, и очереди хозяина (здесь) и
+// счёта (`worker.js`, `ownerSerial`) встали за ним до перезагрузки: 266
+// `budget.reserve` подряд молчали, «Купить всё» в SBC вставало словом «0 из 9,
+// counter-unavailable». Чтения в очереди менеджера доходят до 9,2 с
+// (`data-eshario-slow`), срок больше. Не ответил к сроку: отказ. Воркер на
+// отказ хранилища отвечает «счёт недоступен» и отпускает очередь, хозяин здесь
+// отвечает «не хозяин» до следующей проверки; поздний ответ менеджера
+// отбрасывается. Ключи только денег и места, остальные чтения без срока.
+var COUNTER_KEYS=['local:market.owner','local:card.locks',OWNER_KEY,OWNER_PING_KEY,OWNER_PONG_KEY];
+var COUNTER_DUE_MS=15000;
 
 function plain(value){return !!value&&typeof value==='object'&&!Array.isArray(value)}
 function clone(value){return value===undefined?undefined:JSON.parse(JSON.stringify(value))}
@@ -206,6 +218,46 @@ function slowRead(key,ms){if(ms<500)return;
 slow.push(key+':'+ms);
 if(slow.length>10)slow.shift();
 try{doc.documentElement.setAttribute('data-eshario-slow',slow.join(' '))}catch(err){}}
+// Срок вызова менеджера на ключе счётчиков; знак `data-eshario-late`: ключ и счёт сорванных сроков.
+//
+// ПОЗДНЯЯ ЗАПИСЬ НЕ ЛОЖИТСЯ ПОВЕРХ НОВОЙ (B203-1, Sol 05.11, класс безопасность).
+// Срок отпускает того, кто ждёт, но вызов менеджера не отменяет: запись W1 счёта
+// `market.owner` зависла, срок отказал, `ownerReady` воркера дописал счёт (W2),
+// следом W3, потом доехала W1 и вернула на диск старый, меньший счёт; новый вход
+// читал его. Поэтому на ключе счётчиков вызов менеджера уходит только после того,
+// как настоящим ответом закончилась прежняя запись того же ключа: запись ждёт
+// записи, чтение ждёт записи (замки `card.locks` читаются, складываются и пишутся,
+// и чтение до доезда W1 стёрло бы её замок). Чтения друг друга не ждут. Пока
+// зависшая запись не ответила, следующие вызовы ключа получают отказ по сроку и в
+// менеджер не уходят: новых разрешений нет до ясности. Ответила: очередь идёт,
+// последней на диск ложится последняя запись.
+var late=0;
+var writeTail={};
+function quiet(){}
+function callNow(start){try{return Promise.resolve(start())}catch(err){return Promise.reject(err)}}
+function due(full,start,write){if(COUNTER_KEYS.indexOf(full)<0)return callNow(start);
+return new Promise(function(resolve,reject){var done=false;
+later(function(){if(done)return;
+done=true;
+late+=1;
+try{doc.documentElement.setAttribute('data-eshario-late',full.replace('local:','')+' '+late)}catch(err){}
+reject(new Error('storage-late'))},COUNTER_DUE_MS);
+// Вызов идёт сразу, если записи ключа в пути нет; иначе после её настоящего
+// ответа и только если срок этого вызова ещё не вышел.
+function issue(){if(done)return null;
+var call=callNow(start);
+call.then(function(value){if(done)return;
+done=true;
+resolve(value)},function(err){if(done)return;
+done=true;
+reject(err)});
+return call}
+var before=writeTail[full]||null;
+var settled=before===null?issue():before.then(issue);
+if(!write)return;
+var tail=Promise.resolve(settled).then(quiet,quiet);
+writeTail[full]=tail;
+tail.then(function(){if(writeTail[full]===tail)delete writeTail[full]})})}
 
 // Память кода (тонкая сборка): код весит 4,4 МБ, и Stay читает его 7..9 с на
 // каждое чтение, а за одну загрузку его спрашивают около десяти раз (мост,
@@ -241,7 +293,8 @@ function pageOnly(area,key){return area==='local'&&thin&&(key===CODE_PREVIOUS||c
 // усвоена» про пустой каталог, а без метки воркер отдаёт тело базы сразу.
 // Записи денег и места (счёт дня, счётчики, хозяин, замки, настройки, вход)
 // остаются в хранилище менеджера. Safari не задет: там ключи прежние.
-var PAGE_CACHE_KEYS=['door.gallery.columns','door.gallery.catalog','door.prices.lastFile','cards.seed'];
+// Платный кусок 2.9.0 (`paid.piece`) той же породы: шифрованный файл, который страница берёт заново сама.
+var PAGE_CACHE_KEYS=['door.gallery.columns','door.gallery.catalog','door.prices.lastFile','cards.seed','door.paid.piece'];
 var PAGE_CACHE_PREFIX='catalog.v1.';
 var cachePageOnly=xrayManager;
 var pageMemo={};
@@ -273,7 +326,7 @@ if(key.indexOf(CODE_NS)===0&&area==='local'){if(!Object.prototype.hasOwnProperty
 return codeMemo[key].then(clone)}
 return readDisk(area,key)}
 function readDisk(area,key){var started=Date.now();
-return Promise.resolve(GM.getValue(area+':'+key,GONE)).then(function(raw){slowRead(key,Date.now()-started);
+return due(area+':'+key,function(){return GM.getValue(area+':'+key,GONE)},false).then(function(raw){slowRead(key,Date.now()-started);
 if(typeof raw!=='string'||raw===GONE)return undefined;
 try{return JSON.parse(raw)}catch(err){return undefined}})}
 
@@ -302,12 +355,12 @@ try{texts=keys.map(function(key){return JSON.stringify(payload[key])})}catch(err
 keys.forEach(function(key,i){if(area==='local'&&key.indexOf(CODE_NS)===0)codeMemo[key]=Promise.resolve(texts[i]===undefined?undefined:JSON.parse(texts[i]));
 if(cacheOnly(area,key)){if(texts[i]===undefined)delete pageMemo[key];else pageMemo[key]=JSON.parse(texts[i])}});
 return Promise.all(keys.map(function(key,i){if(pageOnly(area,key)||cacheOnly(area,key))return null;
-return texts[i]===undefined?dropKey(area+':'+key):GM.setValue(area+':'+key,texts[i])})).then(function(){tell(area,keys,payload);
+return texts[i]===undefined?due(area+':'+key,function(){return dropKey(area+':'+key)},true):due(area+':'+key,function(){return GM.setValue(area+':'+key,texts[i])},true)})).then(function(){tell(area,keys,payload);
 if(area==='local')keys.forEach(function(key){codeTold(key,payload[key])})})}
 function remove(asked){var keys=keysOf(asked).keys.filter(function(key){return thin||key.indexOf(CODE_NS)!==0});
 keys.forEach(function(key){if(area==='local'&&key.indexOf(CODE_NS)===0)codeMemo[key]=Promise.resolve(undefined);
 if(cacheOnly(area,key))delete pageMemo[key]});
-return Promise.all(keys.map(function(key){return pageOnly(area,key)||cacheOnly(area,key)?null:dropKey(area+':'+key)})).then(function(){tell(area,keys,null)})}
+return Promise.all(keys.map(function(key){return pageOnly(area,key)||cacheOnly(area,key)?null:due(area+':'+key,function(){return dropKey(area+':'+key)},true)})).then(function(){tell(area,keys,null)})}
 function getKeys(){if(typeof GM.listValues!=='function')return Promise.resolve([]);
 var head=area+':';
 return Promise.resolve(GM.listValues()).then(function(list){return(Array.isArray(list)?list:[]).filter(function(key){return typeof key==='string'&&key.indexOf(head)===0}).map(function(key){return key.slice(head.length)}).filter(function(key){return(thin||key.indexOf(CODE_NS)!==0)&&!pageOnly(area,key)&&!cacheOnly(area,key)})},function(){return[]}).then(function(keys){if(area==='local'&&cachePageOnly)keys=keys.concat(Object.keys(pageMemo));
@@ -609,11 +662,11 @@ permissions:{contains:function(){return Promise.resolve(false)},onAdded:noEvent(
 // чтения живёт не дольше `OWNER_BEAT_MS` от последнего чтения своей записи.
 var ownerId='t'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10);
 var ownerWas=false,ownerTainted=false,ownerChain=Promise.resolve(false),ownerBeat=null,ownerMine=false,ownerSeenAt=0;
-function ownerRecord(){return Promise.resolve(GM.getValue(OWNER_KEY,GONE)).then(function(raw){if(typeof raw!=='string'||raw===GONE)return null;
+function ownerRecord(){return due(OWNER_KEY,function(){return GM.getValue(OWNER_KEY,GONE)},false).then(function(raw){if(typeof raw!=='string'||raw===GONE)return null;
 var rec;
 try{rec=JSON.parse(raw)}catch(err){return null}
 return plain(rec)&&typeof rec.id==='string'&&Number.isFinite(rec.at)?rec:null})}
-function ownerWrite(){return Promise.resolve(GM.setValue(OWNER_KEY,JSON.stringify({id:ownerId,at:Date.now()})))}
+function ownerWrite(){return due(OWNER_KEY,function(){return GM.setValue(OWNER_KEY,JSON.stringify({id:ownerId,at:Date.now()}))},true)}
 /** Чтение после своей записи: своя запись на месте значит хозяин; чужая у бывшего хозяина закрывает его. */
 function ownerAfter(again){var mine=!!again&&again.id===ownerId;
 if(mine)ownerWas=true;
@@ -624,7 +677,7 @@ var pingOut=null,pingAnswered=0,ownerDead={},ownerPong={};
 var liveOther=function(rec){if(!rec||rec.id===ownerId)return false;
 if(!pingMode)return Date.now()-rec.at<OWNER_STALE_MS;
 return rec.at>0&&ownerDead[rec.id]!==true};
-function readJson(key){return Promise.resolve(GM.getValue(key,GONE)).then(function(raw){if(typeof raw!=='string'||raw===GONE)return null;
+function readJson(key){return due(key,function(){return GM.getValue(key,GONE)},false).then(function(raw){if(typeof raw!=='string'||raw===GONE)return null;
 try{var value=JSON.parse(raw);return plain(value)?value:null}catch(err){return null}})}
 /**
  * Хозяин под Firefox: пинг к нему ждёт ответа; ответ пишется раз на пинг.
@@ -636,7 +689,7 @@ try{var value=JSON.parse(raw);return plain(value)?value:null}catch(err){return n
  */
 function pongAnswer(){return readJson(OWNER_PING_KEY).then(function(p){if(!p||p.to!==ownerId||typeof p.from!=='string'||!Number.isFinite(p.at)||p.at<=pingAnswered)return null;
 pingAnswered=p.at;
-return GM.setValue(OWNER_PONG_KEY,JSON.stringify({to:p.from,from:ownerId,at:Date.now()}))}).then(ownerRecord).then(ownerAfter,function(){return false})}
+return due(OWNER_PONG_KEY,function(){return GM.setValue(OWNER_PONG_KEY,JSON.stringify({to:p.from,from:ownerId,at:Date.now()}))},true)}).then(ownerRecord).then(ownerAfter,function(){return false})}
 /**
  * Не хозяин под Firefox видит чужую запись: жив ли её хозяин. Свежий ответ
  * значит жив; пинг ещё ждёт значит пока жив (счётчик закрыт, вопрос после
@@ -646,7 +699,7 @@ function pingAlive(rec){var now=Date.now();
 if(ownerPong[rec.id]&&now-ownerPong[rec.id]<OWNER_PONG_FRESH_MS)return Promise.resolve(true);
 if(!pingOut||pingOut.to!==rec.id){pingOut={to:rec.id,at:now};
 later(function(){ownerEnsure()},OWNER_PING_WAIT_MS+50);
-return Promise.resolve(GM.setValue(OWNER_PING_KEY,JSON.stringify({to:rec.id,from:ownerId,at:now}))).then(function(){return true})}
+return due(OWNER_PING_KEY,function(){return GM.setValue(OWNER_PING_KEY,JSON.stringify({to:rec.id,from:ownerId,at:now}))},true).then(function(){return true})}
 var sent=pingOut;
 return readJson(OWNER_PONG_KEY).then(function(q){if(q&&q.to===ownerId&&q.from===rec.id&&Number.isFinite(q.at)&&q.at>=sent.at){ownerPong[rec.id]=Date.now();
 pingOut=null;
