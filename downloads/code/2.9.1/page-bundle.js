@@ -1,17 +1,17 @@
-// ESHArio page-bundle 2.2.0 c3f400879891b389d3b61edca3c21f779d8eee3b 2026-11-05T20:51:26Z
+// ESHArio page-bundle 2.9.1 19dd9900279eb167cf08b55a61a5fdd1e8838c25 2026-11-05T21:08:30Z
 (function(){'use strict';
 // Адрес: на чужой странице EA склейка молчит (контракт 1.1) и убирает за мостом штамп и ловушку прибора.
 if(!(function(h){return /^https:\/\/www\.ea\.com\/.*\/ultimate-team\/web-app.*/.test(h)})(String(globalThis.location&&globalThis.location.href))){(function(w,n){try{w.document.documentElement.removeAttribute("data-eshario-inject")}catch(e){}var k="__eshario",t=function(){try{var d=Object.getOwnPropertyDescriptor(w,k);if(d&&d.configurable===true&&d.enumerable===false&&typeof d.set==="function"){delete w[k];return}if(--n>0)w.setTimeout(t,50)}catch(e){}};try{w.setTimeout(t,50)}catch(e){}})(globalThis,20);return}
 // Атрибуты своего <script> читаются первой синхронной строкой: узел снимается сразу.
 const __eshario_tag=(function(s){return s&&typeof s.getAttribute==='function'?Object.freeze({loader:s.getAttribute("data-eshario-loader"),base:s.getAttribute("data-eshario-base"),token:s.getAttribute("data-eshario-token")}):null})(globalThis.document&&globalThis.document.currentScript);
 const __eshario_assets=Object.freeze({
-"eshario-asset:ui/theme.css":":root,\n:host {\n  --fx-accent: #3DD8FF;        /* акцент: наши кнопки, метки, значения */\n  --fx-accent-dim: #1B90B3;    /* приглушённый акцент, рамки */\n  --fx-on-accent: #062733;     /* текст на акцентной заливке */\n  --fx-accent-tint: rgba(61, 216, 255, .09); /* фон наших блоков */\n  --fx-ok: #00E07F;            /* успех (совпадает с языком EA) */\n  --fx-warn: #FFB454;          /* предупреждение (страж, замок) */\n  --fx-warn-ink: #2A1C05;      /* текст на янтарной заливке */\n  --fx-danger: #FF5470;        /* ошибка */\n  --fx-gold: #E8C35A;          /* только про монеты */\n  --fx-surface: #131417;       /* фон наших окон/блоков */\n  --fx-surface-2: #1E2330;     /* фон вложенных элементов */\n  --fx-line: #24262C;          /* линии и рамки */\n  --fx-ink: #EEF1F7;           /* основной текст */\n  --fx-dim: #939DB4;           /* второстепенный текст */\n  --fx-surface-glass: rgba(19, 20, 23, .985); /* фон панели поверх вебапа */\n  --fx-surface-sunken: #0D0F13;               /* поля ввода и «колодцы» */\n  --fx-line-strong: #333743;                  /* рамка кнопки и поля */\n  --fx-ink-strong: #FFFFFF;                   /* фокус и максимальный контраст */\n  --fx-muted: #6D7589;                        /* выключенный текст */\n  --fx-overlay: rgba(0, 0, 0, .55);           /* затемнение под диалогом */\n  --fx-shadow: rgba(0, 0, 0, .34);            /* тень небольшого элемента */\n  --fx-shadow-strong: rgba(0, 0, 0, .48);     /* тень панели и диалога */\n  --fx-ok-tint: rgba(0, 224, 127, .10);       /* заливка сообщения об успехе */\n  --fx-warn-tint: rgba(255, 180, 84, .10);    /* заливка предупреждения */\n  --fx-warn-dim: #6B4E1E;                     /* рамка предупреждения */\n  --fx-danger-tint: rgba(255, 84, 112, .12);  /* заливка ошибки */\n  --fx-flag-white: #FFFFFF;    /* белое поле обоих флагов */\n  --fx-flag-uk-blue: #012169;  /* синее поле британского флага */\n  --fx-flag-uk-red: #C8102E;   /* красный крест британского флага */\n  --fx-flag-ru-blue: #0039A6;  /* средняя полоса российского флага */\n  --fx-flag-ru-red: #D52B1E;   /* нижняя полоса российского флага */\n  --fx-holo-cyan: rgba(61, 216, 255, .75);    /* холодный край блика */\n  --fx-holo-shine: rgba(255, 255, 255, .9);   /* середина блика */\n  --fx-holo-violet: rgba(178, 128, 255, .75); /* фиолетовый перелив */\n  --fx-holo-rose: rgba(255, 128, 204, .6);    /* тёплый край блика */\n  --fx-gem-light: #54FDDE;  /* верхняя левая грань */\n  --fx-gem-mid: #3DA888;    /* нижняя правая грань */\n  --fx-gem-dark: #216751;   /* нижняя левая грань */\n  --fx-tier-bronze: #C78B5C;\n  --fx-tier-silver: #C9CFDB;\n  --fx-tier-gold: #E8C35A;\n  --fx-tier-ink: #1A1405;\n}\n.fx-tt-panel {\n  box-sizing: border-box;\n  min-width: 0;\n  padding: 12px 14px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 10px;\n  background: var(--fx-surface-2);\n}\n.fx-tt-h {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  height: 22px;\n  margin: 0 0 10px;\n  white-space: nowrap;\n}\n.fx-tt-h b { font-size: 15px; font-weight: 600; color: var(--fx-ink-strong); }\n.fx-tt-h i {\n  margin-left: auto;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  font-style: normal;\n  font-size: 11px;\n  letter-spacing: .3px;\n  text-transform: uppercase;\n  color: var(--fx-dim);\n}\n.fx-tt-key {\n  font-size: 10.5px;\n  line-height: 13px;\n  letter-spacing: .4px;\n  text-transform: uppercase;\n  color: var(--fx-dim);\n  white-space: nowrap;\n}\n.fx-tt-val {\n  font-size: 16px;\n  line-height: 20px;\n  font-weight: 800;\n  color: var(--fx-ink);\n  white-space: nowrap;\n  font-variant-numeric: tabular-nums;\n}\n.fx-site-icon { display: block; flex: none; overflow: hidden; opacity: .9; background: center / 100% 100% no-repeat; }\n.fx-site-icon:hover { opacity: 1; box-shadow: 0 0 0 1.5px var(--fx-accent); }\n.fx-site-icon.futgg { background-image: url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALYSURBVFhH7VhNSFRRGD1Jmpb571gqU9M4jjNg6mjQODPOaFoSEdSmokW0CIJoIRW0KlpEvxAEFVFGlhiIUu2LNhUEYmWQtKl9vUVtwhbNiW/ue/Xumxm1FjmLWZyZ9+79zr3nfve758JDMoIHyR4YyegSQeaOYAzJKOaYANmzREiAokGEGKmG6BKhJyXEyAv5jbwQJ/JCnMhtITFlMOw1/+MO85F3e79z0Pn4dq5A3jMKMfGkFTzlBvfWggMVYKQM7C4DY+Xgtkpwn0v1P201B5PJZcA4+D0CTgTB443g7hqw1+QL4uXg9irwQB143gO+DpnCNCEJ8HMY7KsAgcVDBv0pC0iAUyHQvzI9JhuWAbziVdn5I6QP3FObHrwYvGwDk3HQW5zetxCKC8Bv3WAyJkJiML6GVaM9qKsUHGoEL3jAyxvAcx7whBtsXaXHjfrBmVD6JLKNJ93gRQ94yQOeXQ8ebQBdhXrc247UQgzIz5sOvXPTanP/pagcxTrbCV71gtebwJs+8ONmcNin8w+tAbnFrAGpIRv/2UbFv9EE3vaBRtjKSBzGizZ9oMNrQfaDn7pAVxFYXWhiOVhfBDaXKPhKwIdB8FaTzr/nBzkAPg7auCbfvULnT9szkk3Ih069PRNGmsE7joyMiJCtatuc8U6YNZZ5a+SoSmp/RMCd1eCOKgV5TpTrsff94HiL3jbUAHJQ1Y7FTfFrwPZSPfZVuyUkS7Huqgav+cDJIPgoCE4GwNEAeKRejxsPgDOOhRQVqKwON6utE/5EALwbUILsse9DlhDz+IqB2QMWi3dqIHpL0vsWgtTNXNQqVtPQvoTB/sr04PlwrNE8XXFwOgS2/IWhSdZSRa0Zmu2IinWfzmLxg5Xgfhd4Zh34vG1hixendlr8wTrlS7NdmSzeuvQE811a9ovLurT+9dKz5swq5H8jL8SJvBAn8kKcyEUhOfJZIoKxXPhQ8wtZqcuzVb/HQAAAAABJRU5ErkJggg==\"); }\n.fx-site-icon.futbin { background-image: url(\"data:image/png;base64,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\"); }\n",
+"eshario-asset:ui/theme.css":":root,\n:host {\n  --fx-accent: #3DD8FF;        /* акцент: наши кнопки, метки, значения */\n  --fx-accent-dim: #1B90B3;    /* приглушённый акцент, рамки */\n  --fx-on-accent: #062733;     /* текст на акцентной заливке */\n  --fx-accent-tint: rgba(61, 216, 255, .09); /* фон наших блоков */\n  --fx-ok: #00E07F;            /* успех (совпадает с языком EA) */\n  --fx-warn: #FFB454;          /* предупреждение (страж, замок) */\n  --fx-warn-ink: #2A1C05;      /* текст на янтарной заливке */\n  --fx-danger: #FF5470;        /* ошибка */\n  --fx-gold: #E8C35A;          /* монеты и звезда элиты */\n  --fx-surface: #131417;       /* фон наших окон/блоков */\n  --fx-surface-2: #1E2330;     /* фон вложенных элементов */\n  --fx-line: #24262C;          /* линии и рамки */\n  --fx-ink: #EEF1F7;           /* основной текст */\n  --fx-dim: #939DB4;           /* второстепенный текст */\n  --fx-surface-glass: rgba(19, 20, 23, .985); /* фон панели поверх вебапа */\n  --fx-surface-sunken: #0D0F13;               /* поля ввода и «колодцы» */\n  --fx-line-strong: #333743;                  /* рамка кнопки и поля */\n  --fx-ink-strong: #FFFFFF;                   /* фокус и максимальный контраст */\n  --fx-muted: #6D7589;                        /* выключенный текст */\n  --fx-overlay: rgba(0, 0, 0, .55);           /* затемнение под диалогом */\n  --fx-shadow: rgba(0, 0, 0, .34);            /* тень небольшого элемента */\n  --fx-shadow-strong: rgba(0, 0, 0, .48);     /* тень панели и диалога */\n  --fx-ok-tint: rgba(0, 224, 127, .10);       /* заливка сообщения об успехе */\n  --fx-warn-tint: rgba(255, 180, 84, .10);    /* заливка предупреждения */\n  --fx-warn-dim: #6B4E1E;                     /* рамка предупреждения */\n  --fx-danger-tint: rgba(255, 84, 112, .12);  /* заливка ошибки */\n  --fx-flag-white: #FFFFFF;    /* белое поле обоих флагов */\n  --fx-flag-uk-blue: #012169;  /* синее поле британского флага */\n  --fx-flag-uk-red: #C8102E;   /* красный крест британского флага */\n  --fx-flag-ru-blue: #0039A6;  /* средняя полоса российского флага */\n  --fx-flag-ru-red: #D52B1E;   /* нижняя полоса российского флага */\n  --fx-holo-cyan: rgba(61, 216, 255, .75);    /* холодный край блика */\n  --fx-holo-shine: rgba(255, 255, 255, .9);   /* середина блика */\n  --fx-holo-violet: rgba(178, 128, 255, .75); /* фиолетовый перелив */\n  --fx-holo-rose: rgba(255, 128, 204, .6);    /* тёплый край блика */\n  --fx-gem-light: #54FDDE;  /* верхняя левая грань */\n  --fx-gem-mid: #3DA888;    /* нижняя правая грань */\n  --fx-gem-dark: #216751;   /* нижняя левая грань */\n  --fx-tier-bronze: #C78B5C;\n  --fx-tier-silver: #C9CFDB;\n  --fx-tier-gold: #E8C35A;\n  --fx-tier-ink: #1A1405;\n}\n.fx-tt-panel {\n  box-sizing: border-box;\n  min-width: 0;\n  padding: 12px 14px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 10px;\n  background: var(--fx-surface-2);\n}\n.fx-tt-h {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  height: 22px;\n  margin: 0 0 10px;\n  white-space: nowrap;\n}\n.fx-tt-h b { font-size: 15px; font-weight: 600; color: var(--fx-ink-strong); }\n.fx-tt-h i {\n  margin-left: auto;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  font-style: normal;\n  font-size: 11px;\n  letter-spacing: .3px;\n  text-transform: uppercase;\n  color: var(--fx-dim);\n}\n.fx-tt-key {\n  font-size: 10.5px;\n  line-height: 13px;\n  letter-spacing: .4px;\n  text-transform: uppercase;\n  color: var(--fx-dim);\n  white-space: nowrap;\n}\n.fx-tt-val {\n  font-size: 16px;\n  line-height: 20px;\n  font-weight: 800;\n  color: var(--fx-ink);\n  white-space: nowrap;\n  font-variant-numeric: tabular-nums;\n}\n.fx-site-icon { display: block; flex: none; overflow: hidden; opacity: .9; background: center / 100% 100% no-repeat; }\n.fx-site-icon:hover { opacity: 1; box-shadow: 0 0 0 1.5px var(--fx-accent); }\n.fx-site-icon.futgg { background-image: url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALYSURBVFhH7VhNSFRRGD1Jmpb571gqU9M4jjNg6mjQODPOaFoSEdSmokW0CIJoIRW0KlpEvxAEFVFGlhiIUu2LNhUEYmWQtKl9vUVtwhbNiW/ue/Xumxm1FjmLWZyZ9+79zr3nfve758JDMoIHyR4YyegSQeaOYAzJKOaYANmzREiAokGEGKmG6BKhJyXEyAv5jbwQJ/JCnMhtITFlMOw1/+MO85F3e79z0Pn4dq5A3jMKMfGkFTzlBvfWggMVYKQM7C4DY+Xgtkpwn0v1P201B5PJZcA4+D0CTgTB443g7hqw1+QL4uXg9irwQB143gO+DpnCNCEJ8HMY7KsAgcVDBv0pC0iAUyHQvzI9JhuWAbziVdn5I6QP3FObHrwYvGwDk3HQW5zetxCKC8Bv3WAyJkJiML6GVaM9qKsUHGoEL3jAyxvAcx7whBtsXaXHjfrBmVD6JLKNJ93gRQ94yQOeXQ8ebQBdhXrc247UQgzIz5sOvXPTanP/pagcxTrbCV71gtebwJs+8ONmcNin8w+tAbnFrAGpIRv/2UbFv9EE3vaBRtjKSBzGizZ9oMNrQfaDn7pAVxFYXWhiOVhfBDaXKPhKwIdB8FaTzr/nBzkAPg7auCbfvULnT9szkk3Ih069PRNGmsE7joyMiJCtatuc8U6YNZZ5a+SoSmp/RMCd1eCOKgV5TpTrsff94HiL3jbUAHJQ1Y7FTfFrwPZSPfZVuyUkS7Huqgav+cDJIPgoCE4GwNEAeKRejxsPgDOOhRQVqKwON6utE/5EALwbUILsse9DlhDz+IqB2QMWi3dqIHpL0vsWgtTNXNQqVtPQvoTB/sr04PlwrNE8XXFwOgS2/IWhSdZSRa0Zmu2IinWfzmLxg5Xgfhd4Zh34vG1hixendlr8wTrlS7NdmSzeuvQE811a9ovLurT+9dKz5swq5H8jL8SJvBAn8kKcyEUhOfJZIoKxXPhQ8wtZqcuzVb/HQAAAAABJRU5ErkJggg==\"); }\n.fx-site-icon.futbin { background-image: url(\"data:image/png;base64,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\"); }\n",
 "eshario-asset:ui/shell.css":".fx-shell-cell{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:2147483000;display:flex;align-items:center;gap:12px;max-width:calc(100vw - 32px);padding:8px 12px;box-sizing:border-box;border:1px solid var(--fx-accent-dim);border-radius:8px;background:var(--fx-surface);color:var(--fx-ink);font:500 14px/1.3 system-ui,sans-serif}\n.fx-shell-text{flex:0 1 auto}\n.fx-shell-button{flex:0 0 auto;padding:6px 12px;border:0;border-radius:6px;background:var(--fx-accent);color:var(--fx-on-accent);font:inherit;font-weight:600;cursor:pointer}\n"});
-const __ESB_x=[],__ESB_g=[],__ESB_r=[];for(let i=0;i<417;i++)__ESB_x.push(Object.create(null));
+const __ESB_x=[],__ESB_g=[],__ESB_r=[];for(let i=0;i<409;i++)__ESB_x.push(Object.create(null));
 const __ESB_d=(o,m)=>{for(const k of Object.keys(m))Object.defineProperty(o,k,{enumerable:true,get:m[k]})};
 const __ESB_t=(j,k,v)=>{try{return __ESB_x[j][k]}catch(e){return v}};
 let __ESB_on=false,__ESB_ids=null;
-const __eshario_paid=Object.freeze({version:"2.2.0",file:"page-paid-498bb545cec62ada.bin",sha256:"498bb545cec62adaaae28733dc671e492f7d8a41c3074d0eb0b7486e7fce8509",bytes:1793045,docked:()=>__ESB_on,get:(rel)=>__ESB_on&&__ESB_ids&&rel in __ESB_ids?__ESB_x[__ESB_ids[rel]]:null,attach(piece){if(__ESB_on)return false;const p=piece({x:__ESB_x,g:__ESB_g,r:__ESB_r,d:__ESB_d,t:__ESB_t});__ESB_ids=p.ids;const it={};for(const i of p.order){const g=__ESB_g[i].call(void 0);it[i]=g;g.next()}__ESB_on=true;const c=[...__ESB_c,...p.ring],a=new Set(p.async),ring=()=>{for(const j of c)__ESB_r[j]()},run=(k)=>{for(;k<p.order.length;k++){ring();const i=p.order[k],r=it[i].next();if(a.has(i))return r.then(()=>run(k+1))}ring();return true};return run(0)}});
+const __eshario_paid=Object.freeze({version:"2.9.1",file:"page-paid-cc3f2a14d5b69c61.bin",sha256:"cc3f2a14d5b69c61e62c9fa1f52c78f1fc6d67d55130ba3738278fd22953a97b",bytes:1782979,docked:()=>__ESB_on,get:(rel)=>__ESB_on&&__ESB_ids&&rel in __ESB_ids?__ESB_x[__ESB_ids[rel]]:null,attach(piece){if(__ESB_on)return false;const p=piece({x:__ESB_x,g:__ESB_g,r:__ESB_r,d:__ESB_d,t:__ESB_t});__ESB_ids=p.ids;const it={};for(const i of p.order){const g=__ESB_g[i].call(void 0);it[i]=g;g.next()}__ESB_on=true;const c=[...__ESB_c,...p.ring],a=new Set(p.async),ring=()=>{for(const j of c)__ESB_r[j]()},run=(k)=>{for(;k<p.order.length;k++){ring();const i=p.order[k],r=it[i].next();if(a.has(i))return r.then(()=>run(k+1))}ring();return true};return run(0)}});
 // src/bridge/protocol.js
 __ESB_g[0]=function*(){__ESB_d(__ESB_x[0],{CHANNEL:()=>CHANNEL,FROM_CONTENT:()=>FROM_CONTENT,FROM_PAGE:()=>FROM_PAGE,KIND_EVENT:()=>KIND_EVENT,isResponse:()=>isResponse,makeRequest:()=>makeRequest,signingText:()=>signingText});yield;
 const CHANNEL='fut-companion'
@@ -136,7 +136,7 @@ minBinSearch:{tier:PREMIUM,phase:2},
 eaTax:{tier:PREMIUM,phase:2},
 hotkeys:{tier:PREMIUM,phase:2},
 advancedFilters:{tier:PREMIUM,phase:3},autoBuyer:{tier:PREMIUM,phase:4},autoSeller:{tier:PREMIUM,phase:5},sbcSolver:{tier:PREMIUM,phase:6},clubAnalysis:{tier:PREMIUM,phase:7},priceSources:{tier:PREMIUM,phase:7},
-notifications:{tier:PREMIUM,phase:11},enhancedTransferList:{tier:PREMIUM,phase:13},enhancedUnassignedList:{tier:PREMIUM,phase:13},enhancedObjectivesList:{tier:PREMIUM,phase:13},
+notifications:{tier:PREMIUM,phase:11},enhancedTransferList:{tier:PREMIUM,phase:13},enhancedUnassignedList:{tier:PREMIUM,phase:13},
 packGrid:{tier:PREMIUM,phase:15},
 sbcAutoBuy:{tier:PREMIUM,phase:16},
 pickByPrice:{tier:PREMIUM,phase:17},
@@ -177,84 +177,21 @@ function featuresByTier(tier){return Object.entries(FEATURES)
 
 };
 // src/licensing/public-key.js
-__ESB_g[4]=function*(){__ESB_d(__ESB_x[4],{ACCOUNT_KEYS:()=>ACCOUNT_KEYS,LICENSE_PUBLIC_KEYS:()=>LICENSE_PUBLIC_KEYS,PARTNER_KEYS:()=>PARTNER_KEYS});yield;
+__ESB_g[4]=function*(){__ESB_d(__ESB_x[4],{ACCOUNT_KEYS:()=>ACCOUNT_KEYS});yield;
 const ACCOUNT_PUBLIC_KEY='BOJm0Fcao9nrtLL6IcfITJScrX2s5d3RqEjMb6witprQbtG_qVFZjZKpcB8ctArV8cy4VoBL_I0oWQV7rF6epJU'
-const PARTNER_PUBLIC_KEY='BGyrOlCOLjls9NyLxbpE45WA3EfCU1_eXIesqg009XAZXYWgr40ZGKhR1izDlPlnNegY2QXjmooXkB8cjh_9-Gc'
-const PARTNER_KEYS=Object.freeze({p256:Object.freeze([PARTNER_PUBLIC_KEY]),ed25519:Object.freeze([])})
 const ACCOUNT_KEYS=Object.freeze({p256:Object.freeze([ACCOUNT_PUBLIC_KEY]),ed25519:Object.freeze([])})
-const LICENSE_PUBLIC_KEYS=Object.freeze({p256:Object.freeze([ACCOUNT_PUBLIC_KEY,PARTNER_PUBLIC_KEY]),ed25519:Object.freeze([])
-})
-
-};
-// src/core/storage-provider.js
-__ESB_g[5]=function*(){__ESB_d(__ESB_x[5],{STORAGE_LOADED:()=>STORAGE_LOADED,STORAGE_PENDING:()=>STORAGE_PENDING,createCachedProvider:()=>createCachedProvider,storageFailed:()=>storageFailed});yield;
-const STORAGE_PENDING='pending'
-const STORAGE_LOADED='loaded'
-const STORAGE_LOAD_FAILED='loaded-failed'
-const STORAGE_SAVE_FAILED='save-failed'
-function storageFailed(provider){try{const state=provider?.status?.()
-return state===STORAGE_LOAD_FAILED||state===STORAGE_SAVE_FAILED}catch{return true}}
-function createCachedProvider(opts){const{fetch,push,sanitize,fallback}=opts
-const onError=typeof opts.onError==='function'?opts.onError:()=>{}
-let cache=fallback()
-let status=STORAGE_PENDING
-const report=(stage,err)=>{try{onError(stage,err)}catch{
-}}
-const failed=(stage,err)=>{status=stage==='load'?STORAGE_LOAD_FAILED:STORAGE_SAVE_FAILED
-report(stage,err)
-return false}
-let tail=null
-const send=(value,note)=>{try{const result=push(value,note)
-if(result&&typeof result.then==='function')return Promise.resolve(result).then(()=>true,(err)=>failed('save',err))
-return Promise.resolve(true)}catch(err){return Promise.resolve(failed('save',err))}}
-return{
-read:()=>clone(cache),
-write(next,note){cache=sanitize(next)
-const value=cache
-let mine=null
-mine=(tail===null?send(value,note):tail.then(()=>send(value,note))).then((ok)=>{if(tail===mine)tail=null
-return ok})
-tail=mine
-return mine},
-adopt(raw){if(status!==STORAGE_LOADED)return false
-cache=sanitize(raw)
-return true},
-async load(){try{cache=sanitize(await fetch())
-status=STORAGE_LOADED}catch(err){cache=fallback()
-failed('load',err)}
-return clone(cache)},
-isLoaded:()=>status!==STORAGE_PENDING&&status!==STORAGE_LOAD_FAILED,
-status:()=>status}}
-function clone(value){if(Array.isArray(value))return[...value]
-if(value&&typeof value==='object') return{...value}
-return value}
 
 };
 // src/licensing/key.js
-__ESB_g[6]=function*(){__ESB_d(__ESB_x[6],{createBridgeLicenseProvider:()=>createBridgeLicenseProvider,createKeyProvider:()=>createKeyProvider,parseLicenseKey:()=>parseLicenseKey,rejectLabelKey:()=>rejectLabelKey,verifyLicenseKey:()=>verifyLicenseKey});yield;const{FREE,PREMIUM}=__ESB_x[3];const{LICENSE_PUBLIC_KEYS,PARTNER_KEYS}=__ESB_x[4];const{createCachedProvider}=__ESB_x[5];
+__ESB_g[5]=function*(){__ESB_d(__ESB_x[5],{parseLicenseKey:()=>parseLicenseKey,verifyLicenseKey:()=>verifyLicenseKey});yield;const{FREE,PREMIUM}=__ESB_x[3];const{ACCOUNT_KEYS}=__ESB_x[4];
 ;
 ;
-;
-const LICENSE_STORAGE_KEY='license.key'
-const LICENSE_READ='license.read'
-const LICENSE_WRITE='license.write'
-function sanitizeLicenseKey(stored){return typeof stored==='string'?stored:''
-}
-function createBridgeLicenseProvider(opts){const bridge=opts?.bridge
-if(!bridge||typeof bridge.request!=='function') throw new Error('licensing: мост недоступен')
-return createCachedProvider({fetch:()=>bridge.request(LICENSE_READ),push:(value)=>bridge.request(LICENSE_WRITE,value),sanitize:sanitizeLicenseKey,fallback:()=>'',onError:opts.onError})}
 const LICENSE_PREFIX='futc1'
 const ALG=Object.freeze({P256:'p256',ED25519:'ed25519'})
 const REJECT=Object.freeze({EMPTY:'empty',SHAPE:'bad-shape',ALGORITHM:'unknown-algorithm',PAYLOAD:'bad-payload',SIGNATURE:'bad-signature',EXPIRED:'expired',PLAN:'bad-plan',CRYPTO:'no-crypto'
 })
-const REJECT_KEYS=Object.freeze({[REJECT.EMPTY]:'license.reason.empty',[REJECT.SHAPE]:'license.reason.bad-shape',[REJECT.ALGORITHM]:'license.reason.unknown-algorithm',[REJECT.PAYLOAD]:'license.reason.bad-payload',[REJECT.SIGNATURE]:'license.reason.bad-signature',[REJECT.EXPIRED]:'license.reason.expired',[REJECT.PLAN]:'license.reason.bad-plan',[REJECT.CRYPTO]:'license.reason.no-crypto'
-})
-function rejectLabelKey(reason){return REJECT_KEYS[reason]??REJECT_KEYS[REJECT.SHAPE]}
 function publicKeysOf(value){const list=Array.isArray(value)?value:[value]
 return list.filter((key)=>typeof key==='string'&&key!=='')}
-const ACCOUNT_ONLY_FIELDS=Object.freeze(['sub','quota','v'])
-function looksLikeAccountEntitlement(payload){if(!payload||typeof payload!=='object')return false
-return ACCOUNT_ONLY_FIELDS.some((field)=>Object.hasOwn(payload,field))}
 const ALGORITHMS={[ALG.P256]:{importParams:{name:'ECDSA',namedCurve:'P-256'},verifyParams:{name:'ECDSA',hash:'SHA-256'}},[ALG.ED25519]:{importParams:{name:'Ed25519'},verifyParams:{name:'Ed25519'}}}
 function parseLicenseKey(token){const fail=(reason)=>({ok:false,reason,alg:null,payload:null,signed:null,signature:null})
 if(typeof token!=='string'||token.trim()==='') return fail(REJECT.EMPTY)
@@ -275,7 +212,7 @@ const no=(reason,exp=null)=>({ok:false,reason,plan:FREE,exp,note:null})
 if(!parsed.ok)return no(parsed.reason)
 const subtle=opts.subtle??globalThis.crypto?.subtle
 if(!subtle||typeof subtle.importKey!=='function') return no(REJECT.CRYPTO)
-const keys=opts.keys??LICENSE_PUBLIC_KEYS
+const keys=opts.keys??ACCOUNT_KEYS
 const candidates=publicKeysOf(keys?.[parsed.alg])
 if(candidates.length===0) return no(REJECT.ALGORITHM)
 const spec=ALGORITHMS[parsed.alg]
@@ -289,36 +226,6 @@ const now=Number.isFinite(opts.now)?opts.now:Number.NaN
 if(!Number.isFinite(now))return no(REJECT.EXPIRED,parsed.payload.exp)
 if(parsed.payload.exp<=now)return no(REJECT.EXPIRED,parsed.payload.exp)
 return{ok:true,reason:null,plan:PREMIUM,exp:parsed.payload.exp,note:typeof parsed.payload.note==='string'?parsed.payload.note:null}}
-function createKeyProvider(deps={}){const clock=deps.clock
-if(!clock||typeof clock.now!=='function'){throw new Error('licensing: нужны часы (правило 6 NIGHT_BRIEF)')}
-const storage=deps.provider??null
-let state={plan:FREE,exp:null,reason:null,note:null}
-const check=(token)=>{const parsed=parseLicenseKey(token)
-if(parsed.ok&&looksLikeAccountEntitlement(parsed.payload))return Promise.resolve({ok:false,reason:REJECT.SHAPE,plan:FREE,exp:null,note:null})
-return verifyLicenseKey(token,{now:clock.now(),subtle:deps.subtle,keys:deps.keys??PARTNER_KEYS})}
-const apply=(result)=>{state={plan:result.ok?PREMIUM:FREE,exp:result.exp,reason:result.reason,note:result.note??null}
-return state}
-const stored=()=>{if(!storage)return null
-try{const value=storage.read()
-return typeof value==='string'&&value!==''?value:null}catch{return null}}
-const visible=()=>({unlocked:state.plan===PREMIUM,exp:state.exp,reason:state.reason,note:state.note,hasKey:stored()!==null})
-return{
-getPlan:()=>state.plan,
-state:visible,
-async load(){const token=stored()
-if(token===null){state={plan:FREE,exp:null,reason:null,note:null}
-return state}
-return apply(await check(token))},
-async setKey(token){const value=typeof token==='string'?token.trim():''
-if(value===''){if(storage){try{storage.write('')}catch{
-}}
-state={plan:FREE,exp:null,reason:null,note:null}
-return visible()}
-const result=await check(value)
-apply(result)
-if(result.ok&&storage){try{storage.write(value)}catch{
-}}
-return visible()}}}
 function fromBase64Url(value){const normal=String(value).replace(/-/g,'+').replace(/_/g,'/')
 const padded=normal+'='.repeat((4-(normal.length%4))%4)
 const binary=atob(padded)
@@ -331,13 +238,13 @@ return btoa(binary).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
 
 };
 // src/licensing/account.js
-__ESB_g[7]=function*(){__ESB_d(__ESB_x[7],{ACCOUNT_OPEN:()=>ACCOUNT_OPEN,createAccountProvider:()=>createAccountProvider,createMigrationProvider:()=>createMigrationProvider,partnerOf:()=>partnerOf});yield;const{FREE,PREMIUM}=__ESB_x[3];const{parseLicenseKey,verifyLicenseKey}=__ESB_x[6];const{ACCOUNT_KEYS}=__ESB_x[4];
+__ESB_g[6]=function*(){__ESB_d(__ESB_x[6],{ACCOUNT_OPEN:()=>ACCOUNT_OPEN,createAccountProvider:()=>createAccountProvider,partnerOf:()=>partnerOf});yield;const{FREE,PREMIUM}=__ESB_x[3];const{parseLicenseKey,verifyLicenseKey}=__ESB_x[5];const{ACCOUNT_KEYS}=__ESB_x[4];
 ;
 ;
 ;
 const ACCOUNT_STATUS='account.status'
 const ACCOUNT_OPEN='account.open'
-const ACCOUNT_BUILD='ACC8'
+const ACCOUNT_BUILD='ACC9'
 const ACCOUNT_CACHE_MS=604800000
 const ACCOUNT_CLOCK_SKEW_MS=300000
 const ACCOUNT_REASONS=Object.freeze(['pending','not-configured','signed-out','inactive','network','unauthorized','invalid-entitlement','clock','bridge'])
@@ -347,7 +254,7 @@ const SILENT_RE=/^bridge timeout:|context invalidated/i
 const silentError=(err)=>SILENT_RE.test(String(err?.message??err))
 const silentAnswer=(raw)=>raw!==null&&typeof raw==='object'&&raw.ok===false&&!Object.hasOwn(raw,'configured')
 const REASONS=new Set(ACCOUNT_REASONS)
-const fail=(reason,configured=null)=>({mode:configured===false?'legacy':'account',configured,authenticated:false,unlocked:false,exp:null,reason:REASONS.has(reason)?reason:'network',cached:false,account:null,quota:null,friend:null,partner:null})
+const fail=(reason,configured=null)=>({mode:'account',configured,authenticated:false,unlocked:false,exp:null,reason:REASONS.has(reason)?reason:'network',cached:false,account:null,quota:null,friend:null,partner:null})
 const FRIEND_CODE_RE=/^[0-9A-Z]{4,16}$/
 const count=(value)=>Number.isSafeInteger(value)&&value>=0
 const table=(value)=>{if(!value||typeof value!=='object'||Array.isArray(value))return null
@@ -409,8 +316,6 @@ const holdAlive=(now)=>{if(now<seen-HOLD_CLOCK_SLACK_MS)return false
 return Number.isFinite(liveAt)&&now>=liveAt&&now-liveAt<HOLD_MS}
 const silence=()=>{if(live()){holding=true
 return state()}
-if(keySpeaks()){holding=true
-return state()}
 bridgeFail()
 return state()}
 const inactive=(account)=>{drop(fail('inactive',true))
@@ -463,36 +368,17 @@ if(now>seen)seen=now
 return true}
 const state=()=>{const open=live()
 return{build:ACCOUNT_BUILD,mode:current.mode,configured:current.configured,authenticated:current.authenticated,unlocked:open,exp:current.exp,reason:current.reason,cached:current.cached,account:current.account?{...current.account}:null,quota:current.quota?{...current.quota}:null,friend:current.friend?{...current.friend,pct:{...current.friend.pct},gift:{...current.friend.gift}}:null,partner:current.partner?{...current.partner,pct:{...current.partner.pct}}:null}}
-const keySpeaks=(keyExp)=>{if(current.configured!==true||current.reason!=='signed-out')return false
-const now=clock.now()
-if(holding){let exp=null
-try{exp=typeof keyExp==='function'?keyExp():null}catch{exp=null}
-if(!holdAlive(now)||(Number.isFinite(exp)&&!(now<exp))){bridgeFail()
-return false}}
-if(now>seen)seen=now
-return true}
-const legacyAllowed=(keyExp)=>current.configured===false||keySpeaks(keyExp)
-return{getPlan:()=>live()?PREMIUM:FREE,state,refresh,isLegacyAllowed:legacyAllowed,
+return{getPlan:()=>live()?PREMIUM:FREE,state,refresh,
 seat:()=>(live()&&seatNow!==null?{...seatNow}:null),
 paidKey:(version)=>(live()&&keysNow!==null&&Object.hasOwn(keysNow,version)?keysNow[version]:null),
-proof:()=>(live()?proofNow:null)}}
-function createMigrationProvider({account,legacy}={}){if(!account||typeof account.getPlan!=='function'||typeof account.isLegacyAllowed!=='function')throw new Error('account: нужен account provider')
-if(!legacy||typeof legacy.getPlan!=='function')throw new Error('account: нужен legacy provider')
-const keyExp=()=>(typeof legacy.state==='function'?legacy.state()?.exp:null)
-const state=()=>{if(account.isLegacyAllowed(keyExp)){const old=typeof legacy.state==='function'?legacy.state():{}
-return{...old,build:ACCOUNT_BUILD,mode:'legacy',configured:account.state().configured,account:null,quota:null,friend:null,partner:null}}
-return account.state()}
-return{getPlan:()=>account.isLegacyAllowed(keyExp)?legacy.getPlan():account.getPlan(),state,
-seat:()=>(account.isLegacyAllowed(keyExp)||typeof account.seat!=='function'?null:account.seat()),
-paidKey:(version)=>(account.isLegacyAllowed(keyExp)||typeof account.paidKey!=='function'?null:account.paidKey(version)),
-proof:()=>(account.isLegacyAllowed(keyExp)||typeof account.proof!=='function'?null:account.proof()),
+proof:()=>(live()?proofNow:null),
 probe(){const view=state()
 const open=view.unlocked===true
-return{build:ACCOUNT_BUILD,source:open?(view.mode==='legacy'?'key':'account'):'none',exp:open&&Number.isFinite(view.exp)?view.exp:null}}}}
+return{build:ACCOUNT_BUILD,source:open?'account':'none',exp:open&&Number.isFinite(view.exp)?view.exp:null}}}}
 
 };
 // src/features/account-door.js
-__ESB_g[8]=function*(){__ESB_d(__ESB_x[8],{openAccountDoor:()=>openAccountDoor,watchAccountDoor:()=>watchAccountDoor});yield;const{createBridgeClient}=__ESB_x[2];const{CHANNEL,FROM_CONTENT,KIND_EVENT}=__ESB_x[0];const{ACCOUNT_OPEN}=__ESB_x[7];
+__ESB_g[7]=function*(){__ESB_d(__ESB_x[7],{openAccountDoor:()=>openAccountDoor,watchAccountDoor:()=>watchAccountDoor});yield;const{createBridgeClient}=__ESB_x[2];const{CHANNEL,FROM_CONTENT,KIND_EVENT}=__ESB_x[0];const{ACCOUNT_OPEN}=__ESB_x[6];
 ;
 ;
 ;
@@ -536,7 +422,7 @@ if(box&&typeof box==='object'&&typeof box.accountDoor!=='function')box.accountDo
 
 };
 // src/features/api-door.js
-__ESB_g[9]=function*(){__ESB_d(__ESB_x[9],{API_ORIGINS:()=>API_ORIGINS,apiDoor:()=>apiDoor,apiOrigin:()=>apiOrigin,apiUrl:()=>apiUrl,noteApiAnswer:()=>noteApiAnswer});yield;
+__ESB_g[8]=function*(){__ESB_d(__ESB_x[8],{API_ORIGINS:()=>API_ORIGINS,apiDoor:()=>apiDoor,apiOrigin:()=>apiOrigin,apiUrl:()=>apiUrl,noteApiAnswer:()=>noteApiAnswer});yield;
 const API_ORIGINS=Object.freeze(['https://api.eshario.com','https://api.eshario.app'])
 const API_DOOR_HOLD_MS=10*60_000
 const API_NETWORK_REASONS=Object.freeze(['network','timeout'])
@@ -595,7 +481,7 @@ return prev}
 
 };
 // src/features/day-sign.js
-__ESB_g[10]=function*(){__ESB_d(__ESB_x[10],{createDaySign:()=>createDaySign});yield;
+__ESB_g[9]=function*(){__ESB_d(__ESB_x[9],{createDaySign:()=>createDaySign});yield;
 const DAY_SIGN_KEY='eshario.daysign'
 const DAY_SIGN_PATH='/v1/day-sign'
 const HEX16=/^[0-9a-f]{16}$/
@@ -643,7 +529,7 @@ probe(){return{...stats,day:read().day??null,ea:0}}}}
 
 };
 // src/adapter/trade-access.js
-__ESB_g[11]=function*(){__ESB_d(__ESB_x[11],{TRADE_ACCESS:()=>TRADE_ACCESS,readTradeAccess:()=>readTradeAccess});yield;
+__ESB_g[10]=function*(){__ESB_d(__ESB_x[10],{TRADE_ACCESS:()=>TRADE_ACCESS,readTradeAccess:()=>readTradeAccess});yield;
 const TRADE_ACCESS=Object.freeze({NONE:0,BANNED:1,ALLOWED:2,CONSOLE_ONLY:3,UNAVAILABLE:4,MAINTENANCE:100})
 const levelOf=(win,name)=>{const value=win?.TradeAccessLevel?.[name]
 return Number.isFinite(value)?value:TRADE_ACCESS[name]}
@@ -659,7 +545,7 @@ return{known:true,allowed,consoleOnly:allowed===false&&level!==null&&level===lev
 
 };
 // src/i18n/detect.js
-__ESB_g[12]=function*(){__ESB_d(__ESB_x[12],{DEFAULT_LOCALE:()=>DEFAULT_LOCALE,SUPPORTED_LOCALES:()=>SUPPORTED_LOCALES,chooseLocale:()=>chooseLocale,currentTimeZone:()=>currentTimeZone});yield;
+__ESB_g[11]=function*(){__ESB_d(__ESB_x[11],{DEFAULT_LOCALE:()=>DEFAULT_LOCALE,SUPPORTED_LOCALES:()=>SUPPORTED_LOCALES,chooseLocale:()=>chooseLocale,currentTimeZone:()=>currentTimeZone});yield;
 const SUPPORTED_LOCALES=Object.freeze(['en','ru'])
 const DEFAULT_LOCALE='en'
 const RUSSIAN_TIME_ZONES=Object.freeze([
@@ -687,7 +573,7 @@ return detectLocale(preferences,timeZone)}
 
 };
 // src/i18n/dict.shell.js
-__ESB_g[13]=function*(){__ESB_d(__ESB_x[13],{shellEn:()=>shellEn,shellRu:()=>shellRu});yield;
+__ESB_g[12]=function*(){__ESB_d(__ESB_x[12],{shellEn:()=>shellEn,shellRu:()=>shellRu});yield;
 const shellEn=Object.freeze({
 'shell.subscribe':'ESHArio works by subscription. Sign in or subscribe in the account window',
 'shell.openAccount':'Open account',
@@ -705,7 +591,7 @@ const shellRu=Object.freeze({
 
 };
 // src/page/paid-dock.js
-__ESB_g[14]=function*(){__ESB_d(__ESB_x[14],{PAID_BRIDGE_EXTRA_MS:()=>PAID_BRIDGE_EXTRA_MS,createPaidDock:()=>createPaidDock});yield;const{apiUrl,noteApiAnswer}=__ESB_x[9];
+__ESB_g[13]=function*(){__ESB_d(__ESB_x[13],{PAID_BRIDGE_EXTRA_MS:()=>PAID_BRIDGE_EXTRA_MS,createPaidDock:()=>createPaidDock});yield;const{apiUrl,noteApiAnswer}=__ESB_x[8];
 ;
 const PAID_DOCK_BUILD='ACR1-2'
 const PAID_CACHE_KEY='paid.piece'
@@ -834,7 +720,7 @@ key:keyed,source,ms,rejects:[...rejects]})}}
 
 };
 // src/page/shell.js
-__ESB_g[15]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{isResponse}=__ESB_x[0];const{createAccountProvider}=__ESB_x[7];const{PREMIUM}=__ESB_x[3];const{openAccountDoor,watchAccountDoor}=__ESB_x[8];const{apiUrl,noteApiAnswer}=__ESB_x[9];const{createDaySign}=__ESB_x[10];const{readTradeAccess}=__ESB_x[11];const{chooseLocale,currentTimeZone}=__ESB_x[12];const{shellEn,shellRu}=__ESB_x[13];const{createPaidDock,PAID_BRIDGE_EXTRA_MS}=__ESB_x[14];
+__ESB_g[14]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];const{isResponse}=__ESB_x[0];const{createAccountProvider}=__ESB_x[6];const{PREMIUM}=__ESB_x[3];const{openAccountDoor,watchAccountDoor}=__ESB_x[7];const{apiUrl,noteApiAnswer}=__ESB_x[8];const{createDaySign}=__ESB_x[9];const{readTradeAccess}=__ESB_x[10];const{chooseLocale,currentTimeZone}=__ESB_x[11];const{shellEn,shellRu}=__ESB_x[12];const{createPaidDock,PAID_BRIDGE_EXTRA_MS}=__ESB_x[13];
 ;
 ;
 ;
@@ -997,7 +883,7 @@ if(bundled())void startShell(window)
 
 };
 // Запуск: шаг первый всем модулям (геттеры, подъём функций), потом тела по порядку браузера.
-const __ESB_o=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],__ESB_a=new Set([]),__ESB_c=[];
+const __ESB_o=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14],__ESB_a=new Set([]),__ESB_c=[];
 const __ESB_it=[];for(const i of __ESB_o){const g=__ESB_g[i].call(void 0);__ESB_it[i]=g;g.next()}
 const __ESB_ring=()=>{for(const j of __ESB_c)__ESB_r[j]()};
 const __ESB_run=(k)=>{for(;k<__ESB_o.length;k++){__ESB_ring();const i=__ESB_o[k],r=__ESB_it[i].next();if(__ESB_a.has(i))return r.then(()=>__ESB_run(k+1))}__ESB_ring()};
