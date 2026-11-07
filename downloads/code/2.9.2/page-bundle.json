@@ -1,0 +1,14 @@
+{
+  "version": "2.9.2",
+  "commit": "48cc70b8fde133d2a5bf64184c9dd3364e2c2a7c",
+  "builtAt": "2026-11-07T14:59:19Z",
+  "bytes": 59536,
+  "sha256": "341b9657f10e4dfb254173c92b61e1c765d74dd6a9eef5ae47efc85cbe48063c",
+  "minLoader": "2.2.0",
+  "paid": {
+    "file": "page-paid-03a45bd8dc9a9bfc.bin",
+    "sha256": "03a45bd8dc9a9bfc939d767c3b948f30c0e2287dc6eb87338bc5973b871f2bc1",
+    "bytes": 1797605
+  },
+  "keyDoor": 1
+}
