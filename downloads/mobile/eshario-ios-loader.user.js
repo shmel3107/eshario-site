@@ -3,8 +3,8 @@
 // @namespace    https://eshario.com/ios
 // @updateURL    https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
 // @downloadURL  https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
-// @version      2.2.0.280
-// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-280, loader)
+// @version      2.3.100.341
+// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-341, loader)
 // @match        https://www.ea.com/*
 // @match        https://eshario.com/mobile-login*
 // @inject-into  content
@@ -25,9 +25,9 @@
 // @connect      eshario.com
 // @connect      eshario.app
 // ==/UserScript==
-// ESHArio MFIN-280, loader: page code comes from the server, signature checked by src/loader/code.js
+// ESHArio MFIN-341, loader: page code comes from the server, signature checked by src/loader/code.js
 (function(){'use strict';
-var HOST_CONFIG={"manifest":{"version":"2.2.0"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-280","words":{"accountTitle":"Аккаунт ESHArio"}};
+var HOST_CONFIG={"manifest":{"version":"2.3.100"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-341","words":{"accountTitle":"Аккаунт ESHArio"}};
 // --- mobile/host/host.js ---
 // ХОСТ ESHArio НА iPHONE (кирпич MOBILE-IOS-1, дорога И2).
 //
@@ -295,10 +295,15 @@ function pageOnly(area,key){return area==='local'&&thin&&(key===CODE_PREVIOUS||c
 // остаются в хранилище менеджера. Safari не задет: там ключи прежние.
 // Платный кусок 2.9.0 (`paid.piece`) той же породы: шифрованный файл, который страница берёт заново сама.
 var PAGE_CACHE_KEYS=['door.gallery.columns','door.gallery.catalog','door.prices.lastFile','cards.seed','door.paid.piece'];
-var PAGE_CACHE_PREFIX='catalog.v1.';
+// Последний ответ сервера Галереи по персоне (`gallery-remote.js`, `door.gallery.lastAll.<персона>`)
+// той же породы (слово владельца 09.11, блокер памяти I230-2): после перезагрузки Галерея ждёт
+// ответ сервера, деньгам ничего. Отметки «сдал на» лежат отдельно (`eshario.gallerySetScores.*`
+// в хранилище страницы, не в менеджере), их это не касается.
+var PAGE_CACHE_PREFIXES=['catalog.v1.','door.gallery.lastAll.'];
 var cachePageOnly=xrayManager;
 var pageMemo={};
-function cacheOnly(area,key){return cachePageOnly&&area==='local'&&typeof key==='string'&&(PAGE_CACHE_KEYS.indexOf(key)>=0||key.indexOf(PAGE_CACHE_PREFIX)===0)}
+function cachePrefixed(key){for(var i=0;i<PAGE_CACHE_PREFIXES.length;i+=1){if(key.indexOf(PAGE_CACHE_PREFIXES[i])===0)return true}return false}
+function cacheOnly(area,key){return cachePageOnly&&area==='local'&&typeof key==='string'&&(PAGE_CACHE_KEYS.indexOf(key)>=0||cachePrefixed(key))}
 // МОСТ ЖДЁТ КОД ЭТОГО ЗАХОДА. Мост ядра (`content.js`) читает код один раз, при
 // старте, а код, легший позже, отдаёт следующему заходу строкой «код загружен,
 // обновите страницу». Код только в памяти страницы до следующего захода не
