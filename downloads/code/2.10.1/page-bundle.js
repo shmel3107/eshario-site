@@ -1,17 +1,17 @@
-// ESHArio page-bundle 2.9.1 19dd9900279eb167cf08b55a61a5fdd1e8838c25 2026-11-05T21:08:30Z
+// ESHArio page-bundle 2.10.1 ab49070f2d2c44c073b9711283a7635965aae58a 2026-11-12T14:29:11Z
 (function(){'use strict';
 // Адрес: на чужой странице EA склейка молчит (контракт 1.1) и убирает за мостом штамп и ловушку прибора.
 if(!(function(h){return /^https:\/\/www\.ea\.com\/.*\/ultimate-team\/web-app.*/.test(h)})(String(globalThis.location&&globalThis.location.href))){(function(w,n){try{w.document.documentElement.removeAttribute("data-eshario-inject")}catch(e){}var k="__eshario",t=function(){try{var d=Object.getOwnPropertyDescriptor(w,k);if(d&&d.configurable===true&&d.enumerable===false&&typeof d.set==="function"){delete w[k];return}if(--n>0)w.setTimeout(t,50)}catch(e){}};try{w.setTimeout(t,50)}catch(e){}})(globalThis,20);return}
 // Атрибуты своего <script> читаются первой синхронной строкой: узел снимается сразу.
 const __eshario_tag=(function(s){return s&&typeof s.getAttribute==='function'?Object.freeze({loader:s.getAttribute("data-eshario-loader"),base:s.getAttribute("data-eshario-base"),token:s.getAttribute("data-eshario-token")}):null})(globalThis.document&&globalThis.document.currentScript);
 const __eshario_assets=Object.freeze({
-"eshario-asset:ui/theme.css":":root,\n:host {\n  --fx-accent: #3DD8FF;        /* акцент: наши кнопки, метки, значения */\n  --fx-accent-dim: #1B90B3;    /* приглушённый акцент, рамки */\n  --fx-on-accent: #062733;     /* текст на акцентной заливке */\n  --fx-accent-tint: rgba(61, 216, 255, .09); /* фон наших блоков */\n  --fx-ok: #00E07F;            /* успех (совпадает с языком EA) */\n  --fx-warn: #FFB454;          /* предупреждение (страж, замок) */\n  --fx-warn-ink: #2A1C05;      /* текст на янтарной заливке */\n  --fx-danger: #FF5470;        /* ошибка */\n  --fx-gold: #E8C35A;          /* монеты и звезда элиты */\n  --fx-surface: #131417;       /* фон наших окон/блоков */\n  --fx-surface-2: #1E2330;     /* фон вложенных элементов */\n  --fx-line: #24262C;          /* линии и рамки */\n  --fx-ink: #EEF1F7;           /* основной текст */\n  --fx-dim: #939DB4;           /* второстепенный текст */\n  --fx-surface-glass: rgba(19, 20, 23, .985); /* фон панели поверх вебапа */\n  --fx-surface-sunken: #0D0F13;               /* поля ввода и «колодцы» */\n  --fx-line-strong: #333743;                  /* рамка кнопки и поля */\n  --fx-ink-strong: #FFFFFF;                   /* фокус и максимальный контраст */\n  --fx-muted: #6D7589;                        /* выключенный текст */\n  --fx-overlay: rgba(0, 0, 0, .55);           /* затемнение под диалогом */\n  --fx-shadow: rgba(0, 0, 0, .34);            /* тень небольшого элемента */\n  --fx-shadow-strong: rgba(0, 0, 0, .48);     /* тень панели и диалога */\n  --fx-ok-tint: rgba(0, 224, 127, .10);       /* заливка сообщения об успехе */\n  --fx-warn-tint: rgba(255, 180, 84, .10);    /* заливка предупреждения */\n  --fx-warn-dim: #6B4E1E;                     /* рамка предупреждения */\n  --fx-danger-tint: rgba(255, 84, 112, .12);  /* заливка ошибки */\n  --fx-flag-white: #FFFFFF;    /* белое поле обоих флагов */\n  --fx-flag-uk-blue: #012169;  /* синее поле британского флага */\n  --fx-flag-uk-red: #C8102E;   /* красный крест британского флага */\n  --fx-flag-ru-blue: #0039A6;  /* средняя полоса российского флага */\n  --fx-flag-ru-red: #D52B1E;   /* нижняя полоса российского флага */\n  --fx-holo-cyan: rgba(61, 216, 255, .75);    /* холодный край блика */\n  --fx-holo-shine: rgba(255, 255, 255, .9);   /* середина блика */\n  --fx-holo-violet: rgba(178, 128, 255, .75); /* фиолетовый перелив */\n  --fx-holo-rose: rgba(255, 128, 204, .6);    /* тёплый край блика */\n  --fx-gem-light: #54FDDE;  /* верхняя левая грань */\n  --fx-gem-mid: #3DA888;    /* нижняя правая грань */\n  --fx-gem-dark: #216751;   /* нижняя левая грань */\n  --fx-tier-bronze: #C78B5C;\n  --fx-tier-silver: #C9CFDB;\n  --fx-tier-gold: #E8C35A;\n  --fx-tier-ink: #1A1405;\n}\n.fx-tt-panel {\n  box-sizing: border-box;\n  min-width: 0;\n  padding: 12px 14px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 10px;\n  background: var(--fx-surface-2);\n}\n.fx-tt-h {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  height: 22px;\n  margin: 0 0 10px;\n  white-space: nowrap;\n}\n.fx-tt-h b { font-size: 15px; font-weight: 600; color: var(--fx-ink-strong); }\n.fx-tt-h i {\n  margin-left: auto;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  font-style: normal;\n  font-size: 11px;\n  letter-spacing: .3px;\n  text-transform: uppercase;\n  color: var(--fx-dim);\n}\n.fx-tt-key {\n  font-size: 10.5px;\n  line-height: 13px;\n  letter-spacing: .4px;\n  text-transform: uppercase;\n  color: var(--fx-dim);\n  white-space: nowrap;\n}\n.fx-tt-val {\n  font-size: 16px;\n  line-height: 20px;\n  font-weight: 800;\n  color: var(--fx-ink);\n  white-space: nowrap;\n  font-variant-numeric: tabular-nums;\n}\n.fx-site-icon { display: block; flex: none; overflow: hidden; opacity: .9; background: center / 100% 100% no-repeat; }\n.fx-site-icon:hover { opacity: 1; box-shadow: 0 0 0 1.5px var(--fx-accent); }\n.fx-site-icon.futgg { background-image: url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALYSURBVFhH7VhNSFRRGD1Jmpb571gqU9M4jjNg6mjQODPOaFoSEdSmokW0CIJoIRW0KlpEvxAEFVFGlhiIUu2LNhUEYmWQtKl9vUVtwhbNiW/ue/Xumxm1FjmLWZyZ9+79zr3nfve758JDMoIHyR4YyegSQeaOYAzJKOaYANmzREiAokGEGKmG6BKhJyXEyAv5jbwQJ/JCnMhtITFlMOw1/+MO85F3e79z0Pn4dq5A3jMKMfGkFTzlBvfWggMVYKQM7C4DY+Xgtkpwn0v1P201B5PJZcA4+D0CTgTB443g7hqw1+QL4uXg9irwQB143gO+DpnCNCEJ8HMY7KsAgcVDBv0pC0iAUyHQvzI9JhuWAbziVdn5I6QP3FObHrwYvGwDk3HQW5zetxCKC8Bv3WAyJkJiML6GVaM9qKsUHGoEL3jAyxvAcx7whBtsXaXHjfrBmVD6JLKNJ93gRQ94yQOeXQ8ebQBdhXrc247UQgzIz5sOvXPTanP/pagcxTrbCV71gtebwJs+8ONmcNin8w+tAbnFrAGpIRv/2UbFv9EE3vaBRtjKSBzGizZ9oMNrQfaDn7pAVxFYXWhiOVhfBDaXKPhKwIdB8FaTzr/nBzkAPg7auCbfvULnT9szkk3Ih069PRNGmsE7joyMiJCtatuc8U6YNZZ5a+SoSmp/RMCd1eCOKgV5TpTrsff94HiL3jbUAHJQ1Y7FTfFrwPZSPfZVuyUkS7Huqgav+cDJIPgoCE4GwNEAeKRejxsPgDOOhRQVqKwON6utE/5EALwbUILsse9DlhDz+IqB2QMWi3dqIHpL0vsWgtTNXNQqVtPQvoTB/sr04PlwrNE8XXFwOgS2/IWhSdZSRa0Zmu2IinWfzmLxg5Xgfhd4Zh34vG1hixendlr8wTrlS7NdmSzeuvQE811a9ovLurT+9dKz5swq5H8jL8SJvBAn8kKcyEUhOfJZIoKxXPhQ8wtZqcuzVb/HQAAAAABJRU5ErkJggg==\"); }\n.fx-site-icon.futbin { background-image: url(\"data:image/png;base64,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\"); }\n",
+"eshario-asset:ui/theme.css":":root,\n:host {\n  --fx-accent: #3DD8FF;        /* акцент: наши кнопки, метки, значения */\n  --fx-accent-dim: #1B90B3;    /* приглушённый акцент, рамки */\n  --fx-on-accent: #062733;     /* текст на акцентной заливке */\n  --fx-accent-tint: rgba(61, 216, 255, .09); /* фон наших блоков */\n  --fx-ok: #00E07F;            /* успех (совпадает с языком EA) */\n  --fx-warn: #FFB454;          /* предупреждение (страж, замок) */\n  --fx-warn-ink: #2A1C05;      /* текст на янтарной заливке */\n  --fx-danger: #FF5470;        /* ошибка */\n  --fx-gold: #E8C35A;          /* монеты и звезда элиты */\n  --fx-surface: #131417;       /* фон наших окон/блоков */\n  --fx-surface-2: #1E2330;     /* фон вложенных элементов */\n  --fx-line: #24262C;          /* линии и рамки */\n  --fx-ink: #EEF1F7;           /* основной текст */\n  --fx-dim: #939DB4;           /* второстепенный текст */\n  --fx-surface-glass: rgba(19, 20, 23, .985); /* фон панели поверх вебапа */\n  --fx-surface-sunken: #0D0F13;               /* поля ввода и «колодцы» */\n  --fx-line-strong: #333743;                  /* рамка кнопки и поля */\n  --fx-ink-strong: #FFFFFF;                   /* фокус и максимальный контраст */\n  --fx-muted: #6D7589;                        /* выключенный текст */\n  --fx-overlay: rgba(0, 0, 0, .55);           /* затемнение под диалогом */\n  --fx-shadow: rgba(0, 0, 0, .34);            /* тень небольшого элемента */\n  --fx-shadow-strong: rgba(0, 0, 0, .48);     /* тень панели и диалога */\n  --fx-ok-tint: rgba(0, 224, 127, .10);       /* заливка сообщения об успехе */\n  --fx-warn-tint: rgba(255, 180, 84, .10);    /* заливка предупреждения */\n  --fx-warn-dim: #6B4E1E;                     /* рамка предупреждения */\n  --fx-danger-tint: rgba(255, 84, 112, .12);  /* заливка ошибки */\n  --fx-flag-white: #FFFFFF;    /* белое поле обоих флагов */\n  --fx-flag-uk-blue: #012169;  /* синее поле британского флага */\n  --fx-flag-uk-red: #C8102E;   /* красный крест британского флага */\n  --fx-flag-ru-blue: #0039A6;  /* средняя полоса российского флага */\n  --fx-flag-ru-red: #D52B1E;   /* нижняя полоса российского флага */\n  --fx-holo-cyan: rgba(61, 216, 255, .75);    /* холодный край блика */\n  --fx-holo-shine: rgba(255, 255, 255, .9);   /* середина блика */\n  --fx-holo-violet: rgba(178, 128, 255, .75); /* фиолетовый перелив */\n  --fx-holo-rose: rgba(255, 128, 204, .6);    /* тёплый край блика */\n  --fx-gem-light: #54FDDE;  /* верхняя левая грань */\n  --fx-gem-mid: #3DA888;    /* нижняя правая грань */\n  --fx-gem-dark: #216751;   /* нижняя левая грань */\n  --fx-tier-bronze: #C78B5C;\n  --fx-tier-silver: #C9CFDB;\n  --fx-tier-gold: #E8C35A;\n  --fx-tier-elite: #B46CFF;       /* Элита фиолетовым кристаллом (герб лиги, лист TH-WINDOWS-2 10.11) */\n  --fx-tier-ink: #1A1405;\n}\n.fx-tt-panel {\n  box-sizing: border-box;\n  min-width: 0;\n  padding: 12px 14px;\n  border: 1px solid var(--fx-line-strong);\n  border-radius: 10px;\n  background: var(--fx-surface-2);\n}\n.fx-tt-h {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  height: 22px;\n  margin: 0 0 10px;\n  white-space: nowrap;\n}\n.fx-tt-h b { font-size: 15px; font-weight: 600; color: var(--fx-ink-strong); }\n.fx-tt-h i {\n  margin-left: auto;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  font-style: normal;\n  font-size: 11px;\n  letter-spacing: .3px;\n  text-transform: uppercase;\n  color: var(--fx-dim);\n}\n.fx-tt-key {\n  font-size: 10.5px;\n  line-height: 13px;\n  letter-spacing: .4px;\n  text-transform: uppercase;\n  color: var(--fx-dim);\n  white-space: nowrap;\n}\n.fx-tt-val {\n  font-size: 16px;\n  line-height: 20px;\n  font-weight: 800;\n  color: var(--fx-ink);\n  white-space: nowrap;\n  font-variant-numeric: tabular-nums;\n}\n.fx-site-icon { display: block; flex: none; overflow: hidden; opacity: .9; background: center / 100% 100% no-repeat; }\n.fx-site-icon:hover { opacity: 1; box-shadow: 0 0 0 1.5px var(--fx-accent); }\n.fx-site-icon.futgg { background-image: url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALYSURBVFhH7VhNSFRRGD1Jmpb571gqU9M4jjNg6mjQODPOaFoSEdSmokW0CIJoIRW0KlpEvxAEFVFGlhiIUu2LNhUEYmWQtKl9vUVtwhbNiW/ue/Xumxm1FjmLWZyZ9+79zr3nfve758JDMoIHyR4YyegSQeaOYAzJKOaYANmzREiAokGEGKmG6BKhJyXEyAv5jbwQJ/JCnMhtITFlMOw1/+MO85F3e79z0Pn4dq5A3jMKMfGkFTzlBvfWggMVYKQM7C4DY+Xgtkpwn0v1P201B5PJZcA4+D0CTgTB443g7hqw1+QL4uXg9irwQB143gO+DpnCNCEJ8HMY7KsAgcVDBv0pC0iAUyHQvzI9JhuWAbziVdn5I6QP3FObHrwYvGwDk3HQW5zetxCKC8Bv3WAyJkJiML6GVaM9qKsUHGoEL3jAyxvAcx7whBtsXaXHjfrBmVD6JLKNJ93gRQ94yQOeXQ8ebQBdhXrc247UQgzIz5sOvXPTanP/pagcxTrbCV71gtebwJs+8ONmcNin8w+tAbnFrAGpIRv/2UbFv9EE3vaBRtjKSBzGizZ9oMNrQfaDn7pAVxFYXWhiOVhfBDaXKPhKwIdB8FaTzr/nBzkAPg7auCbfvULnT9szkk3Ih069PRNGmsE7joyMiJCtatuc8U6YNZZ5a+SoSmp/RMCd1eCOKgV5TpTrsff94HiL3jbUAHJQ1Y7FTfFrwPZSPfZVuyUkS7Huqgav+cDJIPgoCE4GwNEAeKRejxsPgDOOhRQVqKwON6utE/5EALwbUILsse9DlhDz+IqB2QMWi3dqIHpL0vsWgtTNXNQqVtPQvoTB/sr04PlwrNE8XXFwOgS2/IWhSdZSRa0Zmu2IinWfzmLxg5Xgfhd4Zh34vG1hixendlr8wTrlS7NdmSzeuvQE811a9ovLurT+9dKz5swq5H8jL8SJvBAn8kKcyEUhOfJZIoKxXPhQ8wtZqcuzVb/HQAAAAABJRU5ErkJggg==\"); }\n.fx-site-icon.futbin { background-image: url(\"data:image/png;base64,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\"); }\nhtml[data-eshario-inject] body.with-fifa-header.futweb {\n  min-height: 0;\n}\n@media (max-height: 639.98px) {\n  html[data-eshario-inject] body.with-fifa-header.futweb .ut-tab-bar {\n    overflow-y: auto;\n    scrollbar-width: none;\n  }\n}\n",
 "eshario-asset:ui/shell.css":".fx-shell-cell{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:2147483000;display:flex;align-items:center;gap:12px;max-width:calc(100vw - 32px);padding:8px 12px;box-sizing:border-box;border:1px solid var(--fx-accent-dim);border-radius:8px;background:var(--fx-surface);color:var(--fx-ink);font:500 14px/1.3 system-ui,sans-serif}\n.fx-shell-text{flex:0 1 auto}\n.fx-shell-button{flex:0 0 auto;padding:6px 12px;border:0;border-radius:6px;background:var(--fx-accent);color:var(--fx-on-accent);font:inherit;font-weight:600;cursor:pointer}\n"});
-const __ESB_x=[],__ESB_g=[],__ESB_r=[];for(let i=0;i<409;i++)__ESB_x.push(Object.create(null));
+const __ESB_x=[],__ESB_g=[],__ESB_r=[];for(let i=0;i<432;i++)__ESB_x.push(Object.create(null));
 const __ESB_d=(o,m)=>{for(const k of Object.keys(m))Object.defineProperty(o,k,{enumerable:true,get:m[k]})};
 const __ESB_t=(j,k,v)=>{try{return __ESB_x[j][k]}catch(e){return v}};
 let __ESB_on=false,__ESB_ids=null;
-const __eshario_paid=Object.freeze({version:"2.9.1",file:"page-paid-cc3f2a14d5b69c61.bin",sha256:"cc3f2a14d5b69c61e62c9fa1f52c78f1fc6d67d55130ba3738278fd22953a97b",bytes:1782979,docked:()=>__ESB_on,get:(rel)=>__ESB_on&&__ESB_ids&&rel in __ESB_ids?__ESB_x[__ESB_ids[rel]]:null,attach(piece){if(__ESB_on)return false;const p=piece({x:__ESB_x,g:__ESB_g,r:__ESB_r,d:__ESB_d,t:__ESB_t});__ESB_ids=p.ids;const it={};for(const i of p.order){const g=__ESB_g[i].call(void 0);it[i]=g;g.next()}__ESB_on=true;const c=[...__ESB_c,...p.ring],a=new Set(p.async),ring=()=>{for(const j of c)__ESB_r[j]()},run=(k)=>{for(;k<p.order.length;k++){ring();const i=p.order[k],r=it[i].next();if(a.has(i))return r.then(()=>run(k+1))}ring();return true};return run(0)}});
+const __eshario_paid=Object.freeze({version:"2.10.1",file:"page-paid-b2718c877725bf8a.bin",sha256:"b2718c877725bf8a22f9f5b19fb0a98f27a0ab0c8534ad659e59b090ffbe4873",bytes:2039576,docked:()=>__ESB_on,get:(rel)=>__ESB_on&&__ESB_ids&&rel in __ESB_ids?__ESB_x[__ESB_ids[rel]]:null,attach(piece){if(__ESB_on)return false;const p=piece({x:__ESB_x,g:__ESB_g,r:__ESB_r,d:__ESB_d,t:__ESB_t});__ESB_ids=p.ids;const it={};for(const i of p.order){const g=__ESB_g[i].call(void 0);it[i]=g;g.next()}__ESB_on=true;const c=[...__ESB_c,...p.ring],a=new Set(p.async),ring=()=>{for(const j of c)__ESB_r[j]()},run=(k)=>{for(;k<p.order.length;k++){ring();const i=p.order[k],r=it[i].next();if(a.has(i))return r.then(()=>run(k+1))}ring();return true};return run(0)}});
 // src/bridge/protocol.js
 __ESB_g[0]=function*(){__ESB_d(__ESB_x[0],{CHANNEL:()=>CHANNEL,FROM_CONTENT:()=>FROM_CONTENT,FROM_PAGE:()=>FROM_PAGE,KIND_EVENT:()=>KIND_EVENT,isResponse:()=>isResponse,makeRequest:()=>makeRequest,signingText:()=>signingText});yield;
 const CHANNEL='fut-companion'
@@ -422,7 +422,7 @@ if(box&&typeof box==='object'&&typeof box.accountDoor!=='function')box.accountDo
 
 };
 // src/features/api-door.js
-__ESB_g[8]=function*(){__ESB_d(__ESB_x[8],{API_ORIGINS:()=>API_ORIGINS,apiDoor:()=>apiDoor,apiOrigin:()=>apiOrigin,apiUrl:()=>apiUrl,noteApiAnswer:()=>noteApiAnswer});yield;
+__ESB_g[8]=function*(){__ESB_d(__ESB_x[8],{API_NETWORK_REASONS:()=>API_NETWORK_REASONS,API_ORIGINS:()=>API_ORIGINS,apiDoor:()=>apiDoor,apiOrigin:()=>apiOrigin,apiUrl:()=>apiUrl,noteApiAnswer:()=>noteApiAnswer});yield;
 const API_ORIGINS=Object.freeze(['https://api.eshario.com','https://api.eshario.app'])
 const API_DOOR_HOLD_MS=10*60_000
 const API_NETWORK_REASONS=Object.freeze(['network','timeout'])
@@ -467,6 +467,7 @@ until=at+API_DOOR_HOLD_MS
 why='network'
 strikes=[]}
 return answer},
+rf(){hold(API_ORIGINS[1],'sheet')},
 view(){settle()
 const at=now()
 return{origin,switchedAt,until,failures,strikes:strikesOf(origin,at).length,why}}}}
@@ -474,7 +475,8 @@ let door=createApiDoor()
 function apiOrigin(){return door.origin()}
 function apiUrl(path){return `${door.origin()}${path}`}
 function noteApiAnswer(url,answer){return door.note(url,answer)}
-function apiDoor(){return door.view()}
+function apiDoor(opts){if(opts?.rf===true)door.rf()
+return door.view()}
 function useApiDoor(next){const prev=door
 door=next
 return prev}
@@ -591,9 +593,14 @@ const shellRu=Object.freeze({
 
 };
 // src/page/paid-dock.js
-__ESB_g[13]=function*(){__ESB_d(__ESB_x[13],{PAID_BRIDGE_EXTRA_MS:()=>PAID_BRIDGE_EXTRA_MS,createPaidDock:()=>createPaidDock});yield;const{apiUrl,noteApiAnswer}=__ESB_x[8];
+__ESB_g[13]=function*(){__ESB_d(__ESB_x[13],{PAID_BRIDGE_EXTRA_MS:()=>PAID_BRIDGE_EXTRA_MS,createPaidDock:()=>createPaidDock});yield;const{API_NETWORK_REASONS,API_ORIGINS,apiOrigin,apiUrl,noteApiAnswer}=__ESB_x[8];
 ;
-const PAID_DOCK_BUILD='ACR1-2'
+const PAID_DOCK_BUILD='KPL1-2'
+const PAID_KEY_DOOR_MARK='KPL1-1'
+const PAID_KEY_DOOR_PATH='/v1/key'
+const PAID_KEY_DOOR_MS=8_000
+const KEY_RE=/^[A-Za-z0-9+/]{43}=$/
+const WORD_RE=/^[a-z0-9-]{1,40}$/
 const PAID_CACHE_KEY='paid.piece'
 const PAID_API_MS=8_000
 const PAID_STATIC_MS=20_000
@@ -639,6 +646,11 @@ let phase='idle'
 let source=null
 let ms=null
 let keyed=false
+let keyFrom=null
+let doorKey=null
+let doorAsked=false
+let doorWord='idle'
+let doorOrigin=null
 const rejects=[]
 const readers=[]
 const reject=(reason,detail=null)=>{const line=`${PAID_REJECT} ${paid?.version??'?'} ${reason}${detail===null?'':` ${detail}`}`
@@ -677,11 +689,48 @@ for(const one of sources()){const got=await fromNet(one)
 if(got!==null)return got}
 return null}
 const keyNow=()=>{try{return deps.paidKey(paid.version)}catch{return null}}
+const rightNow=()=>{try{return deps.rightAlive?.()===true}catch{return false}}
+const proofNow=()=>{try{const proof=deps.proof?.()
+return typeof proof==='string'&&proof!==''?proof:null}catch{return null}}
+const wordOf=(word,fallback)=>(typeof word==='string'&&WORD_RE.test(word)?word:fallback)
+const askAt=async(origin,proof)=>{doorOrigin=origin
+const url=`${origin}${PAID_KEY_DOOR_PATH}?v=${encodeURIComponent(paid.version)}`
+let answer=null
+try{answer=noteApiAnswer(url,await deps.request('door',{name:'net.fetch',args:{url,method:'GET',headers:{'x-eshario-entitlement':proof},timeoutMs:PAID_KEY_DOOR_MS,cache:'no-store'}},{timeoutMs:PAID_KEY_DOOR_MS+PAID_BRIDGE_EXTRA_MS}))}catch{answer=null}
+let said=null
+if(isPlain(answer)&&answer.ok===true&&isPlain(answer.value)){try{said=JSON.parse(String(answer.value.body??''))}catch{said=null}}
+const status=isPlain(answer?.value)?Number(answer.value.status)||0:0
+if(!isPlain(answer)||answer.ok!==true)doorWord=wordOf(answer?.reason,'no-answer')
+else if(status!==200||!isPlain(said)||said.ok!==true)doorWord=wordOf(said?.reason,`http-${status}`)
+else if(said.version!==paid.version||typeof said.key!=='string'||!KEY_RE.test(said.key))doorWord='bad-answer'
+else{doorWord='ok'
+return{key:said.key,net:false}}
+reject('door',doorWord)
+return{key:null,net:isPlain(answer)&&answer.ok!==true&&API_NETWORK_REASONS.includes(answer.reason)}}
+const askDoor=async()=>{doorAsked=true
+const proof=proofNow()
+if(proof===null){doorWord='no-proof'
+return null}
+const asked=[]
+let origin=apiOrigin()
+while(origin!==undefined){asked.push(origin)
+const got=await askAt(origin,proof)
+if(got.key!==null)return got.key
+if(!got.net)return null
+origin=API_ORIGINS.find((one)=>!asked.includes(one))}
+return null}
 return{
 async attach(){if(paid===null||phase==='docked')return phase==='docked'
 const started=now()
-const key=keyNow()
-keyed=typeof key==='string'&&key!==''
+let key=keyNow()
+keyFrom=typeof key==='string'&&key!==''?'snapshot':null
+if(keyFrom===null&&doorKey!==null&&rightNow()){key=doorKey
+keyFrom='door'}
+if(keyFrom===null&&!doorAsked&&rightNow()){const got=await askDoor()
+if(got!==null){doorKey=got
+key=got
+keyFrom='door'}}
+keyed=keyFrom!==null
 if(!keyed){phase='no-key'
 return false}
 let got
@@ -693,11 +742,13 @@ return false}
 const fetched=now()
 let text
 try{text=await openPiece(subtle,got.bytes,key)}catch{reject('key')
+if(keyFrom==='door')doorKey=null
 phase='refused'
 return false}
 const opened=now()
 if(got.from!=='cache')await door('store.set',{key:PAID_CACHE_KEY,value:{version:paid.version,sha256:paid.sha256,base64:got.base64}}).catch(()=>null)
-if(keyNow()!==key){reject('right-gone')
+if(keyFrom==='door'?!rightNow():keyNow()!==key){reject('right-gone')
+if(keyFrom==='door')doorKey=null
 keyed=false
 phase='no-key'
 return false}
@@ -716,7 +767,7 @@ docked:()=>phase==='docked',
 whenReady(fn){if(phase==='docked')fn()
 else readers.push(fn)},
 status:()=>({build:PAID_DOCK_BUILD,phase,version:paid?.version??null,file:paid?.file??null,bytes:paid?.bytes??null,
-key:keyed,source,ms,rejects:[...rejects]})}}
+key:keyed,keyFrom,door:doorWord,doorOrigin,source,ms,rejects:[...rejects]})}}
 
 };
 // src/page/shell.js
@@ -732,7 +783,7 @@ __ESB_g[14]=function*(){yield;const{createBridgeClient,checkBridge}=__ESB_x[2];c
 ;
 ;
 ;
-const SHELL_BUILD='ACR1-S1'
+const SHELL_BUILD='KPL1-S1'
 const SHELL_MARK='data-fut-shell'
 const SHELL_FOCUS_MS=5_000
 const SHELL_RETRY_MS=60_000
@@ -792,9 +843,12 @@ hide(){node?.remove()
 for(const style of styles.splice(0))style.remove()
 node=null
 kind=null}}}
-function carryInstrument(win,state){try{Object.defineProperty(win,'__eshario',{configurable:true,enumerable:true,get:()=>state,
+function carryInstrument(win,state){try{Object.defineProperty(win,'__eshario',{configurable:true,enumerable:false,get:()=>state,
 set(next){for(const name of Object.getOwnPropertyNames(state)){if(typeof state[name]==='function'&&next&&!(name in next))next[name]=state[name]}
-Object.defineProperty(win,'__eshario',{value:next,writable:true,configurable:true,enumerable:true})}})}catch{/* прибор не держит стыковку */}}
+Object.defineProperty(win,'__eshario',{value:next,writable:true,configurable:true,enumerable:false})}})}catch{/* прибор не держит стыковку */}}
+function publishInstrument(win,state){const trap=Object.getOwnPropertyDescriptor(win,'__eshario')
+if(typeof trap?.set==='function')try{trap.set.call(win,state)}catch{/* ловушка не приняла, имя ставится ниже */}
+try{Object.defineProperty(win,'__eshario',{value:state,enumerable:false,configurable:true,writable:true})}catch{win.__eshario=state}}
 const noteOf=(state)=>(message)=>{state.errors?.push(String(message))
 console.warn('[ESHArio]',message)}
 function createShell(deps){const{win,account,dock,state}=deps
@@ -847,12 +901,13 @@ const daySignSend=(bridge)=>async(ask)=>{const url=apiUrl(ask.path)
 const answer=noteApiAnswer(url,await bridge.request('door',{name:'net.fetch',args:{url,method:ask.method,headers:ask.headers,body:ask.body,timeoutMs:ask.timeoutMs}},{timeoutMs:ask.timeoutMs+PAID_BRIDGE_EXTRA_MS}))
 return answer?.ok===true?{status:Number(answer.value?.status)||0,body:typeof answer.value?.body==='string'?answer.value.body:''}:null}
 function startShell(win){const state={bridge:'unknown',version:null,panel:'shell',errors:[],shell:SHELL_BUILD}
-win.__eshario=state
+publishInstrument(win,state)
 const note=noteOf(state)
 const bridge=createBridgeClient(win,{prefix:SHELL_BRIDGE_PREFIX})
 const clock={now:()=>Date.now()}
 const account=createAccountProvider({bridge,clock})
-const dock=createPaidDock({request:(method,params,opts)=>bridge.request(method,params,opts),paidKey:(version)=>account.paidKey(version),onReject:note})
+const dock=createPaidDock({request:(method,params,opts)=>bridge.request(method,params,opts),paidKey:(version)=>account.paidKey(version),
+proof:()=>account.proof(),rightAlive:()=>account.getPlan()===PREMIUM,onReject:note})
 const locale=chooseLocale(null,win.navigator?.languages,currentTimeZone())
 const words=locale==='ru'?shellRu:shellEn
 let summaryOn=true
