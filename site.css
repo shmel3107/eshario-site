@@ -562,9 +562,6 @@ td.pay{color:var(--ac);font-weight:700}
 .ord-no{margin:0 0 10px;color:var(--dim);font-size:15px}
 .ord-no b{color:var(--tx);font-weight:600;letter-spacing:.01em}
 
-.pp-side{display:block;margin-top:10px;line-height:20px;font-size:14px;color:var(--dim);text-align:center;text-decoration:none}
-.pp-side a{color:inherit}
-.pp-side a:hover{color:var(--tx)}
 .pp-b.pp-4{padding-bottom:56px}
 @media (max-width:900px){.pp-b.pp-4{padding-bottom:26px}}
 

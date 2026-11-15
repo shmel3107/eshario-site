@@ -3,8 +3,8 @@
 // @namespace    https://eshario.com/ios
 // @updateURL    https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
 // @downloadURL  https://eshario.com/downloads/mobile/eshario-ios-loader.user.js
-// @version      2.3.100.341
-// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-341, loader)
+// @version      2.4.100.398
+// @description  ESHArio for the EA FC Web App on the phone, iPhone and Android (MFIN-398, loader)
 // @match        https://www.ea.com/*
 // @match        https://eshario.com/mobile-login*
 // @inject-into  content
@@ -25,9 +25,9 @@
 // @connect      eshario.com
 // @connect      eshario.app
 // ==/UserScript==
-// ESHArio MFIN-341, loader: page code comes from the server, signature checked by src/loader/code.js
+// ESHArio MFIN-398, loader: page code comes from the server, signature checked by src/loader/code.js
 (function(){'use strict';
-var HOST_CONFIG={"manifest":{"version":"2.3.100"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-341","words":{"accountTitle":"Аккаунт ESHArio"}};
+var HOST_CONFIG={"manifest":{"version":"2.4.100"},"bundle":{},"loginUrls":["https://eshario.com/mobile-login"],"sign":"MFIN-398","words":{"accountTitle":"Аккаунт ESHArio"},"netMark":false};
 // --- mobile/host/host.js ---
 // ХОСТ ESHArio НА iPHONE (кирпич MOBILE-IOS-1, дорога И2).
 //
@@ -100,6 +100,33 @@ var SOFT_SILENT_MS=3500;
 var SOFT_REST_MS=20000;
 // Сколько последних запросов к мягким узлам помнит знак на корне.
 var SOFT_LOG=8;
+// ВОПРОСЫ К НАШЕМУ СЕРВЕРУ НА IPHONE ЗАДЕРЖИВАЕТ МЕНЕДЖЕР (iPhone брата 14.11; просьба Fable). Сразу после
+// установки итоги и лента X упали сроком ядра 15 с, первые три картинки X после старта страницы дважды подряд
+// кончились отказом (imageFails 3, imageWaits 0: не 429). Знак `data-eshario-net` показал: это не 5xx и не потеря.
+// MFIN-374: проба ответила за 1,6 с, account за 118 мс; потом волна вопросов с 7-й по 18-ю секунду молчала и вся
+// пришла разом на 30-й (late200 через 20–24 с). На «Трансферах» итоги и лента молчали 4 с, их повтор через 1,2 с
+// упал ошибкой сети, а первые попытки пришли следом (итоги 200 на 6,1 с, лента 429: повтор занял её место в лимите).
+// ПОВТОРА НЕТ (был в MFIN-372..374, снят 14.11): ответ идёт тем же затором, повтор его не ускоряет, на iPhone падает
+// ошибкой и закрывает вопрос, который пришёл бы в срок ядра. Повтор после сбоя — дело ядра (HUB-NET-RETRY-1).
+var API_HOSTS=['api.eshario.com','api.eshario.app'];
+// ПРОБА НА СТАРТЕ (совет Fable 14.11): молчание бьёт по всем дверям, значит дело в менеджере. Первый сетевой
+// вопрос страницы ставит пробу `GET /v1/health` (без ключа, без записи); без заголовков за 4 с фон будится
+// чтением памяти и проба уходит снова. Все вопросы страницы ждут первого ответа пробы, не дольше 8 с. Проба одна
+// на загрузку. MFIN-374: проба 1,6 с, account за ней 118 мс (на MFIN-372 без пробы account кончился сроком 5 с).
+var PROBE_URL='https://api.eshario.com/v1/health';
+// Терпение сети для ядра на iPhone (атрибут `data-eshario-net-patience-ms`, `markWebapp`), мс; слово Fable 14.11,
+// потолок ядра 60 с. 35 с подняты до 50 (MFIN-380, 14.11): затор менеджера шёл около 3 мин, волна Трейдхаба на
+// 60-й секунде кончилась сроком 35 с, поздние ответы картинок X пришли на 42-й. 60 с дольше держали бы «Загружаем»
+// на ответе, который не придёт; повтор ядра после сбоя есть.
+var NET_PATIENCE_MS=50000;
+var PROBE_SILENT_MS=4000;
+var PROBE_CAP_MS=8000;
+// Знак `data-eshario-net` (только сборка стенда): счёт придержанных пробой вопросов, за ним последние вопросы
+// хоста «путь@секунда_от_старта миллисекунды исход[ размер]» (исходы: код ответа, head — заголовки пробы,
+// silent — проба молчала 4 с, cap — проба не ответила за 8 с, err, timeout, abort, late<код> — ответ после срока).
+// Путь нашего API без `/v1/`, прочие узлы «узел:путь»; размер ответа от 1 КБ в КБ. Все шесть узлов, а не только
+// API (Fable 14.11: затор менеджера — не один ли большой ответ держит остальные; база карт, цены, код идут мимо API).
+var NET_LOG=40;
 // ФОН МЕНЕДЖЕРА НЕ ЗАСЫПАЕТ ПОД ДОЛГИМ ЗАПРОСОМ (проход iPhone 27.10, сигналы). Ждущая
 // линия сигналов держит запрос до 25 с. На iPhone фон Userscripts засыпал раньше, и ответ
 // терялся без `onload` и `onerror`: 35 из 38 ожиданий до срока 40 с, на A03 0 из 210.
@@ -199,6 +226,47 @@ var softRest={},softStats={silent:0,skipped:0},softLog=[];
 function softNote(host,ms,result){softLog.push(host.split('.')[0]+' '+ms+' '+result);
 if(softLog.length>SOFT_LOG)softLog.shift();
 try{doc.documentElement.setAttribute('data-eshario-soft','s'+softStats.silent+' k'+softStats.skipped+' | '+softLog.join(' | '))}catch(err){}}
+// Знак ответов сервера только в сборке стенда (слово Fable 14.11: пути и миллисекунды в странице EA людям не
+// нужны); раздаваемая тонкая сборка его не пишет, повтор тишины работает в обеих.
+var netStats={held:0},netLog=[],netMarkOn=config.netMark===true,hostStart=Date.now();
+function netNote(path,at,ms,result){if(!netMarkOn)return;
+netLog.push(path+'@'+Math.round((at-hostStart)/1000)+' '+ms+' '+result);
+if(netLog.length>NET_LOG)netLog.shift();
+try{doc.documentElement.setAttribute('data-eshario-net','h'+netStats.held+' | '+netLog.join(' | '))}catch(err){}}
+// Проба на старте: `null` — не ставилась, обещание — идёт, `true` — ответила или вышел потолок.
+var warm=null;
+function warmed(){if(warm===true)return Promise.resolve();
+if(warm!==null)return warm;
+var t0=Date.now();
+warm=new Promise(function(done){var over=false,live=1,req=null,quietT=null,capT=null;
+function finish(result){if(over)return;
+over=true;
+if(typeof win.clearTimeout==='function'){if(quietT!==null)win.clearTimeout(quietT);
+if(capT!==null)win.clearTimeout(capT)}
+quietT=null;
+capT=null;
+netNote('health',t0,Date.now()-t0,result);
+warm=true;
+done()}
+function ask(mine){try{req=GM.xmlHttpRequest({method:'GET',url:PROBE_URL,headers:{},anonymous:true,timeout:PROBE_CAP_MS,
+onreadystatechange:function(raw){if(Number(raw&&raw.readyState)>=2)finish('head')},
+onload:function(raw){finish(String(Number(raw&&raw.status)||0))},
+onerror:function(){if(mine===live)finish('err')},
+ontimeout:function(){if(mine===live)finish('timeout')},
+onabort:function(){}})}catch(err){finish('err')}}
+ask(1);
+if(over)return;
+quietT=later(function(){quietT=null;
+if(over)return;
+netNote('health',t0,Date.now()-t0,'silent');
+var old=req;
+live+=1;
+try{if(old&&typeof old.abort==='function')old.abort()}catch(err){}
+try{Promise.resolve(GM.getValue(AWAKE_KEY,GONE)).then(null,function(){})}catch(err){}
+ask(live)},PROBE_SILENT_MS);
+capT=later(function(){capT=null;
+finish('cap')},PROBE_CAP_MS)});
+return warm}
 
 // --- память: chrome.storage поверх GM ---------------------------------------
 //
@@ -254,8 +322,10 @@ reject(err)});
 return call}
 var before=writeTail[full]||null;
 var settled=before===null?issue():before.then(issue);
-if(!write)return;
+// Отказ доходит до просящего через `reject` выше; хвост гасится у всех, а не только у записи
+// (P203-1: чтение за записью уроненное менеджером давало «Unhandled Promise Rejection»).
 var tail=Promise.resolve(settled).then(quiet,quiet);
+if(!write)return;
 writeTail[full]=tail;
 tail.then(function(){if(writeTail[full]===tail)delete writeTail[full]})})}
 
@@ -437,6 +507,28 @@ var url=typeof input==='string'?input:input&&typeof input.url==='string'?input.u
 if(!allowedUrl(url))return Promise.reject(new TypeError('host: forbidden-url'));
 var signal=init.signal;
 if(signal&&signal.aborted)return Promise.reject(failure('AbortError','aborted'));
+if(warm===true)return fetchNow(url,init);
+// Проба на старте ещё не ответила: вопрос ждёт её (не дольше `PROBE_CAP_MS`); срок вопроса идёт и в ожидании.
+netStats.held+=1;
+var waited=Date.now();
+return new Promise(function(resolve,reject){var off=false;
+// Срок истёк в ожидании пробы: строка знака «held» (iPhone 376: два вопроса ждали пробу 12 с и пропали из знака).
+function gone(){if(off)return;
+off=true;
+netNote(labelOf(url),waited,Date.now()-waited,'held');
+reject(failure('TimeoutError','timeout'))}
+if(signal&&typeof signal.addEventListener==='function')signal.addEventListener('abort',gone,{once:true});
+warmed().then(function(){if(off)return;
+off=true;
+if(signal&&typeof signal.removeEventListener==='function')signal.removeEventListener('abort',gone);
+fetchNow(url,init).then(resolve,reject)})})}
+
+/** Подпись вопроса для знака стенда: путь API без `/v1/`, прочие узлы «узел:путь». */
+function labelOf(url){try{var where=new URL(url);
+return API_HOSTS.indexOf(where.hostname)>=0?where.pathname.replace(/^\/v1\//,''):where.hostname.split('.')[0]+':'+where.pathname.slice(0,48)}catch(err){return ''}}
+
+function fetchNow(url,init){var signal=init.signal;
+if(signal&&signal.aborted)return Promise.reject(failure('TimeoutError','timeout'));
 var soft='';
 try{soft=new URL(url).hostname}catch(err){}
 if(SOFT_HOSTS.indexOf(soft)<0)soft='';
@@ -444,12 +536,17 @@ if(soft!==''&&softRest[soft]>Date.now()){softStats.skipped+=1;
 softNote(soft,0,'skip');
 return Promise.reject(new TypeError('host: network'))}
 var asked=Date.now();
+var ours=labelOf(url);
 return new Promise(function(resolve,reject){var settled=false,req=null,watch=null;
 function calm(){if(watch!==null&&typeof win.clearTimeout==='function')win.clearTimeout(watch);
 watch=null}
-function fail(err){calm();
+function note(result,raw){var size=0;
+try{var body=raw&&raw.response;size=body&&typeof body.byteLength==='number'?body.byteLength:raw&&typeof raw.responseText==='string'?raw.responseText.length:0}catch(err){}
+if(ours!=='')netNote(ours,asked,Date.now()-asked,result+(size>=1024?' '+Math.round(size/1024)+'k':''))}
+function fail(err,result){calm();
 if(settled)return;
 settled=true;
+note(result||'err');
 reject(err)}
 var headers=headersOf(init.headers);
 // СВЕРКА С СЕРВЕРОМ ПОД FIREFOX ИДЁТ ПРАВИЛАМИ КЭША БРАУЗЕРА (замер A03 18.10).
@@ -464,6 +561,7 @@ var bypass=init.cache==='no-store'||init.cache==='reload'||(init.cache==='no-cac
 if(bypass)headers['cache-control']='no-cache';
 var details={method:String(init.method||'GET').toUpperCase(),url:url,headers:headers,anonymous:true,timeout:FETCH_CAP_MS,
 onload:function(raw){if(settled){if(soft!=='')softNote(soft,Date.now()-asked,'late');
+note('late'+(Number(raw&&raw.status)||0),raw);
 return}
 var finalUrl=typeof raw.finalUrl==='string'&&raw.finalUrl!==''?raw.finalUrl:url;
 if(!allowedUrl(finalUrl)){fail(new TypeError('host: redirect-outside'));return}
@@ -472,11 +570,12 @@ calm();
 if(soft!==''){delete softRest[soft];
 softNote(soft,Date.now()-asked,'ok')}
 settled=true;
+note(String(raw.status),raw);
 resolve(responseOf(raw,finalUrl,url))},
 onerror:function(){if(soft!=='')softNote(soft,Date.now()-asked,settled?'late-err':'err');
 fail(new TypeError('host: network'))},
-ontimeout:function(){fail(failure('TimeoutError','timeout'))},
-onabort:function(){fail(failure('AbortError','aborted'))}};
+ontimeout:function(){fail(failure('TimeoutError','timeout'),'timeout')},
+onabort:function(){fail(failure('AbortError','aborted'),'abort')}};
 if(init.body!==undefined&&init.body!==null)details.data=init.body;
 try{if(CODE_FILE_RE.test(new URL(url).pathname))details.responseType='arraybuffer'}catch(err){}
 try{req=GM.xmlHttpRequest(details)}catch(err){fail(new TypeError('host: network'));return}
@@ -492,7 +591,7 @@ softNote(soft,Date.now()-asked,'silent');
 try{if(req&&typeof req.abort==='function')req.abort()}catch(err){}
 fail(new TypeError('host: network'))},SOFT_SILENT_MS);
 if(signal&&typeof signal.addEventListener==='function')signal.addEventListener('abort',function(){try{if(req&&typeof req.abort==='function')req.abort()}catch(err){}
-fail(failure('TimeoutError','timeout'))},{once:true})})}
+fail(failure('TimeoutError','timeout'),'timeout')},{once:true})})}
 
 // --- фон: chrome фона, слушатели, загрузчик для дверей -------------------------
 
@@ -899,6 +998,11 @@ function recoverySay(word){Array.prototype.forEach.call(doc.querySelectorAll('[d
 
 function markWebapp(){if(mode!=='webapp')return;
 try{doc.documentElement.setAttribute('data-eshario-host',String(config.sign||'1'))}catch(err){}
+// ТЕРПЕНИЕ СЕТИ НА IPHONE (довод ядра HUB-NET-RETRY-1, Fable 14.11): менеджер Safari задерживает ответы на 20–27 с
+// (MFIN-374, 375), а срок вопросов плитки 15 с. Ядро берёт большее из своего срока и этого числа (потолок 60 с),
+// читает его в миг вопроса, поэтому ставится при загрузке, до первого захода на «Трансферы». Под Firefox
+// (Violentmonkey, A03) заторов нет, довода нет: сроки ядра прежние.
+if(!xrayManager){try{doc.documentElement.setAttribute('data-eshario-net-patience-ms',String(NET_PATIENCE_MS))}catch(err){}}
 // Место хозяина берётся сразу при загрузке, а не на первом вопросе страницы:
 // на холодном старте Stay (замер 04.10) захват стоял в очереди хранилища за
 // большими записями цен и базы карт, и `budget.state` ждал дольше 5 с.
@@ -952,6 +1056,7 @@ web_accessible_resources:[{resources:['page/page-bundle.js'],matches:['https://w
 
 create.allowedUrl=allowedUrl;
 create.NET_HOSTS=NET_HOSTS.slice();
+create.PROBE_URL=PROBE_URL;
 return create})();
 
 ;var host=esharioHost({GM:GM,window:window,document:document,config:HOST_CONFIG});
