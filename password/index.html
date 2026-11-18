@@ -63,7 +63,8 @@
 <p class="pw-msg" id="pw-short" hidden>Пароль должен быть не короче 12 знаков.</p>
 <p class="pw-msg" id="pw-mismatch" hidden>Пароли не совпали. Введите одинаковые.</p>
 <p class="pw-msg" id="pw-expired" hidden>Ссылка устарела или уже использована. Запросите новую: значок ESHArio, кнопка «Забыли пароль».</p>
-<p class="pw-msg" id="pw-offline" hidden>Нет связи с сервером, попробуйте ещё раз.</p>
+<p class="pw-msg" id="pw-silent" hidden>Сервер не ответил. Попробуйте ещё раз через минуту. Если не поможет, проверьте, та ли это почта, на которую вы покупали.</p>
+<p class="pw-msg" id="pw-down" hidden>Сервер сейчас не отвечает. Попробуйте позже.</p>
 <p class="pw-msg" id="pw-busy" hidden>Слишком много попыток. Подождите минуту и попробуйте ещё раз.</p>
 <p class="pw-msg" id="pw-noToken" hidden>Откройте ссылку из письма. Эта страница работает только по ссылке, которую мы прислали на вашу почту.</p>
 <div class="pw-done" id="pw-done" hidden>
@@ -130,7 +131,7 @@
   var pw2=document.getElementById('pw2');
   var done=document.getElementById('pw-done');
   var label=go.textContent;
-  var names=['short','mismatch','expired','offline','busy','noToken'];
+  var names=['short','mismatch','expired','silent','down','busy','noToken'];
 
   // Глазик: у каждого поля свой, меняет type и значок. Без сети.
   var eyes=form.querySelectorAll('.pw-eye');
@@ -202,14 +203,15 @@
         done.hidden=false;
         return;
       }
-      // 429 значит «слишком часто». Всё остальное на этой точке сервер отдаёт
+      // 429 значит «слишком часто», 500 и выше «сервер сейчас не отвечает» (F428:
+      // раньше это читалось «ссылка устарела»). Всё остальное на этой точке сервер отдаёт
       // ОДНИМ ответом: ссылка устарела, уже использована или пароль короче
       // двенадцати. Первые две причины человек не различит, и делать вид, что
       // мы их различаем, нечестно.
-      say(response.status===429?'busy':'expired');
+      say(response.status===429?'busy':response.status>=500?'down':'expired');
       free();
     },function(){
-      say('offline');
+      say('silent');
       free();
     });
   });

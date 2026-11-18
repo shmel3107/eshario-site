@@ -63,7 +63,8 @@
 <p class="pw-msg" id="pw-short" hidden>The password must be at least 12 characters.</p>
 <p class="pw-msg" id="pw-mismatch" hidden>The passwords do not match. Type the same one twice.</p>
 <p class="pw-msg" id="pw-expired" hidden>The link has expired or has already been used. Ask for a new one: the ESHArio icon, the “Forgot your password” button.</p>
-<p class="pw-msg" id="pw-offline" hidden>No connection to the server, please try again.</p>
+<p class="pw-msg" id="pw-silent" hidden>The server did not answer. Try again in a minute. If that does not help, check that this is the email you used to buy.</p>
+<p class="pw-msg" id="pw-down" hidden>The server is not answering right now. Please try again later.</p>
 <p class="pw-msg" id="pw-busy" hidden>Too many attempts. Wait a minute and try again.</p>
 <p class="pw-msg" id="pw-noToken" hidden>Open the link from the email. This page works only through the link we sent to your address.</p>
 <div class="pw-done" id="pw-done" hidden>
@@ -130,7 +131,7 @@
   var pw2=document.getElementById('pw2');
   var done=document.getElementById('pw-done');
   var label=go.textContent;
-  var names=['short','mismatch','expired','offline','busy','noToken'];
+  var names=['short','mismatch','expired','silent','down','busy','noToken'];
 
   // Глазик: у каждого поля свой, меняет type и значок. Без сети.
   var eyes=form.querySelectorAll('.pw-eye');
@@ -202,14 +203,15 @@
         done.hidden=false;
         return;
       }
-      // 429 значит «слишком часто». Всё остальное на этой точке сервер отдаёт
+      // 429 значит «слишком часто», 500 и выше «сервер сейчас не отвечает» (F428:
+      // раньше это читалось «ссылка устарела»). Всё остальное на этой точке сервер отдаёт
       // ОДНИМ ответом: ссылка устарела, уже использована или пароль короче
       // двенадцати. Первые две причины человек не различит, и делать вид, что
       // мы их различаем, нечестно.
-      say(response.status===429?'busy':'expired');
+      say(response.status===429?'busy':response.status>=500?'down':'expired');
       free();
     },function(){
-      say('offline');
+      say('silent');
       free();
     });
   });
