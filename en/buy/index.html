@@ -329,8 +329,8 @@
   wayButtons.forEach(function(b){b.addEventListener('click',function(){if(!go.disabled)pickWay(b.getAttribute('data-way'),b)})});
   if(startWay&&startWay.getAttribute('data-way')==='world')pickWay('world',startWay);
   var listDone=!(ways&&wayButtons.length),listWait=null,listLate=null;
+  var allWays=wayButtons.map(function(x){return x.getAttribute('data-way')}).filter(function(x,i,a){return a.indexOf(x)===i});
   var applyList=function(list){
-    if(!list){if(way!=='sbp')pickWay('sbp');return}
     var shown=wayButtons.filter(function(x){var on=list.indexOf(x.getAttribute('data-way'))>=0;x.hidden=!on;return on});
     ways.setAttribute('data-n',String(shown.length));
     if(shown.length>1&&list.indexOf('sbp')>=0)ways.hidden=false;
@@ -346,10 +346,10 @@
     if(f)f();
   };
   if(!listDone){
-    window.setTimeout(function(){settleList(null)},8000);
+    window.setTimeout(function(){settleList(allWays)},8000);
     road.ask('/v1/pay/methods',{credentials:'omit'}).then(function(r){return r.ok?r.json():null}).then(function(b){
-      settleList(b&&b.ok&&Array.isArray(b.methods)?b.methods:[]);
-    },function(){settleList(null)});
+      settleList(b&&b.ok&&Array.isArray(b.methods)?b.methods:allWays);
+    },function(){settleList(allWays)});
   }
   var free=function(){
     go.disabled=false;go.textContent=label;go.classList.remove('is-wait');
@@ -399,6 +399,11 @@
   var wayOpen=function(name){
     var c=wayButtons.filter(function(x){return x.getAttribute('data-way')===name})[0];
     return !!(c&&!c.hidden&&ways&&!ways.hidden);
+  };
+  var wayOff=function(name){
+    var left=wayButtons.filter(function(x){if(x.getAttribute('data-way')===name)x.hidden=true;return !x.hidden});
+    if(ways){ways.setAttribute('data-n',String(left.length));if(left.length<2)ways.hidden=true}
+    pickWay('sbp');
   };
   var order=function(v,mine,retryOf,base,why){
     var w=retryOf?'sbp':way;
@@ -469,7 +474,7 @@
       else if(res.status===503&&w==='world')say('worldOff');
       else if(res.status===503||res.status===502)say('closed');
       else if(res.status===400&&b.reason==='bad-email')say('emailBad');
-      else if(res.status===400&&b.reason==='bad-method'){pickWay('sbp');if(ways)ways.hidden=true;say('failed')}
+      else if(res.status===400&&b.reason==='bad-method'&&w!=='sbp'){wayOff(w);say('worldOff')}
       else say('failed');
       free();
     },function(){
