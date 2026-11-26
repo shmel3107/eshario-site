@@ -1,10 +1,10 @@
 {
-  "version": "2.11.0",
-  "sha256": "f184f3219fecf90ebd6212915940ba6fd51f779aa9e5c5802cb52feece22f249",
-  "bytes": 68233,
-  "sig": "9dP2Q4ZnJ+Hslb2YJecRGkQLZRlA/hIZAJ0ZbK7re3YkOwfTaIzEh8M50ns7tMqHdCO9BNfIWOTUCXfTMyEuUQ==",
+  "version": "2.11.1",
+  "sha256": "1d520d9dbe997f9c8e39e9f1e72e3ea96a84d191ea9f70bb15a2b816cfeaae00",
+  "bytes": 68328,
+  "sig": "tQJyQKiFcWFp0RlppyFOm56ivsAmpCPTU46JcyM7IaKuQ6O/AxaXy5AlWw1oyQ4Y6xfN7DfQUQXPDKtj7jYLQw==",
   "minLoader": "2.2.0",
-  "url": "https://eshario.com/downloads/code/2.11.0/page-bundle.js",
+  "url": "https://eshario.com/downloads/code/2.11.1/page-bundle.js",
   "config": {
     "backdrop": {
       "name": "black-friday",
