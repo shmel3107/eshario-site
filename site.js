@@ -36,6 +36,24 @@
   };
   return {ask:ask,once:once,base:base};
 };
+  var STEP_AT=1796072400000;
+  var stepSide=null;
+  var priceStep=function(after){
+    after=!!after;
+    if(stepSide===after)return;
+    stepSide=after;
+    var i=after?1:0;
+    [].slice.call(document.querySelectorAll('[data-price-step]')).forEach(function(one){
+      var s=null;
+      try{s=JSON.parse(one.getAttribute('data-price-step'))}catch(err){s=null}
+      if(!s)return;
+      if(s.t)one.textContent=s.t[i];
+      if(s.a)Object.keys(s.a).forEach(function(k){one.setAttribute(k,s.a[k][i])});
+    });
+    try{document.dispatchEvent(new Event('eshario-price-step'))}catch(err){}
+  };
+  priceStep(Date.now()>=STEP_AT);
+  (function(){var left=STEP_AT-Date.now();if(!(left>0&&left<2e9)||typeof window.setTimeout!=='function')return;var h=window.setTimeout(function(){priceStep(true)},left+50);if(h&&typeof h.unref==='function')h.unref()})();
   (function(){
     var bar=document.querySelector('header.top');
     if(!bar)return;
@@ -217,6 +235,8 @@
       k.classList.toggle('is-promo',!!p);
       var sp=Number(document.body.getAttribute('data-scan-price'))||0;
       var own=p?p.amount:Number(on.getAttribute('data-amount'));
+      document.body.setAttribute('data-line-rub',String(own));
+      document.body.setAttribute('data-line-usd',String(usdOf(on,p)));
       if(world){
         var su=sp>0?Number(document.body.getAttribute('data-scan-usd'))||0:0;
         if(old){old.textContent=p?usdText((Number(on.getAttribute('data-usd'))||0)+su):'';old.hidden=!p}
@@ -240,6 +260,7 @@
       kassaRender();
     })});
     document.addEventListener('eshario-scan',function(){kassaRender()});
+    document.addEventListener('eshario-price-step',function(){kassaRender()});
     kassaRender();
   })();
   var buyForm=document.getElementById('promo');
@@ -304,6 +325,13 @@
       hint('fail');
     });
   }
+  document.addEventListener('eshario-price-server',function(e){
+    var d=e&&e.detail||{};
+    if(typeof d.now==='number')priceStep(d.now>=STEP_AT);
+    if(d.promo&&d.plans)setPromo(d.promo,d.plans,d.friend===true);
+    else if(promoState.code)setPromo('',null);
+    else if(kassaRender)kassaRender();
+  });
   if(buyForm){
     buyForm.addEventListener('submit',function(e){e.preventDefault();applyBuy(buyForm.code.value)});
     if(promoCode){
@@ -379,6 +407,7 @@
         if(buyBtn){buyBtn.textContent=one.getAttribute('data-buy');buyBtn.setAttribute('href',String(buyBtn.getAttribute('href')||'').split('?')[0]+'?term='+one.getAttribute('data-term'))}
         if(focus)one.focus();
       };
+      if(typeof document.addEventListener==='function')document.addEventListener('eshario-price-step',function(){var on=opts.filter(function(o){return o.getAttribute('aria-checked')==='true'})[0];if(on&&buyBtn)buyBtn.textContent=on.getAttribute('data-buy')});
       opts.forEach(function(one,i){
         one.addEventListener('click',function(){choose(one,false)});
         one.addEventListener('keydown',function(e){
